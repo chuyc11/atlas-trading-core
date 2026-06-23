@@ -15,4 +15,4 @@ def load_snapshot(path: Path) -> dict[str, Any]:
 
 def snapshot_items(payload: dict[str, Any]) -> list[dict[str, Any]]:
     items = payload.get("items", [])
-    return items if isinstance(items, list) else []
+    return [item for item in items if isinstance(item, dict)] if isinstance(items, list) else []

@@ -60,7 +60,17 @@ def load_china_prices(date: str, paths: ProjectPaths | None = None) -> tuple[dic
     limitations: list[str] = []
     for candidate in candidates:
         if candidate.exists():
-            return prices_by_symbol_from_snapshot(candidate, date), limitations
+            try:
+                prices = prices_by_symbol_from_snapshot(candidate, date)
+            except ValueError:
+                limitations.append(f"invalid China market snapshot for {date}")
+                return {}, limitations
+            if not prices:
+                limitations.append(f"empty China market snapshot for {date}")
+            for symbol, row in prices.items():
+                if row.get("price") is None:
+                    limitations.append(f"missing price field for {symbol}")
+            return prices, limitations
     limitations.append(f"missing China market snapshot for {date}")
     return {}, limitations
 

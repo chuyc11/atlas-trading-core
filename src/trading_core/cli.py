@@ -7,11 +7,15 @@ from collections.abc import Sequence
 from datetime import date as Date
 
 from trading_core import __version__
+from trading_core.accounting.consistency_checker import check_consistency, check_consistency_range
+from trading_core.backtest.batch_runner import run_backtest_batch
 from trading_core.backtest.event_backtester import run_event_backtest
 from trading_core.backtest.historical_backtester import run_historical_backtest
 from trading_core.backtest.walk_forward import run_walk_forward
+from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv
 from trading_core.daily_run import run_daily
+from trading_core.evaluation.dry_run_auditor import audit_dry_run
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.reports.acceptance_report import write_acceptance_materials
@@ -82,6 +86,20 @@ def build_parser() -> argparse.ArgumentParser:
     leaderboard = subparsers.add_parser("leaderboard")
     leaderboard.add_argument("--start-date", required=True)
     leaderboard.add_argument("--end-date", required=True)
+    validator = subparsers.add_parser("validate-data-package")
+    validator.add_argument("--input", required=True)
+    batch = subparsers.add_parser("run-backtest-batch")
+    batch.add_argument("--start-date", required=True)
+    batch.add_argument("--end-date", required=True)
+    batch.add_argument("--data", required=True)
+    audit = subparsers.add_parser("audit-dry-run")
+    audit.add_argument("--start-date", required=True)
+    audit.add_argument("--end-date", required=True)
+    consistency = subparsers.add_parser("check-consistency")
+    consistency.add_argument("--date", required=True)
+    consistency_range = subparsers.add_parser("check-consistency-range")
+    consistency_range.add_argument("--start-date", required=True)
+    consistency_range.add_argument("--end-date", required=True)
     return parser
 
 
@@ -120,6 +138,30 @@ def main(argv: Sequence[str] | None = None) -> int:
 
         result = import_prices_csv(Path(args.input), args.market)
         print(result)
+        return 0
+    if args.command == "validate-data-package":
+        from pathlib import Path
+
+        result = validate_data_package(Path(args.input), paths)
+        print({"passed": result["passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "run-backtest-batch":
+        from pathlib import Path
+
+        result = run_backtest_batch(args.start_date, args.end_date, Path(args.data), paths)
+        print({"passed": result["passed"], "output_dir": result["output_dir"]})
+        return 0
+    if args.command == "audit-dry-run":
+        result = audit_dry_run(args.start_date, args.end_date, paths)
+        print({"passed": result["passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "check-consistency":
+        result = check_consistency(args.date, paths)
+        print({"passed": result["passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "check-consistency-range":
+        result = check_consistency_range(args.start_date, args.end_date, paths)
+        print({"passed": result["passed"], "items": len(result["items"])})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

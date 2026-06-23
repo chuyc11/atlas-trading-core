@@ -16,6 +16,16 @@ REQUIRED_COLUMNS = ["date", "symbol", "open", "high", "low", "close", "volume", 
 def import_prices_csv(input_path: Path, market: str, paths: ProjectPaths | None = None) -> dict[str, Any]:
     paths = paths or project_paths()
     rows: list[dict[str, Any]] = []
+    input_files = sorted(input_path.glob("*.csv")) if input_path.is_dir() else [input_path]
+    for file_path in input_files:
+        rows.extend(_read_price_csv(file_path, market))
+    output = paths.data_dir / "raw" / "prices" / f"prices-{market}.jsonl"
+    write_jsonl(output, rows)
+    return {"rows_imported": len(rows), "output_path": str(output), "input_files": [str(path) for path in input_files]}
+
+
+def _read_price_csv(input_path: Path, market: str) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
     with input_path.open("r", encoding="utf-8-sig", newline="") as handle:
         reader = csv.DictReader(handle)
         missing = [column for column in REQUIRED_COLUMNS if column not in (reader.fieldnames or [])]
@@ -36,9 +46,7 @@ def import_prices_csv(input_path: Path, market: str, paths: ProjectPaths | None 
                     "quality": row["quality"],
                 }
             )
-    output = paths.data_dir / "raw" / "prices" / f"prices-{market}.jsonl"
-    write_jsonl(output, rows)
-    return {"rows_imported": len(rows), "output_path": str(output)}
+    return rows
 
 
 def load_imported_prices(market: str = "A_SHARE", paths: ProjectPaths | None = None) -> list[dict[str, Any]]:
