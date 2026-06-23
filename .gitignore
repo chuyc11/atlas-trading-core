@@ -4,6 +4,8 @@ __pycache__/
 .venv/
 outputs/backtests/
 outputs/dry-runs/
+outputs/data-validation/
+data/raw/prices/etf_daily/
 data/runtime/
 data/exports/
 data/backtests/

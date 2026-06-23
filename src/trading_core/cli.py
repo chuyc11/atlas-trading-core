@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from collections.abc import Sequence
 from datetime import date as Date
+from pathlib import Path
 
 from trading_core import __version__
 from trading_core.accounting.consistency_checker import check_consistency, check_consistency_range
@@ -14,6 +15,7 @@ from trading_core.backtest.historical_backtester import run_historical_backtest
 from trading_core.backtest.walk_forward import run_walk_forward
 from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv
+from trading_core.data.price_acquisition import fetch_prices
 from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
@@ -100,7 +102,21 @@ def build_parser() -> argparse.ArgumentParser:
     consistency_range = subparsers.add_parser("check-consistency-range")
     consistency_range.add_argument("--start-date", required=True)
     consistency_range.add_argument("--end-date", required=True)
+    fetch = subparsers.add_parser("fetch-prices")
+    fetch.add_argument("--start-date", required=True)
+    fetch.add_argument("--end-date", required=True)
+    fetch.add_argument("--output", required=True)
     return parser
+
+
+def _resolve_cli_path(value: str, paths) -> Path:
+    path = Path(value)
+    if path.is_absolute():
+        return path
+    parts = [part.lower() for part in path.parts]
+    if len(parts) >= 2 and parts[0] == "work" and parts[1] == "trading-core":
+        return paths.workspace_root / path
+    return path
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -134,21 +150,15 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(result)
         return 0
     if args.command == "import-prices":
-        from pathlib import Path
-
-        result = import_prices_csv(Path(args.input), args.market)
+        result = import_prices_csv(_resolve_cli_path(args.input, paths), args.market)
         print(result)
         return 0
     if args.command == "validate-data-package":
-        from pathlib import Path
-
-        result = validate_data_package(Path(args.input), paths)
+        result = validate_data_package(_resolve_cli_path(args.input, paths), paths)
         print({"passed": result["passed"], "report_path": result["report_path"]})
         return 0
     if args.command == "run-backtest-batch":
-        from pathlib import Path
-
-        result = run_backtest_batch(args.start_date, args.end_date, Path(args.data), paths)
+        result = run_backtest_batch(args.start_date, args.end_date, _resolve_cli_path(args.data, paths), paths)
         print({"passed": result["passed"], "output_dir": result["output_dir"]})
         return 0
     if args.command == "audit-dry-run":
@@ -162,6 +172,21 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "check-consistency-range":
         result = check_consistency_range(args.start_date, args.end_date, paths)
         print({"passed": result["passed"], "items": len(result["items"])})
+        return 0
+    if args.command == "fetch-prices":
+        try:
+            result = fetch_prices(args.start_date, args.end_date, _resolve_cli_path(args.output, paths), paths)
+        except RuntimeError as exc:
+            print(str(exc))
+            return 1
+        print(
+            {
+                "manifest_path": result["manifest_path"],
+                "symbols_success": result["manifest"]["symbols_success"],
+                "symbols_failed": result["manifest"]["symbols_failed"],
+                "validation_passed": result["validation"]["passed"],
+            }
+        )
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
