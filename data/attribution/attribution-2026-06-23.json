@@ -1,0 +1,23 @@
+{
+  "account_id": "CHINA_PAPER",
+  "benchmark_relative": {
+    "CASH": 0.0,
+    "CHINEXT": 0.0098,
+    "CSI1000": 0.0,
+    "CSI300": 0.0063,
+    "CSI500": 0.0,
+    "EQUAL_ETF": 0.0011625
+  },
+  "cash_and_flow_impact": 0.0,
+  "cost_impact": 0,
+  "date": "2026-06-23",
+  "explained_pnl": 0.0,
+  "holding_contribution": {},
+  "holding_pnl": 0.0,
+  "portfolio_return": 0.0,
+  "previous_total_asset": 100000.0,
+  "residual_pnl": 0.0,
+  "strategy_contribution": {},
+  "total_pnl": 0.0,
+  "trading_cost": 0
+}

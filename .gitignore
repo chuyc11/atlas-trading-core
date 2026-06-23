@@ -1,0 +1,15 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+.venv/
+outputs/backtests/
+outputs/dry-runs/
+data/runtime/
+data/exports/
+data/backtests/
+data/valuations/
+data/orders/
+data/trades/
+data/portfolios/
+data/experiments/
+data/evolution/

@@ -1,0 +1,45 @@
+{
+  "evolution": {
+    "enabled": true,
+    "mode": "suggestion_only",
+    "min_days_for_signal_review": 1,
+    "min_days_for_strategy_review": 20,
+    "min_trades_for_strategy_review": 10,
+    "signal_review": {"horizons": ["1d", "1w", "1m"]},
+    "mistake_detection": {
+      "enabled": true,
+      "min_underperformance_for_wrong": -0.003,
+      "min_underperformance_for_partial": -0.001
+    },
+    "rule_memory": {
+      "enabled": true,
+      "min_evidence_count": 5,
+      "min_avg_underperformance": -0.003,
+      "max_new_rules_per_day": 3,
+      "cooldown_days_per_rule": 10,
+      "cooldown_days_per_strategy": 10,
+      "min_unique_days_for_rule": 3,
+      "min_unique_signals_for_rule": 5
+    },
+    "experiment_queue": {
+      "enabled": true,
+      "default_test_mode": "shadow",
+      "min_days": 20,
+      "min_signals": 10,
+      "max_new_experiments_per_day": 3,
+      "cooldown_days_per_rule": 10,
+      "cooldown_days_per_strategy": 10,
+      "auto_apply": {"enabled": false}
+    },
+    "shadow_testing": {
+      "enabled": true,
+      "min_days": 20,
+      "min_signals": 10
+    },
+    "promotion": {
+      "require_positive_excess_return": true,
+      "max_mistake_rate": 0.30,
+      "max_drawdown": 0.03
+    }
+  }
+}

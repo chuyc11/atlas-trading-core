@@ -1,0 +1,20 @@
+{
+  "daily_report": {
+    "enabled": true,
+    "format": "markdown",
+    "include_sections": [
+      "account",
+      "data_quality",
+      "macro_signals",
+      "trading_signals",
+      "risk_checks",
+      "orders_trades",
+      "positions",
+      "benchmark",
+      "attribution",
+      "evolution",
+      "next_day_watch",
+      "limitations"
+    ]
+  }
+}

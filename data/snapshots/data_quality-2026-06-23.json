@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "fallback": 0,
+    "fresh": 35,
+    "missing": 0,
+    "stale": 0
+  },
+  "date": "2026-06-23",
+  "limitations": []
+}

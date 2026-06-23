@@ -1,0 +1,45 @@
+{
+  "account_id": "CHINA_PAPER",
+  "benchmarks": {
+    "CASH": {
+      "name": "现金",
+      "return": 0.0,
+      "symbol": "CASH"
+    },
+    "CHINEXT": {
+      "name": "创业板指",
+      "return": -0.0098,
+      "symbol": "399006.SZ"
+    },
+    "CSI1000": {
+      "name": "中证1000",
+      "return": 0.0,
+      "symbol": "000852.SH"
+    },
+    "CSI300": {
+      "name": "沪深300",
+      "return": -0.0063,
+      "symbol": "000300.SH"
+    },
+    "CSI500": {
+      "name": "中证500",
+      "return": 0.0,
+      "symbol": "000905.SH"
+    },
+    "EQUAL_ETF": {
+      "name": "ETF 等权组合",
+      "return": -0.0011625,
+      "symbol": "EQUAL_ETF"
+    }
+  },
+  "date": "2026-06-23",
+  "excess_return": {
+    "CASH": 0.0,
+    "CHINEXT": 0.0098,
+    "CSI1000": 0.0,
+    "CSI300": 0.0063,
+    "CSI500": 0.0,
+    "EQUAL_ETF": 0.0011625
+  },
+  "portfolio_return": 0.0
+}

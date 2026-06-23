@@ -1,0 +1,1 @@
+{"account_id": "CHINA_PAPER", "confidence": 1.0, "date": "2026-06-24", "macro_signal_id": null, "market": "CASH", "reason": "no CHINA macro signal available", "risk_flags": ["no_trade"], "side": "HOLD", "signal_id": "HOLD-20260624-001", "signal_time": "2026-06-24 15:10:00", "status": "hold", "strategy_id": "hold_strategy", "symbol": "CASH", "target_weight": 0.0}

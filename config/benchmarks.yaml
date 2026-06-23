@@ -1,0 +1,10 @@
+{
+  "benchmarks": [
+    {"benchmark_id": "CSI300", "symbol": "000300.SH", "name": "沪深300"},
+    {"benchmark_id": "CSI500", "symbol": "000905.SH", "name": "中证500"},
+    {"benchmark_id": "CSI1000", "symbol": "000852.SH", "name": "中证1000"},
+    {"benchmark_id": "CHINEXT", "symbol": "399006.SZ", "name": "创业板指"},
+    {"benchmark_id": "CASH", "symbol": "CASH", "name": "现金"},
+    {"benchmark_id": "EQUAL_ETF", "symbol": "EQUAL_ETF", "name": "ETF 等权组合"}
+  ]
+}

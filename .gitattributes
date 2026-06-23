@@ -1,0 +1,1 @@
+data/equity_market/history/*.parquet filter=lfs diff=lfs merge=lfs -text
