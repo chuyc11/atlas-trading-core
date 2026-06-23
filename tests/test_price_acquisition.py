@@ -38,17 +38,43 @@ def _universe() -> dict[str, Any]:
     }
 
 
+def _fast_config() -> dict[str, Any]:
+    return {
+        "retry": {"max_attempts": 1, "initial_sleep_seconds": 0, "backoff_multiplier": 1, "jitter_seconds": 0},
+        "throttle": {"sleep_between_symbols_seconds": 0},
+        "failure_policy": {
+            "allow_partial_success": True,
+            "never_generate_synthetic_prices": True,
+            "never_forward_fill_missing_prices": True,
+        },
+    }
+
+
+def _no_sleep(seconds: float) -> None:
+    return None
+
+
 def test_fetch_prices_writes_csv_manifest_and_validation(tmp_path: Path) -> None:
     output = tmp_path / "etf_daily"
     source = MockPriceSource()
 
-    result = fetch_prices("2026-01-01", "2026-01-02", output, project_paths(tmp_path), source, _universe())
+    result = fetch_prices(
+        "2026-01-01",
+        "2026-01-02",
+        output,
+        project_paths(tmp_path),
+        source,
+        _universe(),
+        config=_fast_config(),
+        sleep_func=_no_sleep,
+    )
 
     manifest = read_json(output / "manifest.json")
     assert manifest["symbols_requested"] == ["510300.SH", "2800.HK"]
     assert manifest["symbols_success"] == ["510300.SH", "2800.HK"]
     assert manifest["symbols_failed"] == []
     assert manifest["source"] == "mock-akshare"
+    assert manifest["attempts_by_symbol"]["510300.SH"][0]["status"] == "success"
     assert result["validation"]["passed"] is True
     assert Path(result["validation"]["json_path"]).exists()
     assert source.calls == [
@@ -77,12 +103,21 @@ def test_fetch_prices_records_single_symbol_failure_without_synthetic_csv(tmp_pa
     output = tmp_path / "etf_daily"
     source = MockPriceSource(fail_symbols={"2800.HK"})
 
-    result = fetch_prices("2026-01-01", "2026-01-02", output, project_paths(tmp_path), source, _universe())
+    result = fetch_prices(
+        "2026-01-01",
+        "2026-01-02",
+        output,
+        project_paths(tmp_path),
+        source,
+        _universe(),
+        config=_fast_config(),
+        sleep_func=_no_sleep,
+    )
 
     manifest = result["manifest"]
     assert manifest["symbols_success"] == ["510300.SH"]
     assert manifest["symbols_failed"] == ["2800.HK"]
-    assert "2800.HK: source failed" in manifest["warnings"]
+    assert "2800.HK: mock-akshare attempt 1: source failed" in manifest["warnings"]
     assert (output / "510300.SH.csv").exists()
     assert not (output / "2800.HK.csv").exists()
     assert "2800.HK" not in manifest["output_files"]
@@ -109,7 +144,16 @@ def test_fetch_prices_does_not_forward_fill_missing_rows(tmp_path: Path) -> None
             return [{"date": "2026-01-01", "open": 4.0, "high": 4.1, "low": 3.9, "close": 4.05, "volume": 1000}]
 
     output = tmp_path / "etf_daily"
-    result = fetch_prices("2026-01-01", "2026-01-05", output, project_paths(tmp_path), SparseSource(), _universe())
+    result = fetch_prices(
+        "2026-01-01",
+        "2026-01-05",
+        output,
+        project_paths(tmp_path),
+        SparseSource(),
+        _universe(),
+        config=_fast_config(),
+        sleep_func=_no_sleep,
+    )
 
     with (output / "510300.SH.csv").open("r", encoding="utf-8", newline="") as handle:
         rows = list(csv.DictReader(handle))

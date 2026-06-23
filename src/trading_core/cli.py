@@ -15,7 +15,8 @@ from trading_core.backtest.historical_backtester import run_historical_backtest
 from trading_core.backtest.walk_forward import run_walk_forward
 from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv
-from trading_core.data.price_acquisition import fetch_prices
+from trading_core.data.price_acquisition import fetch_prices, should_return_failure
+from trading_core.data.price_dataset_merge import merge_price_data
 from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
@@ -106,6 +107,10 @@ def build_parser() -> argparse.ArgumentParser:
     fetch.add_argument("--start-date", required=True)
     fetch.add_argument("--end-date", required=True)
     fetch.add_argument("--output", required=True)
+    fetch.add_argument("--source", choices=["akshare", "yfinance", "auto"], default="akshare")
+    merge = subparsers.add_parser("merge-price-data")
+    merge.add_argument("--inputs", nargs="+", required=True)
+    merge.add_argument("--output", required=True)
     return parser
 
 
@@ -175,7 +180,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.command == "fetch-prices":
         try:
-            result = fetch_prices(args.start_date, args.end_date, _resolve_cli_path(args.output, paths), paths)
+            result = fetch_prices(
+                args.start_date,
+                args.end_date,
+                _resolve_cli_path(args.output, paths),
+                paths,
+                source_mode=args.source,
+            )
         except RuntimeError as exc:
             print(str(exc))
             return 1
@@ -187,7 +198,15 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "validation_passed": result["validation"]["passed"],
             }
         )
-        return 0
+        return 1 if should_return_failure(result) else 0
+    if args.command == "merge-price-data":
+        result = merge_price_data(
+            [_resolve_cli_path(value, paths) for value in args.inputs],
+            _resolve_cli_path(args.output, paths),
+            paths,
+        )
+        print({"passed": result["manifest"]["passed"], "manifest_path": result["manifest_path"]})
+        return 0 if result["manifest"]["passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
