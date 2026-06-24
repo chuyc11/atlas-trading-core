@@ -1,0 +1,64 @@
+{
+  "report_id": "PROJECT-STATUS-20260624",
+  "created_at": "2026-06-24T14:46:57.697036Z",
+  "current_stage": "v0.5-research-reporting-control-plane",
+  "completed_versions": [
+    "v0.1.0-core-hardened",
+    "v0.2.0-historical-real-data-validated",
+    "v0.2.1-price-only-historical-replay-validated",
+    "v0.3.0-ml-shadow-pipeline-audited",
+    "v0.4.0-strategy-experiment-system-audited"
+  ],
+  "completed_capabilities": {
+    "core_trading": [
+      "file-backed virtual trading",
+      "risk",
+      "valuation"
+    ],
+    "real_data_validation": [
+      "historical validation",
+      "price-only replay"
+    ],
+    "ml_shadow": [
+      "features",
+      "labels",
+      "leaderboard"
+    ],
+    "experiment_system": [
+      "registry",
+      "sweep",
+      "comparison",
+      "simulation",
+      "mistake patterns"
+    ],
+    "reporting": [
+      "v0.5 reporting in progress"
+    ]
+  },
+  "open_items": [
+    "forward 30d dry-run",
+    "full global-briefing historical replay",
+    "strategy effectiveness proof",
+    "v0.5 release audit"
+  ],
+  "risk_register": [
+    {
+      "risk_id": "RISK-001",
+      "risk": "Shadow results may be misread as live trading readiness",
+      "severity": "high",
+      "mitigation": "Keep reports explicitly marked as research-only"
+    }
+  ],
+  "next_steps": [
+    "Complete v0.5 release audit",
+    "Do not start RL before reporting layer is audited"
+  ],
+  "warnings": [],
+  "boundary": {
+    "research_only": true,
+    "live_trading": false,
+    "broker_connected": false,
+    "active_promotion": false,
+    "write_main_ledger": false
+  }
+}

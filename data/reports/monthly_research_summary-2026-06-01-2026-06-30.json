@@ -1,0 +1,50 @@
+{
+  "report_id": "MONTHLY-202606",
+  "start_date": "2026-06-01",
+  "end_date": "2026-06-30",
+  "period_type": "monthly",
+  "weekly_reports": {
+    "count": 2,
+    "missing_weeks": []
+  },
+  "summary": {
+    "overall_status": "watch",
+    "critical_errors": 0,
+    "warnings": []
+  },
+  "warnings": [],
+  "trading": {
+    "run_days": 13,
+    "orders": 13,
+    "trades": 0,
+    "notes": []
+  },
+  "ml_shadow": {
+    "available": true,
+    "recommendations": [
+      "promising"
+    ]
+  },
+  "experiments": {
+    "experiment_count": 1,
+    "sweep_count": 2,
+    "comparison_count": 1,
+    "promotion_simulation_count": 1,
+    "mistake_pattern_count": 4
+  },
+  "research_conclusions": [
+    "No strategy is eligible for active promotion.",
+    "Current evidence supports continued shadow observation only."
+  ],
+  "boundary": {
+    "research_only": true,
+    "write_main_ledger": false,
+    "strategy_state_changed": false,
+    "promotion_triggered": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false
+  }
+}

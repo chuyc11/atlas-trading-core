@@ -1,0 +1,81 @@
+{
+  "report_id": "WEEKLY-20260617-20260623",
+  "start_date": "2026-06-17",
+  "end_date": "2026-06-23",
+  "period_type": "weekly",
+  "summary": {
+    "overall_status": "watch",
+    "critical_errors": 0,
+    "warnings": []
+  },
+  "warnings": [],
+  "trading": {
+    "run_days": 5,
+    "orders": 5,
+    "trades": 0,
+    "rejected_orders": 0,
+    "portfolio_days": 5,
+    "notes": []
+  },
+  "risk": {
+    "risk_events": 0,
+    "drawdown_notes": [],
+    "position_notes": []
+  },
+  "ml_shadow": {
+    "available": true,
+    "model_id": "MLSHADOW-20260101-20260131-mock",
+    "recommendation": "promising",
+    "prediction_count": 30,
+    "signal_count": 10
+  },
+  "experiments": {
+    "parameter_sweeps": 2,
+    "comparisons": 1,
+    "promotion_simulations": 1,
+    "mistake_patterns": 4
+  },
+  "mistake_patterns": [
+    {
+      "pattern_type": "unstable_rank_ic",
+      "severity": "high",
+      "evidence_count": 242,
+      "suggested_action": "keep_shadow"
+    },
+    {
+      "pattern_type": "benchmark_underperformance",
+      "severity": "high",
+      "evidence_count": 48,
+      "suggested_action": "compare_benchmark"
+    },
+    {
+      "pattern_type": "cost_drag",
+      "severity": "high",
+      "evidence_count": 24,
+      "suggested_action": "reduce_turnover"
+    },
+    {
+      "pattern_type": "overfit_parameter",
+      "severity": "high",
+      "evidence_count": 24,
+      "suggested_action": "require_more_data"
+    }
+  ],
+  "limitations": [
+    "This is not an admission gate.",
+    "This is not live trading validation.",
+    "This does not validate forward 30d dry-run.",
+    "Shadow and watch labels are not active promotion."
+  ],
+  "boundary": {
+    "research_only": true,
+    "write_main_ledger": false,
+    "strategy_state_changed": false,
+    "promotion_triggered": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false
+  }
+}

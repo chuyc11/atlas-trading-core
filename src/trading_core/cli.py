@@ -53,7 +53,13 @@ from trading_core.ml.shadow_report import build_ml_shadow_report
 from trading_core.ml.shadow_signal_generator import generate_ml_shadow_signals
 from trading_core.ml.walk_forward_dataset import build_walk_forward_dataset
 from trading_core.reports.acceptance_report import write_acceptance_materials
+from trading_core.reports.monthly_research_report import build_monthly_research_report
+from trading_core.reports.project_status_report import build_project_status_report
+from trading_core.reports.reporting_system_audit import audit_reporting_system
+from trading_core.reports.research_pipeline import run_research_pipeline
+from trading_core.reports.system_dashboard import build_system_dashboard
 from trading_core.reports.trading_summary import export_trading_summary
+from trading_core.reports.weekly_research_report import build_weekly_research_report
 from trading_core.runtime.health import load_health, summarize_health
 from trading_core.signals.macro_signal_loader import load_macro_signals
 from trading_core.storage.file_paths import ensure_project_dirs, project_paths
@@ -236,6 +242,42 @@ def build_parser() -> argparse.ArgumentParser:
     experiment_audit.add_argument("--shadow-dir")
     experiment_audit.add_argument("--outputs-dir")
     experiment_audit.add_argument("--audit-dir")
+
+    weekly_research = subparsers.add_parser("weekly-research-report")
+    weekly_research.add_argument("--start-date", required=True)
+    weekly_research.add_argument("--end-date", required=True)
+    weekly_research.add_argument("--include-experiments", action="store_true")
+    weekly_research.add_argument("--include-ml-shadow", action="store_true")
+    weekly_research.add_argument("--include-mistakes", action="store_true")
+
+    monthly_research = subparsers.add_parser("monthly-research-report")
+    monthly_research.add_argument("--start-date")
+    monthly_research.add_argument("--end-date")
+    monthly_research.add_argument("--month")
+    monthly_research.add_argument("--include-weekly", action="store_true")
+    monthly_research.add_argument("--include-experiments", action="store_true")
+    monthly_research.add_argument("--include-ml-shadow", action="store_true")
+
+    system_dash = subparsers.add_parser("system-dashboard")
+    system_dash.add_argument("--include-artifact-inventory", action="store_true")
+    system_dash.add_argument("--include-release-status", action="store_true")
+
+    project_status = subparsers.add_parser("project-status-report")
+    project_status.add_argument("--include-next-steps", action="store_true")
+    project_status.add_argument("--include-risk-register", action="store_true")
+
+    research_pipeline = subparsers.add_parser("run-research-pipeline")
+    research_pipeline.add_argument("--start-date", required=True)
+    research_pipeline.add_argument("--end-date", required=True)
+    research_pipeline.add_argument("--skip-weekly", action="store_true")
+    research_pipeline.add_argument("--skip-monthly", action="store_true")
+    research_pipeline.add_argument("--skip-dashboard", action="store_true")
+    research_pipeline.add_argument("--skip-project-status", action="store_true")
+
+    reporting_audit = subparsers.add_parser("audit-reporting-system")
+    reporting_audit.add_argument("--reports-dir")
+    reporting_audit.add_argument("--system-dir")
+    reporting_audit.add_argument("--audit-dir")
 
     return parser
 
@@ -574,6 +616,104 @@ def main(argv: Sequence[str] | None = None) -> int:
             experiments_dir=_resolve_project_path(args.experiments_dir, paths),
             shadow_dir=_resolve_project_path(args.shadow_dir, paths),
             outputs_dir=_resolve_project_path(args.outputs_dir, paths),
+            audit_dir=_resolve_project_path(args.audit_dir, paths),
+            paths=paths,
+        )
+        print({
+            "audit_id": result["audit_id"],
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "weekly-research-report":
+        result = build_weekly_research_report(
+            args.start_date,
+            args.end_date,
+            include_experiments=args.include_experiments,
+            include_ml_shadow=args.include_ml_shadow,
+            include_mistakes=args.include_mistakes,
+            paths=paths,
+        )
+        print({
+            "report_id": result["report_id"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "warnings": len(result["warnings"]),
+        })
+        return 0
+    if args.command == "monthly-research-report":
+        try:
+            result = build_monthly_research_report(
+                start_date=args.start_date,
+                end_date=args.end_date,
+                month=args.month,
+                include_weekly=args.include_weekly,
+                include_experiments=args.include_experiments,
+                include_ml_shadow=args.include_ml_shadow,
+                paths=paths,
+            )
+        except ValueError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "report_id": result["report_id"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "warnings": len(result["warnings"]),
+        })
+        return 0
+    if args.command == "system-dashboard":
+        result = build_system_dashboard(
+            include_artifact_inventory=args.include_artifact_inventory,
+            include_release_status=args.include_release_status,
+            paths=paths,
+        )
+        print({
+            "dashboard_id": result["dashboard_id"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "warnings": len(result["warnings"]),
+        })
+        return 0
+    if args.command == "project-status-report":
+        result = build_project_status_report(
+            include_next_steps=args.include_next_steps,
+            include_risk_register=args.include_risk_register,
+            paths=paths,
+        )
+        print({
+            "report_id": result["report_id"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "warnings": len(result["warnings"]),
+        })
+        return 0
+    if args.command == "run-research-pipeline":
+        result = run_research_pipeline(
+            args.start_date,
+            args.end_date,
+            skip_weekly=args.skip_weekly,
+            skip_monthly=args.skip_monthly,
+            skip_dashboard=args.skip_dashboard,
+            skip_project_status=args.skip_project_status,
+            paths=paths,
+        )
+        print({
+            "pipeline_id": result["pipeline_id"],
+            "status": result["status"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "warnings": len(result["warnings"]),
+            "failures": len(result["failures"]),
+        })
+        return 0
+    if args.command == "audit-reporting-system":
+        result = audit_reporting_system(
+            reports_dir=_resolve_project_path(args.reports_dir, paths),
+            system_dir=_resolve_project_path(args.system_dir, paths),
             audit_dir=_resolve_project_path(args.audit_dir, paths),
             paths=paths,
         )

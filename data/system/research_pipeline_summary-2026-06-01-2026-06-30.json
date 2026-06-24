@@ -1,0 +1,46 @@
+{
+  "pipeline_id": "RESEARCH-PIPELINE-20260601-20260630",
+  "start_date": "2026-06-01",
+  "end_date": "2026-06-30",
+  "steps": [
+    {
+      "step": "weekly_research_report",
+      "status": "success",
+      "output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\reports\\WEEKLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md",
+      "json_output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\reports\\weekly_research_summary-2026-06-01-2026-06-30.json"
+    },
+    {
+      "step": "monthly_research_report",
+      "status": "success",
+      "output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\reports\\MONTHLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md",
+      "json_output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\reports\\monthly_research_summary-2026-06-01-2026-06-30.json"
+    },
+    {
+      "step": "system_dashboard",
+      "status": "success",
+      "output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\system\\SYSTEM_DASHBOARD.md",
+      "json_output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\system_dashboard.json"
+    },
+    {
+      "step": "project_status_report",
+      "status": "success",
+      "output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\system\\PROJECT_STATUS_REPORT.md",
+      "json_output": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\project_status_summary.json"
+    }
+  ],
+  "overall_status": "success",
+  "status": "success",
+  "warnings": [],
+  "failures": [],
+  "boundary": {
+    "research_only": true,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "strategy_state_changed": false,
+    "promotion_triggered": false,
+    "run_daily_called": false
+  }
+}

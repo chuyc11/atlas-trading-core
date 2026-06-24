@@ -1,0 +1,69 @@
+{
+  "audit_id": "REPORTAUDIT-20260624-001",
+  "created_at": "2026-06-24T14:46:58.042235Z",
+  "release_candidate": "v0.5.0-research-reporting-control-plane-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "weekly_report": {
+      "passed": true,
+      "issues": []
+    },
+    "monthly_report": {
+      "passed": true,
+      "issues": []
+    },
+    "system_dashboard": {
+      "passed": true,
+      "issues": []
+    },
+    "project_status": {
+      "passed": true,
+      "issues": []
+    },
+    "research_pipeline": {
+      "passed": true,
+      "issues": []
+    },
+    "main_ledger_pollution": {
+      "passed": true,
+      "modified_paths": [],
+      "issues": []
+    },
+    "run_daily_isolation": {
+      "passed": true,
+      "issues": []
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "artifact_inventory": {
+    "weekly_reports": [
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\reports\\WEEKLY_RESEARCH_REPORT-2026-06-17-2026-06-23.md",
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\reports\\WEEKLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md"
+    ],
+    "monthly_reports": [
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\reports\\MONTHLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md"
+    ],
+    "system_dashboard": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\system\\SYSTEM_DASHBOARD.md",
+    "project_status": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\system\\PROJECT_STATUS_REPORT.md",
+    "research_pipeline": [
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\system\\RESEARCH_PIPELINE_REPORT-2026-06-01-2026-06-30.md"
+    ]
+  },
+  "boundary": {
+    "research_only": true,
+    "write_main_ledger": false,
+    "run_daily_called": false,
+    "strategy_state_changed": false,
+    "strategy_parameters_changed": false,
+    "promotion_triggered": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}
