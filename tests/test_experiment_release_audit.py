@@ -46,9 +46,14 @@ def _seed_complete_artifacts(paths: ProjectPaths) -> None:
     )
     simulation = _write_json(
         exp / "promotion_simulation-20260624-000000.json",
-        {"simulation_id": "PROMO-a", "input_path": str(comparison), "items": []},
+        {
+            "simulation_id": "PROMO-a",
+            "input_path": str(comparison),
+            "items": [],
+            "boundary": {"strategy_state_changed": False, "write_main_ledger": False},
+        },
     )
-    _write_json(exp / "experiment_registry.json", {"experiments": [{"experiment_id": "EXP-a"}]})
+    _write_json(exp / "experiment_registry.json", {"experiments": [{"experiment_id": "EXP-a", "mode": "shadow"}]})
     _write_json(
         exp / "experiment_dashboard.json",
         {
@@ -58,12 +63,19 @@ def _seed_complete_artifacts(paths: ProjectPaths) -> None:
             "strategy_comparisons": [{}],
         },
     )
-    _write_json(exp / "mistake_pattern_library.json", {"inputs": [str(simulation)], "patterns": []})
-    _write(out / "PARAMETER_SWEEP-EXP-a.md", "not an admission gate\nno orders/trades/portfolio written\n")
+    _write_json(
+        exp / "mistake_pattern_library.json",
+        {
+            "inputs": [str(simulation)],
+            "patterns": [],
+            "boundary": {"diagnostic_only": True, "promotion_triggered": False, "write_main_ledger": False},
+        },
+    )
+    _write(out / "PARAMETER_SWEEP-EXP-a.md", "not an admission gate\nno orders/trades/portfolio written\noffline research only\n")
     _write(out / "STRATEGY_COMPARISON-a.md", "not an admission gate\nno orders/trades/portfolio/accounts written\nno active promotion\n")
     _write(out / "EXPERIMENT_DASHBOARD.md", "not an admission gate\ndashboard is read-only\nno active promotion\nno orders/trades/portfolio writes\n")
-    _write(out / "PROMOTION_SIMULATION-a.md", "This is a simulation only.\nNo strategy state was changed.\nNo active strategy was promoted.\nThis is not an admission gate.\n")
-    _write(out / "MISTAKE_PATTERN_LIBRARY.md", "This pattern library is diagnostic only.\nNo strategy was modified.\nNo parameter was modified.\nNo promotion was triggered.\nThis is not an admission gate.\n")
+    _write(out / "PROMOTION_SIMULATION-a.md", "This is a simulation only.\nNo strategy state was changed.\nNo active strategy was promoted.\nNo orders were written.\nThis is not an admission gate.\nThis report is offline research only.\n")
+    _write(out / "MISTAKE_PATTERN_LIBRARY.md", "This pattern library is diagnostic only.\nNo strategy was modified.\nNo parameter was modified.\nNo promotion was triggered.\nNo accounts were written.\nThis is not an admission gate.\nThis report is offline research only.\n")
 
 
 def test_audit_fails_when_required_artifacts_are_missing(audit_paths: ProjectPaths) -> None:
@@ -109,4 +121,3 @@ def test_audit_cli_smoke_does_not_call_run_daily(
     captured = capsys.readouterr()
     assert result == 0
     assert "passed" in captured.out
-

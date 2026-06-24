@@ -17,7 +17,6 @@ from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv
 from trading_core.data.price_acquisition import fetch_prices, should_return_failure
 from trading_core.data.price_dataset_merge import merge_price_data
-from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
 from trading_core.evaluation.dry_run_validation_report import build_dry_run_validation_report
 from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
@@ -31,7 +30,7 @@ from trading_core.experiments.experiment_registry import (
     register_experiment,
 )
 from trading_core.experiments.experiment_dashboard import build_experiment_dashboard
-from trading_core.experiments.experiment_release_audit import audit_experiment_system
+from trading_core.experiments.experiment_system_audit import audit_experiment_system
 from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
 from trading_core.experiments.mistake_pattern_library import (
     MistakePatternLibraryInputError,
@@ -80,6 +79,12 @@ PLANNED_COMMANDS = (
     "health",
     "export-summary",
 )
+
+
+def run_daily(date: str):
+    from trading_core.daily_run import run_daily as _run_daily
+
+    return _run_daily(date)
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -226,7 +231,11 @@ def build_parser() -> argparse.ArgumentParser:
     mistake_patterns.add_argument("--inputs", nargs="+", required=True)
     mistake_patterns.add_argument("--min-evidence", type=int, default=2)
 
-    subparsers.add_parser("audit-experiment-system")
+    experiment_audit = subparsers.add_parser("audit-experiment-system")
+    experiment_audit.add_argument("--experiments-dir")
+    experiment_audit.add_argument("--shadow-dir")
+    experiment_audit.add_argument("--outputs-dir")
+    experiment_audit.add_argument("--audit-dir")
 
     return parser
 
@@ -561,17 +570,22 @@ def main(argv: Sequence[str] | None = None) -> int:
         })
         return 0
     if args.command == "audit-experiment-system":
-        result = audit_experiment_system(paths)
+        result = audit_experiment_system(
+            experiments_dir=_resolve_project_path(args.experiments_dir, paths),
+            shadow_dir=_resolve_project_path(args.shadow_dir, paths),
+            outputs_dir=_resolve_project_path(args.outputs_dir, paths),
+            audit_dir=_resolve_project_path(args.audit_dir, paths),
+            paths=paths,
+        )
         print({
             "audit_id": result["audit_id"],
-            "passed": result["passed"],
-            "checks": len(result["checks"]),
-            "failed": [check["name"] for check in result["checks"] if not check["passed"]],
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
             "warnings": len(result["warnings"]),
             "json_path": result["json_path"],
             "report_path": result["report_path"],
         })
-        return 0 if result["passed"] else 1
+        return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
