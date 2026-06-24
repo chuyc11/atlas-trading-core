@@ -1,0 +1,26 @@
+{
+  "contract_id": "GLOBAL-BRIEFING-SIGNAL-CONTRACT-V1",
+  "version": "v1",
+  "required_fields": [
+    "as_of_date",
+    "generated_at",
+    "region",
+    "signals",
+    "source",
+    "version"
+  ],
+  "supported_formats": [
+    "json",
+    "jsonl"
+  ],
+  "point_in_time_rules": [
+    "Only signals generated at or before the replay decision timestamp may be used.",
+    "Future macro signals must be rejected."
+  ],
+  "boundary": {
+    "contract_only": true,
+    "network_access": false,
+    "write_main_ledger": false,
+    "run_daily_called": false
+  }
+}

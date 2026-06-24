@@ -22,6 +22,12 @@ from trading_core.evaluation.dry_run_validation_report import build_dry_run_vali
 from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
+from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
+from trading_core.global_briefing.replay_audit import audit_global_briefing_replay
+from trading_core.global_briefing.replay_bundle_builder import build_global_briefing_replay_bundle
+from trading_core.global_briefing.replay_evaluation_report import build_global_briefing_replay_report
+from trading_core.global_briefing.signal_contract import build_signal_contract
+from trading_core.global_briefing.signal_package_validator import validate_global_briefing_signals
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.experiments.experiment_registry import (
     ExperimentRegistry,
@@ -319,6 +325,36 @@ def build_parser() -> argparse.ArgumentParser:
     readiness.add_argument("--trading-days", type=int, default=30)
     readiness.add_argument("--calendar")
     readiness.add_argument("--strict", action="store_true")
+    subparsers.add_parser("global-briefing-contract")
+    gb_validate = subparsers.add_parser("validate-global-briefing-signals")
+    gb_validate.add_argument("--input", required=True)
+    gb_validate.add_argument("--start-date")
+    gb_validate.add_argument("--end-date")
+    gb_validate.add_argument("--strict", action="store_true")
+    gb_bundle = subparsers.add_parser("build-global-briefing-replay-bundle")
+    gb_bundle.add_argument("--signals", required=True)
+    gb_bundle.add_argument("--prices", required=True)
+    gb_bundle.add_argument("--start-date", required=True)
+    gb_bundle.add_argument("--end-date", required=True)
+    gb_bundle.add_argument("--decision-time", default="09:00:00")
+    gb_bundle.add_argument("--allow-carry-forward", action="store_true")
+    gb_replay = subparsers.add_parser("replay-global-briefing-history")
+    gb_replay.add_argument("--bundle", required=True)
+    gb_replay.add_argument("--prices", required=True)
+    gb_replay.add_argument("--start-date", required=True)
+    gb_replay.add_argument("--end-date", required=True)
+    gb_replay.add_argument("--initial-cash", type=float, default=1_000_000.0)
+    gb_replay.add_argument("--isolated-output-root")
+    gb_replay.add_argument("--report-output-root")
+    gb_report = subparsers.add_parser("global-briefing-replay-report")
+    gb_report.add_argument("--replay", required=True)
+    gb_report.add_argument("--bundle")
+    gb_report.add_argument("--validation")
+    gb_audit = subparsers.add_parser("audit-global-briefing-replay")
+    gb_audit.add_argument("--validation")
+    gb_audit.add_argument("--bundle")
+    gb_audit.add_argument("--replay")
+    gb_audit.add_argument("--evaluation")
 
     return parser
 
@@ -893,6 +929,104 @@ def main(argv: Sequence[str] | None = None) -> int:
             "report_path": result["report_path"],
             "day0_checklist_path": result["day0_checklist_path"],
             "plan_path": result["plan_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "global-briefing-contract":
+        result = build_signal_contract(paths)
+        print({"contract_id": result["contract_id"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "validate-global-briefing-signals":
+        result = validate_global_briefing_signals(
+            args.input,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-global-briefing-replay-bundle":
+        try:
+            result = build_global_briefing_replay_bundle(
+                args.signals,
+                args.prices,
+                start_date=args.start_date,
+                end_date=args.end_date,
+                decision_time=args.decision_time,
+                allow_carry_forward=args.allow_carry_forward,
+                paths=paths,
+            )
+        except ValueError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "bundle_id": result["bundle_id"],
+            "replay_days": result["coverage"]["replay_days"],
+            "future_signal_used": result["point_in_time"]["future_signal_used"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if not result["point_in_time"]["future_signal_used"] else 1
+    if args.command == "replay-global-briefing-history":
+        try:
+            result = replay_global_briefing_history(
+                args.bundle,
+                args.prices,
+                start_date=args.start_date,
+                end_date=args.end_date,
+                initial_cash=args.initial_cash,
+                isolated_output_root=args.isolated_output_root,
+                report_output_root=args.report_output_root,
+                paths=paths,
+            )
+        except ValueError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "replay_id": result["replay_id"],
+            "isolated": result["isolated"],
+            "main_ledger_written": result["boundary"]["main_ledger_written"],
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["isolated"] and not result["boundary"]["main_ledger_written"] else 1
+    if args.command == "global-briefing-replay-report":
+        result = build_global_briefing_replay_report(
+            args.replay,
+            bundle_path=args.bundle,
+            validation_path=args.validation,
+            paths=paths,
+        )
+        print({
+            "evaluation_id": result["evaluation_id"],
+            "overall_status": result["overall_status"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_status"] == "research_review_ready" else 1
+    if args.command == "audit-global-briefing-replay":
+        result = audit_global_briefing_replay(
+            validation_path=args.validation,
+            bundle_path=args.bundle,
+            replay_path=args.replay,
+            evaluation_path=args.evaluation,
+            paths=paths,
+        )
+        print({
+            "audit_id": result["audit_id"],
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
         })
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":

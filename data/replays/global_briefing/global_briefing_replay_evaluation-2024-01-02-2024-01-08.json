@@ -1,0 +1,42 @@
+{
+  "evaluation_id": "GB-REPLAY-EVAL-20240102-20240108",
+  "overall_status": "research_review_ready",
+  "blocking_reasons": [],
+  "warnings": [
+    "core execution adapter not isolated; no-trade replay summary generated"
+  ],
+  "inputs": {
+    "replay": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\global_briefing_replay-2024-01-02-2024-01-08.json",
+    "bundle": null,
+    "validation": null
+  },
+  "coverage": {
+    "replay_days": 5,
+    "days_processed": 5,
+    "signal_coverage_ratio": 1.0,
+    "price_coverage_ratio": 1.0,
+    "missing_signal_days": [],
+    "missing_price_days": []
+  },
+  "integrity": {
+    "main_ledger_written": false,
+    "isolated_replay": true,
+    "run_daily_called": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false
+  },
+  "isolated_output_paths": {
+    "orders": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\orders\\orders-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "trades": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\trades\\trades-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "portfolio": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\portfolio\\portfolio-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "account": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\accounts\\account-GB-HIST-REPLAY-20240102-20240108.json"
+  },
+  "boundary": {
+    "research_review_only": true,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_validated": false,
+    "live_trading_ready": false,
+    "admission_gate": false
+  }
+}

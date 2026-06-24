@@ -1,0 +1,67 @@
+{
+  "audit_id": "GB-REPLAY-AUDIT-20260624-001",
+  "created_at": "2026-06-24T18:06:48.036155Z",
+  "release_candidate": "v0.5.4-global-briefing-historical-replay-harness-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "inputs": {
+    "contract": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_signal_contract.json",
+    "validation": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_signal_validation.json",
+    "bundle": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\replay_bundle-2024-01-02-2024-01-08.json",
+    "replay": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\global_briefing_replay-2024-01-02-2024-01-08.json",
+    "evaluation": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\global_briefing_replay_evaluation-2024-01-02-2024-01-08.json"
+  },
+  "sections": {
+    "contract": {
+      "passed": true,
+      "issues": []
+    },
+    "signal_validation": {
+      "passed": true,
+      "issues": []
+    },
+    "replay_bundle": {
+      "passed": true,
+      "issues": []
+    },
+    "historical_replay": {
+      "passed": true,
+      "issues": []
+    },
+    "evaluation": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_path_snapshot": {
+      "passed": true,
+      "issues": [],
+      "modified_paths": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "historical_replay_harness_only": true,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_validated": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "promotion_triggered": false
+  }
+}

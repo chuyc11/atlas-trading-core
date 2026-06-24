@@ -1,0 +1,44 @@
+{
+  "replay_id": "GB-HIST-REPLAY-20240102-20240108",
+  "start_date": "2024-01-02",
+  "end_date": "2024-01-08",
+  "isolated": true,
+  "input_bundle": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\replay_bundle-2024-01-02-2024-01-08.json",
+  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\prices_valid.csv",
+  "warnings": [
+    "core execution adapter not isolated; no-trade replay summary generated"
+  ],
+  "summary": {
+    "replay_days": 5,
+    "days_processed": 5,
+    "orders": 0,
+    "trades": 0,
+    "ending_equity": 1000000.0,
+    "errors": 0
+  },
+  "data_quality": {
+    "missing_price_days": [],
+    "missing_signal_days": []
+  },
+  "isolated_output_paths": {
+    "orders": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\orders\\orders-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "trades": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\trades\\trades-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "portfolio": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\portfolio\\portfolio-GB-HIST-REPLAY-20240102-20240108.jsonl",
+    "account": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\accounts\\account-GB-HIST-REPLAY-20240102-20240108.json"
+  },
+  "protected_path_changes": [],
+  "boundary": {
+    "historical_replay_only": true,
+    "forward_dry_run": false,
+    "live_trading": false,
+    "broker_connected": false,
+    "main_ledger_written": false,
+    "isolated_replay_ledger_written": true,
+    "run_daily_called": false,
+    "strategy_state_changed": false,
+    "promotion_triggered": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "bundle_id": "GB-REPLAY-BUNDLE-20240102-20240108",
+  "start_date": "2024-01-02",
+  "end_date": "2024-01-08",
+  "decision_time": "09:00:00",
+  "allow_carry_forward": true,
+  "input_signals": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\signals_valid.jsonl",
+  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\prices_valid.csv",
+  "rows": [
+    {
+      "replay_date": "2024-01-02",
+      "selected_signal_as_of_date": "2024-01-02",
+      "selected_signal_generated_at": "2024-01-02T06:00:00Z",
+      "selected_signal_source": "global_briefing",
+      "selected_signal_version": "v1",
+      "carry_forward_days": 0,
+      "signals": {
+        "risk_on": 0.2,
+        "liquidity": -0.1,
+        "policy_support": 0.4
+      }
+    },
+    {
+      "replay_date": "2024-01-03",
+      "selected_signal_as_of_date": "2024-01-03",
+      "selected_signal_generated_at": "2024-01-03T06:00:00Z",
+      "selected_signal_source": "global_briefing",
+      "selected_signal_version": "v1",
+      "carry_forward_days": 0,
+      "signals": {
+        "risk_on": 0.1,
+        "liquidity": 0.0,
+        "policy_support": 0.2
+      }
+    },
+    {
+      "replay_date": "2024-01-04",
+      "selected_signal_as_of_date": "2024-01-03",
+      "selected_signal_generated_at": "2024-01-03T06:00:00Z",
+      "selected_signal_source": "global_briefing",
+      "selected_signal_version": "v1",
+      "carry_forward_days": 1,
+      "signals": {
+        "risk_on": 0.1,
+        "liquidity": 0.0,
+        "policy_support": 0.2
+      }
+    },
+    {
+      "replay_date": "2024-01-05",
+      "selected_signal_as_of_date": "2024-01-05",
+      "selected_signal_generated_at": "2024-01-05T08:30:00Z",
+      "selected_signal_source": "global_briefing",
+      "selected_signal_version": "v1",
+      "carry_forward_days": 0,
+      "signals": {
+        "risk_on": 0.3,
+        "liquidity": 0.2,
+        "policy_support": 0.5
+      }
+    },
+    {
+      "replay_date": "2024-01-08",
+      "selected_signal_as_of_date": "2024-01-05",
+      "selected_signal_generated_at": "2024-01-05T08:30:00Z",
+      "selected_signal_source": "global_briefing",
+      "selected_signal_version": "v1",
+      "carry_forward_days": 3,
+      "signals": {
+        "risk_on": 0.3,
+        "liquidity": 0.2,
+        "policy_support": 0.5
+      }
+    }
+  ],
+  "coverage": {
+    "replay_days": 5,
+    "days_with_signal": 5,
+    "missing_signal_days": []
+  },
+  "carry_forward": {
+    "used": true,
+    "days": [
+      {
+        "replay_date": "2024-01-04",
+        "selected_signal_as_of_date": "2024-01-03",
+        "carry_forward_days": 1
+      },
+      {
+        "replay_date": "2024-01-08",
+        "selected_signal_as_of_date": "2024-01-05",
+        "carry_forward_days": 3
+      }
+    ]
+  },
+  "point_in_time": {
+    "future_signal_used": false,
+    "violations": []
+  },
+  "boundary": {
+    "bundle_only": true,
+    "trading_signal": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false
+  }
+}
