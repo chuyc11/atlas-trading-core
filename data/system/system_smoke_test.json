@@ -1,0 +1,186 @@
+{
+  "smoke_test_id": "SMOKE-20260624-001",
+  "created_at": "2026-06-24T16:35:55.131818Z",
+  "passed": true,
+  "checks": [
+    {
+      "check": "version_exists",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "readme_exists",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/ARCHITECTURE.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/SAFETY_BOUNDARY.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/RELEASE_MATRIX.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/CLI_REFERENCE.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/ARTIFACT_MAP.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/RUNBOOK.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "doc_exists:docs/FORWARD_DRY_RUN_RUNBOOK.md",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.cli",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.daily_run",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.features.feature_store",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.labels.label_store",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.ml.shadow_leaderboard",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.experiments.experiment_dashboard",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "module_importable:trading_core.reports.research_pipeline",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "key_cli_inventory_available",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "artifact_inventory_available",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    },
+    {
+      "check": "artifact_present:data/experiments/experiment_registry.json",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "artifact_present:data/experiments/mistake_pattern_library.json",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "artifact_present:data/shadow/ml_shadow_leaderboard-2024-01-01-2026-06-23-MLSHADOW-20240101-20260623-mock.json",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "artifact_present:data/reports/monthly_research_summary-2026-06-01-2026-06-30.json",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "report_dir_present:outputs/reports",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "report_dir_present:outputs/system",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "reporting_pipeline_commands_available",
+      "passed": true,
+      "severity": "required",
+      "details": "registered"
+    },
+    {
+      "check": "experiment_artifacts_present",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "ml_shadow_artifacts_present",
+      "passed": true,
+      "severity": "optional",
+      "details": ""
+    },
+    {
+      "check": "no_protected_ledger_write",
+      "passed": true,
+      "severity": "required",
+      "details": ""
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": [],
+  "boundary": {
+    "smoke_only": true,
+    "run_daily_called": false,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}

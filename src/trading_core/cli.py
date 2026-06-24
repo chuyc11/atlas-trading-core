@@ -63,6 +63,11 @@ from trading_core.reports.weekly_research_report import build_weekly_research_re
 from trading_core.runtime.health import load_health, summarize_health
 from trading_core.signals.macro_signal_loader import load_macro_signals
 from trading_core.storage.file_paths import ensure_project_dirs, project_paths
+from trading_core.system.artifact_inventory import build_artifact_inventory
+from trading_core.system.boundary_regression_audit import run_boundary_regression_audit
+from trading_core.system.cli_inventory import build_cli_inventory
+from trading_core.system.system_integrity_audit import run_system_integrity_audit
+from trading_core.system.system_smoke_test import run_system_smoke_test
 
 
 PLANNED_COMMANDS = (
@@ -278,6 +283,15 @@ def build_parser() -> argparse.ArgumentParser:
     reporting_audit.add_argument("--reports-dir")
     reporting_audit.add_argument("--system-dir")
     reporting_audit.add_argument("--audit-dir")
+
+    subparsers.add_parser("cli-inventory")
+    subparsers.add_parser("artifact-inventory")
+    smoke = subparsers.add_parser("system-smoke-test")
+    smoke.add_argument("--fast", action="store_true")
+    smoke.add_argument("--include-reports", action="store_true")
+    smoke.add_argument("--include-inventory", action="store_true")
+    subparsers.add_parser("boundary-regression-audit")
+    subparsers.add_parser("system-integrity-audit")
 
     return parser
 
@@ -719,6 +733,49 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print({
             "audit_id": result["audit_id"],
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "cli-inventory":
+        result = build_cli_inventory(paths)
+        print({"commands": len(result["commands"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "artifact-inventory":
+        result = build_artifact_inventory(paths)
+        print({"artifacts": len(result["artifacts"]), "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "system-smoke-test":
+        result = run_system_smoke_test(
+            fast=args.fast,
+            include_reports=args.include_reports,
+            include_inventory=args.include_inventory,
+            paths=paths,
+        )
+        print({
+            "passed": result["passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["passed"] else 1
+    if args.command == "boundary-regression-audit":
+        result = run_boundary_regression_audit(paths=paths)
+        print({
+            "passed": result["passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["passed"] else 1
+    if args.command == "system-integrity-audit":
+        result = run_system_integrity_audit(paths)
+        print({
             "overall_passed": result["overall_passed"],
             "blocking_reasons": result["blocking_reasons"],
             "warnings": len(result["warnings"]),

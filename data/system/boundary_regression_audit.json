@@ -1,0 +1,47 @@
+{
+  "audit_id": "BOUNDARY-20260624-001",
+  "created_at": "2026-06-24T16:35:55.426517Z",
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "docs mention live trading only as prohibited",
+    "tests include forbidden keywords as negative tests"
+  ],
+  "checks": {
+    "run_daily_label_import": {
+      "passed": true,
+      "issues": []
+    },
+    "run_daily_ml_import": {
+      "passed": true,
+      "issues": []
+    },
+    "broker_code": {
+      "passed": true,
+      "issues": []
+    },
+    "live_trading_cli": {
+      "passed": true,
+      "issues": []
+    },
+    "auto_promotion": {
+      "passed": true,
+      "issues": []
+    },
+    "main_ledger_writes": {
+      "passed": true,
+      "issues": []
+    },
+    "label_store_in_signal_generator": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "no_broker": true,
+    "no_live_trading": true,
+    "no_rl_active_trading": true,
+    "no_llm_trading_decision": true,
+    "no_auto_promotion": true
+  }
+}

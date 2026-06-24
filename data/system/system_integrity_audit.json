@@ -1,0 +1,41 @@
+{
+  "audit_id": "SYSINTEGRITY-20260624-001",
+  "created_at": "2026-06-24T16:35:55.846844Z",
+  "release_candidate": "v0.5.1-system-integrity-and-documentation",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "documentation": {
+      "passed": true,
+      "issues": []
+    },
+    "cli_inventory": {
+      "passed": true,
+      "issues": []
+    },
+    "artifact_inventory": {
+      "passed": true,
+      "issues": []
+    },
+    "smoke_test": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary_regression": {
+      "passed": true,
+      "issues": []
+    },
+    "release_wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "research_only": true,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "forward_30d_dry_run_validated": false,
+    "strategy_effectiveness_proven": false
+  }
+}

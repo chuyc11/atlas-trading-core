@@ -1,0 +1,1150 @@
+{
+  "inventory_id": "CLIINV-20260624-001",
+  "created_at": "2026-06-24T16:35:55.131818Z",
+  "commands": [
+    {
+      "command": "acceptance-report",
+      "category": "reports",
+      "purpose": "Write acceptance report materials",
+      "writes_to": [
+        "outputs"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "documentation_only"
+      ]
+    },
+    {
+      "command": "admission",
+      "category": "audits",
+      "purpose": "Run admission research check",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "not_auto_promotion"
+      ]
+    },
+    {
+      "command": "artifact-inventory",
+      "category": "audits",
+      "purpose": "Generate artifact inventory",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "inventory_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "attribution",
+      "category": "core / daily",
+      "purpose": "Planned attribution generation",
+      "writes_to": [
+        "data/attribution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "audit-dry-run",
+      "category": "backtest / replay",
+      "purpose": "Audit dry-run range",
+      "writes_to": [
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only"
+      ]
+    },
+    {
+      "command": "audit-experiment-system",
+      "category": "audits",
+      "purpose": "Audit experiment system",
+      "writes_to": [
+        "data/experiments",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only"
+      ]
+    },
+    {
+      "command": "audit-reporting-system",
+      "category": "audits",
+      "purpose": "Audit reporting system",
+      "writes_to": [
+        "data/system",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only"
+      ]
+    },
+    {
+      "command": "backtest",
+      "category": "backtest / replay",
+      "purpose": "Run historical backtest",
+      "writes_to": [
+        "data/backtests",
+        "outputs/backtests"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_only"
+      ]
+    },
+    {
+      "command": "benchmark",
+      "category": "core / daily",
+      "purpose": "Planned benchmark generation",
+      "writes_to": [
+        "data/benchmarks"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "boundary-regression-audit",
+      "category": "audits",
+      "purpose": "Audit boundary regressions",
+      "writes_to": [
+        "data/system",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "build-features",
+      "category": "feature / label",
+      "purpose": "Build feature matrix",
+      "writes_to": [
+        "data/features",
+        "outputs/features"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "build-labels",
+      "category": "feature / label",
+      "purpose": "Build label matrix",
+      "writes_to": [
+        "data/labels",
+        "outputs/labels"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "not_run_daily_input"
+      ]
+    },
+    {
+      "command": "build-ml-dataset",
+      "category": "feature / label",
+      "purpose": "Build ML walk-forward dataset",
+      "writes_to": [
+        "data/ml",
+        "outputs/ml"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "check-consistency",
+      "category": "health / consistency",
+      "purpose": "Check daily consistency",
+      "writes_to": [
+        "outputs/consistency"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only"
+      ]
+    },
+    {
+      "command": "check-consistency-range",
+      "category": "health / consistency",
+      "purpose": "Check range consistency",
+      "writes_to": [
+        "outputs/consistency"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only"
+      ]
+    },
+    {
+      "command": "classify-mistakes",
+      "category": "evolution",
+      "purpose": "Planned mistake classification",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "diagnostic_only"
+      ]
+    },
+    {
+      "command": "cli-inventory",
+      "category": "audits",
+      "purpose": "Generate CLI inventory",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "inventory_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "compare-strategies",
+      "category": "experiments",
+      "purpose": "Compare strategies",
+      "writes_to": [
+        "data/experiments",
+        "outputs/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "comparison_only"
+      ]
+    },
+    {
+      "command": "dry-run-validation-report",
+      "category": "backtest / replay",
+      "purpose": "Build dry-run validation report",
+      "writes_to": [
+        "outputs/validation"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "not_forward_proof"
+      ]
+    },
+    {
+      "command": "execute",
+      "category": "core / daily",
+      "purpose": "Planned virtual execution",
+      "writes_to": [
+        "data/trades"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only",
+        "no_broker"
+      ]
+    },
+    {
+      "command": "experiment-dashboard",
+      "category": "experiments",
+      "purpose": "Build experiment dashboard",
+      "writes_to": [
+        "data/experiments",
+        "outputs/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "read_only_summary"
+      ]
+    },
+    {
+      "command": "export-summary",
+      "category": "reports",
+      "purpose": "Export virtual trading summary",
+      "writes_to": [
+        "data/exports"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_summary"
+      ]
+    },
+    {
+      "command": "fetch-prices",
+      "category": "data acquisition / validation",
+      "purpose": "Fetch price data",
+      "writes_to": [
+        "configured output"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_only"
+      ]
+    },
+    {
+      "command": "generate-ml-shadow-signals",
+      "category": "ml shadow",
+      "purpose": "Generate shadow signals",
+      "writes_to": [
+        "data/shadow",
+        "outputs/shadow"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "shadow_output_is_not_order"
+      ]
+    },
+    {
+      "command": "generate-orders",
+      "category": "core / daily",
+      "purpose": "Planned virtual order generation",
+      "writes_to": [
+        "data/orders"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only",
+        "no_broker"
+      ]
+    },
+    {
+      "command": "generate-signals",
+      "category": "core / daily",
+      "purpose": "Planned virtual signal generation",
+      "writes_to": [
+        "data/signals"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only"
+      ]
+    },
+    {
+      "command": "health",
+      "category": "health / consistency",
+      "purpose": "Load or generate runtime health",
+      "writes_to": [
+        "data/runtime"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only"
+      ]
+    },
+    {
+      "command": "import-prices",
+      "category": "data acquisition / validation",
+      "purpose": "Import historical prices",
+      "writes_to": [
+        "data/raw"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_only"
+      ]
+    },
+    {
+      "command": "init",
+      "category": "core / daily",
+      "purpose": "Initialize project directories",
+      "writes_to": [
+        "data",
+        "outputs"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "setup_only"
+      ]
+    },
+    {
+      "command": "leaderboard",
+      "category": "reports",
+      "purpose": "Build strategy leaderboard",
+      "writes_to": [
+        "outputs/strategy-leaderboard"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "list-experiments",
+      "category": "experiments",
+      "purpose": "List experiments",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "read_only"
+      ]
+    },
+    {
+      "command": "load-macro",
+      "category": "core / daily",
+      "purpose": "Load macro signals",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "read_only"
+      ]
+    },
+    {
+      "command": "mark",
+      "category": "core / daily",
+      "purpose": "Planned mark-to-market",
+      "writes_to": [
+        "data/portfolios"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only"
+      ]
+    },
+    {
+      "command": "merge-price-data",
+      "category": "data acquisition / validation",
+      "purpose": "Merge price datasets",
+      "writes_to": [
+        "configured output"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_only"
+      ]
+    },
+    {
+      "command": "ml-shadow-leaderboard",
+      "category": "ml shadow",
+      "purpose": "Build shadow leaderboard",
+      "writes_to": [
+        "data/shadow",
+        "outputs/shadow"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "not_promotion"
+      ]
+    },
+    {
+      "command": "ml-shadow-report",
+      "category": "ml shadow",
+      "purpose": "Build shadow report",
+      "writes_to": [
+        "outputs/shadow"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "report_only"
+      ]
+    },
+    {
+      "command": "monthly-research-report",
+      "category": "reports",
+      "purpose": "Generate monthly research report",
+      "writes_to": [
+        "data/reports",
+        "outputs/reports"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only",
+        "not_an_admission_gate"
+      ]
+    },
+    {
+      "command": "predict-ml-shadow",
+      "category": "ml shadow",
+      "purpose": "Generate shadow predictions",
+      "writes_to": [
+        "data/ml"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "shadow_only"
+      ]
+    },
+    {
+      "command": "project-status-report",
+      "category": "reports",
+      "purpose": "Generate project status report",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "governance_only"
+      ]
+    },
+    {
+      "command": "real-data-validation-report",
+      "category": "data acquisition / validation",
+      "purpose": "Build real data validation report",
+      "writes_to": [
+        "outputs/validation"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "report_only"
+      ]
+    },
+    {
+      "command": "register-experiment",
+      "category": "experiments",
+      "purpose": "Register experiment",
+      "writes_to": [
+        "data/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "registry_only"
+      ]
+    },
+    {
+      "command": "replay-dry-run",
+      "category": "backtest / replay",
+      "purpose": "Replay historical dry-run",
+      "writes_to": [
+        "data/replays",
+        "outputs/replays"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_only"
+      ]
+    },
+    {
+      "command": "replay-last-trading-days",
+      "category": "backtest / replay",
+      "purpose": "Replay last trading days",
+      "writes_to": [
+        "data/replays",
+        "outputs/replays"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_only"
+      ]
+    },
+    {
+      "command": "report",
+      "category": "core / daily",
+      "purpose": "Planned daily report",
+      "writes_to": [
+        "outputs/daily"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "report_only"
+      ]
+    },
+    {
+      "command": "run-backtest-batch",
+      "category": "backtest / replay",
+      "purpose": "Run batch backtests",
+      "writes_to": [
+        "data/backtests",
+        "outputs/backtests"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_only"
+      ]
+    },
+    {
+      "command": "run-daily",
+      "category": "core / daily",
+      "purpose": "Run virtual daily workflow",
+      "writes_to": [
+        "data/signals",
+        "data/orders",
+        "data/trades",
+        "data/portfolios",
+        "outputs/daily"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only",
+        "no_broker",
+        "not_live"
+      ]
+    },
+    {
+      "command": "run-evolution",
+      "category": "evolution",
+      "purpose": "Planned evolution workflow",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "no_auto_promotion"
+      ]
+    },
+    {
+      "command": "run-parameter-sweep",
+      "category": "experiments",
+      "purpose": "Run parameter sweep",
+      "writes_to": [
+        "data/experiments",
+        "outputs/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "shadow_only"
+      ]
+    },
+    {
+      "command": "run-research-pipeline",
+      "category": "reports",
+      "purpose": "Run research reporting pipeline",
+      "writes_to": [
+        "data/reports",
+        "data/system",
+        "outputs/reports",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "score-signals",
+      "category": "evolution",
+      "purpose": "Planned signal scoring",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "score-strategies",
+      "category": "evolution",
+      "purpose": "Planned strategy scoring",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "not_promotion"
+      ]
+    },
+    {
+      "command": "show-experiment",
+      "category": "experiments",
+      "purpose": "Show experiment",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "read_only"
+      ]
+    },
+    {
+      "command": "simulate-promotion",
+      "category": "experiments",
+      "purpose": "Simulate promotion",
+      "writes_to": [
+        "data/experiments",
+        "outputs/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "simulation_is_not_promotion"
+      ]
+    },
+    {
+      "command": "summarize-health",
+      "category": "health / consistency",
+      "purpose": "Summarize runtime health",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "read_only"
+      ]
+    },
+    {
+      "command": "system-dashboard",
+      "category": "reports",
+      "purpose": "Generate system dashboard",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "status_only"
+      ]
+    },
+    {
+      "command": "system-integrity-audit",
+      "category": "audits",
+      "purpose": "Audit system integrity release candidate",
+      "writes_to": [
+        "data/system",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "release_audit_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "system-smoke-test",
+      "category": "audits",
+      "purpose": "Run non-trading system smoke test",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "smoke_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "train-ml-shadow",
+      "category": "ml shadow",
+      "purpose": "Train shadow model",
+      "writes_to": [
+        "data/ml",
+        "outputs/ml"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "shadow_only"
+      ]
+    },
+    {
+      "command": "update-experiment-queue",
+      "category": "evolution",
+      "purpose": "Planned experiment queue update",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "update-mistake-patterns",
+      "category": "experiments",
+      "purpose": "Update mistake pattern library",
+      "writes_to": [
+        "data/experiments",
+        "outputs/experiments"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "diagnostic_only"
+      ]
+    },
+    {
+      "command": "update-rule-memory",
+      "category": "evolution",
+      "purpose": "Planned rule memory update",
+      "writes_to": [
+        "data/evolution"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "validate-data-package",
+      "category": "data acquisition / validation",
+      "purpose": "Validate data package",
+      "writes_to": [
+        "outputs/validation"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "validation_only"
+      ]
+    },
+    {
+      "command": "walk-forward",
+      "category": "backtest / replay",
+      "purpose": "Run walk-forward summary",
+      "writes_to": [
+        "stdout"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only"
+      ]
+    },
+    {
+      "command": "weekly-research-report",
+      "category": "reports",
+      "purpose": "Generate weekly research report",
+      "writes_to": [
+        "data/reports",
+        "outputs/reports"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "research_only",
+        "not_an_admission_gate"
+      ]
+    }
+  ],
+  "boundary": {
+    "inventory_only": true,
+    "run_daily_called": false,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  },
+  "warnings": []
+}
