@@ -24,6 +24,7 @@ from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, re
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
+from trading_core.features.feature_store import build_feature_matrix
 from trading_core.reports.acceptance_report import write_acceptance_materials
 from trading_core.reports.trading_summary import export_trading_summary
 from trading_core.runtime.health import load_health, summarize_health
@@ -131,6 +132,10 @@ def build_parser() -> argparse.ArgumentParser:
     replay_last.add_argument("--end-date", required=True)
     replay_last.add_argument("--data", required=True)
     replay_last.add_argument("--write-main-ledger", action="store_true")
+    features = subparsers.add_parser("build-features")
+    features.add_argument("--start-date", required=True)
+    features.add_argument("--end-date", required=True)
+    features.add_argument("--data", required=True)
     return parser
 
 
@@ -262,6 +267,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             write_main_ledger=args.write_main_ledger,
         )
         print({"historical_replay_passed": result["historical_replay_passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "build-features":
+        result = build_feature_matrix(args.start_date, args.end_date, _resolve_cli_path(args.data, paths), paths)
+        print({"rows": result["rows"], "output_path": result["output_path"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
