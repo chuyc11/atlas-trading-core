@@ -1,5 +1,38 @@
 # Release Notes
 
+## v0.5.4-global-briefing-historical-replay-harness-audited
+
+This release adds the full global-briefing historical replay harness. It establishes a repeatable, auditable, isolated replay framework for future historical macro signal packages.
+
+Includes:
+
+- global-briefing signal contract
+- signal package validator
+- point-in-time replay bundle
+- isolated historical replay harness
+- replay evaluation report
+- replay audit
+- fixture-based end-to-end smoke inputs for signal and price packages
+
+Audited & Validated scope:
+
+- `global-briefing-contract` generated contract JSON and Markdown.
+- `validate-global-briefing-signals` passed on the fixture signal package.
+- `build-global-briefing-replay-bundle` generated a point-in-time bundle with `future_signal_used=False`.
+- `replay-global-briefing-history` generated an isolated no-trade replay summary.
+- `global-briefing-replay-report` produced `overall_status=research_review_ready`.
+- `audit-global-briefing-replay` passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Protected orders/trades/portfolio/accounts paths unchanged.
+- Main ledger not written.
+- run-daily not called.
+- Labels, ML shadow, experiments, and promotion outputs were not used.
+- Promotion was not triggered.
+
+Boundaries remain strict: not forward dry-run validation, not live trading readiness, not strategy effectiveness proof, no broker, no real orders, isolated replay only, no strategy state or parameter changes, no RL trading, and no LLM trading decisions.
+
+Validation: 518 tests passed, 1 skipped.
+
 ## v0.5.3-forward-dry-run-readiness-audited
 
 This release adds a readiness-only audit for preparing a future 30 trading-day virtual forward dry-run. It does not start or validate the forward dry-run.

@@ -65,3 +65,25 @@ python -m trading_core.cli system-smoke-test --include-reports --include-invento
 python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 ```
+
+## Global briefing historical replay harness
+
+This workflow builds an isolated historical replay harness for global-briefing macro signal packages. It is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
+
+```powershell
+python -m trading_core.cli global-briefing-contract
+python -m trading_core.cli validate-global-briefing-signals --input tests/fixtures/global_briefing/signals_valid.jsonl --start-date 2024-01-02 --end-date 2024-01-08
+python -m trading_core.cli build-global-briefing-replay-bundle --signals tests/fixtures/global_briefing/signals_valid.jsonl --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --allow-carry-forward
+python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08
+python -m trading_core.cli global-briefing-replay-report --replay data/replays/global_briefing/global_briefing_replay-2024-01-02-2024-01-08.json
+python -m trading_core.cli audit-global-briefing-replay
+```
+
+Boundary:
+
+- isolated replay only
+- no broker
+- no live trading
+- no forward dry-run started or validated
+- no main orders/trades/portfolio/accounts writes
+- no labels, ML shadow, experiments, or promotion in the replay decision path

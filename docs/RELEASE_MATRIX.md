@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current forward dry-run readiness line is `v0.5.3-forward-dry-run-readiness-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current global-briefing historical replay harness line is `v0.5.4-global-briefing-historical-replay-harness-audited`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -14,3 +14,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.5.1-system-integrity-and-documentation | v0.5.1-system-integrity-and-documentation | documentation, inventory, smoke, and boundary audits | yes | no new trading capability |
 | v0.5.2-usability-polish | v0.5.2-usability-polish | report index, latest artifact locator, artifact browser, quick status, command cookbook, usability audit | yes | no new trading capability; forward 30d dry-run still not completed |
 | v0.5.3-forward-dry-run-readiness-audited | v0.5.3-forward-dry-run-readiness-audited | forward dry-run readiness audit, day-0 checklist, 30D plan, protected path and leakage checks | yes | readiness only; forward dry-run not started or validated |
+| v0.5.4-global-briefing-historical-replay-harness-audited | v0.5.4-global-briefing-historical-replay-harness-audited | global-briefing signal contract, package validation, point-in-time bundle, isolated historical replay, evaluation, and audit | yes | historical replay harness only; not forward dry-run validation, not live trading readiness, not strategy effectiveness proof |
