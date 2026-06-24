@@ -32,6 +32,10 @@ from trading_core.experiments.experiment_registry import (
 )
 from trading_core.experiments.experiment_dashboard import build_experiment_dashboard
 from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
+from trading_core.experiments.promotion_simulation import (
+    PromotionSimulationInputError,
+    run_promotion_simulation,
+)
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
 from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
@@ -200,6 +204,11 @@ def build_parser() -> argparse.ArgumentParser:
     dashboard_parser.add_argument("--experiments-dir")
     dashboard_parser.add_argument("--shadow-dir")
     dashboard_parser.add_argument("--output-dir")
+
+    promotion_sim = subparsers.add_parser("simulate-promotion")
+    promotion_sim.add_argument("--comparison", required=True)
+    promotion_sim.add_argument("--score-threshold", type=float, default=5.0)
+    promotion_sim.add_argument("--strict", action="store_true")
 
     return parser
 
@@ -469,6 +478,29 @@ def main(argv: Sequence[str] | None = None) -> int:
             "parameter_sweep_count": len(result["parameter_sweeps"]),
             "ml_shadow_result_count": len(result["ml_shadow_results"]),
             "strategy_comparison_count": len(result["strategy_comparisons"]),
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0
+    if args.command == "simulate-promotion":
+        try:
+            result = run_promotion_simulation(
+                args.comparison,
+                score_threshold=args.score_threshold,
+                strict=args.strict,
+                paths=paths,
+            )
+        except PromotionSimulationInputError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "simulation_id": result["simulation_id"],
+            "items": result["summary"]["total_items"],
+            "reject": result["summary"]["reject"],
+            "watch": result["summary"]["watch"],
+            "shadow_candidate": result["summary"]["shadow_candidate"],
+            "active_small_candidate": result["summary"]["active_small_candidate"],
             "warnings": len(result["warnings"]),
             "json_path": result["json_path"],
             "report_path": result["report_path"],
