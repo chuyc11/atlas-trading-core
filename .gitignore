@@ -13,6 +13,7 @@ outputs/features/
 outputs/labels/
 outputs/ml/
 outputs/shadow/
+outputs/experiments/
 outputs/strategy-leaderboard-*.md
 data/raw/prices/etf_daily/
 data/raw/prices/*.jsonl

@@ -1,0 +1,20 @@
+# Parameter sweep configuration for momentum strategy v1
+# This is a shadow experiment - no real trading, no main ledger writes
+
+experiment_id: EXP-sweep-momentum-20260624
+strategy_id: momentum_strategy_v1
+mode: shadow
+
+data_path: work/trading-core/data/raw/prices/etf_daily
+start_date: "2024-01-01"
+end_date: "2026-06-23"
+
+parameters:
+  lookback_days: [5, 10, 20, 60]
+  top_k: [1, 2, 3]
+  target_weight: [0.03, 0.05]
+
+constraints:
+  write_main_ledger: false
+  allow_active: false
+  shadow_only: true

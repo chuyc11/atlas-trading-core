@@ -30,6 +30,7 @@ from trading_core.experiments.experiment_registry import (
     list_experiments,
     register_experiment,
 )
+from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
 from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
@@ -190,6 +191,10 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("list-experiments")
     show_exp = subparsers.add_parser("show-experiment")
     show_exp.add_argument("--experiment-id", required=True, help="Experiment ID to show")
+
+    sweep_parser = subparsers.add_parser("run-parameter-sweep")
+    sweep_parser.add_argument("--config", required=True, help="Path to parameter sweep config YAML/JSON file")
+
     return parser
 
 
@@ -417,6 +422,21 @@ def main(argv: Sequence[str] | None = None) -> int:
             print(f"Experiment '{args.experiment_id}' not found")
             return 1
         print(experiment)
+        return 0
+    if args.command == "run-parameter-sweep":
+        try:
+            result = run_parameter_sweep_from_config(
+                _resolve_cli_path(args.config, paths), paths
+            )
+        except Exception as exc:
+            print(str(exc))
+            return 1
+        print({
+            "experiment_id": result["experiment_id"],
+            "parameter_grid_size": result["parameter_grid_size"],
+            "best_shadow_candidate": result["best_shadow_candidate"],
+            "warnings": result["warnings"],
+        })
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
