@@ -1,5 +1,24 @@
 # Release Notes
 
+## v0.2.1-price-only-historical-replay-validated
+
+This release adds historical 30-trading-day price-only replay validation.
+
+Validated scope:
+
+- Historical 30-trading-day price-only replay passed.
+- Replay date range: 2026-05-11 to 2026-06-22.
+- `historical_replay_passed=True`.
+- `price_only_replay=True`.
+- `forward_30d_dry_run_passed=False`.
+- No real macro_signals were available.
+- Replay did not pollute main daily-run ledger.
+- Critical errors: 0.
+
+This release is not a full historical global-briefing replay and is not future 30-day forward dry-run validation. Boundaries remain strict: no broker integration, no live trading, no real orders, no ML, no RL, and no LLM trading decisions.
+
+Validation: 144 tests passed.
+
 ## v0.2.0-historical-real-data-validated
 
 This release marks Trading Core as a historical real-data validated, file-backed virtual trading research base.

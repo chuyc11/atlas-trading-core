@@ -20,6 +20,7 @@ from trading_core.data.price_dataset_merge import merge_price_data
 from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
 from trading_core.evaluation.dry_run_validation_report import build_dry_run_validation_report
+from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
@@ -120,6 +121,16 @@ def build_parser() -> argparse.ArgumentParser:
     dry_run_validation = subparsers.add_parser("dry-run-validation-report")
     dry_run_validation.add_argument("--start-date", required=True)
     dry_run_validation.add_argument("--end-date", required=True)
+    replay = subparsers.add_parser("replay-dry-run")
+    replay.add_argument("--start-date", required=True)
+    replay.add_argument("--end-date", required=True)
+    replay.add_argument("--data", required=True)
+    replay.add_argument("--write-main-ledger", action="store_true")
+    replay_last = subparsers.add_parser("replay-last-trading-days")
+    replay_last.add_argument("--days", type=int, required=True)
+    replay_last.add_argument("--end-date", required=True)
+    replay_last.add_argument("--data", required=True)
+    replay_last.add_argument("--write-main-ledger", action="store_true")
     return parser
 
 
@@ -231,6 +242,26 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "dry-run-validation-report":
         result = build_dry_run_validation_report(args.start_date, args.end_date, paths)
         print({"dry_run_30d_passed": result["dry_run_30d_passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "replay-dry-run":
+        result = replay_dry_run(
+            args.start_date,
+            args.end_date,
+            _resolve_cli_path(args.data, paths),
+            paths,
+            write_main_ledger=args.write_main_ledger,
+        )
+        print({"historical_replay_passed": result["historical_replay_passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "replay-last-trading-days":
+        result = replay_last_trading_days(
+            args.days,
+            args.end_date,
+            _resolve_cli_path(args.data, paths),
+            paths,
+            write_main_ledger=args.write_main_ledger,
+        )
+        print({"historical_replay_passed": result["historical_replay_passed"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

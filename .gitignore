@@ -8,6 +8,7 @@ outputs/data-validation/
 outputs/consistency/
 outputs/validation/
 outputs/daily/virtual-trading-report-*.md
+outputs/replays/
 outputs/strategy-leaderboard-*.md
 data/raw/prices/etf_daily/
 data/raw/prices/*.jsonl
@@ -23,5 +24,6 @@ data/valuations/
 data/orders/
 data/trades/
 data/portfolios/
+data/replays/
 data/experiments/
 data/evolution/
