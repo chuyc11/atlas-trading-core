@@ -19,6 +19,7 @@ from trading_core.data.price_acquisition import fetch_prices, should_return_fail
 from trading_core.data.price_dataset_merge import merge_price_data
 from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
+from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.reports.acceptance_report import write_acceptance_materials
@@ -103,6 +104,8 @@ def build_parser() -> argparse.ArgumentParser:
     consistency_range = subparsers.add_parser("check-consistency-range")
     consistency_range.add_argument("--start-date", required=True)
     consistency_range.add_argument("--end-date", required=True)
+    consistency_range.add_argument("--mode", choices=["daily", "backtest", "auto"], default="daily")
+    consistency_range.add_argument("--artifact-dir")
     fetch = subparsers.add_parser("fetch-prices")
     fetch.add_argument("--start-date", required=True)
     fetch.add_argument("--end-date", required=True)
@@ -111,6 +114,8 @@ def build_parser() -> argparse.ArgumentParser:
     merge = subparsers.add_parser("merge-price-data")
     merge.add_argument("--inputs", nargs="+", required=True)
     merge.add_argument("--output", required=True)
+    validation_report = subparsers.add_parser("real-data-validation-report")
+    validation_report.add_argument("--artifact-dir", required=True)
     return parser
 
 
@@ -175,8 +180,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         print({"passed": result["passed"], "report_path": result["report_path"]})
         return 0
     if args.command == "check-consistency-range":
-        result = check_consistency_range(args.start_date, args.end_date, paths)
-        print({"passed": result["passed"], "items": len(result["items"])})
+        artifact_dir = _resolve_cli_path(args.artifact_dir, paths) if args.artifact_dir else None
+        result = check_consistency_range(args.start_date, args.end_date, paths, mode=args.mode, artifact_dir=artifact_dir)
+        print(
+            {
+                "passed": result["passed"],
+                "mode": result["mode"],
+                "items": len(result.get("items", [])),
+                "report_path": result.get("report_path"),
+            }
+        )
         return 0
     if args.command == "fetch-prices":
         try:
@@ -207,6 +220,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print({"passed": result["manifest"]["passed"], "manifest_path": result["manifest_path"]})
         return 0 if result["manifest"]["passed"] else 1
+    if args.command == "real-data-validation-report":
+        result = build_real_data_validation_report(_resolve_cli_path(args.artifact_dir, paths), paths)
+        print({"release_candidate_passed": result["release_candidate_passed"], "report_path": result["report_path"]})
+        return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)

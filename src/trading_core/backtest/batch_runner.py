@@ -134,6 +134,7 @@ def _metrics(
     excess = float(benchmark.get("excess_return", {}).get("EQUAL_ETF", 0.0)) if benchmark else 0.0
     return {
         "strategy_id": strategy_id,
+        "final_asset": round(final, 6),
         "cumulative_return": round(cumulative_return, 8),
         "max_drawdown": round(max_drawdown, 8),
         "trade_count": len(trades),

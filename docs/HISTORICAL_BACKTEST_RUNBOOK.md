@@ -50,4 +50,16 @@ Files:
 - Compare each strategy against CASH, EQUAL_ETF, and CSI300.
 - Review costs, turnover, drawdown, and trade counts.
 - Review admission gate decisions.
+- After `run-backtest-batch`, audit historical artifacts with:
+
+```powershell
+python -m trading_core.cli check-consistency-range --start-date 2024-01-01 --end-date 2026-06-23 --mode backtest --artifact-dir work\trading-core\outputs\backtests\batch-YYYYMMDD-HHMMSS
+```
+
+- Then assemble the v0.2 real-data validation evidence with:
+
+```powershell
+python -m trading_core.cli real-data-validation-report --artifact-dir work\trading-core\outputs\backtests\batch-YYYYMMDD-HHMMSS
+```
+
 - Do not promote strategies automatically from this run.
