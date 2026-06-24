@@ -4,7 +4,7 @@
 
 * trading-core is a research-only virtual trading workbench
 * current tag: v0.5.1-system-integrity-and-documentation
-* pytest result: 374 passed, 1 skipped
+* pytest result: 381 passed, 1 skipped
 * system integrity audit result: true
 * not live trading ready
 * forward 30d dry-run not completed
@@ -76,7 +76,7 @@
 
 ## 4. What Has Been Validated
 
-* pytest result: 374 passed, 1 skipped
+* pytest result: 381 passed, 1 skipped
 * release audits passed
 * boundary regression passed: true
 * ML shadow boundary audit passed: true
@@ -124,7 +124,7 @@
 
 ## 7. Current Strategic Interpretation
 
-* parameter sweep has shadow candidates for research review only; this is not trading authorization
+* parameter sweep produced no eligible shadow candidate in the latest validated artifacts
 * promotion simulation produced no shadow_candidate or active_small_candidate in the latest artifact
 * mistake pattern library contains 4 pattern(s); current strategy research should remain in shadow review
 * ML shadow recommendation(s): promising, watch; observation-only and not trading signals

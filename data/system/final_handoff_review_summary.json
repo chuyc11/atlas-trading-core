@@ -1,8 +1,9 @@
 {
   "review_id": "FINAL-HANDOFF-20260624",
-  "created_at": "2026-06-24T16:53:36.782725Z",
+  "created_at": "2026-06-24T17:08:40.701856Z",
   "current_tag": "v0.5.1-system-integrity-and-documentation",
-  "pytest": "374 passed, 1 skipped",
+  "pytest": "381 passed, 1 skipped",
+  "latest_pytest_result": "381 passed, 1 skipped",
   "overall_status": "research_workbench_ready",
   "live_trading_ready": false,
   "forward_30d_dry_run_validated": false,
@@ -17,7 +18,7 @@
     "system integrity documentation"
   ],
   "validated_items": {
-    "pytest": "374 passed, 1 skipped",
+    "pytest": "381 passed, 1 skipped",
     "system_integrity_audit_passed": true,
     "boundary_regression_passed": true,
     "reporting_system_audit_passed": true,
@@ -172,7 +173,7 @@
     }
   ],
   "strategic_interpretation": [
-    "parameter sweep has shadow candidates for research review only; this is not trading authorization",
+    "parameter sweep produced no eligible shadow candidate in the latest validated artifacts",
     "promotion simulation produced no shadow_candidate or active_small_candidate in the latest artifact",
     "mistake pattern library contains 4 pattern(s); current strategy research should remain in shadow review",
     "ML shadow recommendation(s): promising, watch; observation-only and not trading signals",

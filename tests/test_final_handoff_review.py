@@ -63,6 +63,7 @@ def test_final_handoff_generates_json_and_markdown(handoff_paths: ProjectPaths) 
     assert Path(result["json_path"]).exists()
     assert Path(result["report_path"]).exists()
     assert result["current_tag"] == "v0.5.1-system-integrity-and-documentation"
+    assert result["latest_pytest_result"] == "381 passed, 1 skipped"
 
 
 def test_missing_artifact_does_not_crash(tmp_path: Path) -> None:
@@ -99,6 +100,16 @@ def test_report_contains_required_boundaries(handoff_paths: ProjectPaths) -> Non
     assert "Shadow signals are not trading instructions." in report
     assert "Promotion simulation is not promotion." in report
     assert "Research reports are not admission gates." in report
+
+
+def test_report_uses_latest_pytest_and_correct_sweep_candidate_wording(handoff_paths: ProjectPaths) -> None:
+    result = build_final_handoff_review(handoff_paths)
+    report = Path(result["report_path"]).read_text(encoding="utf-8")
+
+    assert "381 passed, 1 skipped" in report
+    assert "374 passed, 1 skipped" not in report
+    assert "parameter sweep produced no eligible shadow candidate in the latest validated artifacts" in report
+    assert "parameter sweep has shadow candidates" not in report
 
 
 def test_handoff_does_not_write_protected_ledgers(handoff_paths: ProjectPaths) -> None:

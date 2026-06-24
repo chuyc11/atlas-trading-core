@@ -11,7 +11,7 @@ from trading_core.storage.file_paths import ProjectPaths, project_paths
 from trading_core.system.common import write_json_markdown
 
 
-PYTEST_RESULT = "374 passed, 1 skipped"
+LATEST_PYTEST_RESULT = "381 passed, 1 skipped"
 REQUIRED_FILES = [
     "VERSION",
     "RELEASE_NOTES.md",
@@ -77,7 +77,8 @@ def build_final_handoff_review(paths: ProjectPaths | None = None) -> dict[str, A
         "review_id": f"FINAL-HANDOFF-{now:%Y%m%d}",
         "created_at": now.isoformat().replace("+00:00", "Z"),
         "current_tag": _read_text(paths.project_root / "VERSION", warnings, "VERSION").strip() or "unknown",
-        "pytest": PYTEST_RESULT,
+        "pytest": LATEST_PYTEST_RESULT,
+        "latest_pytest_result": LATEST_PYTEST_RESULT,
         "overall_status": overall_status,
         "live_trading_ready": False,
         "forward_30d_dry_run_validated": False,
@@ -92,7 +93,7 @@ def build_final_handoff_review(paths: ProjectPaths | None = None) -> dict[str, A
             "system integrity documentation",
         ],
         "validated_items": {
-            "pytest": PYTEST_RESULT,
+            "pytest": LATEST_PYTEST_RESULT,
             "system_integrity_audit_passed": system_integrity_passed,
             "boundary_regression_passed": boundary_regression.get("passed") is True,
             "reporting_system_audit_passed": reporting_audit.get("overall_passed") is True,
@@ -173,7 +174,7 @@ def build_final_handoff_markdown(payload: dict[str, Any]) -> str:
         "",
         "* trading-core is a research-only virtual trading workbench",
         f"* current tag: {payload['current_tag']}",
-        f"* pytest result: {payload['pytest']}",
+        f"* pytest result: {payload['latest_pytest_result']}",
         f"* system integrity audit result: {str(payload['validated_items']['system_integrity_audit_passed']).lower()}",
         "* not live trading ready",
         "* forward 30d dry-run not completed",
@@ -251,7 +252,7 @@ def build_final_handoff_markdown(payload: dict[str, Any]) -> str:
             "",
             "## 4. What Has Been Validated",
             "",
-            f"* pytest result: {payload['pytest']}",
+            f"* pytest result: {payload['latest_pytest_result']}",
             "* release audits passed",
             f"* boundary regression passed: {str(payload['validated_items']['boundary_regression_passed']).lower()}",
             f"* ML shadow boundary audit passed: {str(payload['validated_items']['ml_shadow_boundary_audit_passed']).lower()}",
@@ -378,11 +379,16 @@ def _strategic_interpretation(
 ) -> list[str]:
     items: list[str] = []
     if sweeps:
-        best_candidates = [payload.get("best_shadow_candidate") for payload in sweeps if payload.get("best_shadow_candidate")]
-        if best_candidates:
-            items.append("parameter sweep has shadow candidates for research review only; this is not trading authorization")
+        latest_promotion_summary = _latest(promotions).get("summary", {}) if promotions else {}
+        promoted_or_authorized = int(latest_promotion_summary.get("shadow_candidate", 0) or 0) + int(
+            latest_promotion_summary.get("active_small_candidate", 0) or 0
+        )
+        if promoted_or_authorized == 0:
+            items.append("parameter sweep produced no eligible shadow candidate in the latest validated artifacts")
         else:
-            items.append("parameter sweep did not produce an eligible candidate in the current artifacts")
+            items.append(
+                "parameter sweep results remain research-only; no eligible shadow candidate was promoted or authorized in the latest validated artifacts"
+            )
     else:
         warnings.append("parameter sweep artifacts missing; no sweep interpretation made")
 
