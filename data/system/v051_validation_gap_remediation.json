@@ -1,0 +1,46 @@
+{
+  "remediation_id": "V051-GAP-REMEDIATION",
+  "base_version": "v0.5.0-research-reporting-control-plane-audited",
+  "base_audit_commit": "e61c4a9",
+  "remediated_gaps": [
+    {
+      "gap_id": "GAP-002",
+      "status": "remediated",
+      "fix": "project_timezone changed to Asia/Shanghai"
+    },
+    {
+      "gap_id": "GAP-003",
+      "status": "remediated",
+      "fix": "max_daily_turnover is enforced by risk engine"
+    },
+    {
+      "gap_id": "GAP-004",
+      "status": "remediated",
+      "fix": "mistake_pattern_library JSON now includes explicit diagnostic boundary metadata"
+    }
+  ],
+  "deferred_gaps": [
+    {
+      "gap_id": "GAP-001",
+      "status": "deferred_to_v0.6",
+      "reason": "market-rule-aware execution requires larger simulation realism release"
+    },
+    {
+      "gap_id": "GAP-005",
+      "status": "deferred_to_v0.7",
+      "reason": "generalized Point-in-Time schema requires separate data architecture release"
+    }
+  ],
+  "boundary": {
+    "remediation_only": true,
+    "write_main_ledger": false,
+    "strategy_state_changed": false,
+    "strategy_parameters_changed": false,
+    "promotion_triggered": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false
+  }
+}

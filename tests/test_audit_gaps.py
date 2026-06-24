@@ -6,8 +6,8 @@ from trading_core.risk.risk_engine import check_order, load_risk_rules
 from trading_core.broker.market_rules import get_market_rule
 
 
-def test_gap_max_daily_turnover_not_enforced() -> None:
-    # Verify that max_daily_turnover exists in config but is not enforced by check_order
+def test_gap_max_daily_turnover_remediated() -> None:
+    # v0.5.1 remediation: max_daily_turnover exists in config and is enforced by check_order.
     rules = load_risk_rules()
     assert "max_daily_turnover" in rules["limits"]
 
@@ -20,8 +20,6 @@ def test_gap_max_daily_turnover_not_enforced() -> None:
         "quantity": 1200,
     }
 
-    # Even if we set max_daily_turnover to 0.0001 (very small) in config,
-    # the order is still passed because turnover is not checked in risk_engine.py.
     custom_rules = {
         "limits": {
             "max_single_position_weight": 0.20,
@@ -33,7 +31,8 @@ def test_gap_max_daily_turnover_not_enforced() -> None:
         "data_quality": rules["data_quality"],
     }
     result = check_order(account, order, "fresh", risk_rules=custom_rules)
-    assert result["risk_check"] == "passed"  # Shows the gap: turnover is not enforced.
+    assert result["risk_check"] == "rejected"
+    assert result["risk_reason_code"] == "daily_turnover_limit_exceeded"
 
 
 def test_gap_hk_board_lots() -> None:
@@ -42,7 +41,7 @@ def test_gap_hk_board_lots() -> None:
     assert hk_rule.lot_size == 1
 
 
-def test_gap_timezone_asia_tokyo() -> None:
+def test_gap_timezone_asia_shanghai_remediated() -> None:
     from trading_core.config_loader import load_config
     settings = load_config("settings.yaml")
-    assert settings.get("project_timezone") == "Asia/Tokyo"
+    assert settings.get("project_timezone") == "Asia/Shanghai"

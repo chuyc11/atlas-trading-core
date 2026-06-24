@@ -1,0 +1,982 @@
+{
+  "library_id": "MISTAKE-LIB-20260624-001",
+  "created_at": "2026-06-24T16:01:40.505393Z",
+  "inputs": [
+    "data/experiments/parameter_sweep-EXP-sweep-momentum-20260624.json",
+    "data/experiments/strategy_comparison-20260624-134823-738476.json",
+    "data/experiments/promotion_simulation-20260624-134834-576436.json",
+    "data/shadow/ml_shadow_leaderboard-2024-01-01-2026-06-23-MLSHADOW-20240101-20260623-mock.json"
+  ],
+  "min_evidence": 2,
+  "patterns": [
+    {
+      "pattern_id": "PATTERN-0001",
+      "pattern_type": "unstable_rank_ic",
+      "description": "ML shadow rank IC appears weak or unstable.",
+      "evidence_count": 242,
+      "affected_strategies": [],
+      "affected_experiments": [],
+      "affected_models": [
+        "MLSHADOW-20240101-20260623-mock"
+      ],
+      "severity": "high",
+      "suggested_action": "keep_shadow",
+      "status": "monitoring",
+      "evidence": [
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-01",
+          "metric": "rank_ic",
+          "value": -0.0952380952,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-02",
+          "metric": "rank_ic",
+          "value": 0.1904761905,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-03",
+          "metric": "rank_ic",
+          "value": 0.0238095238,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-07",
+          "metric": "rank_ic",
+          "value": -0.619047619,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-08",
+          "metric": "rank_ic",
+          "value": -0.7380952381,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-09",
+          "metric": "rank_ic",
+          "value": -0.4285714286,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-10",
+          "metric": "rank_ic",
+          "value": -0.2380952381,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-11",
+          "metric": "rank_ic",
+          "value": -0.4761904762,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-14",
+          "metric": "rank_ic",
+          "value": -0.5476190476,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-15",
+          "metric": "rank_ic",
+          "value": 0.5,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-16",
+          "metric": "rank_ic",
+          "value": -0.8095238095,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-17",
+          "metric": "rank_ic",
+          "value": -0.9047619048,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-18",
+          "metric": "rank_ic",
+          "value": -0.7714285714,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-21",
+          "metric": "rank_ic",
+          "value": -0.3142857143,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-22",
+          "metric": "rank_ic",
+          "value": -0.7619047619,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-23",
+          "metric": "rank_ic",
+          "value": -0.1666666667,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-24",
+          "metric": "rank_ic",
+          "value": -0.3333333333,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-25",
+          "metric": "rank_ic",
+          "value": -0.2142857143,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-28",
+          "metric": "rank_ic",
+          "value": -0.5714285714,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        },
+        {
+          "source_type": "ml_shadow_leaderboard",
+          "source_id": "MLSHADOW-20240101-20260623-mock",
+          "item_id": "WF-0001:2025-04-29",
+          "metric": "rank_ic",
+          "value": -0.6904761905,
+          "reason": "rank IC instability",
+          "strategy_id": null,
+          "experiment_id": null,
+          "model_id": "MLSHADOW-20240101-20260623-mock"
+        }
+      ]
+    },
+    {
+      "pattern_id": "PATTERN-0002",
+      "pattern_type": "benchmark_underperformance",
+      "description": "Candidates underperformed their benchmark or EQUAL_ETF reference.",
+      "evidence_count": 48,
+      "affected_strategies": [
+        "momentum_strategy_v1"
+      ],
+      "affected_experiments": [
+        "EXP-sweep-momentum-20260624"
+      ],
+      "affected_models": [],
+      "severity": "high",
+      "suggested_action": "compare_benchmark",
+      "status": "open",
+      "evidence": [
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-001",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.908018,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-002",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.897057,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-003",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.867825,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-004",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.883543,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-005",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.850191,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-006",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.791905,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-007",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.913841,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-008",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.905514,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-009",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.899678,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-010",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.886768,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-011",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.860037,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-012",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.837834,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-013",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -1.014754,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-014",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -1.010607,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-015",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.98315,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-016",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.993179,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-017",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.973118,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-018",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.920767,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-019",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.91354,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-020",
+          "metric": "excess_return_vs_equal_etf",
+          "value": -0.896001,
+          "reason": "negative excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        }
+      ]
+    },
+    {
+      "pattern_id": "PATTERN-0003",
+      "pattern_type": "cost_drag",
+      "description": "Costs appear to drag performance while excess return is non-positive.",
+      "evidence_count": 24,
+      "affected_strategies": [
+        "momentum_strategy_v1"
+      ],
+      "affected_experiments": [
+        "EXP-sweep-momentum-20260624"
+      ],
+      "affected_models": [],
+      "severity": "high",
+      "suggested_action": "reduce_turnover",
+      "status": "open",
+      "evidence": [
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-001",
+          "metric": "cost_ratio",
+          "value": 0.024914,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-002",
+          "metric": "cost_ratio",
+          "value": 0.046659,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-003",
+          "metric": "cost_ratio",
+          "value": 0.056757,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-004",
+          "metric": "cost_ratio",
+          "value": 0.025878,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-005",
+          "metric": "cost_ratio",
+          "value": 0.048516,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-006",
+          "metric": "cost_ratio",
+          "value": 0.059075,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-007",
+          "metric": "cost_ratio",
+          "value": 0.025974,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-008",
+          "metric": "cost_ratio",
+          "value": 0.044515,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-009",
+          "metric": "cost_ratio",
+          "value": 0.062002,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-010",
+          "metric": "cost_ratio",
+          "value": 0.02698,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-011",
+          "metric": "cost_ratio",
+          "value": 0.046244,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-012",
+          "metric": "cost_ratio",
+          "value": 0.06444,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-013",
+          "metric": "cost_ratio",
+          "value": 0.028088,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-014",
+          "metric": "cost_ratio",
+          "value": 0.047712,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-015",
+          "metric": "cost_ratio",
+          "value": 0.054616,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-016",
+          "metric": "cost_ratio",
+          "value": 0.029166,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-017",
+          "metric": "cost_ratio",
+          "value": 0.049599,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-018",
+          "metric": "cost_ratio",
+          "value": 0.056809,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-019",
+          "metric": "cost_ratio",
+          "value": 0.016436,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-020",
+          "metric": "cost_ratio",
+          "value": 0.0244,
+          "reason": "cost drag with non-positive excess return",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        }
+      ]
+    },
+    {
+      "pattern_id": "PATTERN-0004",
+      "pattern_type": "overfit_parameter",
+      "description": "Parameter scores vary widely without a durable candidate signal.",
+      "evidence_count": 24,
+      "affected_strategies": [
+        "momentum_strategy_v1"
+      ],
+      "affected_experiments": [
+        "EXP-sweep-momentum-20260624"
+      ],
+      "affected_models": [],
+      "severity": "high",
+      "suggested_action": "require_more_data",
+      "status": "open",
+      "evidence": [
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-001",
+          "metric": "score",
+          "value": -91.91,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-002",
+          "metric": "score",
+          "value": -91.89,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-003",
+          "metric": "score",
+          "value": -89.29,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-004",
+          "metric": "score",
+          "value": -89.98,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-005",
+          "metric": "score",
+          "value": -88.07,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-006",
+          "metric": "score",
+          "value": -82.69,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-007",
+          "metric": "score",
+          "value": -92.48,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-008",
+          "metric": "score",
+          "value": -92.75,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-009",
+          "metric": "score",
+          "value": -92.64,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-010",
+          "metric": "score",
+          "value": -90.14,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-011",
+          "metric": "score",
+          "value": -88.98,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-012",
+          "metric": "score",
+          "value": -87.51,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-013",
+          "metric": "score",
+          "value": -102.57,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-014",
+          "metric": "score",
+          "value": -103.09,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-015",
+          "metric": "score",
+          "value": -100.67,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-016",
+          "metric": "score",
+          "value": -100.86,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-017",
+          "metric": "score",
+          "value": -100.06,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-018",
+          "metric": "score",
+          "value": -95.26,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-019",
+          "metric": "score",
+          "value": -92.24,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        },
+        {
+          "source_type": "parameter_sweep",
+          "source_id": "EXP-sweep-momentum-20260624",
+          "item_id": "EXP-sweep-momentum-20260624-RUN-020",
+          "metric": "score",
+          "value": -91.0,
+          "reason": "score dispersion is high and no best shadow candidate was selected",
+          "strategy_id": "momentum_strategy_v1",
+          "experiment_id": "EXP-sweep-momentum-20260624",
+          "model_id": null
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "insufficient evidence for pattern_type=low_sample_size: 1 < 2"
+  ],
+  "boundary": {
+    "diagnostic_only": true,
+    "strategy_modified": false,
+    "parameters_modified": false,
+    "promotion_triggered": false,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false,
+    "broker_called": false,
+    "real_data_acquisition_called": false,
+    "rl_used": false,
+    "llm_trading_decision_used": false
+  }
+}

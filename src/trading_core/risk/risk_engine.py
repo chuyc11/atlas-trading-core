@@ -18,6 +18,7 @@ def check_order(
     order: dict[str, Any],
     price_quality: str,
     existing_order_count: int = 0,
+    today_traded_notional: float = 0.0,
     risk_rules: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     rules = load_risk_rules(risk_rules)
@@ -39,6 +40,15 @@ def check_order(
         return reject("quantity is zero")
     if target_weight > float(limits["max_single_position_weight"]):
         return reject("max_single_position_weight exceeded")
+    turnover_rejection = _check_daily_turnover_limit(
+        total_asset,
+        today_traded_notional,
+        estimated_price * quantity,
+        limits.get("max_daily_turnover"),
+        side,
+    )
+    if turnover_rejection:
+        return turnover_rejection
 
     if side == "BUY":
         gross_needed = estimated_price * quantity
@@ -66,4 +76,35 @@ def check_order(
 
 
 def reject(reason: str) -> dict[str, str]:
-    return {"risk_check": "rejected", "risk_reason": reason}
+    return {"risk_check": "rejected", "risk_reason": reason, "risk_reason_code": _reason_code(reason)}
+
+
+def _check_daily_turnover_limit(
+    account_equity: float,
+    today_traded_notional: float,
+    estimated_order_notional: float,
+    max_daily_turnover: Any,
+    side: str,
+) -> dict[str, str] | None:
+    if side == "HOLD":
+        return None
+    try:
+        limit = float(max_daily_turnover)
+    except (TypeError, ValueError):
+        return None
+    if limit <= 0:
+        return None
+    if account_equity <= 0:
+        return reject("account_equity_non_positive")
+
+    # v0.5.1 minimal enforcement: use available same-day traded notional when
+    # callers provide it, otherwise enforce at least the single-order turnover.
+    projected_daily_turnover = max(0.0, float(today_traded_notional)) + abs(float(estimated_order_notional))
+    turnover_ratio = projected_daily_turnover / account_equity
+    if turnover_ratio > limit:
+        return reject("daily_turnover_limit_exceeded")
+    return None
+
+
+def _reason_code(reason: str) -> str:
+    return reason.lower().replace(" ", "_")

@@ -275,6 +275,24 @@ def test_markdown_contains_required_diagnostic_boundary(library_paths: ProjectPa
     assert "This is not an admission gate." in report
 
 
+def test_json_contains_required_diagnostic_boundary(library_paths: ProjectPaths) -> None:
+    path = _comparison(library_paths, [{"item_id": "A", "source_type": "parameter_sweep", "metrics": {"excess_return": -0.01}}, {"item_id": "B", "source_type": "parameter_sweep", "metrics": {"excess_return": -0.02}}])
+
+    result = update_mistake_pattern_library([path], paths=library_paths)
+    payload = json.loads(Path(result["json_path"]).read_text(encoding="utf-8"))
+    boundary = payload["boundary"]
+
+    assert boundary["diagnostic_only"] is True
+    assert boundary["strategy_modified"] is False
+    assert boundary["parameters_modified"] is False
+    assert boundary["promotion_triggered"] is False
+    assert boundary["write_main_ledger"] is False
+    assert boundary["orders_written"] is False
+    assert boundary["trades_written"] is False
+    assert boundary["portfolio_written"] is False
+    assert boundary["accounts_written"] is False
+
+
 def test_does_not_write_trading_or_account_files(library_paths: ProjectPaths) -> None:
     path = _comparison(library_paths, [{"item_id": "A", "source_type": "parameter_sweep", "metrics": {"excess_return": -0.01}}, {"item_id": "B", "source_type": "parameter_sweep", "metrics": {"excess_return": -0.02}}])
 
@@ -341,4 +359,3 @@ def test_suggested_actions_are_from_allowed_set(library_paths: ProjectPaths) -> 
     result = update_mistake_pattern_library([comparison], paths=library_paths)
 
     assert all(pattern["suggested_action"] in SUGGESTED_ACTIONS for pattern in result["patterns"])
-

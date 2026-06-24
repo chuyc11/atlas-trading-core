@@ -17,6 +17,7 @@ def signal_to_order(
     price_row: dict[str, Any] | None,
     sequence: int = 1,
     existing_order_count: int = 0,
+    today_traded_notional: float = 0.0,
 ) -> dict[str, Any]:
     side = "BUY" if signal.get("side") == "LONG" else str(signal.get("side", "HOLD")).upper()
     if side == "HOLD":
@@ -55,7 +56,7 @@ def signal_to_order(
         "estimated_price": price if price else None,
     }
     quality = str(price_row.get("quality", "missing")) if price_row else "missing"
-    order.update(check_order(account, order, quality, existing_order_count))
+    order.update(check_order(account, order, quality, existing_order_count, today_traded_notional))
     order["status"] = "submitted" if order["risk_check"] == "passed" else "rejected"
     return order
 
@@ -78,10 +79,20 @@ def process_signals(
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     orders: list[dict[str, Any]] = []
     trades: list[dict[str, Any]] = []
+    today_traded_notional = 0.0
     for index, signal in enumerate(signals, 1):
-        order = signal_to_order(signal, date, account, prices.get(str(signal.get("symbol"))), index, len(orders))
+        order = signal_to_order(
+            signal,
+            date,
+            account,
+            prices.get(str(signal.get("symbol"))),
+            index,
+            len(orders),
+            today_traded_notional,
+        )
         orders.append(order)
         trade = execute_order(order, account, prices.get(str(signal.get("symbol"))))
         if trade:
             trades.append(trade)
+            today_traded_notional += abs(float(trade.get("gross_amount", 0.0)))
     return orders, trades

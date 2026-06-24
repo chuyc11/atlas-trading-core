@@ -157,9 +157,9 @@ def build_mistake_pattern_markdown(payload: dict[str, Any]) -> str:
                     f"* description: {pattern.get('description', '')}",
                     f"* severity: {pattern.get('severity', '')}",
                     f"* evidence_count: {pattern.get('evidence_count', 0)}",
-                    f"* affected_strategies: {', '.join(pattern.get('affected_strategies', []))}",
-                    f"* affected_experiments: {', '.join(pattern.get('affected_experiments', []))}",
-                    f"* affected_models: {', '.join(pattern.get('affected_models', []))}",
+                    f"* affected_strategies: {_list_text(pattern.get('affected_strategies', []))}",
+                    f"* affected_experiments: {_list_text(pattern.get('affected_experiments', []))}",
+                    f"* affected_models: {_list_text(pattern.get('affected_models', []))}",
                     f"* suggested_action: {pattern.get('suggested_action', '')}",
                     f"* status: {pattern.get('status', '')}",
                     "",
@@ -554,8 +554,11 @@ def _format_value(value: Any) -> str:
     return str(value)
 
 
+def _list_text(values: list[str]) -> str:
+    return ", ".join(values) if values else "none"
+
+
 def _md(value: Any) -> str:
     if value is None:
         return ""
     return str(value).replace("|", "\\|")
-
