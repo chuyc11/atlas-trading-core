@@ -24,6 +24,12 @@ from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, re
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
+from trading_core.experiments.experiment_registry import (
+    ExperimentRegistry,
+    get_experiment,
+    list_experiments,
+    register_experiment,
+)
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
 from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
@@ -179,6 +185,11 @@ def build_parser() -> argparse.ArgumentParser:
     shadow_report.add_argument("--predictions", required=True)
     shadow_report.add_argument("--signals", required=True)
     shadow_report.add_argument("--leaderboard", required=True)
+    register_exp = subparsers.add_parser("register-experiment")
+    register_exp.add_argument("--config", required=True, help="Path to experiment config YAML/JSON file")
+    subparsers.add_parser("list-experiments")
+    show_exp = subparsers.add_parser("show-experiment")
+    show_exp.add_argument("--experiment-id", required=True, help="Experiment ID to show")
     return parser
 
 
@@ -384,6 +395,28 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths,
         )
         print({"model_id": result["model_id"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "register-experiment":
+        try:
+            result = register_experiment(_resolve_cli_path(args.config, paths), paths)
+        except Exception as exc:
+            print(str(exc))
+            return 1
+        print({"experiment_id": result["experiment_id"], "status": result["status"]})
+        return 0
+    if args.command == "list-experiments":
+        experiments = list_experiments(paths)
+        print({"total": len(experiments), "experiments": [
+            {"experiment_id": exp["experiment_id"], "status": exp.get("status", "unknown")}
+            for exp in experiments
+        ]})
+        return 0
+    if args.command == "show-experiment":
+        experiment = get_experiment(args.experiment_id, paths)
+        if experiment is None:
+            print(f"Experiment '{args.experiment_id}' not found")
+            return 1
+        print(experiment)
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

@@ -71,5 +71,5 @@ def ensure_project_dirs(paths: ProjectPaths) -> None:
     for directory in directories:
         (paths.data_dir / directory).mkdir(parents=True, exist_ok=True)
     (paths.data_dir / "raw" / "prices").mkdir(parents=True, exist_ok=True)
-    for directory in ["daily", "weekly", "monthly", "backtests", "evolution"]:
+    for directory in ["daily", "weekly", "monthly", "backtests", "evolution", "experiments"]:
         (paths.outputs_dir / directory).mkdir(parents=True, exist_ok=True)
