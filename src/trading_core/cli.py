@@ -31,6 +31,7 @@ from trading_core.experiments.experiment_registry import (
     register_experiment,
 )
 from trading_core.experiments.experiment_dashboard import build_experiment_dashboard
+from trading_core.experiments.experiment_release_audit import audit_experiment_system
 from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
 from trading_core.experiments.mistake_pattern_library import (
     MistakePatternLibraryInputError,
@@ -224,6 +225,8 @@ def build_parser() -> argparse.ArgumentParser:
     mistake_patterns = subparsers.add_parser("update-mistake-patterns")
     mistake_patterns.add_argument("--inputs", nargs="+", required=True)
     mistake_patterns.add_argument("--min-evidence", type=int, default=2)
+
+    subparsers.add_parser("audit-experiment-system")
 
     return parser
 
@@ -557,6 +560,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             "report_path": result["report_path"],
         })
         return 0
+    if args.command == "audit-experiment-system":
+        result = audit_experiment_system(paths)
+        print({
+            "audit_id": result["audit_id"],
+            "passed": result["passed"],
+            "checks": len(result["checks"]),
+            "failed": [check["name"] for check in result["checks"] if not check["passed"]],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
