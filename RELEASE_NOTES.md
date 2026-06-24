@@ -1,5 +1,25 @@
 # Release Notes
 
+## v0.5.1-validation-gap-remediation
+
+This patch release remediates selected v0.5 validation gaps without expanding the trading scope.
+
+Includes:
+
+- `project_timezone` changed from `Asia/Tokyo` to `Asia/Shanghai`.
+- `max_daily_turnover` is now enforced by the risk engine.
+- `mistake_pattern_library.json` now includes explicit diagnostic boundary metadata.
+- v0.5.1 remediation JSON and Markdown audit artifacts.
+
+Deferred gaps:
+
+- Market-rule-aware execution remains deferred to v0.6.
+- Generalized Point-in-Time schema remains deferred to v0.7.
+
+Boundaries remain strict: no broker integration, no live trading, no active promotion, no strategy state or parameter changes, no main ledger writes, no RL trading, and no LLM trading decisions. The v0.5.0 tag was not moved.
+
+Validation: 345 tests passed, 1 skipped.
+
 ## v0.5.0-research-reporting-control-plane-audited
 
 This release adds the v0.5 research reporting and control plane.
