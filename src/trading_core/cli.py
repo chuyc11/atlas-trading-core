@@ -66,6 +66,7 @@ from trading_core.storage.file_paths import ensure_project_dirs, project_paths
 from trading_core.system.artifact_inventory import build_artifact_inventory
 from trading_core.system.boundary_regression_audit import run_boundary_regression_audit
 from trading_core.system.cli_inventory import build_cli_inventory
+from trading_core.system.final_handoff_review import build_final_handoff_review
 from trading_core.system.system_integrity_audit import run_system_integrity_audit
 from trading_core.system.system_smoke_test import run_system_smoke_test
 
@@ -292,6 +293,7 @@ def build_parser() -> argparse.ArgumentParser:
     smoke.add_argument("--include-inventory", action="store_true")
     subparsers.add_parser("boundary-regression-audit")
     subparsers.add_parser("system-integrity-audit")
+    subparsers.add_parser("final-handoff-review")
 
     return parser
 
@@ -783,6 +785,16 @@ def main(argv: Sequence[str] | None = None) -> int:
             "report_path": result["report_path"],
         })
         return 0 if result["overall_passed"] else 1
+    if args.command == "final-handoff-review":
+        result = build_final_handoff_review(paths)
+        print({
+            "review_id": result["review_id"],
+            "overall_status": result["overall_status"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)

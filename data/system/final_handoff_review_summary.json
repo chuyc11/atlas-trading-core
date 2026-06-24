@@ -1,0 +1,197 @@
+{
+  "review_id": "FINAL-HANDOFF-20260624",
+  "created_at": "2026-06-24T16:53:36.782725Z",
+  "current_tag": "v0.5.1-system-integrity-and-documentation",
+  "pytest": "374 passed, 1 skipped",
+  "overall_status": "research_workbench_ready",
+  "live_trading_ready": false,
+  "forward_30d_dry_run_validated": false,
+  "strategy_effectiveness_proven": false,
+  "completed_layers": [
+    "core trading engine",
+    "historical real-data validation",
+    "price-only historical replay",
+    "ML shadow research pipeline",
+    "strategy experiment system",
+    "reporting control plane",
+    "system integrity documentation"
+  ],
+  "validated_items": {
+    "pytest": "374 passed, 1 skipped",
+    "system_integrity_audit_passed": true,
+    "boundary_regression_passed": true,
+    "reporting_system_audit_passed": true,
+    "experiment_system_audit_passed": true,
+    "ml_shadow_boundary_audit_passed": true
+  },
+  "trusted_outputs": [
+    "pytest result",
+    "system integrity audit",
+    "boundary regression audit",
+    "artifact inventory",
+    "CLI inventory"
+  ],
+  "restricted_outputs": [
+    "ML shadow leaderboard",
+    "parameter sweep",
+    "strategy comparison",
+    "promotion simulation",
+    "mistake pattern library",
+    "weekly/monthly reports",
+    "shadow signals",
+    "watch recommendation",
+    "promising_shadow",
+    "active_small_candidate simulation",
+    "historical replay"
+  ],
+  "open_items": [
+    "30 trading-day forward dry-run is not completed",
+    "full global-briefing historical replay is not completed",
+    "live broker integration does not exist",
+    "live trading is not supported",
+    "strategy effectiveness is not proven"
+  ],
+  "recommended_next_steps": [
+    "P0: keep project paused or run documentation review",
+    "P0: do not start live trading",
+    "P0: do not start RL",
+    "P1: v0.5.2 usability polish",
+    "P1: report index page",
+    "P1: open-latest-report CLI",
+    "P1: artifact browser markdown",
+    "P2: v0.6 multi-market research expansion",
+    "P2: US ETF universe",
+    "P2: cross-market benchmark",
+    "P2: global macro signal mapping",
+    "P3: forward 30d dry-run when ready"
+  ],
+  "artifact_status": [
+    {
+      "path": "VERSION",
+      "exists": true
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "exists": true
+    },
+    {
+      "path": "README.md",
+      "exists": true
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "exists": true
+    },
+    {
+      "path": "docs/SAFETY_BOUNDARY.md",
+      "exists": true
+    },
+    {
+      "path": "docs/RELEASE_MATRIX.md",
+      "exists": true
+    },
+    {
+      "path": "docs/CLI_REFERENCE.md",
+      "exists": true
+    },
+    {
+      "path": "docs/ARTIFACT_MAP.md",
+      "exists": true
+    },
+    {
+      "path": "docs/RUNBOOK.md",
+      "exists": true
+    },
+    {
+      "path": "docs/FORWARD_DRY_RUN_RUNBOOK.md",
+      "exists": true
+    },
+    {
+      "path": "data/system/system_integrity_audit.json",
+      "exists": true
+    },
+    {
+      "path": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+      "exists": true
+    },
+    {
+      "path": "data/system/boundary_regression_audit.json",
+      "exists": true
+    },
+    {
+      "path": "outputs/audit/BOUNDARY_REGRESSION_AUDIT.md",
+      "exists": true
+    },
+    {
+      "path": "data/system/cli_inventory.json",
+      "exists": true
+    },
+    {
+      "path": "data/system/artifact_inventory.json",
+      "exists": true
+    },
+    {
+      "path": "data/system/reporting_system_audit.json",
+      "exists": true
+    },
+    {
+      "path": "data/experiments/experiment_system_audit.json",
+      "exists": true
+    },
+    {
+      "path": "data/experiments/mistake_pattern_library.json",
+      "exists": true
+    },
+    {
+      "path": "data/system/project_status_summary.json",
+      "exists": true
+    },
+    {
+      "path": "data/system/system_dashboard.json",
+      "exists": true
+    },
+    {
+      "path": "data/experiments/promotion_simulation-*.json",
+      "exists": true,
+      "count": 1
+    },
+    {
+      "path": "data/experiments/strategy_comparison-*.json",
+      "exists": true,
+      "count": 1
+    },
+    {
+      "path": "data/experiments/parameter_sweep-*.json",
+      "exists": true,
+      "count": 2
+    },
+    {
+      "path": "data/shadow/ml_shadow_leaderboard-*.json",
+      "exists": true,
+      "count": 2
+    }
+  ],
+  "strategic_interpretation": [
+    "parameter sweep has shadow candidates for research review only; this is not trading authorization",
+    "promotion simulation produced no shadow_candidate or active_small_candidate in the latest artifact",
+    "mistake pattern library contains 4 pattern(s); current strategy research should remain in shadow review",
+    "ML shadow recommendation(s): promising, watch; observation-only and not trading signals",
+    "strategy comparison artifact count: 1; comparison outputs are research review only"
+  ],
+  "warnings": [],
+  "boundary": {
+    "research_only": true,
+    "broker_connected": false,
+    "live_trading": false,
+    "real_orders": false,
+    "rl_active_trading": false,
+    "llm_trading_decision": false,
+    "promotion_triggered": false,
+    "run_daily_called": false,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}
