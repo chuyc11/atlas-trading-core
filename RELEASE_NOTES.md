@@ -1,5 +1,33 @@
 # Release Notes
 
+## v0.5.0-research-reporting-control-plane-audited
+
+This release adds the v0.5 research reporting and control plane.
+
+Includes:
+
+- weekly research report
+- monthly research report
+- system dashboard
+- project status report
+- one-command research reporting pipeline
+- reporting system release audit
+
+Audited & Validated scope:
+
+- Weekly and monthly reports generated from existing artifacts.
+- System dashboard and project status reports generated.
+- Research pipeline generated all v0.5 reporting artifacts.
+- Reporting system audit passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Protected orders/trades/portfolio/accounts paths unchanged.
+- `run-daily` was not called or modified by the reporting pipeline.
+- The reports remain research-only and do not validate forward 30d dry-run.
+
+Boundaries remain strict: no broker integration, no live trading, no active promotion, no strategy state or parameter changes, no main ledger writes, no RL trading, and no LLM trading decisions.
+
+Validation: 330 tests passed, 1 skipped.
+
 ## v0.3.0-ml-shadow-pipeline-audited
 
 This release adds the ML shadow research pipeline v1 (audited).
