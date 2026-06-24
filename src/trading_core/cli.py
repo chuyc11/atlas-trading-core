@@ -19,6 +19,7 @@ from trading_core.data.price_acquisition import fetch_prices, should_return_fail
 from trading_core.data.price_dataset_merge import merge_price_data
 from trading_core.daily_run import run_daily
 from trading_core.evaluation.dry_run_auditor import audit_dry_run
+from trading_core.evaluation.dry_run_validation_report import build_dry_run_validation_report
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import run_admission
@@ -116,6 +117,9 @@ def build_parser() -> argparse.ArgumentParser:
     merge.add_argument("--output", required=True)
     validation_report = subparsers.add_parser("real-data-validation-report")
     validation_report.add_argument("--artifact-dir", required=True)
+    dry_run_validation = subparsers.add_parser("dry-run-validation-report")
+    dry_run_validation.add_argument("--start-date", required=True)
+    dry_run_validation.add_argument("--end-date", required=True)
     return parser
 
 
@@ -223,6 +227,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "real-data-validation-report":
         result = build_real_data_validation_report(_resolve_cli_path(args.artifact_dir, paths), paths)
         print({"release_candidate_passed": result["release_candidate_passed"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "dry-run-validation-report":
+        result = build_dry_run_validation_report(args.start_date, args.end_date, paths)
+        print({"dry_run_30d_passed": result["dry_run_30d_passed"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

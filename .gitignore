@@ -7,10 +7,14 @@ outputs/dry-runs/
 outputs/data-validation/
 outputs/consistency/
 outputs/validation/
+outputs/daily/virtual-trading-report-*.md
 outputs/strategy-leaderboard-*.md
 data/raw/prices/etf_daily/
 data/raw/prices/*.jsonl
 data/runtime/
+data/attribution/
+data/signals/
+data/snapshots/
 data/exports/
 data/backtests/
 data/benchmarks/
