@@ -1,5 +1,36 @@
 # Release Notes
 
+## v0.3.0-ml-shadow-pipeline-audited
+
+This release adds the ML shadow research pipeline v1 (audited).
+
+Includes:
+
+- feature store v1
+- label versioning v1
+- walk-forward dataset builder
+- ML shadow model scaffold
+- ML prediction output
+- ML shadow signal generator
+- ML shadow leaderboard
+- ML shadow research report
+
+Audited & Validated scope:
+
+- Walk-forward dataset builder validated.
+- ML shadow model training and inference scaffold verified.
+- ML shadow prediction file output (predictions.jsonl) successfully written.
+- ML shadow signal generator (ml_shadow_signals.jsonl) successfully generated.
+- ML shadow leaderboard recommendation generated as "watch".
+- ML shadow research report successfully compiled.
+- Independent boundaries audited (no broker connections, no live-trading logic, no main ledger pollution).
+- Data leakage: none (chronological split enforced).
+- Audit verdict: PASS_WITH_NO_ACTION.
+
+Boundaries remain strict: no broker integration, no live trading, no active ML signals execution, no active ledger pollution.
+
+Validation: 188 tests passed.
+
 ## v0.2.1-price-only-historical-replay-validated
 
 This release adds historical 30-trading-day price-only replay validation.
