@@ -36,6 +36,10 @@ from trading_core.experiments.promotion_simulation import (
     PromotionSimulationInputError,
     run_promotion_simulation,
 )
+from trading_core.experiments.strategy_comparison import (
+    StrategyComparisonInputError,
+    build_strategy_comparison,
+)
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
 from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
@@ -209,6 +213,9 @@ def build_parser() -> argparse.ArgumentParser:
     promotion_sim.add_argument("--comparison", required=True)
     promotion_sim.add_argument("--score-threshold", type=float, default=5.0)
     promotion_sim.add_argument("--strict", action="store_true")
+
+    compare_strategies = subparsers.add_parser("compare-strategies")
+    compare_strategies.add_argument("--inputs", nargs="+", required=True)
 
     return parser
 
@@ -501,6 +508,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             "watch": result["summary"]["watch"],
             "shadow_candidate": result["summary"]["shadow_candidate"],
             "active_small_candidate": result["summary"]["active_small_candidate"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0
+    if args.command == "compare-strategies":
+        try:
+            result = build_strategy_comparison(args.inputs, paths)
+        except StrategyComparisonInputError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "comparison_id": result["comparison_id"],
+            "items": result["item_count"],
+            "best_by_score": result["best_by_score"],
+            "best_by_excess_return": result["best_by_excess_return"],
             "warnings": len(result["warnings"]),
             "json_path": result["json_path"],
             "report_path": result["report_path"],
