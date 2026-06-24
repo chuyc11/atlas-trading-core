@@ -1,4 +1,23 @@
-# Release Notes: v0.1.0-core-hardened
+# Release Notes
+
+## v0.2.0-historical-real-data-validated
+
+This release marks Trading Core as a historical real-data validated, file-backed virtual trading research base.
+
+Validated scope:
+
+- Historical real ETF data validation passed.
+- Batch backtest passed.
+- Backtest consistency passed.
+- Real-data validation report passed.
+- `dry_run_30d_passed=False`.
+- Blocking reason: `actual_run_days_below_30`, `missing_real_global_briefing_inputs`.
+
+This release does not represent 30-day real global-briefing dry-run validation. Boundaries remain strict: no broker integration, no live trading, no real orders, no ML, no RL, and no LLM trading decisions.
+
+Validation: 136 tests passed.
+
+## v0.1.0-core-hardened
 
 This release freezes the first hardened version of Trading Core as a file-backed virtual trading research base.
 
