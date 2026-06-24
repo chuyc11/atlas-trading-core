@@ -26,6 +26,12 @@ from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderbo
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
+from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
+from trading_core.ml.shadow_leaderboard import build_ml_shadow_leaderboard
+from trading_core.ml.shadow_model import train_ml_shadow_model
+from trading_core.ml.shadow_report import build_ml_shadow_report
+from trading_core.ml.shadow_signal_generator import generate_ml_shadow_signals
+from trading_core.ml.walk_forward_dataset import build_walk_forward_dataset
 from trading_core.reports.acceptance_report import write_acceptance_materials
 from trading_core.reports.trading_summary import export_trading_summary
 from trading_core.runtime.health import load_health, summarize_health
@@ -141,6 +147,38 @@ def build_parser() -> argparse.ArgumentParser:
     labels.add_argument("--start-date", required=True)
     labels.add_argument("--end-date", required=True)
     labels.add_argument("--data", required=True)
+    ml_dataset = subparsers.add_parser("build-ml-dataset")
+    ml_dataset.add_argument("--features", required=True)
+    ml_dataset.add_argument("--labels", required=True)
+    ml_dataset.add_argument("--start-date", required=True)
+    ml_dataset.add_argument("--end-date", required=True)
+    ml_dataset.add_argument("--train-days", type=int, required=True)
+    ml_dataset.add_argument("--validation-days", type=int, required=True)
+    ml_dataset.add_argument("--test-days", type=int, required=True)
+    ml_dataset.add_argument("--step-days", type=int, required=True)
+    ml_dataset.add_argument("--label-column", required=True)
+    train_ml = subparsers.add_parser("train-ml-shadow")
+    train_ml.add_argument("--dataset", required=True)
+    train_ml.add_argument("--rows", required=True)
+    train_ml.add_argument("--model-type", choices=["mock", "lightgbm"], required=True)
+    train_ml.add_argument("--label-column", required=True)
+    predict_ml = subparsers.add_parser("predict-ml-shadow")
+    predict_ml.add_argument("--model", required=True)
+    predict_ml.add_argument("--rows", required=True)
+    shadow_signals = subparsers.add_parser("generate-ml-shadow-signals")
+    shadow_signals.add_argument("--predictions", required=True)
+    shadow_signals.add_argument("--top-k", type=int, required=True)
+    shadow_signals.add_argument("--target-weight", type=float, required=True)
+    shadow_leaderboard = subparsers.add_parser("ml-shadow-leaderboard")
+    shadow_leaderboard.add_argument("--predictions", required=True)
+    shadow_leaderboard.add_argument("--signals", required=True)
+    shadow_leaderboard.add_argument("--benchmark", default="EQUAL_ETF")
+    shadow_report = subparsers.add_parser("ml-shadow-report")
+    shadow_report.add_argument("--dataset", required=True)
+    shadow_report.add_argument("--model", required=True)
+    shadow_report.add_argument("--predictions", required=True)
+    shadow_report.add_argument("--signals", required=True)
+    shadow_report.add_argument("--leaderboard", required=True)
     return parser
 
 
@@ -280,6 +318,72 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-labels":
         result = build_label_matrix(args.start_date, args.end_date, _resolve_cli_path(args.data, paths), paths)
         print({"rows": result["rows"], "output_path": result["output_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "build-ml-dataset":
+        result = build_walk_forward_dataset(
+            _resolve_cli_path(args.features, paths),
+            _resolve_cli_path(args.labels, paths),
+            args.start_date,
+            args.end_date,
+            args.train_days,
+            args.validation_days,
+            args.test_days,
+            args.step_days,
+            args.label_column,
+            paths,
+        )
+        print({"windows": len(result["windows"]), "rows": result["rows"], "output_path": result["output_path"]})
+        return 0
+    if args.command == "train-ml-shadow":
+        try:
+            result = train_ml_shadow_model(
+                _resolve_cli_path(args.dataset, paths),
+                _resolve_cli_path(args.rows, paths),
+                args.model_type,
+                args.label_column,
+                paths,
+            )
+        except RuntimeError as exc:
+            print(str(exc))
+            return 1
+        print({"model_id": result["model_id"], "model_path": result["model_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "predict-ml-shadow":
+        result = generate_ml_shadow_predictions(
+            _resolve_cli_path(args.model, paths),
+            _resolve_cli_path(args.rows, paths),
+            paths,
+        )
+        print({"predictions": result["prediction_count"], "output_path": result["output_path"]})
+        return 0
+    if args.command == "generate-ml-shadow-signals":
+        result = generate_ml_shadow_signals(
+            _resolve_cli_path(args.predictions, paths),
+            args.top_k,
+            args.target_weight,
+            paths,
+        )
+        print({"signals": result["signal_count"], "output_path": result["output_path"]})
+        return 0
+    if args.command == "ml-shadow-leaderboard":
+        result = build_ml_shadow_leaderboard(
+            _resolve_cli_path(args.predictions, paths),
+            _resolve_cli_path(args.signals, paths),
+            args.benchmark,
+            paths,
+        )
+        print({"recommendation": result["shadow_recommendation"], "output_path": result["output_path"]})
+        return 0
+    if args.command == "ml-shadow-report":
+        result = build_ml_shadow_report(
+            _resolve_cli_path(args.dataset, paths),
+            _resolve_cli_path(args.model, paths),
+            _resolve_cli_path(args.predictions, paths),
+            _resolve_cli_path(args.signals, paths),
+            _resolve_cli_path(args.leaderboard, paths),
+            paths,
+        )
+        print({"model_id": result["model_id"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
