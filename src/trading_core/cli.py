@@ -30,6 +30,7 @@ from trading_core.experiments.experiment_registry import (
     list_experiments,
     register_experiment,
 )
+from trading_core.experiments.experiment_dashboard import build_experiment_dashboard
 from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
 from trading_core.features.feature_store import build_feature_matrix
 from trading_core.labels.label_store import build_label_matrix
@@ -195,6 +196,11 @@ def build_parser() -> argparse.ArgumentParser:
     sweep_parser = subparsers.add_parser("run-parameter-sweep")
     sweep_parser.add_argument("--config", required=True, help="Path to parameter sweep config YAML/JSON file")
 
+    dashboard_parser = subparsers.add_parser("experiment-dashboard")
+    dashboard_parser.add_argument("--experiments-dir")
+    dashboard_parser.add_argument("--shadow-dir")
+    dashboard_parser.add_argument("--output-dir")
+
     return parser
 
 
@@ -206,6 +212,18 @@ def _resolve_cli_path(value: str, paths) -> Path:
     if len(parts) >= 2 and parts[0] == "work" and parts[1] == "trading-core":
         return paths.workspace_root / path
     return path
+
+
+def _resolve_project_path(value: str | None, paths) -> Path | None:
+    if value is None:
+        return None
+    path = Path(value)
+    if path.is_absolute():
+        return path
+    parts = [part.lower() for part in path.parts]
+    if len(parts) >= 2 and parts[0] == "work" and parts[1] == "trading-core":
+        return paths.workspace_root / path
+    return paths.project_root / path
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -436,6 +454,24 @@ def main(argv: Sequence[str] | None = None) -> int:
             "parameter_grid_size": result["parameter_grid_size"],
             "best_shadow_candidate": result["best_shadow_candidate"],
             "warnings": result["warnings"],
+        })
+        return 0
+    if args.command == "experiment-dashboard":
+        result = build_experiment_dashboard(
+            experiments_dir=_resolve_project_path(args.experiments_dir, paths),
+            shadow_dir=_resolve_project_path(args.shadow_dir, paths),
+            output_dir=_resolve_project_path(args.output_dir, paths),
+            paths=paths,
+        )
+        print({
+            "dashboard_id": result["dashboard_id"],
+            "registry_experiment_count": result["registry"]["experiment_count"],
+            "parameter_sweep_count": len(result["parameter_sweeps"]),
+            "ml_shadow_result_count": len(result["ml_shadow_results"]),
+            "strategy_comparison_count": len(result["strategy_comparisons"]),
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
         })
         return 0
     if args.command == "admission":
