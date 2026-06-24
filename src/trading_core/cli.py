@@ -64,11 +64,16 @@ from trading_core.runtime.health import load_health, summarize_health
 from trading_core.signals.macro_signal_loader import load_macro_signals
 from trading_core.storage.file_paths import ensure_project_dirs, project_paths
 from trading_core.system.artifact_inventory import build_artifact_inventory
+from trading_core.system.artifact_browser import build_artifact_browser
 from trading_core.system.boundary_regression_audit import run_boundary_regression_audit
 from trading_core.system.cli_inventory import build_cli_inventory
 from trading_core.system.final_handoff_review import build_final_handoff_review
+from trading_core.system.latest_artifact import locate_latest_artifact
+from trading_core.system.quick_status import build_quick_status
+from trading_core.system.report_index import build_report_index
 from trading_core.system.system_integrity_audit import run_system_integrity_audit
 from trading_core.system.system_smoke_test import run_system_smoke_test
+from trading_core.system.usability_audit import run_usability_audit
 
 
 PLANNED_COMMANDS = (
@@ -294,6 +299,20 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("boundary-regression-audit")
     subparsers.add_parser("system-integrity-audit")
     subparsers.add_parser("final-handoff-review")
+    report_index = subparsers.add_parser("report-index")
+    report_index.add_argument("--include-audit", action="store_true")
+    report_index.add_argument("--include-experiments", action="store_true")
+    report_index.add_argument("--include-system", action="store_true")
+    latest_artifact = subparsers.add_parser("latest-artifact")
+    latest_artifact.add_argument("--type", required=True, choices=["report", "audit", "experiment", "ml-shadow", "handoff", "dashboard", "all"])
+    latest_artifact.add_argument("--json", action="store_true", dest="json_output")
+    latest_artifact.add_argument("--open-command", action="store_true")
+    artifact_browser = subparsers.add_parser("artifact-browser")
+    artifact_browser.add_argument("--include-missing", action="store_true")
+    artifact_browser.add_argument("--group-by", choices=["category", "trust-level"], default="category")
+    quick_status = subparsers.add_parser("quick-status")
+    quick_status.add_argument("--json", action="store_true", dest="json_output")
+    subparsers.add_parser("usability-audit")
 
     return parser
 
@@ -795,6 +814,63 @@ def main(argv: Sequence[str] | None = None) -> int:
             "report_path": result["report_path"],
         })
         return 0
+    if args.command == "report-index":
+        result = build_report_index(
+            include_audit=args.include_audit,
+            include_experiments=args.include_experiments,
+            include_system=args.include_system,
+            paths=paths,
+        )
+        print({"reports": len(result["reports"]), "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "latest-artifact":
+        try:
+            result = locate_latest_artifact(args.type, open_command=args.open_command, paths=paths)
+        except ValueError as exc:
+            print(str(exc))
+            return 1
+        if args.json_output:
+            print(result)
+        else:
+            print({
+                "query_type": result["query_type"],
+                "latest": result["latest"] or result["latest_by_type"],
+                "warnings": len(result["warnings"]),
+                "open_command": result["open_command"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            })
+        return 0
+    if args.command == "artifact-browser":
+        result = build_artifact_browser(
+            include_missing=args.include_missing,
+            group_by=args.group_by,
+            paths=paths,
+        )
+        print({"start_here": len(result["start_here"]), "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "quick-status":
+        result = build_quick_status(paths)
+        if args.json_output:
+            print(result)
+        else:
+            print({
+                "current_version": result["current_version"],
+                "recommended_next_command": result["recommended_next_command"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            })
+        return 0
+    if args.command == "usability-audit":
+        result = run_usability_audit(paths)
+        print({
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)

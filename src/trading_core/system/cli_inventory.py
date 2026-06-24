@@ -87,6 +87,12 @@ COMMANDS: list[dict[str, Any]] = [
     _record("system-smoke-test", "audits", "Run non-trading system smoke test", ["data/system", "outputs/system"], ["smoke_only", "not_run_daily"]),
     _record("boundary-regression-audit", "audits", "Audit boundary regressions", ["data/system", "outputs/audit"], ["audit_only", "not_run_daily"]),
     _record("system-integrity-audit", "audits", "Audit system integrity release candidate", ["data/system", "outputs/audit"], ["release_audit_only", "not_run_daily"]),
+    _record("final-handoff-review", "reports", "Generate final human handoff review", ["data/system", "outputs/system"], ["handoff_only", "not_run_daily"]),
+    _record("report-index", "reports", "Generate human report index", ["data/system", "outputs/system"], ["index_only", "not_run_daily"]),
+    _record("latest-artifact", "reports", "Locate latest artifact by type", ["data/system", "outputs/system"], ["locator_only", "not_run_daily"]),
+    _record("artifact-browser", "reports", "Generate human artifact browser", ["data/system", "outputs/system"], ["browser_only", "not_run_daily"]),
+    _record("quick-status", "reports", "Generate quick project status", ["data/system", "outputs/system"], ["status_only", "not_run_daily"]),
+    _record("usability-audit", "audits", "Audit usability polish release candidate", ["data/system", "outputs/audit"], ["audit_only", "not_run_daily"]),
 ]
 
 

@@ -1,0 +1,22 @@
+{
+  "current_version": "v0.5.1-system-integrity-and-documentation",
+  "latest_handoff_report": "outputs/system/FINAL_HANDOFF_REVIEW_REPORT.md",
+  "latest_system_dashboard": "outputs/system/SYSTEM_DASHBOARD.md",
+  "latest_audit": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+  "pytest_baseline": "381 passed, 1 skipped",
+  "known_limitations": [
+    "forward 30d dry-run not completed",
+    "not live trading ready",
+    "strategy effectiveness not proven"
+  ],
+  "recommended_next_command": "python -m trading_core.cli report-index",
+  "boundary": {
+    "status_only": true,
+    "write_main_ledger": false,
+    "run_daily_called": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}

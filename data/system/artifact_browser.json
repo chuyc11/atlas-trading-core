@@ -1,0 +1,472 @@
+{
+  "browser_id": "ARTBROWSER-20260624-001",
+  "created_at": "2026-06-24T17:16:17.251086Z",
+  "group_by": "category",
+  "start_here": [
+    {
+      "title": "Final handoff review",
+      "path": "outputs/system/FINAL_HANDOFF_REVIEW_REPORT.md",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "System dashboard",
+      "path": "outputs/system/SYSTEM_DASHBOARD.md",
+      "trust_level": "system_status"
+    },
+    {
+      "title": "Project status report",
+      "path": "outputs/system/PROJECT_STATUS_REPORT.md",
+      "trust_level": "system_status"
+    },
+    {
+      "title": "System integrity audit",
+      "path": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Report index",
+      "path": "outputs/system/REPORT_INDEX.md",
+      "trust_level": "system_status"
+    }
+  ],
+  "engineering_audit_artifacts": [
+    {
+      "title": "Final Handoff Review Report",
+      "category": "system",
+      "path": "outputs/system/FINAL_HANDOFF_REVIEW_REPORT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T17:16:15.965016Z",
+      "description": "Human handoff and acceptance report",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Experiment Release Audit",
+      "category": "experiments",
+      "path": "outputs/experiments/EXPERIMENT_RELEASE_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:04:02.488569Z",
+      "description": "Markdown report artifact",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "System Integrity Audit",
+      "category": "audit",
+      "path": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T16:35:55.919638Z",
+      "description": "System integrity release audit",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Boundary Regression Audit",
+      "category": "audit",
+      "path": "outputs/audit/BOUNDARY_REGRESSION_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T16:35:55.463803Z",
+      "description": "Boundary regression audit",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "V051 Validation Gap Remediation",
+      "category": "audit",
+      "path": "outputs/audit/V051_VALIDATION_GAP_REMEDIATION.md",
+      "exists": true,
+      "modified_at": "2026-06-24T15:59:58.668981Z",
+      "description": "Markdown report artifact",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Reporting System Audit",
+      "category": "audit",
+      "path": "outputs/audit/REPORTING_SYSTEM_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:46:58.046257Z",
+      "description": "Reporting system audit",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Experiment System Audit",
+      "category": "audit",
+      "path": "outputs/audit/EXPERIMENT_SYSTEM_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:12:20.599339Z",
+      "description": "Experiment system audit",
+      "trust_level": "engineering_audit"
+    },
+    {
+      "title": "Claude Architecture And Test Audit",
+      "category": "audit",
+      "path": "outputs/audit/CLAUDE_ARCHITECTURE_AND_TEST_AUDIT.md",
+      "exists": true,
+      "modified_at": "2026-06-24T07:57:03.039220Z",
+      "description": "Markdown report artifact",
+      "trust_level": "engineering_audit"
+    }
+  ],
+  "research_review_artifacts": [
+    {
+      "title": "Monthly Research Report 2026 06 01 2026 06 30",
+      "category": "reports",
+      "path": "outputs/reports/MONTHLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:46:57.694706Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Weekly Research Report 2026 06 01 2026 06 30",
+      "category": "reports",
+      "path": "outputs/reports/WEEKLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:46:57.679595Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Weekly Research Report 2026 06 17 2026 06 23",
+      "category": "reports",
+      "path": "outputs/reports/WEEKLY_RESEARCH_REPORT-2026-06-17-2026-06-23.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:46:56.297300Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Parameter Sweep Exp Sweep Test 20260624",
+      "category": "experiments",
+      "path": "outputs/experiments/PARAMETER_SWEEP-EXP-sweep-test-20260624.md",
+      "exists": true,
+      "modified_at": "2026-06-24T17:09:20.004858Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Experiment Dashboard",
+      "category": "experiments",
+      "path": "outputs/experiments/EXPERIMENT_DASHBOARD.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:03:40.807642Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Experiment Registry",
+      "category": "experiments",
+      "path": "outputs/experiments/EXPERIMENT_REGISTRY.md",
+      "exists": true,
+      "modified_at": "2026-06-24T14:03:40.471995Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Promotion Simulation 20260624 134834 576436",
+      "category": "experiments",
+      "path": "outputs/experiments/PROMOTION_SIMULATION-20260624-134834-576436.md",
+      "exists": true,
+      "modified_at": "2026-06-24T13:48:34.585378Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Strategy Comparison 20260624 134823 738476",
+      "category": "experiments",
+      "path": "outputs/experiments/STRATEGY_COMPARISON-20260624-134823-738476.md",
+      "exists": true,
+      "modified_at": "2026-06-24T13:48:23.740680Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    },
+    {
+      "title": "Parameter Sweep Exp Sweep Momentum 20260624",
+      "category": "experiments",
+      "path": "outputs/experiments/PARAMETER_SWEEP-EXP-sweep-momentum-20260624.md",
+      "exists": true,
+      "modified_at": "2026-06-24T09:40:15.746026Z",
+      "description": "Markdown report artifact",
+      "trust_level": "research_review"
+    }
+  ],
+  "machine_readable_data": [
+    {
+      "artifact": "data/raw",
+      "path": "data/raw",
+      "exists": true,
+      "category": "raw",
+      "artifact_type": "raw data",
+      "generated_by": "import-prices/fetch-prices/merge-price-data",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 10,
+      "notes": []
+    },
+    {
+      "artifact": "data/features",
+      "path": "data/features",
+      "exists": true,
+      "category": "features",
+      "artifact_type": "feature artifacts",
+      "generated_by": "build-features",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 1,
+      "notes": []
+    },
+    {
+      "artifact": "data/labels",
+      "path": "data/labels",
+      "exists": true,
+      "category": "labels",
+      "artifact_type": "label artifacts",
+      "generated_by": "build-labels",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 2,
+      "notes": []
+    },
+    {
+      "artifact": "data/ml",
+      "path": "data/ml",
+      "exists": true,
+      "category": "ml",
+      "artifact_type": "ML artifacts",
+      "generated_by": "build-ml-dataset/train-ml-shadow/predict-ml-shadow",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 6,
+      "notes": []
+    },
+    {
+      "artifact": "data/shadow",
+      "path": "data/shadow",
+      "exists": true,
+      "category": "shadow",
+      "artifact_type": "ML shadow artifacts",
+      "generated_by": "generate-ml-shadow-signals/ml-shadow-leaderboard",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 8,
+      "notes": []
+    },
+    {
+      "artifact": "data/experiments",
+      "path": "data/experiments",
+      "exists": true,
+      "category": "experiments",
+      "artifact_type": "experiment artifacts",
+      "generated_by": "experiment commands",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 18,
+      "notes": []
+    },
+    {
+      "artifact": "data/reports",
+      "path": "data/reports",
+      "exists": true,
+      "category": "reports",
+      "artifact_type": "research report summaries",
+      "generated_by": "weekly-research-report/monthly-research-report",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 3,
+      "notes": []
+    },
+    {
+      "artifact": "data/system",
+      "path": "data/system",
+      "exists": true,
+      "category": "system",
+      "artifact_type": "system artifacts",
+      "generated_by": "system commands",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 10,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/backtests",
+      "path": "outputs/backtests",
+      "exists": true,
+      "category": "backtests",
+      "artifact_type": "backtest reports",
+      "generated_by": "backtest/run-backtest-batch",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 21,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/replays",
+      "path": "outputs/replays",
+      "exists": true,
+      "category": "replays",
+      "artifact_type": "replay reports",
+      "generated_by": "replay commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 2,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/shadow",
+      "path": "outputs/shadow",
+      "exists": true,
+      "category": "shadow",
+      "artifact_type": "shadow reports",
+      "generated_by": "ML shadow commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 8,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/experiments",
+      "path": "outputs/experiments",
+      "exists": true,
+      "category": "experiments",
+      "artifact_type": "experiment reports",
+      "generated_by": "experiment commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 8,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/reports",
+      "path": "outputs/reports",
+      "exists": true,
+      "category": "reports",
+      "artifact_type": "research reports",
+      "generated_by": "report commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 3,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/system",
+      "path": "outputs/system",
+      "exists": true,
+      "category": "system",
+      "artifact_type": "system reports",
+      "generated_by": "system commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 6,
+      "notes": []
+    },
+    {
+      "artifact": "outputs/audit",
+      "path": "outputs/audit",
+      "exists": true,
+      "category": "audit",
+      "artifact_type": "audit reports",
+      "generated_by": "audit commands",
+      "machine_readable": false,
+      "human_readable": true,
+      "allowed_into_main_trading_chain": false,
+      "file_count": 5,
+      "notes": []
+    },
+    {
+      "artifact": "mistake_pattern_library.json",
+      "path": "data/experiments/mistake_pattern_library.json",
+      "exists": true,
+      "category": "experiments",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "experiment_dashboard.json",
+      "path": "data/experiments/experiment_dashboard.json",
+      "exists": true,
+      "category": "experiments",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "weekly_research_summary-2026-06-17-2026-06-23.json",
+      "path": "data/reports/weekly_research_summary-2026-06-17-2026-06-23.json",
+      "exists": true,
+      "category": "reports",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "cli_inventory.json",
+      "path": "data/system/cli_inventory.json",
+      "exists": true,
+      "category": "system",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "artifact_inventory.json",
+      "path": "data/system/artifact_inventory.json",
+      "exists": true,
+      "category": "system",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "system_smoke_test.json",
+      "path": "data/system/system_smoke_test.json",
+      "exists": true,
+      "category": "system",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    },
+    {
+      "artifact": "boundary_regression_audit.json",
+      "path": "data/system/boundary_regression_audit.json",
+      "exists": true,
+      "category": "system",
+      "machine_readable": true,
+      "human_readable": false,
+      "allowed_into_main_trading_chain": false,
+      "notes": []
+    }
+  ],
+  "not_trading_authorization": [
+    "shadow signals",
+    "watch recommendation",
+    "promising_shadow",
+    "promotion simulation"
+  ],
+  "warnings": [],
+  "boundary": {
+    "browser_only": true,
+    "write_main_ledger": false,
+    "run_daily_called": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}

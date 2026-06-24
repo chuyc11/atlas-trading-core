@@ -1,0 +1,55 @@
+{
+  "query_type": "all",
+  "latest": null,
+  "latest_by_type": {
+    "audit": {
+      "path": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+      "modified_at": "2026-06-24T16:35:55.919638Z",
+      "exists": true,
+      "category": "audit"
+    },
+    "dashboard": {
+      "path": "outputs/system/SYSTEM_DASHBOARD.md",
+      "modified_at": "2026-06-24T14:46:57.697036Z",
+      "exists": true,
+      "category": "dashboard"
+    },
+    "experiment": {
+      "path": "data/experiments/parameter_sweep-EXP-sweep-test-20260624.json",
+      "modified_at": "2026-06-24T17:09:20.004858Z",
+      "exists": true,
+      "category": "experiment"
+    },
+    "handoff": {
+      "path": "outputs/system/FINAL_HANDOFF_REVIEW_REPORT.md",
+      "modified_at": "2026-06-24T17:16:15.965016Z",
+      "exists": true,
+      "category": "handoff"
+    },
+    "ml-shadow": {
+      "path": "outputs/shadow/ML_SHADOW_SIGNAL_REPORT-2026-01-01-2026-01-21-MLSHADOW-20260101-20260121-mock.md",
+      "modified_at": "2026-06-24T17:09:19.621500Z",
+      "exists": true,
+      "category": "ml-shadow"
+    },
+    "report": {
+      "path": "outputs/reports/MONTHLY_RESEARCH_REPORT-2026-06-01-2026-06-30.md",
+      "modified_at": "2026-06-24T14:46:57.694706Z",
+      "exists": true,
+      "category": "report"
+    }
+  },
+  "candidates": [],
+  "warnings": [],
+  "open_command": null,
+  "boundary": {
+    "locator_only": true,
+    "opened_file": false,
+    "write_main_ledger": false,
+    "run_daily_called": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false
+  }
+}
