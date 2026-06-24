@@ -1,0 +1,72 @@
+{
+  "audit_id": "CLAUDE-V05-SYSTEM-VALIDATION-AUDIT",
+  "version": "v0.5.0-research-reporting-control-plane-audited",
+  "release_commit": "71ed697",
+  "overall_verdict": "PASS_WITH_GAPS",
+  "pytest_result": "333 passed, 1 skipped",
+  "critical_boundary_violations": 0,
+  "main_ledger_pollution": false,
+  "run_daily_contamination": false,
+  "broker_live_trading_path": false,
+  "rl_trading_path": false,
+  "llm_trading_decision_path": false,
+  "promotion_triggered": false,
+  "data_leakage_found": false,
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "severity": "high",
+      "area": "simulation_realism",
+      "title": "Price limit and suspension handling not implemented",
+      "recommendation": "Add explicit simulation-realism scope boundaries and implement market-rule-aware execution in a future v0.6 simulation release."
+    },
+    {
+      "gap_id": "GAP-002",
+      "severity": "medium",
+      "area": "configuration",
+      "title": "project_timezone is Asia/Tokyo but project targets China/HK ETF workflows",
+      "recommendation": "Change project_timezone to Asia/Shanghai in v0.5.1 remediation."
+    },
+    {
+      "gap_id": "GAP-003",
+      "severity": "medium",
+      "area": "risk_engine",
+      "title": "max_daily_turnover is configured but not enforced",
+      "recommendation": "Implement or explicitly fail audit for configured-but-not-enforced risk rules in v0.5.1 remediation."
+    },
+    {
+      "gap_id": "GAP-004",
+      "severity": "low",
+      "area": "metadata_boundary",
+      "title": "mistake_pattern_library JSON boundary metadata inconsistent",
+      "recommendation": "Add explicit diagnostic boundary fields to mistake_pattern_library.json in v0.5.1 remediation."
+    },
+    {
+      "gap_id": "GAP-005",
+      "severity": "future_requirement",
+      "area": "point_in_time",
+      "title": "Generalized Point-in-Time metadata is not implemented",
+      "recommendation": "Add PIT schema before introducing fundamental, macro, announcement, index membership, industry, ST, suspension, or news data."
+    }
+  ],
+  "known_limitations": [
+    "forward 30d dry-run not completed",
+    "full global-briefing historical replay not completed",
+    "strategy effectiveness not statistically proven",
+    "ETF-only simulation should not be described as full A-share stock broker simulation",
+    "Point-in-Time model is not generalized beyond current price-only research scope"
+  ],
+  "recommended_next_issue": "Issue 76: v0.5.1 validation gap remediation",
+  "boundary": {
+    "audit_only": true,
+    "strategy_state_changed": false,
+    "strategy_parameters_changed": false,
+    "promotion_triggered": false,
+    "write_main_ledger": false,
+    "orders_written": false,
+    "trades_written": false,
+    "portfolio_written": false,
+    "accounts_written": false,
+    "run_daily_called": false
+  }
+}
