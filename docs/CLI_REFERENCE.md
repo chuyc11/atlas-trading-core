@@ -54,6 +54,11 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Reports | `leaderboard` | Build strategy leaderboard | outputs/strategy-leaderboard | broker | research only |
 | Reports | `export-summary` | Export trading summary | data/exports | broker | virtual summary |
 | Reports | `acceptance-report` | Write acceptance materials | outputs | broker | documentation only |
+| Reports | `final-handoff-review` | Generate final human handoff review | data/system, outputs/system | orders/trades/portfolio/accounts | handoff only |
+| Reports | `report-index` | Generate report index page | data/system, outputs/system | orders/trades/portfolio/accounts | index only |
+| Reports | `latest-artifact` | Locate latest artifact by type | data/system, outputs/system | orders/trades/portfolio/accounts | locator only, does not open files |
+| Reports | `artifact-browser` | Generate human artifact browser | data/system, outputs/system | orders/trades/portfolio/accounts | browser only |
+| Reports | `quick-status` | Generate quick project status | data/system, outputs/system | orders/trades/portfolio/accounts | status only |
 | Audits | `audit-experiment-system` | Audit experiment system | data/experiments, outputs/audit | strategy state | audit only |
 | Audits | `audit-reporting-system` | Audit reporting system | data/system, outputs/audit | orders/trades/portfolio/accounts | audit only |
 | Audits | `cli-inventory` | Generate CLI inventory | data/system, outputs/system | orders/trades/portfolio/accounts | inventory only |
@@ -61,6 +66,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Audits | `system-smoke-test` | Run non-trading smoke checks | data/system, outputs/system | orders/trades/portfolio/accounts | smoke only |
 | Audits | `boundary-regression-audit` | Audit safety boundary regression | data/system, outputs/audit | orders/trades/portfolio/accounts | static audit only |
 | Audits | `system-integrity-audit` | Audit v0.5.1 system integrity | data/system, outputs/audit | orders/trades/portfolio/accounts | release audit only |
+| Audits | `usability-audit` | Audit v0.5.2 usability polish | data/system, outputs/audit | orders/trades/portfolio/accounts | usability audit only |
 | Audits | `admission` | Run admission gate research check | stdout | broker | not automatic promotion |
 | Evolution | `score-signals` | Planned signal scoring | research artifacts | broker | not live |
 | Evolution | `classify-mistakes` | Planned mistake classification | research artifacts | broker | diagnostic only |

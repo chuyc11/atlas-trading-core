@@ -13,7 +13,9 @@ python -m pytest
 ## Find reports
 
 ```bash
+python -m trading_core.cli quick-status
 python -m trading_core.cli report-index
+python -m trading_core.cli latest-artifact --type all
 python -m trading_core.cli latest-artifact --type handoff
 python -m trading_core.cli artifact-browser
 ```

@@ -1,5 +1,7 @@
 # Release Matrix
 
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current usability handoff line is `v0.5.2-usability-polish`.
+
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
 | v0.1.0-core-hardened | v0.1.0-core-hardened | trading core hardened | yes | virtual file-backed only |
@@ -8,5 +10,6 @@
 | v0.3.0-ml-shadow-pipeline-audited | v0.3.0-ml-shadow-pipeline-audited | ML shadow research pipeline audited | yes | shadow only, not active trading |
 | v0.4.0-strategy-experiment-system-audited | v0.4.0-strategy-experiment-system-audited | strategy experiment system audited | yes | no promotion, no live trading |
 | v0.5.0-research-reporting-control-plane-audited | v0.5.0-research-reporting-control-plane-audited | research reporting and control plane audited | yes | reporting does not prove strategy effectiveness |
-| v0.5.1-validation-gap-remediation | v0.5.1-validation-gap-remediation | selected validation gap remediation | yes | market-rule-aware execution and generalized PIT schema deferred |
-| v0.5.1-system-integrity-and-documentation | v0.5.1-system-integrity-and-documentation | documentation, inventory, smoke, and boundary audits | release candidate | no new trading capability |
+| v0.5.1-validation-gap-remediation | v0.5.1-validation-gap-remediation | selected validation gap remediation patch | yes | market-rule-aware execution and generalized PIT schema deferred |
+| v0.5.1-system-integrity-and-documentation | v0.5.1-system-integrity-and-documentation | documentation, inventory, smoke, and boundary audits | yes | no new trading capability |
+| v0.5.2-usability-polish | v0.5.2-usability-polish | report index, latest artifact locator, artifact browser, quick status, command cookbook, usability audit | yes | no new trading capability; forward 30d dry-run still not completed |
