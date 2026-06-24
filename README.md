@@ -17,10 +17,7 @@
 
 ## Current release
 
-v0.5.0-research-reporting-control-plane-audited
-
-The current system integrity release candidate is
-v0.5.1-system-integrity-and-documentation.
+v0.5.3-forward-dry-run-readiness-audited
 
 ## Completed milestones
 
@@ -30,6 +27,9 @@ v0.5.1-system-integrity-and-documentation.
 - v0.3 ML shadow audited
 - v0.4 strategy experiment audited
 - v0.5 reporting control plane audited
+- v0.5.1 system integrity and documentation
+- v0.5.2 usability polish
+- v0.5.3 forward dry-run readiness audited
 
 ## Known limitations
 

@@ -1,5 +1,34 @@
 # Release Notes
 
+## v0.5.3-forward-dry-run-readiness-audited
+
+This release adds a readiness-only audit for preparing a future 30 trading-day virtual forward dry-run. It does not start or validate the forward dry-run.
+
+Includes:
+
+- forward dry-run readiness audit
+- day-0 checklist
+- 30 trading-day forward plan
+- protected path snapshot
+- run-daily isolation check
+- future-data leakage readiness check
+- artifact separation check
+- readiness-only safety boundary report
+
+Audited & Validated scope:
+
+- `forward-dry-run-readiness --trading-days 30` generated JSON and Markdown.
+- Day-0 checklist and 30 trading-day plan were generated.
+- Readiness audit passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Warning: trading calendar not found; manual calendar confirmation is required before day 1.
+- Protected orders/trades/portfolio/accounts paths unchanged.
+- `run-daily` was not called by the readiness validation flow.
+
+Boundaries remain strict: readiness-only, dry-run not started, dry-run not validated, no live trading, no broker, no real orders, no auto promotion, no strategy state or parameter changes, no main ledger writes, no RL trading, no LLM trading decisions, and no strategy effectiveness proof.
+
+Validation: 435 tests passed, 1 skipped.
+
 ## v0.5.2-usability-polish
 
 This release adds usability polish for finding reports, locating current artifacts, and resuming project work. It does not add trading functionality.

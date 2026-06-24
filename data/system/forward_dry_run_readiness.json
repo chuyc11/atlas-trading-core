@@ -1,6 +1,6 @@
 {
   "audit_id": "FWD-READINESS-20260624-001",
-  "created_at": "2026-06-24T17:41:39.992961Z",
+  "created_at": "2026-06-24T17:43:33.118727Z",
   "release_candidate": "v0.5.3-forward-dry-run-readiness-audited",
   "overall_passed": true,
   "blocking_reasons": [],
@@ -12,7 +12,7 @@
   "sections": {
     "version_baseline": {
       "passed": true,
-      "current_version": "v0.5.2-usability-polish",
+      "current_version": "v0.5.3-forward-dry-run-readiness-audited",
       "issues": []
     },
     "required_docs": {
