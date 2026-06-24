@@ -1,5 +1,35 @@
 # Release Notes
 
+## v0.5.2-usability-polish
+
+This release adds usability polish for finding reports, locating current artifacts, and resuming project work. It does not add trading functionality.
+
+Includes:
+
+- corrected final handoff wording
+- report index
+- latest artifact locator
+- artifact browser
+- quick status
+- command cookbook
+- usability audit
+
+Audited & Validated scope:
+
+- `final-handoff-review` regenerated with corrected pytest and candidate wording.
+- `report-index --include-audit --include-experiments --include-system` generated JSON and Markdown.
+- `latest-artifact --type handoff` and `latest-artifact --type all` generated locator output.
+- `artifact-browser` generated JSON and Markdown.
+- `quick-status` generated JSON and Markdown.
+- `usability-audit` passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Protected orders/trades/portfolio/accounts paths unchanged.
+- `run-daily` was not called by the usability validation flow.
+
+Boundaries remain strict: no trading functionality added, no live trading, no broker integration, no real orders, no auto promotion, no strategy state or parameter changes, no RL trading, and no LLM trading decisions. Forward 30d dry-run is still not completed.
+
+Validation: 410 tests passed, 1 skipped.
+
 ## v0.5.1-system-integrity-and-documentation
 
 This release consolidates system integrity documentation and auditability without adding trading capability.
