@@ -67,6 +67,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Audits | `boundary-regression-audit` | Audit safety boundary regression | data/system, outputs/audit | orders/trades/portfolio/accounts | static audit only |
 | Audits | `system-integrity-audit` | Audit v0.5.1 system integrity | data/system, outputs/audit | orders/trades/portfolio/accounts | release audit only |
 | Audits | `usability-audit` | Audit v0.5.2 usability polish | data/system, outputs/audit | orders/trades/portfolio/accounts | usability audit only |
+| Audits | `forward-dry-run-readiness` | Audit readiness to prepare a 30 trading-day forward dry-run | data/system, outputs/system, outputs/audit | orders/trades/portfolio/accounts | readiness only; does not start forward dry-run |
 | Audits | `admission` | Run admission gate research check | stdout | broker | not automatic promotion |
 | Evolution | `score-signals` | Planned signal scoring | research artifacts | broker | not live |
 | Evolution | `classify-mistakes` | Planned mistake classification | research artifacts | broker | diagnostic only |

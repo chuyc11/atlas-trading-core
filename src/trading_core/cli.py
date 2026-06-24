@@ -68,6 +68,7 @@ from trading_core.system.artifact_browser import build_artifact_browser
 from trading_core.system.boundary_regression_audit import run_boundary_regression_audit
 from trading_core.system.cli_inventory import build_cli_inventory
 from trading_core.system.final_handoff_review import build_final_handoff_review
+from trading_core.system.forward_dry_run_readiness import run_forward_dry_run_readiness
 from trading_core.system.latest_artifact import locate_latest_artifact
 from trading_core.system.quick_status import build_quick_status
 from trading_core.system.report_index import build_report_index
@@ -313,6 +314,11 @@ def build_parser() -> argparse.ArgumentParser:
     quick_status = subparsers.add_parser("quick-status")
     quick_status.add_argument("--json", action="store_true", dest="json_output")
     subparsers.add_parser("usability-audit")
+    readiness = subparsers.add_parser("forward-dry-run-readiness")
+    readiness.add_argument("--start-date")
+    readiness.add_argument("--trading-days", type=int, default=30)
+    readiness.add_argument("--calendar")
+    readiness.add_argument("--strict", action="store_true")
 
     return parser
 
@@ -869,6 +875,24 @@ def main(argv: Sequence[str] | None = None) -> int:
             "warnings": len(result["warnings"]),
             "json_path": result["json_path"],
             "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-readiness":
+        result = run_forward_dry_run_readiness(
+            start_date=args.start_date,
+            trading_days=args.trading_days,
+            calendar=args.calendar,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+            "day0_checklist_path": result["day0_checklist_path"],
+            "plan_path": result["plan_path"],
         })
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":

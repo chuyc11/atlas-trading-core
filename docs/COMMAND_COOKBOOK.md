@@ -25,6 +25,7 @@ python -m trading_core.cli artifact-browser
 ```bash
 python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
+python -m trading_core.cli forward-dry-run-readiness
 ```
 
 ## Run reporting pipeline
