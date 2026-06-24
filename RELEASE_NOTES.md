@@ -1,5 +1,33 @@
 # Release Notes
 
+## v0.5.1-system-integrity-and-documentation
+
+This release consolidates system integrity documentation and auditability without adding trading capability.
+
+Includes:
+
+- documentation consolidation across README and docs/
+- CLI inventory
+- artifact inventory
+- system smoke test
+- boundary regression audit
+- system integrity audit
+
+Audited & Validated scope:
+
+- `cli-inventory` generated JSON and Markdown.
+- `artifact-inventory` generated JSON and Markdown.
+- `system-smoke-test --include-reports --include-inventory` passed.
+- `boundary-regression-audit` passed.
+- `system-integrity-audit` passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Protected orders/trades/portfolio/accounts paths unchanged.
+- `run-daily` was not called by the system integrity validation flow.
+
+Boundaries remain strict: no live trading, no broker integration, no real orders, no auto promotion, no strategy state or parameter changes, no RL trading, and no LLM trading decisions. Forward 30d dry-run is still not completed.
+
+Validation: 374 tests passed, 1 skipped.
+
 ## v0.5.1-validation-gap-remediation
 
 This patch release remediates selected v0.5 validation gaps without expanding the trading scope.
