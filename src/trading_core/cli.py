@@ -32,6 +32,10 @@ from trading_core.experiments.experiment_registry import (
 )
 from trading_core.experiments.experiment_dashboard import build_experiment_dashboard
 from trading_core.experiments.parameter_sweep import run_parameter_sweep_from_config
+from trading_core.experiments.mistake_pattern_library import (
+    MistakePatternLibraryInputError,
+    update_mistake_pattern_library,
+)
 from trading_core.experiments.promotion_simulation import (
     PromotionSimulationInputError,
     run_promotion_simulation,
@@ -216,6 +220,10 @@ def build_parser() -> argparse.ArgumentParser:
 
     compare_strategies = subparsers.add_parser("compare-strategies")
     compare_strategies.add_argument("--inputs", nargs="+", required=True)
+
+    mistake_patterns = subparsers.add_parser("update-mistake-patterns")
+    mistake_patterns.add_argument("--inputs", nargs="+", required=True)
+    mistake_patterns.add_argument("--min-evidence", type=int, default=2)
 
     return parser
 
@@ -524,6 +532,26 @@ def main(argv: Sequence[str] | None = None) -> int:
             "items": result["item_count"],
             "best_by_score": result["best_by_score"],
             "best_by_excess_return": result["best_by_excess_return"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0
+    if args.command == "update-mistake-patterns":
+        try:
+            result = update_mistake_pattern_library(
+                args.inputs,
+                min_evidence=args.min_evidence,
+                paths=paths,
+            )
+        except MistakePatternLibraryInputError as exc:
+            print(str(exc))
+            return 1
+        print({
+            "library_id": result["library_id"],
+            "inputs": len(result["inputs"]),
+            "patterns": len(result["patterns"]),
+            "pattern_types": [pattern["pattern_type"] for pattern in result["patterns"]],
             "warnings": len(result["warnings"]),
             "json_path": result["json_path"],
             "report_path": result["report_path"],
