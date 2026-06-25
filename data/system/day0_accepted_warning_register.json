@@ -1,0 +1,130 @@
+{
+  "register_id": "DAY0-WARNING-REGISTER-20260625-001",
+  "created_at": "2026-06-25T08:57:27.178901Z",
+  "warning_inventory": "data/system/historical_warning_inventory.json",
+  "gap_closure_report": "data/system/historical_data_gap_closure_report.json",
+  "raw_warning_count": 346,
+  "grouped_warning_count": 10,
+  "accepted_count": 10,
+  "unresolved_count": 0,
+  "blocking_count": 0,
+  "warnings": [
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 5,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-RATES-LIQUIDITY-V1",
+      "status": "accepted",
+      "rationale": "optional source failed but replacement/proxy source is active or documented",
+      "day0_blocking": false
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 4,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-COMMODITY-INFLATION-RISK-V1",
+      "status": "accepted",
+      "rationale": "optional source failed but replacement/proxy source is active or documented",
+      "day0_blocking": false
+    },
+    {
+      "category": "missing_optional_package",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "optional package status explained",
+      "affected_package": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+      "status": "accepted",
+      "rationale": "internal global-briefing package not_configured accepted in proxy mode; internal signal not validated",
+      "day0_blocking": false
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "policy uncertainty / EPU component unavailable or proxied",
+      "affected_package": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+      "status": "accepted",
+      "rationale": "EPU partial accepted because Global/China proxy components are available",
+      "day0_blocking": false
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-FX-USDCNY-V1",
+      "status": "accepted",
+      "rationale": "optional source failed but replacement/proxy source is active or documented",
+      "day0_blocking": false
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "OECD CLI / macro-cycle component unavailable or proxied",
+      "affected_package": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+      "status": "accepted",
+      "rationale": "OECD macro-cycle proxy accepted only when clearly marked as proxy",
+      "day0_blocking": false
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-GLOBAL-RISK-VIX-V1",
+      "status": "accepted",
+      "rationale": "optional source failed but replacement/proxy source is active or documented",
+      "day0_blocking": false
+    },
+    {
+      "category": "lot_size_constraint",
+      "severity": "medium",
+      "raw_count": 172,
+      "message_pattern": "target delta below lot size",
+      "affected_package": null,
+      "status": "accepted",
+      "rationale": "isolated replay execution model limitation from lot size and target weight",
+      "day0_blocking": false
+    },
+    {
+      "category": "missing_price",
+      "severity": "high",
+      "raw_count": 156,
+      "message_pattern": "missing replay price for symbol",
+      "affected_package": null,
+      "status": "accepted",
+      "rationale": "remaining missing prices are accepted historical replay limitations, not forward validation evidence",
+      "day0_blocking": false
+    },
+    {
+      "category": "coverage_gap",
+      "severity": "medium",
+      "raw_count": 123,
+      "message_pattern": "coverage gap in replay calendar or price-aligned dates",
+      "affected_package": null,
+      "status": "accepted",
+      "rationale": "proxy coverage accepted: 0.9490196078431372",
+      "day0_blocking": false
+    }
+  ],
+  "boundary": {
+    "warning_register_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

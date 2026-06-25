@@ -39,6 +39,11 @@ def build_epu_rows(
     if not rows:
         rows = _policy_uncertainty_proxy_rows(paths, start_date, end_date, warnings)
         source = "authorized_policy_uncertainty_proxy"
+    elif not ({"global_epu", "china_epu"} & {str(row.get("series_id")) for row in rows}):
+        proxy_rows = _policy_uncertainty_proxy_rows(paths, start_date, end_date, warnings)
+        if proxy_rows:
+            rows.extend(proxy_rows)
+            source = "authorized_policy_uncertainty_proxy"
     if not rows:
         return [], source, "failed_soft", warnings or ["no EPU source available"], {"policy_uncertainty_proxy": False}
     available = {str(row.get("series_id")) for row in rows}

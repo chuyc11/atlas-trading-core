@@ -1,0 +1,170 @@
+{
+  "freeze_id": "DAY0-DATA-FREEZE-20260625-001",
+  "release_candidate": "v0.5.8-day0-operational-readiness-audited",
+  "created_at": "2026-06-25T08:57:26.744436Z",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "forward_dry_run_started": false,
+  "run_daily_called": false,
+  "download_manifest": "data/system/historical_data_download_manifest.json",
+  "quality_audit": "data/system/historical_data_quality_audit.json",
+  "gap_closure_audit": "data/system/historical_data_gap_closure_audit.json",
+  "packages": {
+    "HIST-ETF-OHLCV-CN-HK-V1": {
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+      "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-ETF-OHLCV-CN-HK-V1.json",
+      "coverage_ratio": 0.999677,
+      "row_count": 14791,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": []
+    },
+    "HIST-BENCHMARK-INDEX-CN-HK-V1": {
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "data/market/historical/authorized/HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+      "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-BENCHMARK-INDEX-CN-HK-V1.json",
+      "coverage_ratio": 1.0,
+      "row_count": 7892,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": []
+    },
+    "HIST-FX-USDCNY-V1": {
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "data/global_briefing/authorized/packages/HIST-FX-USDCNY-V1.csv",
+      "sha256": "6be954a2e96125ac831ca1976986cb76a685461f6c3d2ca6c6054a749142aaec",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-FX-USDCNY-V1.json",
+      "coverage_ratio": 1.0,
+      "row_count": 2207,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": [
+        "DEXCHUS: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED DEXCHUS unavailable; used Yahoo CNY=X historical close fallback."
+      ]
+    },
+    "HIST-GLOBAL-RISK-VIX-V1": {
+      "status": "downloaded",
+      "source": "cboe_vix",
+      "path": "data/global_briefing/authorized/packages/HIST-GLOBAL-RISK-VIX-V1.csv",
+      "sha256": "ebe4a5887aa8f344a711d6dc5d4a0f8f357740ed13f3835e1b82e7accbe78c4a",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-GLOBAL-RISK-VIX-V1.json",
+      "coverage_ratio": 0.999354,
+      "row_count": 2161,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": [
+        "VIXCLS: download failed from fred.stlouisfed.org: The read operation timed out"
+      ]
+    },
+    "HIST-RATES-LIQUIDITY-V1": {
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "data/global_briefing/authorized/packages/HIST-RATES-LIQUIDITY-V1.csv",
+      "sha256": "d2612afb7bb88c0b6fdf6b6fb98bc4bd983bef1dd2f65a43dd000e0d7b4eed93",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-RATES-LIQUIDITY-V1.json",
+      "coverage_ratio": 0.999354,
+      "row_count": 6384,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": [
+        "DGS2: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DGS10: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DFF: download failed from fred.stlouisfed.org: The read operation timed out",
+        "SOFR: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED rates series unavailable; used Yahoo market-yield proxies where available."
+      ]
+    },
+    "HIST-COMMODITY-INFLATION-RISK-V1": {
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "data/global_briefing/authorized/packages/HIST-COMMODITY-INFLATION-RISK-V1.csv",
+      "sha256": "c610e91b46fe4880fff179ea7acd392939055021aa087d8d7ee1822bf63c5ee9",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-COMMODITY-INFLATION-RISK-V1.json",
+      "coverage_ratio": 0.999677,
+      "row_count": 8532,
+      "accepted_for_day0": true,
+      "accepted_limitations": [],
+      "warnings": [
+        "DCOILWTICO: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DCOILBRENTEU: download failed from fred.stlouisfed.org: The read operation timed out",
+        "GOLDAMGBD228NLBM: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED commodity series unavailable; used Yahoo futures proxy fallback where available."
+      ]
+    },
+    "HIST-POLICY-UNCERTAINTY-EPU-V1": {
+      "status": "partial_downloaded",
+      "source": "authorized_policy_uncertainty_proxy",
+      "path": "data/global_briefing/authorized/packages/HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
+      "sha256": "c525eefa587d78fc19cfeffcb255e919e98c6d2adf8b4541d48eb819125edd50",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-POLICY-UNCERTAINTY-EPU-V1.json",
+      "coverage_ratio": 1.0,
+      "row_count": 4916,
+      "accepted_for_day0": true,
+      "accepted_limitations": [
+        "missing us_epu/europe_epu",
+        "policy uncertainty proxy only"
+      ],
+      "warnings": [
+        "USEPUINDXD: The read operation timed out",
+        "EPU official source unavailable; built policy uncertainty proxy from authorized historical risk packages."
+      ]
+    },
+    "HIST-OECD-CLI-MACRO-CYCLE-V1": {
+      "status": "downloaded",
+      "source": "authorized_macro_cycle_proxy",
+      "path": "data/global_briefing/authorized/packages/HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
+      "sha256": "e7615659bad07d1b26c2cd8ff8e8ccc447a4ba02ce53785271df4fbfb8b66a58",
+      "provenance_path": "data/global_briefing/authorized/provenance/HIST-OECD-CLI-MACRO-CYCLE-V1.json",
+      "coverage_ratio": 0.623951,
+      "row_count": 7674,
+      "accepted_for_day0": true,
+      "accepted_limitations": [
+        "not official OECD CLI",
+        "authorized macro-cycle proxy"
+      ],
+      "warnings": [
+        "official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages."
+      ]
+    },
+    "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1": {
+      "status": "not_configured",
+      "source": "gb_authorized_api",
+      "path": "data/global_briefing/authorized/packages/HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1.raw",
+      "accepted_for_day0": true,
+      "reason": "internal global-briefing historical package not required for proxy-based day-0 readiness",
+      "production_internal_global_briefing_validated": false
+    }
+  },
+  "proxy_package": {
+    "path": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+    "exists": true,
+    "sha256": "ea0cf204339df93ed569b603306c74e4e8a04f058f51c7613210edda60a95ada",
+    "coverage_ratio": 1.0,
+    "accepted_for_day0": true,
+    "is_internal_global_briefing_signal": false
+  },
+  "boundary": {
+    "data_freeze_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

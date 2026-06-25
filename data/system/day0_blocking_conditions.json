@@ -1,0 +1,192 @@
+{
+  "register_id": "DAY0-BLOCKING-CONDITIONS-20260625-001",
+  "created_at": "2026-06-25T08:57:27.636094Z",
+  "conditions": [
+    {
+      "condition_id": "missing_critical_price_package",
+      "description": "missing critical price package",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "Critical ETF price package is frozen and accepted."
+    },
+    {
+      "condition_id": "missing_critical_benchmark_package",
+      "description": "missing critical benchmark package",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "Critical benchmark package is frozen and accepted."
+    },
+    {
+      "condition_id": "proxy_package_missing",
+      "description": "proxy package missing",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "proxy_path=data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl"
+    },
+    {
+      "condition_id": "proxy_package_invalid_contract",
+      "description": "proxy package invalid contract",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "proxy_accepted_for_day0=True"
+    },
+    {
+      "condition_id": "proxy_coverage_below_0_80",
+      "description": "proxy coverage below 0 80",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "coverage_ratio=1.0"
+    },
+    {
+      "condition_id": "future_leakage_detected",
+      "description": "future leakage detected",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "gap closure future leakage section checked"
+    },
+    {
+      "condition_id": "unknown_warning_count_above_0",
+      "description": "unknown warning count above 0",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "historical warning inventory unknown count checked"
+    },
+    {
+      "condition_id": "warning_register_has_blocking_items",
+      "description": "warning register has blocking items",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "blocking_count=0"
+    },
+    {
+      "condition_id": "data_freeze_missing_checksum",
+      "description": "data freeze missing checksum",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "all accepted frozen source packages need checksums"
+    },
+    {
+      "condition_id": "data_freeze_missing_provenance",
+      "description": "data freeze missing provenance",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "all accepted source packages need provenance"
+    },
+    {
+      "condition_id": "run_daily_preflight_failed",
+      "description": "run daily preflight failed",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "preflight generated after this register; checked again by audit"
+    },
+    {
+      "condition_id": "main_ledger_unexpected_diff",
+      "description": "main ledger unexpected diff",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "protected path diff checked by readiness audit"
+    },
+    {
+      "condition_id": "dirty_git_status",
+      "description": "dirty git status",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "release process checks final clean git status before tag"
+    },
+    {
+      "condition_id": "release_tag_missing",
+      "description": "release tag missing",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "release tag is applied only after readiness audit passes"
+    },
+    {
+      "condition_id": "protected_path_modified",
+      "description": "protected path modified",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "protected path diff checked by readiness audit"
+    },
+    {
+      "condition_id": "strategy_state_dirty",
+      "description": "strategy state dirty",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "day-0 pack does not modify strategy state"
+    },
+    {
+      "condition_id": "promotion_pending_or_triggered",
+      "description": "promotion pending or triggered",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "promotion remains false"
+    },
+    {
+      "condition_id": "labels_used_in_forward_gate",
+      "description": "labels used in forward gate",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "labels remain false"
+    },
+    {
+      "condition_id": "ml_shadow_used_in_forward_gate",
+      "description": "ml shadow used in forward gate",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "ML shadow remains false"
+    },
+    {
+      "condition_id": "experiments_used_in_forward_gate",
+      "description": "experiments used in forward gate",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "experiments remain false"
+    },
+    {
+      "condition_id": "broker_config_detected",
+      "description": "broker config detected",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "broker/live env config not required for day-0 readiness"
+    },
+    {
+      "condition_id": "live_trading_config_detected",
+      "description": "live trading config detected",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "live trading config not required for day-0 readiness"
+    },
+    {
+      "condition_id": "manual_confirmation_missing",
+      "description": "manual confirmation missing",
+      "blocking": true,
+      "current_status": false,
+      "evidence": "manual confirmation remains required and intentionally incomplete"
+    }
+  ],
+  "current_blocking_count": 0,
+  "forward_dry_run_start_allowed_by_conditions": true,
+  "manual_confirmation_still_required": true,
+  "artifacts": {
+    "data_freeze": "data/system/day0_data_freeze_manifest.json",
+    "warning_register": "data/system/day0_accepted_warning_register.json",
+    "gap_closure_audit": "data/system/historical_data_gap_closure_audit.json"
+  },
+  "boundary": {
+    "conditions_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

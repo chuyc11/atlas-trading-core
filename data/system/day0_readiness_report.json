@@ -1,0 +1,51 @@
+{
+  "report_id": "DAY0-READINESS-REPORT-20260625-001",
+  "created_at": "2026-06-25T08:57:29.581572Z",
+  "overall_status": "ready_for_manual_confirmation",
+  "forward_dry_run_started": false,
+  "run_daily_called": false,
+  "sections": {
+    "data_freeze": {
+      "status": "passed",
+      "path": "data/system/day0_data_freeze_manifest.json"
+    },
+    "warning_register": {
+      "status": "passed",
+      "blocking_count": 0
+    },
+    "blocking_conditions": {
+      "status": "passed",
+      "current_blocking_count": 0,
+      "manual_confirmation_required": true
+    },
+    "preflight": {
+      "status": "passed",
+      "run_daily_executed": false
+    },
+    "manual_confirmation": {
+      "status": "pending_manual_confirmation",
+      "manual_confirmation_complete": false
+    },
+    "operating_calendar": {
+      "status": "template_only"
+    }
+  },
+  "can_start_forward_dry_run_without_manual_confirmation": false,
+  "boundary": {
+    "report_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

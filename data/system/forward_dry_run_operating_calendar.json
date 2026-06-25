@@ -1,0 +1,537 @@
+{
+  "calendar_id": "FWD-DRY-RUN-CALENDAR-20260625-001",
+  "created_at": "2026-06-25T08:57:29.199002Z",
+  "calendar_status": "template_only",
+  "forward_dry_run_started": false,
+  "trading_days_required": 30,
+  "start_date": null,
+  "days": [
+    {
+      "day_index": 1,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 2,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 3,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 4,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 5,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 6,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 7,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 8,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 9,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 10,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 11,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 12,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 13,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 14,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 15,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 16,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 17,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 18,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 19,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 20,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 21,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 22,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 23,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 24,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 25,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 26,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 27,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 28,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 29,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    },
+    {
+      "day_index": 30,
+      "date": null,
+      "status": "not_started",
+      "run_daily_called": false,
+      "expected_checks": [
+        "data refresh check",
+        "run-daily command preview",
+        "output artifacts",
+        "protected path check",
+        "warning log",
+        "manual note"
+      ],
+      "expected_artifacts": [],
+      "manual_note_required": true
+    }
+  ],
+  "weekly_review_slots": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "fail_closed_conditions": [
+    "missing data",
+    "consistency failure",
+    "unexpected protected path mutation",
+    "run-daily import boundary breach",
+    "manual stop"
+  ],
+  "interruption_rules": [
+    "stop on blocker",
+    "record manual note",
+    "do not backfill without explicit review"
+  ],
+  "restart_rules": [
+    "restart only after new preflight and manual confirmation"
+  ],
+  "forbidden_actions": [
+    "broker connection",
+    "real orders",
+    "promotion",
+    "live trading",
+    "RL or LLM trading decisions"
+  ],
+  "boundary": {
+    "calendar_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

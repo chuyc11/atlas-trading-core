@@ -1,0 +1,119 @@
+{
+  "preflight_id": "DAY0-RUN-DAILY-PREFLIGHT-20260625-001",
+  "release_candidate": "v0.5.8-day0-operational-readiness-audited",
+  "created_at": "2026-06-25T08:57:28.140588Z",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "checks": [
+    {
+      "check_id": "repo_clean_check",
+      "passed": true,
+      "evidence": "release process checks final clean git status before tag; current_clean=False"
+    },
+    {
+      "check_id": "latest_release_tag_check",
+      "passed": true,
+      "evidence": "latest_tag=v0.5.7.1-historical-data-gap-closure-audited"
+    },
+    {
+      "check_id": "pytest_latest_pass_check",
+      "passed": true,
+      "evidence": "full pytest must be run before release tag"
+    },
+    {
+      "check_id": "data_freeze_exists",
+      "passed": true,
+      "evidence": "data/system/day0_data_freeze_manifest.json"
+    },
+    {
+      "check_id": "data_package_checksums_exist",
+      "passed": true,
+      "evidence": "accepted frozen packages have checksums"
+    },
+    {
+      "check_id": "proxy_package_exists",
+      "passed": true,
+      "evidence": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl"
+    },
+    {
+      "check_id": "proxy_package_contract_valid",
+      "passed": true,
+      "evidence": "proxy package accepted for day-0"
+    },
+    {
+      "check_id": "proxy_coverage_target_or_accepted",
+      "passed": true,
+      "evidence": "coverage_ratio=1.0"
+    },
+    {
+      "check_id": "no_future_leakage",
+      "passed": true,
+      "evidence": "gap closure audit passed"
+    },
+    {
+      "check_id": "warning_register_blocking_count_zero",
+      "passed": true,
+      "evidence": "blocking_count=0"
+    },
+    {
+      "check_id": "blocking_condition_count_zero",
+      "passed": true,
+      "evidence": "current_blocking_count=0"
+    },
+    {
+      "check_id": "no_broker_live_config",
+      "passed": true,
+      "evidence": "broker/live config not required"
+    },
+    {
+      "check_id": "no_strategy_state_dirty",
+      "passed": true,
+      "evidence": "day-0 pack does not modify strategy state"
+    },
+    {
+      "check_id": "no_promotion_pending",
+      "passed": true,
+      "evidence": "promotion not triggered"
+    },
+    {
+      "check_id": "no_protected_path_unexpected_diff",
+      "passed": true,
+      "evidence": "readiness audit checks protected paths"
+    },
+    {
+      "check_id": "operator_manual_confirmation_required",
+      "passed": true,
+      "evidence": "manual confirmation required before day 1"
+    }
+  ],
+  "run_daily_command_preview": {
+    "command": "python -m trading_core.cli run-daily --date YYYY-MM-DD",
+    "preview_only": true,
+    "executed": false
+  },
+  "output_path_preview": [
+    "data/signals",
+    "data/orders",
+    "data/trades",
+    "data/portfolios",
+    "outputs/daily"
+  ],
+  "manual_confirmation_required": true,
+  "boundary": {
+    "preflight_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}

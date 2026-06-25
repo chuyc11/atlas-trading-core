@@ -1,0 +1,52 @@
+{
+  "packet_id": "DAY0-MANUAL-CONFIRMATION-20260625-001",
+  "created_at": "2026-06-25T08:57:28.745337Z",
+  "latest_tag": "v0.5.7.1-historical-data-gap-closure-audited",
+  "pytest_count": "737 passed, 1 skipped",
+  "artifact_paths": {
+    "day0_data_freeze": "data/system/day0_data_freeze_manifest.json",
+    "warning_register": "data/system/day0_accepted_warning_register.json",
+    "blocking_conditions": "data/system/day0_blocking_conditions.json",
+    "preflight": "data/system/day0_run_daily_preflight.json"
+  },
+  "accepted_limitations": [
+    "EPU partial: missing us_epu/europe_epu; policy uncertainty proxy only.",
+    "OECD macro-cycle proxy is not official OECD CLI.",
+    "Internal global-briefing historical signal package remains not_configured.",
+    "Proxy package is not an internal global-briefing signal."
+  ],
+  "explicit_non_claims": [
+    "not strategy effectiveness proof",
+    "not forward dry-run validation",
+    "not live trading readiness",
+    "not trading authorization"
+  ],
+  "all_confirmations_default_false": true,
+  "confirmations": {
+    "owner_confirmed_data_freeze": false,
+    "owner_confirmed_warning_acceptance": false,
+    "owner_confirmed_no_blocking_conditions": false,
+    "owner_confirmed_run_daily_preview": false,
+    "owner_confirmed_forward_dry_run_can_start": false
+  },
+  "manual_confirmation_complete": false,
+  "forward_dry_run_start_authorized": false,
+  "boundary": {
+    "manual_packet_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false,
+    "auto_confirmation": false
+  }
+}

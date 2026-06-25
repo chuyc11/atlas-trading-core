@@ -22,6 +22,14 @@ from trading_core.evaluation.dry_run_validation_report import build_dry_run_vali
 from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
+from trading_core.forward_dry_run.day0_blocking_conditions import build_day0_blocking_conditions
+from trading_core.forward_dry_run.day0_data_freeze import build_day0_data_freeze
+from trading_core.forward_dry_run.day0_manual_confirmation import build_day0_manual_confirmation_packet
+from trading_core.forward_dry_run.day0_readiness_audit import audit_day0_readiness
+from trading_core.forward_dry_run.day0_readiness_report import build_day0_readiness_report
+from trading_core.forward_dry_run.day0_run_daily_preflight import build_day0_run_daily_preflight
+from trading_core.forward_dry_run.day0_warning_register import build_day0_warning_register
+from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
 from trading_core.global_briefing.evidence_quality_audit import audit_global_briefing_evidence_quality
 from trading_core.global_briefing.evidence_quality_report import build_global_briefing_evidence_quality_report
@@ -500,6 +508,28 @@ def build_parser() -> argparse.ArgumentParser:
     gap_audit = subparsers.add_parser("audit-historical-data-gap-closure")
     gap_audit.add_argument("--workflow")
     gap_audit.add_argument("--report")
+    data_freeze = subparsers.add_parser("day0-data-freeze")
+    data_freeze.add_argument("--download-manifest")
+    data_freeze.add_argument("--quality-audit")
+    data_freeze.add_argument("--gap-closure-audit")
+    data_freeze.add_argument("--proxy-package")
+    day0_warnings = subparsers.add_parser("day0-warning-register")
+    day0_warnings.add_argument("--warning-inventory")
+    day0_warnings.add_argument("--gap-closure-report")
+    day0_conditions = subparsers.add_parser("day0-blocking-conditions")
+    day0_conditions.add_argument("--data-freeze")
+    day0_conditions.add_argument("--warning-register")
+    day0_conditions.add_argument("--gap-closure-audit")
+    day0_preflight = subparsers.add_parser("day0-run-daily-preflight")
+    day0_preflight.add_argument("--data-freeze")
+    day0_preflight.add_argument("--warning-register")
+    day0_preflight.add_argument("--blocking-conditions")
+    subparsers.add_parser("day0-manual-confirmation-packet")
+    operating_calendar = subparsers.add_parser("forward-dry-run-operating-calendar")
+    operating_calendar.add_argument("--start-date")
+    operating_calendar.add_argument("--trading-days", type=int, default=30)
+    subparsers.add_parser("day0-readiness-report")
+    subparsers.add_parser("audit-day0-readiness")
 
     return parser
 
@@ -1406,6 +1436,38 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.command == "audit-historical-data-gap-closure":
         result = audit_historical_data_gap_closure(workflow_path=args.workflow, report_path=args.report, paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "day0-data-freeze":
+        result = build_day0_data_freeze(download_manifest_path=args.download_manifest, quality_audit_path=args.quality_audit, gap_closure_audit_path=args.gap_closure_audit, proxy_package_path=args.proxy_package, paths=paths)
+        print({"freeze_id": result["freeze_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "day0-warning-register":
+        result = build_day0_warning_register(warning_inventory_path=args.warning_inventory, gap_closure_report_path=args.gap_closure_report, paths=paths)
+        print({"register_id": result["register_id"], "accepted_count": result["accepted_count"], "unresolved_count": result["unresolved_count"], "blocking_count": result["blocking_count"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["blocking_count"] == 0 else 1
+    if args.command == "day0-blocking-conditions":
+        result = build_day0_blocking_conditions(data_freeze_path=args.data_freeze, warning_register_path=args.warning_register, gap_closure_audit_path=args.gap_closure_audit, paths=paths)
+        print({"register_id": result["register_id"], "current_blocking_count": result["current_blocking_count"], "manual_confirmation_still_required": result["manual_confirmation_still_required"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["current_blocking_count"] == 0 else 1
+    if args.command == "day0-run-daily-preflight":
+        result = build_day0_run_daily_preflight(data_freeze_path=args.data_freeze, warning_register_path=args.warning_register, blocking_conditions_path=args.blocking_conditions, paths=paths)
+        print({"preflight_id": result["preflight_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "executed": result["run_daily_command_preview"]["executed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "day0-manual-confirmation-packet":
+        result = build_day0_manual_confirmation_packet(paths=paths)
+        print({"packet_id": result["packet_id"], "manual_confirmation_complete": result["manual_confirmation_complete"], "forward_dry_run_start_authorized": result["forward_dry_run_start_authorized"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-operating-calendar":
+        result = build_forward_dry_run_operating_calendar(start_date=args.start_date, trading_days=args.trading_days, paths=paths)
+        print({"calendar_id": result["calendar_id"], "calendar_status": result["calendar_status"], "days": len(result["days"]), "json_path": result["json_path"], "report_path": result["report_path"], "daily_log_template_path": result["daily_log_template_path"]})
+        return 0
+    if args.command == "day0-readiness-report":
+        result = build_day0_readiness_report(paths=paths)
+        print({"report_id": result["report_id"], "overall_status": result["overall_status"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-day0-readiness":
+        result = audit_day0_readiness(paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":

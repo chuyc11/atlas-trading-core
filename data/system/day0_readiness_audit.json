@@ -1,0 +1,81 @@
+{
+  "audit_id": "DAY0-READINESS-AUDIT-20260625-001",
+  "created_at": "2026-06-25T08:57:30.069589Z",
+  "release_candidate": "v0.5.8-day0-operational-readiness-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "data_freeze": {
+      "passed": true,
+      "issues": []
+    },
+    "warning_register": {
+      "passed": true,
+      "issues": []
+    },
+    "blocking_conditions": {
+      "passed": true,
+      "issues": []
+    },
+    "preflight": {
+      "passed": true,
+      "issues": []
+    },
+    "manual_confirmation": {
+      "passed": true,
+      "issues": []
+    },
+    "operating_calendar": {
+      "passed": true,
+      "issues": []
+    },
+    "readiness_report": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "modified_paths": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "day0_status": {
+    "ready_for_manual_confirmation": true,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_started": false,
+    "run_daily_called": false
+  },
+  "boundary": {
+    "day0_readiness_only": true,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "trading_authorization": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false,
+    "rl_enabled": false,
+    "llm_trading_decision": false
+  }
+}
