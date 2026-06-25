@@ -1,8 +1,21 @@
 {
-  "cash": 1000000.0,
+  "cash": 865074.2725,
+  "created_at": "2026-06-25T02:31:29.316366Z",
+  "currency": "CNY",
   "end_date": "2024-01-08",
+  "equity": 1000344.2725,
   "isolated": true,
+  "positions": [
+    {
+      "avg_cost": 4.03251497005988,
+      "isolated": true,
+      "market_value": 135270.0,
+      "quantity": 33400,
+      "replay_id": "GB-HIST-REPLAY-20240102-20240108",
+      "symbol": "510300.SH",
+      "unrealized_pnl": 583.9999999999902
+    }
+  ],
   "replay_id": "GB-HIST-REPLAY-20240102-20240108",
-  "start_date": "2024-01-02",
-  "total_asset": 1000000.0
+  "start_date": "2024-01-02"
 }

@@ -37,6 +37,7 @@ def test_valid_bundle_generates_replay_summary(tmp_path: Path) -> None:
     assert Path(result["json_path"]).exists()
     assert result["summary"]["days_processed"] == 5
     assert result["isolated"] is True
+    assert result["execution"]["mode"] == "isolated"
 
 
 def test_replay_writes_only_isolated_global_briefing_directory(tmp_path: Path) -> None:
@@ -44,7 +45,7 @@ def test_replay_writes_only_isolated_global_briefing_directory(tmp_path: Path) -
 
     result = _replay(paths, allow_carry_forward=True)
 
-    for output_path in result["isolated_output_paths"].values():
+    for output_path in result["isolated_outputs"].values():
         assert "data\\replays\\global_briefing" in output_path or "data/replays/global_briefing" in output_path
     assert_no_protected_paths(paths)
 
@@ -122,10 +123,40 @@ def test_missing_signal_days_enter_data_quality(tmp_path: Path) -> None:
     assert "2024-01-04" in result["data_quality"]["missing_signal_days"]
 
 
-def test_no_trade_fallback_warns(tmp_path: Path) -> None:
-    result = _replay(make_paths(tmp_path))
+def test_isolated_mode_generates_signals_orders_trades_valuations_and_account(tmp_path: Path) -> None:
+    result = _replay(make_paths(tmp_path), allow_carry_forward=True)
 
-    assert any("no-trade replay summary generated" in item for item in result["warnings"])
+    assert result["summary"]["signals"] > 0
+    assert result["summary"]["orders"] > 0
+    assert result["summary"]["trades"] > 0
+    assert result["summary"]["valuations"] == 5
+    for key in ["account", "signals", "orders", "trades", "portfolio", "valuations"]:
+        assert Path(result["isolated_outputs"][key]).exists()
+
+
+def test_isolated_mode_no_trade_fallback_false(tmp_path: Path) -> None:
+    result = _replay(make_paths(tmp_path), allow_carry_forward=True)
+
+    assert result["execution"]["no_trade_fallback"] is False
+    assert result["boundary"]["isolated_replay_ledger_written"] is True
+
+
+def test_no_trade_mode_still_available(tmp_path: Path) -> None:
+    paths = make_paths(tmp_path)
+    bundle = _bundle(paths, allow_carry_forward=True)
+
+    result = replay_global_briefing_history(
+        bundle["json_path"],
+        fixture_path(paths, "prices_valid.csv"),
+        start_date="2024-01-02",
+        end_date="2024-01-08",
+        execution_mode="no-trade",
+        paths=paths,
+    )
+
+    assert result["execution"]["mode"] == "no-trade"
+    assert result["execution"]["no_trade_fallback"] is True
+    assert result["summary"]["orders"] == 0
 
 
 def test_replay_markdown_contains_not_forward_dry_run(tmp_path: Path) -> None:
@@ -140,6 +171,13 @@ def test_replay_markdown_contains_main_ledger_not_written(tmp_path: Path) -> Non
 
     report = Path(result["report_path"]).read_text(encoding="utf-8")
     assert "- main ledger not written" in report
+
+
+def test_replay_markdown_contains_isolated_replay_ledger_only(tmp_path: Path) -> None:
+    result = _replay(make_paths(tmp_path), allow_carry_forward=True)
+
+    report = Path(result["report_path"]).read_text(encoding="utf-8")
+    assert "- isolated replay ledger only" in report
 
 
 def test_replay_cli_smoke(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
@@ -160,5 +198,7 @@ def test_replay_cli_smoke(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> No
             "2024-01-02",
             "--end-date",
             "2024-01-08",
+            "--execution-mode",
+            "isolated",
         ]
     ) == 0

@@ -23,6 +23,7 @@ from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, re
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
+from trading_core.global_briefing.isolated_replay_adapter_audit import audit_isolated_replay_adapter
 from trading_core.global_briefing.replay_audit import audit_global_briefing_replay
 from trading_core.global_briefing.replay_bundle_builder import build_global_briefing_replay_bundle
 from trading_core.global_briefing.replay_evaluation_report import build_global_briefing_replay_report
@@ -344,6 +345,11 @@ def build_parser() -> argparse.ArgumentParser:
     gb_replay.add_argument("--start-date", required=True)
     gb_replay.add_argument("--end-date", required=True)
     gb_replay.add_argument("--initial-cash", type=float, default=1_000_000.0)
+    gb_replay.add_argument("--execution-mode", choices=["isolated", "no-trade"], default="isolated")
+    gb_replay.add_argument("--max-symbol-weight", type=float, default=0.15)
+    gb_replay.add_argument("--max-total-weight", type=float, default=0.50)
+    gb_replay.add_argument("--lot-size", type=int, default=100)
+    gb_replay.add_argument("--commission-rate", type=float, default=0.0005)
     gb_replay.add_argument("--isolated-output-root")
     gb_replay.add_argument("--report-output-root")
     gb_report = subparsers.add_parser("global-briefing-replay-report")
@@ -355,6 +361,9 @@ def build_parser() -> argparse.ArgumentParser:
     gb_audit.add_argument("--bundle")
     gb_audit.add_argument("--replay")
     gb_audit.add_argument("--evaluation")
+    adapter_audit = subparsers.add_parser("audit-isolated-replay-adapter")
+    adapter_audit.add_argument("--replay")
+    adapter_audit.add_argument("--evaluation")
 
     return parser
 
@@ -981,6 +990,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                 start_date=args.start_date,
                 end_date=args.end_date,
                 initial_cash=args.initial_cash,
+                execution_mode=args.execution_mode,
+                max_symbol_weight=args.max_symbol_weight,
+                max_total_weight=args.max_total_weight,
+                lot_size=args.lot_size,
+                commission_rate=args.commission_rate,
                 isolated_output_root=args.isolated_output_root,
                 report_output_root=args.report_output_root,
                 paths=paths,
@@ -991,6 +1005,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         print({
             "replay_id": result["replay_id"],
             "isolated": result["isolated"],
+            "execution_mode": result["execution"]["mode"],
+            "no_trade_fallback": result["execution"]["no_trade_fallback"],
             "main_ledger_written": result["boundary"]["main_ledger_written"],
             "json_path": result["json_path"],
             "report_path": result["report_path"],
@@ -1016,6 +1032,21 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = audit_global_briefing_replay(
             validation_path=args.validation,
             bundle_path=args.bundle,
+            replay_path=args.replay,
+            evaluation_path=args.evaluation,
+            paths=paths,
+        )
+        print({
+            "audit_id": result["audit_id"],
+            "overall_passed": result["overall_passed"],
+            "blocking_reasons": result["blocking_reasons"],
+            "warnings": len(result["warnings"]),
+            "json_path": result["json_path"],
+            "report_path": result["report_path"],
+        })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-isolated-replay-adapter":
+        result = audit_isolated_replay_adapter(
             replay_path=args.replay,
             evaluation_path=args.evaluation,
             paths=paths,

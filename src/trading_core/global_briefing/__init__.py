@@ -12,6 +12,10 @@ __all__ = [
     "signal_package_validator",
     "replay_bundle_builder",
     "historical_replay_runner",
+    "isolated_replay_adapter_audit",
+    "isolated_replay_execution",
+    "isolated_replay_state",
     "replay_evaluation_report",
+    "replay_signal_adapter",
     "replay_audit",
 ]

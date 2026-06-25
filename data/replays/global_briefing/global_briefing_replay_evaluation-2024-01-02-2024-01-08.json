@@ -3,7 +3,15 @@
   "overall_status": "research_review_ready",
   "blocking_reasons": [],
   "warnings": [
-    "core execution adapter not isolated; no-trade replay summary generated"
+    "2024-01-02: missing price for 512880.SH; no order generated",
+    "2024-01-03: missing price for 512880.SH; no order generated",
+    "2024-01-04: target delta below lot size for 510300.SH",
+    "2024-01-04: missing price for 512880.SH; no order generated",
+    "2024-01-05: missing price for 512880.SH; no order generated",
+    "2024-01-05: missing price for 588000.SH; no order generated",
+    "2024-01-08: target delta below lot size for 510300.SH",
+    "2024-01-08: missing price for 512880.SH; no order generated",
+    "2024-01-08: missing price for 588000.SH; no order generated"
   ],
   "inputs": {
     "replay": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\global_briefing_replay-2024-01-02-2024-01-08.json",
@@ -18,7 +26,19 @@
     "missing_signal_days": [],
     "missing_price_days": []
   },
+  "execution": {
+    "mode": "isolated",
+    "no_trade_fallback": false,
+    "orders": 3,
+    "trades": 3,
+    "valuations": 5,
+    "isolated_outputs_present": true
+  },
   "integrity": {
+    "isolated_ledger_complete": true,
+    "valuation_days_match_processed_days": true,
+    "cash_negative": false,
+    "positions_negative": false,
     "main_ledger_written": false,
     "isolated_replay": true,
     "run_daily_called": false,
@@ -27,10 +47,12 @@
     "experiments_used": false
   },
   "isolated_output_paths": {
+    "account": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\accounts\\account-GB-HIST-REPLAY-20240102-20240108.json",
+    "signals": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\signals\\signals-GB-HIST-REPLAY-20240102-20240108.jsonl",
     "orders": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\orders\\orders-GB-HIST-REPLAY-20240102-20240108.jsonl",
     "trades": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\trades\\trades-GB-HIST-REPLAY-20240102-20240108.jsonl",
     "portfolio": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\portfolio\\portfolio-GB-HIST-REPLAY-20240102-20240108.jsonl",
-    "account": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\accounts\\account-GB-HIST-REPLAY-20240102-20240108.json"
+    "valuations": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\valuations\\valuations-GB-HIST-REPLAY-20240102-20240108.jsonl"
   },
   "boundary": {
     "research_review_only": true,
