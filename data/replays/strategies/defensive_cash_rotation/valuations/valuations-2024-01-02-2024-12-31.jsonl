@@ -1,0 +1,10 @@
+{"cash": 1000000.0, "date": "2024-01-02", "market_value": 0.0, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 1000000.0}
+{"cash": 286682.758606, "date": "2024-01-03", "market_value": 712390.888763, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 999073.647369}
+{"cash": 286852.895594, "date": "2024-01-04", "market_value": 702088.873267, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 988941.768861}
+{"cash": 286852.895594, "date": "2024-01-05", "market_value": 692873.695707, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 979726.591301}
+{"cash": 286852.895594, "date": "2024-01-08", "market_value": 678131.192756, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 964984.08835}
+{"cash": 286852.895594, "date": "2024-01-09", "market_value": 679918.528533, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 966771.424127}
+{"cash": 286852.895594, "date": "2024-01-10", "market_value": 675304.670358, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 962157.565952}
+{"cash": 286852.895594, "date": "2024-01-11", "market_value": 684190.189933, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 971043.085527}
+{"cash": 286852.895594, "date": "2024-01-12", "market_value": 676757.197714, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 963610.093308}
+{"cash": 286852.895594, "date": "2024-01-15", "market_value": 674632.393408, "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv", "total_asset": 961485.289002}

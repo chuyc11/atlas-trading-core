@@ -1,0 +1,65 @@
+{
+  "summary_id": "BASELINE-STRATEGY-PACK-SUMMARY-2024-01-02-2024-12-31",
+  "start_date": "2024-01-02",
+  "end_date": "2024-12-31",
+  "strategies": {
+    "equal_weight_etf_rotation": {
+      "contract_exists": true,
+      "registry_exists": true,
+      "signals_exist": true,
+      "order_preview_exists": true,
+      "replay_exists": true,
+      "benchmark_comparison_exists": true,
+      "report_exists": true,
+      "complete": true
+    },
+    "momentum_risk_adjusted_rotation": {
+      "contract_exists": true,
+      "registry_exists": true,
+      "signals_exist": true,
+      "order_preview_exists": true,
+      "replay_exists": true,
+      "benchmark_comparison_exists": true,
+      "report_exists": true,
+      "complete": true
+    },
+    "defensive_cash_rotation": {
+      "contract_exists": true,
+      "registry_exists": true,
+      "signals_exist": true,
+      "order_preview_exists": true,
+      "replay_exists": true,
+      "benchmark_comparison_exists": true,
+      "report_exists": true,
+      "complete": true
+    }
+  },
+  "strategy_count": 3,
+  "strategies_complete": 3,
+  "all_strategies_complete": true,
+  "warnings": [],
+  "promotion_triggered": false,
+  "forward_dry_run_started": false,
+  "run_daily_called": false,
+  "main_ledger_written": false,
+  "boundary": {
+    "baseline_strategy_pack_summary_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "baseline_strategy_pack_only": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

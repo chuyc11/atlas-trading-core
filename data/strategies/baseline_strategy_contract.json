@@ -1,0 +1,285 @@
+{
+  "contract_id": "BASELINE-STRATEGY-CONTRACT-V1",
+  "created_at": "2026-06-25T10:42:37.646926Z",
+  "release_candidate": "v0.6.0-baseline-strategy-pack-audited",
+  "strategies": {
+    "equal_weight_etf_rotation": {
+      "strategy_id": "equal_weight_etf_rotation",
+      "display_name": "Equal Weight Etf Rotation",
+      "version": "equal_weight_etf_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmark": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "input_artifacts": [
+        "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+        "data/system/ashare_price_status_contract.json",
+        "data/system/ashare_trading_calendar_contract.json",
+        "data/strategies/baseline_strategy_registry.json"
+      ],
+      "signal_timing": "after_t_close",
+      "execution_timing": "t_plus_1",
+      "parameter_schema": {
+        "version": "string",
+        "parameters": "object"
+      },
+      "output_signal_schema": {
+        "strategy_id": "string",
+        "strategy_version": "string",
+        "signal_date": "YYYY-MM-DD",
+        "generated_at": "ISO-8601 after market close",
+        "execution_earliest_date": "YYYY-MM-DD next trading day or later",
+        "target_weights": "symbol to non-negative float",
+        "cash_weight": "non-negative float"
+      },
+      "target_weight_schema": {
+        "sum_target_weights_plus_cash_lte_one": true,
+        "no_negative_weights": true,
+        "untradable_symbols_weight_zero_or_excluded": true
+      },
+      "risk_controls": [
+        "max_weight",
+        "cash_buffer_pct",
+        "exclude_untradable",
+        "isolated_replay_only"
+      ],
+      "pit_constraints": [
+        "signals only use data available on or before signal_date",
+        "risk proxy data must be as_of signal_date or earlier",
+        "execution earliest date must be next trading day or later",
+        "no labels, ML shadow, promotion outputs, LLM, or RL inputs"
+      ],
+      "forbidden_inputs": [
+        "future_prices",
+        "future_risk_signals",
+        "labels_as_authorization",
+        "ml_shadow_as_authorization",
+        "llm_trading_decision",
+        "rl_policy",
+        "promotion_outputs"
+      ],
+      "forbidden_claims": [
+        "strategy effectiveness proven",
+        "forward dry-run validated",
+        "live trading ready"
+      ],
+      "isolated_replay_only": true,
+      "no_promotion": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false
+    },
+    "momentum_risk_adjusted_rotation": {
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "display_name": "Momentum Risk Adjusted Rotation",
+      "version": "momentum_risk_adjusted_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmark": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "input_artifacts": [
+        "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+        "data/system/ashare_price_status_contract.json",
+        "data/system/ashare_trading_calendar_contract.json",
+        "data/strategies/baseline_strategy_registry.json"
+      ],
+      "signal_timing": "after_t_close",
+      "execution_timing": "t_plus_1",
+      "parameter_schema": {
+        "version": "string",
+        "parameters": "object"
+      },
+      "output_signal_schema": {
+        "strategy_id": "string",
+        "strategy_version": "string",
+        "signal_date": "YYYY-MM-DD",
+        "generated_at": "ISO-8601 after market close",
+        "execution_earliest_date": "YYYY-MM-DD next trading day or later",
+        "target_weights": "symbol to non-negative float",
+        "cash_weight": "non-negative float"
+      },
+      "target_weight_schema": {
+        "sum_target_weights_plus_cash_lte_one": true,
+        "no_negative_weights": true,
+        "untradable_symbols_weight_zero_or_excluded": true
+      },
+      "risk_controls": [
+        "max_weight",
+        "cash_buffer_pct",
+        "exclude_untradable",
+        "isolated_replay_only"
+      ],
+      "pit_constraints": [
+        "signals only use data available on or before signal_date",
+        "risk proxy data must be as_of signal_date or earlier",
+        "execution earliest date must be next trading day or later",
+        "no labels, ML shadow, promotion outputs, LLM, or RL inputs"
+      ],
+      "forbidden_inputs": [
+        "future_prices",
+        "future_risk_signals",
+        "labels_as_authorization",
+        "ml_shadow_as_authorization",
+        "llm_trading_decision",
+        "rl_policy",
+        "promotion_outputs"
+      ],
+      "forbidden_claims": [
+        "strategy effectiveness proven",
+        "forward dry-run validated",
+        "live trading ready"
+      ],
+      "isolated_replay_only": true,
+      "no_promotion": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false
+    },
+    "defensive_cash_rotation": {
+      "strategy_id": "defensive_cash_rotation",
+      "display_name": "Defensive Cash Rotation",
+      "version": "defensive_cash_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmark": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "input_artifacts": [
+        "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+        "data/system/ashare_price_status_contract.json",
+        "data/system/ashare_trading_calendar_contract.json",
+        "data/strategies/baseline_strategy_registry.json"
+      ],
+      "signal_timing": "after_t_close",
+      "execution_timing": "t_plus_1",
+      "parameter_schema": {
+        "version": "string",
+        "parameters": "object"
+      },
+      "output_signal_schema": {
+        "strategy_id": "string",
+        "strategy_version": "string",
+        "signal_date": "YYYY-MM-DD",
+        "generated_at": "ISO-8601 after market close",
+        "execution_earliest_date": "YYYY-MM-DD next trading day or later",
+        "target_weights": "symbol to non-negative float",
+        "cash_weight": "non-negative float"
+      },
+      "target_weight_schema": {
+        "sum_target_weights_plus_cash_lte_one": true,
+        "no_negative_weights": true,
+        "untradable_symbols_weight_zero_or_excluded": true
+      },
+      "risk_controls": [
+        "max_weight",
+        "cash_buffer_pct",
+        "exclude_untradable",
+        "isolated_replay_only"
+      ],
+      "pit_constraints": [
+        "signals only use data available on or before signal_date",
+        "risk proxy data must be as_of signal_date or earlier",
+        "execution earliest date must be next trading day or later",
+        "no labels, ML shadow, promotion outputs, LLM, or RL inputs"
+      ],
+      "forbidden_inputs": [
+        "future_prices",
+        "future_risk_signals",
+        "labels_as_authorization",
+        "ml_shadow_as_authorization",
+        "llm_trading_decision",
+        "rl_policy",
+        "promotion_outputs"
+      ],
+      "forbidden_claims": [
+        "strategy effectiveness proven",
+        "forward dry-run validated",
+        "live trading ready"
+      ],
+      "isolated_replay_only": true,
+      "no_promotion": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false
+    }
+  },
+  "boundary": {
+    "contract_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "baseline_strategy_pack_only": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

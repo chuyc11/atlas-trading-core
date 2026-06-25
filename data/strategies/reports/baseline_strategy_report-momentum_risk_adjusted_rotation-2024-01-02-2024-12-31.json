@@ -1,0 +1,120 @@
+{
+  "report_id": "BASELINE-STRATEGY-REPORT-momentum_risk_adjusted_rotation-2024-01-02-2024-12-31",
+  "strategy_id": "momentum_risk_adjusted_rotation",
+  "strategy_version": "momentum_risk_adjusted_rotation_v1",
+  "strategy_objective": "Rank tradable ETFs by trailing return minus a volatility penalty.",
+  "parameter_version": "momentum_risk_adjusted_rotation_v1",
+  "parameters": {
+    "lookback_days": 60,
+    "volatility_lookback_days": 60,
+    "top_n": 4,
+    "cash_buffer_pct": 0.03,
+    "max_weight": 0.3,
+    "risk_penalty": 0.5,
+    "min_history_days": 60,
+    "exclude_untradable": true
+  },
+  "universe": [
+    "510300.SH",
+    "159915.SZ",
+    "588000.SH",
+    "512480.SH",
+    "512660.SH",
+    "512880.SH",
+    "2800.HK",
+    "3033.HK"
+  ],
+  "inputs": {
+    "registry": "data/strategies/baseline_strategy_registry.json",
+    "replay_summary": "data/replays/strategies/momentum_risk_adjusted_rotation/replay-2024-01-02-2024-12-31.json",
+    "benchmark_comparison": "data/strategies/benchmark_comparison/baseline_benchmark_comparison-2024-01-02-2024-12-31.json"
+  },
+  "pit_constraints": [
+    "uses signal_date or earlier price data",
+    "uses signal_date or earlier risk proxy data",
+    "generated after T close",
+    "execution earliest date is T+1 or later"
+  ],
+  "replay_summary": {
+    "orders": 5,
+    "trades": 5,
+    "rejected_orders": 0,
+    "no_trade_fallback": false
+  },
+  "benchmark_comparison": {
+    "cumulative_return": -0.05662583,
+    "annualized_return": -0.76983659,
+    "annualized_volatility": 0.1832917,
+    "max_drawdown": -0.06320885,
+    "turnover": 1.0,
+    "cost_drag": 0.00029659,
+    "benchmark_relative_return": {
+      "CSI300": -0.24634644,
+      "CSI500": -0.36975714,
+      "CSI1000": -0.13530081,
+      "CHINEXT": -0.22052395,
+      "HSI": -0.29744322,
+      "HSTECH": -0.25793883,
+      "CASH": -0.05662583,
+      "EQUAL_ETF": -0.27718053
+    },
+    "active_days": 10,
+    "rejected_order_count": 0,
+    "no_trade_days": 5,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false
+  },
+  "execution_summary": {
+    "execution_mode": "isolated",
+    "uses_v059_virtual_execution_contract": true,
+    "isolated_outputs_only": true
+  },
+  "rejected_orders": {
+    "count": 0,
+    "reasons": []
+  },
+  "cost_summary": {
+    "commission": 295.779287,
+    "slippage": 0.036467,
+    "tax": 0.778499
+  },
+  "drawdown_summary": {
+    "max_drawdown": -0.06320885
+  },
+  "known_limitations": [
+    "historical replay uses isolated research ledgers only",
+    "benchmark mapping uses configured ETF proxies when direct index series are unavailable",
+    "short replay sample is a readiness artifact, not a forward validation result"
+  ],
+  "explicit_non_claims": [
+    "This is not strategy effectiveness proof.",
+    "This is not forward dry-run validation.",
+    "This is not live trading readiness.",
+    "This does not trigger promotion.",
+    "This does not use ML/LLM/RL for trading decisions."
+  ],
+  "promotion_triggered": false,
+  "uses_ml_shadow": false,
+  "uses_llm": false,
+  "uses_rl": false,
+  "boundary": {
+    "strategy_report_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "baseline_strategy_pack_only": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

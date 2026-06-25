@@ -1,0 +1,40 @@
+{
+  "plan_id": "BASELINE-STRATEGY-SCOPE-PLAN-20260625-001",
+  "created_at": "2026-06-25T10:42:36.988444Z",
+  "target_version": "v0.6.0-baseline-strategy-pack-audited",
+  "baseline_from": "v0.5.9-ashare-execution-rules-hardened",
+  "input_artifacts": {
+    "day1_blocker_reclassification_v059": "data/system/day1_blocker_reclassification_v059.json",
+    "ashare_execution_rules_audit": "data/system/ashare_execution_rules_audit.json",
+    "next_work_register": "data/system/next_work_register.json",
+    "plan_alignment_audit": "data/system/plan_alignment_audit.json"
+  },
+  "execution_day1_blockers_closed": true,
+  "baseline_strategy_pack_required": true,
+  "forward_dry_run_day1_allowed": false,
+  "strategies": [
+    "equal_weight_etf_rotation",
+    "momentum_risk_adjusted_rotation",
+    "defensive_cash_rotation"
+  ],
+  "boundary": {
+    "planning_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "baseline_strategy_pack_only": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

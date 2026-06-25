@@ -1,0 +1,93 @@
+{
+  "audit_id": "BASELINE-STRATEGY-PACK-AUDIT-2024-01-02-2024-12-31",
+  "release_candidate": "v0.6.0-baseline-strategy-pack-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "summary": {
+    "strategy_count": 3,
+    "strategies_complete": 3,
+    "all_strategies_complete": true,
+    "recommended_next_version": "v0.6.1-daily-workflow-binding"
+  },
+  "sections": {
+    "scope_plan": {
+      "passed": true,
+      "issues": []
+    },
+    "contract": {
+      "passed": true,
+      "issues": []
+    },
+    "registry": {
+      "passed": true,
+      "issues": []
+    },
+    "signals": {
+      "passed": true,
+      "issues": []
+    },
+    "order_preview": {
+      "passed": true,
+      "issues": []
+    },
+    "replay": {
+      "passed": true,
+      "issues": []
+    },
+    "benchmark_comparison": {
+      "passed": true,
+      "issues": []
+    },
+    "reports": {
+      "passed": true,
+      "issues": []
+    },
+    "pack_summary": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "baseline_strategy_pack_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

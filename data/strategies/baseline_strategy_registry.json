@@ -1,0 +1,152 @@
+{
+  "registry_id": "BASELINE-STRATEGY-REGISTRY-20260625-001",
+  "created_at": "2026-06-25T10:42:38.337845Z",
+  "release_candidate": "v0.6.0-baseline-strategy-pack-audited",
+  "strategies": {
+    "equal_weight_etf_rotation": {
+      "strategy_id": "equal_weight_etf_rotation",
+      "parameter_version": "equal_weight_etf_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmarks": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "parameters": {
+        "top_n": 8,
+        "rebalance_frequency": "weekly",
+        "cash_buffer_pct": 0.02,
+        "min_weight": 0.0,
+        "max_weight": 0.2,
+        "exclude_untradable": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false,
+      "isolated_replay_only": true
+    },
+    "momentum_risk_adjusted_rotation": {
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "parameter_version": "momentum_risk_adjusted_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmarks": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "parameters": {
+        "lookback_days": 60,
+        "volatility_lookback_days": 60,
+        "top_n": 4,
+        "cash_buffer_pct": 0.03,
+        "max_weight": 0.3,
+        "risk_penalty": 0.5,
+        "min_history_days": 60,
+        "exclude_untradable": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false,
+      "isolated_replay_only": true
+    },
+    "defensive_cash_rotation": {
+      "strategy_id": "defensive_cash_rotation",
+      "parameter_version": "defensive_cash_rotation_v1",
+      "strategy_type": "deterministic_rule_based",
+      "universe": [
+        "510300.SH",
+        "159915.SZ",
+        "588000.SH",
+        "512480.SH",
+        "512660.SH",
+        "512880.SH",
+        "2800.HK",
+        "3033.HK"
+      ],
+      "benchmarks": [
+        "CSI300",
+        "CSI500",
+        "CSI1000",
+        "CHINEXT",
+        "HSI",
+        "HSTECH",
+        "CASH",
+        "EQUAL_ETF"
+      ],
+      "parameters": {
+        "risk_off_threshold": 0.65,
+        "risk_on_threshold": 0.45,
+        "max_equity_weight_risk_on": 0.95,
+        "max_equity_weight_risk_off": 0.35,
+        "cash_buffer_pct": 0.05,
+        "top_n": 4,
+        "fallback_to_cash_on_missing_risk": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false,
+      "starts_forward_dry_run": false,
+      "isolated_replay_only": true
+    }
+  },
+  "parameter_versions": {
+    "equal_weight_etf_rotation": "equal_weight_etf_rotation_v1",
+    "momentum_risk_adjusted_rotation": "momentum_risk_adjusted_rotation_v1",
+    "defensive_cash_rotation": "defensive_cash_rotation_v1"
+  },
+  "boundary": {
+    "registry_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "baseline_strategy_pack_only": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

@@ -72,6 +72,7 @@ from trading_core.global_briefing.warning_triage import build_global_briefing_wa
 from trading_core.planning.artifact_coverage_scanner import build_artifact_coverage_scan
 from trading_core.planning.day1_blocker_classifier import classify_day1_blockers
 from trading_core.planning.day1_blocker_reclassification import reclassify_day1_blockers_after_execution_hardening
+from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_day1_blockers_after_baseline_strategies
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -130,6 +131,16 @@ from trading_core.system.report_index import build_report_index
 from trading_core.system.system_integrity_audit import run_system_integrity_audit
 from trading_core.system.system_smoke_test import run_system_smoke_test
 from trading_core.system.usability_audit import run_usability_audit
+from trading_core.strategies.baseline_benchmark_comparison import compare_baseline_strategy_benchmarks
+from trading_core.strategies.baseline_order_preview import build_baseline_order_preview
+from trading_core.strategies.baseline_signal_engine import generate_baseline_strategy_signals
+from trading_core.strategies.baseline_strategy_contract import build_baseline_strategy_contract
+from trading_core.strategies.baseline_strategy_pack_audit import audit_baseline_strategy_pack
+from trading_core.strategies.baseline_strategy_pack_summary import build_baseline_strategy_pack_summary
+from trading_core.strategies.baseline_strategy_registry import build_baseline_strategy_registry
+from trading_core.strategies.baseline_strategy_report import build_baseline_strategy_report
+from trading_core.strategies.baseline_strategy_replay import replay_baseline_strategy
+from trading_core.strategies.baseline_strategy_scope_plan import build_baseline_strategy_scope_plan
 
 
 PLANNED_COMMANDS = (
@@ -583,6 +594,33 @@ def build_parser() -> argparse.ArgumentParser:
     reclassify = subparsers.add_parser("reclassify-day1-blockers-after-execution-hardening")
     reclassify.add_argument("--baseline")
     subparsers.add_parser("audit-ashare-execution-rules")
+    subparsers.add_parser("baseline-strategy-scope-plan")
+    subparsers.add_parser("baseline-strategy-contract")
+    subparsers.add_parser("baseline-strategy-registry")
+    baseline_signals = subparsers.add_parser("generate-baseline-strategy-signals")
+    baseline_signals.add_argument("--strategy", default="all")
+    baseline_signals.add_argument("--start-date", default="2024-01-02")
+    baseline_signals.add_argument("--end-date", default="2024-12-31")
+    baseline_preview = subparsers.add_parser("build-baseline-order-preview")
+    baseline_preview.add_argument("--strategy", default="all")
+    baseline_preview.add_argument("--signals")
+    baseline_preview.add_argument("--execution-mode", default="isolated")
+    baseline_replay = subparsers.add_parser("replay-baseline-strategy")
+    baseline_replay.add_argument("--strategy", default="all")
+    baseline_replay.add_argument("--start-date", default="2024-01-02")
+    baseline_replay.add_argument("--end-date", default="2024-12-31")
+    baseline_replay.add_argument("--execution-mode", default="isolated")
+    baseline_compare = subparsers.add_parser("compare-baseline-strategy-benchmarks")
+    baseline_compare.add_argument("--strategy", default="all")
+    baseline_compare.add_argument("--start-date", default="2024-01-02")
+    baseline_compare.add_argument("--end-date", default="2024-12-31")
+    baseline_report = subparsers.add_parser("baseline-strategy-report")
+    baseline_report.add_argument("--strategy", default="all")
+    baseline_report.add_argument("--start-date", default="2024-01-02")
+    baseline_report.add_argument("--end-date", default="2024-12-31")
+    subparsers.add_parser("baseline-strategy-pack-summary")
+    subparsers.add_parser("audit-baseline-strategy-pack")
+    subparsers.add_parser("reclassify-day1-blockers-after-baseline-strategies")
 
     return parser
 
@@ -1596,6 +1634,50 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = audit_ashare_execution_rules(paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
+    if args.command == "baseline-strategy-scope-plan":
+        result = build_baseline_strategy_scope_plan(paths=paths)
+        print({"plan_id": result["plan_id"], "execution_day1_blockers_closed": result["execution_day1_blockers_closed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "baseline-strategy-contract":
+        result = build_baseline_strategy_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "strategies": len(result["strategies"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "baseline-strategy-registry":
+        result = build_baseline_strategy_registry(paths=paths)
+        print({"registry_id": result["registry_id"], "strategies": len(result["strategies"]), "parameter_versions": result["parameter_versions"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "generate-baseline-strategy-signals":
+        result = generate_baseline_strategy_signals(strategy=args.strategy, start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"strategies": result["strategies"], "all_signals_generated": result["all_signals_generated"], "all_pit_constraints_passed": result["all_pit_constraints_passed"], "paths": result["paths"]})
+        return 0 if result["all_signals_generated"] and result["all_pit_constraints_passed"] else 1
+    if args.command == "build-baseline-order-preview":
+        result = build_baseline_order_preview(strategy=args.strategy, signals=args.signals, execution_mode=args.execution_mode, paths=paths)
+        print({"strategy": result["strategy"], "execution_mode": result["execution_mode"], "preview_only": result["preview_only"], "executed": result["executed"], "paths": result["paths"]})
+        return 0 if result["preview_only"] and not result["executed"] else 1
+    if args.command == "replay-baseline-strategy":
+        result = replay_baseline_strategy(strategy=args.strategy, start_date=args.start_date, end_date=args.end_date, execution_mode=args.execution_mode, paths=paths)
+        print({"strategy": result["strategy"], "execution_mode": result["execution_mode"], "all_replays_complete": result["all_replays_complete"], "paths": result["paths"]})
+        return 0 if result["all_replays_complete"] else 1
+    if args.command == "compare-baseline-strategy-benchmarks":
+        result = compare_baseline_strategy_benchmarks(strategy=args.strategy, start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"comparison_id": result["comparison_id"], "strategies": list(result["strategies"].keys()), "benchmarks": list(result["benchmarks"].keys()), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "baseline-strategy-report":
+        result = build_baseline_strategy_report(strategy=args.strategy, start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"strategy": result["strategy"], "all_reports_generated": result["all_reports_generated"], "paths": result["paths"]})
+        return 0 if result["all_reports_generated"] else 1
+    if args.command == "baseline-strategy-pack-summary":
+        result = build_baseline_strategy_pack_summary(paths=paths)
+        print({"summary_id": result["summary_id"], "all_strategies_complete": result["all_strategies_complete"], "strategy_count": result["strategy_count"], "strategies_complete": result["strategies_complete"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-baseline-strategy-pack":
+        result = audit_baseline_strategy_pack(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-blockers-after-baseline-strategies":
+        result = reclassify_day1_blockers_after_baseline_strategies(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_version": result["recommended_next_version"], "day1_start_allowed": result["day1_start_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
