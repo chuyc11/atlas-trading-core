@@ -1,0 +1,4 @@
+date,series_id,value,source,downloaded_at
+2024-01-02,WTI,72.1,fixture,2026-06-25T00:00:00Z
+2024-01-03,WTI,73.0,fixture,2026-06-25T00:00:00Z
+2024-01-08,WTI,74.2,fixture,2026-06-25T00:00:00Z

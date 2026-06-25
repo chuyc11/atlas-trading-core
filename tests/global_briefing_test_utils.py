@@ -10,6 +10,7 @@ from trading_core.storage.file_paths import ProjectPaths
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_ROOT = PROJECT_ROOT / "tests" / "fixtures" / "global_briefing"
 REAL_FIXTURE_ROOT = PROJECT_ROOT / "tests" / "fixtures" / "global_briefing_real"
+HISTORICAL_FIXTURE_ROOT = PROJECT_ROOT / "tests" / "fixtures" / "historical_data"
 
 
 def make_paths(tmp_path: Path) -> ProjectPaths:
@@ -19,6 +20,8 @@ def make_paths(tmp_path: Path) -> ProjectPaths:
     shutil.copytree(FIXTURE_ROOT, fixture_target, dirs_exist_ok=True)
     real_fixture_target = project / "tests" / "fixtures" / "global_briefing_real"
     shutil.copytree(REAL_FIXTURE_ROOT, real_fixture_target, dirs_exist_ok=True)
+    historical_fixture_target = project / "tests" / "fixtures" / "historical_data"
+    shutil.copytree(HISTORICAL_FIXTURE_ROOT, historical_fixture_target, dirs_exist_ok=True)
     return ProjectPaths(tmp_path)
 
 
@@ -39,6 +42,10 @@ def fixture_path(paths: ProjectPaths, name: str) -> str:
 
 def real_fixture_path(paths: ProjectPaths, name: str) -> str:
     return f"tests/fixtures/global_briefing_real/{name}"
+
+
+def historical_fixture_path(paths: ProjectPaths, name: str) -> str:
+    return f"tests/fixtures/historical_data/{name}"
 
 
 def protected_paths(paths: ProjectPaths) -> list[Path]:

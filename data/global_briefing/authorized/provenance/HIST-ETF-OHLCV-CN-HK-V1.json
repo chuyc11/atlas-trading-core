@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-ETF-OHLCV-CN-HK-V1",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "source_url_host": "query1.finance.yahoo.com",
+  "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a",
+  "downloaded_at": "2026-06-25T04:27:55.320410Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

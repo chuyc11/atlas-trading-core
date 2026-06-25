@@ -1,0 +1,155 @@
+{
+  "resolution_id": "HIST-DATA-SOURCE-RESOLUTION-20260625-001",
+  "created_at": "2026-06-25T04:27:24.888072Z",
+  "start_date": "2018-01-01",
+  "end_date": "2026-06-25",
+  "packages": [
+    {
+      "package_id": "HIST-ETF-OHLCV-CN-HK-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "yahoo_query_or_equivalent_authorized_market_data_source",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-BENCHMARK-INDEX-CN-HK-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "yahoo_query_or_equivalent_authorized_market_data_source",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-FX-USDCNY-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "fred",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-GLOBAL-RISK-VIX-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "fred",
+        "cboe_vix",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-RATES-LIQUIDITY-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "fred",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-COMMODITY-INFLATION-RISK-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "fred",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "fred",
+        "policy_uncertainty_public_file",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+      "selected_source": "local_authorized_export",
+      "source_type": "authorized_local_file",
+      "status": "configured",
+      "requires_secret": false,
+      "secret_env": null,
+      "fallback_sources": [
+        "oecd",
+        "fixture"
+      ],
+      "allowed": true,
+      "reason": "local_authorized_export source configured",
+      "local_file": null
+    },
+    {
+      "package_id": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+      "selected_source": "gb_authorized_api",
+      "source_type": "authorized_api",
+      "status": "not_configured",
+      "requires_secret": true,
+      "secret_env": "GB_AUTH_TOKEN",
+      "fallback_sources": [
+        "GB_AUTH_PACKAGE_PATH",
+        "local_authorized_export"
+      ],
+      "allowed": true,
+      "reason": "authorized global-briefing signal package source not configured"
+    }
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "boundary": {
+    "source_resolution_only": true,
+    "historical_data_authorization": true,
+    "trading_authorization": false,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "network_access": false,
+    "broker_connected": false
+  }
+}

@@ -29,4 +29,13 @@ __all__ = [
     "evidence_quality_report",
     "production_package_acceptance",
     "evidence_quality_audit",
+    "historical_data_packages",
+    "historical_data_source_resolver",
+    "historical_data_downloaders",
+    "historical_package_normalizer",
+    "full_historical_proxy_builder",
+    "historical_data_quality_audit",
+    "full_historical_proxy_workflow",
+    "historical_data_acquisition_report",
+    "historical_data_acquisition_audit",
 ]

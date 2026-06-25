@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-FX-USDCNY-V1",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "source_url_host": "query1.finance.yahoo.com",
+  "sha256": "6be954a2e96125ac831ca1976986cb76a685461f6c3d2ca6c6054a749142aaec",
+  "downloaded_at": "2026-06-25T04:28:22.113754Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

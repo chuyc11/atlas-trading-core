@@ -1,0 +1,144 @@
+{
+  "audit_id": "HIST-DATA-QUALITY-AUDIT-20260625-001",
+  "created_at": "2026-06-25T04:30:27.952807Z",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "HIST-FX-USDCNY-V1: DEXCHUS: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-FX-USDCNY-V1: FRED DEXCHUS unavailable; used Yahoo CNY=X historical close fallback.",
+    "HIST-GLOBAL-RISK-VIX-V1: VIXCLS: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-RATES-LIQUIDITY-V1: DGS2: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-RATES-LIQUIDITY-V1: DGS10: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-RATES-LIQUIDITY-V1: DFF: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-RATES-LIQUIDITY-V1: SOFR: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-RATES-LIQUIDITY-V1: FRED rates series unavailable; used Yahoo market-yield proxies where available.",
+    "HIST-COMMODITY-INFLATION-RISK-V1: DCOILWTICO: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-COMMODITY-INFLATION-RISK-V1: DCOILBRENTEU: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-COMMODITY-INFLATION-RISK-V1: GOLDAMGBD228NLBM: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-COMMODITY-INFLATION-RISK-V1: FRED commodity series unavailable; used Yahoo futures proxy fallback where available.",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: no FRED rows downloaded",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: no public EPU fallback configured after FRED failure",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: package status explained: failed",
+    "HIST-OECD-CLI-MACRO-CYCLE-V1: OECD public endpoint not configured",
+    "HIST-OECD-CLI-MACRO-CYCLE-V1: package status explained: failed",
+    "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: authorized global-briefing source not configured",
+    "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: authorized global-briefing signal package not configured; production package not validated"
+  ],
+  "coverage": {
+    "start_date": "2018-01-01",
+    "end_date": "2026-06-25",
+    "required_packages": 9,
+    "available_packages": 6,
+    "critical_packages_available": true
+  },
+  "packages": {
+    "HIST-ETF-OHLCV-CN-HK-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 0.999677,
+      "warnings": [],
+      "issues": []
+    },
+    "HIST-BENCHMARK-INDEX-CN-HK-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 1.0,
+      "warnings": [],
+      "issues": []
+    },
+    "HIST-FX-USDCNY-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 1.0,
+      "warnings": [
+        "DEXCHUS: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED DEXCHUS unavailable; used Yahoo CNY=X historical close fallback."
+      ],
+      "issues": []
+    },
+    "HIST-GLOBAL-RISK-VIX-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 0.999354,
+      "warnings": [
+        "VIXCLS: download failed from fred.stlouisfed.org: The read operation timed out"
+      ],
+      "issues": []
+    },
+    "HIST-RATES-LIQUIDITY-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 0.999354,
+      "warnings": [
+        "DGS2: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DGS10: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DFF: download failed from fred.stlouisfed.org: The read operation timed out",
+        "SOFR: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED rates series unavailable; used Yahoo market-yield proxies where available."
+      ],
+      "issues": []
+    },
+    "HIST-COMMODITY-INFLATION-RISK-V1": {
+      "passed": true,
+      "status": "downloaded",
+      "coverage_ratio": 0.999677,
+      "warnings": [
+        "DCOILWTICO: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DCOILBRENTEU: download failed from fred.stlouisfed.org: The read operation timed out",
+        "GOLDAMGBD228NLBM: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED commodity series unavailable; used Yahoo futures proxy fallback where available."
+      ],
+      "issues": []
+    },
+    "HIST-POLICY-UNCERTAINTY-EPU-V1": {
+      "passed": true,
+      "status": "failed",
+      "coverage_ratio": 0.0,
+      "warnings": [
+        "no FRED rows downloaded",
+        "USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
+        "no public EPU fallback configured after FRED failure",
+        "package status explained: failed"
+      ],
+      "issues": []
+    },
+    "HIST-OECD-CLI-MACRO-CYCLE-V1": {
+      "passed": true,
+      "status": "failed",
+      "coverage_ratio": 0.0,
+      "warnings": [
+        "OECD public endpoint not configured",
+        "package status explained: failed"
+      ],
+      "issues": []
+    },
+    "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1": {
+      "passed": true,
+      "status": "not_configured",
+      "coverage_ratio": 0.0,
+      "warnings": [
+        "authorized global-briefing source not configured",
+        "authorized global-briefing signal package not configured; production package not validated"
+      ],
+      "issues": []
+    }
+  },
+  "proxy_package": {
+    "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\normalized\\GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+    "validated": true,
+    "coverage_ratio": 1.0
+  },
+  "boundary": {
+    "quality_audit_only": true,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "strategy_effectiveness_proven": false,
+    "trading_authorization": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false
+  }
+}

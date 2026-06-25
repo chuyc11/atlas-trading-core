@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-BENCHMARK-INDEX-CN-HK-V1",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "source_url_host": "query1.finance.yahoo.com",
+  "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b",
+  "downloaded_at": "2026-06-25T04:28:11.178143Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

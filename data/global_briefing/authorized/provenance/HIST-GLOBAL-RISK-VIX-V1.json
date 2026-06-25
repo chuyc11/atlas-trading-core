@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-GLOBAL-RISK-VIX-V1",
+  "source": "cboe_vix",
+  "source_url_host": "cdn.cboe.com",
+  "sha256": "ebe4a5887aa8f344a711d6dc5d4a0f8f357740ed13f3835e1b82e7accbe78c4a",
+  "downloaded_at": "2026-06-25T04:28:38.279913Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

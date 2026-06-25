@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-RATES-LIQUIDITY-V1",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "source_url_host": "query1.finance.yahoo.com",
+  "sha256": "d2612afb7bb88c0b6fdf6b6fb98bc4bd983bef1dd2f65a43dd000e0d7b4eed93",
+  "downloaded_at": "2026-06-25T04:29:17.819383Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

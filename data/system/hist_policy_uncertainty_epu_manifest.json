@@ -1,0 +1,27 @@
+{
+  "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+  "status": "failed",
+  "source": null,
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
+  "raw_path": null,
+  "normalized_candidate_path": null,
+  "row_count": 0,
+  "date_min": null,
+  "date_max": null,
+  "coverage_ratio": 0.0,
+  "sha256": null,
+  "provenance_path": null,
+  "source_url_host": null,
+  "downloaded_at": "2026-06-25T04:30:02.047673Z",
+  "warnings": [
+    "no FRED rows downloaded",
+    "USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
+    "no public EPU fallback configured after FRED failure"
+  ],
+  "resolution": {
+    "selected_source": "local_authorized_export",
+    "source_type": "authorized_local_file",
+    "status": "configured",
+    "reason": "local_authorized_export source configured"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "package_id": "HIST-ETF-OHLCV-CN-HK-V1",
+  "status": "downloaded",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-ETF-OHLCV-CN-HK-V1.csv",
+  "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-ETF-OHLCV-CN-HK-V1.csv",
+  "normalized_candidate_path": null,
+  "row_count": 14791,
+  "date_min": "2018-01-02",
+  "date_max": "2026-06-25",
+  "coverage_ratio": 0.999677,
+  "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a",
+  "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-ETF-OHLCV-CN-HK-V1.json",
+  "source_url_host": "query1.finance.yahoo.com",
+  "downloaded_at": "2026-06-25T04:27:55.320410Z",
+  "warnings": [],
+  "resolution": {
+    "selected_source": "local_authorized_export",
+    "source_type": "authorized_local_file",
+    "status": "configured",
+    "reason": "local_authorized_export source configured"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "package_id": "HIST-BENCHMARK-INDEX-CN-HK-V1",
+  "status": "downloaded",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+  "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+  "normalized_candidate_path": null,
+  "row_count": 7892,
+  "date_min": "2018-01-01",
+  "date_max": "2026-06-25",
+  "coverage_ratio": 1.0,
+  "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b",
+  "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-BENCHMARK-INDEX-CN-HK-V1.json",
+  "source_url_host": "query1.finance.yahoo.com",
+  "downloaded_at": "2026-06-25T04:28:11.178143Z",
+  "warnings": [],
+  "resolution": {
+    "selected_source": "local_authorized_export",
+    "source_type": "authorized_local_file",
+    "status": "configured",
+    "reason": "local_authorized_export source configured"
+  }
+}

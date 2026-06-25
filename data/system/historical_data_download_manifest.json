@@ -1,0 +1,265 @@
+{
+  "manifest_id": "HIST-DATA-DOWNLOAD-MANIFEST-20260625-001",
+  "created_at": "2026-06-25T04:27:24.888072Z",
+  "start_date": "2018-01-01",
+  "end_date": "2026-06-25",
+  "source_resolution": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\historical_data_source_resolution.json",
+  "packages": [
+    {
+      "package_id": "HIST-ETF-OHLCV-CN-HK-V1",
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-ETF-OHLCV-CN-HK-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-ETF-OHLCV-CN-HK-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 14791,
+      "date_min": "2018-01-02",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 0.999677,
+      "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-ETF-OHLCV-CN-HK-V1.json",
+      "source_url_host": "query1.finance.yahoo.com",
+      "downloaded_at": "2026-06-25T04:27:55.320410Z",
+      "warnings": [],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-BENCHMARK-INDEX-CN-HK-V1",
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\market\\historical\\authorized\\HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 7892,
+      "date_min": "2018-01-01",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 1.0,
+      "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-BENCHMARK-INDEX-CN-HK-V1.json",
+      "source_url_host": "query1.finance.yahoo.com",
+      "downloaded_at": "2026-06-25T04:28:11.178143Z",
+      "warnings": [],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-FX-USDCNY-V1",
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-FX-USDCNY-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-FX-USDCNY-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 2207,
+      "date_min": "2018-01-01",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 1.0,
+      "sha256": "6be954a2e96125ac831ca1976986cb76a685461f6c3d2ca6c6054a749142aaec",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-FX-USDCNY-V1.json",
+      "source_url_host": "query1.finance.yahoo.com",
+      "downloaded_at": "2026-06-25T04:28:22.113754Z",
+      "warnings": [
+        "DEXCHUS: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED DEXCHUS unavailable; used Yahoo CNY=X historical close fallback."
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-GLOBAL-RISK-VIX-V1",
+      "status": "downloaded",
+      "source": "cboe_vix",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-GLOBAL-RISK-VIX-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-GLOBAL-RISK-VIX-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 2161,
+      "date_min": "2018-01-02",
+      "date_max": "2026-06-24",
+      "coverage_ratio": 0.999354,
+      "sha256": "ebe4a5887aa8f344a711d6dc5d4a0f8f357740ed13f3835e1b82e7accbe78c4a",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-GLOBAL-RISK-VIX-V1.json",
+      "source_url_host": "cdn.cboe.com",
+      "downloaded_at": "2026-06-25T04:28:38.279913Z",
+      "warnings": [
+        "VIXCLS: download failed from fred.stlouisfed.org: The read operation timed out"
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-RATES-LIQUIDITY-V1",
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-RATES-LIQUIDITY-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-RATES-LIQUIDITY-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 6384,
+      "date_min": "2018-01-02",
+      "date_max": "2026-06-24",
+      "coverage_ratio": 0.999354,
+      "sha256": "d2612afb7bb88c0b6fdf6b6fb98bc4bd983bef1dd2f65a43dd000e0d7b4eed93",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-RATES-LIQUIDITY-V1.json",
+      "source_url_host": "query1.finance.yahoo.com",
+      "downloaded_at": "2026-06-25T04:29:17.819383Z",
+      "warnings": [
+        "DGS2: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DGS10: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DFF: download failed from fred.stlouisfed.org: The read operation timed out",
+        "SOFR: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED rates series unavailable; used Yahoo market-yield proxies where available."
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-COMMODITY-INFLATION-RISK-V1",
+      "status": "downloaded",
+      "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-COMMODITY-INFLATION-RISK-V1.csv",
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-COMMODITY-INFLATION-RISK-V1.csv",
+      "normalized_candidate_path": null,
+      "row_count": 8532,
+      "date_min": "2018-01-02",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 0.999677,
+      "sha256": "c610e91b46fe4880fff179ea7acd392939055021aa087d8d7ee1822bf63c5ee9",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-COMMODITY-INFLATION-RISK-V1.json",
+      "source_url_host": "query1.finance.yahoo.com",
+      "downloaded_at": "2026-06-25T04:29:56.021766Z",
+      "warnings": [
+        "DCOILWTICO: download failed from fred.stlouisfed.org: The read operation timed out",
+        "DCOILBRENTEU: download failed from fred.stlouisfed.org: The read operation timed out",
+        "GOLDAMGBD228NLBM: download failed from fred.stlouisfed.org: The read operation timed out",
+        "FRED commodity series unavailable; used Yahoo futures proxy fallback where available."
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+      "status": "failed",
+      "source": null,
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
+      "raw_path": null,
+      "normalized_candidate_path": null,
+      "row_count": 0,
+      "date_min": null,
+      "date_max": null,
+      "coverage_ratio": 0.0,
+      "sha256": null,
+      "provenance_path": null,
+      "source_url_host": null,
+      "downloaded_at": "2026-06-25T04:30:02.047673Z",
+      "warnings": [
+        "no FRED rows downloaded",
+        "USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
+        "no public EPU fallback configured after FRED failure"
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+      "status": "failed",
+      "source": null,
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
+      "raw_path": null,
+      "normalized_candidate_path": null,
+      "row_count": 0,
+      "date_min": null,
+      "date_max": null,
+      "coverage_ratio": 0.0,
+      "sha256": null,
+      "provenance_path": null,
+      "source_url_host": null,
+      "downloaded_at": "2026-06-25T04:30:02.049998Z",
+      "warnings": [
+        "OECD public endpoint not configured"
+      ],
+      "resolution": {
+        "selected_source": "local_authorized_export",
+        "source_type": "authorized_local_file",
+        "status": "configured",
+        "reason": "local_authorized_export source configured"
+      }
+    },
+    {
+      "package_id": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+      "status": "not_configured",
+      "source": "gb_authorized_api",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1.raw",
+      "raw_path": null,
+      "normalized_candidate_path": null,
+      "row_count": 0,
+      "date_min": null,
+      "date_max": null,
+      "coverage_ratio": 0.0,
+      "sha256": null,
+      "provenance_path": null,
+      "source_url_host": null,
+      "downloaded_at": "2026-06-25T04:30:02.050578Z",
+      "warnings": [
+        "authorized global-briefing source not configured"
+      ],
+      "blocking": false,
+      "production_global_briefing_package_validated": false,
+      "resolution": {
+        "selected_source": "gb_authorized_api",
+        "source_type": "authorized_api",
+        "status": "not_configured",
+        "reason": "authorized global-briefing signal package source not configured"
+      }
+    }
+  ],
+  "summary": {
+    "required_packages": 9,
+    "downloaded": 6,
+    "loaded_from_local": 0,
+    "not_configured": 1,
+    "failed": 2,
+    "skipped_optional": 0,
+    "normalized": 0,
+    "audit_passed": 0,
+    "audit_failed": 0
+  },
+  "boundary": {
+    "historical_data_download_only": true,
+    "trading_authorization": false,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "broker_connected": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "package_id": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+  "status": "not_configured",
+  "source": "gb_authorized_api",
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1.raw",
+  "raw_path": null,
+  "normalized_candidate_path": null,
+  "row_count": 0,
+  "date_min": null,
+  "date_max": null,
+  "coverage_ratio": 0.0,
+  "sha256": null,
+  "provenance_path": null,
+  "source_url_host": null,
+  "downloaded_at": "2026-06-25T04:30:02.050578Z",
+  "warnings": [
+    "authorized global-briefing source not configured"
+  ],
+  "blocking": false,
+  "production_global_briefing_package_validated": false,
+  "resolution": {
+    "selected_source": "gb_authorized_api",
+    "source_type": "authorized_api",
+    "status": "not_configured",
+    "reason": "authorized global-briefing signal package source not configured"
+  }
+}

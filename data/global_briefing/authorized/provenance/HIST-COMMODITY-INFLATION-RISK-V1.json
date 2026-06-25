@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-COMMODITY-INFLATION-RISK-V1",
+  "source": "yahoo_query_or_equivalent_authorized_market_data_source",
+  "source_url_host": "query1.finance.yahoo.com",
+  "sha256": "c610e91b46fe4880fff179ea7acd392939055021aa087d8d7ee1822bf63c5ee9",
+  "downloaded_at": "2026-06-25T04:29:56.021766Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

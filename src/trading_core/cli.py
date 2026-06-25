@@ -25,6 +25,13 @@ from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderbo
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
 from trading_core.global_briefing.evidence_quality_audit import audit_global_briefing_evidence_quality
 from trading_core.global_briefing.evidence_quality_report import build_global_briefing_evidence_quality_report
+from trading_core.global_briefing.full_historical_proxy_workflow import run_full_historical_proxy_replay
+from trading_core.global_briefing.historical_data_acquisition_audit import audit_historical_data_acquisition
+from trading_core.global_briefing.historical_data_acquisition_report import build_historical_data_acquisition_report
+from trading_core.global_briefing.historical_data_downloaders import download_historical_data_packages
+from trading_core.global_briefing.historical_data_quality_audit import audit_historical_data_quality
+from trading_core.global_briefing.historical_data_source_resolver import resolve_historical_data_sources
+from trading_core.global_briefing.historical_package_normalizer import normalize_historical_data_packages
 from trading_core.global_briefing.isolated_replay_adapter_audit import audit_isolated_replay_adapter
 from trading_core.global_briefing.production_package_acceptance import build_global_briefing_production_acceptance_criteria
 from trading_core.global_briefing.real_package_coverage_audit import audit_global_briefing_package_coverage
@@ -431,6 +438,48 @@ def build_parser() -> argparse.ArgumentParser:
     evidence_audit.add_argument("--triage")
     evidence_audit.add_argument("--evidence")
     evidence_audit.add_argument("--criteria")
+    source_resolution = subparsers.add_parser("historical-data-source-resolution")
+    source_resolution.add_argument("--packages")
+    source_resolution.add_argument("--start-date", default="2018-01-01")
+    source_resolution.add_argument("--end-date", default="latest")
+    source_resolution.add_argument("--preferred-source")
+    hist_download = subparsers.add_parser("download-historical-data-packages")
+    hist_download.add_argument("--packages")
+    hist_download.add_argument("--start-date", default="2018-01-01")
+    hist_download.add_argument("--end-date", default="latest")
+    hist_download.add_argument("--continue-on-error", action="store_true")
+    hist_download.add_argument("--source-mode", choices=["auto", "fixture"], default="auto")
+    hist_download.add_argument("--timeout-seconds", type=int, default=8)
+    hist_download.add_argument("--max-retries", type=int, default=1)
+    hist_normalize = subparsers.add_parser("normalize-historical-data-packages")
+    hist_normalize.add_argument("--download-manifest")
+    hist_normalize.add_argument("--start-date", default="2018-01-01")
+    hist_normalize.add_argument("--end-date", default="latest")
+    hist_quality = subparsers.add_parser("audit-historical-data-quality")
+    hist_quality.add_argument("--download-manifest")
+    hist_quality.add_argument("--normalization")
+    hist_quality.add_argument("--start-date")
+    hist_quality.add_argument("--end-date")
+    proxy_replay = subparsers.add_parser("run-full-historical-proxy-replay")
+    proxy_replay.add_argument("--signals")
+    proxy_replay.add_argument("--prices")
+    proxy_replay.add_argument("--start-date", default="2018-01-01")
+    proxy_replay.add_argument("--end-date", default="latest")
+    proxy_replay.add_argument("--min-coverage", type=float, default=0.80)
+    proxy_replay.add_argument("--execution-mode", choices=["isolated", "no-trade"], default="isolated")
+    proxy_replay.add_argument("--strict", action="store_true")
+    hist_report = subparsers.add_parser("historical-data-acquisition-report")
+    hist_report.add_argument("--download-manifest")
+    hist_report.add_argument("--normalization")
+    hist_report.add_argument("--quality-audit")
+    hist_report.add_argument("--proxy-workflow")
+    hist_audit = subparsers.add_parser("audit-historical-data-acquisition")
+    hist_audit.add_argument("--source-resolution")
+    hist_audit.add_argument("--download-manifest")
+    hist_audit.add_argument("--normalization")
+    hist_audit.add_argument("--quality-audit")
+    hist_audit.add_argument("--proxy-workflow")
+    hist_audit.add_argument("--report")
 
     return parser
 
@@ -455,6 +504,12 @@ def _resolve_project_path(value: str | None, paths) -> Path | None:
     if len(parts) >= 2 and parts[0] == "work" and parts[1] == "trading-core":
         return paths.workspace_root / path
     return paths.project_root / path
+
+
+def _split_csv_arg(value: str | None) -> list[str] | None:
+    if not value:
+        return None
+    return [part.strip() for part in value.split(",") if part.strip()]
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -1223,6 +1278,83 @@ def main(argv: Sequence[str] | None = None) -> int:
             triage_path=args.triage,
             evidence_path=args.evidence,
             criteria_path=args.criteria,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "historical-data-source-resolution":
+        result = resolve_historical_data_sources(
+            packages=_split_csv_arg(args.packages),
+            start_date=args.start_date,
+            end_date=args.end_date,
+            preferred_source=args.preferred_source,
+            paths=paths,
+        )
+        print({"resolution_id": result["resolution_id"], "packages": len(result["packages"]), "overall_passed": result["overall_passed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "download-historical-data-packages":
+        result = download_historical_data_packages(
+            packages=_split_csv_arg(args.packages),
+            start_date=args.start_date,
+            end_date=args.end_date,
+            continue_on_error=args.continue_on_error,
+            source_mode=args.source_mode,
+            timeout_seconds=args.timeout_seconds,
+            max_retries=args.max_retries,
+            paths=paths,
+        )
+        print({"manifest_id": result["manifest_id"], "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "normalize-historical-data-packages":
+        result = normalize_historical_data_packages(
+            download_manifest_path=args.download_manifest,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            paths=paths,
+        )
+        print({"normalization_id": result["normalization_id"], "proxy_validated": result["proxy_package"]["validated"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["proxy_package"]["validated"] else 1
+    if args.command == "audit-historical-data-quality":
+        result = audit_historical_data_quality(
+            download_manifest_path=args.download_manifest,
+            normalization_path=args.normalization,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-full-historical-proxy-replay":
+        result = run_full_historical_proxy_replay(
+            signals_path=args.signals,
+            prices_path=args.prices,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            min_coverage=args.min_coverage,
+            execution_mode=args.execution_mode,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({"workflow_id": result["workflow_id"], "overall_status": result["overall_status"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_status"] == "research_review_ready" else 1
+    if args.command == "historical-data-acquisition-report":
+        result = build_historical_data_acquisition_report(
+            download_manifest_path=args.download_manifest,
+            normalization_path=args.normalization,
+            quality_audit_path=args.quality_audit,
+            proxy_workflow_path=args.proxy_workflow,
+            paths=paths,
+        )
+        print({"report_id": result["report_id"], "overall_status": result["overall_status"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-historical-data-acquisition":
+        result = audit_historical_data_acquisition(
+            source_resolution_path=args.source_resolution,
+            download_manifest_path=args.download_manifest,
+            normalization_path=args.normalization,
+            quality_audit_path=args.quality_audit,
+            proxy_workflow_path=args.proxy_workflow,
+            report_path=args.report,
             paths=paths,
         )
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
