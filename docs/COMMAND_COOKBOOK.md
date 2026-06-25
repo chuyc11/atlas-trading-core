@@ -31,6 +31,7 @@ python -m trading_core.cli audit-isolated-replay-adapter
 python -m trading_core.cli audit-global-briefing-real-package-integration
 python -m trading_core.cli audit-global-briefing-evidence-quality
 python -m trading_core.cli audit-historical-data-acquisition
+python -m trading_core.cli audit-historical-data-gap-closure
 ```
 
 ## Run reporting pipeline
@@ -89,6 +90,17 @@ python -m trading_core.cli audit-historical-data-acquisition
 
 This workflow acquires historical research data packages and builds the unified proxy package. Historical data authorization is not trading authorization. The proxy signals are not internal global-briefing signals, the production global-briefing package remains separately reported, and the historical replay is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
 
+## Run historical data gap closure
+
+```bash
+python -m trading_core.cli close-historical-data-gaps --start-date 2018-01-01 --end-date latest --replay-start-date 2024-01-02 --replay-end-date 2024-12-31 --min-coverage 0.80 --continue-on-error
+python -m trading_core.cli historical-warning-inventory
+python -m trading_core.cli historical-data-gap-closure-report
+python -m trading_core.cli audit-historical-data-gap-closure
+```
+
+This v0.5.7.1 path repairs or proxies EPU, repairs OECD CLI or builds an authorized macro-cycle proxy explicitly marked as not official OECD CLI, rebuilds the proxy package, preserves raw warning counts, and displays grouped warnings. It is not forward dry-run validation, not live trading readiness, not strategy effectiveness proof, and not trading authorization.
+
 ## What not to do
 
 * do not run live trading
@@ -99,6 +111,7 @@ This workflow acquires historical research data packages and builds the unified 
 * do not treat real package integration as live readiness or forward validation
 * do not treat evidence-quality reports as production package acceptance
 * do not treat authorized historical data acquisition as trading authorization
+* do not treat historical gap closure as trading authorization or production global-briefing validation
 * do not treat proxy signals as internal global-briefing signals
 
 ## Boundary
@@ -108,3 +121,4 @@ This workflow acquires historical research data packages and builds the unified 
 * Forward 30d dry-run is not completed.
 * Global-briefing historical replay and real package integration are isolated and write no main ledger.
 * v0.5.7 authorized historical data acquisition writes no main ledger and does not call run-daily.
+* v0.5.7.1 historical data gap closure writes no main ledger and does not call run-daily.

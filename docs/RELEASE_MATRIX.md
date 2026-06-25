@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current historical data acquisition line is `v0.5.7-authorized-full-historical-data-acquisition-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current historical data acquisition line is `v0.5.7.1-historical-data-gap-closure-audited`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -19,3 +19,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.5.6-real-global-briefing-signal-integration-audited | v0.5.6-real-global-briefing-signal-integration-audited | local real package manifest, normalization, coverage and point-in-time audit, isolated replay workflow, integration report, and release audit | yes | local historical package integration only; not forward dry-run validation, not live trading readiness, not strategy effectiveness proof |
 | v0.5.6.1-warning-triage-evidence-quality | v0.5.6.1-warning-triage-evidence-quality | warning triage, evidence quality report, production acceptance criteria, and evidence quality audit | yes | evidence-quality only; production readiness remains false |
 | v0.5.7-authorized-full-historical-data-acquisition-audited | v0.5.7-authorized-full-historical-data-acquisition-audited | authorized ETF, benchmark, FX, VIX, rates, commodity, EPU, OECD, optional authorized global-briefing package acquisition, proxy package, quality audit, isolated replay workflow, report, and acquisition audit | yes | historical data authorization is not trading authorization; proxy package is not internal global-briefing; historical replay is not forward dry-run validation, strategy proof, or live readiness |
+| v0.5.7.1-historical-data-gap-closure-audited | v0.5.7.1-historical-data-gap-closure-audited | EPU repair/proxy, OECD CLI or macro-cycle proxy repair, proxy rebuild, warning inventory, grouped replay warnings, gap closure workflow, report, and audit | yes | historical data gap closure only; OECD macro-cycle fallback is not official OECD CLI; not forward dry-run validation, strategy proof, live readiness, or trading authorization |

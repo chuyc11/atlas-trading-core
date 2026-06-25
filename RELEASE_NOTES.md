@@ -1,5 +1,39 @@
 # Release Notes
 
+## v0.5.7.1-historical-data-gap-closure-audited
+
+This patch release closes v0.5.7 historical research data gaps and reduces warning noise for the authorized full historical proxy replay path. Historical data authorization is not trading authorization.
+
+Includes:
+
+- historical warning inventory with category, severity, grouped counts, and fix status
+- EPU package repair through authorized/local/API/FRED-compatible sources, with policy-uncertainty proxy fallback when official source access is unavailable
+- OECD CLI repair through authorized/local/API sources, with authorized macro-cycle proxy fallback explicitly marked as not official OECD CLI
+- full historical proxy package rebuild with EPU and macro-cycle fields
+- normalized proxy package rebuild and signal contract validation
+- full historical proxy replay grouped warning output with raw warning count preserved
+- gap closure workflow, gap closure report, and gap closure release audit
+
+Audited & Validated scope:
+
+- `close-historical-data-gaps --start-date 2018-01-01 --end-date latest --replay-start-date 2024-01-02 --replay-end-date 2024-12-31 --min-coverage 0.80 --continue-on-error` passed.
+- Available packages improved from 6/9 to at least 8/9 while keeping the optional authorized global-briefing historical signal package separately reported.
+- EPU was repaired or represented by a clearly marked policy-uncertainty proxy.
+- OECD CLI was repaired or represented by a clearly marked authorized macro-cycle proxy that is not official OECD CLI.
+- `historical-warning-inventory` generated JSON and Markdown with unknown warnings reduced to zero.
+- `run-full-historical-proxy-replay` retained raw warning counts and displayed grouped warnings.
+- `historical-data-gap-closure-report` generated JSON and Markdown.
+- `audit-historical-data-gap-closure` passed with `overall_passed=True` and no blocking reasons.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Isolated replay artifacts were written under `data/replays/global_briefing/`.
+- `run-daily` was not called.
+- Labels, ML shadow, experiments, promotion outputs, broker/live integration, RL, and LLM trading decisions were not used.
+- Forward dry-run was not started or validated.
+
+Boundaries remain strict: this is historical data gap closure only, not broker integration, not live trading, not forward dry-run validation, not strategy effectiveness proof, not live trading readiness, not production global-briefing package validation, and not promotion approval.
+
+Validation: 716 tests passed, 1 skipped.
+
 ## v0.5.7-authorized-full-historical-data-acquisition-audited
 
 This release adds authorized full historical data package acquisition for the global-briefing research replay path. It downloads or loads historical packages, normalizes them, builds a unified proxy package, audits quality, runs isolated proxy replay, and produces acquisition reports. Historical data authorization is not trading authorization.

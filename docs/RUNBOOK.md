@@ -166,3 +166,28 @@ Boundary:
 - forward dry-run not started or validated
 - historical replay is not strategy effectiveness proof
 - not live trading readiness
+
+## Historical data gap closure and warning reduction
+
+This workflow is the v0.5.7.1 patch path. It repairs or substitutes EPU and OECD CLI historical research inputs, rebuilds the unified proxy package and normalized proxy package, groups warnings, reruns isolated replay, regenerates acquisition evidence, and audits the gap closure.
+
+```powershell
+python -m trading_core.cli close-historical-data-gaps --start-date 2018-01-01 --end-date latest --replay-start-date 2024-01-02 --replay-end-date 2024-12-31 --min-coverage 0.80 --continue-on-error
+python -m trading_core.cli historical-warning-inventory
+python -m trading_core.cli historical-data-gap-closure-report
+python -m trading_core.cli audit-historical-data-gap-closure
+```
+
+Boundary:
+
+- historical data authorization is not trading authorization
+- EPU repair may use authorized/local/API/FRED-compatible data or a policy-uncertainty proxy
+- OECD CLI repair may use authorized/local/API data or an authorized macro-cycle proxy marked as not official OECD CLI
+- no broker/account/order/trade/position/margin data
+- no main orders/trades/portfolio/accounts writes
+- isolated replay ledger written only under `data/replays/global_briefing/`
+- run-daily not called
+- labels, ML shadow, experiments, promotion, RL, and LLM trading decisions not used
+- forward dry-run not started or validated
+- historical replay is not strategy effectiveness proof
+- not live trading readiness

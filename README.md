@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.7-authorized-full-historical-data-acquisition-audited
+v0.5.7.1-historical-data-gap-closure-audited
 
 ## Completed milestones
 
@@ -35,6 +35,7 @@ v0.5.7-authorized-full-historical-data-acquisition-audited
 - v0.5.6 real global-briefing signal integration audited
 - v0.5.6.1 warning triage and evidence quality audited
 - v0.5.7 authorized full historical data acquisition audited
+- v0.5.7.1 historical data gap closure audited
 
 ## Known limitations
 
@@ -42,6 +43,8 @@ v0.5.7-authorized-full-historical-data-acquisition-audited
 - authorized historical data access is available, but historical data authorization is not trading authorization
 - authorized production global-briefing historical signal package is separately reported and may be `not_configured`
 - unified proxy signals are research proxy signals, not internal global-briefing signals
+- EPU may be repaired from authorized/local/API/FRED-compatible sources or represented by a policy-uncertainty proxy when official source access is unavailable
+- OECD CLI may be repaired from authorized/local/API sources or represented by an authorized macro-cycle proxy explicitly marked as not official OECD CLI
 - historical replay is not forward dry-run validation
 - strategy effectiveness not proven
 - no live trading
@@ -144,6 +147,14 @@ python -m trading_core.cli historical-data-acquisition-report
 python -m trading_core.cli audit-historical-data-acquisition
 ```
 
+Run v0.5.7.1 historical data gap closure and warning reduction:
+
+```powershell
+python -m trading_core.cli close-historical-data-gaps --start-date 2018-01-01 --end-date latest --replay-start-date 2024-01-02 --replay-end-date 2024-12-31 --min-coverage 0.80 --continue-on-error
+python -m trading_core.cli historical-data-gap-closure-report
+python -m trading_core.cli audit-historical-data-gap-closure
+```
+
 ## Safety boundary
 
 - no broker
@@ -154,6 +165,7 @@ python -m trading_core.cli audit-historical-data-acquisition
 - authorized historical data acquisition does not connect to a broker and does not download account/order/trade/position/margin data
 - local global-briefing package integration uses local files only and no network access
 - v0.5.7 historical package acquisition may use approved public data endpoints and authorized local/API configuration for historical research data only
+- v0.5.7.1 historical gap closure only repairs or proxies historical research packages and groups warnings
 - no forward dry-run started by the historical replay harness
 - no forward dry-run started by the real package integration workflow
 - no forward dry-run started by authorized historical data acquisition
