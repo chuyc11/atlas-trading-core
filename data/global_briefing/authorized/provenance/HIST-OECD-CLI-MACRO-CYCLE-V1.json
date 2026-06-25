@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+  "source": "authorized_macro_cycle_proxy",
+  "source_url_host": null,
+  "sha256": "e7615659bad07d1b26c2cd8ff8e8ccc447a4ba02ce53785271df4fbfb8b66a58",
+  "downloaded_at": "2026-06-25T05:22:12.357406Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

@@ -27,6 +27,20 @@ def test_local_file_priority_over_public_fallback(tmp_path: Path) -> None:
     assert result["packages"][0]["selected_source"] == "local_authorized_export"
 
 
+def test_source_resolution_skips_missing_local_exports_for_repairable_packages(tmp_path: Path) -> None:
+    paths = make_paths(tmp_path)
+    result = resolve_historical_data_sources(packages=["HIST-POLICY-UNCERTAINTY-EPU-V1"], paths=paths)
+    assert result["packages"][0]["selected_source"] != "local_authorized_export"
+    assert result["packages"][0]["selected_source"] == "fred"
+
+    write_text(
+        paths.data_dir / "market" / "historical" / "authorized" / "HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+        "date,benchmark_id,close\n2024-01-02,CSI300,3300\n",
+    )
+    result = resolve_historical_data_sources(packages=["HIST-OECD-CLI-MACRO-CYCLE-V1"], paths=paths)
+    assert result["packages"][0]["selected_source"] == "authorized_macro_cycle_proxy"
+
+
 def test_unknown_and_broker_package_blocking(tmp_path: Path) -> None:
     result = resolve_historical_data_sources(packages=["UNKNOWN-PACKAGE", "BROKER-ACCOUNT-ORDERS"], paths=make_paths(tmp_path))
     assert result["overall_passed"] is False

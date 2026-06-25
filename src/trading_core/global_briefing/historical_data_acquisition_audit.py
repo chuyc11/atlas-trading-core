@@ -22,6 +22,7 @@ FORBIDDEN_PHRASES = [
     "real orders supported",
     "promotion approved",
 ]
+AVAILABLE_STATUSES = {"downloaded", "partial_downloaded", "loaded_from_local"}
 
 
 def audit_historical_data_acquisition(
@@ -144,15 +145,15 @@ def _audit_download(download: dict[str, Any]) -> dict[str, Any]:
         if not item:
             issues.append(f"{package_id} status missing")
             continue
-        if item.get("status") in {"downloaded", "loaded_from_local"}:
+        if item.get("status") in AVAILABLE_STATUSES:
             if not item.get("sha256"):
                 issues.append(f"{package_id} checksum missing")
             if not item.get("provenance_path"):
                 issues.append(f"{package_id} provenance missing")
     for package_id in ["HIST-ETF-OHLCV-CN-HK-V1", "HIST-BENCHMARK-INDEX-CN-HK-V1"]:
-        if packages.get(package_id, {}).get("status") not in {"downloaded", "loaded_from_local"}:
+        if packages.get(package_id, {}).get("status") not in AVAILABLE_STATUSES:
             issues.append(f"{package_id} critical package unavailable")
-    if not any(packages.get(package_id, {}).get("status") in {"downloaded", "loaded_from_local"} for package_id in ["HIST-FX-USDCNY-V1", "HIST-GLOBAL-RISK-VIX-V1"]):
+    if not any(packages.get(package_id, {}).get("status") in AVAILABLE_STATUSES for package_id in ["HIST-FX-USDCNY-V1", "HIST-GLOBAL-RISK-VIX-V1"]):
         issues.append("VIX/FX critical package unavailable")
     return {"passed": not issues, "issues": issues}
 

@@ -1,6 +1,6 @@
 {
   "audit_id": "HIST-DATA-QUALITY-AUDIT-20260625-001",
-  "created_at": "2026-06-25T04:30:27.952807Z",
+  "created_at": "2026-06-25T05:22:14.139636Z",
   "overall_passed": true,
   "blocking_reasons": [],
   "warnings": [
@@ -16,12 +16,9 @@
     "HIST-COMMODITY-INFLATION-RISK-V1: DCOILBRENTEU: download failed from fred.stlouisfed.org: The read operation timed out",
     "HIST-COMMODITY-INFLATION-RISK-V1: GOLDAMGBD228NLBM: download failed from fred.stlouisfed.org: The read operation timed out",
     "HIST-COMMODITY-INFLATION-RISK-V1: FRED commodity series unavailable; used Yahoo futures proxy fallback where available.",
-    "HIST-POLICY-UNCERTAINTY-EPU-V1: no FRED rows downloaded",
-    "HIST-POLICY-UNCERTAINTY-EPU-V1: USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
-    "HIST-POLICY-UNCERTAINTY-EPU-V1: no public EPU fallback configured after FRED failure",
-    "HIST-POLICY-UNCERTAINTY-EPU-V1: package status explained: failed",
-    "HIST-OECD-CLI-MACRO-CYCLE-V1: OECD public endpoint not configured",
-    "HIST-OECD-CLI-MACRO-CYCLE-V1: package status explained: failed",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: USEPUINDXD: The read operation timed out",
+    "HIST-POLICY-UNCERTAINTY-EPU-V1: EPU official source unavailable; built policy uncertainty proxy from authorized historical risk packages.",
+    "HIST-OECD-CLI-MACRO-CYCLE-V1: official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages.",
     "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: authorized global-briefing source not configured",
     "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: authorized global-briefing signal package not configured; production package not validated"
   ],
@@ -29,7 +26,7 @@
     "start_date": "2018-01-01",
     "end_date": "2026-06-25",
     "required_packages": 9,
-    "available_packages": 6,
+    "available_packages": 8,
     "critical_packages_available": true
   },
   "packages": {
@@ -93,23 +90,20 @@
     },
     "HIST-POLICY-UNCERTAINTY-EPU-V1": {
       "passed": true,
-      "status": "failed",
-      "coverage_ratio": 0.0,
+      "status": "partial_downloaded",
+      "coverage_ratio": 1.0,
       "warnings": [
-        "no FRED rows downloaded",
-        "USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
-        "no public EPU fallback configured after FRED failure",
-        "package status explained: failed"
+        "USEPUINDXD: The read operation timed out",
+        "EPU official source unavailable; built policy uncertainty proxy from authorized historical risk packages."
       ],
       "issues": []
     },
     "HIST-OECD-CLI-MACRO-CYCLE-V1": {
       "passed": true,
-      "status": "failed",
-      "coverage_ratio": 0.0,
+      "status": "downloaded",
+      "coverage_ratio": 0.623951,
       "warnings": [
-        "OECD public endpoint not configured",
-        "package status explained: failed"
+        "official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages."
       ],
       "issues": []
     },

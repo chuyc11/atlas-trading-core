@@ -21,6 +21,7 @@ from trading_core.system.common import default_paths, timestamp_id, write_json_m
 
 
 CRITICAL_PACKAGE_IDS = ["HIST-ETF-OHLCV-CN-HK-V1", "HIST-BENCHMARK-INDEX-CN-HK-V1"]
+AVAILABLE_STATUSES = {"downloaded", "partial_downloaded", "loaded_from_local"}
 
 
 def audit_historical_data_quality(
@@ -54,7 +55,7 @@ def audit_historical_data_quality(
         status = item.get("status")
         issues = []
         item_warnings = list(item.get("warnings", []))
-        if status in {"downloaded", "loaded_from_local"}:
+        if status in AVAILABLE_STATUSES:
             if not item.get("sha256"):
                 issues.append("checksum missing")
             if not item.get("provenance_path"):
@@ -74,6 +75,8 @@ def audit_historical_data_quality(
             issues.append("critical VIX/FX package unavailable")
         elif package_id == AUTHORIZED_GB_PACKAGE_ID and status == "not_configured":
             item_warnings.append("authorized global-briefing signal package not configured; production package not validated")
+        elif status == "failed_soft":
+            item_warnings.append(f"package failure explained as non-blocking failed_soft: {status}")
         else:
             item_warnings.append(f"package status explained: {status}")
         if issues:
@@ -97,7 +100,7 @@ def audit_historical_data_quality(
             blocking.extend(f"proxy package: {item}" for item in signal_package.blocking_reasons)
     if _artifact_secret_leak(paths):
         blocking.append("secret leakage detected in system artifacts")
-    available = [item for item in packages if item.get("status") in {"downloaded", "loaded_from_local"}]
+    available = [item for item in packages if item.get("status") in AVAILABLE_STATUSES]
     payload: dict[str, Any] = {
         "audit_id": audit_id,
         "created_at": created_at,
@@ -144,11 +147,11 @@ def _resolve(path_text: str | None, default: Path, paths: ProjectPaths) -> Path:
 
 
 def _vix_or_fx_available(by_id: dict[str, dict[str, Any]]) -> bool:
-    return any(by_id.get(package_id, {}).get("status") in {"downloaded", "loaded_from_local"} for package_id in ["HIST-FX-USDCNY-V1", "HIST-GLOBAL-RISK-VIX-V1"])
+    return any(by_id.get(package_id, {}).get("status") in AVAILABLE_STATUSES for package_id in ["HIST-FX-USDCNY-V1", "HIST-GLOBAL-RISK-VIX-V1"])
 
 
 def _critical_available(by_id: dict[str, dict[str, Any]]) -> bool:
-    return all(by_id.get(package_id, {}).get("status") in {"downloaded", "loaded_from_local"} for package_id in CRITICAL_PACKAGE_IDS) and _vix_or_fx_available(by_id)
+    return all(by_id.get(package_id, {}).get("status") in AVAILABLE_STATUSES for package_id in CRITICAL_PACKAGE_IDS) and _vix_or_fx_available(by_id)
 
 
 def _proxy_coverage_ratio(proxy: dict[str, Any]) -> float:

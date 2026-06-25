@@ -21,9 +21,11 @@ PROXY_PACKAGE_ID = "GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1"
 AUTHORIZED_GB_PACKAGE_ID = "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1"
 ALLOWED_STATUSES = {
     "downloaded",
+    "partial_downloaded",
     "loaded_from_local",
     "not_configured",
     "failed",
+    "failed_soft",
     "skipped_optional",
     "normalized",
     "audit_passed",
@@ -154,7 +156,7 @@ PACKAGE_SPECS: dict[str, PackageSpec] = {
         True,
         False,
         "macro_series_long",
-        ["local_authorized_export", "fred", "policy_uncertainty_public_file", "fixture"],
+        ["local_authorized_export", "epu_authorized_api", "fred", "policy_uncertainty_public_file", "authorized_policy_uncertainty_proxy", "fixture"],
         "data/global_briefing/authorized/packages/HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
         "outputs/system/HIST_POLICY_UNCERTAINTY_EPU_PACKAGE_REPORT.md",
         "data/system/hist_policy_uncertainty_epu_manifest.json",
@@ -166,7 +168,7 @@ PACKAGE_SPECS: dict[str, PackageSpec] = {
         True,
         False,
         "oecd_cli",
-        ["local_authorized_export", "oecd", "fixture"],
+        ["local_authorized_export", "oecd_authorized_api", "oecd_public_api", "authorized_macro_cycle_proxy", "fixture"],
         "data/global_briefing/authorized/packages/HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
         "outputs/system/HIST_OECD_CLI_MACRO_CYCLE_PACKAGE_REPORT.md",
         "data/system/hist_oecd_cli_macro_cycle_manifest.json",
@@ -288,9 +290,19 @@ def is_forbidden_data_package(package_id: str) -> bool:
 def local_authorized_candidates(paths: ProjectPaths, package_id: str) -> list[Path]:
     root = paths.data_dir / "global_briefing" / "authorized" / "input"
     market_root = paths.data_dir / "market" / "historical" / "authorized" / "input"
+    subdir_map = {
+        "HIST-POLICY-UNCERTAINTY-EPU-V1": ["epu"],
+        "HIST-OECD-CLI-MACRO-CYCLE-V1": ["oecd_cli"],
+    }
     names = [package_id, package_id.lower(), package_id.replace("-", "_"), package_id.lower().replace("-", "_")]
     suffixes = [".csv", ".jsonl", ".json", ".raw"]
-    return [base / f"{name}{suffix}" for base in [root, market_root] for name in names for suffix in suffixes]
+    direct = [base / f"{name}{suffix}" for base in [root, market_root] for name in names for suffix in suffixes]
+    subdirs = []
+    for name in subdir_map.get(package_id, []):
+        directory = root / name
+        if directory.exists():
+            subdirs.extend(sorted(path for path in directory.glob("*") if path.suffix.lower() in suffixes))
+    return [*direct, *subdirs]
 
 
 def fixture_path(paths: ProjectPaths, name: str) -> Path:
@@ -298,7 +310,7 @@ def fixture_path(paths: ProjectPaths, name: str) -> Path:
 
 
 def package_status_counts(packages: list[dict[str, Any]]) -> dict[str, int]:
-    counts = {status: 0 for status in ["downloaded", "loaded_from_local", "not_configured", "failed", "skipped_optional", "normalized", "audit_passed", "audit_failed"]}
+    counts = {status: 0 for status in ["downloaded", "partial_downloaded", "loaded_from_local", "not_configured", "failed", "failed_soft", "skipped_optional", "normalized", "audit_passed", "audit_failed"]}
     for package in packages:
         status = str(package.get("status", "unknown"))
         counts[status] = counts.get(status, 0) + 1

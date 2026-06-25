@@ -6,16 +6,16 @@ This package is historical research data only.
 
 ## Status
 - package_id=HIST-OECD-CLI-MACRO-CYCLE-V1
-- status=failed
-- source=None
-- row_count=0
-- date_min=None
-- date_max=None
-- coverage_ratio=0.0
-- sha256=None
+- status=downloaded
+- source=authorized_macro_cycle_proxy
+- row_count=7674
+- date_min=2021-03-11
+- date_max=2026-06-25
+- coverage_ratio=0.623951
+- sha256=e7615659bad07d1b26c2cd8ff8e8ccc447a4ba02ce53785271df4fbfb8b66a58
 
 ## Warnings
-- OECD public endpoint not configured
+- official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages.
 
 ## Boundary
 - historical data download only

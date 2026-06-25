@@ -38,4 +38,9 @@ __all__ = [
     "full_historical_proxy_workflow",
     "historical_data_acquisition_report",
     "historical_data_acquisition_audit",
+    "historical_warning_inventory",
+    "macro_cycle_proxy_builder",
+    "historical_data_gap_closure_workflow",
+    "historical_data_gap_closure_report",
+    "historical_data_gap_closure_audit",
 ]

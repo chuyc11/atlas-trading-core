@@ -10,8 +10,8 @@
 - HIST-GLOBAL-RISK-VIX-V1: status=downloaded source=cboe_vix rows=2161 checksum=ebe4a5887aa8f344a711d6dc5d4a0f8f357740ed13f3835e1b82e7accbe78c4a
 - HIST-RATES-LIQUIDITY-V1: status=downloaded source=yahoo_query_or_equivalent_authorized_market_data_source rows=6384 checksum=d2612afb7bb88c0b6fdf6b6fb98bc4bd983bef1dd2f65a43dd000e0d7b4eed93
 - HIST-COMMODITY-INFLATION-RISK-V1: status=downloaded source=yahoo_query_or_equivalent_authorized_market_data_source rows=8532 checksum=c610e91b46fe4880fff179ea7acd392939055021aa087d8d7ee1822bf63c5ee9
-- HIST-POLICY-UNCERTAINTY-EPU-V1: status=failed source=None rows=0 checksum=None
-- HIST-OECD-CLI-MACRO-CYCLE-V1: status=failed source=None rows=0 checksum=None
+- HIST-POLICY-UNCERTAINTY-EPU-V1: status=partial_downloaded source=authorized_policy_uncertainty_proxy rows=4916 checksum=c525eefa587d78fc19cfeffcb255e919e98c6d2adf8b4541d48eb819125edd50
+- HIST-OECD-CLI-MACRO-CYCLE-V1: status=downloaded source=authorized_macro_cycle_proxy rows=7674 checksum=e7615659bad07d1b26c2cd8ff8e8ccc447a4ba02ce53785271df4fbfb8b66a58
 - HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: status=not_configured source=gb_authorized_api rows=0 checksum=None
 
 ## Critical Gaps

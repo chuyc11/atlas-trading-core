@@ -11,8 +11,8 @@ This report normalizes historical research data and builds a proxy signal packag
 - HIST-GLOBAL-RISK-VIX-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\authorized\packages\HIST-GLOBAL-RISK-VIX-V1.csv
 - HIST-RATES-LIQUIDITY-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\authorized\packages\HIST-RATES-LIQUIDITY-V1.csv
 - HIST-COMMODITY-INFLATION-RISK-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\authorized\packages\HIST-COMMODITY-INFLATION-RISK-V1.csv
-- HIST-POLICY-UNCERTAINTY-EPU-V1: status=failed path=None
-- HIST-OECD-CLI-MACRO-CYCLE-V1: status=failed path=None
+- HIST-POLICY-UNCERTAINTY-EPU-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\authorized\packages\HIST-POLICY-UNCERTAINTY-EPU-V1.csv
+- HIST-OECD-CLI-MACRO-CYCLE-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\authorized\packages\HIST-OECD-CLI-MACRO-CYCLE-V1.csv
 - HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1: status=not_configured path=None
 - GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1: status=normalized path=C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\global_briefing\normalized\GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl
 

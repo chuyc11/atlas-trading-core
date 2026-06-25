@@ -1,0 +1,82 @@
+{
+  "audit_id": "HIST-DATA-GAP-CLOSURE-AUDIT-20260625-001",
+  "created_at": "2026-06-25T05:22:15.971590Z",
+  "release_candidate": "v0.5.7.1-historical-data-gap-closure-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "epu_repair": {
+      "passed": true,
+      "issues": []
+    },
+    "oecd_repair": {
+      "passed": true,
+      "issues": []
+    },
+    "proxy_rebuild": {
+      "passed": true,
+      "issues": []
+    },
+    "warning_inventory": {
+      "passed": true,
+      "issues": []
+    },
+    "replay_warning_reduction": {
+      "passed": true,
+      "issues": []
+    },
+    "acquisition_audit": {
+      "passed": true,
+      "issues": []
+    },
+    "future_leakage": {
+      "passed": true,
+      "issues": []
+    },
+    "secret_leakage": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "modified_paths": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    },
+    "report": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "historical_data_gap_closure_only": true,
+    "trading_authorization": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "live_trading_ready": false,
+    "strategy_effectiveness_proven": false,
+    "broker_connected": false,
+    "main_ledger_written": false,
+    "isolated_replay_ledger_written": true,
+    "run_daily_called": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false
+  }
+}

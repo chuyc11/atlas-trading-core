@@ -1,19 +1,28 @@
 {
-  "cash": 901384.235523,
-  "created_at": "2026-06-25T04:31:32.767695Z",
+  "cash": 850729.924648,
+  "created_at": "2026-06-25T05:22:14.497827Z",
   "currency": "CNY",
   "end_date": "2024-12-31",
-  "equity": 1028881.6303231862,
+  "equity": 1036516.117196275,
   "isolated": true,
   "positions": [
     {
-      "avg_cost": 3.810651490865336,
+      "avg_cost": 3.565915164436959,
       "isolated": true,
-      "market_value": 127497.39480018616,
-      "quantity": 31700,
+      "market_value": 155249.19366836548,
+      "quantity": 38600,
       "replay_id": "GB-HIST-REPLAY-20240102-20241231",
       "symbol": "510300.SH",
-      "unrealized_pnl": 6699.742539755008
+      "unrealized_pnl": 17604.868321098857
+    },
+    {
+      "avg_cost": 1.0909584342978278,
+      "isolated": true,
+      "market_value": 30536.998879909515,
+      "quantity": 26100,
+      "replay_id": "GB-HIST-REPLAY-20240102-20241231",
+      "symbol": "512880.SH",
+      "unrealized_pnl": 2062.98374473621
     }
   ],
   "replay_id": "GB-HIST-REPLAY-20240102-20241231",

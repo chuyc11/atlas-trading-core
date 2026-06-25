@@ -1,0 +1,337 @@
+{
+  "inventory_id": "HIST-WARNING-INVENTORY-20260625-001",
+  "created_at": "2026-06-25T05:22:14.907854Z",
+  "quality_audit": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\historical_data_quality_audit.json",
+  "workflow": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\full_historical_proxy_workflow-2024-01-02-2024-12-31.json",
+  "download_manifest": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\historical_data_download_manifest.json",
+  "raw_warning_count": 346,
+  "grouped_warning_count": 10,
+  "unknown_warning_count": 0,
+  "by_category": {
+    "adapter_limitation": 0,
+    "cash_constraint": 0,
+    "coverage_gap": 1,
+    "data_quality": 0,
+    "documentation_only": 0,
+    "future_leakage": 0,
+    "lot_size_constraint": 1,
+    "missing_critical_package": 0,
+    "missing_optional_package": 1,
+    "missing_price": 1,
+    "missing_signal_component": 2,
+    "pit_ambiguity": 0,
+    "skipped_trade": 0,
+    "source_download_failed": 4,
+    "stale_monthly_carry_forward": 0,
+    "unknown": 0
+  },
+  "by_severity": {
+    "low": 0,
+    "medium": 9,
+    "high": 1
+  },
+  "top_groups": [
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 5,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-RATES-LIQUIDITY-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 4,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-COMMODITY-INFLATION-RISK-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "missing_optional_package",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "optional package status explained",
+      "affected_package": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "configure optional source if production validation is required",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "policy uncertainty / EPU component unavailable or proxied",
+      "affected_package": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "epu"
+      ],
+      "recommended_action": "review EPU source configuration or accept proxy limitation",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-FX-USDCNY-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "fx"
+      ],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "OECD CLI / macro-cycle component unavailable or proxied",
+      "affected_package": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "oecd"
+      ],
+      "recommended_action": "review OECD source configuration or accept macro-cycle proxy",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-GLOBAL-RISK-VIX-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "vix"
+      ],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "lot_size_constraint",
+      "severity": "medium",
+      "raw_count": 172,
+      "message_pattern": "target delta below lot size",
+      "affected_package": null,
+      "first_seen_date": "2024-01-09",
+      "last_seen_date": "2024-12-27",
+      "affected_symbols": [
+        "510300.SH",
+        "512880.SH"
+      ],
+      "affected_components": [],
+      "recommended_action": "review lot size and target-weight settings",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "missing_price",
+      "severity": "high",
+      "raw_count": 156,
+      "message_pattern": "missing replay price for symbol",
+      "affected_package": null,
+      "first_seen_date": "2024-02-09",
+      "last_seen_date": "2024-10-07",
+      "affected_symbols": [
+        "510300.SH",
+        "512880.SH"
+      ],
+      "affected_components": [],
+      "recommended_action": "fill historical price gap or reduce replay universe",
+      "fix_status": "fixable_now"
+    },
+    {
+      "category": "coverage_gap",
+      "severity": "medium",
+      "raw_count": 123,
+      "message_pattern": "coverage gap in replay calendar or price-aligned dates",
+      "affected_package": null,
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "review calendar and expected trading-day basis",
+      "fix_status": "accepted_limitation"
+    }
+  ],
+  "fixable_now": [
+    {
+      "category": "missing_price",
+      "severity": "high",
+      "raw_count": 156,
+      "message_pattern": "missing replay price for symbol",
+      "affected_package": null,
+      "first_seen_date": "2024-02-09",
+      "last_seen_date": "2024-10-07",
+      "affected_symbols": [
+        "510300.SH",
+        "512880.SH"
+      ],
+      "affected_components": [],
+      "recommended_action": "fill historical price gap or reduce replay universe",
+      "fix_status": "fixable_now"
+    }
+  ],
+  "requires_external_source": [
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 5,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-RATES-LIQUIDITY-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 4,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-COMMODITY-INFLATION-RISK-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-FX-USDCNY-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "fx"
+      ],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    },
+    {
+      "category": "source_download_failed",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "FRED source unavailable or timed out",
+      "affected_package": "HIST-GLOBAL-RISK-VIX-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "vix"
+      ],
+      "recommended_action": "use configured authorized/local source or documented fallback",
+      "fix_status": "requires_external_source"
+    }
+  ],
+  "accepted_limitations": [
+    {
+      "category": "missing_optional_package",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "optional package status explained",
+      "affected_package": "HIST-AUTH-GLOBAL-BRIEFING-SIGNALS-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "configure optional source if production validation is required",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 2,
+      "message_pattern": "policy uncertainty / EPU component unavailable or proxied",
+      "affected_package": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "epu"
+      ],
+      "recommended_action": "review EPU source configuration or accept proxy limitation",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "missing_signal_component",
+      "severity": "medium",
+      "raw_count": 1,
+      "message_pattern": "OECD CLI / macro-cycle component unavailable or proxied",
+      "affected_package": "HIST-OECD-CLI-MACRO-CYCLE-V1",
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [
+        "oecd"
+      ],
+      "recommended_action": "review OECD source configuration or accept macro-cycle proxy",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "lot_size_constraint",
+      "severity": "medium",
+      "raw_count": 172,
+      "message_pattern": "target delta below lot size",
+      "affected_package": null,
+      "first_seen_date": "2024-01-09",
+      "last_seen_date": "2024-12-27",
+      "affected_symbols": [
+        "510300.SH",
+        "512880.SH"
+      ],
+      "affected_components": [],
+      "recommended_action": "review lot size and target-weight settings",
+      "fix_status": "accepted_limitation"
+    },
+    {
+      "category": "coverage_gap",
+      "severity": "medium",
+      "raw_count": 123,
+      "message_pattern": "coverage gap in replay calendar or price-aligned dates",
+      "affected_package": null,
+      "first_seen_date": null,
+      "last_seen_date": null,
+      "affected_symbols": [],
+      "affected_components": [],
+      "recommended_action": "review calendar and expected trading-day basis",
+      "fix_status": "accepted_limitation"
+    }
+  ],
+  "production_blockers": [],
+  "boundary": {
+    "inventory_only": true,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "trading_authorization": false
+  }
+}

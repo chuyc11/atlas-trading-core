@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from trading_core.global_briefing.historical_data_packages import PROXY_PACKAGE_ID, latest_end_date, write_jsonl
+from trading_core.global_briefing.historical_warning_inventory import group_warning_messages
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
 from trading_core.global_briefing.real_package_coverage_audit import audit_global_briefing_package_coverage
 from trading_core.global_briefing.replay_bundle_builder import build_global_briefing_replay_bundle
@@ -106,13 +107,19 @@ def _write_windowed_signals(signal_file: Path, start_date: str, end_date: str, p
 
 
 def _write_workflow(outputs: dict[str, Any], start_date: str, end_date: str, warnings: list[str], blocking: list[str], paths: ProjectPaths) -> dict[str, Any]:
+    grouped_warnings = group_warning_messages(warnings)
+    warning_summaries = [f"{item['category']}: {item['message_pattern']} ({item['raw_count']})" for item in grouped_warnings]
     payload = {
         **outputs,
         "start_date": start_date,
         "end_date": end_date,
         "overall_status": "research_review_ready" if not blocking else "needs_attention",
         "blocking_reasons": blocking,
-        "warnings": warnings,
+        "warnings": warning_summaries,
+        "raw_warnings_sample": warnings[:25],
+        "raw_warning_count": len(warnings),
+        "grouped_warning_count": len(grouped_warnings),
+        "grouped_warnings": grouped_warnings,
         "boundary": {
             "full_historical_proxy_workflow_only": True,
             "proxy_signals_not_internal_global_briefing": True,
@@ -149,9 +156,14 @@ def build_proxy_workflow_markdown(payload: dict[str, Any]) -> str:
             "## Overall Status",
             f"- overall_status={payload['overall_status']}",
             f"- blocking_reasons={payload['blocking_reasons']}",
+            f"- raw_warning_count={payload.get('raw_warning_count')}",
+            f"- grouped_warning_count={payload.get('grouped_warning_count')}",
             "",
             "## Outputs",
             *[f"- {key}: {value}" for key, value in payload.items() if key in {"windowed_signals", "validation", "coverage_audit", "bundle", "replay", "evaluation"}],
+            "",
+            "## Grouped Warnings",
+            *([f"- {item['category']} severity={item['severity']} raw_count={item['raw_count']} pattern={item['message_pattern']}" for item in payload.get("grouped_warnings", [])] if payload.get("grouped_warnings") else ["- none"]),
             "",
             "## Boundary",
             "- historical replay only",

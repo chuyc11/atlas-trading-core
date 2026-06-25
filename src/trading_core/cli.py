@@ -28,10 +28,14 @@ from trading_core.global_briefing.evidence_quality_report import build_global_br
 from trading_core.global_briefing.full_historical_proxy_workflow import run_full_historical_proxy_replay
 from trading_core.global_briefing.historical_data_acquisition_audit import audit_historical_data_acquisition
 from trading_core.global_briefing.historical_data_acquisition_report import build_historical_data_acquisition_report
+from trading_core.global_briefing.historical_data_gap_closure_audit import audit_historical_data_gap_closure
+from trading_core.global_briefing.historical_data_gap_closure_report import build_historical_data_gap_closure_report
+from trading_core.global_briefing.historical_data_gap_closure_workflow import close_historical_data_gaps
 from trading_core.global_briefing.historical_data_downloaders import download_historical_data_packages
 from trading_core.global_briefing.historical_data_quality_audit import audit_historical_data_quality
 from trading_core.global_briefing.historical_data_source_resolver import resolve_historical_data_sources
 from trading_core.global_briefing.historical_package_normalizer import normalize_historical_data_packages
+from trading_core.global_briefing.historical_warning_inventory import build_historical_warning_inventory
 from trading_core.global_briefing.isolated_replay_adapter_audit import audit_isolated_replay_adapter
 from trading_core.global_briefing.production_package_acceptance import build_global_briefing_production_acceptance_criteria
 from trading_core.global_briefing.real_package_coverage_audit import audit_global_briefing_package_coverage
@@ -480,6 +484,22 @@ def build_parser() -> argparse.ArgumentParser:
     hist_audit.add_argument("--quality-audit")
     hist_audit.add_argument("--proxy-workflow")
     hist_audit.add_argument("--report")
+    warning_inventory = subparsers.add_parser("historical-warning-inventory")
+    warning_inventory.add_argument("--quality-audit")
+    warning_inventory.add_argument("--workflow")
+    warning_inventory.add_argument("--download-manifest")
+    gap_close = subparsers.add_parser("close-historical-data-gaps")
+    gap_close.add_argument("--start-date", default="2018-01-01")
+    gap_close.add_argument("--end-date", default="latest")
+    gap_close.add_argument("--replay-start-date", default="2024-01-02")
+    gap_close.add_argument("--replay-end-date", default="2024-12-31")
+    gap_close.add_argument("--min-coverage", type=float, default=0.80)
+    gap_close.add_argument("--continue-on-error", action="store_true")
+    gap_report = subparsers.add_parser("historical-data-gap-closure-report")
+    gap_report.add_argument("--workflow")
+    gap_audit = subparsers.add_parser("audit-historical-data-gap-closure")
+    gap_audit.add_argument("--workflow")
+    gap_audit.add_argument("--report")
 
     return parser
 
@@ -1357,6 +1377,35 @@ def main(argv: Sequence[str] | None = None) -> int:
             report_path=args.report,
             paths=paths,
         )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "historical-warning-inventory":
+        result = build_historical_warning_inventory(
+            quality_audit_path=args.quality_audit,
+            workflow_path=args.workflow,
+            download_manifest_path=args.download_manifest,
+            paths=paths,
+        )
+        print({"inventory_id": result["inventory_id"], "raw_warning_count": result["raw_warning_count"], "grouped_warning_count": result["grouped_warning_count"], "unknown_warning_count": result["unknown_warning_count"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["unknown_warning_count"] == 0 else 1
+    if args.command == "close-historical-data-gaps":
+        result = close_historical_data_gaps(
+            start_date=args.start_date,
+            end_date=args.end_date,
+            replay_start_date=args.replay_start_date,
+            replay_end_date=args.replay_end_date,
+            min_coverage=args.min_coverage,
+            continue_on_error=args.continue_on_error,
+            paths=paths,
+        )
+        print({"workflow_id": result["workflow_id"], "overall_status": result["overall_status"], "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_status"] in {"passed", "passed_with_warnings"} else 1
+    if args.command == "historical-data-gap-closure-report":
+        result = build_historical_data_gap_closure_report(workflow_path=args.workflow, paths=paths)
+        print({"report_id": result["report_id"], "overall_status": result["overall_status"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-historical-data-gap-closure":
+        result = audit_historical_data_gap_closure(workflow_path=args.workflow, report_path=args.report, paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":

@@ -30,6 +30,8 @@ def build_full_historical_proxy_package(
     commodities = _long_series(Path(package_paths.get("HIST-COMMODITY-INFLATION-RISK-V1", "")))
     epu = _long_series(Path(package_paths.get("HIST-POLICY-UNCERTAINTY-EPU-V1", "")))
     oecd = _oecd_series(Path(package_paths.get("HIST-OECD-CLI-MACRO-CYCLE-V1", "")))
+    epu_series = sorted(epu)
+    oecd_proxy = _oecd_proxy_metadata(Path(package_paths.get("HIST-OECD-CLI-MACRO-CYCLE-V1", "")))
     if not fx:
         warnings.append("missing critical USD/CNY package for proxy; fx_pressure will be null")
     if not vix:
@@ -40,8 +42,12 @@ def build_full_historical_proxy_package(
         warnings.append("missing optional commodity package; commodity_inflation_pressure may be null")
     if not epu:
         warnings.append("missing optional EPU package; policy_uncertainty may be null")
+    elif not {"global_epu", "china_epu", "US_EPU", "us_epu"} & set(epu_series):
+        warnings.append("EPU package available but lacks expected Global/China/US anchor series")
     if not oecd:
         warnings.append("missing optional OECD CLI package; macro_cycle_pressure may be null")
+    elif oecd_proxy.get("macro_cycle_proxy"):
+        warnings.append("OECD official CLI unavailable; macro_cycle_pressure uses authorized macro-cycle proxy.")
 
     rows = []
     for day in dates:
@@ -50,17 +56,24 @@ def build_full_historical_proxy_package(
         us10y = _latest(rates.get("US_10Y", {}), day)
         us2y = _latest(rates.get("US_2Y", {}), day)
         wti = _latest(commodities.get("WTI", {}), day)
-        epu_value = _latest(epu.get("US_EPU", {}), day)
-        cli_value = _latest(oecd.get("CHINA", {}), day)
+        global_epu = _first_latest(epu, ["global_epu", "GLOBAL_EPU"], day)
+        china_epu = _first_latest(epu, ["china_epu", "CHINA_EPU"], day)
+        us_epu = _first_latest(epu, ["us_epu", "US_EPU"], day)
+        europe_epu = _first_latest(epu, ["europe_epu", "EUROPE_EPU"], day)
+        epu_values = [value for value in [global_epu, china_epu, us_epu, europe_epu] if value is not None]
+        epu_value = sum(epu_values) / len(epu_values) if epu_values else None
+        cli_value = _first_latest(oecd, ["CN", "CHINA"], day)
+        macro_proxy_value = _first_latest(oecd, ["CN__macro_cycle_pressure", "CHINA__macro_cycle_pressure"], day)
         market_stress = _clip(((vix_value or 15.0) - 15.0) / 25.0) if vix_value is not None else None
         fx_pressure = _clip(((fx_value or 6.5) - 6.5) / 1.2) if fx_value is not None else None
         rates_pressure = _clip(((us10y or 3.0) - 2.0) / 4.0) if us10y is not None else None
         liquidity_pressure = _clip(((us2y or 3.0) - 2.0) / 4.0) if us2y is not None else None
         commodity_pressure = _clip(((wti or 70.0) - 60.0) / 70.0) if wti is not None else None
         policy_uncertainty = _clip((epu_value or 100.0) / 500.0) if epu_value is not None else None
-        macro_cycle_pressure = _clip((100.0 - (cli_value or 100.0)) / 10.0) if cli_value is not None else None
+        macro_cycle_pressure = macro_proxy_value if macro_proxy_value is not None else (_clip((100.0 - (cli_value or 100.0)) / 10.0) if cli_value is not None else None)
         risk_components = [value for value in [market_stress, fx_pressure, rates_pressure, commodity_pressure, policy_uncertainty, macro_cycle_pressure] if value is not None]
         global_risk_off = round(sum(risk_components) / len(risk_components), 6) if risk_components else None
+        risk_off = global_risk_off
         risk_on = round(1.0 - global_risk_off, 6) if global_risk_off is not None else 0.0
         policy_support = round(_clip(1.0 - (policy_uncertainty or 0.0)), 6) if policy_uncertainty is not None else 0.0
         liquidity = round(_clip(1.0 - (liquidity_pressure or 0.0)), 6) if liquidity_pressure is not None else 0.0
@@ -80,6 +93,11 @@ def build_full_historical_proxy_package(
                     "policy_uncertainty": policy_uncertainty,
                     "macro_cycle_pressure": macro_cycle_pressure,
                     "global_risk_off": global_risk_off,
+                    "risk_off": risk_off,
+                    "global_epu": global_epu,
+                    "china_epu": china_epu,
+                    "us_epu": us_epu,
+                    "europe_epu": europe_epu,
                     "risk_on": risk_on,
                     "liquidity": liquidity,
                     "policy_support": policy_support,
@@ -105,6 +123,12 @@ def build_full_historical_proxy_package(
         "validation_path": validation["json_path"],
         "warnings": warnings + validation["warnings"],
         "blocking_reasons": validation["blocking_reasons"],
+        "epu": {
+            "available": bool(epu),
+            "series": epu_series,
+            "partial": bool(epu) and not all(series_id in epu for series_id in ["global_epu", "china_epu", "us_epu", "europe_epu"]),
+        },
+        "oecd": oecd_proxy,
         "boundary": {
             "proxy_package_only": True,
             "proxy_signals_not_internal_global_briefing": True,
@@ -148,7 +172,21 @@ def _oecd_series(path: Path) -> dict[str, dict[str, float]]:
         region = str(row.get("region", "")).upper()
         if value is not None and region:
             output.setdefault(region, {})[str(row.get("date"))] = value
+        pressure = _float(row.get("macro_cycle_pressure"))
+        if pressure is not None and region:
+            output.setdefault(f"{region}__macro_cycle_pressure", {})[str(row.get("date"))] = pressure
     return output
+
+
+def _oecd_proxy_metadata(path: Path) -> dict[str, Any]:
+    rows = read_csv_rows(path)
+    if not rows:
+        return {"available": False, "official_oecd_cli": None, "macro_cycle_proxy": False, "not_official_oecd_cli": False}
+    official_values = {str(row.get("official_oecd_cli", "")).lower() for row in rows if row.get("official_oecd_cli") not in {None, ""}}
+    proxy_values = {str(row.get("macro_cycle_proxy", "")).lower() for row in rows if row.get("macro_cycle_proxy") not in {None, ""}}
+    macro_proxy = "true" in proxy_values
+    official = False if macro_proxy else ("false" not in official_values)
+    return {"available": True, "official_oecd_cli": official, "macro_cycle_proxy": macro_proxy, "not_official_oecd_cli": macro_proxy}
 
 
 def _latest(series: dict[str, float], day: str) -> float | None:
@@ -156,6 +194,14 @@ def _latest(series: dict[str, float], day: str) -> float | None:
     if not candidates:
         return None
     return series[max(candidates)]
+
+
+def _first_latest(series_by_id: dict[str, dict[str, float]], keys: list[str], day: str) -> float | None:
+    for key in keys:
+        value = _latest(series_by_id.get(key, {}), day)
+        if value is not None:
+            return value
+    return None
 
 
 def _float(value: Any) -> float | None:

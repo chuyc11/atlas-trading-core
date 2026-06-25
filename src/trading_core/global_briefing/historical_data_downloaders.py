@@ -11,6 +11,8 @@ from typing import Any, Callable
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+from trading_core.global_briefing.downloaders.epu_downloader import build_epu_rows
+from trading_core.global_briefing.downloaders.oecd_cli_downloader import build_oecd_cli_rows
 from trading_core.global_briefing.historical_data_packages import (
     AUTHORIZED_GB_PACKAGE_ID,
     BENCHMARK_UNIVERSE,
@@ -35,6 +37,7 @@ from trading_core.global_briefing.historical_data_packages import (
 )
 from trading_core.global_briefing.historical_data_source_resolver import resolve_historical_data_sources
 from trading_core.storage.file_paths import ProjectPaths
+from trading_core.storage.jsonl_store import read_json
 from trading_core.system.common import default_paths, timestamp_id, write_json_markdown
 
 
@@ -109,6 +112,74 @@ def download_historical_data_packages(
     return {**payload, "json_path": str(json_path), "report_path": str(md_path)}
 
 
+def repair_historical_data_gap_packages(
+    *,
+    packages: list[str] | None = None,
+    download_manifest_path: str | None = None,
+    start_date: str = "2018-01-01",
+    end_date: str = "latest",
+    continue_on_error: bool = True,
+    timeout_seconds: int = 8,
+    max_retries: int = 1,
+    paths: ProjectPaths | None = None,
+    http_get: HttpGet | None = None,
+) -> dict[str, Any]:
+    paths = default_paths(paths)
+    resolved_end_date = latest_end_date(end_date)
+    manifest_file = _resolve_manifest(download_manifest_path, paths)
+    existing = read_json(manifest_file, default={})
+    if not isinstance(existing, dict) or not isinstance(existing.get("packages"), list):
+        existing = download_historical_data_packages(start_date=start_date, end_date=resolved_end_date, continue_on_error=continue_on_error, timeout_seconds=timeout_seconds, max_retries=max_retries, paths=paths, http_get=http_get)
+    package_ids = _parse_packages(packages) if packages else ["HIST-POLICY-UNCERTAINTY-EPU-V1", "HIST-OECD-CLI-MACRO-CYCLE-V1"]
+    downloader = http_get or _default_http_get
+    resolution = resolve_historical_data_sources(packages=package_ids, start_date=start_date, end_date=resolved_end_date, paths=paths)
+    resolution_by_id = {row["package_id"]: row for row in resolution["packages"]}
+    by_id = {item.get("package_id"): item for item in existing.get("packages", [])}
+    repairs: dict[str, Any] = {}
+    for package_id in package_ids:
+        previous = by_id.get(package_id, {})
+        try:
+            repaired = _download_one(
+                package_id,
+                start_date=start_date,
+                end_date=resolved_end_date,
+                source_mode="auto",
+                timeout_seconds=timeout_seconds,
+                max_retries=max_retries,
+                paths=paths,
+                http_get=downloader,
+                resolution=resolution_by_id.get(package_id, {}),
+            )
+        except Exception as exc:  # noqa: BLE001
+            if not continue_on_error:
+                raise
+            repaired = _failed_package(package_id, str(exc), paths, start_date, resolved_end_date, status="failed_soft")
+        by_id[package_id] = repaired
+        repairs[package_id] = {"previous_status": previous.get("status"), "current_status": repaired.get("status"), "path": repaired.get("path"), "warnings": repaired.get("warnings", [])}
+    full_resolution = resolve_historical_data_sources(packages=list(REQUIRED_PACKAGE_IDS), start_date=start_date, end_date=resolved_end_date, paths=paths)
+    ordered = [by_id[package_id] for package_id in REQUIRED_PACKAGE_IDS if package_id in by_id]
+    payload = {
+        **existing,
+        "start_date": start_date,
+        "end_date": resolved_end_date,
+        "source_resolution": full_resolution["json_path"],
+        "packages": ordered,
+        "summary": {"required_packages": len(ordered), **package_status_counts(ordered)},
+        "gap_repairs": repairs,
+    }
+    json_path = paths.data_dir / "system" / "historical_data_download_manifest.json"
+    md_path = paths.outputs_dir / "system" / "HISTORICAL_DATA_DOWNLOAD_MANIFEST.md"
+    write_json_markdown(json_path, payload, md_path, build_download_manifest_markdown(payload))
+    return {**payload, "json_path": str(json_path), "report_path": str(md_path)}
+
+
+def _resolve_manifest(path_text: str | None, paths: ProjectPaths) -> Path:
+    if not path_text:
+        return paths.data_dir / "system" / "historical_data_download_manifest.json"
+    path = Path(path_text)
+    return path if path.is_absolute() else paths.project_root / path
+
+
 def _parse_packages(packages: list[str] | None) -> list[str]:
     if not packages:
         return list(REQUIRED_PACKAGE_IDS)
@@ -143,10 +214,12 @@ def _download_one(
         result = _download_etf_package(paths, start_date, end_date, timeout_seconds, max_retries, http_get)
     elif package_id == "HIST-BENCHMARK-INDEX-CN-HK-V1":
         result = _download_benchmark_package(paths, start_date, end_date, timeout_seconds, max_retries, http_get)
+    elif package_id == "HIST-POLICY-UNCERTAINTY-EPU-V1":
+        result = _download_epu_package(paths, start_date, end_date, timeout_seconds, max_retries, http_get)
     elif package_id in FRED_SERIES:
         result = _download_fred_package(package_id, paths, start_date, end_date, timeout_seconds, max_retries, http_get)
     elif package_id == "HIST-OECD-CLI-MACRO-CYCLE-V1":
-        result = _optional_failed(package_id, "OECD public endpoint not configured", paths, start_date, end_date)
+        result = _download_oecd_cli_package(paths, start_date, end_date, timeout_seconds, max_retries, http_get)
     else:
         result = _optional_failed(package_id, "package downloader not configured", paths, start_date, end_date)
     result["resolution"] = {key: resolution.get(key) for key in ["selected_source", "source_type", "status", "reason"]}
@@ -247,6 +320,32 @@ def _download_fred_package(package_id: str, paths: ProjectPaths, start_date: str
     return _package_result(package_id, "downloaded", source, output, start_date, end_date, warnings=warnings)
 
 
+def _download_epu_package(paths: ProjectPaths, start_date: str, end_date: str, timeout: int, retries: int, http_get: HttpGet) -> dict[str, Any]:
+    rows, source, status, warnings, metadata = build_epu_rows(paths=paths, start_date=start_date, end_date=end_date, timeout=timeout, retries=retries, http_get=http_get)
+    if not rows:
+        failed = _failed_package("HIST-POLICY-UNCERTAINTY-EPU-V1", "no EPU rows available", paths, start_date, end_date, warnings, status=status)
+        failed.update(metadata)
+        return failed
+    output = project_path(paths, PACKAGE_SPECS["HIST-POLICY-UNCERTAINTY-EPU-V1"].output_path)
+    write_csv_rows(output, rows, ["date", "series_id", "value", "frequency", "source", "downloaded_at", "generated_at"])
+    result = _package_result("HIST-POLICY-UNCERTAINTY-EPU-V1", status, source, output, start_date, end_date, warnings=warnings)
+    result.update(metadata)
+    return result
+
+
+def _download_oecd_cli_package(paths: ProjectPaths, start_date: str, end_date: str, timeout: int, retries: int, http_get: HttpGet) -> dict[str, Any]:
+    rows, source, status, warnings, metadata = build_oecd_cli_rows(paths=paths, start_date=start_date, end_date=end_date, timeout=timeout, retries=retries, http_get=http_get)
+    if not rows:
+        failed = _failed_package("HIST-OECD-CLI-MACRO-CYCLE-V1", "no OECD CLI or macro-cycle proxy rows available", paths, start_date, end_date, warnings, status=status)
+        failed.update(metadata)
+        return failed
+    output = project_path(paths, PACKAGE_SPECS["HIST-OECD-CLI-MACRO-CYCLE-V1"].output_path)
+    write_csv_rows(output, rows, ["date", "region", "cli_value", "macro_cycle_pressure", "source", "official_oecd_cli", "macro_cycle_proxy", "downloaded_at"])
+    result = _package_result("HIST-OECD-CLI-MACRO-CYCLE-V1", status, source, output, start_date, end_date, warnings=warnings)
+    result.update(metadata)
+    return result
+
+
 def _authorized_gb_not_configured(paths: ProjectPaths, start_date: str, end_date: str) -> dict[str, Any]:
     output = project_path(paths, PACKAGE_SPECS[AUTHORIZED_GB_PACKAGE_ID].output_path)
     return {
@@ -336,8 +435,13 @@ def _read_rows_for_result(path: Path) -> list[dict[str, Any]]:
 
 def _host_for_source(source: str | None) -> str | None:
     return {
+        "authorized_macro_cycle_proxy": None,
+        "authorized_policy_uncertainty_proxy": None,
         "cboe_vix": "cdn.cboe.com",
+        "epu_authorized_api": None,
         "fred": "fred.stlouisfed.org",
+        "oecd_authorized_api": None,
+        "oecd_public_api": None,
         "yahoo_query_or_equivalent_authorized_market_data_source": "query1.finance.yahoo.com",
         "fixture": None,
         "local_authorized_export": None,

@@ -8,6 +8,8 @@ This workflow is historical replay only.
 ## Overall Status
 - overall_status=research_review_ready
 - blocking_reasons=[]
+- raw_warning_count=329
+- grouped_warning_count=3
 
 ## Outputs
 - windowed_signals: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\replays\global_briefing\full_historical_proxy_signals-2024-01-02-2024-12-31.jsonl
@@ -16,6 +18,11 @@ This workflow is historical replay only.
 - bundle: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\replays\global_briefing\replay_bundle-2024-01-02-2024-12-31.json
 - replay: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\replays\global_briefing\global_briefing_replay-2024-01-02-2024-12-31.json
 - evaluation: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\data\replays\global_briefing\global_briefing_replay_evaluation-2024-01-02-2024-12-31.json
+
+## Grouped Warnings
+- lot_size_constraint severity=medium raw_count=172 pattern=target delta below lot size
+- missing_price severity=high raw_count=156 pattern=missing replay price for symbol
+- coverage_gap severity=medium raw_count=123 pattern=coverage gap in replay calendar or price-aligned dates
 
 ## Boundary
 - historical replay only

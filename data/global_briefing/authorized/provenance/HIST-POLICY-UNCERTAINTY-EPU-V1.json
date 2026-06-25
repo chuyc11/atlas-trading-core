@@ -1,0 +1,10 @@
+{
+  "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
+  "source": "authorized_policy_uncertainty_proxy",
+  "source_url_host": null,
+  "sha256": "c525eefa587d78fc19cfeffcb255e919e98c6d2adf8b4541d48eb819125edd50",
+  "downloaded_at": "2026-06-25T05:22:11.638107Z",
+  "sanitized_url": null,
+  "historical_data_authorization": true,
+  "trading_authorization": false
+}

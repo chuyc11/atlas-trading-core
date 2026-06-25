@@ -1,6 +1,6 @@
 {
   "validation_id": "GB-SIGNAL-VALIDATION-20260625-001",
-  "created_at": "2026-06-25T04:31:32.566666Z",
+  "created_at": "2026-06-25T05:22:14.264025Z",
   "input": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\full_historical_proxy_signals-2024-01-02-2024-12-31.jsonl",
   "input_format": "jsonl",
   "overall_passed": true,

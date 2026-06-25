@@ -161,54 +161,90 @@
     },
     {
       "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
-      "status": "failed",
-      "source": null,
+      "status": "partial_downloaded",
+      "source": "authorized_policy_uncertainty_proxy",
       "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
-      "raw_path": null,
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
       "normalized_candidate_path": null,
-      "row_count": 0,
-      "date_min": null,
-      "date_max": null,
-      "coverage_ratio": 0.0,
-      "sha256": null,
-      "provenance_path": null,
+      "row_count": 4916,
+      "date_min": "2018-01-01",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 1.0,
+      "sha256": "c525eefa587d78fc19cfeffcb255e919e98c6d2adf8b4541d48eb819125edd50",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-POLICY-UNCERTAINTY-EPU-V1.json",
       "source_url_host": null,
-      "downloaded_at": "2026-06-25T04:30:02.047673Z",
+      "downloaded_at": "2026-06-25T05:22:11.638107Z",
       "warnings": [
-        "no FRED rows downloaded",
-        "USEPUINDXD: download failed from fred.stlouisfed.org: The read operation timed out",
-        "no public EPU fallback configured after FRED failure"
+        "USEPUINDXD: The read operation timed out",
+        "EPU official source unavailable; built policy uncertainty proxy from authorized historical risk packages."
       ],
+      "required_series": [
+        "global_epu",
+        "china_epu",
+        "us_epu",
+        "europe_epu"
+      ],
+      "available_series": [
+        "china_epu",
+        "global_epu"
+      ],
+      "missing_series": [
+        "us_epu",
+        "europe_epu"
+      ],
+      "epu_partial": true,
+      "policy_uncertainty_proxy": true,
+      "official_epu": false,
       "resolution": {
-        "selected_source": "local_authorized_export",
-        "source_type": "authorized_local_file",
+        "selected_source": "fred",
+        "source_type": "public_api",
         "status": "configured",
-        "reason": "local_authorized_export source configured"
+        "reason": "fred source configured"
       }
     },
     {
       "package_id": "HIST-OECD-CLI-MACRO-CYCLE-V1",
-      "status": "failed",
-      "source": null,
+      "status": "downloaded",
+      "source": "authorized_macro_cycle_proxy",
       "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
-      "raw_path": null,
+      "raw_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
       "normalized_candidate_path": null,
-      "row_count": 0,
-      "date_min": null,
-      "date_max": null,
-      "coverage_ratio": 0.0,
-      "sha256": null,
-      "provenance_path": null,
+      "row_count": 7674,
+      "date_min": "2021-03-11",
+      "date_max": "2026-06-25",
+      "coverage_ratio": 0.623951,
+      "sha256": "e7615659bad07d1b26c2cd8ff8e8ccc447a4ba02ce53785271df4fbfb8b66a58",
+      "provenance_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\provenance\\HIST-OECD-CLI-MACRO-CYCLE-V1.json",
       "source_url_host": null,
-      "downloaded_at": "2026-06-25T04:30:02.049998Z",
+      "downloaded_at": "2026-06-25T05:22:12.357406Z",
       "warnings": [
-        "OECD public endpoint not configured"
+        "official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages."
       ],
+      "official_oecd_cli": false,
+      "macro_cycle_proxy": true,
+      "not_official_oecd_cli": true,
+      "required_regions": [
+        "CN",
+        "US",
+        "OECD_TOTAL",
+        "G20",
+        "JP",
+        "EURO_AREA"
+      ],
+      "available_regions": [
+        "CN",
+        "EURO_AREA",
+        "G20",
+        "JP",
+        "OECD_TOTAL",
+        "US"
+      ],
+      "missing_regions": [],
       "resolution": {
-        "selected_source": "local_authorized_export",
-        "source_type": "authorized_local_file",
+        "selected_source": "authorized_macro_cycle_proxy",
+        "source_type": "derived_authorized_proxy",
         "status": "configured",
-        "reason": "local_authorized_export source configured"
+        "reason": "authorized_macro_cycle_proxy source configured"
       }
     },
     {
@@ -241,10 +277,12 @@
   ],
   "summary": {
     "required_packages": 9,
-    "downloaded": 6,
+    "downloaded": 7,
+    "partial_downloaded": 1,
     "loaded_from_local": 0,
     "not_configured": 1,
-    "failed": 2,
+    "failed": 0,
+    "failed_soft": 0,
     "skipped_optional": 0,
     "normalized": 0,
     "audit_passed": 0,
@@ -261,5 +299,24 @@
     "ml_shadow_used": false,
     "experiments_used": false,
     "promotion_triggered": false
+  },
+  "gap_repairs": {
+    "HIST-POLICY-UNCERTAINTY-EPU-V1": {
+      "previous_status": "partial_downloaded",
+      "current_status": "partial_downloaded",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-POLICY-UNCERTAINTY-EPU-V1.csv",
+      "warnings": [
+        "USEPUINDXD: The read operation timed out",
+        "EPU official source unavailable; built policy uncertainty proxy from authorized historical risk packages."
+      ]
+    },
+    "HIST-OECD-CLI-MACRO-CYCLE-V1": {
+      "previous_status": "downloaded",
+      "current_status": "downloaded",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\authorized\\packages\\HIST-OECD-CLI-MACRO-CYCLE-V1.csv",
+      "warnings": [
+        "official OECD CLI unavailable; built authorized macro-cycle proxy from historical benchmark and macro packages."
+      ]
+    }
   }
 }

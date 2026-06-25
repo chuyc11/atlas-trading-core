@@ -1,129 +1,133 @@
 {
   "resolution_id": "HIST-DATA-SOURCE-RESOLUTION-20260625-001",
-  "created_at": "2026-06-25T04:27:24.888072Z",
+  "created_at": "2026-06-25T05:22:12.363426Z",
   "start_date": "2018-01-01",
   "end_date": "2026-06-25",
   "packages": [
     {
       "package_id": "HIST-ETF-OHLCV-CN-HK-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "yahoo_query_or_equivalent_authorized_market_data_source",
+        "local_authorized_export",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "yahoo_query_or_equivalent_authorized_market_data_source source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-BENCHMARK-INDEX-CN-HK-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "yahoo_query_or_equivalent_authorized_market_data_source",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "yahoo_query_or_equivalent_authorized_market_data_source",
+        "local_authorized_export",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "yahoo_query_or_equivalent_authorized_market_data_source source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-FX-USDCNY-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "fred",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "fred",
+        "local_authorized_export",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "fred source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-GLOBAL-RISK-VIX-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "fred",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "fred",
+        "local_authorized_export",
         "cboe_vix",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "fred source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-RATES-LIQUIDITY-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "fred",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "fred",
+        "local_authorized_export",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "fred source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-COMMODITY-INFLATION-RISK-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "fred",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "fred",
+        "local_authorized_export",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "fred source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-POLICY-UNCERTAINTY-EPU-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "fred",
+      "source_type": "public_api",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "fred",
+        "local_authorized_export",
+        "epu_authorized_api",
         "policy_uncertainty_public_file",
+        "authorized_policy_uncertainty_proxy",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "fred source configured",
       "local_file": null
     },
     {
       "package_id": "HIST-OECD-CLI-MACRO-CYCLE-V1",
-      "selected_source": "local_authorized_export",
-      "source_type": "authorized_local_file",
+      "selected_source": "authorized_macro_cycle_proxy",
+      "source_type": "derived_authorized_proxy",
       "status": "configured",
       "requires_secret": false,
       "secret_env": null,
       "fallback_sources": [
-        "oecd",
+        "local_authorized_export",
+        "oecd_authorized_api",
+        "oecd_public_api",
         "fixture"
       ],
       "allowed": true,
-      "reason": "local_authorized_export source configured",
+      "reason": "authorized_macro_cycle_proxy source configured",
       "local_file": null
     },
     {

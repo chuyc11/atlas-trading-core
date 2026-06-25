@@ -39,7 +39,7 @@ def normalize_historical_data_packages(
     for item in packages:
         package_id = item.get("package_id")
         status = item.get("status")
-        if status in {"downloaded", "loaded_from_local"}:
+        if status in {"downloaded", "partial_downloaded", "loaded_from_local"}:
             normalized[package_id] = {"status": "normalized", "path": item.get("path"), "row_count": item.get("row_count")}
         elif package_id == AUTHORIZED_GB_PACKAGE_ID and status == "not_configured":
             normalized[package_id] = {"status": "not_configured", "production_global_briefing_package_validated": False}
@@ -47,7 +47,7 @@ def normalize_historical_data_packages(
             normalized[package_id] = {"status": status or "missing", "warnings": item.get("warnings", [])}
             warnings.extend(item.get("warnings", []))
 
-    auth_gb = next((item for item in packages if item.get("package_id") == AUTHORIZED_GB_PACKAGE_ID and item.get("status") in {"downloaded", "loaded_from_local"}), None)
+    auth_gb = next((item for item in packages if item.get("package_id") == AUTHORIZED_GB_PACKAGE_ID and item.get("status") in {"downloaded", "partial_downloaded", "loaded_from_local"}), None)
     auth_normalized = None
     if auth_gb and auth_gb.get("path"):
         auth_result = normalize_global_briefing_package(

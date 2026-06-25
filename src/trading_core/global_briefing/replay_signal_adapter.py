@@ -17,7 +17,26 @@ DEFAULT_CHINA_ETF_UNIVERSE = [
     "2800.HK",
     "3033.HK",
 ]
-KNOWN_SIGNAL_FIELDS = {"risk_on", "liquidity", "policy_support"}
+KNOWN_SIGNAL_FIELDS = {
+    "risk_on",
+    "risk_off",
+    "liquidity",
+    "policy_support",
+    "vix",
+    "usd_cny",
+    "market_stress",
+    "fx_pressure",
+    "liquidity_pressure",
+    "rates_pressure",
+    "commodity_inflation_pressure",
+    "policy_uncertainty",
+    "macro_cycle_pressure",
+    "global_risk_off",
+    "global_epu",
+    "china_epu",
+    "us_epu",
+    "europe_epu",
+}
 ADAPTER_ID = "global_briefing_isolated_replay_adapter_v1"
 
 
