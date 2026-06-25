@@ -1,0 +1,87 @@
+{
+  "reclassification_id": "DAY1-BLOCKER-RECLASSIFICATION-V059-20260625-001",
+  "created_at": "2026-06-25T10:05:52.886966Z",
+  "baseline_path": "data/system/day1_blocker_classification.json",
+  "baseline_day1_blocker_count": 3,
+  "updated_day1_blocker_count": 0,
+  "closed_blockers": [
+    {
+      "requirement_id": "R006",
+      "blocker_id": "missing_t_plus_1_semantics",
+      "severity": "blocking",
+      "reason": "Replay/execution adapter evidence exists, but explicit future day-1 T/T+1 acceptance remains incomplete.",
+      "status": "partial",
+      "reclassification": "closed"
+    },
+    {
+      "requirement_id": "R007",
+      "blocker_id": "missing_suspension_handling",
+      "severity": "blocking",
+      "reason": "Market rule evidence exists, but suspension handling is not yet a dedicated day-1 hardening artifact.",
+      "status": "partial",
+      "reclassification": "closed"
+    },
+    {
+      "requirement_id": "R008",
+      "blocker_id": "missing_limit_up_down_handling",
+      "severity": "blocking",
+      "reason": "Market rule evidence exists, but A-share limit up/down handling needs explicit day-1 hardening.",
+      "status": "partial",
+      "reclassification": "closed"
+    }
+  ],
+  "still_open_blockers": [],
+  "accepted_manual_review": [
+    {
+      "requirement_id": "R004",
+      "blocker_id": "missing_adjusted_price_contract",
+      "severity": "requires_manual_acceptance",
+      "reason": "Adjusted price handling exists in data tooling but needs explicit day-1 acceptance wording.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R014",
+      "blocker_id": "missing_equity_curve",
+      "severity": "requires_manual_acceptance",
+      "reason": "Equity curve/reporting evidence exists, but forward dry-run use remains unvalidated.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R018",
+      "blocker_id": "parameter_data_code_versioning_gap",
+      "severity": "requires_manual_acceptance",
+      "reason": "Versioning exists through release tags and docs, but parameter/data/code binding can be strengthened.",
+      "status": "partial"
+    }
+  ],
+  "replaced_by_new_blocker": [],
+  "recommended_next_version": "v0.6.0-baseline-strategy-pack",
+  "day1_start_allowed": false,
+  "day1_start_denied_reason": "baseline strategy pack and daily workflow binding still not completed",
+  "execution_artifacts": {
+    "ashare_trading_calendar_audit": true,
+    "execution_timeline_contract": true,
+    "ashare_price_status_contract": true,
+    "ashare_lot_position_contract": true,
+    "ashare_execution_cost_contract": true,
+    "virtual_execution_contract": true,
+    "isolated_ledger_invariant_audit": true,
+    "execution_aware_replay_smoke": true
+  },
+  "boundary": {
+    "reclassification_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

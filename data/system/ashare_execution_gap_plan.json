@@ -1,0 +1,54 @@
+{
+  "plan_id": "ASHARE-EXECUTION-GAP-PLAN-20260625-001",
+  "created_at": "2026-06-25T10:05:49.143422Z",
+  "source_artifacts": {
+    "mvp_gap_classification": "data/system/mvp_gap_classification.json",
+    "day1_blocker_classification": "data/system/day1_blocker_classification.json",
+    "next_work_register": "data/system/next_work_register.json"
+  },
+  "baseline_day1_blocker_count": 3,
+  "target_day1_blocker_count": 0,
+  "target_version": "v0.5.9-ashare-execution-rules-hardened",
+  "work_items": [
+    {
+      "work_id": "missing_t_plus_1_semantics",
+      "requirement_id": "R006",
+      "required_before_day1": true,
+      "status": "targeted",
+      "source_reason": "Replay/execution adapter evidence exists, but explicit future day-1 T/T+1 acceptance remains incomplete."
+    },
+    {
+      "work_id": "missing_suspension_handling",
+      "requirement_id": "R007",
+      "required_before_day1": true,
+      "status": "targeted",
+      "source_reason": "Market rule evidence exists, but suspension handling is not yet a dedicated day-1 hardening artifact."
+    },
+    {
+      "work_id": "missing_limit_up_down_handling",
+      "requirement_id": "R008",
+      "required_before_day1": true,
+      "status": "targeted",
+      "source_reason": "Market rule evidence exists, but A-share limit up/down handling needs explicit day-1 hardening."
+    }
+  ],
+  "warnings": [],
+  "blocking_reasons": [],
+  "overall_passed": true,
+  "boundary": {
+    "planning_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

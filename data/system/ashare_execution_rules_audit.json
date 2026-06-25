@@ -1,0 +1,99 @@
+{
+  "audit_id": "ASHARE-EXECUTION-RULES-AUDIT-20260625-001",
+  "created_at": "2026-06-25T10:07:58.482980Z",
+  "release_candidate": "v0.5.9-ashare-execution-rules-hardened",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "summary": {
+    "baseline_day1_blocker_count": 3,
+    "updated_day1_blocker_count": 0,
+    "closed_blockers": [
+      "missing_t_plus_1_semantics",
+      "missing_suspension_handling",
+      "missing_limit_up_down_handling"
+    ],
+    "recommended_next_version": "v0.6.0-baseline-strategy-pack"
+  },
+  "sections": {
+    "gap_plan": {
+      "passed": true,
+      "issues": []
+    },
+    "calendar": {
+      "passed": true,
+      "issues": []
+    },
+    "timeline": {
+      "passed": true,
+      "issues": []
+    },
+    "tradability": {
+      "passed": true,
+      "issues": []
+    },
+    "lot_position": {
+      "passed": true,
+      "issues": []
+    },
+    "costs": {
+      "passed": true,
+      "issues": []
+    },
+    "virtual_execution": {
+      "passed": true,
+      "issues": []
+    },
+    "ledger_invariants": {
+      "passed": true,
+      "issues": []
+    },
+    "replay_smoke": {
+      "passed": true,
+      "issues": []
+    },
+    "day1_reclassification": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "execution_rules_hardening_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

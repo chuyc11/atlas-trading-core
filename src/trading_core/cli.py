@@ -22,6 +22,17 @@ from trading_core.evaluation.dry_run_validation_report import build_dry_run_vali
 from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
+from trading_core.execution.ashare_execution_gap_plan import build_ashare_execution_gap_plan
+from trading_core.execution.ashare_execution_rules_audit import audit_ashare_execution_rules
+from trading_core.execution.ashare_lot_position_contract import build_lot_position_contract
+from trading_core.execution.execution_aware_replay_smoke import run_execution_aware_replay_smoke
+from trading_core.execution.execution_cost_contract import build_execution_cost_contract
+from trading_core.execution.execution_timeline_contract import build_execution_timeline_contract
+from trading_core.execution.isolated_ledger_invariant_audit import audit_isolated_ledger_invariants
+from trading_core.execution.price_status_contract import build_price_status_contract
+from trading_core.execution.trading_calendar_audit import audit_trading_calendar
+from trading_core.execution.trading_calendar_contract import build_trading_calendar_contract
+from trading_core.execution.virtual_execution_contract import build_virtual_execution_contract
 from trading_core.forward_dry_run.day0_blocking_conditions import build_day0_blocking_conditions
 from trading_core.forward_dry_run.day0_data_freeze import build_day0_data_freeze
 from trading_core.forward_dry_run.day0_manual_confirmation import build_day0_manual_confirmation_packet
@@ -60,6 +71,7 @@ from trading_core.global_briefing.signal_package_validator import validate_globa
 from trading_core.global_briefing.warning_triage import build_global_briefing_warning_triage
 from trading_core.planning.artifact_coverage_scanner import build_artifact_coverage_scan
 from trading_core.planning.day1_blocker_classifier import classify_day1_blockers
+from trading_core.planning.day1_blocker_reclassification import reclassify_day1_blockers_after_execution_hardening
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -552,6 +564,25 @@ def build_parser() -> argparse.ArgumentParser:
     next_work.add_argument("--mvp-gap-classification")
     next_work.add_argument("--day1-blocker-classification")
     subparsers.add_parser("audit-plan-alignment")
+    ashare_gap = subparsers.add_parser("ashare-execution-gap-plan")
+    ashare_gap.add_argument("--mvp-gaps")
+    ashare_gap.add_argument("--day1-blockers")
+    ashare_gap.add_argument("--next-work")
+    subparsers.add_parser("ashare-trading-calendar-audit")
+    subparsers.add_parser("execution-timeline-contract")
+    subparsers.add_parser("ashare-price-status-contract")
+    subparsers.add_parser("ashare-lot-and-position-contract")
+    subparsers.add_parser("ashare-execution-cost-contract")
+    subparsers.add_parser("virtual-execution-contract")
+    ledger_audit = subparsers.add_parser("audit-isolated-ledger-invariants")
+    ledger_audit.add_argument("--ledger-dir")
+    replay_smoke = subparsers.add_parser("execution-aware-replay-smoke")
+    replay_smoke.add_argument("--start-date", default="2024-01-02")
+    replay_smoke.add_argument("--end-date", default="2024-01-08")
+    replay_smoke.add_argument("--execution-mode", default="isolated")
+    reclassify = subparsers.add_parser("reclassify-day1-blockers-after-execution-hardening")
+    reclassify.add_argument("--baseline")
+    subparsers.add_parser("audit-ashare-execution-rules")
 
     return parser
 
@@ -1518,6 +1549,51 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
     if args.command == "audit-plan-alignment":
         result = audit_plan_alignment(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "ashare-execution-gap-plan":
+        result = build_ashare_execution_gap_plan(mvp_gaps_path=args.mvp_gaps, day1_blockers_path=args.day1_blockers, next_work_path=args.next_work, paths=paths)
+        print({"plan_id": result["plan_id"], "baseline_day1_blocker_count": result["baseline_day1_blocker_count"], "target_day1_blocker_count": result["target_day1_blocker_count"], "work_items": len(result["work_items"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "ashare-trading-calendar-audit":
+        contract = build_trading_calendar_contract(paths=paths)
+        result = audit_trading_calendar(paths=paths)
+        print({"contract_path": contract["json_path"], "audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "execution-timeline-contract":
+        result = build_execution_timeline_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "same_day_close_signal_execution_rejected": result["same_day_close_signal_execution_rejected"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "ashare-price-status-contract":
+        result = build_price_status_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "statuses": len(result["supported_statuses"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "ashare-lot-and-position-contract":
+        result = build_lot_position_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "default_board_lot": result["default_board_lot"], "t_plus_1_available_after_settlement": result["t_plus_1_available_after_settlement"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "ashare-execution-cost-contract":
+        result = build_execution_cost_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "commission_bps": result["commission_bps"], "slippage_bps": result["slippage_bps"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "virtual-execution-contract":
+        result = build_virtual_execution_contract(paths=paths)
+        print({"contract_id": result["contract_id"], "integrates": len(result["integrates"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-isolated-ledger-invariants":
+        result = audit_isolated_ledger_invariants(ledger_dir=args.ledger_dir, paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "execution-aware-replay-smoke":
+        result = run_execution_aware_replay_smoke(start_date=args.start_date, end_date=args.end_date, execution_mode=args.execution_mode, paths=paths)
+        print({"smoke_id": result["smoke_id"], "overall_passed": result["overall_passed"], "included_scenarios": result["included_scenarios"], "ledger_invariant_audit_passed": result["ledger_invariant_audit_passed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-blockers-after-execution-hardening":
+        result = reclassify_day1_blockers_after_execution_hardening(baseline_path=args.baseline, paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "baseline_day1_blocker_count": result["baseline_day1_blocker_count"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-ashare-execution-rules":
+        result = audit_ashare_execution_rules(paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":

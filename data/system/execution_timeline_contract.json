@@ -1,0 +1,87 @@
+{
+  "contract_id": "EXECUTION-TIMELINE-CONTRACT-20260625-001",
+  "created_at": "2026-06-25T10:05:50.075121Z",
+  "rules": {
+    "same_day_execution_for_close_signal_allowed": false,
+    "execution_date_min_rule": "next_trading_day",
+    "future_price_allowed": false,
+    "generated_at_must_be_after_market_close": true,
+    "market_calendar_independent": true
+  },
+  "examples": {
+    "valid_t_plus_1": {
+      "accepted": true,
+      "issues": [],
+      "signal_date": "2024-01-02",
+      "signal_generated_at": "2024-01-02T15:30:00",
+      "decision_date": "2024-01-02",
+      "execution_date": "2024-01-03",
+      "execution_market": "SSE",
+      "next_trading_day": "2024-01-03"
+    },
+    "same_day_rejected": {
+      "accepted": false,
+      "issues": [
+        "same_day_or_before_next_trading_day_execution_rejected"
+      ],
+      "signal_date": "2024-01-02",
+      "signal_generated_at": "2024-01-02T15:30:00",
+      "decision_date": "2024-01-02",
+      "execution_date": "2024-01-02",
+      "execution_market": "SSE",
+      "next_trading_day": "2024-01-03"
+    },
+    "future_price_rejected": {
+      "accepted": false,
+      "issues": [
+        "future_price_rejected"
+      ],
+      "signal_date": "2024-01-02",
+      "signal_generated_at": "2024-01-02T15:30:00",
+      "decision_date": "2024-01-02",
+      "execution_date": "2024-01-03",
+      "execution_market": "SSE",
+      "next_trading_day": "2024-01-03"
+    },
+    "early_generated_warning": {
+      "accepted": false,
+      "issues": [
+        "signal_generated_before_market_close"
+      ],
+      "signal_date": "2024-01-02",
+      "signal_generated_at": "2024-01-02T14:59:00",
+      "decision_date": "2024-01-02",
+      "execution_date": "2024-01-03",
+      "execution_market": "SSE",
+      "next_trading_day": "2024-01-03"
+    },
+    "hkex_independent_calendar": {
+      "accepted": true,
+      "issues": [],
+      "signal_date": "2024-06-28",
+      "signal_generated_at": "2024-06-28T16:30:00",
+      "decision_date": "2024-06-28",
+      "execution_date": "2024-07-02",
+      "execution_market": "HKEX",
+      "next_trading_day": "2024-07-02"
+    }
+  },
+  "same_day_close_signal_execution_rejected": true,
+  "future_price_rejected": true,
+  "boundary": {
+    "timeline_contract_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "audit_id": "ASHARE-TRADING-CALENDAR-AUDIT-20260625-001",
+  "created_at": "2026-06-25T10:05:49.652930Z",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "markets": [
+    "SSE",
+    "SZSE",
+    "HKEX"
+  ],
+  "contract_path": "data/system/ashare_trading_calendar_contract.json",
+  "coverage": {
+    "SSE": {
+      "holiday_count": 6,
+      "weekend_handling": true
+    },
+    "SZSE": {
+      "holiday_count": 6,
+      "weekend_handling": true
+    },
+    "HKEX": {
+      "holiday_count": 6,
+      "weekend_handling": true
+    }
+  },
+  "sections": [
+    {
+      "check_id": "sse_weekday_trading_day",
+      "passed": true
+    },
+    {
+      "check_id": "szse_weekday_trading_day",
+      "passed": true
+    },
+    {
+      "check_id": "hkex_weekday_trading_day",
+      "passed": true
+    },
+    {
+      "check_id": "weekend_non_trading",
+      "passed": true
+    },
+    {
+      "check_id": "explicit_holiday_non_trading",
+      "passed": true
+    },
+    {
+      "check_id": "next_trading_day_skips_weekend",
+      "passed": true
+    },
+    {
+      "check_id": "next_trading_day_skips_holiday",
+      "passed": true
+    },
+    {
+      "check_id": "previous_trading_day",
+      "passed": true
+    },
+    {
+      "check_id": "hkex_and_ashare_differ",
+      "passed": true
+    },
+    {
+      "check_id": "weekday_assumption_forbidden",
+      "passed": true
+    }
+  ],
+  "boundary": {
+    "calendar_audit_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "contract_id": "ASHARE-PRICE-STATUS-CONTRACT-20260625-001",
+  "created_at": "2026-06-25T10:05:50.496664Z",
+  "supported_statuses": [
+    "tradable",
+    "suspended",
+    "missing_price",
+    "limit_up",
+    "limit_down",
+    "st_flagged",
+    "new_listing_restricted",
+    "delisting_risk",
+    "unknown_status"
+  ],
+  "default_fail_closed": true,
+  "blocked_order_requires_reject_reason": true,
+  "silent_fill_allowed": false,
+  "future_status_allowed": false,
+  "scenarios": {
+    "tradable_buy": {
+      "allowed": true,
+      "reason": "tradable",
+      "status": "tradable",
+      "side": "BUY"
+    },
+    "tradable_sell": {
+      "allowed": true,
+      "reason": "tradable",
+      "status": "tradable",
+      "side": "SELL"
+    },
+    "suspended_buy": {
+      "allowed": false,
+      "reason": "suspended_order_rejected",
+      "status": "suspended",
+      "side": "BUY"
+    },
+    "suspended_sell": {
+      "allowed": false,
+      "reason": "suspended_order_rejected",
+      "status": "suspended",
+      "side": "SELL"
+    },
+    "missing_price": {
+      "allowed": false,
+      "reason": "missing_price_rejected",
+      "status": "missing_price",
+      "side": "BUY"
+    },
+    "limit_up_buy": {
+      "allowed": false,
+      "reason": "limit_up_buy_rejected",
+      "status": "limit_up",
+      "side": "BUY"
+    },
+    "limit_up_sell": {
+      "allowed": true,
+      "reason": "limit_up_sell_allowed_with_valid_price",
+      "status": "limit_up",
+      "side": "SELL"
+    },
+    "limit_down_sell": {
+      "allowed": false,
+      "reason": "limit_down_sell_rejected",
+      "status": "limit_down",
+      "side": "SELL"
+    },
+    "limit_down_buy": {
+      "allowed": true,
+      "reason": "limit_down_buy_allowed_with_valid_price",
+      "status": "limit_down",
+      "side": "BUY"
+    },
+    "st_flagged": {
+      "allowed": false,
+      "reason": "st_flagged_requires_manual_acceptance",
+      "status": "st_flagged",
+      "side": "BUY"
+    },
+    "new_listing_restricted": {
+      "allowed": false,
+      "reason": "new_listing_restricted",
+      "status": "new_listing_restricted",
+      "side": "BUY"
+    },
+    "unknown_status": {
+      "allowed": false,
+      "reason": "unknown_status_fail_closed",
+      "status": "unknown_status",
+      "side": "BUY"
+    },
+    "future_status": {
+      "allowed": false,
+      "reason": "future_status_rejected",
+      "status": "tradable",
+      "side": "BUY"
+    }
+  },
+  "suspension_missing_limit_handled": true,
+  "st_new_listing_handled": true,
+  "boundary": {
+    "price_status_contract_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

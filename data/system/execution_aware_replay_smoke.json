@@ -1,0 +1,64 @@
+{
+  "smoke_id": "EXECUTION-AWARE-REPLAY-SMOKE-20260625-001",
+  "created_at": "2026-06-25T10:05:52.431751Z",
+  "start_date": "2024-01-02",
+  "end_date": "2024-01-08",
+  "execution_mode": "isolated",
+  "scenarios": [
+    {
+      "scenario": "normal_buy",
+      "order_status": "filled",
+      "reject_reason": null
+    },
+    {
+      "scenario": "lot_reject",
+      "order_status": "rejected",
+      "reject_reason": "buy_quantity_not_board_lot"
+    },
+    {
+      "scenario": "suspended_reject",
+      "order_status": "rejected",
+      "reject_reason": "suspended_order_rejected"
+    },
+    {
+      "scenario": "limit_reject",
+      "order_status": "rejected",
+      "reject_reason": "limit_up_buy_rejected"
+    },
+    {
+      "scenario": "cash_reject",
+      "order_status": "rejected",
+      "reject_reason": "insufficient_cash_rejected"
+    },
+    {
+      "scenario": "same_day_available_reject",
+      "order_status": "rejected",
+      "reject_reason": "sell_exceeds_available_shares"
+    },
+    {
+      "scenario": "normal_sell",
+      "order_status": "filled",
+      "reject_reason": null
+    }
+  ],
+  "included_scenarios": 7,
+  "ledger_dir": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\execution_aware_smoke",
+  "ledger_invariant_audit_passed": true,
+  "overall_passed": true,
+  "boundary": {
+    "execution_aware_replay_smoke_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

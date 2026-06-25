@@ -1,0 +1,69 @@
+{
+  "contract_id": "ASHARE-LOT-POSITION-CONTRACT-20260625-001",
+  "created_at": "2026-06-25T10:05:50.853054Z",
+  "default_board_lot": 100,
+  "buy_must_satisfy_board_lot": true,
+  "sell_odd_lot_allowed_when_position_exists": true,
+  "sell_more_than_position_allowed": false,
+  "sell_more_than_available_allowed": false,
+  "t_day_buy_available_same_day": false,
+  "t_plus_1_available_date": "2024-01-03",
+  "t_plus_1_available_after_settlement": true,
+  "insufficient_cash_policy": "reject",
+  "negative_cash_allowed": false,
+  "negative_position_allowed": false,
+  "silent_partial_fill_allowed": false,
+  "reject_or_downsize_requires_reason": true,
+  "scenarios": {
+    "buy_100_allowed": {
+      "accepted": true,
+      "reason": "buy_board_lot_valid",
+      "quantity": 100
+    },
+    "buy_50_rejected": {
+      "accepted": false,
+      "reason": "buy_quantity_not_board_lot",
+      "quantity": 50
+    },
+    "buy_150_rejected": {
+      "accepted": false,
+      "reason": "buy_quantity_not_board_lot",
+      "quantity": 150
+    },
+    "sell_odd_lot_allowed": {
+      "accepted": true,
+      "reason": "sell_quantity_valid_odd_lot_allowed",
+      "quantity": 50
+    },
+    "sell_more_than_position_rejected": {
+      "accepted": false,
+      "reason": "sell_exceeds_position",
+      "quantity": 200
+    },
+    "sell_more_than_available_rejected": {
+      "accepted": false,
+      "reason": "sell_exceeds_available_shares",
+      "quantity": 100
+    }
+  },
+  "invariant_example": {
+    "passed": true,
+    "issues": []
+  },
+  "boundary": {
+    "lot_position_contract_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

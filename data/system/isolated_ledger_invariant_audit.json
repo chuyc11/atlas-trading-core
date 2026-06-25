@@ -1,0 +1,82 @@
+{
+  "audit_id": "ISOLATED-LEDGER-INVARIANT-AUDIT-20260625-001",
+  "created_at": "2026-06-25T10:05:52.437985Z",
+  "ledger_dir": "data/replays/global_briefing/execution_aware_smoke",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "sections": {
+    "cash_non_negative": {
+      "passed": true,
+      "issues": []
+    },
+    "positions_non_negative": {
+      "passed": true,
+      "issues": []
+    },
+    "available_lte_position": {
+      "passed": true,
+      "issues": []
+    },
+    "no_same_day_sell_of_t_day_buys": {
+      "passed": true,
+      "issues": []
+    },
+    "trades_link_to_accepted_orders": {
+      "passed": true,
+      "issues": []
+    },
+    "rejected_orders_have_reason": {
+      "passed": true,
+      "issues": []
+    },
+    "fills_have_price_and_costs": {
+      "passed": true,
+      "issues": []
+    },
+    "costs_reconcile_to_cash": {
+      "passed": true,
+      "issues": []
+    },
+    "valuations_reconcile": {
+      "passed": true,
+      "issues": []
+    },
+    "isolated_outputs_only": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    }
+  },
+  "orders": 7,
+  "trades": 2,
+  "boundary": {
+    "isolated_ledger_invariant_audit_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}
