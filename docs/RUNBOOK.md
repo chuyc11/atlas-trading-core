@@ -359,3 +359,41 @@ Boundary:
 - ML/LLM/RL not used for trading decisions
 - promotion not triggered
 - recommended next version is `v0.6.2-forward-dry-run-start-authorization-pack`
+
+## Forward dry-run start authorization
+
+This v0.6.2 workflow creates a fail-closed start authorization pack before any future forward dry-run day 1. It does not start forward dry-run and does not call run-daily.
+
+```powershell
+python -m trading_core.cli forward-dry-run-authorization-scope-plan
+python -m trading_core.cli forward-dry-run-start-prerequisite-inventory
+python -m trading_core.cli current-daily-workflow-readiness-snapshot
+python -m trading_core.cli forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli forward-dry-run-owner-authorization-packet
+python -m trading_core.cli validate-forward-dry-run-start-gate-v062
+python -m trading_core.cli forward-dry-run-run-daily-command-preview
+python -m trading_core.cli forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-start-authorization
+python -m trading_core.cli reclassify-day1-blockers-after-start-authorization
+```
+
+Boundary:
+
+- technical prerequisites are present
+- authorization remains pending
+- next required action is owner manual confirmation
+- manual_confirmation_complete=false
+- forward_dry_run_start_authorized=false
+- day1_start_allowed=false
+- day1_prompt_eligible=false
+- day1_prompt_generated=false
+- run-daily command preview is metadata only
+- run-daily not called
+- forward dry-run not started
+- main ledger not written
+- not forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+- no broker connected
+- no ML/LLM/RL trading decision
+- promotion not triggered

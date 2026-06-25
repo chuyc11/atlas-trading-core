@@ -39,3 +39,6 @@ The protected path residue scanner classifies local files under protected ledger
 - do not call run-daily
 - do not write main ledger
 
+## v0.6.2 Use
+
+v0.6.2 requires protected path residue blocker count 0 before an owner authorization packet can be reviewed. Runtime residue classified as nits does not authorize day1. The start authorization pack does not write protected ledgers and does not call run-daily.

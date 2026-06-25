@@ -1,5 +1,44 @@
 # Release Notes
 
+## v0.6.2-forward-dry-run-start-authorization-pack-audited
+
+This release creates the fail-closed start authorization pack required before any future forward dry-run day 1. It does not start forward dry-run, does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, and does not generate an executable day1 prompt.
+
+Includes:
+
+- forward dry-run authorization scope plan
+- start prerequisite inventory
+- current daily workflow readiness snapshot
+- manual confirmation checklist v2
+- owner authorization packet
+- start gate validator
+- run-daily command preview metadata
+- day1 prompt eligibility report
+- start authorization audit
+- day1 blocker reclassification v062
+
+Audited & Validated scope:
+
+- technical prerequisites are present
+- manual confirmation defaults false
+- owner authorization defaults false
+- `day1_start_allowed=false`
+- `day1_prompt_eligible=false`
+- `day1_prompt_generated=false`
+- `run-daily` not called
+- forward dry-run not started
+- main ledger not written
+- labels not used as authorization
+- ML shadow not used as authorization
+- LLM not used for trading decision
+- RL not used
+- promotion not triggered
+- not forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+
+Validation: 862 tests passed, 1 skipped.
+
 ## v0.6.1-daily-workflow-binding-audited
 
 This release binds the v0.6.0 baseline strategy pack and v0.5.9 virtual execution rules into a repeatable daily research preview workflow. Daily workflow binding is research-only preview infrastructure and does not start forward dry-run. It uses local authorized historical daily data snapshots, does not download real-time market data, does not call `run-daily`, and does not write the main orders/trades/portfolio/accounts ledger.

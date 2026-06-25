@@ -28,3 +28,6 @@ The daily market data snapshot reads local authorized historical packages and em
 - no run-daily
 - no main ledger write
 
+## v0.6.2 Use
+
+v0.6.2 reads the pinned snapshot to build the current daily workflow readiness snapshot. The snapshot is evidence for prerequisite review only. It is not forward dry-run validation, not strategy effectiveness proof, and not live trading readiness.

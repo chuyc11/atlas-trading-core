@@ -38,3 +38,6 @@ The v0.6.1 release E2E uses `2024-12-31` as a historical daily workflow fixture.
 - not live trading readiness
 - recommended next version is `v0.6.2-forward-dry-run-start-authorization-pack`
 
+## v0.6.2 Follow-up
+
+v0.6.2 consumes the v0.6.1 audit and daily workflow artifacts as prerequisites for a start authorization pack. It does not rewrite `data/daily_workflow/` or `outputs/daily_workflow/`. Authorization remains pending: `manual_confirmation_complete=false`, `forward_dry_run_start_authorized=false`, `day1_start_allowed=false`, and `day1_prompt_generated=false`.

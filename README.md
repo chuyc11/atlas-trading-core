@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.1-daily-workflow-binding-audited
+v0.6.2-forward-dry-run-start-authorization-pack-audited
 
 ## Completed milestones
 
@@ -41,6 +41,7 @@ v0.6.1-daily-workflow-binding-audited
 - v0.5.9 A-share execution rules hardened
 - v0.6.0 baseline strategy pack audited
 - v0.6.1 daily workflow binding audited
+- v0.6.2 forward dry-run start authorization pack audited
 
 ## Known limitations
 
@@ -55,6 +56,8 @@ v0.6.1-daily-workflow-binding-audited
 - v0.5.9 hardens virtual execution rules but does not start forward dry-run
 - v0.6.0 adds a research-only baseline strategy pack and does not start forward dry-run
 - v0.6.1 binds daily research workflow previews using local authorized historical daily snapshots
+- v0.6.2 creates a start authorization pack only and does not start forward dry-run
+- v0.6.2 keeps manual confirmation false, owner authorization false, day1_start_allowed=false, day1_prompt_eligible=false, and day1_prompt_generated=false by default
 - strategy effectiveness not proven
 - no live trading
 
@@ -126,6 +129,23 @@ python -m trading_core.cli protected-path-residue-scan
 python -m trading_core.cli audit-daily-workflow --as-of-date 2024-12-31
 python -m trading_core.cli reclassify-day1-blockers-after-daily-workflow
 ```
+
+Run v0.6.2 forward dry-run start authorization pack:
+
+```powershell
+python -m trading_core.cli forward-dry-run-authorization-scope-plan
+python -m trading_core.cli forward-dry-run-start-prerequisite-inventory
+python -m trading_core.cli current-daily-workflow-readiness-snapshot
+python -m trading_core.cli forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli forward-dry-run-owner-authorization-packet
+python -m trading_core.cli validate-forward-dry-run-start-gate-v062
+python -m trading_core.cli forward-dry-run-run-daily-command-preview
+python -m trading_core.cli forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-start-authorization
+python -m trading_core.cli reclassify-day1-blockers-after-start-authorization
+```
+
+The v0.6.2 pack is fail-closed. Technical prerequisites are present, authorization remains pending, and the next required action is owner manual confirmation. The run-daily command preview is metadata only; run-daily is not called, forward dry-run is not started, the main ledger is not written, no broker is connected, ML/LLM/RL trading decisions are not added, and promotion is not triggered.
 
 Build features and labels:
 

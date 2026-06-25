@@ -185,6 +185,23 @@ python -m trading_core.cli reclassify-day1-blockers-after-daily-workflow
 
 This v0.6.1 path uses local authorized historical daily data snapshots and does not download real-time market data. It freezes inputs, generates daily baseline signals, order previews, isolated execution previews, report packets, residue scan, audit, and v061 reclassification. It does not call run-daily, does not start forward dry-run, does not write the main ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not certify live trading readiness.
 
+## Run forward dry-run start authorization pack
+
+```bash
+python -m trading_core.cli forward-dry-run-authorization-scope-plan
+python -m trading_core.cli forward-dry-run-start-prerequisite-inventory
+python -m trading_core.cli current-daily-workflow-readiness-snapshot
+python -m trading_core.cli forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli forward-dry-run-owner-authorization-packet
+python -m trading_core.cli validate-forward-dry-run-start-gate-v062
+python -m trading_core.cli forward-dry-run-run-daily-command-preview
+python -m trading_core.cli forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-start-authorization
+python -m trading_core.cli reclassify-day1-blockers-after-start-authorization
+```
+
+This v0.6.2 path creates a start authorization pack only. Technical prerequisites are present, manual confirmation defaults false, owner authorization defaults false, `day1_start_allowed=false`, `day1_prompt_eligible=false`, and `day1_prompt_generated=false`. The run-daily command preview is metadata only. It does not call run-daily, does not start forward dry-run, does not write the main ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not certify live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -207,6 +224,8 @@ This v0.6.1 path uses local authorized historical daily data snapshots and does 
 * do not treat baseline strategy reports as promotion authorization
 * do not treat daily workflow previews as forward validation
 * do not treat protected path residue scans as cleanup authorization
+* do not treat the v0.6.2 start authorization pack as owner approval
+* do not generate day1 execution instructions before explicit owner confirmation
 
 ## Boundary
 
@@ -221,3 +240,4 @@ This v0.6.1 path uses local authorized historical daily data snapshots and does 
 * v0.5.9 A-share execution hardening writes no main ledger, does not call run-daily, and does not start forward dry-run.
 * v0.6.0 baseline strategy pack writes no main ledger, does not call run-daily, and does not start forward dry-run.
 * v0.6.1 daily workflow binding writes no main ledger, does not call run-daily, does not download real-time market data, and does not start forward dry-run.
+* v0.6.2 start authorization pack writes no main ledger, does not call run-daily, does not start forward dry-run, and keeps authorization pending.

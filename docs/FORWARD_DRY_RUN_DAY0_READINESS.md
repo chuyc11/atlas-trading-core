@@ -45,3 +45,17 @@ python -m trading_core.cli audit-day0-readiness
 The v0.5.8.1 plan alignment and MVP gap audit reviews whether current implementation evidence satisfies the MVP plan before any future day 1. Plan alignment is an audit, not day 1 authorization.
 
 It keeps the same operational boundary: forward dry-run not started, `run-daily` not called, main ledger not written, historical performance not treated as strategy effectiveness proof, ML shadow not used as authorization, LLM not used for trading decision, RL not used, and promotion not triggered.
+
+## v0.6.2 Follow-Up
+
+v0.6.2 creates the forward dry-run start authorization pack after daily workflow binding. It does not start forward dry-run, does not call run-daily, and does not write the main ledger.
+
+Release defaults remain fail-closed:
+
+- `manual_confirmation_complete=false`
+- `forward_dry_run_start_authorized=false`
+- `day1_start_allowed=false`
+- `day1_prompt_eligible=false`
+- `day1_prompt_generated=false`
+
+The only allowed next action after the v0.6.2 pack is owner manual confirmation.
