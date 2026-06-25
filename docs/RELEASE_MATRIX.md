@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current plan-alignment audit line is `v0.5.8.1-plan-alignment-and-mvp-gap-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current execution-hardening line is `v0.5.9-ashare-execution-rules-hardened`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -22,3 +22,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.5.7.1-historical-data-gap-closure-audited | v0.5.7.1-historical-data-gap-closure-audited | EPU repair/proxy, OECD CLI or macro-cycle proxy repair, proxy rebuild, warning inventory, grouped replay warnings, gap closure workflow, report, and audit | yes | historical data gap closure only; OECD macro-cycle fallback is not official OECD CLI; not forward dry-run validation, strategy proof, live readiness, or trading authorization |
 | v0.5.8-day0-operational-readiness-audited | v0.5.8-day0-operational-readiness-audited | day-0 data freeze, accepted warning register, blocking condition register, run-daily preflight, manual confirmation packet, operating calendar, readiness report, and readiness audit | yes | day-0 readiness only; forward dry-run not started, run-daily not called, manual confirmation remains incomplete |
 | v0.5.8.1-plan-alignment-and-mvp-gap-audited | v0.5.8.1-plan-alignment-and-mvp-gap-audited | plan checklist, MVP requirement map, artifact scan, MVP gap classification, day-1 blocker classification, next work register, and plan alignment audit | yes | audit only; day 1 not authorized, run-daily not called, ML/LLM/RL/promotion not used |
+| v0.5.9-ashare-execution-rules-hardened | v0.5.9-ashare-execution-rules-hardened | A-share / ETF calendar, T+1 timeline, tradability, lot/position, cost, virtual execution contract, isolated ledger audit, replay smoke, day1 blocker reclassification, and release audit | yes | execution hardening only; forward dry-run not started, run-daily not called, main ledger not written, not strategy proof or live readiness |

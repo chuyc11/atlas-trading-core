@@ -1,5 +1,43 @@
 # Release Notes
 
+## v0.5.9-ashare-execution-rules-hardened
+
+This release hardens A-share / ETF virtual execution rules for future forward dry-run preparation. v0.5.9 hardens virtual execution rules but does not start forward dry-run. It does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, does not prove strategy effectiveness, and does not certify live trading readiness.
+
+Includes:
+
+- A-share / ETF trading calendar contract for SSE / SZSE / HKEX
+- T-day signal / T+1 execution semantics
+- suspension / missing price / limit up / limit down handling
+- ST / new listing handling
+- board lot / odd lot rules
+- fee / tax / slippage model
+- cash / position / available shares accounting
+- virtual execution contract
+- isolated ledger invariant audit
+- execution-aware replay smoke
+- day1 blocker reclassification
+
+Audited & Validated scope:
+
+- `ashare-execution-gap-plan` read v0.5.8.1 blocker artifacts and targeted three execution blockers.
+- `ashare-trading-calendar-audit` passed for SSE, SZSE, HKEX, explicit holidays, weekends, and HKEX/A-share calendar differences.
+- `execution-timeline-contract` rejects same-day execution for T-day close signals and rejects future prices.
+- `ashare-price-status-contract` handles suspended, missing price, limit up, limit down, ST, new listing, delisting risk, and unknown status fail-closed.
+- `ashare-lot-and-position-contract` defines board lot, odd lot sell, T+1 available shares, and cash/position invariants.
+- `ashare-execution-cost-contract` defines commission, minimum commission, stamp duty, slippage, and PIT-safe fill price rules.
+- `virtual-execution-contract` integrates calendar, T+1, tradability, lot, cash/position, costs, reject reasons, fill reasons, isolated output paths, and protected path guard.
+- `audit-isolated-ledger-invariants` passed.
+- `execution-aware-replay-smoke` passed in isolated mode.
+- `reclassify-day1-blockers-after-execution-hardening` closed the three execution blockers and recommends `v0.6.0-baseline-strategy-pack`.
+- `audit-ashare-execution-rules` passed with no blocking reasons.
+- `run-daily` was not called.
+- Forward dry-run was not started or validated.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Labels, ML shadow, experiments, LLM, RL, and promotion outputs were not used as authorization.
+
+Validation: 787 tests passed, 1 skipped.
+
 ## v0.5.8.1-plan-alignment-and-mvp-gap-audited
 
 This patch release adds plan alignment and MVP gap audit artifacts. Plan alignment is an audit, not day 1 authorization. It does not start forward dry-run, does not call `run-daily`, and does not write the main orders/trades/portfolio/accounts ledger.

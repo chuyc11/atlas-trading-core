@@ -131,6 +131,24 @@ python -m trading_core.cli audit-plan-alignment
 
 This v0.5.8.1 path audits the MVP plan against current implementation evidence. It does not start forward dry-run, does not call run-daily, does not write the main ledger, and does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as day-1 authorization.
 
+## Run A-share execution rules hardening
+
+```bash
+python -m trading_core.cli ashare-execution-gap-plan
+python -m trading_core.cli ashare-trading-calendar-audit
+python -m trading_core.cli execution-timeline-contract
+python -m trading_core.cli ashare-price-status-contract
+python -m trading_core.cli ashare-lot-and-position-contract
+python -m trading_core.cli ashare-execution-cost-contract
+python -m trading_core.cli virtual-execution-contract
+python -m trading_core.cli audit-isolated-ledger-invariants
+python -m trading_core.cli execution-aware-replay-smoke
+python -m trading_core.cli reclassify-day1-blockers-after-execution-hardening
+python -m trading_core.cli audit-ashare-execution-rules
+```
+
+This v0.5.9 path hardens virtual execution rules for future forward dry-run preparation. It does not start forward dry-run, does not call run-daily, does not write the main ledger, and does not prove strategy effectiveness or certify live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -146,6 +164,8 @@ This v0.5.8.1 path audits the MVP plan against current implementation evidence. 
 * do not treat plan alignment as day 1 authorization
 * do not treat historical performance as strategy effectiveness proof
 * do not use ML shadow, LLM, RL, or promotion outputs as day-1 authorization
+* do not treat execution hardening as strategy effectiveness proof or live trading readiness
+* do not treat isolated execution-aware smoke as forward validation
 * do not treat proxy signals as internal global-briefing signals
 
 ## Boundary
@@ -158,3 +178,4 @@ This v0.5.8.1 path audits the MVP plan against current implementation evidence. 
 * v0.5.7.1 historical data gap closure writes no main ledger and does not call run-daily.
 * v0.5.8 day-0 readiness writes no main ledger and does not call run-daily.
 * v0.5.8.1 plan alignment writes no main ledger, does not call run-daily, and does not authorize day 1.
+* v0.5.9 A-share execution hardening writes no main ledger, does not call run-daily, and does not start forward dry-run.

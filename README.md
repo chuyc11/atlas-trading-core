@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.8.1-plan-alignment-and-mvp-gap-audited
+v0.5.9-ashare-execution-rules-hardened
 
 ## Completed milestones
 
@@ -38,6 +38,7 @@ v0.5.8.1-plan-alignment-and-mvp-gap-audited
 - v0.5.7.1 historical data gap closure audited
 - v0.5.8 day-0 operational readiness audited
 - v0.5.8.1 plan alignment and MVP gap audited
+- v0.5.9 A-share execution rules hardened
 
 ## Known limitations
 
@@ -49,6 +50,7 @@ v0.5.8.1-plan-alignment-and-mvp-gap-audited
 - OECD CLI may be repaired from authorized/local/API sources or represented by an authorized macro-cycle proxy explicitly marked as not official OECD CLI
 - historical replay is not forward dry-run validation
 - plan alignment is an audit, not day 1 authorization
+- v0.5.9 hardens virtual execution rules but does not start forward dry-run
 - strategy effectiveness not proven
 - no live trading
 
@@ -71,6 +73,22 @@ python -m trading_core.cli classify-mvp-gaps
 python -m trading_core.cli classify-day1-blockers
 python -m trading_core.cli next-work-register
 python -m trading_core.cli audit-plan-alignment
+```
+
+Run A-share execution rules hardening audit:
+
+```powershell
+python -m trading_core.cli ashare-execution-gap-plan
+python -m trading_core.cli ashare-trading-calendar-audit
+python -m trading_core.cli execution-timeline-contract
+python -m trading_core.cli ashare-price-status-contract
+python -m trading_core.cli ashare-lot-and-position-contract
+python -m trading_core.cli ashare-execution-cost-contract
+python -m trading_core.cli virtual-execution-contract
+python -m trading_core.cli audit-isolated-ledger-invariants
+python -m trading_core.cli execution-aware-replay-smoke
+python -m trading_core.cli reclassify-day1-blockers-after-execution-hardening
+python -m trading_core.cli audit-ashare-execution-rules
 ```
 
 Build features and labels:
