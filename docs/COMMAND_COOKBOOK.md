@@ -30,6 +30,7 @@ python -m trading_core.cli audit-global-briefing-replay
 python -m trading_core.cli audit-isolated-replay-adapter
 python -m trading_core.cli audit-global-briefing-real-package-integration
 python -m trading_core.cli audit-global-briefing-evidence-quality
+python -m trading_core.cli audit-historical-data-acquisition
 ```
 
 ## Run reporting pipeline
@@ -75,6 +76,19 @@ python -m trading_core.cli audit-global-briefing-evidence-quality
 
 The evidence-quality reports clarify warning categories, fixture-only evidence, production acceptance thresholds, and production readiness=false. They do not start replay, call run-daily, validate forward dry-run, certify live trading readiness, or prove strategy effectiveness.
 
+## Run authorized historical data acquisition
+
+```bash
+python -m trading_core.cli download-historical-data-packages --start-date 2018-01-01 --end-date latest --continue-on-error
+python -m trading_core.cli normalize-historical-data-packages
+python -m trading_core.cli audit-historical-data-quality
+python -m trading_core.cli run-full-historical-proxy-replay --start-date 2024-01-02 --end-date 2024-12-31 --execution-mode isolated --min-coverage 0.80
+python -m trading_core.cli historical-data-acquisition-report
+python -m trading_core.cli audit-historical-data-acquisition
+```
+
+This workflow acquires historical research data packages and builds the unified proxy package. Historical data authorization is not trading authorization. The proxy signals are not internal global-briefing signals, the production global-briefing package remains separately reported, and the historical replay is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
+
 ## What not to do
 
 * do not run live trading
@@ -84,6 +98,8 @@ The evidence-quality reports clarify warning categories, fixture-only evidence, 
 * do not treat global-briefing replay artifacts as broker or promotion output
 * do not treat real package integration as live readiness or forward validation
 * do not treat evidence-quality reports as production package acceptance
+* do not treat authorized historical data acquisition as trading authorization
+* do not treat proxy signals as internal global-briefing signals
 
 ## Boundary
 
@@ -91,3 +107,4 @@ The evidence-quality reports clarify warning categories, fixture-only evidence, 
 * This system is not live-ready.
 * Forward 30d dry-run is not completed.
 * Global-briefing historical replay and real package integration are isolated and write no main ledger.
+* v0.5.7 authorized historical data acquisition writes no main ledger and does not call run-daily.

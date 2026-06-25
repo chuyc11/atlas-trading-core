@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.6.1-warning-triage-evidence-quality
+v0.5.7-authorized-full-historical-data-acquisition-audited
 
 ## Completed milestones
 
@@ -34,11 +34,15 @@ v0.5.6.1-warning-triage-evidence-quality
 - v0.5.5 isolated replay execution adapter audited
 - v0.5.6 real global-briefing signal integration audited
 - v0.5.6.1 warning triage and evidence quality audited
+- v0.5.7 authorized full historical data acquisition audited
 
 ## Known limitations
 
 - forward 30d dry-run not completed
-- global-briefing real package integration is complete for local fixture E2E, but fixture smoke data is not broad historical coverage
+- authorized historical data access is available, but historical data authorization is not trading authorization
+- authorized production global-briefing historical signal package is separately reported and may be `not_configured`
+- unified proxy signals are research proxy signals, not internal global-briefing signals
+- historical replay is not forward dry-run validation
 - strategy effectiveness not proven
 - no live trading
 
@@ -129,14 +133,29 @@ python -m trading_core.cli global-briefing-production-acceptance-criteria
 python -m trading_core.cli audit-global-briefing-evidence-quality
 ```
 
+Run authorized full historical data acquisition and proxy replay:
+
+```powershell
+python -m trading_core.cli download-historical-data-packages --start-date 2018-01-01 --end-date latest --continue-on-error
+python -m trading_core.cli normalize-historical-data-packages
+python -m trading_core.cli audit-historical-data-quality
+python -m trading_core.cli run-full-historical-proxy-replay --start-date 2024-01-02 --end-date 2024-12-31 --execution-mode isolated --min-coverage 0.80
+python -m trading_core.cli historical-data-acquisition-report
+python -m trading_core.cli audit-historical-data-acquisition
+```
+
 ## Safety boundary
 
 - no broker
 - no live trading
 - no real orders
 - no auto promotion
+- historical data authorization is not trading authorization
+- authorized historical data acquisition does not connect to a broker and does not download account/order/trade/position/margin data
 - local global-briefing package integration uses local files only and no network access
+- v0.5.7 historical package acquisition may use approved public data endpoints and authorized local/API configuration for historical research data only
 - no forward dry-run started by the historical replay harness
 - no forward dry-run started by the real package integration workflow
+- no forward dry-run started by authorized historical data acquisition
 - no labels, ML shadow, experiments, RL, or LLM trading decisions in the global-briefing replay decision path
 - isolated replay ledger is written only under `data/replays/global_briefing/`

@@ -1,5 +1,49 @@
 # Release Notes
 
+## v0.5.7-authorized-full-historical-data-acquisition-audited
+
+This release adds authorized full historical data package acquisition for the global-briefing research replay path. It downloads or loads historical packages, normalizes them, builds a unified proxy package, audits quality, runs isolated proxy replay, and produces acquisition reports. Historical data authorization is not trading authorization.
+
+Includes:
+
+- authorized full historical data package acquisition
+- ETF OHLCV package
+- benchmark index package
+- FX / USD-CNY package
+- VIX / global risk package
+- rates / liquidity package
+- commodity / inflation risk package
+- policy uncertainty / EPU package status and warnings
+- OECD CLI / macro cycle package status and warnings
+- optional authorized global-briefing historical signal package status
+- unified global-briefing-compatible proxy package
+- historical data quality audit
+- full historical proxy isolated replay workflow
+- historical data acquisition report
+- historical data acquisition audit
+
+Audited & Validated scope:
+
+- `download-historical-data-packages --start-date 2018-01-01 --end-date latest --continue-on-error` generated package manifests and provenance.
+- ETF, benchmark, FX/USD-CNY, VIX, rates/liquidity, and commodity/inflation packages downloaded with checksums.
+- EPU and OECD CLI package attempts failed soft with explicit warnings.
+- Authorized global-briefing historical signal package was `not_configured` and non-blocking.
+- `normalize-historical-data-packages` built and validated `GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1`.
+- `audit-historical-data-quality` passed with `overall_passed=True`.
+- `run-full-historical-proxy-replay --execution-mode isolated` completed with `overall_status=research_review_ready`.
+- `historical-data-acquisition-report` generated acquisition JSON and Markdown.
+- `audit-historical-data-acquisition` passed with `overall_passed=True` and no blocking reasons.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Isolated replay artifacts were written under `data/replays/global_briefing/`.
+- `run-daily` was not called.
+- Labels, ML shadow, experiments, and promotion outputs were not used.
+- Promotion was not triggered.
+- Forward dry-run was not started or validated.
+
+Boundaries remain strict: historical data authorization is not trading authorization, proxy signals are not internal global-briefing signals, production global-briefing package status is separately reported, historical replay is not forward dry-run validation, historical replay is not strategy effectiveness proof, the system is not live trading ready, no broker/live/RL/LLM decision capability was added, and no real orders are supported.
+
+Validation: 698 tests passed, 1 skipped.
+
 ## v0.5.6.1-warning-triage-evidence-quality
 
 This patch release adds evidence-quality reporting around the v0.5.6 real-package-style global-briefing integration artifacts. It does not add replay functionality or trading functionality.

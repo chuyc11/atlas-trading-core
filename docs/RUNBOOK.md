@@ -66,6 +66,7 @@ python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli audit-global-briefing-real-package-integration
 python -m trading_core.cli audit-global-briefing-evidence-quality
+python -m trading_core.cli audit-historical-data-acquisition
 ```
 
 ## Global briefing historical replay harness
@@ -138,4 +139,30 @@ Boundary:
 - no network access
 - not strategy effectiveness proof
 - not forward dry-run validation
+- not live trading readiness
+
+## Authorized historical data acquisition
+
+This workflow downloads or loads the authorized historical packages required for research replay and global-briefing proxy construction. Historical data authorization is not trading authorization. The unified proxy package is not an internal global-briefing signal package, and production global-briefing package status must be reported separately.
+
+```powershell
+python -m trading_core.cli download-historical-data-packages --start-date 2018-01-01 --end-date latest --continue-on-error
+python -m trading_core.cli normalize-historical-data-packages
+python -m trading_core.cli audit-historical-data-quality
+python -m trading_core.cli run-full-historical-proxy-replay --start-date 2024-01-02 --end-date 2024-12-31 --execution-mode isolated --min-coverage 0.80
+python -m trading_core.cli historical-data-acquisition-report
+python -m trading_core.cli audit-historical-data-acquisition
+```
+
+Boundary:
+
+- historical data acquisition only
+- no broker/account/order/trade/position/margin data
+- no real orders
+- no main orders/trades/portfolio/accounts writes
+- isolated replay ledger written only under `data/replays/global_briefing/`
+- run-daily not called
+- labels, ML shadow, experiments, promotion, RL, and LLM trading decisions not used
+- forward dry-run not started or validated
+- historical replay is not strategy effectiveness proof
 - not live trading readiness
