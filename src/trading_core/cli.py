@@ -40,7 +40,16 @@ from trading_core.forward_dry_run.day0_readiness_audit import audit_day0_readine
 from trading_core.forward_dry_run.day0_readiness_report import build_day0_readiness_report
 from trading_core.forward_dry_run.day0_run_daily_preflight import build_day0_run_daily_preflight
 from trading_core.forward_dry_run.day0_warning_register import build_day0_warning_register
+from trading_core.forward_dry_run.current_daily_workflow_readiness_snapshot import build_current_daily_workflow_readiness_snapshot
+from trading_core.forward_dry_run.day1_prompt_eligibility_report import build_forward_dry_run_day1_prompt_eligibility
+from trading_core.forward_dry_run.manual_confirmation_checklist_v2 import build_forward_dry_run_manual_confirmation_checklist_v2
 from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
+from trading_core.forward_dry_run.owner_authorization_packet import build_forward_dry_run_owner_authorization_packet
+from trading_core.forward_dry_run.run_daily_command_preview_metadata import build_forward_dry_run_run_daily_command_preview
+from trading_core.forward_dry_run.start_authorization_audit import audit_forward_dry_run_start_authorization
+from trading_core.forward_dry_run.start_authorization_scope_plan import build_forward_dry_run_authorization_scope_plan
+from trading_core.forward_dry_run.start_gate_validator import validate_forward_dry_run_start_gate_v062
+from trading_core.forward_dry_run.start_prerequisite_inventory import build_forward_dry_run_start_prerequisite_inventory
 from trading_core.daily_workflow.daily_baseline_signal_binding import build_daily_baseline_signals
 from trading_core.daily_workflow.daily_data_quality_audit import audit_daily_data_quality
 from trading_core.daily_workflow.daily_input_freeze_manifest import build_daily_input_freeze_manifest
@@ -84,6 +93,7 @@ from trading_core.planning.day1_blocker_classifier import classify_day1_blockers
 from trading_core.planning.day1_blocker_reclassification import reclassify_day1_blockers_after_execution_hardening
 from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_day1_blockers_after_baseline_strategies
 from trading_core.planning.day1_blocker_reclassification_v061 import reclassify_day1_blockers_after_daily_workflow
+from trading_core.planning.day1_blocker_reclassification_v062 import reclassify_day1_blockers_after_start_authorization
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -655,6 +665,16 @@ def build_parser() -> argparse.ArgumentParser:
     daily_audit = subparsers.add_parser("audit-daily-workflow")
     daily_audit.add_argument("--as-of-date", default="2024-12-31")
     subparsers.add_parser("reclassify-day1-blockers-after-daily-workflow")
+    subparsers.add_parser("forward-dry-run-authorization-scope-plan")
+    subparsers.add_parser("forward-dry-run-start-prerequisite-inventory")
+    subparsers.add_parser("current-daily-workflow-readiness-snapshot")
+    subparsers.add_parser("forward-dry-run-manual-confirmation-checklist-v2")
+    subparsers.add_parser("forward-dry-run-owner-authorization-packet")
+    subparsers.add_parser("validate-forward-dry-run-start-gate-v062")
+    subparsers.add_parser("forward-dry-run-run-daily-command-preview")
+    subparsers.add_parser("forward-dry-run-day1-prompt-eligibility")
+    subparsers.add_parser("audit-forward-dry-run-start-authorization")
+    subparsers.add_parser("reclassify-day1-blockers-after-start-authorization")
 
     return parser
 
@@ -1755,6 +1775,46 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "reclassify-day1-blockers-after-daily-workflow":
         result = reclassify_day1_blockers_after_daily_workflow(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_version": result["recommended_next_version"], "day1_start_allowed": result["day1_start_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-authorization-scope-plan":
+        result = build_forward_dry_run_authorization_scope_plan(paths=paths)
+        print({"plan_id": result["plan_id"], "target_version": result["target_version"], "daily_workflow_audit_passed": result["daily_workflow_audit_passed"], "known_day1_blockers_closed": result["known_day1_blockers_closed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-start-prerequisite-inventory":
+        result = build_forward_dry_run_start_prerequisite_inventory(paths=paths)
+        print({"inventory_id": result["inventory_id"], "overall_day1_allowed": result["overall_day1_allowed"], "prerequisites": len(result["prerequisites"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "current-daily-workflow-readiness-snapshot":
+        result = build_current_daily_workflow_readiness_snapshot(paths=paths)
+        print({"snapshot_id": result["snapshot_id"], "historical_daily_workflow_fixture_passed": result["historical_daily_workflow_fixture_passed"], "current_production_daily_workflow_authorized": result["current_production_daily_workflow_authorized"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-manual-confirmation-checklist-v2":
+        result = build_forward_dry_run_manual_confirmation_checklist_v2(paths=paths)
+        print({"checklist_id": result["checklist_id"], "manual_confirmation_complete": result["manual_confirmation_complete"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-owner-authorization-packet":
+        result = build_forward_dry_run_owner_authorization_packet(paths=paths)
+        print({"authorization_packet_id": result["authorization_packet_id"], "authorization_status": result["authorization_status"], "forward_dry_run_start_authorized": result["forward_dry_run_start_authorized"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "validate-forward-dry-run-start-gate-v062":
+        result = validate_forward_dry_run_start_gate_v062(paths=paths)
+        print({"gate_id": result["gate_id"], "day1_start_allowed": result["day1_start_allowed"], "deny_reasons": result["deny_reasons"], "run_daily_command_preview": result["run_daily_command_preview"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-run-daily-command-preview":
+        result = build_forward_dry_run_run_daily_command_preview(paths=paths)
+        print({"preview_id": result["preview_id"], "preview_only": result["preview_only"], "executed": result["executed"], "run_daily_called": result["run_daily_called"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-day1-prompt-eligibility":
+        result = build_forward_dry_run_day1_prompt_eligibility(paths=paths)
+        print({"eligibility_id": result["eligibility_id"], "day1_prompt_eligible": result["day1_prompt_eligible"], "day1_prompt_generated": result["day1_prompt_generated"], "deny_reasons": result["deny_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-forward-dry-run-start-authorization":
+        result = audit_forward_dry_run_start_authorization(paths=paths)
+        print({"release_candidate": result["release_candidate"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-blockers-after-start-authorization":
+        result = reclassify_day1_blockers_after_start_authorization(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "technical_day1_blocker_count": result["technical_day1_blocker_count"], "authorization_blocker_count": result["authorization_blocker_count"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_action": result["recommended_next_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

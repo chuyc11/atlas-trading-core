@@ -1,0 +1,51 @@
+{
+  "plan_id": "FORWARD-DRY-RUN-AUTHORIZATION-SCOPE-PLAN-20260625-001",
+  "created_at": "2026-06-25T14:37:40.595381Z",
+  "target_version": "v0.6.2-forward-dry-run-start-authorization-pack-audited",
+  "baseline_from": "v0.6.1-daily-workflow-binding-audited",
+  "daily_workflow_audit_passed": true,
+  "known_day1_blockers_closed": true,
+  "start_authorization_pack_required": true,
+  "forward_dry_run_day1_allowed": false,
+  "scope_components": [
+    "start_prerequisite_inventory",
+    "current_daily_workflow_readiness_snapshot",
+    "manual_confirmation_checklist_v2",
+    "owner_authorization_packet",
+    "start_gate_validator",
+    "run_daily_command_preview_metadata",
+    "day1_prompt_eligibility_report",
+    "start_authorization_audit"
+  ],
+  "input_artifacts": {
+    "daily_workflow_audit": "data/system/daily_workflow_audit.json",
+    "day1_blocker_reclassification_v061": "data/system/day1_blocker_reclassification_v061.json",
+    "protected_path_residue_scan": "data/system/protected_path_residue_scan.json",
+    "baseline_strategy_pack_audit": "data/system/baseline_strategy_pack_audit.json",
+    "ashare_execution_rules_audit": "data/system/ashare_execution_rules_audit.json",
+    "plan_alignment_audit": "data/system/plan_alignment_audit.json"
+  },
+  "boundary": {
+    "scope_plan_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "checklist_id": "FORWARD-DRY-RUN-MANUAL-CONFIRMATION-CHECKLIST-V2-20260625-001",
+  "created_at": "2026-06-25T14:37:42.334752Z",
+  "confirmation_items": [
+    {
+      "item": "I have reviewed the project boundary.",
+      "confirmed": false
+    },
+    {
+      "item": "I understand this is virtual-only forward dry-run, not real trading.",
+      "confirmed": false
+    },
+    {
+      "item": "I understand no broker is connected.",
+      "confirmed": false
+    },
+    {
+      "item": "I understand no real orders will be placed.",
+      "confirmed": false
+    },
+    {
+      "item": "I reviewed v0.5.9 execution rules.",
+      "confirmed": false
+    },
+    {
+      "item": "I reviewed v0.6.0 baseline strategy pack.",
+      "confirmed": false
+    },
+    {
+      "item": "I reviewed v0.6.1 daily workflow binding.",
+      "confirmed": false
+    },
+    {
+      "item": "I reviewed protected path residue scan.",
+      "confirmed": false
+    },
+    {
+      "item": "I reviewed current daily workflow readiness snapshot.",
+      "confirmed": false
+    },
+    {
+      "item": "I accept known warnings/nits.",
+      "confirmed": false
+    },
+    {
+      "item": "I authorize preparing, but not executing, day1 run-daily preview.",
+      "confirmed": false
+    },
+    {
+      "item": "I understand day1 requires a separate explicit owner confirmation.",
+      "confirmed": false
+    }
+  ],
+  "manual_confirmation_complete": false,
+  "does_not_auto_complete": true,
+  "boundary": {
+    "manual_confirmation_checklist_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

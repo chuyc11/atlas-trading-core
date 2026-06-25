@@ -1,0 +1,14 @@
+{
+  "preview_id": "FORWARD-DRY-RUN-RUN-DAILY-COMMAND-PREVIEW",
+  "command": "python -m trading_core.cli run-daily --mode forward-dry-run --day-index 1",
+  "preview_only": true,
+  "executed": false,
+  "run_daily_called": false,
+  "requires_start_gate_allowed": true,
+  "requires_owner_confirmation": true,
+  "boundary": {
+    "command_preview_only": true,
+    "forward_dry_run_started": false,
+    "main_ledger_written": false
+  }
+}

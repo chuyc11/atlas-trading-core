@@ -1,0 +1,38 @@
+{
+  "release_candidate": "v0.6.2-forward-dry-run-start-authorization-pack-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "summary": {
+    "technical_prerequisites_passed": true,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_eligible": false,
+    "day1_prompt_generated": false,
+    "recommended_next_action": "owner_manual_confirmation"
+  },
+  "boundary": {
+    "start_authorization_pack_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

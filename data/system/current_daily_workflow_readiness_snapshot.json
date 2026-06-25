@@ -1,0 +1,33 @@
+{
+  "snapshot_id": "CURRENT-DAILY-WORKFLOW-READINESS-SNAPSHOT",
+  "daily_workflow_audit_passed": true,
+  "historical_daily_workflow_fixture_as_of_date": "2024-12-31",
+  "latest_available_trading_date_from_local_data": "2026-06-25",
+  "historical_daily_workflow_fixture_passed": true,
+  "current_production_daily_workflow_authorized": false,
+  "real_time_market_data_downloaded": false,
+  "external_api_called": false,
+  "boundary": {
+    "snapshot_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

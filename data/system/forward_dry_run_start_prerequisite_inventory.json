@@ -1,0 +1,135 @@
+{
+  "inventory_id": "FORWARD-DRY-RUN-START-PREREQUISITE-INVENTORY-20260625-001",
+  "created_at": "2026-06-25T14:37:41.144878Z",
+  "prerequisites": [
+    {
+      "prerequisite_id": "plan_alignment",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/system/plan_alignment_audit.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "ashare_execution_rules",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/system/ashare_execution_rules_audit.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "baseline_strategy_pack",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/system/baseline_strategy_pack_audit.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "daily_workflow_binding",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/system/daily_workflow_audit.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "data_quality",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/daily_workflow/audits/daily_data_quality_audit-2024-12-31.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "protected_path_residue",
+      "required_before_day1": true,
+      "status": "passed",
+      "evidence_artifacts": [
+        "data/system/protected_path_residue_scan.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "manual_confirmation",
+      "required_before_day1": true,
+      "status": "pending",
+      "evidence_artifacts": [
+        "data/system/forward_dry_run_manual_confirmation_checklist_v2.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "owner_authorization",
+      "required_before_day1": true,
+      "status": "pending",
+      "evidence_artifacts": [
+        "data/system/forward_dry_run_owner_authorization_packet.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "run_daily_preview",
+      "required_before_day1": true,
+      "status": "pending",
+      "evidence_artifacts": [
+        "data/system/forward_dry_run_run_daily_command_preview.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    },
+    {
+      "prerequisite_id": "day1_prompt_eligibility",
+      "required_before_day1": true,
+      "status": "not_eligible",
+      "evidence_artifacts": [
+        "data/system/forward_dry_run_day1_prompt_eligibility.json"
+      ],
+      "blocking_if_missing": true,
+      "notes": []
+    }
+  ],
+  "overall_day1_allowed": false,
+  "manual_confirmation_complete": false,
+  "forward_dry_run_start_authorized": false,
+  "run_daily_called": false,
+  "forward_dry_run_started": false,
+  "main_ledger_written": false,
+  "boundary": {
+    "start_prerequisite_inventory_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

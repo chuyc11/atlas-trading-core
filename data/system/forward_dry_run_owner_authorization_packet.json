@@ -1,0 +1,33 @@
+{
+  "authorization_packet_id": "FORWARD-DRY-RUN-OWNER-AUTHORIZATION-PACKET",
+  "authorization_status": "not_authorized",
+  "forward_dry_run_start_authorized": false,
+  "owner_must_edit_or_confirm": true,
+  "authorized_by": null,
+  "authorized_at": null,
+  "authorization_phrase_required": "I explicitly authorize starting forward dry-run day 1",
+  "day1_start_allowed": false,
+  "boundary": {
+    "authorization_packet_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}
