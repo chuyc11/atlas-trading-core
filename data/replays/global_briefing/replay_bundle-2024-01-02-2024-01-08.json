@@ -4,8 +4,8 @@
   "end_date": "2024-01-08",
   "decision_time": "09:00:00",
   "allow_carry_forward": true,
-  "input_signals": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\signals_valid.jsonl",
-  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\prices_valid.csv",
+  "input_signals": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\normalized\\GB-REAL-FIXTURE.normalized.jsonl",
+  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\prices_valid.csv",
   "rows": [
     {
       "replay_date": "2024-01-02",
@@ -15,9 +15,10 @@
       "selected_signal_version": "v1",
       "carry_forward_days": 0,
       "signals": {
-        "risk_on": 0.2,
+        "comment": "opening package row",
         "liquidity": -0.1,
-        "policy_support": 0.4
+        "policy_support": 0.4,
+        "risk_on": 0.2
       }
     },
     {
@@ -28,9 +29,10 @@
       "selected_signal_version": "v1",
       "carry_forward_days": 0,
       "signals": {
-        "risk_on": 0.1,
-        "liquidity": 0.0,
-        "policy_support": 0.2
+        "comment": "growth support",
+        "liquidity": 0.2,
+        "policy_support": 0.2,
+        "risk_on": 0.1
       }
     },
     {
@@ -41,9 +43,10 @@
       "selected_signal_version": "v1",
       "carry_forward_days": 1,
       "signals": {
-        "risk_on": 0.1,
-        "liquidity": 0.0,
-        "policy_support": 0.2
+        "comment": "growth support",
+        "liquidity": 0.2,
+        "policy_support": 0.2,
+        "risk_on": 0.1
       }
     },
     {
@@ -54,9 +57,10 @@
       "selected_signal_version": "v1",
       "carry_forward_days": 0,
       "signals": {
-        "risk_on": 0.3,
+        "comment": "latest duplicate",
         "liquidity": 0.2,
-        "policy_support": 0.5
+        "policy_support": 0.5,
+        "risk_on": 0.3
       }
     },
     {
@@ -67,9 +71,10 @@
       "selected_signal_version": "v1",
       "carry_forward_days": 3,
       "signals": {
-        "risk_on": 0.3,
+        "comment": "latest duplicate",
         "liquidity": 0.2,
-        "policy_support": 0.5
+        "policy_support": 0.5,
+        "risk_on": 0.3
       }
     }
   ],

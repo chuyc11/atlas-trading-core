@@ -1,12 +1,11 @@
 {
   "validation_id": "GB-SIGNAL-VALIDATION-20260625-001",
-  "created_at": "2026-06-25T02:31:28.823034Z",
-  "input": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\signals_valid.jsonl",
+  "created_at": "2026-06-25T03:16:57.041106Z",
+  "input": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\normalized\\GB-REAL-FIXTURE.normalized.jsonl",
   "input_format": "jsonl",
   "overall_passed": true,
   "blocking_reasons": [],
   "warnings": [
-    "row 4 unknown fields ignored: ['note']",
     "duplicate as_of_date rows available for point-in-time selection: ['2024-01-05']",
     "missing signal dates: ['2024-01-04', '2024-01-06', '2024-01-07', '2024-01-08']"
   ],

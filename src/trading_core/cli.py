@@ -24,6 +24,12 @@ from trading_core.evaluation.real_data_validation_report import build_real_data_
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
 from trading_core.global_briefing.isolated_replay_adapter_audit import audit_isolated_replay_adapter
+from trading_core.global_briefing.real_package_coverage_audit import audit_global_briefing_package_coverage
+from trading_core.global_briefing.real_package_integration_audit import audit_global_briefing_real_package_integration
+from trading_core.global_briefing.real_package_integration_report import build_global_briefing_real_package_report
+from trading_core.global_briefing.real_package_manifest import build_global_briefing_package_manifest
+from trading_core.global_briefing.real_package_normalizer import normalize_global_briefing_package
+from trading_core.global_briefing.real_package_replay_workflow import run_global_briefing_real_package_replay
 from trading_core.global_briefing.replay_audit import audit_global_briefing_replay
 from trading_core.global_briefing.replay_bundle_builder import build_global_briefing_replay_bundle
 from trading_core.global_briefing.replay_evaluation_report import build_global_briefing_replay_report
@@ -364,6 +370,48 @@ def build_parser() -> argparse.ArgumentParser:
     adapter_audit = subparsers.add_parser("audit-isolated-replay-adapter")
     adapter_audit.add_argument("--replay")
     adapter_audit.add_argument("--evaluation")
+    package_manifest = subparsers.add_parser("global-briefing-package-manifest")
+    package_manifest.add_argument("--root")
+    package_manifest.add_argument("--include", action="append")
+    package_manifest.add_argument("--output")
+    package_normalize = subparsers.add_parser("normalize-global-briefing-package")
+    package_normalize.add_argument("--input", required=True)
+    package_normalize.add_argument("--package-id")
+    package_normalize.add_argument("--region")
+    package_normalize.add_argument("--source")
+    package_normalize.add_argument("--version")
+    package_normalize.add_argument("--output")
+    package_normalize.add_argument("--strict", action="store_true")
+    package_coverage = subparsers.add_parser("audit-global-briefing-package-coverage")
+    package_coverage.add_argument("--signals", required=True)
+    package_coverage.add_argument("--prices")
+    package_coverage.add_argument("--calendar")
+    package_coverage.add_argument("--start-date", required=True)
+    package_coverage.add_argument("--end-date", required=True)
+    package_coverage.add_argument("--min-coverage", type=float, default=0.80)
+    package_coverage.add_argument("--strict", action="store_true")
+    package_workflow = subparsers.add_parser("run-global-briefing-real-package-replay")
+    package_workflow.add_argument("--input", required=True)
+    package_workflow.add_argument("--prices", required=True)
+    package_workflow.add_argument("--start-date", required=True)
+    package_workflow.add_argument("--end-date", required=True)
+    package_workflow.add_argument("--package-id")
+    package_workflow.add_argument("--region")
+    package_workflow.add_argument("--source")
+    package_workflow.add_argument("--version")
+    package_workflow.add_argument("--allow-carry-forward", action="store_true")
+    package_workflow.add_argument("--min-coverage", type=float, default=0.80)
+    package_workflow.add_argument("--execution-mode", choices=["isolated", "no-trade"], default="isolated")
+    package_workflow.add_argument("--strict", action="store_true")
+    real_report = subparsers.add_parser("global-briefing-real-package-report")
+    real_report.add_argument("--manifest")
+    real_report.add_argument("--workflow")
+    real_report.add_argument("--coverage")
+    real_report.add_argument("--evaluation")
+    real_audit = subparsers.add_parser("audit-global-briefing-real-package-integration")
+    real_audit.add_argument("--manifest")
+    real_audit.add_argument("--workflow")
+    real_audit.add_argument("--report")
 
     return parser
 
@@ -1059,6 +1107,73 @@ def main(argv: Sequence[str] | None = None) -> int:
             "json_path": result["json_path"],
             "report_path": result["report_path"],
         })
+        return 0 if result["overall_passed"] else 1
+    if args.command == "global-briefing-package-manifest":
+        result = build_global_briefing_package_manifest(root=args.root, include=args.include, output=args.output, paths=paths)
+        print({"packages": result["counts"]["packages"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "normalize-global-briefing-package":
+        result = normalize_global_briefing_package(
+            args.input,
+            package_id=args.package_id,
+            region=args.region,
+            source=args.source,
+            version=args.version,
+            output=args.output,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({"overall_passed": result["overall_passed"], "rows_out": result["rows_out"], "blocking_reasons": result["blocking_reasons"], "output": result["output"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-global-briefing-package-coverage":
+        result = audit_global_briefing_package_coverage(
+            args.signals,
+            prices_path=args.prices,
+            calendar_path=args.calendar,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            min_coverage=args.min_coverage,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({"overall_passed": result["overall_passed"], "coverage_ratio": result["coverage"]["coverage_ratio"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-global-briefing-real-package-replay":
+        result = run_global_briefing_real_package_replay(
+            args.input,
+            args.prices,
+            start_date=args.start_date,
+            end_date=args.end_date,
+            package_id=args.package_id,
+            region=args.region,
+            source=args.source,
+            version=args.version,
+            allow_carry_forward=args.allow_carry_forward,
+            min_coverage=args.min_coverage,
+            execution_mode=args.execution_mode,
+            strict=args.strict,
+            paths=paths,
+        )
+        print({"workflow_id": result["workflow_id"], "overall_status": result["overall_status"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_status"] == "research_review_ready" else 1
+    if args.command == "global-briefing-real-package-report":
+        result = build_global_briefing_real_package_report(
+            manifest_path=args.manifest,
+            workflow_path=args.workflow,
+            coverage_path=args.coverage,
+            evaluation_path=args.evaluation,
+            paths=paths,
+        )
+        print({"report_id": result["report_id"], "overall_status": result["overall_status"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-global-briefing-real-package-integration":
+        result = audit_global_briefing_real_package_integration(
+            manifest_path=args.manifest,
+            workflow_path=args.workflow,
+            report_path=args.report,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

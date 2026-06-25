@@ -1,0 +1,51 @@
+{
+  "audit_id": "GB-PACKAGE-COVERAGE-20260625-001",
+  "created_at": "2026-06-25T03:16:57.043088Z",
+  "signals": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\global_briefing\\normalized\\GB-REAL-FIXTURE.normalized.jsonl",
+  "start_date": "2024-01-02",
+  "end_date": "2024-01-08",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "duplicate signal days: ['2024-01-05']"
+  ],
+  "coverage": {
+    "expected_days": 5,
+    "observed_signal_days": 3,
+    "missing_signal_days": [
+      "2024-01-04",
+      "2024-01-08"
+    ],
+    "duplicate_signal_days": [
+      "2024-01-05"
+    ],
+    "coverage_ratio": 0.6,
+    "min_coverage": 0.6,
+    "passed": true
+  },
+  "point_in_time": {
+    "future_signal_rows": 0,
+    "generated_at_after_as_of_date_rows": 0,
+    "timezone_ambiguous_rows": 0,
+    "passed": true
+  },
+  "consistency": {
+    "regions": [
+      "CN"
+    ],
+    "sources": [
+      "global_briefing"
+    ],
+    "versions": [
+      "v1"
+    ]
+  },
+  "boundary": {
+    "coverage_audit_only": true,
+    "replay_started": false,
+    "forward_dry_run_started": false,
+    "main_ledger_written": false,
+    "write_main_ledger": false,
+    "run_daily_called": false
+  }
+}

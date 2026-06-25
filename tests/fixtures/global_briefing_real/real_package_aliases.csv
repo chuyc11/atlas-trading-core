@@ -1,0 +1,5 @@
+date,published_at,market,risk_on,liquidity,policy_support,comment
+2024-01-02,2024-01-02T06:00:00Z,CN,0.2,-0.1,0.4,opening package row
+2024-01-03,2024-01-03T06:00:00Z,CN,0.1,0.2,0.2,growth support
+2024-01-05,2024-01-05T07:00:00Z,CN,-0.1,0.1,0.3,first duplicate
+2024-01-05,2024-01-05T08:30:00Z,CN,0.3,0.2,0.5,latest duplicate

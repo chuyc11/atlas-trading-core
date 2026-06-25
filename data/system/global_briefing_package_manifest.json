@@ -1,0 +1,89 @@
+{
+  "manifest_id": "GB-PACKAGE-MANIFEST-20260625-001",
+  "created_at": "2026-06-25T03:16:55.433298Z",
+  "roots_scanned": [
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real"
+  ],
+  "packages": [
+    {
+      "package_id": "PRICES_VALID",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\prices_valid.csv",
+      "format": "csv",
+      "size_bytes": 290,
+      "modified_at": "2026-06-25T03:01:48.342753Z",
+      "detected_rows": 5,
+      "date_min": "2024-01-02",
+      "date_max": "2024-01-08",
+      "region_values": [],
+      "source_values": [
+        "fixture"
+      ],
+      "warnings": []
+    },
+    {
+      "package_id": "REAL_PACKAGE_ALIASES",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\real_package_aliases.csv",
+      "format": "csv",
+      "size_bytes": 324,
+      "modified_at": "2026-06-25T03:01:48.342753Z",
+      "detected_rows": 4,
+      "date_min": "2024-01-02",
+      "date_max": "2024-01-05",
+      "region_values": [
+        "CN"
+      ],
+      "source_values": [],
+      "warnings": []
+    },
+    {
+      "package_id": "REAL_PACKAGE_CANONICAL",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\real_package_canonical.jsonl",
+      "format": "jsonl",
+      "size_bytes": 742,
+      "modified_at": "2026-06-25T03:01:48.342753Z",
+      "detected_rows": 4,
+      "date_min": "2024-01-02",
+      "date_max": "2024-01-05",
+      "region_values": [
+        "CN"
+      ],
+      "source_values": [
+        "global_briefing"
+      ],
+      "warnings": []
+    },
+    {
+      "package_id": "REAL_PACKAGE_FUTURE",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\real_package_future.jsonl",
+      "format": "jsonl",
+      "size_bytes": 148,
+      "modified_at": "2026-06-25T03:01:48.342753Z",
+      "detected_rows": 1,
+      "date_min": "2024-01-03",
+      "date_max": "2024-01-03",
+      "region_values": [
+        "CN"
+      ],
+      "source_values": [
+        "global_briefing"
+      ],
+      "warnings": []
+    }
+  ],
+  "counts": {
+    "packages": 4,
+    "json": 0,
+    "jsonl": 2,
+    "csv": 2,
+    "parquet": 0
+  },
+  "warnings": [],
+  "boundary": {
+    "local_files_only": true,
+    "network_access": false,
+    "replay_started": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "write_main_ledger": false
+  }
+}

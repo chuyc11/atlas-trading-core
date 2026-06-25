@@ -1,0 +1,76 @@
+{
+  "audit_id": "GB-REAL-INTEGRATION-AUDIT-20260625-001",
+  "created_at": "2026-06-25T03:16:58.097968Z",
+  "release_candidate": "v0.5.6-real-global-briefing-signal-integration-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "manifest": {
+      "passed": true,
+      "issues": []
+    },
+    "normalization": {
+      "passed": true,
+      "issues": []
+    },
+    "validation": {
+      "passed": true,
+      "issues": []
+    },
+    "coverage": {
+      "passed": true,
+      "issues": []
+    },
+    "workflow": {
+      "passed": true,
+      "issues": []
+    },
+    "integration_report": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": [],
+      "modified_paths": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "inputs": {
+    "manifest": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_package_manifest.json",
+    "workflow": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\real_package_replay_workflow-2024-01-02-2024-01-08.json",
+    "report": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_real_package_integration_report.json"
+  },
+  "boundary": {
+    "real_package_integration_only": true,
+    "local_files_only": true,
+    "network_access": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "live_trading_ready": false,
+    "strategy_effectiveness_proven": false,
+    "broker_connected": false,
+    "main_ledger_written": false,
+    "isolated_replay_ledger_written": true,
+    "run_daily_called": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false
+  }
+}

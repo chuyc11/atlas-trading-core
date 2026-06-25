@@ -3,20 +3,27 @@
   "overall_status": "research_review_ready",
   "blocking_reasons": [],
   "warnings": [
+    "2024-01-02: unknown signal fields ignored: ['comment']",
     "2024-01-02: missing price for 512880.SH; no order generated",
+    "2024-01-03: unknown signal fields ignored: ['comment']",
     "2024-01-03: missing price for 512880.SH; no order generated",
+    "2024-01-03: missing price for 588000.SH; no order generated",
+    "2024-01-04: unknown signal fields ignored: ['comment']",
     "2024-01-04: target delta below lot size for 510300.SH",
     "2024-01-04: missing price for 512880.SH; no order generated",
+    "2024-01-04: missing price for 588000.SH; no order generated",
+    "2024-01-05: unknown signal fields ignored: ['comment']",
     "2024-01-05: missing price for 512880.SH; no order generated",
     "2024-01-05: missing price for 588000.SH; no order generated",
+    "2024-01-08: unknown signal fields ignored: ['comment']",
     "2024-01-08: target delta below lot size for 510300.SH",
     "2024-01-08: missing price for 512880.SH; no order generated",
     "2024-01-08: missing price for 588000.SH; no order generated"
   ],
   "inputs": {
     "replay": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\global_briefing_replay-2024-01-02-2024-01-08.json",
-    "bundle": null,
-    "validation": null
+    "bundle": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\replay_bundle-2024-01-02-2024-01-08.json",
+    "validation": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_signal_validation.json"
   },
   "coverage": {
     "replay_days": 5,

@@ -1,0 +1,4 @@
+{"as_of_date":"2024-01-02","generated_at":"2024-01-02T06:00:00Z","region":"CN","signals":{"risk_on":0.2,"liquidity":-0.1,"policy_support":0.4},"source":"global_briefing","version":"v1"}
+{"as_of_date":"2024-01-03","generated_at":"2024-01-03T06:00:00Z","region":"CN","signals":{"risk_on":0.1,"liquidity":0.2,"policy_support":0.2},"source":"global_briefing","version":"v1"}
+{"as_of_date":"2024-01-05","generated_at":"2024-01-05T07:00:00Z","region":"CN","signals":{"risk_on":-0.1,"liquidity":0.1,"policy_support":0.3},"source":"global_briefing","version":"v1"}
+{"as_of_date":"2024-01-05","generated_at":"2024-01-05T08:30:00Z","region":"CN","signals":{"risk_on":0.3,"liquidity":0.2,"policy_support":0.5},"source":"global_briefing","version":"v1"}

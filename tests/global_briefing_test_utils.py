@@ -9,6 +9,7 @@ from trading_core.storage.file_paths import ProjectPaths
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 FIXTURE_ROOT = PROJECT_ROOT / "tests" / "fixtures" / "global_briefing"
+REAL_FIXTURE_ROOT = PROJECT_ROOT / "tests" / "fixtures" / "global_briefing_real"
 
 
 def make_paths(tmp_path: Path) -> ProjectPaths:
@@ -16,6 +17,8 @@ def make_paths(tmp_path: Path) -> ProjectPaths:
     fixture_target = project / "tests" / "fixtures" / "global_briefing"
     fixture_target.parent.mkdir(parents=True, exist_ok=True)
     shutil.copytree(FIXTURE_ROOT, fixture_target, dirs_exist_ok=True)
+    real_fixture_target = project / "tests" / "fixtures" / "global_briefing_real"
+    shutil.copytree(REAL_FIXTURE_ROOT, real_fixture_target, dirs_exist_ok=True)
     return ProjectPaths(tmp_path)
 
 
@@ -32,6 +35,10 @@ def write_json(path: Path, payload: dict) -> Path:
 
 def fixture_path(paths: ProjectPaths, name: str) -> str:
     return f"tests/fixtures/global_briefing/{name}"
+
+
+def real_fixture_path(paths: ProjectPaths, name: str) -> str:
+    return f"tests/fixtures/global_briefing_real/{name}"
 
 
 def protected_paths(paths: ProjectPaths) -> list[Path]:

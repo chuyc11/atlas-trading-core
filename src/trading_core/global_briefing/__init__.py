@@ -18,4 +18,11 @@ __all__ = [
     "replay_evaluation_report",
     "replay_signal_adapter",
     "replay_audit",
+    "real_package_coverage_audit",
+    "real_package_integration_audit",
+    "real_package_integration_report",
+    "real_package_locator",
+    "real_package_manifest",
+    "real_package_normalizer",
+    "real_package_replay_workflow",
 ]

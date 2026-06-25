@@ -4,14 +4,21 @@
   "end_date": "2024-01-08",
   "isolated": true,
   "input_bundle": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\replays\\global_briefing\\replay_bundle-2024-01-02-2024-01-08.json",
-  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing\\prices_valid.csv",
+  "input_prices": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\tests\\fixtures\\global_briefing_real\\prices_valid.csv",
   "warnings": [
+    "2024-01-02: unknown signal fields ignored: ['comment']",
     "2024-01-02: missing price for 512880.SH; no order generated",
+    "2024-01-03: unknown signal fields ignored: ['comment']",
     "2024-01-03: missing price for 512880.SH; no order generated",
+    "2024-01-03: missing price for 588000.SH; no order generated",
+    "2024-01-04: unknown signal fields ignored: ['comment']",
     "2024-01-04: target delta below lot size for 510300.SH",
     "2024-01-04: missing price for 512880.SH; no order generated",
+    "2024-01-04: missing price for 588000.SH; no order generated",
+    "2024-01-05: unknown signal fields ignored: ['comment']",
     "2024-01-05: missing price for 512880.SH; no order generated",
     "2024-01-05: missing price for 588000.SH; no order generated",
+    "2024-01-08: unknown signal fields ignored: ['comment']",
     "2024-01-08: target delta below lot size for 510300.SH",
     "2024-01-08: missing price for 512880.SH; no order generated",
     "2024-01-08: missing price for 588000.SH; no order generated"
@@ -19,7 +26,7 @@
   "summary": {
     "replay_days": 5,
     "days_processed": 5,
-    "signals": 12,
+    "signals": 14,
     "orders": 3,
     "trades": 3,
     "valuations": 5,
@@ -69,27 +76,29 @@
     {
       "replay_id": "GB-HIST-REPLAY-20240102-20240108",
       "date": "2024-01-03",
-      "signals": 2,
+      "signals": 3,
       "orders": 1,
       "trades": 1,
       "cash": 949552.4905,
       "equity": 999677.4905,
       "warnings": [
-        "2024-01-03: missing price for 512880.SH; no order generated"
+        "2024-01-03: missing price for 512880.SH; no order generated",
+        "2024-01-03: missing price for 588000.SH; no order generated"
       ],
       "isolated": true
     },
     {
       "replay_id": "GB-HIST-REPLAY-20240102-20240108",
       "date": "2024-01-04",
-      "signals": 2,
+      "signals": 3,
       "orders": 0,
       "trades": 0,
       "cash": 949552.4905,
       "equity": 999927.4905,
       "warnings": [
         "2024-01-04: target delta below lot size for 510300.SH",
-        "2024-01-04: missing price for 512880.SH; no order generated"
+        "2024-01-04: missing price for 512880.SH; no order generated",
+        "2024-01-04: missing price for 588000.SH; no order generated"
       ],
       "isolated": true
     },

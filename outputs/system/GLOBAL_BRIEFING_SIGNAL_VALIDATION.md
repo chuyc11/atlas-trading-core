@@ -15,7 +15,6 @@
 - future_signal_rows=0
 
 ## Warnings
-- row 4 unknown fields ignored: ['note']
 - duplicate as_of_date rows available for point-in-time selection: ['2024-01-05']
 - missing signal dates: ['2024-01-04', '2024-01-06', '2024-01-07', '2024-01-08']
 
