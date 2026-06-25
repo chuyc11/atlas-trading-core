@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.6-real-global-briefing-signal-integration-audited
+v0.5.6.1-warning-triage-evidence-quality
 
 ## Completed milestones
 
@@ -33,6 +33,7 @@ v0.5.6-real-global-briefing-signal-integration-audited
 - v0.5.4 global-briefing historical replay harness audited
 - v0.5.5 isolated replay execution adapter audited
 - v0.5.6 real global-briefing signal integration audited
+- v0.5.6.1 warning triage and evidence quality audited
 
 ## Known limitations
 
@@ -117,6 +118,15 @@ python -m trading_core.cli audit-global-briefing-package-coverage --signals data
 python -m trading_core.cli run-global-briefing-real-package-replay --input tests/fixtures/global_briefing_real/real_package_aliases.csv --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1 --allow-carry-forward --min-coverage 0.60 --execution-mode isolated
 python -m trading_core.cli global-briefing-real-package-report
 python -m trading_core.cli audit-global-briefing-real-package-integration
+```
+
+Run the global-briefing evidence quality reports:
+
+```powershell
+python -m trading_core.cli global-briefing-warning-triage
+python -m trading_core.cli global-briefing-evidence-quality-report
+python -m trading_core.cli global-briefing-production-acceptance-criteria
+python -m trading_core.cli audit-global-briefing-evidence-quality
 ```
 
 ## Safety boundary

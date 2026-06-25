@@ -29,6 +29,7 @@ python -m trading_core.cli forward-dry-run-readiness
 python -m trading_core.cli audit-global-briefing-replay
 python -m trading_core.cli audit-isolated-replay-adapter
 python -m trading_core.cli audit-global-briefing-real-package-integration
+python -m trading_core.cli audit-global-briefing-evidence-quality
 ```
 
 ## Run reporting pipeline
@@ -63,6 +64,17 @@ python -m trading_core.cli audit-global-briefing-real-package-integration
 
 The real package integration path is local-file-only. It normalizes historical global-briefing packages, audits coverage and point-in-time safety, and runs isolated replay under `data/replays/global_briefing/`; it is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
 
+## Run global-briefing evidence quality reports
+
+```bash
+python -m trading_core.cli global-briefing-warning-triage
+python -m trading_core.cli global-briefing-evidence-quality-report
+python -m trading_core.cli global-briefing-production-acceptance-criteria
+python -m trading_core.cli audit-global-briefing-evidence-quality
+```
+
+The evidence-quality reports clarify warning categories, fixture-only evidence, production acceptance thresholds, and production readiness=false. They do not start replay, call run-daily, validate forward dry-run, certify live trading readiness, or prove strategy effectiveness.
+
 ## What not to do
 
 * do not run live trading
@@ -71,6 +83,7 @@ The real package integration path is local-file-only. It normalizes historical g
 * do not use reports as admission gate
 * do not treat global-briefing replay artifacts as broker or promotion output
 * do not treat real package integration as live readiness or forward validation
+* do not treat evidence-quality reports as production package acceptance
 
 ## Boundary
 

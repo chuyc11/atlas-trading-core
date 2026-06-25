@@ -1,5 +1,38 @@
 # Release Notes
 
+## v0.5.6.1-warning-triage-evidence-quality
+
+This patch release adds evidence-quality reporting around the v0.5.6 real-package-style global-briefing integration artifacts. It does not add replay functionality or trading functionality.
+
+Includes:
+
+- warning triage for v0.5.6 artifacts
+- evidence quality report
+- production global-briefing package acceptance criteria
+- evidence quality audit
+- explicit clarification that `GB-REAL-FIXTURE` is not a production package
+
+Audited & Validated scope:
+
+- `global-briefing-warning-triage` generated warning triage JSON and Markdown.
+- `global-briefing-evidence-quality-report` generated evidence quality JSON and Markdown.
+- `global-briefing-production-acceptance-criteria` generated machine-readable criteria, system Markdown, and docs Markdown.
+- `audit-global-briefing-evidence-quality` passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Production readiness remains `false`.
+- Recommended production minimum coverage is `0.80`.
+- Recommended production target coverage is `0.90`.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- `run-daily` was not called.
+- No network request was used.
+- Labels, ML shadow, experiments, and promotion outputs were not used.
+- Promotion was not triggered.
+- Forward dry-run was not started or validated.
+
+Boundaries remain strict: evidence-quality only, `GB-REAL-FIXTURE` is not a production package, production global-briefing historical coverage is not validated, strategy effectiveness is not proven, forward dry-run is not validated, live trading readiness is not certified, no broker, no real orders, no promotion, no RL trading, and no LLM trading decisions.
+
+Validation: 669 tests passed, 1 skipped.
+
 ## v0.5.6-real-global-briefing-signal-integration-audited
 
 This release adds the local real global-briefing historical signal package integration layer on top of the audited isolated replay adapter.

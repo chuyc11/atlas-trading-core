@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current real package integration line is `v0.5.6-real-global-briefing-signal-integration-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current evidence-quality patch line is `v0.5.6.1-warning-triage-evidence-quality`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -17,3 +17,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.5.4-global-briefing-historical-replay-harness-audited | v0.5.4-global-briefing-historical-replay-harness-audited | global-briefing signal contract, package validation, point-in-time bundle, isolated historical replay, evaluation, and audit | yes | historical replay harness only; not forward dry-run validation, not live trading readiness, not strategy effectiveness proof |
 | v0.5.5-isolated-replay-execution-adapter-audited | v0.5.5-isolated-replay-execution-adapter-audited | isolated replay state model, signal-to-target adapter, virtual order/execution/valuation adapter, ledger writer, evaluation upgrade, and adapter audit | yes | isolated execution adapter only; not forward dry-run validation, not live trading readiness, not strategy effectiveness proof |
 | v0.5.6-real-global-briefing-signal-integration-audited | v0.5.6-real-global-briefing-signal-integration-audited | local real package manifest, normalization, coverage and point-in-time audit, isolated replay workflow, integration report, and release audit | yes | local historical package integration only; not forward dry-run validation, not live trading readiness, not strategy effectiveness proof |
+| v0.5.6.1-warning-triage-evidence-quality | v0.5.6.1-warning-triage-evidence-quality | warning triage, evidence quality report, production acceptance criteria, and evidence quality audit | yes | evidence-quality only; production readiness remains false |

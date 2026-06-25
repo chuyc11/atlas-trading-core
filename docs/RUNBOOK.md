@@ -65,6 +65,7 @@ python -m trading_core.cli system-smoke-test --include-reports --include-invento
 python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli audit-global-briefing-real-package-integration
+python -m trading_core.cli audit-global-briefing-evidence-quality
 ```
 
 ## Global briefing historical replay harness
@@ -115,3 +116,26 @@ Boundary:
 - forward dry-run not started or validated
 - not live trading readiness
 - not strategy effectiveness proof
+
+## Global briefing evidence quality
+
+This workflow explains the quality and limits of the v0.5.6 real-package-style evidence. It is evidence-quality only and does not accept a production package by itself.
+
+```powershell
+python -m trading_core.cli global-briefing-warning-triage
+python -m trading_core.cli global-briefing-evidence-quality-report
+python -m trading_core.cli global-briefing-production-acceptance-criteria
+python -m trading_core.cli audit-global-briefing-evidence-quality
+```
+
+Boundary:
+
+- evidence-quality only
+- production readiness remains false
+- no replay started
+- no main orders/trades/portfolio/accounts writes
+- run-daily not called
+- no network access
+- not strategy effectiveness proof
+- not forward dry-run validation
+- not live trading readiness
