@@ -1,0 +1,65 @@
+{
+  "audit_id": "GB-EVIDENCE-QUALITY-AUDIT-20260625-001",
+  "created_at": "2026-06-25T03:37:03.316492Z",
+  "release_candidate": "v0.5.6.1-warning-triage-evidence-quality",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "sections": {
+    "warning_triage": {
+      "passed": true,
+      "issues": []
+    },
+    "evidence_quality": {
+      "passed": true,
+      "issues": []
+    },
+    "production_acceptance_criteria": {
+      "passed": true,
+      "issues": []
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary": {
+      "passed": true,
+      "issues": [],
+      "checked_paths": [
+        "data/orders",
+        "data/trades",
+        "data/portfolio",
+        "data/portfolios",
+        "data/accounts",
+        "outputs/orders",
+        "outputs/trades",
+        "outputs/portfolio",
+        "outputs/portfolios"
+      ]
+    }
+  },
+  "evidence_status": "fixture_validated_not_production_validated",
+  "production_readiness": {
+    "ready": false
+  },
+  "inputs": {
+    "triage": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_warning_triage.json",
+    "evidence": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_evidence_quality.json",
+    "criteria": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\system\\global_briefing_production_acceptance_criteria.json"
+  },
+  "boundary": {
+    "evidence_quality_only": true,
+    "production_package_validated": false,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "live_trading_ready": false,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "network_access": false,
+    "labels_used": false,
+    "ml_shadow_used": false,
+    "experiments_used": false,
+    "promotion_triggered": false
+  }
+}

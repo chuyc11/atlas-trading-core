@@ -1,0 +1,44 @@
+{
+  "criteria_id": "GB-PRODUCTION-ACCEPTANCE-V1",
+  "required": {
+    "package_type": "production_global_briefing_historical",
+    "local_file_available": true,
+    "network_access": false,
+    "min_coverage": 0.8,
+    "target_coverage": 0.9,
+    "future_signal_leakage_rows": 0,
+    "pit_high_severity_issues": 0,
+    "unknown_warning_count": 0,
+    "required_fields": [
+      "as_of_date",
+      "generated_at",
+      "region",
+      "signals",
+      "source",
+      "version"
+    ]
+  },
+  "must_pass": [
+    "signal_contract_validation",
+    "package_coverage_audit",
+    "point_in_time_audit",
+    "isolated_replay_workflow",
+    "integration_audit",
+    "evidence_quality_report"
+  ],
+  "must_not_claim": [
+    "strategy_effectiveness_proven",
+    "forward_dry_run_validated",
+    "live_trading_ready",
+    "promotion_approved"
+  ],
+  "boundary": {
+    "criteria_only": true,
+    "replay_started": false,
+    "main_ledger_written": false,
+    "run_daily_called": false,
+    "network_access": false,
+    "promotion_triggered": false,
+    "forward_dry_run_started": false
+  }
+}

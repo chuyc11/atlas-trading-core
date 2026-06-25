@@ -25,4 +25,8 @@ __all__ = [
     "real_package_manifest",
     "real_package_normalizer",
     "real_package_replay_workflow",
+    "warning_triage",
+    "evidence_quality_report",
+    "production_package_acceptance",
+    "evidence_quality_audit",
 ]

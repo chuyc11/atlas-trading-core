@@ -23,7 +23,10 @@ from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, re
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
+from trading_core.global_briefing.evidence_quality_audit import audit_global_briefing_evidence_quality
+from trading_core.global_briefing.evidence_quality_report import build_global_briefing_evidence_quality_report
 from trading_core.global_briefing.isolated_replay_adapter_audit import audit_isolated_replay_adapter
+from trading_core.global_briefing.production_package_acceptance import build_global_briefing_production_acceptance_criteria
 from trading_core.global_briefing.real_package_coverage_audit import audit_global_briefing_package_coverage
 from trading_core.global_briefing.real_package_integration_audit import audit_global_briefing_real_package_integration
 from trading_core.global_briefing.real_package_integration_report import build_global_briefing_real_package_report
@@ -35,6 +38,7 @@ from trading_core.global_briefing.replay_bundle_builder import build_global_brie
 from trading_core.global_briefing.replay_evaluation_report import build_global_briefing_replay_report
 from trading_core.global_briefing.signal_contract import build_signal_contract
 from trading_core.global_briefing.signal_package_validator import validate_global_briefing_signals
+from trading_core.global_briefing.warning_triage import build_global_briefing_warning_triage
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.experiments.experiment_registry import (
     ExperimentRegistry,
@@ -412,6 +416,21 @@ def build_parser() -> argparse.ArgumentParser:
     real_audit.add_argument("--manifest")
     real_audit.add_argument("--workflow")
     real_audit.add_argument("--report")
+    warning_triage = subparsers.add_parser("global-briefing-warning-triage")
+    warning_triage.add_argument("--coverage")
+    warning_triage.add_argument("--workflow")
+    warning_triage.add_argument("--report")
+    warning_triage.add_argument("--audit")
+    evidence_quality = subparsers.add_parser("global-briefing-evidence-quality-report")
+    evidence_quality.add_argument("--triage")
+    evidence_quality.add_argument("--coverage")
+    evidence_quality.add_argument("--workflow")
+    evidence_quality.add_argument("--audit")
+    subparsers.add_parser("global-briefing-production-acceptance-criteria")
+    evidence_audit = subparsers.add_parser("audit-global-briefing-evidence-quality")
+    evidence_audit.add_argument("--triage")
+    evidence_audit.add_argument("--evidence")
+    evidence_audit.add_argument("--criteria")
 
     return parser
 
@@ -1171,6 +1190,39 @@ def main(argv: Sequence[str] | None = None) -> int:
             manifest_path=args.manifest,
             workflow_path=args.workflow,
             report_path=args.report,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "global-briefing-warning-triage":
+        result = build_global_briefing_warning_triage(
+            coverage_path=args.coverage,
+            workflow_path=args.workflow,
+            report_path=args.report,
+            audit_path=args.audit,
+            paths=paths,
+        )
+        print({"triage_id": result["triage_id"], "warning_count": result["warning_count"], "production_blockers": result["production_blockers"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "global-briefing-evidence-quality-report":
+        result = build_global_briefing_evidence_quality_report(
+            triage_path=args.triage,
+            coverage_path=args.coverage,
+            workflow_path=args.workflow,
+            audit_path=args.audit,
+            paths=paths,
+        )
+        print({"report_id": result["report_id"], "overall_evidence_status": result["overall_evidence_status"], "production_ready": result["production_readiness"]["ready"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "global-briefing-production-acceptance-criteria":
+        result = build_global_briefing_production_acceptance_criteria(paths=paths)
+        print({"criteria_id": result["criteria_id"], "json_path": result["json_path"], "report_path": result["report_path"], "docs_path": result["docs_path"]})
+        return 0
+    if args.command == "audit-global-briefing-evidence-quality":
+        result = audit_global_briefing_evidence_quality(
+            triage_path=args.triage,
+            evidence_path=args.evidence,
+            criteria_path=args.criteria,
             paths=paths,
         )
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
