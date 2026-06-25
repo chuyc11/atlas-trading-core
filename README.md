@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.8-day0-operational-readiness-audited
+v0.5.8.1-plan-alignment-and-mvp-gap-audited
 
 ## Completed milestones
 
@@ -37,6 +37,7 @@ v0.5.8-day0-operational-readiness-audited
 - v0.5.7 authorized full historical data acquisition audited
 - v0.5.7.1 historical data gap closure audited
 - v0.5.8 day-0 operational readiness audited
+- v0.5.8.1 plan alignment and MVP gap audited
 
 ## Known limitations
 
@@ -47,6 +48,7 @@ v0.5.8-day0-operational-readiness-audited
 - EPU may be repaired from authorized/local/API/FRED-compatible sources or represented by a policy-uncertainty proxy when official source access is unavailable
 - OECD CLI may be repaired from authorized/local/API sources or represented by an authorized macro-cycle proxy explicitly marked as not official OECD CLI
 - historical replay is not forward dry-run validation
+- plan alignment is an audit, not day 1 authorization
 - strategy effectiveness not proven
 - no live trading
 
@@ -57,6 +59,18 @@ Install and verify:
 ```powershell
 python -m trading_core.cli --help
 python -m pytest
+```
+
+Run plan alignment and MVP gap audit:
+
+```powershell
+python -m trading_core.cli plan-checklist
+python -m trading_core.cli mvp-requirement-map
+python -m trading_core.cli artifact-coverage-scanner
+python -m trading_core.cli classify-mvp-gaps
+python -m trading_core.cli classify-day1-blockers
+python -m trading_core.cli next-work-register
+python -m trading_core.cli audit-plan-alignment
 ```
 
 Build features and labels:

@@ -117,6 +117,20 @@ python -m trading_core.cli audit-day0-readiness
 
 This v0.5.8 path prepares manual confirmation for a future day 1. It does not start forward dry-run, does not call run-daily, does not complete manual confirmation, does not prove strategy effectiveness, and does not certify live trading readiness.
 
+## Run plan alignment and MVP gap audit
+
+```bash
+python -m trading_core.cli plan-checklist
+python -m trading_core.cli mvp-requirement-map
+python -m trading_core.cli artifact-coverage-scanner
+python -m trading_core.cli classify-mvp-gaps
+python -m trading_core.cli classify-day1-blockers
+python -m trading_core.cli next-work-register
+python -m trading_core.cli audit-plan-alignment
+```
+
+This v0.5.8.1 path audits the MVP plan against current implementation evidence. It does not start forward dry-run, does not call run-daily, does not write the main ledger, and does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as day-1 authorization.
+
 ## What not to do
 
 * do not run live trading
@@ -129,6 +143,9 @@ This v0.5.8 path prepares manual confirmation for a future day 1. It does not st
 * do not treat authorized historical data acquisition as trading authorization
 * do not treat historical gap closure as trading authorization or production global-briefing validation
 * do not treat day-0 readiness as forward dry-run validation or live trading readiness
+* do not treat plan alignment as day 1 authorization
+* do not treat historical performance as strategy effectiveness proof
+* do not use ML shadow, LLM, RL, or promotion outputs as day-1 authorization
 * do not treat proxy signals as internal global-briefing signals
 
 ## Boundary
@@ -140,3 +157,4 @@ This v0.5.8 path prepares manual confirmation for a future day 1. It does not st
 * v0.5.7 authorized historical data acquisition writes no main ledger and does not call run-daily.
 * v0.5.7.1 historical data gap closure writes no main ledger and does not call run-daily.
 * v0.5.8 day-0 readiness writes no main ledger and does not call run-daily.
+* v0.5.8.1 plan alignment writes no main ledger, does not call run-daily, and does not authorize day 1.

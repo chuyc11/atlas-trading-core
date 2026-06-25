@@ -1,5 +1,40 @@
 # Release Notes
 
+## v0.5.8.1-plan-alignment-and-mvp-gap-audited
+
+This patch release adds plan alignment and MVP gap audit artifacts. Plan alignment is an audit, not day 1 authorization. It does not start forward dry-run, does not call `run-daily`, and does not write the main orders/trades/portfolio/accounts ledger.
+
+Includes:
+
+- plan checklist extractor
+- MVP requirement map
+- artifact coverage scanner
+- MVP gap classifier
+- day-1 blocker classifier
+- next work register
+- plan alignment audit
+
+Audited & Validated scope:
+
+- `plan-checklist` extracted R001-R024 MVP requirements.
+- `mvp-requirement-map` mapped each requirement to candidate module, CLI, test, artifact, report, audit, doc, or release-tag evidence.
+- `artifact-coverage-scanner` scanned repo artifacts as metadata only.
+- `classify-mvp-gaps` classified all 24 requirements.
+- `classify-day1-blockers` generated day-1 blocker status while keeping day 1 disallowed by default.
+- `next-work-register` generated the recommended next version.
+- `audit-plan-alignment` passed with `overall_passed=True` and no blocking reasons.
+- `run-daily` was not called.
+- Forward dry-run was not started.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Labels were not used as authorization.
+- ML shadow was not used as day-1 authorization.
+- LLM was not used for trading decision.
+- RL was not used.
+- Promotion was not triggered.
+- Historical performance is not strategy effectiveness proof.
+
+Validation: 755 tests passed, 1 skipped.
+
 ## v0.5.8-day0-operational-readiness-audited
 
 This release adds the day-0 operational readiness pack for a future 30 trading-day forward dry-run. Day-0 readiness does not start forward dry-run. Historical data authorization is not trading authorization.

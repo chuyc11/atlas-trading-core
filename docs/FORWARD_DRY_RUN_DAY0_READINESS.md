@@ -39,3 +39,9 @@ python -m trading_core.cli audit-day0-readiness
 - main ledger not written
 - labels, ML shadow, experiments, and promotion not used
 - no broker/live/RL/LLM trading decision added
+
+## v0.5.8.1 Follow-Up
+
+The v0.5.8.1 plan alignment and MVP gap audit reviews whether current implementation evidence satisfies the MVP plan before any future day 1. Plan alignment is an audit, not day 1 authorization.
+
+It keeps the same operational boundary: forward dry-run not started, `run-daily` not called, main ledger not written, historical performance not treated as strategy effectiveness proof, ML shadow not used as authorization, LLM not used for trading decision, RL not used, and promotion not triggered.
