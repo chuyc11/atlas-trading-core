@@ -1,5 +1,37 @@
 # Release Notes
 
+## v0.5.5-isolated-replay-execution-adapter-audited
+
+This release adds the isolated replay execution adapter for global-briefing historical replay. The fixture E2E path no longer uses the no-trade fallback; it generates isolated virtual signals, orders, trades, portfolio, account, valuations, and summary artifacts under `data/replays/global_briefing/`.
+
+Includes:
+
+- isolated replay state model
+- global-briefing signal-to-target adapter
+- isolated order/execution/valuation adapter
+- isolated replay ledger writer
+- replay runner isolated execution mode
+- replay evaluation upgrade
+- isolated replay adapter audit
+
+Audited & Validated scope:
+
+- `replay-global-briefing-history --execution-mode isolated` generated isolated execution artifacts.
+- `execution.mode=isolated`.
+- `no_trade_fallback=false`.
+- Isolated account, signals, orders, trades, portfolio, and valuations outputs exist.
+- All isolated replay ledger outputs are under `data/replays/global_briefing/`.
+- Main ledger not written.
+- run-daily not called.
+- Labels, ML shadow, experiments, and promotion outputs were not used.
+- Promotion was not triggered.
+- `audit-isolated-replay-adapter` passed with `overall_passed=True`.
+- Blocking reasons: none.
+
+Boundaries remain strict: not forward dry-run validation, not live trading readiness, not strategy effectiveness proof, no broker, no real orders, no strategy state or parameter changes, no RL trading, and no LLM trading decisions.
+
+Validation: 572 tests passed, 1 skipped.
+
 ## v0.5.4-global-briefing-historical-replay-harness-audited
 
 This release adds the full global-briefing historical replay harness. It establishes a repeatable, auditable, isolated replay framework for future historical macro signal packages.

@@ -31,7 +31,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Backtest / replay | `global-briefing-contract` | Generate accepted historical macro signal package contract | data/system, outputs/system | orders/trades/portfolio/accounts | contract only; no network |
 | Backtest / replay | `validate-global-briefing-signals` | Validate historical global-briefing signal package | data/system, outputs/system | orders/trades/portfolio/accounts | validation only; replay not started |
 | Backtest / replay | `build-global-briefing-replay-bundle` | Align historical macro signals to price replay dates | data/replays/global_briefing, outputs/replays/global_briefing | orders/trades/portfolio/accounts | macro input only; not a trading signal |
-| Backtest / replay | `replay-global-briefing-history` | Run isolated historical global-briefing replay harness | data/replays/global_briefing, outputs/replays/global_briefing | main daily ledger | isolated replay only; not forward dry-run |
+| Backtest / replay | `replay-global-briefing-history` | Run isolated historical global-briefing replay harness with `--execution-mode isolated` by default | data/replays/global_briefing, outputs/replays/global_briefing | main daily ledger | isolated replay only; not forward dry-run |
 | Backtest / replay | `global-briefing-replay-report` | Evaluate replay completeness and boundaries | data/replays/global_briefing, outputs/replays/global_briefing | orders/trades/portfolio/accounts | research review only; not strategy proof |
 | Backtest / replay | `audit-dry-run` | Audit dry-run range | outputs/audit or outputs/validation | orders/trades/portfolio/accounts | audit only |
 | Backtest / replay | `dry-run-validation-report` | Build dry-run validation report | outputs/validation | orders/trades/portfolio/accounts | not proof of future performance |
@@ -74,6 +74,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Audits | `usability-audit` | Audit v0.5.2 usability polish | data/system, outputs/audit | orders/trades/portfolio/accounts | usability audit only |
 | Audits | `forward-dry-run-readiness` | Audit readiness to prepare a 30 trading-day forward dry-run | data/system, outputs/system, outputs/audit | orders/trades/portfolio/accounts | readiness only; does not start forward dry-run |
 | Audits | `audit-global-briefing-replay` | Audit full global-briefing historical replay harness | data/system, outputs/audit | orders/trades/portfolio/accounts | historical replay harness only; no promotion |
+| Audits | `audit-isolated-replay-adapter` | Audit isolated replay execution adapter and ledger paths | data/system, outputs/audit | orders/trades/portfolio/accounts | adapter audit only; not forward validation |
 | Audits | `admission` | Run admission gate research check | stdout | broker | not automatic promotion |
 | Evolution | `score-signals` | Planned signal scoring | research artifacts | broker | not live |
 | Evolution | `classify-mistakes` | Planned mistake classification | research artifacts | broker | diagnostic only |

@@ -27,6 +27,7 @@ python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli forward-dry-run-readiness
 python -m trading_core.cli audit-global-briefing-replay
+python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
 ## Run reporting pipeline
@@ -41,12 +42,12 @@ python -m trading_core.cli run-research-pipeline --start-date START --end-date E
 python -m trading_core.cli global-briefing-contract
 python -m trading_core.cli validate-global-briefing-signals --input tests/fixtures/global_briefing/signals_valid.jsonl --start-date 2024-01-02 --end-date 2024-01-08
 python -m trading_core.cli build-global-briefing-replay-bundle --signals tests/fixtures/global_briefing/signals_valid.jsonl --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --allow-carry-forward
-python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08
+python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --execution-mode isolated --initial-cash 1000000
 python -m trading_core.cli global-briefing-replay-report --replay data/replays/global_briefing/global_briefing_replay-2024-01-02-2024-01-08.json
-python -m trading_core.cli audit-global-briefing-replay
+python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
-The global-briefing replay harness is isolated historical replay only. It is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
+The global-briefing replay harness is isolated historical replay only. v0.5.5 replaces the fixture E2E no-trade fallback with isolated execution artifacts under `data/replays/global_briefing/` only. It is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
 
 ## What not to do
 

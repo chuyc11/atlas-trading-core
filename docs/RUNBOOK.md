@@ -74,14 +74,16 @@ This workflow builds an isolated historical replay harness for global-briefing m
 python -m trading_core.cli global-briefing-contract
 python -m trading_core.cli validate-global-briefing-signals --input tests/fixtures/global_briefing/signals_valid.jsonl --start-date 2024-01-02 --end-date 2024-01-08
 python -m trading_core.cli build-global-briefing-replay-bundle --signals tests/fixtures/global_briefing/signals_valid.jsonl --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --allow-carry-forward
-python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08
+python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --execution-mode isolated --initial-cash 1000000
 python -m trading_core.cli global-briefing-replay-report --replay data/replays/global_briefing/global_briefing_replay-2024-01-02-2024-01-08.json
-python -m trading_core.cli audit-global-briefing-replay
+python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
 Boundary:
 
 - isolated replay only
+- no-trade fallback replaced for the fixture E2E path
+- isolated replay ledger written only under `data/replays/global_briefing/`
 - no broker
 - no live trading
 - no forward dry-run started or validated

@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.4-global-briefing-historical-replay-harness-audited
+v0.5.5-isolated-replay-execution-adapter-audited
 
 ## Completed milestones
 
@@ -31,11 +31,12 @@ v0.5.4-global-briefing-historical-replay-harness-audited
 - v0.5.2 usability polish
 - v0.5.3 forward dry-run readiness audited
 - v0.5.4 global-briefing historical replay harness audited
+- v0.5.5 isolated replay execution adapter audited
 
 ## Known limitations
 
 - forward 30d dry-run not completed
-- global-briefing historical replay harness is complete, but fixture smoke data is not broad historical coverage
+- global-briefing isolated replay adapter is complete for fixture E2E, but fixture smoke data is not broad historical coverage
 - strategy effectiveness not proven
 - no live trading
 
@@ -91,6 +92,7 @@ python -m trading_core.cli system-smoke-test --include-reports --include-invento
 python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli audit-global-briefing-replay
+python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
 Run the global-briefing historical replay harness smoke:
@@ -99,9 +101,9 @@ Run the global-briefing historical replay harness smoke:
 python -m trading_core.cli global-briefing-contract
 python -m trading_core.cli validate-global-briefing-signals --input tests/fixtures/global_briefing/signals_valid.jsonl --start-date 2024-01-02 --end-date 2024-01-08
 python -m trading_core.cli build-global-briefing-replay-bundle --signals tests/fixtures/global_briefing/signals_valid.jsonl --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --allow-carry-forward
-python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08
+python -m trading_core.cli replay-global-briefing-history --bundle data/replays/global_briefing/replay_bundle-2024-01-02-2024-01-08.json --prices tests/fixtures/global_briefing/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --execution-mode isolated --initial-cash 1000000
 python -m trading_core.cli global-briefing-replay-report --replay data/replays/global_briefing/global_briefing_replay-2024-01-02-2024-01-08.json
-python -m trading_core.cli audit-global-briefing-replay
+python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
 ## Safety boundary
@@ -112,3 +114,4 @@ python -m trading_core.cli audit-global-briefing-replay
 - no auto promotion
 - no forward dry-run started by the historical replay harness
 - no labels, ML shadow, experiments, RL, or LLM trading decisions in the global-briefing replay decision path
+- isolated replay ledger is written only under `data/replays/global_briefing/`

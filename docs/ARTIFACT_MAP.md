@@ -12,7 +12,7 @@ Artifacts are file-backed research outputs. They are not broker instructions and
 | `data/experiments/` | registries, sweeps, comparisons, simulations, dashboards | experiment commands | yes | no | no |
 | `data/reports/` | weekly and monthly research summaries | report commands | yes | no | no |
 | `data/system/` | dashboards, inventories, audits, smoke summaries | system and audit commands | yes | no | no |
-| `data/replays/global_briefing/` | isolated global-briefing replay bundles, replay summaries, evaluations, and replay ledgers | global-briefing replay commands | yes | no | no |
+| `data/replays/global_briefing/` | isolated global-briefing replay bundles, replay summaries, evaluations, and replay ledgers including account/signals/orders/trades/portfolio/valuations | global-briefing replay commands | yes | no | no |
 | `outputs/backtests/` | backtest reports | `backtest`, `run-backtest-batch` | partial | yes | no |
 | `outputs/replays/` | replay reports | `replay-dry-run`, `replay-last-trading-days` | partial | yes | no |
 | `outputs/replays/global_briefing/` | global-briefing replay bundle, historical replay, and evaluation reports | global-briefing replay commands | partial | yes | no |
@@ -25,3 +25,5 @@ Artifacts are file-backed research outputs. They are not broker instructions and
 ## Global Briefing Replay Boundary
 
 `data/replays/global_briefing/` and `outputs/replays/global_briefing/` are isolated historical replay harness outputs. They are not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof. They do not connect a broker, do not write the main daily ledger, and do not trigger promotion.
+
+The v0.5.5 isolated replay execution adapter replaces the fixture E2E no-trade fallback path with deterministic isolated signals, orders, trades, portfolio, account, valuation, and summary artifacts under `data/replays/global_briefing/` only. These artifacts are still not broker instructions and are not permission to trade.
