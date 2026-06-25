@@ -1,5 +1,51 @@
 # Release Notes
 
+## v0.6.0-baseline-strategy-pack-audited
+
+This release adds a research-only baseline strategy pack for future forward dry-run preparation. Baseline strategy pack is research-only and does not start forward dry-run. It does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not prove strategy effectiveness or certify live trading readiness.
+
+Includes:
+
+- baseline strategy scope plan
+- baseline strategy contract
+- baseline strategy registry and parameter versions
+- `equal_weight_etf_rotation`
+- `momentum_risk_adjusted_rotation`
+- `defensive_cash_rotation`
+- PIT-safe baseline strategy signals
+- baseline order previews with `preview_only=true` and `executed=false`
+- isolated baseline strategy replay using v0.5.9 virtual execution rules
+- benchmark comparison
+- baseline strategy reports
+- baseline strategy pack summary
+- baseline strategy pack audit
+- day1 blocker reclassification v060
+
+Audited & Validated scope:
+
+- `baseline-strategy-scope-plan` confirmed v0.5.9 execution blockers are closed and v0.6.0 is not day 1.
+- `baseline-strategy-contract` generated machine-readable input, output, PIT, forbidden-input, forbidden-claim, and boundary requirements.
+- `baseline-strategy-registry` registered three deterministic rule-based strategies and parameter versions.
+- `generate-baseline-strategy-signals --strategy all --start-date 2024-01-02 --end-date 2024-12-31` generated PIT-safe after-close signals with T+1 earliest execution.
+- `build-baseline-order-preview --strategy all --execution-mode isolated` generated preview-only proposals.
+- `replay-baseline-strategy --strategy all --execution-mode isolated` wrote isolated strategy replay orders/trades/portfolio/valuations under `data/replays/strategies/`.
+- `compare-baseline-strategy-benchmarks --strategy all` generated benchmark comparison for CSI300, CSI500, CSI1000, CHINEXT, HSI, HSTECH, CASH, and EQUAL_ETF.
+- `baseline-strategy-report --strategy all` generated one report per strategy with explicit non-claims.
+- `baseline-strategy-pack-summary` passed with `all_strategies_complete=True`.
+- `audit-baseline-strategy-pack` passed with no blocking reasons.
+- `reclassify-day1-blockers-after-baseline-strategies` produced `updated_day1_blocker_count=0` and recommends `v0.6.1-daily-workflow-binding`.
+- `run-daily` was not called.
+- Forward dry-run was not started or validated.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- ML shadow was not used as authorization.
+- LLM was not used for trading decision.
+- RL was not used.
+- Promotion was not triggered.
+- Historical performance is not strategy effectiveness proof.
+- This release is not live trading readiness.
+
+Validation: 811 tests passed, 1 skipped.
+
 ## v0.5.9-ashare-execution-rules-hardened
 
 This release hardens A-share / ETF virtual execution rules for future forward dry-run preparation. v0.5.9 hardens virtual execution rules but does not start forward dry-run. It does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, does not prove strategy effectiveness, and does not certify live trading readiness.

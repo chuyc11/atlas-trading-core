@@ -12,13 +12,17 @@ Artifacts are file-backed research outputs. They are not broker instructions and
 | `data/experiments/` | registries, sweeps, comparisons, simulations, dashboards | experiment commands | yes | no | no |
 | `data/reports/` | weekly and monthly research summaries | report commands | yes | no | no |
 | `data/system/` | dashboards, inventories, audits, smoke summaries | system and audit commands | yes | no | no |
+| `data/strategies/` | baseline strategy contracts, registry, signals, order previews, benchmark comparisons, reports, and pack summaries | baseline strategy commands | yes | no | no |
 | `data/market/historical/authorized/` | authorized ETF and benchmark historical OHLCV packages | `download-historical-data-packages` | yes | no | no |
 | `data/global_briefing/authorized/` | authorized historical macro package raw, package, cache, and provenance storage | `download-historical-data-packages`, `normalize-historical-data-packages` | yes | no | no |
 | `data/global_briefing/normalized/` | normalized local real global-briefing signal packages and v0.5.7 proxy package | `normalize-global-briefing-package`, `run-global-briefing-real-package-replay`, `normalize-historical-data-packages` | yes | no | no |
 | `data/replays/global_briefing/` | isolated global-briefing replay bundles, replay summaries, evaluations, and replay ledgers including account/signals/orders/trades/portfolio/valuations | global-briefing replay commands | yes | no | no |
+| `data/replays/strategies/` | isolated baseline strategy replay orders, trades, portfolio snapshots, valuations, and replay summaries | `replay-baseline-strategy` | yes | no | no |
 | `outputs/backtests/` | backtest reports | `backtest`, `run-backtest-batch` | partial | yes | no |
 | `outputs/replays/` | replay reports | `replay-dry-run`, `replay-last-trading-days` | partial | yes | no |
 | `outputs/replays/global_briefing/` | global-briefing replay bundle, historical replay, and evaluation reports | global-briefing replay commands | partial | yes | no |
+| `outputs/strategies/` | baseline strategy contract, registry, signal, preview, benchmark, report, and summary Markdown | baseline strategy commands | partial | yes | no |
+| `outputs/replays/strategies/` | isolated baseline strategy replay reports | `replay-baseline-strategy` | partial | yes | no |
 | `outputs/shadow/` | ML shadow reports | ML shadow commands | partial | yes | no |
 | `outputs/experiments/` | experiment reports | experiment commands | partial | yes | no |
 | `outputs/reports/` | weekly/monthly research reports | report commands | no | yes | no |
@@ -44,3 +48,5 @@ The v0.5.8 day-0 operational readiness layer writes `day0_data_freeze_manifest.j
 The v0.5.8.1 plan alignment layer writes `plan_checklist.json`, `mvp_requirement_map.json`, `artifact_coverage_scan.json`, `mvp_gap_classification.json`, `day1_blocker_classification.json`, `next_work_register.json`, and `plan_alignment_audit.json`. These files audit the current MVP plan alignment and recommend the next work package; they do not start forward dry-run, do not authorize day 1, do not call `run-daily`, do not use labels/ML shadow/LLM/RL/promotion as authorization, and do not write the main ledger.
 
 The v0.5.9 A-share execution hardening layer writes `ashare_execution_gap_plan.json`, `ashare_trading_calendar_contract.json`, `ashare_trading_calendar_audit.json`, `execution_timeline_contract.json`, `ashare_price_status_contract.json`, `ashare_lot_position_contract.json`, `ashare_execution_cost_contract.json`, `virtual_execution_contract.json`, `isolated_ledger_invariant_audit.json`, `execution_aware_replay_smoke.json`, `day1_blocker_reclassification_v059.json`, and `ashare_execution_rules_audit.json`. Isolated smoke ledgers are written only under `data/replays/global_briefing/execution_aware_smoke/`. These artifacts harden virtual execution rules; they do not start forward dry-run, do not call `run-daily`, do not write the main ledger, do not prove strategy effectiveness, and do not certify live trading readiness.
+
+The v0.6.0 baseline strategy pack writes `baseline_strategy_scope_plan.json`, `baseline_strategy_contract.json`, `baseline_strategy_registry.json`, baseline signal JSONL files, order preview JSONL files, isolated strategy replay ledgers, benchmark comparison, strategy reports, pack summary, `baseline_strategy_pack_audit.json`, and `day1_blocker_reclassification_v060.json`. These artifacts are research-only. They do not start forward dry-run, do not call `run-daily`, do not write the main orders/trades/portfolio/accounts ledger, do not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and do not prove strategy effectiveness or certify live trading readiness.

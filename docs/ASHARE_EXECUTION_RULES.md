@@ -4,6 +4,8 @@ v0.5.9 hardens A-share / ETF virtual execution rules.
 
 v0.5.9 hardens virtual execution rules but does not start forward dry-run. `run-daily` is not called. The main orders/trades/portfolio/accounts ledger is not written.
 
+v0.6.0 baseline strategy replay reuses these virtual execution rules only in isolated strategy replay paths under `data/replays/strategies/`. It does not start forward dry-run and does not write the main ledger.
+
 ## Coverage
 
 - Trading calendar supports SSE / SZSE / HKEX.

@@ -4,6 +4,8 @@ The v0.5.9 virtual execution model integrates calendar, T+1, tradability, lot, c
 
 This is not broker integration and not live trading readiness.
 
+v0.6.0 baseline strategy replay uses this model for isolated historical replay only. Baseline strategy pack is research-only and does not start forward dry-run.
+
 ## Model
 
 - Calendar: SSE / SZSE / HKEX with explicit holidays and weekend handling.
@@ -14,6 +16,7 @@ This is not broker integration and not live trading readiness.
 - Costs: commission, minimum commission, stamp duty, and slippage enter trade records and cash accounting.
 - Ledger: rejected orders require reject reason; filled trades require fill price and cost fields.
 - Isolation: smoke ledgers are written under `data/replays/global_briefing/execution_aware_smoke/`.
+- Strategy replay isolation: v0.6.0 baseline strategy ledgers are written under `data/replays/strategies/`.
 
 ## Boundary
 

@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.9-ashare-execution-rules-hardened
+v0.6.0-baseline-strategy-pack-audited
 
 ## Completed milestones
 
@@ -39,6 +39,7 @@ v0.5.9-ashare-execution-rules-hardened
 - v0.5.8 day-0 operational readiness audited
 - v0.5.8.1 plan alignment and MVP gap audited
 - v0.5.9 A-share execution rules hardened
+- v0.6.0 baseline strategy pack audited
 
 ## Known limitations
 
@@ -51,6 +52,7 @@ v0.5.9-ashare-execution-rules-hardened
 - historical replay is not forward dry-run validation
 - plan alignment is an audit, not day 1 authorization
 - v0.5.9 hardens virtual execution rules but does not start forward dry-run
+- v0.6.0 adds a research-only baseline strategy pack and does not start forward dry-run
 - strategy effectiveness not proven
 - no live trading
 
@@ -89,6 +91,22 @@ python -m trading_core.cli audit-isolated-ledger-invariants
 python -m trading_core.cli execution-aware-replay-smoke
 python -m trading_core.cli reclassify-day1-blockers-after-execution-hardening
 python -m trading_core.cli audit-ashare-execution-rules
+```
+
+Run v0.6.0 baseline strategy pack:
+
+```powershell
+python -m trading_core.cli baseline-strategy-scope-plan
+python -m trading_core.cli baseline-strategy-contract
+python -m trading_core.cli baseline-strategy-registry
+python -m trading_core.cli generate-baseline-strategy-signals --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli build-baseline-order-preview --strategy all --execution-mode isolated
+python -m trading_core.cli replay-baseline-strategy --strategy all --start-date 2024-01-02 --end-date 2024-12-31 --execution-mode isolated
+python -m trading_core.cli compare-baseline-strategy-benchmarks --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli baseline-strategy-report --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli baseline-strategy-pack-summary
+python -m trading_core.cli audit-baseline-strategy-pack
+python -m trading_core.cli reclassify-day1-blockers-after-baseline-strategies
 ```
 
 Build features and labels:
@@ -218,3 +236,5 @@ python -m trading_core.cli audit-day0-readiness
 - no forward dry-run started by authorized historical data acquisition
 - no labels, ML shadow, experiments, RL, or LLM trading decisions in the global-briefing replay decision path
 - isolated replay ledger is written only under `data/replays/global_briefing/`
+- v0.6.0 baseline strategy pack is research-only and does not start forward dry-run
+- v0.6.0 isolated strategy replay ledgers are written only under `data/replays/strategies/`

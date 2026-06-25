@@ -149,6 +149,24 @@ python -m trading_core.cli audit-ashare-execution-rules
 
 This v0.5.9 path hardens virtual execution rules for future forward dry-run preparation. It does not start forward dry-run, does not call run-daily, does not write the main ledger, and does not prove strategy effectiveness or certify live trading readiness.
 
+## Run baseline strategy pack
+
+```bash
+python -m trading_core.cli baseline-strategy-scope-plan
+python -m trading_core.cli baseline-strategy-contract
+python -m trading_core.cli baseline-strategy-registry
+python -m trading_core.cli generate-baseline-strategy-signals --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli build-baseline-order-preview --strategy all --execution-mode isolated
+python -m trading_core.cli replay-baseline-strategy --strategy all --start-date 2024-01-02 --end-date 2024-12-31 --execution-mode isolated
+python -m trading_core.cli compare-baseline-strategy-benchmarks --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli baseline-strategy-report --strategy all --start-date 2024-01-02 --end-date 2024-12-31
+python -m trading_core.cli baseline-strategy-pack-summary
+python -m trading_core.cli audit-baseline-strategy-pack
+python -m trading_core.cli reclassify-day1-blockers-after-baseline-strategies
+```
+
+This v0.6.0 path builds deterministic baseline strategies, PIT-safe signals, preview-only order proposals, isolated strategy replay, benchmark comparison, reports, summary, audit, and v060 blocker reclassification. It does not start forward dry-run, does not call run-daily, does not write the main ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not prove strategy effectiveness or certify live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -167,6 +185,8 @@ This v0.5.9 path hardens virtual execution rules for future forward dry-run prep
 * do not treat execution hardening as strategy effectiveness proof or live trading readiness
 * do not treat isolated execution-aware smoke as forward validation
 * do not treat proxy signals as internal global-briefing signals
+* do not treat baseline strategy historical replay as forward validation
+* do not treat baseline strategy reports as promotion authorization
 
 ## Boundary
 
@@ -179,3 +199,4 @@ This v0.5.9 path hardens virtual execution rules for future forward dry-run prep
 * v0.5.8 day-0 readiness writes no main ledger and does not call run-daily.
 * v0.5.8.1 plan alignment writes no main ledger, does not call run-daily, and does not authorize day 1.
 * v0.5.9 A-share execution hardening writes no main ledger, does not call run-daily, and does not start forward dry-run.
+* v0.6.0 baseline strategy pack writes no main ledger, does not call run-daily, and does not start forward dry-run.
