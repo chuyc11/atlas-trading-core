@@ -1,0 +1,103 @@
+{
+  "release_candidate": "v0.6.1-daily-workflow-binding-audited",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    {
+      "type": "benchmark_missing_for_pinned_date",
+      "benchmarks": [
+        "CSI500",
+        "CSI1000",
+        "CHINEXT"
+      ],
+      "severity": "warning"
+    }
+  ],
+  "summary": {
+    "as_of_date": "2024-12-31",
+    "strategies_total": 3,
+    "strategies_with_daily_signals": 3,
+    "order_preview_exists": true,
+    "daily_report_exists": true,
+    "protected_path_blocker_count": 0,
+    "recommended_next_version": "v0.6.2-forward-dry-run-start-authorization-pack"
+  },
+  "sections": {
+    "scope_plan": {
+      "passed": true,
+      "issues": []
+    },
+    "snapshot": {
+      "passed": true,
+      "issues": []
+    },
+    "data_quality": {
+      "passed": true,
+      "issues": []
+    },
+    "freeze_manifest": {
+      "passed": true,
+      "issues": []
+    },
+    "daily signals": {
+      "passed": true,
+      "issues": []
+    },
+    "order_preview": {
+      "passed": true,
+      "issues": []
+    },
+    "execution_preview": {
+      "passed": true,
+      "issues": []
+    },
+    "daily_report": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_path_residue": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary": {
+      "passed": true,
+      "issues": []
+    },
+    "wording": {
+      "passed": true,
+      "issues": []
+    },
+    "protected_paths": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "daily_workflow_binding_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "real_time_market_data_downloaded": false,
+    "real_time_download": false,
+    "external_api_called": false,
+    "external_download_called": false,
+    "state_updated": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "production_daily_trading_ready": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false,
+    "historical_daily_workflow_fixture_passed": true
+  }
+}

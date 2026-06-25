@@ -41,6 +41,16 @@ from trading_core.forward_dry_run.day0_readiness_report import build_day0_readin
 from trading_core.forward_dry_run.day0_run_daily_preflight import build_day0_run_daily_preflight
 from trading_core.forward_dry_run.day0_warning_register import build_day0_warning_register
 from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
+from trading_core.daily_workflow.daily_baseline_signal_binding import build_daily_baseline_signals
+from trading_core.daily_workflow.daily_data_quality_audit import audit_daily_data_quality
+from trading_core.daily_workflow.daily_input_freeze_manifest import build_daily_input_freeze_manifest
+from trading_core.daily_workflow.daily_isolated_execution_preview import build_daily_isolated_execution_preview
+from trading_core.daily_workflow.daily_market_data_snapshot import build_daily_market_data_snapshot
+from trading_core.daily_workflow.daily_order_preview_binding import build_daily_order_preview
+from trading_core.daily_workflow.daily_report_packet import build_daily_report_packet
+from trading_core.daily_workflow.daily_workflow_audit import audit_daily_workflow
+from trading_core.daily_workflow.daily_workflow_scope_plan import build_daily_workflow_scope_plan
+from trading_core.daily_workflow.protected_path_residue_scanner import scan_protected_path_residue
 from trading_core.global_briefing.historical_replay_runner import replay_global_briefing_history
 from trading_core.global_briefing.evidence_quality_audit import audit_global_briefing_evidence_quality
 from trading_core.global_briefing.evidence_quality_report import build_global_briefing_evidence_quality_report
@@ -73,6 +83,7 @@ from trading_core.planning.artifact_coverage_scanner import build_artifact_cover
 from trading_core.planning.day1_blocker_classifier import classify_day1_blockers
 from trading_core.planning.day1_blocker_reclassification import reclassify_day1_blockers_after_execution_hardening
 from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_day1_blockers_after_baseline_strategies
+from trading_core.planning.day1_blocker_reclassification_v061 import reclassify_day1_blockers_after_daily_workflow
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -621,6 +632,29 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("baseline-strategy-pack-summary")
     subparsers.add_parser("audit-baseline-strategy-pack")
     subparsers.add_parser("reclassify-day1-blockers-after-baseline-strategies")
+    subparsers.add_parser("daily-workflow-scope-plan")
+    daily_snapshot = subparsers.add_parser("daily-market-data-snapshot")
+    daily_snapshot.add_argument("--as-of-date")
+    daily_quality = subparsers.add_parser("audit-daily-data-quality")
+    daily_quality.add_argument("--snapshot")
+    daily_freeze = subparsers.add_parser("daily-input-freeze-manifest")
+    daily_freeze.add_argument("--as-of-date", default="2024-12-31")
+    daily_signals = subparsers.add_parser("daily-baseline-signals")
+    daily_signals.add_argument("--as-of-date", default="2024-12-31")
+    daily_signals.add_argument("--strategy", default="all")
+    daily_order = subparsers.add_parser("daily-order-preview")
+    daily_order.add_argument("--as-of-date", default="2024-12-31")
+    daily_order.add_argument("--strategy", default="all")
+    daily_order.add_argument("--execution-mode", default="isolated")
+    daily_execution = subparsers.add_parser("daily-isolated-execution-preview")
+    daily_execution.add_argument("--as-of-date", default="2024-12-31")
+    daily_execution.add_argument("--execution-mode", default="isolated")
+    daily_report = subparsers.add_parser("daily-report-packet")
+    daily_report.add_argument("--as-of-date", default="2024-12-31")
+    subparsers.add_parser("protected-path-residue-scan")
+    daily_audit = subparsers.add_parser("audit-daily-workflow")
+    daily_audit.add_argument("--as-of-date", default="2024-12-31")
+    subparsers.add_parser("reclassify-day1-blockers-after-daily-workflow")
 
     return parser
 
@@ -1676,6 +1710,50 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0 if result["overall_passed"] else 1
     if args.command == "reclassify-day1-blockers-after-baseline-strategies":
         result = reclassify_day1_blockers_after_baseline_strategies(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_version": result["recommended_next_version"], "day1_start_allowed": result["day1_start_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "daily-workflow-scope-plan":
+        result = build_daily_workflow_scope_plan(paths=paths)
+        print({"plan_id": result["plan_id"], "target_version": result["target_version"], "baseline_strategy_pack_complete": result["baseline_strategy_pack_complete"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "daily-market-data-snapshot":
+        result = build_daily_market_data_snapshot(as_of_date=args.as_of_date, paths=paths)
+        print({"snapshot_id": result["snapshot_id"], "as_of_date": result["as_of_date"], "latest_available_trading_date": result["latest_available_trading_date"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-daily-data-quality":
+        result = audit_daily_data_quality(snapshot=args.snapshot, paths=paths)
+        print({"as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "daily-input-freeze-manifest":
+        result = build_daily_input_freeze_manifest(as_of_date=args.as_of_date, paths=paths)
+        print({"manifest_id": result["manifest_id"], "as_of_date": result["as_of_date"], "latest_available_trading_date": result["latest_available_trading_date"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "daily-baseline-signals":
+        result = build_daily_baseline_signals(as_of_date=args.as_of_date, strategy=args.strategy, paths=paths)
+        print({"as_of_date": result["as_of_date"], "strategies_total": result["strategies_total"], "all_pit_constraints_passed": result["all_pit_constraints_passed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["all_pit_constraints_passed"] else 1
+    if args.command == "daily-order-preview":
+        result = build_daily_order_preview(as_of_date=args.as_of_date, strategy=args.strategy, execution_mode=args.execution_mode, paths=paths)
+        print({"as_of_date": result["as_of_date"], "proposal_count": result["proposal_count"], "preview_only": result["preview_only"], "executed": result["executed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["preview_only"] and not result["executed"] else 1
+    if args.command == "daily-isolated-execution-preview":
+        result = build_daily_isolated_execution_preview(as_of_date=args.as_of_date, execution_mode=args.execution_mode, paths=paths)
+        print({"as_of_date": result["as_of_date"], "execution_mode": result["execution_mode"], "preview_only": result["preview_only"], "executed": result["executed"], "state_updated": result["state_updated"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["preview_only"] and not result["executed"] and not result["state_updated"] else 1
+    if args.command == "daily-report-packet":
+        result = build_daily_report_packet(as_of_date=args.as_of_date, paths=paths)
+        print({"as_of_date": result["as_of_date"], "latest_available_trading_date": result["latest_available_trading_date"], "signals": len(result["signals_summary_by_strategy"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "protected-path-residue-scan":
+        result = scan_protected_path_residue(paths=paths)
+        print({"scan_id": result["scan_id"], "overall_passed": result["overall_passed"], "blocker_count": result["blocker_count"], "warning_count": result["warning_count"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-daily-workflow":
+        result = audit_daily_workflow(as_of_date=args.as_of_date, paths=paths)
+        print({"release_candidate": result["release_candidate"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-blockers-after-daily-workflow":
+        result = reclassify_day1_blockers_after_daily_workflow(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_version": result["recommended_next_version"], "day1_start_allowed": result["day1_start_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":

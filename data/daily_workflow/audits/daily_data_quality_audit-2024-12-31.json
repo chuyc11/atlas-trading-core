@@ -1,0 +1,90 @@
+{
+  "as_of_date": "2024-12-31",
+  "snapshot_path": "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/daily_workflow/snapshots/daily_market_data_snapshot-2024-12-31.json",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    {
+      "type": "benchmark_missing_for_pinned_date",
+      "benchmarks": [
+        "CSI500",
+        "CSI1000",
+        "CHINEXT"
+      ],
+      "severity": "warning"
+    }
+  ],
+  "summary": {
+    "symbols_total": 8,
+    "symbols_complete": 8,
+    "missing_symbols": 0,
+    "stale_symbols": 0,
+    "benchmark_available": true,
+    "risk_proxy_available": true
+  },
+  "sections": {
+    "snapshot": {
+      "passed": true,
+      "issues": []
+    },
+    "latest_available_trading_date": {
+      "passed": true,
+      "issues": []
+    },
+    "as_of_date_covered": {
+      "passed": true,
+      "issues": []
+    },
+    "universe_coverage": {
+      "passed": true,
+      "issues": []
+    },
+    "benchmarks": {
+      "passed": true,
+      "issues": []
+    },
+    "risk_proxy": {
+      "passed": true,
+      "issues": []
+    },
+    "trading_day": {
+      "passed": true,
+      "issues": []
+    },
+    "sources": {
+      "passed": true,
+      "issues": []
+    },
+    "boundary": {
+      "passed": true,
+      "issues": []
+    }
+  },
+  "boundary": {
+    "data_quality_audit_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "real_time_market_data_downloaded": false,
+    "real_time_download": false,
+    "external_api_called": false,
+    "external_download_called": false,
+    "state_updated": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "production_daily_trading_ready": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

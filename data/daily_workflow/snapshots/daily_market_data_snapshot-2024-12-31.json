@@ -1,0 +1,166 @@
+{
+  "snapshot_id": "DAILY-MARKET-DATA-SNAPSHOT-20260625-001",
+  "created_at": "2026-06-25T13:55:19.019790Z",
+  "as_of_date": "2024-12-31",
+  "latest_available_trading_date": "2026-06-25",
+  "market_data_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+  "benchmark_data_source": "data/market/historical/authorized/HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+  "risk_proxy_source": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+  "source_records": {
+    "market_data": {
+      "path": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+      "exists": true,
+      "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a"
+    },
+    "benchmark_data": {
+      "path": "data/market/historical/authorized/HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+      "exists": true,
+      "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b"
+    },
+    "risk_proxy": {
+      "path": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+      "exists": true,
+      "sha256": "ea0cf204339df93ed569b603306c74e4e8a04f058f51c7613210edda60a95ada"
+    }
+  },
+  "universe": [
+    "510300.SH",
+    "159915.SZ",
+    "588000.SH",
+    "512480.SH",
+    "512660.SH",
+    "512880.SH",
+    "2800.HK",
+    "3033.HK"
+  ],
+  "symbols": {
+    "510300.SH": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "159915.SZ": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "588000.SH": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "512480.SH": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "512660.SH": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "512880.SH": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "2800.HK": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    },
+    "3033.HK": {
+      "available": true,
+      "close_available": true,
+      "volume_available": true,
+      "stale": false,
+      "source_date": "2024-12-31"
+    }
+  },
+  "benchmarks": {
+    "CSI300": {
+      "available": true,
+      "source_date": "2024-12-31",
+      "missing_reason": null
+    },
+    "CSI500": {
+      "available": false,
+      "source_date": null,
+      "missing_reason": "not_available_for_pinned_as_of_date"
+    },
+    "CSI1000": {
+      "available": false,
+      "source_date": null,
+      "missing_reason": "not_available_for_pinned_as_of_date"
+    },
+    "CHINEXT": {
+      "available": false,
+      "source_date": null,
+      "missing_reason": "not_available_for_pinned_as_of_date"
+    },
+    "HSI": {
+      "available": true,
+      "source_date": "2024-12-31",
+      "missing_reason": null
+    },
+    "HSTECH": {
+      "available": true,
+      "source_date": "2024-12-31",
+      "missing_reason": null
+    },
+    "CASH": {
+      "available": true,
+      "source_date": "2024-12-31",
+      "missing_reason": null
+    },
+    "EQUAL_ETF": {
+      "available": true,
+      "source_date": null,
+      "missing_reason": null
+    }
+  },
+  "risk_proxy_available": true,
+  "risk_proxy_as_of_date": "2024-12-31",
+  "no_external_download": true,
+  "boundary": {
+    "snapshot_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "real_time_market_data_downloaded": false,
+    "real_time_download": false,
+    "external_api_called": false,
+    "external_download_called": false,
+    "state_updated": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "production_daily_trading_ready": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "as_of_date": "2024-12-31",
+  "strategy": "all",
+  "signals": [
+    {
+      "strategy_id": "equal_weight_etf_rotation",
+      "strategy_version": "equal_weight_etf_rotation_v1",
+      "signal_date": "2024-12-31",
+      "generated_at": "2024-12-31T16:30:00+08:00",
+      "execution_earliest_date": "2025-01-02",
+      "target_weights": {
+        "510300.SH": 0.1225,
+        "159915.SZ": 0.1225,
+        "588000.SH": 0.1225,
+        "512480.SH": 0.1225,
+        "512660.SH": 0.1225,
+        "512880.SH": 0.1225,
+        "2800.HK": 0.1225,
+        "3033.HK": 0.1225
+      },
+      "cash_weight": 0.02,
+      "inputs": {
+        "freeze_manifest": "data/daily_workflow/freeze_manifests/daily_input_freeze_manifest-2024-12-31.json",
+        "price_data_as_of": "2024-12-31",
+        "risk_data_as_of": null,
+        "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "risk_source": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl"
+      },
+      "warnings": [],
+      "pit_constraints_passed": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false
+    },
+    {
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "strategy_version": "momentum_risk_adjusted_rotation_v1",
+      "signal_date": "2024-12-31",
+      "generated_at": "2024-12-31T16:30:00+08:00",
+      "execution_earliest_date": "2025-01-02",
+      "target_weights": {
+        "512480.SH": 0.2425,
+        "512880.SH": 0.2425,
+        "512660.SH": 0.2425,
+        "2800.HK": 0.2425
+      },
+      "cash_weight": 0.03,
+      "inputs": {
+        "freeze_manifest": "data/daily_workflow/freeze_manifests/daily_input_freeze_manifest-2024-12-31.json",
+        "price_data_as_of": "2024-12-31",
+        "risk_data_as_of": null,
+        "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "risk_source": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl"
+      },
+      "warnings": [],
+      "pit_constraints_passed": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false
+    },
+    {
+      "strategy_id": "defensive_cash_rotation",
+      "strategy_version": "defensive_cash_rotation_v1",
+      "signal_date": "2024-12-31",
+      "generated_at": "2024-12-31T16:30:00+08:00",
+      "execution_earliest_date": "2025-01-02",
+      "target_weights": {
+        "510300.SH": 0.2375,
+        "159915.SZ": 0.2375,
+        "588000.SH": 0.2375,
+        "512480.SH": 0.2375
+      },
+      "cash_weight": 0.05,
+      "inputs": {
+        "freeze_manifest": "data/daily_workflow/freeze_manifests/daily_input_freeze_manifest-2024-12-31.json",
+        "price_data_as_of": "2024-12-31",
+        "risk_data_as_of": "2024-12-31",
+        "price_source": "data/market/historical/authorized/HIST-ETF-OHLCV-CN-HK-V1.csv",
+        "risk_source": "data/global_briefing/normalized/GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl"
+      },
+      "warnings": [],
+      "pit_constraints_passed": true,
+      "uses_ml_shadow": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "uses_promotion_outputs": false
+    }
+  ],
+  "strategies_total": 3,
+  "all_pit_constraints_passed": true,
+  "freeze_manifest": "DAILY-INPUT-FREEZE-MANIFEST-20260625-001",
+  "boundary": {
+    "daily_baseline_signal_binding_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "real_time_market_data_downloaded": false,
+    "real_time_download": false,
+    "external_api_called": false,
+    "external_download_called": false,
+    "state_updated": false,
+    "manual_confirmation_complete": false,
+    "forward_dry_run_start_authorized": false,
+    "production_daily_trading_ready": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}
