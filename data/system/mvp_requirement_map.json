@@ -1,0 +1,669 @@
+{
+  "map_id": "MVP-REQUIREMENT-MAP-20260625-001",
+  "created_at": "2026-06-25T09:31:42.540862Z",
+  "checklist_path": "data/system/plan_checklist.json",
+  "valid_evidence_types": [
+    "artifact",
+    "audit",
+    "cli",
+    "doc",
+    "module",
+    "release_tag",
+    "report",
+    "test"
+  ],
+  "requirements": [
+    {
+      "requirement_id": "R001",
+      "name": "trading_calendar_correct",
+      "expected_evidence": [
+        "calendar artifact",
+        "calendar tests",
+        "CLI reference"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/calendar",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_calendar.py",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "cli",
+          "path": "src/trading_core/cli.py",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R002",
+      "name": "universe_versioning",
+      "expected_evidence": [
+        "universe module",
+        "versioned artifact",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/universe",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_universe.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R003",
+      "name": "historical_daily_ohlcv_available",
+      "expected_evidence": [
+        "historical data package",
+        "data quality audit",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/data",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_historical_data_downloaders.py",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "artifact",
+          "path": "data/system/historical_data_quality_audit.json",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R004",
+      "name": "adjusted_price_handling",
+      "expected_evidence": [
+        "price adjustment contract",
+        "tests",
+        "docs"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/data/price_dataset_merge.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_price_dataset_merge.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R005",
+      "name": "point_in_time_data_contract",
+      "expected_evidence": [
+        "PIT module",
+        "PIT tests",
+        "audit"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/data",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_point_in_time.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R006",
+      "name": "t_day_signal_t_plus_1_execution",
+      "expected_evidence": [
+        "execution model contract",
+        "T+1 tests",
+        "replay workflow"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/global_briefing/isolated_replay_execution.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_isolated_replay_execution.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R007",
+      "name": "suspension_handling",
+      "expected_evidence": [
+        "suspension rule",
+        "tests",
+        "execution report"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/broker/market_rules.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_market_rules.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R008",
+      "name": "limit_up_limit_down_handling",
+      "expected_evidence": [
+        "limit rule module",
+        "tests",
+        "execution audit"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/broker/market_rules.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_market_rules.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R009",
+      "name": "st_and_new_listing_handling",
+      "expected_evidence": [
+        "ST/new listing rule",
+        "tests",
+        "scope note"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/universe",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "doc",
+          "path": "docs/SAFETY_BOUNDARY.md",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R010",
+      "name": "board_lot_and_odd_lot_rules",
+      "expected_evidence": [
+        "lot size module",
+        "tests",
+        "warning register"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/broker/market_rules.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_market_rules.py",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "artifact",
+          "path": "data/system/day0_accepted_warning_register.json",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R011",
+      "name": "fee_tax_slippage_model",
+      "expected_evidence": [
+        "cost model",
+        "tests",
+        "docs"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/broker/cost_model.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_cost_model.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R012",
+      "name": "cash_position_available_shares_accounting",
+      "expected_evidence": [
+        "accounting module",
+        "consistency tests",
+        "ledger artifacts"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/accounting",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_accounting.py",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_consistency_checker.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R013",
+      "name": "virtual_order_trade_ledger",
+      "expected_evidence": [
+        "order ledger",
+        "trade ledger",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/daily_run.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_end_to_end_daily_run.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R014",
+      "name": "equity_curve_generation",
+      "expected_evidence": [
+        "equity curve artifact",
+        "report",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/reports",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_dry_run_validation_report.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R015",
+      "name": "benchmark_comparison",
+      "expected_evidence": [
+        "benchmark module",
+        "benchmark tests",
+        "report"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/benchmarks",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_benchmark_engine.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R016",
+      "name": "baseline_rule_strategies",
+      "expected_evidence": [
+        "strategy module",
+        "strategy tests",
+        "docs"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/strategy",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_strategy_comparison.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R017",
+      "name": "daily_report_generation",
+      "expected_evidence": [
+        "daily report",
+        "CLI",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/daily_run.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_end_to_end_daily_run.py",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "doc",
+          "path": "docs/RUNBOOK.md",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R018",
+      "name": "parameter_data_code_versioning",
+      "expected_evidence": [
+        "version artifact",
+        "release tag",
+        "docs"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "doc",
+          "path": "VERSION",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "release_tag",
+          "path": ".git/refs/tags/v0.5.8-day0-operational-readiness-audited",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R019",
+      "name": "protected_path_boundary",
+      "expected_evidence": [
+        "protected path audit",
+        "tests",
+        "reports"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "audit",
+          "path": "outputs/audit/DAY0_READINESS_AUDIT.md",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_day0_readiness_audit.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": false
+    },
+    {
+      "requirement_id": "R020",
+      "name": "historical_replay_isolated_from_forward_dry_run",
+      "expected_evidence": [
+        "isolated replay adapter",
+        "audit",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/global_briefing/isolated_replay_adapter_audit.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_isolated_replay_adapter_audit.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R021",
+      "name": "no_broker_no_live_trading_boundary",
+      "expected_evidence": [
+        "boundary audit",
+        "docs",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "audit",
+          "path": "outputs/audit/DAY0_READINESS_AUDIT.md",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "doc",
+          "path": "docs/SAFETY_BOUNDARY.md",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R022",
+      "name": "no_rl_llm_trading_decision_boundary",
+      "expected_evidence": [
+        "boundary audit",
+        "docs",
+        "tests"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "audit",
+          "path": "outputs/audit/DAY0_READINESS_AUDIT.md",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "doc",
+          "path": "docs/FORWARD_DRY_RUN_DAY0_READINESS.md",
+          "exists": true,
+          "confidence": "medium"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R023",
+      "name": "no_auto_promotion_boundary",
+      "expected_evidence": [
+        "promotion gate",
+        "audit",
+        "docs"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "module",
+          "path": "src/trading_core/experiments/promotion_simulation.py",
+          "exists": true,
+          "confidence": "medium"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_promotion_simulation.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": true
+    },
+    {
+      "requirement_id": "R024",
+      "name": "forward_dry_run_30_day_requirement",
+      "expected_evidence": [
+        "30 day calendar",
+        "day-0 checklist",
+        "audit"
+      ],
+      "candidate_evidence": [
+        {
+          "type": "artifact",
+          "path": "data/system/forward_dry_run_operating_calendar.json",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "report",
+          "path": "outputs/system/FORWARD_DRY_RUN_OPERATING_CALENDAR.md",
+          "exists": true,
+          "confidence": "high"
+        },
+        {
+          "type": "test",
+          "path": "tests/test_forward_dry_run_operating_calendar.py",
+          "exists": true,
+          "confidence": "high"
+        }
+      ],
+      "missing_evidence": [],
+      "manual_review_required": false
+    }
+  ],
+  "boundary": {
+    "requirement_map_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

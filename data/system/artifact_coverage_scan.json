@@ -1,0 +1,5837 @@
+{
+  "scan_id": "ARTIFACT-COVERAGE-SCAN-20260625-001",
+  "created_at": "2026-06-25T09:31:43.010038Z",
+  "counts": {
+    "modules": 367,
+    "tests": 449,
+    "system_artifacts": 66,
+    "system_reports": 51,
+    "audit_reports": 18,
+    "docs": 16
+  },
+  "artifacts": [
+    {
+      "type": "module",
+      "path": "src/trading_core/__init__.py",
+      "size_bytes": 51,
+      "mtime": 1782186563.2044823
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 259,
+      "mtime": 1782278667.4728653
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/__pycache__/cli.cpython-312.pyc",
+      "size_bytes": 84193,
+      "mtime": 1782379672.584576
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/__pycache__/config_loader.cpython-312.pyc",
+      "size_bytes": 1699,
+      "mtime": 1782278661.9841788
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/__pycache__/daily_run.cpython-312.pyc",
+      "size_bytes": 8361,
+      "mtime": 1782278662.6732554
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__init__.py",
+      "size_bytes": 57,
+      "mtime": 1782186563.2079573
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 270,
+      "mtime": 1782278661.7052689
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/account.cpython-312.pyc",
+      "size_bytes": 7913,
+      "mtime": 1782278661.9171164
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/consistency_checker.cpython-312.pyc",
+      "size_bytes": 38182,
+      "mtime": 1782278822.5775595
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/ledger.cpython-312.pyc",
+      "size_bytes": 1020,
+      "mtime": 1782323893.8869543
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/positions.cpython-312.pyc",
+      "size_bytes": 2981,
+      "mtime": 1782278661.9418442
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/__pycache__/valuation.cpython-312.pyc",
+      "size_bytes": 1022,
+      "mtime": 1782278662.0200703
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/account.py",
+      "size_bytes": 5401,
+      "mtime": 1782199318.529328
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/consistency_checker.py",
+      "size_bytes": 29712,
+      "mtime": 1782278813.2037275
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/ledger.py",
+      "size_bytes": 440,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/positions.py",
+      "size_bytes": 1703,
+      "mtime": 1782199318.5283215
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/accounting/valuation.py",
+      "size_bytes": 696,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/attribution/__init__.py",
+      "size_bytes": 34,
+      "mtime": 1782186563.209604
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/attribution/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 248,
+      "mtime": 1782278662.6866505
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/attribution/__pycache__/attribution_engine.cpython-312.pyc",
+      "size_bytes": 4454,
+      "mtime": 1782278662.7009318
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/attribution/attribution_engine.py",
+      "size_bytes": 3382,
+      "mtime": 1782199318.5324864
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__init__.py",
+      "size_bytes": 40,
+      "mtime": 1782186563.209604
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 251,
+      "mtime": 1782278661.8852367
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/backtest_report.cpython-312.pyc",
+      "size_bytes": 1065,
+      "mtime": 1782323893.8869543
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/batch_runner.cpython-312.pyc",
+      "size_bytes": 12564,
+      "mtime": 1782278662.3975327
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/event_backtester.cpython-312.pyc",
+      "size_bytes": 4442,
+      "mtime": 1782278661.9024408
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/historical_backtester.cpython-312.pyc",
+      "size_bytes": 12447,
+      "mtime": 1782278662.4197497
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/__pycache__/walk_forward.cpython-312.pyc",
+      "size_bytes": 2204,
+      "mtime": 1782278662.610012
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/backtest_report.py",
+      "size_bytes": 553,
+      "mtime": 1782198169.999796
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/batch_runner.py",
+      "size_bytes": 10163,
+      "mtime": 1782278464.655831
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/event_backtester.py",
+      "size_bytes": 4000,
+      "mtime": 1782198578.6583717
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/historical_backtester.py",
+      "size_bytes": 9234,
+      "mtime": 1782200486.2592456
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/backtest/walk_forward.py",
+      "size_bytes": 1682,
+      "mtime": 1782198169.9984994
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/benchmarks/__init__.py",
+      "size_bytes": 30,
+      "mtime": 1782186563.209604
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/benchmarks/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 243,
+      "mtime": 1782278662.428142
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/benchmarks/__pycache__/benchmark_engine.cpython-312.pyc",
+      "size_bytes": 3176,
+      "mtime": 1782278662.4487655
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/benchmarks/benchmark_engine.py",
+      "size_bytes": 2453,
+      "mtime": 1782228917.1437836
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__init__.py",
+      "size_bytes": 47,
+      "mtime": 1782186563.2079573
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 256,
+      "mtime": 1782278661.9595852
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__pycache__/cost_model.cpython-312.pyc",
+      "size_bytes": 2507,
+      "mtime": 1782278662.0958393
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__pycache__/market_rules.cpython-312.pyc",
+      "size_bytes": 2524,
+      "mtime": 1782278661.96769
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__pycache__/matching_engine.cpython-312.pyc",
+      "size_bytes": 1950,
+      "mtime": 1782278662.0790648
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/__pycache__/virtual_broker.cpython-312.pyc",
+      "size_bytes": 4625,
+      "mtime": 1782316712.8011022
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/cost_model.py",
+      "size_bytes": 1406,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/market_rules.py",
+      "size_bytes": 1470,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/matching_engine.py",
+      "size_bytes": 1261,
+      "mtime": 1782197990.1528783
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/broker/virtual_broker.py",
+      "size_bytes": 3578,
+      "mtime": 1782316653.6684926
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/calendar/__init__.py",
+      "size_bytes": 34,
+      "mtime": 1782186563.2056808
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/calendar/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 245,
+      "mtime": 1782278662.0303981
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/calendar/__pycache__/trading_calendar.cpython-312.pyc",
+      "size_bytes": 1851,
+      "mtime": 1782278662.047174
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/calendar/trading_calendar.py",
+      "size_bytes": 989,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/cli.py",
+      "size_bytes": 82495,
+      "mtime": 1782379538.6152077
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/config_loader.py",
+      "size_bytes": 1085,
+      "mtime": 1782200513.7700834
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/daily_run.py",
+      "size_bytes": 7479,
+      "mtime": 1782200413.4258182
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__init__.py",
+      "size_bytes": 37,
+      "mtime": 1782186563.206689
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 244,
+      "mtime": 1782278662.1433942
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/data_package_validator.cpython-312.pyc",
+      "size_bytes": 13652,
+      "mtime": 1782278662.537391
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/data_quality.cpython-312.pyc",
+      "size_bytes": 2106,
+      "mtime": 1782278662.1836426
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/historical_prices.cpython-312.pyc",
+      "size_bytes": 4308,
+      "mtime": 1782278662.499763
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/point_in_time.cpython-312.pyc",
+      "size_bytes": 2042,
+      "mtime": 1782278676.4062064
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/price_acquisition.cpython-312.pyc",
+      "size_bytes": 23507,
+      "mtime": 1782278662.6386385
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/price_dataset_merge.cpython-312.pyc",
+      "size_bytes": 7711,
+      "mtime": 1782278662.655845
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/price_loader.cpython-312.pyc",
+      "size_bytes": 4342,
+      "mtime": 1782278662.1989765
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/__pycache__/snapshot_loader.cpython-312.pyc",
+      "size_bytes": 1152,
+      "mtime": 1782278662.2040236
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/data_package_validator.py",
+      "size_bytes": 9300,
+      "mtime": 1782229843.3335278
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/data_quality.py",
+      "size_bytes": 1384,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/historical_prices.py",
+      "size_bytes": 3113,
+      "mtime": 1782229857.580094
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/point_in_time.py",
+      "size_bytes": 1308,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/price_acquisition.py",
+      "size_bytes": 18834,
+      "mtime": 1782233597.3365088
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/price_dataset_merge.py",
+      "size_bytes": 5062,
+      "mtime": 1782232880.8527732
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/price_loader.py",
+      "size_bytes": 2988,
+      "mtime": 1782230261.1595082
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/data/snapshot_loader.py",
+      "size_bytes": 548,
+      "mtime": 1782230268.1757145
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__init__.py",
+      "size_bytes": 56,
+      "mtime": 1782229176.6951106
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 269,
+      "mtime": 1782278662.5494902
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/dry_run_auditor.cpython-312.pyc",
+      "size_bytes": 14353,
+      "mtime": 1782278662.9449377
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/dry_run_validation_report.cpython-312.pyc",
+      "size_bytes": 14966,
+      "mtime": 1782280007.0319896
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/historical_dry_run_replay.cpython-312.pyc",
+      "size_bytes": 30725,
+      "mtime": 1782281269.3852358
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/real_data_validation_report.cpython-312.pyc",
+      "size_bytes": 17910,
+      "mtime": 1782278662.9680383
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/__pycache__/strategy_leaderboard.cpython-312.pyc",
+      "size_bytes": 10456,
+      "mtime": 1782278662.565654
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/dry_run_auditor.py",
+      "size_bytes": 10848,
+      "mtime": 1782230057.2616246
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/dry_run_validation_report.py",
+      "size_bytes": 12082,
+      "mtime": 1782279929.7134008
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/historical_dry_run_replay.py",
+      "size_bytes": 23908,
+      "mtime": 1782281162.5445485
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/real_data_validation_report.py",
+      "size_bytes": 13167,
+      "mtime": 1782278529.2314014
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evaluation/strategy_leaderboard.py",
+      "size_bytes": 7678,
+      "mtime": 1782229219.3840928
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__init__.py",
+      "size_bytes": 70,
+      "mtime": 1782186563.210724
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 282,
+      "mtime": 1782278662.575678
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/admission_gate.cpython-312.pyc",
+      "size_bytes": 5015,
+      "mtime": 1782278662.5900593
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/evolution_engine.cpython-312.pyc",
+      "size_bytes": 3398,
+      "mtime": 1782278662.7129388
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/experiment_queue.cpython-312.pyc",
+      "size_bytes": 3658,
+      "mtime": 1782278662.7311885
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/mistake_classifier.cpython-312.pyc",
+      "size_bytes": 2294,
+      "mtime": 1782278662.741287
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/promotion_gate.cpython-312.pyc",
+      "size_bytes": 1989,
+      "mtime": 1782278662.759961
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/rule_memory.cpython-312.pyc",
+      "size_bytes": 4399,
+      "mtime": 1782278662.770384
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/shadow_runner.cpython-312.pyc",
+      "size_bytes": 1171,
+      "mtime": 1782278662.8142643
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/signal_scorecard.cpython-312.pyc",
+      "size_bytes": 2586,
+      "mtime": 1782278662.7805455
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/__pycache__/strategy_scorecard.cpython-312.pyc",
+      "size_bytes": 3748,
+      "mtime": 1782278662.8040714
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/admission_gate.py",
+      "size_bytes": 3374,
+      "mtime": 1782200513.7690802
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/evolution_engine.py",
+      "size_bytes": 2951,
+      "mtime": 1782200603.7684975
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/experiment_queue.py",
+      "size_bytes": 2767,
+      "mtime": 1782200603.7674334
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/mistake_classifier.py",
+      "size_bytes": 1776,
+      "mtime": 1782198090.891286
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/promotion_gate.py",
+      "size_bytes": 1638,
+      "mtime": 1782198090.8933823
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/rule_memory.py",
+      "size_bytes": 3812,
+      "mtime": 1782200603.7641833
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/shadow_runner.py",
+      "size_bytes": 674,
+      "mtime": 1782198090.8933823
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/signal_scorecard.py",
+      "size_bytes": 2018,
+      "mtime": 1782198090.8893628
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/evolution/strategy_scorecard.py",
+      "size_bytes": 2165,
+      "mtime": 1782198090.891286
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__init__.py",
+      "size_bytes": 972,
+      "mtime": 1782293038.5070083
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 941,
+      "mtime": 1782306600.6217947
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/experiment_dashboard.cpython-312.pyc",
+      "size_bytes": 19406,
+      "mtime": 1782306600.7683637
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/experiment_registry.cpython-312.pyc",
+      "size_bytes": 15480,
+      "mtime": 1782306600.6228068
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/experiment_release_audit.cpython-312.pyc",
+      "size_bytes": 15958,
+      "mtime": 1782309842.44117
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/experiment_system_audit.cpython-312.pyc",
+      "size_bytes": 27044,
+      "mtime": 1782310232.3408363
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/mistake_pattern_library.cpython-312.pyc",
+      "size_bytes": 31048,
+      "mtime": 1782316899.2564054
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/parameter_sweep.cpython-312.pyc",
+      "size_bytes": 24641,
+      "mtime": 1782306600.7497535
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/promotion_simulation.cpython-312.pyc",
+      "size_bytes": 22301,
+      "mtime": 1782307760.721624
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/__pycache__/strategy_comparison.cpython-312.pyc",
+      "size_bytes": 17462,
+      "mtime": 1782308896.6811535
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/experiment_dashboard.py",
+      "size_bytes": 16152,
+      "mtime": 1782306519.408854
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/experiment_registry.py",
+      "size_bytes": 11809,
+      "mtime": 1782292084.983617
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/experiment_release_audit.py",
+      "size_bytes": 12278,
+      "mtime": 1782309834.997917
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/experiment_system_audit.py",
+      "size_bytes": 21625,
+      "mtime": 1782310132.285074
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/mistake_pattern_library.py",
+      "size_bytes": 24359,
+      "mtime": 1782316890.1509523
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/parameter_sweep.py",
+      "size_bytes": 24074,
+      "mtime": 1782293013.760111
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/promotion_simulation.py",
+      "size_bytes": 18912,
+      "mtime": 1782307749.0061955
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/experiments/strategy_comparison.py",
+      "size_bytes": 13353,
+      "mtime": 1782308847.6281629
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/features/__init__.py",
+      "size_bytes": 64,
+      "mtime": 1782282767.847299
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/features/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 274,
+      "mtime": 1782282821.8338566
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/features/__pycache__/feature_store.cpython-312.pyc",
+      "size_bytes": 11105,
+      "mtime": 1782282821.8531148
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/features/feature_store.py",
+      "size_bytes": 8078,
+      "mtime": 1782282767.847299
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__init__.py",
+      "size_bytes": 316,
+      "mtime": 1782376705.5085564
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 428,
+      "mtime": 1782376931.3537872
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/common.cpython-312.pyc",
+      "size_bytes": 6667,
+      "mtime": 1782376931.3567781
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_blocking_conditions.cpython-312.pyc",
+      "size_bytes": 10366,
+      "mtime": 1782376981.3837903
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_data_freeze.cpython-312.pyc",
+      "size_bytes": 8887,
+      "mtime": 1782376931.3841004
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_manual_confirmation.cpython-312.pyc",
+      "size_bytes": 4620,
+      "mtime": 1782377743.0384655
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_readiness_audit.cpython-312.pyc",
+      "size_bytes": 13956,
+      "mtime": 1782376931.439409
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_readiness_report.cpython-312.pyc",
+      "size_bytes": 5292,
+      "mtime": 1782376931.4556012
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_run_daily_preflight.cpython-312.pyc",
+      "size_bytes": 8316,
+      "mtime": 1782377000.427042
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/day0_warning_register.cpython-312.pyc",
+      "size_bytes": 7357,
+      "mtime": 1782376949.3054955
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/__pycache__/operating_calendar.cpython-312.pyc",
+      "size_bytes": 5649,
+      "mtime": 1782376931.4968767
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/common.py",
+      "size_bytes": 4299,
+      "mtime": 1782376705.5085564
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_blocking_conditions.py",
+      "size_bytes": 8393,
+      "mtime": 1782376972.1684468
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_data_freeze.py",
+      "size_bytes": 7170,
+      "mtime": 1782376705.5085564
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_manual_confirmation.py",
+      "size_bytes": 3908,
+      "mtime": 1782377734.2492783
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_readiness_audit.py",
+      "size_bytes": 10796,
+      "mtime": 1782376890.393641
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_readiness_report.py",
+      "size_bytes": 4229,
+      "mtime": 1782376890.393641
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_run_daily_preflight.py",
+      "size_bytes": 5807,
+      "mtime": 1782376989.3433573
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/day0_warning_register.py",
+      "size_bytes": 6539,
+      "mtime": 1782376942.7420933
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/forward_dry_run/operating_calendar.py",
+      "size_bytes": 4965,
+      "mtime": 1782376816.3927753
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__init__.py",
+      "size_bytes": 1440,
+      "mtime": 1782363690.0396056
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 1404,
+      "mtime": 1782363698.0604784
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/evidence_quality_audit.cpython-312.pyc",
+      "size_bytes": 12196,
+      "mtime": 1782358456.5162187
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/evidence_quality_report.cpython-312.pyc",
+      "size_bytes": 10201,
+      "mtime": 1782358456.5314445
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/full_historical_proxy_builder.cpython-312.pyc",
+      "size_bytes": 14777,
+      "mtime": 1782363698.1273363
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/full_historical_proxy_workflow.cpython-312.pyc",
+      "size_bytes": 10523,
+      "mtime": 1782363698.1514335
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_acquisition_audit.cpython-312.pyc",
+      "size_bytes": 16365,
+      "mtime": 1782363698.1695683
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_acquisition_report.cpython-312.pyc",
+      "size_bytes": 8583,
+      "mtime": 1782360428.6025846
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_downloaders.cpython-312.pyc",
+      "size_bytes": 40736,
+      "mtime": 1782363938.2702646
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_gap_closure_audit.cpython-312.pyc",
+      "size_bytes": 14583,
+      "mtime": 1782363698.2206347
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_gap_closure_report.cpython-312.pyc",
+      "size_bytes": 7933,
+      "mtime": 1782363698.2412348
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_gap_closure_workflow.cpython-312.pyc",
+      "size_bytes": 7828,
+      "mtime": 1782363698.258044
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_packages.cpython-312.pyc",
+      "size_bytes": 18554,
+      "mtime": 1782364878.115652
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_quality_audit.cpython-312.pyc",
+      "size_bytes": 11574,
+      "mtime": 1782363698.2961643
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_data_source_resolver.cpython-312.pyc",
+      "size_bytes": 10234,
+      "mtime": 1782364878.1314502
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_package_normalizer.cpython-312.pyc",
+      "size_bytes": 7011,
+      "mtime": 1782363698.313034
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_replay_runner.cpython-312.pyc",
+      "size_bytes": 16136,
+      "mtime": 1782354492.971875
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/historical_warning_inventory.cpython-312.pyc",
+      "size_bytes": 17909,
+      "mtime": 1782364313.8926136
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/isolated_replay_adapter_audit.cpython-312.pyc",
+      "size_bytes": 12821,
+      "mtime": 1782354476.1954823
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/isolated_replay_execution.cpython-312.pyc",
+      "size_bytes": 10505,
+      "mtime": 1782354476.2134082
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/isolated_replay_state.cpython-312.pyc",
+      "size_bytes": 10544,
+      "mtime": 1782354476.2285812
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/macro_cycle_proxy_builder.cpython-312.pyc",
+      "size_bytes": 6668,
+      "mtime": 1782363698.3490443
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/production_package_acceptance.cpython-312.pyc",
+      "size_bytes": 3883,
+      "mtime": 1782358456.5501819
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_coverage_audit.cpython-312.pyc",
+      "size_bytes": 9915,
+      "mtime": 1782357397.582862
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_integration_audit.cpython-312.pyc",
+      "size_bytes": 15346,
+      "mtime": 1782356826.8703578
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_integration_report.cpython-312.pyc",
+      "size_bytes": 7449,
+      "mtime": 1782356826.9141538
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_locator.cpython-312.pyc",
+      "size_bytes": 883,
+      "mtime": 1782356826.9463308
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_manifest.cpython-312.pyc",
+      "size_bytes": 10424,
+      "mtime": 1782357397.4983284
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_normalizer.cpython-312.pyc",
+      "size_bytes": 9323,
+      "mtime": 1782357397.5487392
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/real_package_replay_workflow.cpython-312.pyc",
+      "size_bytes": 7248,
+      "mtime": 1782357122.9461377
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/replay_audit.cpython-312.pyc",
+      "size_bytes": 14724,
+      "mtime": 1782323894.0297868
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/replay_bundle_builder.cpython-312.pyc",
+      "size_bytes": 9793,
+      "mtime": 1782323894.040967
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/replay_evaluation_report.cpython-312.pyc",
+      "size_bytes": 16410,
+      "mtime": 1782354476.2517536
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/replay_signal_adapter.cpython-312.pyc",
+      "size_bytes": 4266,
+      "mtime": 1782363698.3673694
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/signal_contract.cpython-312.pyc",
+      "size_bytes": 2840,
+      "mtime": 1782323894.076432
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/signal_package_validator.cpython-312.pyc",
+      "size_bytes": 6632,
+      "mtime": 1782323894.0864654
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/signal_schema.cpython-312.pyc",
+      "size_bytes": 11907,
+      "mtime": 1782323894.110333
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/__pycache__/warning_triage.cpython-312.pyc",
+      "size_bytes": 14578,
+      "mtime": 1782358615.2817178
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/__init__.py",
+      "size_bytes": 64,
+      "mtime": 1782363352.1989944
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 225,
+      "mtime": 1782363698.0719545
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/__pycache__/epu_downloader.cpython-312.pyc",
+      "size_bytes": 14162,
+      "mtime": 1782377580.8412476
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/__pycache__/oecd_cli_downloader.cpython-312.pyc",
+      "size_bytes": 7148,
+      "mtime": 1782363698.11056
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/epu_downloader.py",
+      "size_bytes": 9614,
+      "mtime": 1782377571.096746
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/downloaders/oecd_cli_downloader.py",
+      "size_bytes": 4790,
+      "mtime": 1782363352.2028792
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/evidence_quality_audit.py",
+      "size_bytes": 10053,
+      "mtime": 1782358297.3021667
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/evidence_quality_report.py",
+      "size_bytes": 9135,
+      "mtime": 1782358297.3021667
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/full_historical_proxy_builder.py",
+      "size_bytes": 12083,
+      "mtime": 1782363457.2513201
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/full_historical_proxy_workflow.py",
+      "size_bytes": 9239,
+      "mtime": 1782363532.1037774
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_acquisition_audit.py",
+      "size_bytes": 12935,
+      "mtime": 1782363420.703031
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_acquisition_report.py",
+      "size_bytes": 6764,
+      "mtime": 1782360289.8326244
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_downloaders.py",
+      "size_bytes": 35201,
+      "mtime": 1782363786.3083158
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_gap_closure_audit.py",
+      "size_bytes": 11128,
+      "mtime": 1782363657.9582229
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_gap_closure_report.py",
+      "size_bytes": 6170,
+      "mtime": 1782363657.9551723
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_gap_closure_workflow.py",
+      "size_bytes": 6915,
+      "mtime": 1782363657.9551723
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_packages.py",
+      "size_bytes": 13790,
+      "mtime": 1782364865.0478826
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_quality_audit.py",
+      "size_bytes": 8448,
+      "mtime": 1782363420.703031
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_data_source_resolver.py",
+      "size_bytes": 8961,
+      "mtime": 1782364865.0512407
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_package_normalizer.py",
+      "size_bytes": 5962,
+      "mtime": 1782363420.703031
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_replay_runner.py",
+      "size_bytes": 15073,
+      "mtime": 1782354488.1948278
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/historical_warning_inventory.py",
+      "size_bytes": 15271,
+      "mtime": 1782364304.8414898
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/isolated_replay_adapter_audit.py",
+      "size_bytes": 10875,
+      "mtime": 1782354452.776441
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/isolated_replay_execution.py",
+      "size_bytes": 8100,
+      "mtime": 1782354263.6350858
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/isolated_replay_state.py",
+      "size_bytes": 6250,
+      "mtime": 1782354263.6319249
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/macro_cycle_proxy_builder.py",
+      "size_bytes": 4381,
+      "mtime": 1782363352.200998
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/production_package_acceptance.py",
+      "size_bytes": 3821,
+      "mtime": 1782358297.3021667
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_coverage_audit.py",
+      "size_bytes": 7786,
+      "mtime": 1782357295.2023835
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_integration_audit.py",
+      "size_bytes": 12481,
+      "mtime": 1782356776.0476694
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_integration_report.py",
+      "size_bytes": 6600,
+      "mtime": 1782356776.046383
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_locator.py",
+      "size_bytes": 565,
+      "mtime": 1782356599.7639
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_manifest.py",
+      "size_bytes": 7199,
+      "mtime": 1782357295.2013266
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_normalizer.py",
+      "size_bytes": 8265,
+      "mtime": 1782357295.2023835
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/real_package_replay_workflow.py",
+      "size_bytes": 7183,
+      "mtime": 1782356843.7771263
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/replay_audit.py",
+      "size_bytes": 12376,
+      "mtime": 1782323848.8213234
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/replay_bundle_builder.py",
+      "size_bytes": 8939,
+      "mtime": 1782323663.7216604
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/replay_evaluation_report.py",
+      "size_bytes": 12284,
+      "mtime": 1782354396.1234674
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/replay_signal_adapter.py",
+      "size_bytes": 3418,
+      "mtime": 1782363457.2533255
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/signal_contract.py",
+      "size_bytes": 2399,
+      "mtime": 1782323566.5174232
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/signal_package_validator.py",
+      "size_bytes": 5651,
+      "mtime": 1782323609.836299
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/signal_schema.py",
+      "size_bytes": 8120,
+      "mtime": 1782323566.5174232
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/global_briefing/warning_triage.py",
+      "size_bytes": 10998,
+      "mtime": 1782358606.0582874
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/labels/__init__.py",
+      "size_bytes": 66,
+      "mtime": 1782283403.9942267
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/labels/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 275,
+      "mtime": 1782283460.3914218
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/labels/__pycache__/label_store.cpython-312.pyc",
+      "size_bytes": 13731,
+      "mtime": 1782283460.409683
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/labels/label_store.py",
+      "size_bytes": 10260,
+      "mtime": 1782283403.9953952
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__init__.py",
+      "size_bytes": 48,
+      "mtime": 1782285080.691538
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 253,
+      "mtime": 1782285285.4340007
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/model_registry.cpython-312.pyc",
+      "size_bytes": 1117,
+      "mtime": 1782285285.4890554
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/prediction_engine.cpython-312.pyc",
+      "size_bytes": 7057,
+      "mtime": 1782285285.4508178
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/shadow_leaderboard.cpython-312.pyc",
+      "size_bytes": 10717,
+      "mtime": 1782285285.53705
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/shadow_model.cpython-312.pyc",
+      "size_bytes": 6286,
+      "mtime": 1782285285.4758668
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/shadow_report.cpython-312.pyc",
+      "size_bytes": 9046,
+      "mtime": 1782285285.5495768
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/shadow_signal_generator.cpython-312.pyc",
+      "size_bytes": 5339,
+      "mtime": 1782285285.5617554
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/__pycache__/walk_forward_dataset.cpython-312.pyc",
+      "size_bytes": 15781,
+      "mtime": 1782285285.5195408
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/model_registry.py",
+      "size_bytes": 674,
+      "mtime": 1782285080.6923845
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/prediction_engine.py",
+      "size_bytes": 4438,
+      "mtime": 1782285080.694981
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/shadow_leaderboard.py",
+      "size_bytes": 7214,
+      "mtime": 1782285275.787773
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/shadow_model.py",
+      "size_bytes": 4707,
+      "mtime": 1782285080.6938322
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/shadow_report.py",
+      "size_bytes": 5942,
+      "mtime": 1782285080.6971116
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/shadow_signal_generator.py",
+      "size_bytes": 4206,
+      "mtime": 1782285275.7777078
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/ml/walk_forward_dataset.py",
+      "size_bytes": 13055,
+      "mtime": 1782285080.6923845
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__init__.py",
+      "size_bytes": 43,
+      "mtime": 1782379295.3514526
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 253,
+      "mtime": 1782379672.3144543
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/artifact_coverage_scanner.cpython-312.pyc",
+      "size_bytes": 5142,
+      "mtime": 1782379672.3686445
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/common.cpython-312.pyc",
+      "size_bytes": 4070,
+      "mtime": 1782379672.32647
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/day1_blocker_classifier.cpython-312.pyc",
+      "size_bytes": 6848,
+      "mtime": 1782379672.4294777
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/mvp_gap_classifier.cpython-312.pyc",
+      "size_bytes": 9442,
+      "mtime": 1782379672.4031355
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/mvp_requirement_map.cpython-312.pyc",
+      "size_bytes": 8198,
+      "mtime": 1782379672.3509605
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/next_work_register.cpython-312.pyc",
+      "size_bytes": 6171,
+      "mtime": 1782379672.4518082
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/plan_alignment_audit.cpython-312.pyc",
+      "size_bytes": 12025,
+      "mtime": 1782379672.4802837
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/__pycache__/plan_checklist_extractor.cpython-312.pyc",
+      "size_bytes": 9782,
+      "mtime": 1782379672.324545
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/artifact_coverage_scanner.py",
+      "size_bytes": 3672,
+      "mtime": 1782379356.3255749
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/common.py",
+      "size_bytes": 2527,
+      "mtime": 1782379295.3524513
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/day1_blocker_classifier.py",
+      "size_bytes": 5204,
+      "mtime": 1782379513.2441113
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/mvp_gap_classifier.py",
+      "size_bytes": 7351,
+      "mtime": 1782379637.8704128
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/mvp_requirement_map.py",
+      "size_bytes": 7349,
+      "mtime": 1782379356.3255749
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/next_work_register.py",
+      "size_bytes": 4885,
+      "mtime": 1782379499.7881217
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/plan_alignment_audit.py",
+      "size_bytes": 9071,
+      "mtime": 1782379499.7881217
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/planning/plan_checklist_extractor.py",
+      "size_bytes": 10375,
+      "mtime": 1782379295.3534493
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__init__.py",
+      "size_bytes": 34,
+      "mtime": 1782186563.210724
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 244,
+      "mtime": 1782278662.854344
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/acceptance_report.cpython-312.pyc",
+      "size_bytes": 5042,
+      "mtime": 1782278662.9943433
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/daily_report.cpython-312.pyc",
+      "size_bytes": 6596,
+      "mtime": 1782278662.8747218
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/monthly_report.cpython-312.pyc",
+      "size_bytes": 665,
+      "mtime": 1782323894.1222177
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/monthly_research_report.cpython-312.pyc",
+      "size_bytes": 10046,
+      "mtime": 1782312391.4285333
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/project_status_report.cpython-312.pyc",
+      "size_bytes": 4936,
+      "mtime": 1782312391.4593403
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/reporting_system_audit.cpython-312.pyc",
+      "size_bytes": 12851,
+      "mtime": 1782312548.3739123
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/research_common.cpython-312.pyc",
+      "size_bytes": 6252,
+      "mtime": 1782312327.73937
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/research_pipeline.cpython-312.pyc",
+      "size_bytes": 6526,
+      "mtime": 1782312391.4764287
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/system_dashboard.cpython-312.pyc",
+      "size_bytes": 5215,
+      "mtime": 1782312391.4462485
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/trading_summary.cpython-312.pyc",
+      "size_bytes": 4119,
+      "mtime": 1782278662.8915956
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/v051_validation_gap_remediation.cpython-312.pyc",
+      "size_bytes": 4135,
+      "mtime": 1782316775.2149584
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/weekly_report.cpython-312.pyc",
+      "size_bytes": 706,
+      "mtime": 1782323894.1369486
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/__pycache__/weekly_research_report.cpython-312.pyc",
+      "size_bytes": 10398,
+      "mtime": 1782312391.4054232
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/acceptance_report.py",
+      "size_bytes": 4337,
+      "mtime": 1782229721.7547033
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/daily_report.py",
+      "size_bytes": 4281,
+      "mtime": 1782199340.847918
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/monthly_report.py",
+      "size_bytes": 391,
+      "mtime": 1782198459.550545
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/monthly_research_report.py",
+      "size_bytes": 6997,
+      "mtime": 1782312371.3448744
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/project_status_report.py",
+      "size_bytes": 4034,
+      "mtime": 1782312371.346207
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/reporting_system_audit.py",
+      "size_bytes": 10014,
+      "mtime": 1782312508.7008865
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/research_common.py",
+      "size_bytes": 3442,
+      "mtime": 1782312156.87579
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/research_pipeline.py",
+      "size_bytes": 4580,
+      "mtime": 1782312371.3476844
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/system_dashboard.py",
+      "size_bytes": 4691,
+      "mtime": 1782312371.3448744
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/trading_summary.py",
+      "size_bytes": 3015,
+      "mtime": 1782200413.4248123
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/v051_validation_gap_remediation.py",
+      "size_bytes": 3640,
+      "mtime": 1782316767.7482464
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/weekly_report.py",
+      "size_bytes": 428,
+      "mtime": 1782198459.5494993
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/reports/weekly_research_report.py",
+      "size_bytes": 8008,
+      "mtime": 1782312371.3438566
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/__init__.py",
+      "size_bytes": 38,
+      "mtime": 1782186563.2088082
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 245,
+      "mtime": 1782278662.10705
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/__pycache__/risk_engine.cpython-312.pyc",
+      "size_bytes": 5233,
+      "mtime": 1782316712.6860113
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/__pycache__/risk_state.cpython-312.pyc",
+      "size_bytes": 1764,
+      "mtime": 1782323894.1431754
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/risk_engine.py",
+      "size_bytes": 4166,
+      "mtime": 1782316653.6670842
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/risk/risk_state.py",
+      "size_bytes": 879,
+      "mtime": 1782198459.5483928
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/runtime/__init__.py",
+      "size_bytes": 33,
+      "mtime": 1782200413.4237862
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/runtime/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 243,
+      "mtime": 1782278662.905341
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/runtime/__pycache__/health.cpython-312.pyc",
+      "size_bytes": 9795,
+      "mtime": 1782278662.9257126
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/runtime/health.py",
+      "size_bytes": 6840,
+      "mtime": 1782200413.4237862
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/__init__.py",
+      "size_bytes": 33,
+      "mtime": 1782186563.206689
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 243,
+      "mtime": 1782278662.2728498
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/__pycache__/macro_signal_loader.cpython-312.pyc",
+      "size_bytes": 5490,
+      "mtime": 1782278662.324312
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/__pycache__/signal_generator.cpython-312.pyc",
+      "size_bytes": 3780,
+      "mtime": 1782278662.3675735
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/__pycache__/trading_signal.cpython-312.pyc",
+      "size_bytes": 1256,
+      "mtime": 1782278662.383245
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/macro_signal_loader.py",
+      "size_bytes": 3903,
+      "mtime": 1782230252.3259237
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/signal_generator.py",
+      "size_bytes": 2892,
+      "mtime": 1782199318.5303338
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/signals/trading_signal.py",
+      "size_bytes": 546,
+      "mtime": 1782197990.1470037
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/__init__.py",
+      "size_bytes": 37,
+      "mtime": 1782186563.2117474
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 247,
+      "mtime": 1782278662.2189796
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/__pycache__/file_paths.cpython-312.pyc",
+      "size_bytes": 4015,
+      "mtime": 1782306600.7296915
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/__pycache__/jsonl_store.cpython-312.pyc",
+      "size_bytes": 4218,
+      "mtime": 1782278662.2262888
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/__pycache__/schema_validator.cpython-312.pyc",
+      "size_bytes": 1484,
+      "mtime": 1782278676.6324599
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/file_paths.py",
+      "size_bytes": 2355,
+      "mtime": 1782291133.93861
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/jsonl_store.py",
+      "size_bytes": 2107,
+      "mtime": 1782198382.2931254
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/storage/schema_validator.py",
+      "size_bytes": 803,
+      "mtime": 1782198459.5483928
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__init__.py",
+      "size_bytes": 41,
+      "mtime": 1782186563.206689
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 252,
+      "mtime": 1782278662.8339162
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/base.cpython-312.pyc",
+      "size_bytes": 690,
+      "mtime": 1782323894.1533544
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/hold_strategy.cpython-312.pyc",
+      "size_bytes": 544,
+      "mtime": 1782323894.1533544
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/macro_etf_strategy.cpython-312.pyc",
+      "size_bytes": 791,
+      "mtime": 1782323894.1633706
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/momentum_strategy.cpython-312.pyc",
+      "size_bytes": 2127,
+      "mtime": 1782278662.844099
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/strategy_registry.cpython-312.pyc",
+      "size_bytes": 599,
+      "mtime": 1782323894.1633706
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/__pycache__/strategy_state.cpython-312.pyc",
+      "size_bytes": 499,
+      "mtime": 1782323894.1674387
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/base.py",
+      "size_bytes": 238,
+      "mtime": 1782197990.149143
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/hold_strategy.py",
+      "size_bytes": 268,
+      "mtime": 1782197990.1503692
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/macro_etf_strategy.py",
+      "size_bytes": 540,
+      "mtime": 1782197990.1503692
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/momentum_strategy.py",
+      "size_bytes": 1342,
+      "mtime": 1782197990.1513908
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/strategy_registry.py",
+      "size_bytes": 395,
+      "mtime": 1782197990.1513908
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/strategy/strategy_state.py",
+      "size_bytes": 246,
+      "mtime": 1782197990.1513908
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__init__.py",
+      "size_bytes": 70,
+      "mtime": 1782319040.4909348
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 279,
+      "mtime": 1782319090.529914
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/artifact_browser.cpython-312.pyc",
+      "size_bytes": 8042,
+      "mtime": 1782321351.281322
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/artifact_inventory.cpython-312.pyc",
+      "size_bytes": 5978,
+      "mtime": 1782319090.5469527
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/boundary_regression_audit.cpython-312.pyc",
+      "size_bytes": 10767,
+      "mtime": 1782318939.5152678
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/cli_inventory.cpython-312.pyc",
+      "size_bytes": 12887,
+      "mtime": 1782322899.9491754
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/common.cpython-312.pyc",
+      "size_bytes": 2591,
+      "mtime": 1782319090.5580065
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/final_handoff_review.cpython-312.pyc",
+      "size_bytes": 20559,
+      "mtime": 1782320906.1244886
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/forward_dry_run_readiness.cpython-312.pyc",
+      "size_bytes": 24020,
+      "mtime": 1782322899.9764144
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/latest_artifact.cpython-312.pyc",
+      "size_bytes": 6368,
+      "mtime": 1782321351.2439892
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/quick_status.cpython-312.pyc",
+      "size_bytes": 4746,
+      "mtime": 1782321351.3214357
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/report_index.cpython-312.pyc",
+      "size_bytes": 6841,
+      "mtime": 1782321351.2020593
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/system_integrity_audit.cpython-312.pyc",
+      "size_bytes": 10096,
+      "mtime": 1782319090.599396
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/system_smoke_test.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7826,
+      "mtime": 1782319090.6198497
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/system_smoke_test.cpython-312.pyc",
+      "size_bytes": 7712,
+      "mtime": 1782319095.3208194
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/__pycache__/usability_audit.cpython-312.pyc",
+      "size_bytes": 8968,
+      "mtime": 1782321351.3609161
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/artifact_browser.py",
+      "size_bytes": 5515,
+      "mtime": 1782321123.7170486
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/artifact_inventory.py",
+      "size_bytes": 5639,
+      "mtime": 1782319040.4966755
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/boundary_regression_audit.py",
+      "size_bytes": 6592,
+      "mtime": 1782318928.3301384
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/cli_inventory.py",
+      "size_bytes": 11765,
+      "mtime": 1782322864.8420677
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/common.py",
+      "size_bytes": 1363,
+      "mtime": 1782319040.4909348
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/final_handoff_review.py",
+      "size_bytes": 19262,
+      "mtime": 1782320890.6690784
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/forward_dry_run_readiness.py",
+      "size_bytes": 21777,
+      "mtime": 1782322858.4974177
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/latest_artifact.py",
+      "size_bytes": 4824,
+      "mtime": 1782321123.7170486
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/quick_status.py",
+      "size_bytes": 3585,
+      "mtime": 1782321250.7611563
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/report_index.py",
+      "size_bytes": 4983,
+      "mtime": 1782321123.7170486
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/system_integrity_audit.py",
+      "size_bytes": 7523,
+      "mtime": 1782319040.4966755
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/system_smoke_test.py",
+      "size_bytes": 6025,
+      "mtime": 1782319040.4977496
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/system/usability_audit.py",
+      "size_bytes": 7249,
+      "mtime": 1782321182.2780442
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/__init__.py",
+      "size_bytes": 39,
+      "mtime": 1782186563.2056808
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/__pycache__/__init__.cpython-312.pyc",
+      "size_bytes": 250,
+      "mtime": 1782278662.331268
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/__pycache__/universe_loader.cpython-312.pyc",
+      "size_bytes": 1949,
+      "mtime": 1782278662.343495
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/__pycache__/universe_versioning.cpython-312.pyc",
+      "size_bytes": 1621,
+      "mtime": 1782278676.694746
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/universe_loader.py",
+      "size_bytes": 1201,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "module",
+      "path": "src/trading_core/universe/universe_versioning.py",
+      "size_bytes": 724,
+      "mtime": 1782197880.5955772
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/conftest.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2104,
+      "mtime": 1782278667.4626362
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/conftest.cpython-312.pyc",
+      "size_bytes": 1921,
+      "mtime": 1782377836.124889
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/day0_test_utils.cpython-312.pyc",
+      "size_bytes": 5633,
+      "mtime": 1782377132.7934947
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/global_briefing_test_utils.cpython-312.pyc",
+      "size_bytes": 3634,
+      "mtime": 1782360569.1749651
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/ml_shadow_test_utils.cpython-312.pyc",
+      "size_bytes": 8285,
+      "mtime": 1782285285.5800073
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/planning_test_utils.cpython-312.pyc",
+      "size_bytes": 3893,
+      "mtime": 1782379672.3144543
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_core.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 32875,
+      "mtime": 1782278675.7492692
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_core.cpython-312.pyc",
+      "size_bytes": 12190,
+      "mtime": 1782377836.1474483
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_hardening.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 46586,
+      "mtime": 1782278675.8454497
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_hardening.cpython-312.pyc",
+      "size_bytes": 18406,
+      "mtime": 1782377836.1629522
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9535,
+      "mtime": 1782278675.8684676
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_acceptance_report.cpython-312.pyc",
+      "size_bytes": 2354,
+      "mtime": 1782377836.170972
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_accounting.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 5444,
+      "mtime": 1782278675.888574
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_accounting.cpython-312.pyc",
+      "size_bytes": 1608,
+      "mtime": 1782377836.170972
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_admission_gate.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 5003,
+      "mtime": 1782278675.912855
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_admission_gate.cpython-312.pyc",
+      "size_bytes": 2092,
+      "mtime": 1782377836.1872587
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_browser.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10770,
+      "mtime": 1782321476.477383
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_browser.cpython-312.pyc",
+      "size_bytes": 4833,
+      "mtime": 1782377836.2015643
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_coverage_scanner.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6347,
+      "mtime": 1782379672.3666415
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_coverage_scanner.cpython-312.pyc",
+      "size_bytes": 2508,
+      "mtime": 1782379782.7288177
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_inventory.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10533,
+      "mtime": 1782319090.6487777
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_artifact_inventory.cpython-312.pyc",
+      "size_bytes": 3912,
+      "mtime": 1782377836.211708
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_attribution_engine.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2329,
+      "mtime": 1782278675.9353118
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_attribution_engine.cpython-312.pyc",
+      "size_bytes": 992,
+      "mtime": 1782377836.2218053
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_audit_gaps.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 4817,
+      "mtime": 1782316712.7094214
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_audit_gaps.cpython-312.pyc",
+      "size_bytes": 1962,
+      "mtime": 1782377836.231997
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_backtest_batch_runner.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11044,
+      "mtime": 1782278675.9491284
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_backtest_batch_runner.cpython-312.pyc",
+      "size_bytes": 4077,
+      "mtime": 1782377836.24244
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_backtest_consistency_checker.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 19856,
+      "mtime": 1782278667.5724986
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_backtest_consistency_checker.cpython-312.pyc",
+      "size_bytes": 10100,
+      "mtime": 1782377836.262479
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_benchmark_change_pct_units.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 3653,
+      "mtime": 1782278675.9674332
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_benchmark_change_pct_units.cpython-312.pyc",
+      "size_bytes": 1593,
+      "mtime": 1782377836.265289
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_benchmark_engine.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2601,
+      "mtime": 1782278675.9914422
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_benchmark_engine.cpython-312.pyc",
+      "size_bytes": 1260,
+      "mtime": 1782377836.2729316
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_boundary_regression_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13811,
+      "mtime": 1782319090.6860733
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_boundary_regression_audit.cpython-312.pyc",
+      "size_bytes": 7116,
+      "mtime": 1782377836.2832055
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_calendar.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 3311,
+      "mtime": 1782278676.00512
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_calendar.cpython-312.pyc",
+      "size_bytes": 642,
+      "mtime": 1782377836.293674
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cli.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6315,
+      "mtime": 1782278676.019161
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cli.cpython-312.pyc",
+      "size_bytes": 2104,
+      "mtime": 1782377836.3038287
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cli_inventory.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10705,
+      "mtime": 1782319090.712657
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cli_inventory.cpython-312.pyc",
+      "size_bytes": 3531,
+      "mtime": 1782377836.3142698
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_config.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 1621,
+      "mtime": 1782278676.0345855
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_config.cpython-312.pyc",
+      "size_bytes": 599,
+      "mtime": 1782377836.326499
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_consistency_checker.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 14454,
+      "mtime": 1782278676.052246
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_consistency_checker.cpython-312.pyc",
+      "size_bytes": 7068,
+      "mtime": 1782377836.3309388
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cost_model.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 4930,
+      "mtime": 1782278676.0675316
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_cost_model.cpython-312.pyc",
+      "size_bytes": 1011,
+      "mtime": 1782377836.3416874
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_data_package_validator.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12322,
+      "mtime": 1782278676.086676
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_data_package_validator.cpython-312.pyc",
+      "size_bytes": 4293,
+      "mtime": 1782377836.3546252
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_data_quality.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 4334,
+      "mtime": 1782278676.096864
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_data_quality.cpython-312.pyc",
+      "size_bytes": 1387,
+      "mtime": 1782377836.3670435
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_blocking_conditions.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7757,
+      "mtime": 1782377137.9229715
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_blocking_conditions.cpython-312.pyc",
+      "size_bytes": 4227,
+      "mtime": 1782377132.8180761
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_data_freeze.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9653,
+      "mtime": 1782377137.8863676
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_data_freeze.cpython-312.pyc",
+      "size_bytes": 4029,
+      "mtime": 1782377132.800048
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_manual_confirmation.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7793,
+      "mtime": 1782377137.9410217
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_manual_confirmation.cpython-312.pyc",
+      "size_bytes": 3344,
+      "mtime": 1782377132.841753
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_readiness_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9196,
+      "mtime": 1782377137.9681294
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_readiness_audit.cpython-312.pyc",
+      "size_bytes": 4870,
+      "mtime": 1782377132.8727224
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_readiness_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6420,
+      "mtime": 1782377137.9595773
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_readiness_report.cpython-312.pyc",
+      "size_bytes": 2574,
+      "mtime": 1782377132.860519
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_run_daily_preflight.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7085,
+      "mtime": 1782377137.93253
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_run_daily_preflight.cpython-312.pyc",
+      "size_bytes": 3192,
+      "mtime": 1782377132.8304355
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_warning_register.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7981,
+      "mtime": 1782377137.9168825
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day0_warning_register.cpython-312.pyc",
+      "size_bytes": 3525,
+      "mtime": 1782377132.81243
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day1_blocker_classifier.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9134,
+      "mtime": 1782379672.4218192
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_day1_blocker_classifier.cpython-312.pyc",
+      "size_bytes": 4046,
+      "mtime": 1782379782.7400723
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_auditor.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12753,
+      "mtime": 1782278676.1181395
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_auditor.cpython-312.pyc",
+      "size_bytes": 7098,
+      "mtime": 1782377836.3832812
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_range.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7932,
+      "mtime": 1782278676.1406012
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_range.cpython-312.pyc",
+      "size_bytes": 3440,
+      "mtime": 1782377836.3934264
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_validation_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13131,
+      "mtime": 1782280008.3793142
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_dry_run_validation_report.cpython-312.pyc",
+      "size_bytes": 6767,
+      "mtime": 1782377836.4125476
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_end_to_end_daily_run.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 15124,
+      "mtime": 1782278676.1606522
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_end_to_end_daily_run.cpython-312.pyc",
+      "size_bytes": 3016,
+      "mtime": 1782377836.427455
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_epu_package_repair.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16069,
+      "mtime": 1782364245.844008
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_epu_package_repair.cpython-312.pyc",
+      "size_bytes": 6064,
+      "mtime": 1782377836.4303422
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_event_backtester.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2917,
+      "mtime": 1782278676.1730194
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_event_backtester.cpython-312.pyc",
+      "size_bytes": 822,
+      "mtime": 1782377836.4404974
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_evolution_throttling.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6592,
+      "mtime": 1782278676.1894429
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_evolution_throttling.cpython-312.pyc",
+      "size_bytes": 3077,
+      "mtime": 1782377836.458844
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_dashboard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 32230,
+      "mtime": 1782306600.618603
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_dashboard.cpython-312.pyc",
+      "size_bytes": 11085,
+      "mtime": 1782377836.475485
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_queue.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2820,
+      "mtime": 1782278676.2028527
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_queue.cpython-312.pyc",
+      "size_bytes": 913,
+      "mtime": 1782377836.4892845
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_registry.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 44815,
+      "mtime": 1782306643.3787503
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_registry.cpython-312.pyc",
+      "size_bytes": 19919,
+      "mtime": 1782377836.5127647
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_release_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12610,
+      "mtime": 1782310311.3340945
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_release_audit.cpython-312.pyc",
+      "size_bytes": 7916,
+      "mtime": 1782377836.5223167
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_system_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 31143,
+      "mtime": 1782310232.23255
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_experiment_system_audit.cpython-312.pyc",
+      "size_bytes": 15109,
+      "mtime": 1782377836.5415528
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_export_summary.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 5641,
+      "mtime": 1782278676.2220643
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_export_summary.cpython-312.pyc",
+      "size_bytes": 1603,
+      "mtime": 1782377836.555592
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_feature_store.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16091,
+      "mtime": 1782282823.5211504
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_feature_store.cpython-312.pyc",
+      "size_bytes": 7138,
+      "mtime": 1782377836.5712333
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_final_handoff_review.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 20494,
+      "mtime": 1782320906.099815
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_final_handoff_review.cpython-312.pyc",
+      "size_bytes": 8543,
+      "mtime": 1782377836.5892181
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_forward_dry_run_operating_calendar.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8220,
+      "mtime": 1782377137.9509983
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_forward_dry_run_operating_calendar.cpython-312.pyc",
+      "size_bytes": 3103,
+      "mtime": 1782377132.848513
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_forward_dry_run_readiness.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 34963,
+      "mtime": 1782322814.240731
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_forward_dry_run_readiness.cpython-312.pyc",
+      "size_bytes": 16006,
+      "mtime": 1782377836.605495
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_full_historical_proxy_builder.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6205,
+      "mtime": 1782364245.9968529
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_full_historical_proxy_builder.cpython-312.pyc",
+      "size_bytes": 2958,
+      "mtime": 1782377836.6188257
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_full_historical_proxy_workflow.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8827,
+      "mtime": 1782360569.2676709
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_full_historical_proxy_workflow.cpython-312.pyc",
+      "size_bytes": 4371,
+      "mtime": 1782377836.624471
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_evidence_quality_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 22036,
+      "mtime": 1782358460.4990826
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_evidence_quality_audit.cpython-312.pyc",
+      "size_bytes": 11703,
+      "mtime": 1782377836.6305783
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_evidence_quality_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13759,
+      "mtime": 1782358460.4341571
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_evidence_quality_report.cpython-312.pyc",
+      "size_bytes": 6580,
+      "mtime": 1782377836.642722
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_historical_replay_runner.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 21151,
+      "mtime": 1782354666.123597
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_historical_replay_runner.cpython-312.pyc",
+      "size_bytes": 9231,
+      "mtime": 1782377836.648893
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_integration.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 1606,
+      "mtime": 1782278676.2355168
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_integration.cpython-312.pyc",
+      "size_bytes": 589,
+      "mtime": 1782377836.648893
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_integration_robustness.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10029,
+      "mtime": 1782278676.256284
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_integration_robustness.cpython-312.pyc",
+      "size_bytes": 5970,
+      "mtime": 1782377836.6658373
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_production_acceptance_criteria.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8522,
+      "mtime": 1782358460.4619856
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_production_acceptance_criteria.cpython-312.pyc",
+      "size_bytes": 3598,
+      "mtime": 1782377836.6832376
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_coverage_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13971,
+      "mtime": 1782357122.879678
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_coverage_audit.cpython-312.pyc",
+      "size_bytes": 7708,
+      "mtime": 1782377836.6989212
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_integration_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 18303,
+      "mtime": 1782357175.056898
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_integration_audit.cpython-312.pyc",
+      "size_bytes": 9887,
+      "mtime": 1782377836.711715
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_integration_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12960,
+      "mtime": 1782357122.9877295
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_integration_report.cpython-312.pyc",
+      "size_bytes": 6254,
+      "mtime": 1782377836.711715
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_manifest.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 14513,
+      "mtime": 1782357122.5296905
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_manifest.cpython-312.pyc",
+      "size_bytes": 6938,
+      "mtime": 1782377836.711715
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_normalizer.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 17779,
+      "mtime": 1782357122.669648
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_normalizer.cpython-312.pyc",
+      "size_bytes": 8451,
+      "mtime": 1782377836.739681
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_replay_workflow.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13759,
+      "mtime": 1782357174.9715018
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_real_package_replay_workflow.cpython-312.pyc",
+      "size_bytes": 5772,
+      "mtime": 1782377836.7593584
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 27878,
+      "mtime": 1782324182.927939
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_audit.cpython-312.pyc",
+      "size_bytes": 14489,
+      "mtime": 1782377836.7775078
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_bundle_builder.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 15135,
+      "mtime": 1782324182.8606205
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_bundle_builder.cpython-312.pyc",
+      "size_bytes": 8390,
+      "mtime": 1782377836.7852135
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_evaluation_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 24698,
+      "mtime": 1782354666.153766
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_evaluation_report.cpython-312.pyc",
+      "size_bytes": 13653,
+      "mtime": 1782377836.8102586
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_signal_adapter.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11043,
+      "mtime": 1782354666.0737658
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_replay_signal_adapter.cpython-312.pyc",
+      "size_bytes": 5171,
+      "mtime": 1782377836.8158817
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_signal_contract.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9983,
+      "mtime": 1782324182.764442
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_signal_contract.cpython-312.pyc",
+      "size_bytes": 4142,
+      "mtime": 1782377836.8254964
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_signal_package_validator.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 23019,
+      "mtime": 1782324182.8305233
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_signal_package_validator.cpython-312.pyc",
+      "size_bytes": 10904,
+      "mtime": 1782377836.8492763
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_warning_triage.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 17964,
+      "mtime": 1782358460.37097
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_global_briefing_warning_triage.cpython-312.pyc",
+      "size_bytes": 10538,
+      "mtime": 1782377836.8643935
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_backtest.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10365,
+      "mtime": 1782278676.2805557
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_backtest.cpython-312.pyc",
+      "size_bytes": 4590,
+      "mtime": 1782377836.8770118
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_backtest_runbook.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12339,
+      "mtime": 1782278676.3488514
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_backtest_runbook.cpython-312.pyc",
+      "size_bytes": 4616,
+      "mtime": 1782377836.8790169
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_acquisition_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12327,
+      "mtime": 1782360569.316923
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_acquisition_audit.cpython-312.pyc",
+      "size_bytes": 6647,
+      "mtime": 1782377836.8943121
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_acquisition_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6677,
+      "mtime": 1782360569.2923174
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_acquisition_report.cpython-312.pyc",
+      "size_bytes": 3350,
+      "mtime": 1782377836.9018536
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_downloaders.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11774,
+      "mtime": 1782360569.204529
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_downloaders.cpython-312.pyc",
+      "size_bytes": 4858,
+      "mtime": 1782377836.9228852
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10555,
+      "mtime": 1782364245.9753957
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_audit.cpython-312.pyc",
+      "size_bytes": 5999,
+      "mtime": 1782377836.9378057
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6466,
+      "mtime": 1782364245.940167
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_report.cpython-312.pyc",
+      "size_bytes": 2655,
+      "mtime": 1782377836.9500678
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_workflow.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11410,
+      "mtime": 1782364245.9223075
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_gap_closure_workflow.cpython-312.pyc",
+      "size_bytes": 4457,
+      "mtime": 1782377836.9623044
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_quality_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7231,
+      "mtime": 1782360569.2522936
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_quality_audit.cpython-312.pyc",
+      "size_bytes": 4398,
+      "mtime": 1782377836.9774637
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_source_resolver.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10863,
+      "mtime": 1782364879.802615
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_data_source_resolver.cpython-312.pyc",
+      "size_bytes": 5095,
+      "mtime": 1782377836.993521
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_dry_run_replay.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 27494,
+      "mtime": 1782281271.9347208
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_dry_run_replay.cpython-312.pyc",
+      "size_bytes": 12100,
+      "mtime": 1782377837.010953
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_package_normalizer.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9110,
+      "mtime": 1782360569.2202227
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_package_normalizer.cpython-312.pyc",
+      "size_bytes": 4217,
+      "mtime": 1782377837.0237997
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_warning_inventory.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11212,
+      "mtime": 1782364245.8078547
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_historical_warning_inventory.cpython-312.pyc",
+      "size_bytes": 5182,
+      "mtime": 1782377837.0282316
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_adapter_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 21134,
+      "mtime": 1782354666.1771007
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_adapter_audit.cpython-312.pyc",
+      "size_bytes": 11987,
+      "mtime": 1782377837.0336485
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_execution.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 20158,
+      "mtime": 1782354666.0960157
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_execution.cpython-312.pyc",
+      "size_bytes": 8303,
+      "mtime": 1782377837.0495281
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_state.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10634,
+      "mtime": 1782354666.043716
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_isolated_replay_state.cpython-312.pyc",
+      "size_bytes": 4819,
+      "mtime": 1782377837.0663826
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_label_store.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 24771,
+      "mtime": 1782283485.067492
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_label_store.cpython-312.pyc",
+      "size_bytes": 9971,
+      "mtime": 1782377837.0812712
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_latest_artifact.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10490,
+      "mtime": 1782321476.6049078
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_latest_artifact.cpython-312.pyc",
+      "size_bytes": 4434,
+      "mtime": 1782377837.0971768
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_market_rules.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2790,
+      "mtime": 1782278676.3597782
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_market_rules.cpython-312.pyc",
+      "size_bytes": 610,
+      "mtime": 1782377837.108199
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mistake_classifier.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2479,
+      "mtime": 1782278676.3806052
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mistake_classifier.cpython-312.pyc",
+      "size_bytes": 946,
+      "mtime": 1782377837.1228158
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mistake_pattern_library.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 44157,
+      "mtime": 1782316712.746907
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mistake_pattern_library.cpython-312.pyc",
+      "size_bytes": 20513,
+      "mtime": 1782377837.1479826
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_prediction_engine.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6451,
+      "mtime": 1782285285.6289392
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_prediction_engine.cpython-312.pyc",
+      "size_bytes": 2784,
+      "mtime": 1782377837.164473
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_boundaries.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 29568,
+      "mtime": 1782287954.378599
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_boundaries.cpython-312.pyc",
+      "size_bytes": 14172,
+      "mtime": 1782377837.178317
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_leaderboard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8090,
+      "mtime": 1782285285.668791
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_leaderboard.cpython-312.pyc",
+      "size_bytes": 3122,
+      "mtime": 1782377837.1887484
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_model.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7105,
+      "mtime": 1782285285.5982087
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_model.cpython-312.pyc",
+      "size_bytes": 3090,
+      "mtime": 1782377837.202556
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 6039,
+      "mtime": 1782285285.6970985
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_report.cpython-312.pyc",
+      "size_bytes": 2617,
+      "mtime": 1782377837.2085702
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_signal_generator.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8098,
+      "mtime": 1782285285.6468196
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_ml_shadow_signal_generator.cpython-312.pyc",
+      "size_bytes": 3237,
+      "mtime": 1782377837.2293904
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_monthly_research_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11996,
+      "mtime": 1782312327.7753353
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_monthly_research_report.cpython-312.pyc",
+      "size_bytes": 5127,
+      "mtime": 1782377837.2355232
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mvp_gap_classifier.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9558,
+      "mtime": 1782379672.3828917
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mvp_gap_classifier.cpython-312.pyc",
+      "size_bytes": 4500,
+      "mtime": 1782379782.765858
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mvp_requirement_map.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7538,
+      "mtime": 1782379672.3486285
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_mvp_requirement_map.cpython-312.pyc",
+      "size_bytes": 2956,
+      "mtime": 1782379782.7699733
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_next_work_register.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8063,
+      "mtime": 1782379672.4518082
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_next_work_register.cpython-312.pyc",
+      "size_bytes": 3924,
+      "mtime": 1782379782.7719662
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_oecd_cli_package_repair.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 15506,
+      "mtime": 1782364245.8712907
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_oecd_cli_package_repair.cpython-312.pyc",
+      "size_bytes": 6024,
+      "mtime": 1782377837.2496464
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_parameter_sweep.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 52948,
+      "mtime": 1782306643.560349
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_parameter_sweep.cpython-312.pyc",
+      "size_bytes": 21935,
+      "mtime": 1782377837.2636392
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_plan_alignment_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9304,
+      "mtime": 1782379672.4759364
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_plan_alignment_audit.cpython-312.pyc",
+      "size_bytes": 4502,
+      "mtime": 1782379782.7764525
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_plan_checklist_extractor.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7725,
+      "mtime": 1782379672.304141
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_plan_checklist_extractor.cpython-312.pyc",
+      "size_bytes": 3183,
+      "mtime": 1782379782.7784567
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_point_in_time.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2793,
+      "mtime": 1782278676.385782
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_point_in_time.cpython-312.pyc",
+      "size_bytes": 763,
+      "mtime": 1782377837.268861
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_acquisition.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16385,
+      "mtime": 1782278676.43495
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_acquisition.cpython-312.pyc",
+      "size_bytes": 7651,
+      "mtime": 1782377837.27892
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_acquisition_retry.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13210,
+      "mtime": 1782278676.4583807
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_acquisition_retry.cpython-312.pyc",
+      "size_bytes": 5945,
+      "mtime": 1782377837.2990997
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_dataset_merge.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9077,
+      "mtime": 1782278676.4746988
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_price_dataset_merge.cpython-312.pyc",
+      "size_bytes": 3931,
+      "mtime": 1782377837.3109825
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_project_status_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 7476,
+      "mtime": 1782312327.8495936
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_project_status_report.cpython-312.pyc",
+      "size_bytes": 2991,
+      "mtime": 1782377837.3255396
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_promotion_gate.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2057,
+      "mtime": 1782278676.4925745
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_promotion_gate.cpython-312.pyc",
+      "size_bytes": 741,
+      "mtime": 1782377837.3295488
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_promotion_simulation.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 35128,
+      "mtime": 1782307760.6691704
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_promotion_simulation.cpython-312.pyc",
+      "size_bytes": 13566,
+      "mtime": 1782377837.3455083
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_proxy_replay_warning_reduction.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11236,
+      "mtime": 1782364245.8915954
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_proxy_replay_warning_reduction.cpython-312.pyc",
+      "size_bytes": 4883,
+      "mtime": 1782377837.359203
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_quick_status.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9493,
+      "mtime": 1782321476.6763089
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_quick_status.cpython-312.pyc",
+      "size_bytes": 3766,
+      "mtime": 1782377837.3671045
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_real_data_validation_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11786,
+      "mtime": 1782278667.6185212
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_real_data_validation_report.cpython-312.pyc",
+      "size_bytes": 5478,
+      "mtime": 1782377837.388052
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_report_index.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 10767,
+      "mtime": 1782321476.6994126
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_report_index.cpython-312.pyc",
+      "size_bytes": 4509,
+      "mtime": 1782377837.4019024
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_reporting_system_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9585,
+      "mtime": 1782312327.9032638
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_reporting_system_audit.cpython-312.pyc",
+      "size_bytes": 3763,
+      "mtime": 1782377837.4136527
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_research_pipeline.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11174,
+      "mtime": 1782312327.8734176
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_research_pipeline.cpython-312.pyc",
+      "size_bytes": 4119,
+      "mtime": 1782377837.427948
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_risk_engine.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2216,
+      "mtime": 1782278676.5120323
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_risk_engine.cpython-312.pyc",
+      "size_bytes": 930,
+      "mtime": 1782377837.4402132
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_risk_max_daily_turnover.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9061,
+      "mtime": 1782316712.6727042
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_risk_max_daily_turnover.cpython-312.pyc",
+      "size_bytes": 4178,
+      "mtime": 1782377837.4402132
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_rule_memory.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 3938,
+      "mtime": 1782278676.5310884
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_rule_memory.cpython-312.pyc",
+      "size_bytes": 1223,
+      "mtime": 1782377837.4516652
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_runtime_health.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9659,
+      "mtime": 1782278676.559099
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_runtime_health.cpython-312.pyc",
+      "size_bytes": 3275,
+      "mtime": 1782377837.4653566
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_settings_timezone.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 4768,
+      "mtime": 1782316712.6314754
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_settings_timezone.cpython-312.pyc",
+      "size_bytes": 1839,
+      "mtime": 1782377837.476596
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_shadow_runner.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 1424,
+      "mtime": 1782278676.5714872
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_shadow_runner.cpython-312.pyc",
+      "size_bytes": 739,
+      "mtime": 1782377837.479964
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_signal_schema.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2085,
+      "mtime": 1782278676.5861447
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_signal_schema.cpython-312.pyc",
+      "size_bytes": 1103,
+      "mtime": 1782377837.4904644
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_signal_scorecard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 1557,
+      "mtime": 1782278676.5990448
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_signal_scorecard.cpython-312.pyc",
+      "size_bytes": 872,
+      "mtime": 1782377837.4927912
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_storage.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 4951,
+      "mtime": 1782278676.6202476
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_storage.cpython-312.pyc",
+      "size_bytes": 1928,
+      "mtime": 1782377837.5098684
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_comparison.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16906,
+      "mtime": 1782308896.6326063
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_comparison.cpython-312.pyc",
+      "size_bytes": 7200,
+      "mtime": 1782377837.5272818
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_leaderboard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 11326,
+      "mtime": 1782278676.656128
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_leaderboard.cpython-312.pyc",
+      "size_bytes": 5466,
+      "mtime": 1782377837.529845
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_scorecard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 1501,
+      "mtime": 1782278676.6643686
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_strategy_scorecard.cpython-312.pyc",
+      "size_bytes": 813,
+      "mtime": 1782377837.5394957
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_dashboard.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 8034,
+      "mtime": 1782312327.811433
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_dashboard.cpython-312.pyc",
+      "size_bytes": 3518,
+      "mtime": 1782377837.54724
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_integrity_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16003,
+      "mtime": 1782319090.9497306
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_integrity_audit.cpython-312.pyc",
+      "size_bytes": 8179,
+      "mtime": 1782377837.5515194
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_smoke_test.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 12933,
+      "mtime": 1782319090.9719782
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_system_smoke_test.cpython-312.pyc",
+      "size_bytes": 5271,
+      "mtime": 1782377837.5676856
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_universe.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 3167,
+      "mtime": 1782278676.6800585
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_universe.cpython-312.pyc",
+      "size_bytes": 788,
+      "mtime": 1782377837.5793693
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_usability_audit.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 16547,
+      "mtime": 1782321351.3439898
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_usability_audit.cpython-312.pyc",
+      "size_bytes": 7833,
+      "mtime": 1782377837.5931253
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_v051_validation_gap_remediation.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 5899,
+      "mtime": 1782316775.1535075
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_v051_validation_gap_remediation.cpython-312.pyc",
+      "size_bytes": 1741,
+      "mtime": 1782377837.6035533
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_virtual_broker.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2986,
+      "mtime": 1782278676.711312
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_virtual_broker.cpython-312.pyc",
+      "size_bytes": 1206,
+      "mtime": 1782377837.61403
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_walk_forward.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 2084,
+      "mtime": 1782278676.7273638
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_walk_forward.cpython-312.pyc",
+      "size_bytes": 644,
+      "mtime": 1782377837.6240027
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_walk_forward_dataset.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 9637,
+      "mtime": 1782285285.2889345
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_walk_forward_dataset.cpython-312.pyc",
+      "size_bytes": 3765,
+      "mtime": 1782377837.630375
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_weekly_research_report.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 13570,
+      "mtime": 1782312327.7155972
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_weekly_research_report.cpython-312.pyc",
+      "size_bytes": 6106,
+      "mtime": 1782377837.6424892
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_yfinance_fallback.cpython-312-pytest-9.0.3.pyc",
+      "size_bytes": 19184,
+      "mtime": 1782278676.7513244
+    },
+    {
+      "type": "test",
+      "path": "tests/__pycache__/test_yfinance_fallback.cpython-312.pyc",
+      "size_bytes": 10379,
+      "mtime": 1782377837.656755
+    },
+    {
+      "type": "test",
+      "path": "tests/conftest.py",
+      "size_bytes": 3108,
+      "mtime": 1782199431.052253
+    },
+    {
+      "type": "test",
+      "path": "tests/day0_test_utils.py",
+      "size_bytes": 5701,
+      "mtime": 1782377122.0491865
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing/prices_valid.csv",
+      "size_bytes": 290,
+      "mtime": 1782323924.7559695
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing/signals_future.jsonl",
+      "size_bytes": 148,
+      "mtime": 1782323924.7559695
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing/signals_valid.json",
+      "size_bytes": 666,
+      "mtime": 1782323924.7549307
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing/signals_valid.jsonl",
+      "size_bytes": 811,
+      "mtime": 1782323924.7488432
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing_real/prices_valid.csv",
+      "size_bytes": 290,
+      "mtime": 1782356508.3427527
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing_real/real_package_aliases.csv",
+      "size_bytes": 324,
+      "mtime": 1782356508.3427527
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing_real/real_package_canonical.jsonl",
+      "size_bytes": 742,
+      "mtime": 1782356508.3427527
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/global_briefing_real/real_package_future.jsonl",
+      "size_bytes": 148,
+      "mtime": 1782356508.3427527
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/auth_global_briefing_sample.jsonl",
+      "size_bytes": 422,
+      "mtime": 1782360405.4158936
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/benchmark_index_sample.csv",
+      "size_bytes": 851,
+      "mtime": 1782360405.4101362
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/commodity_sample.csv",
+      "size_bytes": 189,
+      "mtime": 1782360405.4148812
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/epu_sample.csv",
+      "size_bytes": 170,
+      "mtime": 1782360405.4148812
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/etf_ohlcv_sample.csv",
+      "size_bytes": 1010,
+      "mtime": 1782360405.4101362
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/fred_rates_sample.csv",
+      "size_bytes": 351,
+      "mtime": 1782360405.4134455
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/fred_usdcny_sample.csv",
+      "size_bytes": 259,
+      "mtime": 1782360405.4134455
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/fred_vix_sample.csv",
+      "size_bytes": 261,
+      "mtime": 1782360405.4101362
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/oecd_cli_sample.csv",
+      "size_bytes": 205,
+      "mtime": 1782360405.4158936
+    },
+    {
+      "type": "test",
+      "path": "tests/fixtures/historical_data/prices_valid.csv",
+      "size_bytes": 369,
+      "mtime": 1782360405.4169014
+    },
+    {
+      "type": "test",
+      "path": "tests/global_briefing_test_utils.py",
+      "size_bytes": 2311,
+      "mtime": 1782360415.516397
+    },
+    {
+      "type": "test",
+      "path": "tests/ml_shadow_test_utils.py",
+      "size_bytes": 8024,
+      "mtime": 1782285275.787773
+    },
+    {
+      "type": "test",
+      "path": "tests/planning_test_utils.py",
+      "size_bytes": 3426,
+      "mtime": 1782379583.7055006
+    },
+    {
+      "type": "test",
+      "path": "tests/test_acceptance_core.py",
+      "size_bytes": 9326,
+      "mtime": 1782199431.0536857
+    },
+    {
+      "type": "test",
+      "path": "tests/test_acceptance_hardening.py",
+      "size_bytes": 13607,
+      "mtime": 1782200726.3522854
+    },
+    {
+      "type": "test",
+      "path": "tests/test_acceptance_report.py",
+      "size_bytes": 1403,
+      "mtime": 1782229741.7124207
+    },
+    {
+      "type": "test",
+      "path": "tests/test_accounting.py",
+      "size_bytes": 1038,
+      "mtime": 1782198301.151796
+    },
+    {
+      "type": "test",
+      "path": "tests/test_admission_gate.py",
+      "size_bytes": 1353,
+      "mtime": 1782200692.8414874
+    },
+    {
+      "type": "test",
+      "path": "tests/test_artifact_browser.py",
+      "size_bytes": 2720,
+      "mtime": 1782321444.940281
+    },
+    {
+      "type": "test",
+      "path": "tests/test_artifact_coverage_scanner.py",
+      "size_bytes": 1262,
+      "mtime": 1782379583.7117634
+    },
+    {
+      "type": "test",
+      "path": "tests/test_artifact_inventory.py",
+      "size_bytes": 2025,
+      "mtime": 1782319040.4987445
+    },
+    {
+      "type": "test",
+      "path": "tests/test_attribution_engine.py",
+      "size_bytes": 725,
+      "mtime": 1782199466.01317
+    },
+    {
+      "type": "test",
+      "path": "tests/test_audit_gaps.py",
+      "size_bytes": 1631,
+      "mtime": 1782316701.7381794
+    },
+    {
+      "type": "test",
+      "path": "tests/test_backtest_batch_runner.py",
+      "size_bytes": 3374,
+      "mtime": 1782229992.0116374
+    },
+    {
+      "type": "test",
+      "path": "tests/test_backtest_consistency_checker.py",
+      "size_bytes": 8633,
+      "mtime": 1782278613.7326488
+    },
+    {
+      "type": "test",
+      "path": "tests/test_benchmark_change_pct_units.py",
+      "size_bytes": 1101,
+      "mtime": 1782228917.148942
+    },
+    {
+      "type": "test",
+      "path": "tests/test_benchmark_engine.py",
+      "size_bytes": 940,
+      "mtime": 1782200789.464053
+    },
+    {
+      "type": "test",
+      "path": "tests/test_boundary_regression_audit.py",
+      "size_bytes": 4434,
+      "mtime": 1782319040.4997404
+    },
+    {
+      "type": "test",
+      "path": "tests/test_calendar.py",
+      "size_bytes": 380,
+      "mtime": 1782198301.149729
+    },
+    {
+      "type": "test",
+      "path": "tests/test_cli.py",
+      "size_bytes": 1403,
+      "mtime": 1782231862.47051
+    },
+    {
+      "type": "test",
+      "path": "tests/test_cli_inventory.py",
+      "size_bytes": 1738,
+      "mtime": 1782319040.500757
+    },
+    {
+      "type": "test",
+      "path": "tests/test_config.py",
+      "size_bytes": 309,
+      "mtime": 1782198301.1479611
+    },
+    {
+      "type": "test",
+      "path": "tests/test_consistency_checker.py",
+      "size_bytes": 4557,
+      "mtime": 1782230202.971581
+    },
+    {
+      "type": "test",
+      "path": "tests/test_cost_model.py",
+      "size_bytes": 568,
+      "mtime": 1782198301.1512825
+    },
+    {
+      "type": "test",
+      "path": "tests/test_data_package_validator.py",
+      "size_bytes": 3095,
+      "mtime": 1782229881.959503
+    },
+    {
+      "type": "test",
+      "path": "tests/test_data_quality.py",
+      "size_bytes": 920,
+      "mtime": 1782198301.152313
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_blocking_conditions.py",
+      "size_bytes": 2498,
+      "mtime": 1782377122.0536163
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_data_freeze.py",
+      "size_bytes": 2274,
+      "mtime": 1782377122.0514276
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_manual_confirmation.py",
+      "size_bytes": 1386,
+      "mtime": 1782377122.0568743
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_readiness_audit.py",
+      "size_bytes": 2980,
+      "mtime": 1782377122.0578709
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_readiness_report.py",
+      "size_bytes": 1336,
+      "mtime": 1782377122.0578709
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_run_daily_preflight.py",
+      "size_bytes": 1759,
+      "mtime": 1782377122.0546925
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day0_warning_register.py",
+      "size_bytes": 1803,
+      "mtime": 1782377122.0524254
+    },
+    {
+      "type": "test",
+      "path": "tests/test_day1_blocker_classifier.py",
+      "size_bytes": 2251,
+      "mtime": 1782379629.3744311
+    },
+    {
+      "type": "test",
+      "path": "tests/test_dry_run_auditor.py",
+      "size_bytes": 5575,
+      "mtime": 1782230100.3209465
+    },
+    {
+      "type": "test",
+      "path": "tests/test_dry_run_range.py",
+      "size_bytes": 2881,
+      "mtime": 1782229361.4829795
+    },
+    {
+      "type": "test",
+      "path": "tests/test_dry_run_validation_report.py",
+      "size_bytes": 5675,
+      "mtime": 1782279996.9984603
+    },
+    {
+      "type": "test",
+      "path": "tests/test_end_to_end_daily_run.py",
+      "size_bytes": 1917,
+      "mtime": 1782198301.1585655
+    },
+    {
+      "type": "test",
+      "path": "tests/test_epu_package_repair.py",
+      "size_bytes": 4106,
+      "mtime": 1782364235.4192119
+    },
+    {
+      "type": "test",
+      "path": "tests/test_event_backtester.py",
+      "size_bytes": 468,
+      "mtime": 1782198564.1516562
+    },
+    {
+      "type": "test",
+      "path": "tests/test_evolution_throttling.py",
+      "size_bytes": 2620,
+      "mtime": 1782200692.8414874
+    },
+    {
+      "type": "test",
+      "path": "tests/test_experiment_dashboard.py",
+      "size_bytes": 8672,
+      "mtime": 1782306588.6848366
+    },
+    {
+      "type": "test",
+      "path": "tests/test_experiment_queue.py",
+      "size_bytes": 699,
+      "mtime": 1782198327.2210846
+    },
+    {
+      "type": "test",
+      "path": "tests/test_experiment_registry.py",
+      "size_bytes": 17248,
+      "mtime": 1782292119.7242036
+    },
+    {
+      "type": "test",
+      "path": "tests/test_experiment_release_audit.py",
+      "size_bytes": 5119,
+      "mtime": 1782310301.499735
+    },
+    {
+      "type": "test",
+      "path": "tests/test_experiment_system_audit.py",
+      "size_bytes": 11770,
+      "mtime": 1782310216.5607996
+    },
+    {
+      "type": "test",
+      "path": "tests/test_export_summary.py",
+      "size_bytes": 1100,
+      "mtime": 1782200692.8414874
+    },
+    {
+      "type": "test",
+      "path": "tests/test_feature_store.py",
+      "size_bytes": 4302,
+      "mtime": 1782282814.080953
+    },
+    {
+      "type": "test",
+      "path": "tests/test_final_handoff_review.py",
+      "size_bytes": 5769,
+      "mtime": 1782320899.9477353
+    },
+    {
+      "type": "test",
+      "path": "tests/test_forward_dry_run_operating_calendar.py",
+      "size_bytes": 1313,
+      "mtime": 1782377122.0578709
+    },
+    {
+      "type": "test",
+      "path": "tests/test_forward_dry_run_readiness.py",
+      "size_bytes": 11243,
+      "mtime": 1782322803.068446
+    },
+    {
+      "type": "test",
+      "path": "tests/test_full_historical_proxy_builder.py",
+      "size_bytes": 1829,
+      "mtime": 1782364235.4253001
+    },
+    {
+      "type": "test",
+      "path": "tests/test_full_historical_proxy_workflow.py",
+      "size_bytes": 3017,
+      "mtime": 1782360558.2926936
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_evidence_quality_audit.py",
+      "size_bytes": 7361,
+      "mtime": 1782358443.5236409
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_evidence_quality_report.py",
+      "size_bytes": 4400,
+      "mtime": 1782358443.5236409
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_historical_replay_runner.py",
+      "size_bytes": 6815,
+      "mtime": 1782354577.005431
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_integration.py",
+      "size_bytes": 290,
+      "mtime": 1782198301.1590762
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_integration_robustness.py",
+      "size_bytes": 4427,
+      "mtime": 1782230380.5450554
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_production_acceptance_criteria.py",
+      "size_bytes": 2106,
+      "mtime": 1782358443.5236409
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_coverage_audit.py",
+      "size_bytes": 5082,
+      "mtime": 1782356954.8680065
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_integration_audit.py",
+      "size_bytes": 6348,
+      "mtime": 1782357162.439009
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_integration_report.py",
+      "size_bytes": 4362,
+      "mtime": 1782357014.6003888
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_manifest.py",
+      "size_bytes": 4144,
+      "mtime": 1782356903.4556415
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_normalizer.py",
+      "size_bytes": 5818,
+      "mtime": 1782356903.4556415
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_real_package_replay_workflow.py",
+      "size_bytes": 4058,
+      "mtime": 1782357162.4369957
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_replay_audit.py",
+      "size_bytes": 9395,
+      "mtime": 1782324173.3074992
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_replay_bundle_builder.py",
+      "size_bytes": 5911,
+      "mtime": 1782324040.1636448
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_replay_evaluation_report.py",
+      "size_bytes": 8406,
+      "mtime": 1782354606.8453012
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_replay_signal_adapter.py",
+      "size_bytes": 2687,
+      "mtime": 1782354555.7264369
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_signal_contract.py",
+      "size_bytes": 2320,
+      "mtime": 1782323959.5191357
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_signal_package_validator.py",
+      "size_bytes": 7105,
+      "mtime": 1782324002.1730824
+    },
+    {
+      "type": "test",
+      "path": "tests/test_global_briefing_warning_triage.py",
+      "size_bytes": 6900,
+      "mtime": 1782358443.5202298
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_backtest.py",
+      "size_bytes": 3151,
+      "mtime": 1782200692.8414874
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_backtest_runbook.py",
+      "size_bytes": 3142,
+      "mtime": 1782229269.2464697
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_acquisition_audit.py",
+      "size_bytes": 4191,
+      "mtime": 1782360558.2960715
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_acquisition_report.py",
+      "size_bytes": 2058,
+      "mtime": 1782360558.2960715
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_downloaders.py",
+      "size_bytes": 2639,
+      "mtime": 1782360558.2926936
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_gap_closure_audit.py",
+      "size_bytes": 4137,
+      "mtime": 1782364235.4222617
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_gap_closure_report.py",
+      "size_bytes": 1476,
+      "mtime": 1782364235.4222617
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_gap_closure_workflow.py",
+      "size_bytes": 2922,
+      "mtime": 1782364235.4222617
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_quality_audit.py",
+      "size_bytes": 2437,
+      "mtime": 1782360558.2926936
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_data_source_resolver.py",
+      "size_bytes": 3253,
+      "mtime": 1782364865.0512407
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_dry_run_replay.py",
+      "size_bytes": 8564,
+      "mtime": 1782281258.6474545
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_package_normalizer.py",
+      "size_bytes": 2692,
+      "mtime": 1782360558.2926936
+    },
+    {
+      "type": "test",
+      "path": "tests/test_historical_warning_inventory.py",
+      "size_bytes": 3850,
+      "mtime": 1782364235.4192119
+    },
+    {
+      "type": "test",
+      "path": "tests/test_isolated_replay_adapter_audit.py",
+      "size_bytes": 7912,
+      "mtime": 1782354650.5533903
+    },
+    {
+      "type": "test",
+      "path": "tests/test_isolated_replay_execution.py",
+      "size_bytes": 4578,
+      "mtime": 1782354555.7294538
+    },
+    {
+      "type": "test",
+      "path": "tests/test_isolated_replay_state.py",
+      "size_bytes": 2556,
+      "mtime": 1782354555.7264369
+    },
+    {
+      "type": "test",
+      "path": "tests/test_label_store.py",
+      "size_bytes": 6752,
+      "mtime": 1782283476.9577706
+    },
+    {
+      "type": "test",
+      "path": "tests/test_latest_artifact.py",
+      "size_bytes": 2843,
+      "mtime": 1782321444.9438317
+    },
+    {
+      "type": "test",
+      "path": "tests/test_market_rules.py",
+      "size_bytes": 288,
+      "mtime": 1782198301.1512825
+    },
+    {
+      "type": "test",
+      "path": "tests/test_mistake_classifier.py",
+      "size_bytes": 755,
+      "mtime": 1782198327.2200794
+    },
+    {
+      "type": "test",
+      "path": "tests/test_mistake_pattern_library.py",
+      "size_bytes": 16424,
+      "mtime": 1782316701.7436059
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_prediction_engine.py",
+      "size_bytes": 1608,
+      "mtime": 1782285233.9808023
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_shadow_boundaries.py",
+      "size_bytes": 14432,
+      "mtime": 1782287941.9082124
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_shadow_leaderboard.py",
+      "size_bytes": 2470,
+      "mtime": 1782285275.787773
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_shadow_model.py",
+      "size_bytes": 2133,
+      "mtime": 1782285233.9800026
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_shadow_report.py",
+      "size_bytes": 2140,
+      "mtime": 1782285233.9827373
+    },
+    {
+      "type": "test",
+      "path": "tests/test_ml_shadow_signal_generator.py",
+      "size_bytes": 1687,
+      "mtime": 1782285233.9808023
+    },
+    {
+      "type": "test",
+      "path": "tests/test_monthly_research_report.py",
+      "size_bytes": 3113,
+      "mtime": 1782312287.2101593
+    },
+    {
+      "type": "test",
+      "path": "tests/test_mvp_gap_classifier.py",
+      "size_bytes": 2752,
+      "mtime": 1782379645.799619
+    },
+    {
+      "type": "test",
+      "path": "tests/test_mvp_requirement_map.py",
+      "size_bytes": 1516,
+      "mtime": 1782379583.7108393
+    },
+    {
+      "type": "test",
+      "path": "tests/test_next_work_register.py",
+      "size_bytes": 2731,
+      "mtime": 1782379629.3744311
+    },
+    {
+      "type": "test",
+      "path": "tests/test_oecd_cli_package_repair.py",
+      "size_bytes": 4500,
+      "mtime": 1782364235.4222617
+    },
+    {
+      "type": "test",
+      "path": "tests/test_parameter_sweep.py",
+      "size_bytes": 18024,
+      "mtime": 1782293187.5729198
+    },
+    {
+      "type": "test",
+      "path": "tests/test_plan_alignment_audit.py",
+      "size_bytes": 2899,
+      "mtime": 1782379665.393785
+    },
+    {
+      "type": "test",
+      "path": "tests/test_plan_checklist_extractor.py",
+      "size_bytes": 1429,
+      "mtime": 1782379583.7097466
+    },
+    {
+      "type": "test",
+      "path": "tests/test_point_in_time.py",
+      "size_bytes": 530,
+      "mtime": 1782198301.150767
+    },
+    {
+      "type": "test",
+      "path": "tests/test_price_acquisition.py",
+      "size_bytes": 5618,
+      "mtime": 1782232937.8980434
+    },
+    {
+      "type": "test",
+      "path": "tests/test_price_acquisition_retry.py",
+      "size_bytes": 3963,
+      "mtime": 1782232808.3620691
+    },
+    {
+      "type": "test",
+      "path": "tests/test_price_dataset_merge.py",
+      "size_bytes": 2768,
+      "mtime": 1782232914.202404
+    },
+    {
+      "type": "test",
+      "path": "tests/test_project_status_report.py",
+      "size_bytes": 1604,
+      "mtime": 1782312287.2183957
+    },
+    {
+      "type": "test",
+      "path": "tests/test_promotion_gate.py",
+      "size_bytes": 480,
+      "mtime": 1782198301.1580513
+    },
+    {
+      "type": "test",
+      "path": "tests/test_promotion_simulation.py",
+      "size_bytes": 10695,
+      "mtime": 1782307753.5209599
+    },
+    {
+      "type": "test",
+      "path": "tests/test_proxy_replay_warning_reduction.py",
+      "size_bytes": 2739,
+      "mtime": 1782364235.4222617
+    },
+    {
+      "type": "test",
+      "path": "tests/test_quick_status.py",
+      "size_bytes": 2070,
+      "mtime": 1782321444.944925
+    },
+    {
+      "type": "test",
+      "path": "tests/test_real_data_validation_report.py",
+      "size_bytes": 4626,
+      "mtime": 1782278653.828396
+    },
+    {
+      "type": "test",
+      "path": "tests/test_report_index.py",
+      "size_bytes": 2508,
+      "mtime": 1782321444.944925
+    },
+    {
+      "type": "test",
+      "path": "tests/test_reporting_system_audit.py",
+      "size_bytes": 2225,
+      "mtime": 1782312287.2204826
+    },
+    {
+      "type": "test",
+      "path": "tests/test_research_pipeline.py",
+      "size_bytes": 2479,
+      "mtime": 1782312287.2183957
+    },
+    {
+      "type": "test",
+      "path": "tests/test_risk_engine.py",
+      "size_bytes": 642,
+      "mtime": 1782198301.1528318
+    },
+    {
+      "type": "test",
+      "path": "tests/test_risk_max_daily_turnover.py",
+      "size_bytes": 2993,
+      "mtime": 1782316701.7381794
+    },
+    {
+      "type": "test",
+      "path": "tests/test_rule_memory.py",
+      "size_bytes": 811,
+      "mtime": 1782199452.6910138
+    },
+    {
+      "type": "test",
+      "path": "tests/test_runtime_health.py",
+      "size_bytes": 2159,
+      "mtime": 1782200692.8414874
+    },
+    {
+      "type": "test",
+      "path": "tests/test_settings_timezone.py",
+      "size_bytes": 1235,
+      "mtime": 1782316701.7381794
+    },
+    {
+      "type": "test",
+      "path": "tests/test_shadow_runner.py",
+      "size_bytes": 451,
+      "mtime": 1782198327.222227
+    },
+    {
+      "type": "test",
+      "path": "tests/test_signal_schema.py",
+      "size_bytes": 850,
+      "mtime": 1782198301.1528318
+    },
+    {
+      "type": "test",
+      "path": "tests/test_signal_scorecard.py",
+      "size_bytes": 582,
+      "mtime": 1782198327.2200794
+    },
+    {
+      "type": "test",
+      "path": "tests/test_storage.py",
+      "size_bytes": 1338,
+      "mtime": 1782198469.241997
+    },
+    {
+      "type": "test",
+      "path": "tests/test_strategy_comparison.py",
+      "size_bytes": 5203,
+      "mtime": 1782308889.5269213
+    },
+    {
+      "type": "test",
+      "path": "tests/test_strategy_leaderboard.py",
+      "size_bytes": 4086,
+      "mtime": 1782229397.9421635
+    },
+    {
+      "type": "test",
+      "path": "tests/test_strategy_scorecard.py",
+      "size_bytes": 537,
+      "mtime": 1782198327.2210846
+    },
+    {
+      "type": "test",
+      "path": "tests/test_system_dashboard.py",
+      "size_bytes": 1956,
+      "mtime": 1782312287.2101593
+    },
+    {
+      "type": "test",
+      "path": "tests/test_system_integrity_audit.py",
+      "size_bytes": 4821,
+      "mtime": 1782319040.5017798
+    },
+    {
+      "type": "test",
+      "path": "tests/test_system_smoke_test.py",
+      "size_bytes": 2780,
+      "mtime": 1782319040.502722
+    },
+    {
+      "type": "test",
+      "path": "tests/test_universe.py",
+      "size_bytes": 493,
+      "mtime": 1782198301.1502495
+    },
+    {
+      "type": "test",
+      "path": "tests/test_usability_audit.py",
+      "size_bytes": 4681,
+      "mtime": 1782321335.0548096
+    },
+    {
+      "type": "test",
+      "path": "tests/test_v051_validation_gap_remediation.py",
+      "size_bytes": 1082,
+      "mtime": 1782316767.7482464
+    },
+    {
+      "type": "test",
+      "path": "tests/test_virtual_broker.py",
+      "size_bytes": 879,
+      "mtime": 1782198301.1533456
+    },
+    {
+      "type": "test",
+      "path": "tests/test_walk_forward.py",
+      "size_bytes": 350,
+      "mtime": 1782198301.1601093
+    },
+    {
+      "type": "test",
+      "path": "tests/test_walk_forward_dataset.py",
+      "size_bytes": 2807,
+      "mtime": 1782285233.9788992
+    },
+    {
+      "type": "test",
+      "path": "tests/test_weekly_research_report.py",
+      "size_bytes": 3934,
+      "mtime": 1782312287.2101593
+    },
+    {
+      "type": "test",
+      "path": "tests/test_yfinance_fallback.py",
+      "size_bytes": 7193,
+      "mtime": 1782233305.4424615
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/artifact_browser.json",
+      "size_bytes": 15158,
+      "mtime": 1782321377.2693672
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/artifact_coverage_scan.json",
+      "size_bytes": 170883,
+      "mtime": 1782379784.1563442
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/artifact_inventory.json",
+      "size_bytes": 9200,
+      "mtime": 1782318955.141917
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/authorized_full_historical_proxy_manifest.json",
+      "size_bytes": 16043,
+      "mtime": 1782364934.1294844
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/boundary_regression_audit.json",
+      "size_bytes": 1037,
+      "mtime": 1782318955.4638028
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/claude_v05_system_validation_audit.json",
+      "size_bytes": 2834,
+      "mtime": 1782315600.0791185
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/cli_inventory.json",
+      "size_bytes": 25000,
+      "mtime": 1782318955.1318185
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_accepted_warning_register.json",
+      "size_bytes": 4856,
+      "mtime": 1782377847.184566
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_blocking_conditions.json",
+      "size_bytes": 6667,
+      "mtime": 1782377847.7548063
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_data_freeze_manifest.json",
+      "size_bytes": 8001,
+      "mtime": 1782377846.7510107
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_manual_confirmation_packet.json",
+      "size_bytes": 2009,
+      "mtime": 1782377848.8148067
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_readiness_audit.json",
+      "size_bytes": 1984,
+      "mtime": 1782377850.1184912
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_readiness_report.json",
+      "size_bytes": 1486,
+      "mtime": 1782377849.6179047
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day0_run_daily_preflight.json",
+      "size_bytes": 3496,
+      "mtime": 1782377848.318095
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/day1_blocker_classification.json",
+      "size_bytes": 7374,
+      "mtime": 1782379784.9153678
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/final_handoff_review_summary.json",
+      "size_bytes": 5538,
+      "mtime": 1782321375.965016
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/forward_dry_run_operating_calendar.json",
+      "size_bytes": 13757,
+      "mtime": 1782377849.1990027
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/forward_dry_run_readiness.json",
+      "size_bytes": 2040,
+      "mtime": 1782323013.166147
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_evidence_quality.json",
+      "size_bytes": 3243,
+      "mtime": 1782358622.7140324
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_evidence_quality_audit.json",
+      "size_bytes": 2020,
+      "mtime": 1782358623.3349686
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_normalization_summary.json",
+      "size_bytes": 1098,
+      "mtime": 1782357417.0401063
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_package_coverage_audit.json",
+      "size_bytes": 1511,
+      "mtime": 1782364934.346483
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_package_manifest.json",
+      "size_bytes": 2750,
+      "mtime": 1782357415.4362392
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_production_acceptance_criteria.json",
+      "size_bytes": 1123,
+      "mtime": 1782358623.0150745
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_real_package_integration_audit.json",
+      "size_bytes": 2249,
+      "mtime": 1782357418.1220963
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_real_package_integration_report.json",
+      "size_bytes": 4207,
+      "mtime": 1782357417.5781877
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_replay_audit.json",
+      "size_bytes": 2297,
+      "mtime": 1782324408.0411656
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_signal_contract.json",
+      "size_bytes": 580,
+      "mtime": 1782354688.5551808
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_signal_validation.json",
+      "size_bytes": 5432,
+      "mtime": 1782364934.27956
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/global_briefing_warning_triage.json",
+      "size_bytes": 13171,
+      "mtime": 1782358622.3708198
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_auth_global_briefing_signals_manifest.json",
+      "size_bytes": 956,
+      "mtime": 1782361802.0505786
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_benchmark_index_manifest.json",
+      "size_bytes": 1223,
+      "mtime": 1782361691.1801758
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_commodity_inflation_risk_manifest.json",
+      "size_bytes": 1632,
+      "mtime": 1782361796.0247722
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_etf_ohlcv_manifest.json",
+      "size_bytes": 1205,
+      "mtime": 1782361675.326678
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_fx_usdcny_manifest.json",
+      "size_bytes": 1358,
+      "mtime": 1782361702.1157584
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_global_risk_vix_manifest.json",
+      "size_bytes": 1249,
+      "mtime": 1782361718.2830758
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_oecd_cli_macro_cycle_manifest.json",
+      "size_bytes": 1671,
+      "mtime": 1782364932.3634262
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_policy_uncertainty_epu_manifest.json",
+      "size_bytes": 1640,
+      "mtime": 1782364931.6413116
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/hist_rates_liquidity_manifest.json",
+      "size_bytes": 1649,
+      "mtime": 1782361757.8223882
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_acquisition_audit.json",
+      "size_bytes": 1722,
+      "mtime": 1782364934.9078543
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_acquisition_report.json",
+      "size_bytes": 15888,
+      "mtime": 1782364934.6972888
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_download_manifest.json",
+      "size_bytes": 15698,
+      "mtime": 1782364932.3731618
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_gap_closure_audit.json",
+      "size_bytes": 1948,
+      "mtime": 1782364936.0508854
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_gap_closure_report.json",
+      "size_bytes": 2624,
+      "mtime": 1782364935.5120795
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_gap_closure_workflow.json",
+      "size_bytes": 2315,
+      "mtime": 1782364934.911428
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_quality_audit.json",
+      "size_bytes": 6215,
+      "mtime": 1782364934.2401874
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_data_source_resolution.json",
+      "size_bytes": 4780,
+      "mtime": 1782364932.3731618
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_package_normalization_summary.json",
+      "size_bytes": 34709,
+      "mtime": 1782364934.1396368
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/historical_warning_inventory.json",
+      "size_bytes": 11916,
+      "mtime": 1782364934.911428
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/isolated_replay_adapter_audit.json",
+      "size_bytes": 1873,
+      "mtime": 1782354830.13928
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/latest_artifact.json",
+      "size_bytes": 1651,
+      "mtime": 1782321376.848625
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/mvp_gap_classification.json",
+      "size_bytes": 10586,
+      "mtime": 1782379784.5809612
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/mvp_requirement_map.json",
+      "size_bytes": 17497,
+      "mtime": 1782379902.5590043
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/next_work_register.json",
+      "size_bytes": 1577,
+      "mtime": 1782379785.262282
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/plan_alignment_audit.json",
+      "size_bytes": 2093,
+      "mtime": 1782379785.7246652
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/plan_checklist.json",
+      "size_bytes": 12537,
+      "mtime": 1782379902.1286883
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/project_status_summary.json",
+      "size_bytes": 1652,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/quick_status.json",
+      "size_bytes": 782,
+      "mtime": 1782321377.4978547
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/report_index.json",
+      "size_bytes": 8367,
+      "mtime": 1782321376.274297
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/reporting_system_audit.json",
+      "size_bytes": 2305,
+      "mtime": 1782312418.0442462
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/research_pipeline_summary-2026-06-01-2026-06-30.json",
+      "size_bytes": 2099,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/system_dashboard.json",
+      "size_bytes": 1001,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/system_integrity_audit.json",
+      "size_bytes": 925,
+      "mtime": 1782318955.9196384
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/system_smoke_test.json",
+      "size_bytes": 4657,
+      "mtime": 1782318955.1516614
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/usability_audit.json",
+      "size_bytes": 1019,
+      "mtime": 1782322146.5975728
+    },
+    {
+      "type": "artifact",
+      "path": "data/system/v051_validation_gap_remediation.json",
+      "size_bytes": 1352,
+      "mtime": 1782316798.6689813
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/ARTIFACT_BROWSER.md",
+      "size_bytes": 3302,
+      "mtime": 1782321377.27016
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/ARTIFACT_COVERAGE_SCAN.md",
+      "size_bytes": 467,
+      "mtime": 1782379784.1563442
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/ARTIFACT_INVENTORY.md",
+      "size_bytes": 2462,
+      "mtime": 1782318955.141917
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/AUTHORIZED_FULL_HISTORICAL_PROXY_PACKAGE_REPORT.md",
+      "size_bytes": 556,
+      "mtime": 1782364934.1294844
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/CLI_INVENTORY.md",
+      "size_bytes": 7175,
+      "mtime": 1782318955.141917
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_ACCEPTED_WARNING_REGISTER.md",
+      "size_bytes": 1669,
+      "mtime": 1782377847.184566
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_BLOCKING_CONDITIONS.md",
+      "size_bytes": 2959,
+      "mtime": 1782377847.7548063
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_DATA_FREEZE_MANIFEST.md",
+      "size_bytes": 2218,
+      "mtime": 1782377846.75203
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_MANUAL_CONFIRMATION_PACKET.md",
+      "size_bytes": 1163,
+      "mtime": 1782377848.8148067
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_READINESS_REPORT.md",
+      "size_bytes": 707,
+      "mtime": 1782377849.6179047
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY0_RUN_DAILY_PREFLIGHT_CHECKLIST.md",
+      "size_bytes": 2052,
+      "mtime": 1782377848.3190956
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/DAY1_BLOCKER_CLASSIFICATION.md",
+      "size_bytes": 1282,
+      "mtime": 1782379784.9193568
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/FINAL_HANDOFF_REVIEW_REPORT.md",
+      "size_bytes": 4443,
+      "mtime": 1782321375.965016
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/FORWARD_DRY_RUN_30D_PLAN.md",
+      "size_bytes": 1504,
+      "mtime": 1782323013.122221
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/FORWARD_DRY_RUN_DAILY_LOG_TEMPLATE.md",
+      "size_bytes": 407,
+      "mtime": 1782377849.1990027
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/FORWARD_DRY_RUN_DAY0_CHECKLIST.md",
+      "size_bytes": 1211,
+      "mtime": 1782323013.122221
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/FORWARD_DRY_RUN_OPERATING_CALENDAR.md",
+      "size_bytes": 688,
+      "mtime": 1782377849.1990027
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_EVIDENCE_QUALITY_REPORT.md",
+      "size_bytes": 2389,
+      "mtime": 1782358622.7140324
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_NORMALIZATION_REPORT.md",
+      "size_bytes": 781,
+      "mtime": 1782357417.0401063
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_PACKAGE_MANIFEST.md",
+      "size_bytes": 1070,
+      "mtime": 1782357415.4362392
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_PRODUCTION_ACCEPTANCE_CRITERIA.md",
+      "size_bytes": 860,
+      "mtime": 1782358623.0150745
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_SIGNAL_CONTRACT.md",
+      "size_bytes": 619,
+      "mtime": 1782354688.5551808
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_SIGNAL_VALIDATION.md",
+      "size_bytes": 3909,
+      "mtime": 1782364934.27956
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/GLOBAL_BRIEFING_WARNING_TRIAGE.md",
+      "size_bytes": 919,
+      "mtime": 1782358622.3708198
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_AUTH_GLOBAL_BRIEFING_SIGNALS_PACKAGE_REPORT.md",
+      "size_bytes": 618,
+      "mtime": 1782361802.0505786
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_BENCHMARK_INDEX_PACKAGE_REPORT.md",
+      "size_bytes": 669,
+      "mtime": 1782361691.1813638
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_COMMODITY_INFLATION_RISK_PACKAGE_REPORT.md",
+      "size_bytes": 1027,
+      "mtime": 1782361796.0247722
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_ETF_OHLCV_PACKAGE_REPORT.md",
+      "size_bytes": 663,
+      "mtime": 1782361675.326678
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_FX_USDCNY_PACKAGE_REPORT.md",
+      "size_bytes": 793,
+      "mtime": 1782361702.1157584
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_GLOBAL_RISK_VIX_PACKAGE_REPORT.md",
+      "size_bytes": 689,
+      "mtime": 1782361718.2830758
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_OECD_CLI_MACRO_CYCLE_PACKAGE_REPORT.md",
+      "size_bytes": 752,
+      "mtime": 1782364932.3634262
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_POLICY_UNCERTAINTY_EPU_PACKAGE_REPORT.md",
+      "size_bytes": 804,
+      "mtime": 1782364931.6413116
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HIST_RATES_LIQUIDITY_PACKAGE_REPORT.md",
+      "size_bytes": 1057,
+      "mtime": 1782361757.8223882
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_DATA_ACQUISITION_REPORT.md",
+      "size_bytes": 2379,
+      "mtime": 1782364934.6972888
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_DATA_DOWNLOAD_MANIFEST.md",
+      "size_bytes": 2895,
+      "mtime": 1782364932.3762014
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_DATA_GAP_CLOSURE_REPORT.md",
+      "size_bytes": 554,
+      "mtime": 1782364935.5120795
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_DATA_GAP_CLOSURE_WORKFLOW.md",
+      "size_bytes": 1816,
+      "mtime": 1782364934.9136436
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_DATA_SOURCE_RESOLUTION.md",
+      "size_bytes": 1337,
+      "mtime": 1782364932.3731618
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_PACKAGE_NORMALIZATION_REPORT.md",
+      "size_bytes": 2608,
+      "mtime": 1782364934.1396368
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/HISTORICAL_WARNING_INVENTORY.md",
+      "size_bytes": 2459,
+      "mtime": 1782364934.911428
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/LATEST_ARTIFACT.md",
+      "size_bytes": 702,
+      "mtime": 1782321376.849605
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/MVP_GAP_CLASSIFICATION.md",
+      "size_bytes": 1674,
+      "mtime": 1782379784.5809612
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/MVP_REQUIREMENT_MAP.md",
+      "size_bytes": 2361,
+      "mtime": 1782379902.5590043
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/NEXT_WORK_REGISTER.md",
+      "size_bytes": 487,
+      "mtime": 1782379785.262282
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/PLAN_CHECKLIST.md",
+      "size_bytes": 2144,
+      "mtime": 1782379902.1286883
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/PROJECT_STATUS_REPORT.md",
+      "size_bytes": 1141,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/QUICK_STATUS.md",
+      "size_bytes": 677,
+      "mtime": 1782321377.4978547
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/REPORT_INDEX.md",
+      "size_bytes": 1609,
+      "mtime": 1782321376.274297
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/RESEARCH_PIPELINE_REPORT-2026-06-01-2026-06-30.md",
+      "size_bytes": 1019,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/SYSTEM_DASHBOARD.md",
+      "size_bytes": 1457,
+      "mtime": 1782312417.697036
+    },
+    {
+      "type": "report",
+      "path": "outputs/system/SYSTEM_SMOKE_TEST.md",
+      "size_bytes": 2166,
+      "mtime": 1782318955.1516614
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/BOUNDARY_REGRESSION_AUDIT.md",
+      "size_bytes": 676,
+      "mtime": 1782318955.4638028
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/CLAUDE_ARCHITECTURE_AND_TEST_AUDIT.md",
+      "size_bytes": 10736,
+      "mtime": 1782287823.0392196
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/DAY0_READINESS_AUDIT.md",
+      "size_bytes": 1055,
+      "mtime": 1782377850.1201763
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/EXPERIMENT_SYSTEM_AUDIT.md",
+      "size_bytes": 4116,
+      "mtime": 1782310340.5993395
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/FORWARD_DRY_RUN_READINESS_AUDIT.md",
+      "size_bytes": 2270,
+      "mtime": 1782323013.1712873
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/GLOBAL_BRIEFING_EVIDENCE_QUALITY_AUDIT.md",
+      "size_bytes": 901,
+      "mtime": 1782358623.3381934
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/GLOBAL_BRIEFING_PACKAGE_COVERAGE_AUDIT.md",
+      "size_bytes": 759,
+      "mtime": 1782364934.346483
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/GLOBAL_BRIEFING_REAL_PACKAGE_INTEGRATION_AUDIT.md",
+      "size_bytes": 1160,
+      "mtime": 1782357418.1220963
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/GLOBAL_BRIEFING_REPLAY_AUDIT.md",
+      "size_bytes": 1159,
+      "mtime": 1782324408.0411656
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/HISTORICAL_DATA_ACQUISITION_AUDIT.md",
+      "size_bytes": 911,
+      "mtime": 1782364934.9078543
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/HISTORICAL_DATA_GAP_CLOSURE_AUDIT.md",
+      "size_bytes": 768,
+      "mtime": 1782364936.0508854
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/HISTORICAL_DATA_QUALITY_AUDIT.md",
+      "size_bytes": 1246,
+      "mtime": 1782364934.2401874
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/ISOLATED_REPLAY_ADAPTER_AUDIT.md",
+      "size_bytes": 993,
+      "mtime": 1782354830.13928
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/PLAN_ALIGNMENT_AUDIT.md",
+      "size_bytes": 928,
+      "mtime": 1782379785.7246652
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/REPORTING_SYSTEM_AUDIT.md",
+      "size_bytes": 2048,
+      "mtime": 1782312418.0462573
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/SYSTEM_INTEGRITY_AUDIT.md",
+      "size_bytes": 643,
+      "mtime": 1782318955.9196384
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/USABILITY_AUDIT.md",
+      "size_bytes": 714,
+      "mtime": 1782322146.5975728
+    },
+    {
+      "type": "audit",
+      "path": "outputs/audit/V051_VALIDATION_GAP_REMEDIATION.md",
+      "size_bytes": 877,
+      "mtime": 1782316798.6689813
+    },
+    {
+      "type": "doc",
+      "path": "docs/ARCHITECTURE.md",
+      "size_bytes": 2140,
+      "mtime": 1782318529.1274948
+    },
+    {
+      "type": "doc",
+      "path": "docs/ARTIFACT_MAP.md",
+      "size_bytes": 6369,
+      "mtime": 1782379740.5940003
+    },
+    {
+      "type": "doc",
+      "path": "docs/CLI_REFERENCE.md",
+      "size_bytes": 20814,
+      "mtime": 1782379740.5929177
+    },
+    {
+      "type": "doc",
+      "path": "docs/COMMAND_COOKBOOK.md",
+      "size_bytes": 9306,
+      "mtime": 1782379772.5490282
+    },
+    {
+      "type": "doc",
+      "path": "docs/FORWARD_DRY_RUN_DAY0_READINESS.md",
+      "size_bytes": 2054,
+      "mtime": 1782379772.5490282
+    },
+    {
+      "type": "doc",
+      "path": "docs/FORWARD_DRY_RUN_RUNBOOK.md",
+      "size_bytes": 906,
+      "mtime": 1782318529.1317718
+    },
+    {
+      "type": "doc",
+      "path": "docs/GLOBAL_BRIEFING_PRODUCTION_ACCEPTANCE.md",
+      "size_bytes": 860,
+      "mtime": 1782358623.0150745
+    },
+    {
+      "type": "doc",
+      "path": "docs/HISTORICAL_BACKTEST_RUNBOOK.md",
+      "size_bytes": 1553,
+      "mtime": 1782278552.1188004
+    },
+    {
+      "type": "doc",
+      "path": "docs/HISTORICAL_DATA_PACKAGES.md",
+      "size_bytes": 7430,
+      "mtime": 1782364463.6381109
+    },
+    {
+      "type": "doc",
+      "path": "docs/PLAN_ALIGNMENT_AND_MVP_GAPS.md",
+      "size_bytes": 1933,
+      "mtime": 1782379772.5490282
+    },
+    {
+      "type": "doc",
+      "path": "docs/RELEASE_MATRIX.md",
+      "size_bytes": 5247,
+      "mtime": 1782379740.5912478
+    },
+    {
+      "type": "doc",
+      "path": "docs/RUNBOOK.md",
+      "size_bytes": 13018,
+      "mtime": 1782379772.5490282
+    },
+    {
+      "type": "doc",
+      "path": "docs/SAFETY_BOUNDARY.md",
+      "size_bytes": 742,
+      "mtime": 1782318529.128606
+    },
+    {
+      "type": "doc",
+      "path": "README.md",
+      "size_bytes": 10335,
+      "mtime": 1782379740.5902448
+    },
+    {
+      "type": "doc",
+      "path": "RELEASE_NOTES.md",
+      "size_bytes": 24052,
+      "mtime": 1782379892.2512274
+    },
+    {
+      "type": "doc",
+      "path": "VERSION",
+      "size_bytes": 44,
+      "mtime": 1782379740.589166
+    }
+  ],
+  "read_policy": {
+    "large_file_content_read": false,
+    "metadata_only": true,
+    "max_records": 5000
+  },
+  "boundary": {
+    "scanner_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

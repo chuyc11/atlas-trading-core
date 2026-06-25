@@ -58,6 +58,13 @@ from trading_core.global_briefing.replay_evaluation_report import build_global_b
 from trading_core.global_briefing.signal_contract import build_signal_contract
 from trading_core.global_briefing.signal_package_validator import validate_global_briefing_signals
 from trading_core.global_briefing.warning_triage import build_global_briefing_warning_triage
+from trading_core.planning.artifact_coverage_scanner import build_artifact_coverage_scan
+from trading_core.planning.day1_blocker_classifier import classify_day1_blockers
+from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
+from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
+from trading_core.planning.next_work_register import build_next_work_register
+from trading_core.planning.plan_alignment_audit import audit_plan_alignment
+from trading_core.planning.plan_checklist_extractor import build_plan_checklist
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.experiments.experiment_registry import (
     ExperimentRegistry,
@@ -530,6 +537,21 @@ def build_parser() -> argparse.ArgumentParser:
     operating_calendar.add_argument("--trading-days", type=int, default=30)
     subparsers.add_parser("day0-readiness-report")
     subparsers.add_parser("audit-day0-readiness")
+    plan_checklist = subparsers.add_parser("plan-checklist")
+    plan_checklist.add_argument("--plan")
+    requirement_map = subparsers.add_parser("mvp-requirement-map")
+    requirement_map.add_argument("--checklist")
+    subparsers.add_parser("artifact-coverage-scanner")
+    mvp_gaps = subparsers.add_parser("classify-mvp-gaps")
+    mvp_gaps.add_argument("--checklist")
+    mvp_gaps.add_argument("--requirement-map")
+    mvp_gaps.add_argument("--artifact-scan")
+    day1_blockers = subparsers.add_parser("classify-day1-blockers")
+    day1_blockers.add_argument("--mvp-gap-classification")
+    next_work = subparsers.add_parser("next-work-register")
+    next_work.add_argument("--mvp-gap-classification")
+    next_work.add_argument("--day1-blocker-classification")
+    subparsers.add_parser("audit-plan-alignment")
 
     return parser
 
@@ -1469,6 +1491,34 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "audit-day0-readiness":
         result = audit_day0_readiness(paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "plan-checklist":
+        result = build_plan_checklist(plan_path=args.plan, paths=paths)
+        print({"checklist_id": result["checklist_id"], "requirements": len(result["requirements"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "mvp-requirement-map":
+        result = build_mvp_requirement_map(checklist_path=args.checklist, paths=paths)
+        print({"map_id": result["map_id"], "requirements": len(result["requirements"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "artifact-coverage-scanner":
+        result = build_artifact_coverage_scan(paths=paths)
+        print({"scan_id": result["scan_id"], "counts": result["counts"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "classify-mvp-gaps":
+        result = classify_mvp_gaps(checklist_path=args.checklist, requirement_map_path=args.requirement_map, artifact_scan_path=args.artifact_scan, paths=paths)
+        print({"classification_id": result["classification_id"], "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "classify-day1-blockers":
+        result = classify_day1_blockers(mvp_gap_classification_path=args.mvp_gap_classification, paths=paths)
+        print({"classifier_id": result["classifier_id"], "day1_allowed": result["day1_allowed"], "blocking_count": result["blocking_count"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "next-work-register":
+        result = build_next_work_register(mvp_gap_classification_path=args.mvp_gap_classification, day1_blocker_classification_path=args.day1_blocker_classification, paths=paths)
+        print({"register_id": result["register_id"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-plan-alignment":
+        result = audit_plan_alignment(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

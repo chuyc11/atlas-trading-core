@@ -1,0 +1,47 @@
+{
+  "register_id": "NEXT-WORK-REGISTER-20260625-001",
+  "created_at": "2026-06-25T09:31:44.305025Z",
+  "mvp_gap_classification_path": "data/system/mvp_gap_classification.json",
+  "day1_blocker_classification_path": "data/system/day1_blocker_classification.json",
+  "recommended_next_version": "v0.5.9-ashare-execution-rules-hardening",
+  "reason": "A-share execution rule blockers remain before day 1.",
+  "work_items": [
+    {
+      "work_id": "t_day_signal_t_plus_1_execution",
+      "requirement_id": "R006",
+      "recommended_version": "v0.5.9",
+      "required_before_day1": true,
+      "status": "partial"
+    },
+    {
+      "work_id": "suspension_handling",
+      "requirement_id": "R007",
+      "recommended_version": "v0.5.9",
+      "required_before_day1": true,
+      "status": "partial"
+    },
+    {
+      "work_id": "limit_up_limit_down_handling",
+      "requirement_id": "R008",
+      "recommended_version": "v0.5.9",
+      "required_before_day1": true,
+      "status": "partial"
+    }
+  ],
+  "boundary": {
+    "register_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}

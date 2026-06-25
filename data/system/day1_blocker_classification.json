@@ -1,0 +1,201 @@
+{
+  "classifier_id": "DAY1-BLOCKER-CLASSIFICATION-20260625-001",
+  "created_at": "2026-06-25T09:31:44.001371Z",
+  "mvp_gap_classification_path": "data/system/mvp_gap_classification.json",
+  "day1_allowed": false,
+  "blocking_count": 3,
+  "requires_manual_acceptance_count": 3,
+  "blockers": [
+    {
+      "requirement_id": "R006",
+      "blocker_id": "missing_t_plus_1_semantics",
+      "severity": "blocking",
+      "reason": "Replay/execution adapter evidence exists, but explicit future day-1 T/T+1 acceptance remains incomplete.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R007",
+      "blocker_id": "missing_suspension_handling",
+      "severity": "blocking",
+      "reason": "Market rule evidence exists, but suspension handling is not yet a dedicated day-1 hardening artifact.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R008",
+      "blocker_id": "missing_limit_up_down_handling",
+      "severity": "blocking",
+      "reason": "Market rule evidence exists, but A-share limit up/down handling needs explicit day-1 hardening.",
+      "status": "partial"
+    }
+  ],
+  "requires_manual_acceptance": [
+    {
+      "requirement_id": "R004",
+      "blocker_id": "missing_adjusted_price_contract",
+      "severity": "requires_manual_acceptance",
+      "reason": "Adjusted price handling exists in data tooling but needs explicit day-1 acceptance wording.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R014",
+      "blocker_id": "missing_equity_curve",
+      "severity": "requires_manual_acceptance",
+      "reason": "Equity curve/reporting evidence exists, but forward dry-run use remains unvalidated.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R018",
+      "blocker_id": "parameter_data_code_versioning_gap",
+      "severity": "requires_manual_acceptance",
+      "reason": "Versioning exists through release tags and docs, but parameter/data/code binding can be strengthened.",
+      "status": "partial"
+    }
+  ],
+  "deferred_non_blocking": [
+    {
+      "requirement_id": "R022",
+      "blocker_id": "no_rl_llm_trading_decision_boundary_gap",
+      "severity": "deferred_non_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R023",
+      "blocker_id": "no_auto_promotion_boundary_gap",
+      "severity": "deferred_non_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    }
+  ],
+  "not_blocking": [
+    {
+      "requirement_id": "R001",
+      "blocker_id": "missing_trading_calendar",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R002",
+      "blocker_id": "universe_versioning_gap",
+      "severity": "not_blocking",
+      "reason": "Detected partial repo evidence but not a complete module/test/artifact chain.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R003",
+      "blocker_id": "missing_price_data",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R005",
+      "blocker_id": "missing_pit_contract",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R009",
+      "blocker_id": "st_and_new_listing_handling_gap",
+      "severity": "not_blocking",
+      "reason": "ST/new listing handling remains a scoped limitation rather than a complete MVP gate.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R010",
+      "blocker_id": "missing_execution_model",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R011",
+      "blocker_id": "missing_cost_model",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R012",
+      "blocker_id": "missing_ledger_accounting",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R013",
+      "blocker_id": "missing_ledger_accounting",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R015",
+      "blocker_id": "missing_benchmark_comparison",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R016",
+      "blocker_id": "baseline_rule_strategies_gap",
+      "severity": "not_blocking",
+      "reason": "Baseline strategy modules exist, but a dedicated baseline strategy pack is not complete.",
+      "status": "partial"
+    },
+    {
+      "requirement_id": "R017",
+      "blocker_id": "missing_daily_report",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R019",
+      "blocker_id": "boundary_violation",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R020",
+      "blocker_id": "boundary_violation",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R021",
+      "blocker_id": "boundary_violation",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    },
+    {
+      "requirement_id": "R024",
+      "blocker_id": "missing_30_day_forward_dry_run_plan",
+      "severity": "not_blocking",
+      "reason": "Detected current implementation, tests, artifacts, or boundary audit evidence.",
+      "status": "passed"
+    }
+  ],
+  "manual_confirmation_complete": false,
+  "boundary": {
+    "classifier_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false
+  }
+}
