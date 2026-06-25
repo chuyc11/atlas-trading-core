@@ -60,3 +60,6 @@ python -m trading_core.cli reclassify-day1-blockers-after-baseline-strategies
 - no broker connected
 - recommended next version is `v0.6.1-daily-workflow-binding`
 
+## Daily Workflow Binding
+
+v0.6.1 reads the baseline strategy contract and registry to generate one-day daily signals under `data/daily_workflow/signals/`. It does not rewrite `data/strategies/signals/`, `data/strategies/order_previews/`, `data/strategies/reports/`, `data/strategies/benchmark_comparison/`, `data/replays/strategies/`, or `outputs/replays/strategies/`.

@@ -1,5 +1,47 @@
 # Release Notes
 
+## v0.6.1-daily-workflow-binding-audited
+
+This release binds the v0.6.0 baseline strategy pack and v0.5.9 virtual execution rules into a repeatable daily research preview workflow. Daily workflow binding is research-only preview infrastructure and does not start forward dry-run. It uses local authorized historical daily data snapshots, does not download real-time market data, does not call `run-daily`, and does not write the main orders/trades/portfolio/accounts ledger.
+
+Includes:
+
+- daily workflow scope plan
+- daily market data snapshot contract
+- latest available trading date detection from local data
+- daily data freshness/completeness audit
+- daily input freeze manifest with file hashes
+- daily baseline signal binding
+- daily order preview binding
+- daily isolated execution preview
+- daily report packet
+- protected path residue scanner
+- daily workflow audit
+- day1 blocker reclassification v061
+
+Audited & Validated scope:
+
+- `daily-workflow-scope-plan` confirmed v0.6.0 baseline strategy pack completeness and kept day 1 disallowed.
+- `daily-market-data-snapshot --as-of-date 2024-12-31` generated a local historical snapshot without external download.
+- `audit-daily-data-quality` passed with universe coverage complete and risk proxy available; missing direct benchmark rows for CSI500, CSI1000, and CHINEXT are recorded as warnings.
+- `daily-input-freeze-manifest` recorded hashes for market data, benchmark data, risk proxy, baseline contracts, strategy registry, virtual execution, calendar, price status, lot position, cost contract, data quality audit, and snapshot.
+- `daily-baseline-signals --strategy all` generated daily signals for all three baseline strategies.
+- `daily-order-preview --strategy all --execution-mode isolated` generated preview-only order proposals with `executed=false`.
+- `daily-isolated-execution-preview --execution-mode isolated` generated state-free preview fills, rejects, costs, and valuation estimates with `execution_mode=isolated_preview`.
+- `daily-report-packet` generated the operator-facing research preview packet with explicit non-claims.
+- `protected-path-residue-scan` classified ignored runtime residue as nits and produced blocker count 0.
+- `audit-daily-workflow` passed with no blocking reasons and recommends `v0.6.2-forward-dry-run-start-authorization-pack`.
+- `reclassify-day1-blockers-after-daily-workflow` kept `day1_start_allowed=false`, `manual_confirmation_complete=false`, and `forward_dry_run_start_authorized=false`.
+- `run-daily` was not called.
+- Forward dry-run was not started or validated.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Labels, ML shadow, LLM, RL, experiments, and promotion outputs were not used as authorization.
+- Promotion was not triggered.
+- Historical preview output is not strategy effectiveness proof.
+- This release is not forward dry-run validation and not live trading readiness.
+
+Validation: 839 tests passed, 1 skipped.
+
 ## v0.6.0-baseline-strategy-pack-audited
 
 This release adds a research-only baseline strategy pack for future forward dry-run preparation. Baseline strategy pack is research-only and does not start forward dry-run. It does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not prove strategy effectiveness or certify live trading readiness.

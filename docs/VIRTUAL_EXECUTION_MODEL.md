@@ -6,6 +6,8 @@ This is not broker integration and not live trading readiness.
 
 v0.6.0 baseline strategy replay uses this model for isolated historical replay only. Baseline strategy pack is research-only and does not start forward dry-run.
 
+v0.6.1 daily workflow binding uses this model for daily isolated execution preview estimates only. It remains state-free and does not write main ledgers.
+
 ## Model
 
 - Calendar: SSE / SZSE / HKEX with explicit holidays and weekend handling.
@@ -17,6 +19,7 @@ v0.6.0 baseline strategy replay uses this model for isolated historical replay o
 - Ledger: rejected orders require reject reason; filled trades require fill price and cost fields.
 - Isolation: smoke ledgers are written under `data/replays/global_briefing/execution_aware_smoke/`.
 - Strategy replay isolation: v0.6.0 baseline strategy ledgers are written under `data/replays/strategies/`.
+- Daily workflow preview isolation: v0.6.1 preview artifacts are written under `data/daily_workflow/`.
 
 ## Boundary
 

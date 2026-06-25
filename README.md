@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.0-baseline-strategy-pack-audited
+v0.6.1-daily-workflow-binding-audited
 
 ## Completed milestones
 
@@ -40,6 +40,7 @@ v0.6.0-baseline-strategy-pack-audited
 - v0.5.8.1 plan alignment and MVP gap audited
 - v0.5.9 A-share execution rules hardened
 - v0.6.0 baseline strategy pack audited
+- v0.6.1 daily workflow binding audited
 
 ## Known limitations
 
@@ -53,6 +54,7 @@ v0.6.0-baseline-strategy-pack-audited
 - plan alignment is an audit, not day 1 authorization
 - v0.5.9 hardens virtual execution rules but does not start forward dry-run
 - v0.6.0 adds a research-only baseline strategy pack and does not start forward dry-run
+- v0.6.1 binds daily research workflow previews using local authorized historical daily snapshots
 - strategy effectiveness not proven
 - no live trading
 
@@ -107,6 +109,22 @@ python -m trading_core.cli baseline-strategy-report --strategy all --start-date 
 python -m trading_core.cli baseline-strategy-pack-summary
 python -m trading_core.cli audit-baseline-strategy-pack
 python -m trading_core.cli reclassify-day1-blockers-after-baseline-strategies
+```
+
+Run v0.6.1 daily workflow binding:
+
+```powershell
+python -m trading_core.cli daily-workflow-scope-plan
+python -m trading_core.cli daily-market-data-snapshot --as-of-date 2024-12-31
+python -m trading_core.cli audit-daily-data-quality --snapshot data/daily_workflow/snapshots/daily_market_data_snapshot-2024-12-31.json
+python -m trading_core.cli daily-input-freeze-manifest --as-of-date 2024-12-31
+python -m trading_core.cli daily-baseline-signals --as-of-date 2024-12-31 --strategy all
+python -m trading_core.cli daily-order-preview --as-of-date 2024-12-31 --strategy all --execution-mode isolated
+python -m trading_core.cli daily-isolated-execution-preview --as-of-date 2024-12-31 --execution-mode isolated
+python -m trading_core.cli daily-report-packet --as-of-date 2024-12-31
+python -m trading_core.cli protected-path-residue-scan
+python -m trading_core.cli audit-daily-workflow --as-of-date 2024-12-31
+python -m trading_core.cli reclassify-day1-blockers-after-daily-workflow
 ```
 
 Build features and labels:
@@ -238,3 +256,5 @@ python -m trading_core.cli audit-day0-readiness
 - isolated replay ledger is written only under `data/replays/global_briefing/`
 - v0.6.0 baseline strategy pack is research-only and does not start forward dry-run
 - v0.6.0 isolated strategy replay ledgers are written only under `data/replays/strategies/`
+- v0.6.1 daily workflow binding uses local authorized historical daily data snapshots and does not download real-time market data
+- v0.6.1 writes preview artifacts only under `data/daily_workflow/` and `outputs/daily_workflow/`

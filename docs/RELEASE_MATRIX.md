@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited baseline strategy line is `v0.6.0-baseline-strategy-pack-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited daily workflow line is `v0.6.1-daily-workflow-binding-audited`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -24,3 +24,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.5.8.1-plan-alignment-and-mvp-gap-audited | v0.5.8.1-plan-alignment-and-mvp-gap-audited | plan checklist, MVP requirement map, artifact scan, MVP gap classification, day-1 blocker classification, next work register, and plan alignment audit | yes | audit only; day 1 not authorized, run-daily not called, ML/LLM/RL/promotion not used |
 | v0.5.9-ashare-execution-rules-hardened | v0.5.9-ashare-execution-rules-hardened | A-share / ETF calendar, T+1 timeline, tradability, lot/position, cost, virtual execution contract, isolated ledger audit, replay smoke, day1 blocker reclassification, and release audit | yes | execution hardening only; forward dry-run not started, run-daily not called, main ledger not written, not strategy proof or live readiness |
 | v0.6.0-baseline-strategy-pack-audited | v0.6.0-baseline-strategy-pack-audited | deterministic baseline strategy pack, contract, registry, PIT-safe signals, order previews, isolated strategy replay, benchmark comparison, strategy reports, summary, audit, and v060 blocker reclassification | yes | research-only; forward dry-run not started, run-daily not called, main ledger not written, no ML/LLM/RL/promotion authorization |
+| v0.6.1-daily-workflow-binding-audited | v0.6.1-daily-workflow-binding-audited | daily workflow scope plan, local historical daily snapshot, data quality audit, freeze manifest, daily baseline signals, order previews, isolated execution preview, report packet, residue scan, workflow audit, and v061 blocker reclassification | yes | research-only preview; no real-time download, no run-daily, no forward dry-run start, no main ledger write |

@@ -321,3 +321,41 @@ Boundary:
 - RL not used
 - promotion not triggered
 - recommended next version is `v0.6.1-daily-workflow-binding`
+
+## Daily workflow binding
+
+This v0.6.1 workflow binds local authorized historical daily data snapshots, baseline strategy signals, order previews, isolated execution previews, report packets, and residue scanning into a repeatable daily research preview. Daily workflow binding is research-only preview infrastructure and does not start forward dry-run.
+
+```powershell
+python -m trading_core.cli daily-workflow-scope-plan
+python -m trading_core.cli daily-market-data-snapshot --as-of-date 2024-12-31
+python -m trading_core.cli audit-daily-data-quality --snapshot data/daily_workflow/snapshots/daily_market_data_snapshot-2024-12-31.json
+python -m trading_core.cli daily-input-freeze-manifest --as-of-date 2024-12-31
+python -m trading_core.cli daily-baseline-signals --as-of-date 2024-12-31 --strategy all
+python -m trading_core.cli daily-order-preview --as-of-date 2024-12-31 --strategy all --execution-mode isolated
+python -m trading_core.cli daily-isolated-execution-preview --as-of-date 2024-12-31 --execution-mode isolated
+python -m trading_core.cli daily-report-packet --as-of-date 2024-12-31
+python -m trading_core.cli protected-path-residue-scan
+python -m trading_core.cli audit-daily-workflow --as-of-date 2024-12-31
+python -m trading_core.cli reclassify-day1-blockers-after-daily-workflow
+```
+
+Boundary:
+
+- uses local authorized historical daily data snapshots
+- does not download real-time market data
+- detects latest available trading date from local data
+- checks data freshness/completeness relative to pinned `as_of_date`
+- freezes daily inputs and hashes
+- generates daily baseline signals, order previews, isolated execution previews, and report packets
+- scans protected path residue without deleting, moving, cleaning, or auto-fixing
+- run-daily not called
+- forward dry-run not started
+- main ledger not written
+- not strategy effectiveness proof
+- not forward dry-run validation
+- not live trading readiness
+- no broker connected
+- ML/LLM/RL not used for trading decisions
+- promotion not triggered
+- recommended next version is `v0.6.2-forward-dry-run-start-authorization-pack`

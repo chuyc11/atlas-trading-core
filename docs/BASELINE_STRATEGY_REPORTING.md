@@ -41,3 +41,6 @@ Each report must state:
 - no main ledger writes occur
 - no run-daily call occurs
 
+## Daily Report Packet
+
+v0.6.1 daily report packets summarize one-day daily baseline signals, order previews, isolated execution previews, warnings, cost estimates, and operator checklist items under `data/daily_workflow/reports/` and `outputs/daily_workflow/`. They do not trigger promotion and do not validate forward dry-run.
