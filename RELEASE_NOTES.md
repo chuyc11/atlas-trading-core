@@ -1,5 +1,42 @@
 # Release Notes
 
+## v0.5.8-day0-operational-readiness-audited
+
+This release adds the day-0 operational readiness pack for a future 30 trading-day forward dry-run. Day-0 readiness does not start forward dry-run. Historical data authorization is not trading authorization.
+
+Includes:
+
+- day-0 data freeze manifest
+- accepted warning register
+- blocking condition register
+- run-daily preflight checklist with command preview only
+- manual confirmation packet with all confirmation fields default false
+- forward dry-run operating calendar and daily log template
+- day-0 readiness report
+- day-0 readiness audit
+
+Audited & Validated scope:
+
+- `day0-data-freeze` generated frozen input package records and accepted known EPU/OECD limitations.
+- `day0-warning-register` classified remaining v0.5.7.1 warnings and produced `blocking_count=0`.
+- `day0-blocking-conditions` produced `current_blocking_count=0` while keeping manual confirmation required.
+- `day0-run-daily-preflight` generated a preview-only `run-daily` command with `executed=false`.
+- `day0-manual-confirmation-packet` kept `manual_confirmation_complete=false` and `forward_dry_run_start_authorized=false`.
+- `forward-dry-run-operating-calendar` generated a template-only 30 day operating calendar and daily log template.
+- `day0-readiness-report` produced `overall_status=ready_for_manual_confirmation`.
+- `audit-day0-readiness` passed with `overall_passed=True` and no blocking reasons.
+- EPU partial limitation is recorded.
+- OECD macro-cycle proxy limitation is recorded and not described as official OECD CLI.
+- Internal global-briefing historical package remains `not_configured`.
+- Proxy package is not an internal global-briefing signal.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- `run-daily` was not called.
+- Labels, ML shadow, experiments, promotion outputs, broker/live integration, RL, and LLM trading decisions were not used.
+
+Boundaries remain strict: day-0 readiness is not forward dry-run validation, not strategy effectiveness proof, not live trading readiness, not trading authorization, not broker integration, and not promotion approval.
+
+Validation: 737 tests passed, 1 skipped.
+
 ## v0.5.7.1-historical-data-gap-closure-audited
 
 This patch release closes v0.5.7 historical research data gaps and reduces warning noise for the authorized full historical proxy replay path. Historical data authorization is not trading authorization.

@@ -191,3 +191,32 @@ Boundary:
 - forward dry-run not started or validated
 - historical replay is not strategy effectiveness proof
 - not live trading readiness
+
+## Day-0 operational readiness pack
+
+This v0.5.8 workflow prepares the day-0 packet for a future 30 trading-day forward dry-run. Day-0 readiness does not start forward dry-run.
+
+```powershell
+python -m trading_core.cli day0-data-freeze
+python -m trading_core.cli day0-warning-register
+python -m trading_core.cli day0-blocking-conditions
+python -m trading_core.cli day0-run-daily-preflight
+python -m trading_core.cli day0-manual-confirmation-packet
+python -m trading_core.cli forward-dry-run-operating-calendar
+python -m trading_core.cli day0-readiness-report
+python -m trading_core.cli audit-day0-readiness
+```
+
+Boundary:
+
+- day-0 readiness does not start forward dry-run
+- run-daily not called
+- manual confirmation remains incomplete by default
+- EPU partial limitation accepted
+- OECD macro-cycle proxy limitation accepted and not official OECD CLI
+- internal global-briefing historical package remains not_configured
+- proxy package is not an internal global-briefing signal
+- historical data authorization is not trading authorization
+- not strategy effectiveness proof
+- not live trading readiness
+- main ledger not written

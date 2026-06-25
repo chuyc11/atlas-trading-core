@@ -32,6 +32,7 @@ python -m trading_core.cli audit-global-briefing-real-package-integration
 python -m trading_core.cli audit-global-briefing-evidence-quality
 python -m trading_core.cli audit-historical-data-acquisition
 python -m trading_core.cli audit-historical-data-gap-closure
+python -m trading_core.cli audit-day0-readiness
 ```
 
 ## Run reporting pipeline
@@ -101,6 +102,21 @@ python -m trading_core.cli audit-historical-data-gap-closure
 
 This v0.5.7.1 path repairs or proxies EPU, repairs OECD CLI or builds an authorized macro-cycle proxy explicitly marked as not official OECD CLI, rebuilds the proxy package, preserves raw warning counts, and displays grouped warnings. It is not forward dry-run validation, not live trading readiness, not strategy effectiveness proof, and not trading authorization.
 
+## Run day-0 operational readiness pack
+
+```bash
+python -m trading_core.cli day0-data-freeze
+python -m trading_core.cli day0-warning-register
+python -m trading_core.cli day0-blocking-conditions
+python -m trading_core.cli day0-run-daily-preflight
+python -m trading_core.cli day0-manual-confirmation-packet
+python -m trading_core.cli forward-dry-run-operating-calendar
+python -m trading_core.cli day0-readiness-report
+python -m trading_core.cli audit-day0-readiness
+```
+
+This v0.5.8 path prepares manual confirmation for a future day 1. It does not start forward dry-run, does not call run-daily, does not complete manual confirmation, does not prove strategy effectiveness, and does not certify live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -112,6 +128,7 @@ This v0.5.7.1 path repairs or proxies EPU, repairs OECD CLI or builds an authori
 * do not treat evidence-quality reports as production package acceptance
 * do not treat authorized historical data acquisition as trading authorization
 * do not treat historical gap closure as trading authorization or production global-briefing validation
+* do not treat day-0 readiness as forward dry-run validation or live trading readiness
 * do not treat proxy signals as internal global-briefing signals
 
 ## Boundary
@@ -122,3 +139,4 @@ This v0.5.7.1 path repairs or proxies EPU, repairs OECD CLI or builds an authori
 * Global-briefing historical replay and real package integration are isolated and write no main ledger.
 * v0.5.7 authorized historical data acquisition writes no main ledger and does not call run-daily.
 * v0.5.7.1 historical data gap closure writes no main ledger and does not call run-daily.
+* v0.5.8 day-0 readiness writes no main ledger and does not call run-daily.

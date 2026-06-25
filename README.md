@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.7.1-historical-data-gap-closure-audited
+v0.5.8-day0-operational-readiness-audited
 
 ## Completed milestones
 
@@ -36,6 +36,7 @@ v0.5.7.1-historical-data-gap-closure-audited
 - v0.5.6.1 warning triage and evidence quality audited
 - v0.5.7 authorized full historical data acquisition audited
 - v0.5.7.1 historical data gap closure audited
+- v0.5.8 day-0 operational readiness audited
 
 ## Known limitations
 
@@ -155,6 +156,19 @@ python -m trading_core.cli historical-data-gap-closure-report
 python -m trading_core.cli audit-historical-data-gap-closure
 ```
 
+Run v0.5.8 day-0 operational readiness pack:
+
+```powershell
+python -m trading_core.cli day0-data-freeze
+python -m trading_core.cli day0-warning-register
+python -m trading_core.cli day0-blocking-conditions
+python -m trading_core.cli day0-run-daily-preflight
+python -m trading_core.cli day0-manual-confirmation-packet
+python -m trading_core.cli forward-dry-run-operating-calendar
+python -m trading_core.cli day0-readiness-report
+python -m trading_core.cli audit-day0-readiness
+```
+
 ## Safety boundary
 
 - no broker
@@ -166,6 +180,7 @@ python -m trading_core.cli audit-historical-data-gap-closure
 - local global-briefing package integration uses local files only and no network access
 - v0.5.7 historical package acquisition may use approved public data endpoints and authorized local/API configuration for historical research data only
 - v0.5.7.1 historical gap closure only repairs or proxies historical research packages and groups warnings
+- v0.5.8 day-0 readiness does not start forward dry-run and does not call run-daily
 - no forward dry-run started by the historical replay harness
 - no forward dry-run started by the real package integration workflow
 - no forward dry-run started by authorized historical data acquisition
