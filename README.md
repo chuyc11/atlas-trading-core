@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.5.5-isolated-replay-execution-adapter-audited
+v0.5.6-real-global-briefing-signal-integration-audited
 
 ## Completed milestones
 
@@ -32,11 +32,12 @@ v0.5.5-isolated-replay-execution-adapter-audited
 - v0.5.3 forward dry-run readiness audited
 - v0.5.4 global-briefing historical replay harness audited
 - v0.5.5 isolated replay execution adapter audited
+- v0.5.6 real global-briefing signal integration audited
 
 ## Known limitations
 
 - forward 30d dry-run not completed
-- global-briefing isolated replay adapter is complete for fixture E2E, but fixture smoke data is not broad historical coverage
+- global-briefing real package integration is complete for local fixture E2E, but fixture smoke data is not broad historical coverage
 - strategy effectiveness not proven
 - no live trading
 
@@ -93,6 +94,7 @@ python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli audit-global-briefing-replay
 python -m trading_core.cli audit-isolated-replay-adapter
+python -m trading_core.cli audit-global-briefing-real-package-integration
 ```
 
 Run the global-briefing historical replay harness smoke:
@@ -106,12 +108,25 @@ python -m trading_core.cli global-briefing-replay-report --replay data/replays/g
 python -m trading_core.cli audit-isolated-replay-adapter
 ```
 
+Run the real global-briefing package integration smoke:
+
+```powershell
+python -m trading_core.cli global-briefing-package-manifest --root tests/fixtures/global_briefing_real
+python -m trading_core.cli normalize-global-briefing-package --input tests/fixtures/global_briefing_real/real_package_aliases.csv --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1
+python -m trading_core.cli audit-global-briefing-package-coverage --signals data/global_briefing/normalized/GB-REAL-FIXTURE.normalized.jsonl --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --min-coverage 0.60
+python -m trading_core.cli run-global-briefing-real-package-replay --input tests/fixtures/global_briefing_real/real_package_aliases.csv --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1 --allow-carry-forward --min-coverage 0.60 --execution-mode isolated
+python -m trading_core.cli global-briefing-real-package-report
+python -m trading_core.cli audit-global-briefing-real-package-integration
+```
+
 ## Safety boundary
 
 - no broker
 - no live trading
 - no real orders
 - no auto promotion
+- local global-briefing package integration uses local files only and no network access
 - no forward dry-run started by the historical replay harness
+- no forward dry-run started by the real package integration workflow
 - no labels, ML shadow, experiments, RL, or LLM trading decisions in the global-briefing replay decision path
 - isolated replay ledger is written only under `data/replays/global_briefing/`

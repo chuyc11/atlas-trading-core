@@ -28,6 +28,7 @@ python -m trading_core.cli system-integrity-audit
 python -m trading_core.cli forward-dry-run-readiness
 python -m trading_core.cli audit-global-briefing-replay
 python -m trading_core.cli audit-isolated-replay-adapter
+python -m trading_core.cli audit-global-briefing-real-package-integration
 ```
 
 ## Run reporting pipeline
@@ -49,6 +50,19 @@ python -m trading_core.cli audit-isolated-replay-adapter
 
 The global-briefing replay harness is isolated historical replay only. v0.5.5 replaces the fixture E2E no-trade fallback with isolated execution artifacts under `data/replays/global_briefing/` only. It is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
 
+## Run real global-briefing package integration
+
+```bash
+python -m trading_core.cli global-briefing-package-manifest --root tests/fixtures/global_briefing_real
+python -m trading_core.cli normalize-global-briefing-package --input tests/fixtures/global_briefing_real/real_package_aliases.csv --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1
+python -m trading_core.cli audit-global-briefing-package-coverage --signals data/global_briefing/normalized/GB-REAL-FIXTURE.normalized.jsonl --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --min-coverage 0.60
+python -m trading_core.cli run-global-briefing-real-package-replay --input tests/fixtures/global_briefing_real/real_package_aliases.csv --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1 --allow-carry-forward --min-coverage 0.60 --execution-mode isolated
+python -m trading_core.cli global-briefing-real-package-report
+python -m trading_core.cli audit-global-briefing-real-package-integration
+```
+
+The real package integration path is local-file-only. It normalizes historical global-briefing packages, audits coverage and point-in-time safety, and runs isolated replay under `data/replays/global_briefing/`; it is not forward dry-run validation, not live trading readiness, and not strategy effectiveness proof.
+
 ## What not to do
 
 * do not run live trading
@@ -56,10 +70,11 @@ The global-briefing replay harness is isolated historical replay only. v0.5.5 re
 * do not use historical replay as forward dry-run
 * do not use reports as admission gate
 * do not treat global-briefing replay artifacts as broker or promotion output
+* do not treat real package integration as live readiness or forward validation
 
 ## Boundary
 
 * This project remains research-only.
 * This system is not live-ready.
 * Forward 30d dry-run is not completed.
-* Global-briefing historical replay is isolated and writes no main ledger.
+* Global-briefing historical replay and real package integration are isolated and write no main ledger.

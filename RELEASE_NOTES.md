@@ -1,5 +1,39 @@
 # Release Notes
 
+## v0.5.6-real-global-briefing-signal-integration-audited
+
+This release adds the local real global-briefing historical signal package integration layer on top of the audited isolated replay adapter.
+
+Includes:
+
+- local global-briefing package manifest generation
+- real package normalization to the v1 signal contract
+- package coverage and point-in-time audit
+- real package isolated replay workflow
+- integration report
+- real package integration release audit
+- fixture-based local package inputs for JSONL/CSV and point-in-time checks
+
+Audited & Validated scope:
+
+- `global-briefing-package-manifest --root tests/fixtures/global_briefing_real` found local package files.
+- `normalize-global-briefing-package` generated `data/global_briefing/normalized/GB-REAL-FIXTURE.normalized.jsonl`.
+- `audit-global-briefing-package-coverage` passed with `coverage_ratio=0.6` and no blocking reasons.
+- `run-global-briefing-real-package-replay --execution-mode isolated` completed with `overall_status=research_review_ready`.
+- `global-briefing-real-package-report` produced `overall_status=research_review_ready`.
+- `audit-global-briefing-real-package-integration` passed with `overall_passed=True`.
+- Blocking reasons: none.
+- Main orders/trades/portfolio/accounts ledgers were not written.
+- Only isolated replay ledger artifacts were written under `data/replays/global_briefing/`.
+- `run-daily` was not called.
+- No network request was used.
+- Labels, ML shadow, experiments, promotion outputs, RL, and LLM trading decisions were not used.
+- Forward dry-run was not started or validated.
+
+Boundaries remain strict: local historical package integration only, not forward dry-run validation, not live trading readiness, not strategy effectiveness proof, no broker, no real orders, no strategy state or parameter changes, no promotion, no RL trading, and no LLM trading decisions.
+
+Validation: 633 tests passed, 1 skipped.
+
 ## v0.5.5-isolated-replay-execution-adapter-audited
 
 This release adds the isolated replay execution adapter for global-briefing historical replay. The fixture E2E path no longer uses the no-trade fallback; it generates isolated virtual signals, orders, trades, portfolio, account, valuations, and summary artifacts under `data/replays/global_briefing/`.

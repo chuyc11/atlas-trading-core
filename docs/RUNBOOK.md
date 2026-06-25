@@ -64,6 +64,7 @@ python -m trading_core.cli artifact-inventory
 python -m trading_core.cli system-smoke-test --include-reports --include-inventory
 python -m trading_core.cli boundary-regression-audit
 python -m trading_core.cli system-integrity-audit
+python -m trading_core.cli audit-global-briefing-real-package-integration
 ```
 
 ## Global briefing historical replay harness
@@ -89,3 +90,28 @@ Boundary:
 - no forward dry-run started or validated
 - no main orders/trades/portfolio/accounts writes
 - no labels, ML shadow, experiments, or promotion in the replay decision path
+
+## Real global-briefing package integration
+
+This workflow ingests a local historical global-briefing package, normalizes it to the v1 signal contract, checks coverage and point-in-time safety, runs the isolated replay adapter, builds an integration report, and audits release readiness. It is local-file-only and does not use network access.
+
+```powershell
+python -m trading_core.cli global-briefing-package-manifest --root tests/fixtures/global_briefing_real
+python -m trading_core.cli normalize-global-briefing-package --input tests/fixtures/global_briefing_real/real_package_aliases.csv --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1
+python -m trading_core.cli audit-global-briefing-package-coverage --signals data/global_briefing/normalized/GB-REAL-FIXTURE.normalized.jsonl --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --min-coverage 0.60
+python -m trading_core.cli run-global-briefing-real-package-replay --input tests/fixtures/global_briefing_real/real_package_aliases.csv --prices tests/fixtures/global_briefing_real/prices_valid.csv --start-date 2024-01-02 --end-date 2024-01-08 --package-id GB-REAL-FIXTURE --region CN --source global_briefing --version v1 --allow-carry-forward --min-coverage 0.60 --execution-mode isolated
+python -m trading_core.cli global-briefing-real-package-report
+python -m trading_core.cli audit-global-briefing-real-package-integration
+```
+
+Boundary:
+
+- local historical package integration only
+- no network access
+- isolated replay only
+- no main orders/trades/portfolio/accounts writes
+- run-daily not called
+- labels, ML shadow, experiments, promotion, RL, and LLM trading decisions not used
+- forward dry-run not started or validated
+- not live trading readiness
+- not strategy effectiveness proof
