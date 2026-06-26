@@ -1,0 +1,113 @@
+{
+  "report_id": "FORWARD-DRY-RUN-DAY1-OPERATOR-REPORT",
+  "day_index": 1,
+  "as_of_date": "2026-06-25",
+  "execution_date": "2026-06-26",
+  "strategies_included": [
+    "equal_weight_etf_rotation",
+    "momentum_risk_adjusted_rotation",
+    "defensive_cash_rotation"
+  ],
+  "signals_summary": {
+    "strategies_total": 3,
+    "strategies_generated": 3
+  },
+  "virtual_orders_summary": {
+    "orders_total": 16,
+    "orders_rejected": 0,
+    "orders_downsized": 16
+  },
+  "virtual_fills_summary": {
+    "fills_count": 16
+  },
+  "virtual_rejects_summary": {
+    "rejects_count": 0
+  },
+  "virtual_cash_summary": {
+    "currency": "CNY",
+    "initial_cash": 3000000.0,
+    "cash": 99940.149172
+  },
+  "virtual_positions_summary": {
+    "159915.SZ": {
+      "symbol": "159915.SZ",
+      "quantity": 138600,
+      "available_quantity": 0,
+      "average_price": 4.3429999351501465,
+      "market_value": 601939.791012
+    },
+    "2800.HK": {
+      "symbol": "2800.HK",
+      "quantity": 5200,
+      "available_quantity": 0,
+      "average_price": 23.5,
+      "market_value": 122200.0
+    },
+    "3033.HK": {
+      "symbol": "3033.HK",
+      "quantity": 28300,
+      "available_quantity": 0,
+      "average_price": 4.314000129699707,
+      "market_value": 122086.203671
+    },
+    "510300.SH": {
+      "symbol": "510300.SH",
+      "quantity": 119200,
+      "available_quantity": 0,
+      "average_price": 5.044000148773193,
+      "market_value": 601244.817734
+    },
+    "512480.SH": {
+      "symbol": "512480.SH",
+      "quantity": 218400,
+      "available_quantity": 0,
+      "average_price": 2.75600004196167,
+      "market_value": 601910.409164
+    },
+    "512660.SH": {
+      "symbol": "512660.SH",
+      "quantity": 97200,
+      "available_quantity": 0,
+      "average_price": 1.2589999437332153,
+      "market_value": 122374.794531
+    },
+    "512880.SH": {
+      "symbol": "512880.SH",
+      "quantity": 106400,
+      "available_quantity": 0,
+      "average_price": 1.1510000228881836,
+      "market_value": 122466.402435
+    },
+    "588000.SH": {
+      "symbol": "588000.SH",
+      "quantity": 275800,
+      "available_quantity": 0,
+      "average_price": 2.183000087738037,
+      "market_value": 602071.424198
+    }
+  },
+  "virtual_valuation_summary": {
+    "cash": 99940.149172,
+    "market_value": 2896293.842745,
+    "total_equity": 2996233.991917
+  },
+  "warnings": [],
+  "operator_checklist_for_day2": [
+    "Review day1 fills and rejects.",
+    "Review cash and position invariants.",
+    "Review risk and boundary report.",
+    "Confirm no main ledger artifacts were written."
+  ],
+  "next_allowed_action": "forward_dry_run_day2_continuation_after_operator_review",
+  "explicit_non_claims": [
+    "- This is virtual forward dry-run only.",
+    "- This is not real trading.",
+    "- This is not strategy effectiveness proof.",
+    "- This is not forward dry-run validation completion.",
+    "- This is not live trading readiness.",
+    "- No broker is connected.",
+    "- No real orders were placed.",
+    "- ML/LLM/RL did not make trading decisions.",
+    "- No strategy promotion was triggered."
+  ]
+}

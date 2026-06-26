@@ -43,8 +43,18 @@ from trading_core.forward_dry_run.day0_warning_register import build_day0_warnin
 from trading_core.forward_dry_run.current_daily_workflow_readiness_snapshot import build_current_daily_workflow_readiness_snapshot
 from trading_core.forward_dry_run.authorization_materialization_audit import audit_forward_dry_run_authorization_materialization
 from trading_core.forward_dry_run.completed_manual_confirmation_checklist_v2 import complete_forward_dry_run_manual_confirmation_checklist_v2
+from trading_core.forward_dry_run.day1_input_snapshot import build_day1_input_snapshot
+from trading_core.forward_dry_run.day1_ledger_snapshot import build_day1_ledger_snapshot
+from trading_core.forward_dry_run.day1_operator_report import build_day1_operator_report
+from trading_core.forward_dry_run.day1_post_execution_audit import audit_forward_dry_run_day1
+from trading_core.forward_dry_run.day1_pre_execution_gate import build_day1_pre_execution_gate
 from trading_core.forward_dry_run.day1_prompt_eligibility_report import build_forward_dry_run_day1_prompt_eligibility
 from trading_core.forward_dry_run.day1_prompt_eligibility_revalidation_v0621 import revalidate_forward_dry_run_day1_prompt_eligibility
+from trading_core.forward_dry_run.day1_risk_and_boundary_report import build_day1_risk_and_boundary_report
+from trading_core.forward_dry_run.day1_strategy_signals import build_day1_strategy_signals
+from trading_core.forward_dry_run.day1_virtual_execution_result import build_day1_virtual_execution_result
+from trading_core.forward_dry_run.day1_virtual_order_preview import build_day1_virtual_order_preview
+from trading_core.forward_dry_run.forward_dry_run_status import build_forward_dry_run_status
 from trading_core.forward_dry_run.manual_confirmation_checklist_v2 import build_forward_dry_run_manual_confirmation_checklist_v2
 from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
 from trading_core.forward_dry_run.owner_manual_confirmation_record import build_owner_manual_confirmation_record
@@ -101,6 +111,7 @@ from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_
 from trading_core.planning.day1_blocker_reclassification_v061 import reclassify_day1_blockers_after_daily_workflow
 from trading_core.planning.day1_blocker_reclassification_v062 import reclassify_day1_blockers_after_start_authorization
 from trading_core.planning.day1_blocker_reclassification_v0621 import reclassify_day1_blockers_after_authorization_materialization
+from trading_core.planning.day1_blocker_reclassification_v063 import reclassify_day1_blockers_after_forward_dry_run_day1
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -689,6 +700,19 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("revalidate-forward-dry-run-day1-prompt-eligibility")
     subparsers.add_parser("audit-forward-dry-run-authorization-materialization")
     subparsers.add_parser("reclassify-day1-blockers-after-authorization-materialization")
+    day1_gate = subparsers.add_parser("forward-dry-run-day1-pre-execution-gate")
+    day1_gate.add_argument("--allow-rerun", action="store_true")
+    day1_snapshot = subparsers.add_parser("forward-dry-run-day1-input-snapshot")
+    day1_snapshot.add_argument("--as-of-date")
+    subparsers.add_parser("forward-dry-run-day1-strategy-signals")
+    subparsers.add_parser("forward-dry-run-day1-virtual-order-preview")
+    subparsers.add_parser("forward-dry-run-day1-virtual-execution")
+    subparsers.add_parser("forward-dry-run-day1-ledger-snapshot")
+    subparsers.add_parser("forward-dry-run-day1-risk-boundary-report")
+    subparsers.add_parser("forward-dry-run-day1-operator-report")
+    subparsers.add_parser("audit-forward-dry-run-day1")
+    subparsers.add_parser("forward-dry-run-status")
+    subparsers.add_parser("reclassify-day1-blockers-after-forward-dry-run-day1")
 
     return parser
 
@@ -1857,6 +1881,50 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "reclassify-day1-blockers-after-authorization-materialization":
         result = reclassify_day1_blockers_after_authorization_materialization(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "technical_day1_blocker_count": result["technical_day1_blocker_count"], "authorization_blocker_count": result["authorization_blocker_count"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_action": result["recommended_next_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-day1-pre-execution-gate":
+        result = build_day1_pre_execution_gate(allow_rerun=args.allow_rerun, paths=paths)
+        print({"gate_id": result["gate_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day1-input-snapshot":
+        result = build_day1_input_snapshot(as_of_date=args.as_of_date, paths=paths)
+        print({"snapshot_id": result["snapshot_id"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day1-strategy-signals":
+        result = build_day1_strategy_signals(paths=paths)
+        print({"signals_id": result["signals_id"], "as_of_date": result["as_of_date"], "strategies_total": result["strategies_total"], "strategies_generated": result["strategies_generated"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["strategies_generated"] == result["strategies_total"] else 1
+    if args.command == "forward-dry-run-day1-virtual-order-preview":
+        result = build_day1_virtual_order_preview(paths=paths)
+        print({"order_preview_id": result["order_preview_id"], "as_of_date": result["as_of_date"], "orders_total": result["summary"]["orders_total"], "orders_rejected": result["summary"]["orders_rejected"], "preview_only": result["preview_only"], "real_order": result["real_order"], "broker_order": result["broker_order"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["preview_only"] and not result["real_order"] and not result["broker_order"] else 1
+    if args.command == "forward-dry-run-day1-virtual-execution":
+        result = build_day1_virtual_execution_result(paths=paths)
+        print({"execution_result_id": result["execution_result_id"], "as_of_date": result["as_of_date"], "execution_mode": result["execution_mode"], "virtual_execution": result["virtual_execution"], "real_execution": result["real_execution"], "broker_execution": result["broker_execution"], "fills": len(result["fills"]), "rejects": len(result["rejects"]), "ledger_writes": result["ledger_writes"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["virtual_execution"] and not result["real_execution"] and not result["broker_execution"] else 1
+    if args.command == "forward-dry-run-day1-ledger-snapshot":
+        result = build_day1_ledger_snapshot(paths=paths)
+        print({"ledger_snapshot_id": result["ledger_snapshot_id"], "forward_dry_run_started": result["forward_dry_run_started"], "forward_dry_run_days_completed": result["forward_dry_run_days_completed"], "next_day_index": result["next_day_index"], "fills_count": result["fills_count"], "rejects_count": result["rejects_count"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-day1-risk-boundary-report":
+        result = build_day1_risk_and_boundary_report(paths=paths)
+        print({"report_id": result["report_id"], "risk_summary": result["risk_summary"], "boundary_summary": result["boundary_summary"], "warnings": len(result["warnings"]), "blocking_reasons": result["blocking_reasons"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if not result["blocking_reasons"] else 1
+    if args.command == "forward-dry-run-day1-operator-report":
+        result = build_day1_operator_report(paths=paths)
+        print({"report_id": result["report_id"], "as_of_date": result["as_of_date"], "execution_date": result["execution_date"], "strategies_included": result["strategies_included"], "next_allowed_action": result["next_allowed_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-forward-dry-run-day1":
+        result = audit_forward_dry_run_day1(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-status":
+        result = build_forward_dry_run_status(paths=paths)
+        print({"status_id": result["status_id"], "forward_dry_run_started": result["forward_dry_run_started"], "forward_dry_run_days_completed": result["forward_dry_run_days_completed"], "next_day_index": result["next_day_index"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "reclassify-day1-blockers-after-forward-dry-run-day1":
+        result = reclassify_day1_blockers_after_forward_dry_run_day1(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "remaining_day1_blocker_count": result["remaining_day1_blocker_count"], "day2_blocker_count": result["day2_blocker_count"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

@@ -1,0 +1,93 @@
+{
+  "ledger_snapshot_id": "FORWARD-DRY-RUN-DAY1-LEDGER-SNAPSHOT",
+  "day_index": 1,
+  "forward_dry_run_started": true,
+  "forward_dry_run_days_completed": 1,
+  "next_day_index": 2,
+  "virtual_cash": {
+    "currency": "CNY",
+    "initial_cash": 3000000.0,
+    "cash": 99940.149172
+  },
+  "virtual_positions": {
+    "159915.SZ": {
+      "symbol": "159915.SZ",
+      "quantity": 138600,
+      "available_quantity": 0,
+      "average_price": 4.3429999351501465,
+      "market_value": 601939.791012
+    },
+    "2800.HK": {
+      "symbol": "2800.HK",
+      "quantity": 5200,
+      "available_quantity": 0,
+      "average_price": 23.5,
+      "market_value": 122200.0
+    },
+    "3033.HK": {
+      "symbol": "3033.HK",
+      "quantity": 28300,
+      "available_quantity": 0,
+      "average_price": 4.314000129699707,
+      "market_value": 122086.203671
+    },
+    "510300.SH": {
+      "symbol": "510300.SH",
+      "quantity": 119200,
+      "available_quantity": 0,
+      "average_price": 5.044000148773193,
+      "market_value": 601244.817734
+    },
+    "512480.SH": {
+      "symbol": "512480.SH",
+      "quantity": 218400,
+      "available_quantity": 0,
+      "average_price": 2.75600004196167,
+      "market_value": 601910.409164
+    },
+    "512660.SH": {
+      "symbol": "512660.SH",
+      "quantity": 97200,
+      "available_quantity": 0,
+      "average_price": 1.2589999437332153,
+      "market_value": 122374.794531
+    },
+    "512880.SH": {
+      "symbol": "512880.SH",
+      "quantity": 106400,
+      "available_quantity": 0,
+      "average_price": 1.1510000228881836,
+      "market_value": 122466.402435
+    },
+    "588000.SH": {
+      "symbol": "588000.SH",
+      "quantity": 275800,
+      "available_quantity": 0,
+      "average_price": 2.183000087738037,
+      "market_value": 602071.424198
+    }
+  },
+  "virtual_available_shares": {
+    "159915.SZ": 0,
+    "2800.HK": 0,
+    "3033.HK": 0,
+    "510300.SH": 0,
+    "512480.SH": 0,
+    "512660.SH": 0,
+    "512880.SH": 0,
+    "588000.SH": 0
+  },
+  "virtual_valuation": {
+    "cash": 99940.149172,
+    "market_value": 2896293.842745,
+    "total_equity": 2996233.991917
+  },
+  "fills_count": 16,
+  "rejects_count": 0,
+  "boundary": {
+    "forward_dry_run_ledger_only": true,
+    "main_ledger_written": false,
+    "real_trading": false,
+    "broker_connected": false
+  }
+}

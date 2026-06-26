@@ -1,0 +1,18 @@
+{
+  "status_id": "FORWARD-DRY-RUN-STATUS",
+  "forward_dry_run_started": true,
+  "forward_dry_run_days_planned": 30,
+  "forward_dry_run_days_completed": 1,
+  "current_day_index": 1,
+  "next_day_index": 2,
+  "latest_completed_day_artifacts": [
+    "data/forward_dry_run/day_001/day1_post_execution_audit.json"
+  ],
+  "next_allowed_action": "forward_dry_run_day2_continuation_after_operator_review",
+  "boundary": {
+    "virtual_forward_dry_run_only": true,
+    "real_trading": false,
+    "broker_connected": false,
+    "main_ledger_written": false
+  }
+}

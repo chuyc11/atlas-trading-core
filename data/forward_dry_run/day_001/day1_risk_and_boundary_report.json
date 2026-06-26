@@ -1,0 +1,35 @@
+{
+  "report_id": "FORWARD-DRY-RUN-DAY1-RISK-AND-BOUNDARY-REPORT",
+  "day_index": 1,
+  "risk_summary": {
+    "position_concentration": 0.200943,
+    "cash_usage": 0.966645,
+    "rejects_count": 0,
+    "no_trade_fallback": false,
+    "costs": {
+      "commission": 869.757028,
+      "tax": 0.0,
+      "slippage": 0.073202,
+      "gross": 2896293.842745,
+      "net": 2900059.850828
+    },
+    "ledger_invariants": {
+      "cash_non_negative": true,
+      "positions_non_negative": true,
+      "available_shares_valid": true
+    }
+  },
+  "boundary_summary": {
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false
+  },
+  "warnings": [],
+  "blocking_reasons": []
+}

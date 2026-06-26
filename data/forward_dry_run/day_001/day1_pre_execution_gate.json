@@ -1,0 +1,53 @@
+{
+  "gate_id": "FORWARD-DRY-RUN-DAY1-PRE-EXECUTION-GATE",
+  "day_index": 1,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "checks": {
+    "owner_confirmation_recorded": true,
+    "manual_confirmation_complete": true,
+    "forward_dry_run_start_authorized": true,
+    "day1_prompt_eligible": true,
+    "authorization_materialization_audit_passed": true,
+    "updated_day1_blocker_count=0": true,
+    "git_status_clean_before_execution": true,
+    "daily_workflow_audit_passed": true,
+    "baseline_strategy_pack_audit_passed": true,
+    "ashare_execution_rules_audit_passed": true,
+    "protected_path_blocker_count=0": true,
+    "forward_dry_run_not_already_started": true,
+    "day_001_not_already_executed": true,
+    "run_daily_mode_forward_dry_run": true,
+    "main_ledger_write_guard_active": true,
+    "broker_live_config_absent": true,
+    "ml_llm_rl_promotion_disabled": true,
+    "day1_data_eligible": true
+  },
+  "data_eligibility": {
+    "as_of_date": "2026-06-25",
+    "universe_complete": true,
+    "missing_symbols": [],
+    "benchmark_complete": true,
+    "missing_benchmarks": [],
+    "risk_proxy_complete": true,
+    "trading_calendar_passed": true,
+    "latest_available_trading_date": "2026-06-25",
+    "eligible": true
+  },
+  "authorization": {
+    "manual_confirmation_complete": true,
+    "forward_dry_run_start_authorized": true,
+    "day1_prompt_eligible": true
+  },
+  "boundary": {
+    "pre_execution_gate_only": true,
+    "broker_connected": false,
+    "real_orders_enabled": false,
+    "main_ledger_write_guard_active": true,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false
+  }
+}

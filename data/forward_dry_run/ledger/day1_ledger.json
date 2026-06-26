@@ -1,0 +1,285 @@
+{
+  "day_index": 1,
+  "as_of_date": "2026-06-25",
+  "virtual_cash": {
+    "currency": "CNY",
+    "initial_cash": 3000000.0,
+    "cash": 99940.149172
+  },
+  "virtual_positions": {
+    "159915.SZ": {
+      "symbol": "159915.SZ",
+      "quantity": 138600,
+      "available_quantity": 0,
+      "average_price": 4.3429999351501465,
+      "market_value": 601939.791012
+    },
+    "2800.HK": {
+      "symbol": "2800.HK",
+      "quantity": 5200,
+      "available_quantity": 0,
+      "average_price": 23.5,
+      "market_value": 122200.0
+    },
+    "3033.HK": {
+      "symbol": "3033.HK",
+      "quantity": 28300,
+      "available_quantity": 0,
+      "average_price": 4.314000129699707,
+      "market_value": 122086.203671
+    },
+    "510300.SH": {
+      "symbol": "510300.SH",
+      "quantity": 119200,
+      "available_quantity": 0,
+      "average_price": 5.044000148773193,
+      "market_value": 601244.817734
+    },
+    "512480.SH": {
+      "symbol": "512480.SH",
+      "quantity": 218400,
+      "available_quantity": 0,
+      "average_price": 2.75600004196167,
+      "market_value": 601910.409164
+    },
+    "512660.SH": {
+      "symbol": "512660.SH",
+      "quantity": 97200,
+      "available_quantity": 0,
+      "average_price": 1.2589999437332153,
+      "market_value": 122374.794531
+    },
+    "512880.SH": {
+      "symbol": "512880.SH",
+      "quantity": 106400,
+      "available_quantity": 0,
+      "average_price": 1.1510000228881836,
+      "market_value": 122466.402435
+    },
+    "588000.SH": {
+      "symbol": "588000.SH",
+      "quantity": 275800,
+      "available_quantity": 0,
+      "average_price": 2.183000087738037,
+      "market_value": 602071.424198
+    }
+  },
+  "fills": [
+    {
+      "order_id": "FDD1-01-159915SZ",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "159915.SZ",
+      "side": "BUY",
+      "quantity": 28200,
+      "fill_price": 4.3429999351501465,
+      "gross_amount": 122472.598171,
+      "net_amount": 122631.851122,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-2800HK",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "2800.HK",
+      "side": "BUY",
+      "quantity": 5200,
+      "fill_price": 23.5,
+      "gross_amount": 122200.0,
+      "net_amount": 122358.89666,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-3033HK",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "3033.HK",
+      "side": "BUY",
+      "quantity": 28300,
+      "fill_price": 4.314000129699707,
+      "gross_amount": 122086.203671,
+      "net_amount": 122244.948686,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-510300SH",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "510300.SH",
+      "side": "BUY",
+      "quantity": 24200,
+      "fill_price": 5.044000148773193,
+      "gross_amount": 122064.8036,
+      "net_amount": 122223.520859,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-512480SH",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "512480.SH",
+      "side": "BUY",
+      "quantity": 44400,
+      "fill_price": 2.75600004196167,
+      "gross_amount": 122366.401863,
+      "net_amount": 122525.51303,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-512660SH",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "512660.SH",
+      "side": "BUY",
+      "quantity": 97200,
+      "fill_price": 1.2589999437332153,
+      "gross_amount": 122374.794531,
+      "net_amount": 122533.923952,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-512880SH",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "512880.SH",
+      "side": "BUY",
+      "quantity": 106400,
+      "fill_price": 1.1510000228881836,
+      "gross_amount": 122466.402435,
+      "net_amount": 122625.64306,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-01-588000SH",
+      "strategy_id": "equal_weight_etf_rotation",
+      "symbol": "588000.SH",
+      "side": "BUY",
+      "quantity": 56100,
+      "fill_price": 2.183000087738037,
+      "gross_amount": 122466.304922,
+      "net_amount": 122625.54293,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-02-159915SZ",
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "symbol": "159915.SZ",
+      "side": "BUY",
+      "quantity": 55800,
+      "fill_price": 4.3429999351501465,
+      "gross_amount": 242339.396381,
+      "net_amount": 242654.513922,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-02-510300SH",
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "symbol": "510300.SH",
+      "side": "BUY",
+      "quantity": 48000,
+      "fill_price": 5.044000148773193,
+      "gross_amount": 242112.007141,
+      "net_amount": 242426.818234,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-02-512480SH",
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "symbol": "512480.SH",
+      "side": "BUY",
+      "quantity": 87900,
+      "fill_price": 2.75600004196167,
+      "gross_amount": 242252.403688,
+      "net_amount": 242567.400796,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-02-588000SH",
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "symbol": "588000.SH",
+      "side": "BUY",
+      "quantity": 111000,
+      "fill_price": 2.183000087738037,
+      "gross_amount": 242313.009739,
+      "net_amount": 242628.079594,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-03-159915SZ",
+      "strategy_id": "defensive_cash_rotation",
+      "symbol": "159915.SZ",
+      "side": "BUY",
+      "quantity": 54600,
+      "fill_price": 4.3429999351501465,
+      "gross_amount": 237127.796459,
+      "net_amount": 237436.137278,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-03-510300SH",
+      "strategy_id": "defensive_cash_rotation",
+      "symbol": "510300.SH",
+      "side": "BUY",
+      "quantity": 47000,
+      "fill_price": 5.044000148773193,
+      "gross_amount": 237068.006992,
+      "net_amount": 237376.25952,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-03-512480SH",
+      "strategy_id": "defensive_cash_rotation",
+      "symbol": "512480.SH",
+      "side": "BUY",
+      "quantity": 86100,
+      "fill_price": 2.75600004196167,
+      "gross_amount": 237291.603613,
+      "net_amount": 237600.150267,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    },
+    {
+      "order_id": "FDD1-03-588000SH",
+      "strategy_id": "defensive_cash_rotation",
+      "symbol": "588000.SH",
+      "side": "BUY",
+      "quantity": 108700,
+      "fill_price": 2.183000087738037,
+      "gross_amount": 237292.109537,
+      "net_amount": 237600.650918,
+      "virtual_execution": true,
+      "real_execution": false,
+      "broker_execution": false
+    }
+  ],
+  "rejects": [],
+  "costs": {
+    "commission": 869.757028,
+    "tax": 0.0,
+    "slippage": 0.073202,
+    "gross": 2896293.842745,
+    "net": 2900059.850828
+  }
+}
