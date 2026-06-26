@@ -3,6 +3,7 @@
 ## What this project is
 
 - file-backed virtual trading research system
+- A-share full-market AI stock selection planning and virtual portfolio tracking research
 - paper / virtual trading only
 - research workflow for ETF strategies, ML shadow, experiments, and reports
 
@@ -17,7 +18,7 @@
 
 ## Current release
 
-v0.6.3.2-forward-dry-run-day1-owner-report-pack
+v0.7.0-external-project-intake-and-a-share-selection-plan
 
 ## Completed milestones
 
@@ -46,6 +47,7 @@ v0.6.3.2-forward-dry-run-day1-owner-report-pack
 - v0.6.3 forward dry-run day 1 executed and audited
 - v0.6.3.1 forward dry-run day1 continuation artifacts
 - v0.6.3.2 forward dry-run day1 owner report pack
+- v0.7.0 external project intake and A-share full-market selection plan
 
 ## Known limitations
 
@@ -66,6 +68,8 @@ v0.6.3.2-forward-dry-run-day1-owner-report-pack
 - v0.6.3 executes virtual isolated forward dry-run day 1 only; it writes the forward dry-run ledger, not the main ledger
 - v0.6.3.1 only fills day1 continuation artifact gaps; it does not execute day2
 - v0.6.3.2 generates an owner-facing day1 report pack only; it does not execute day2, does not call run-daily, does not download real-time data, and does not call external APIs
+- v0.7.0 downloads and scans external research repositories for design intake only; it does not merge third-party trading code into the main flow
+- v0.7.0 starts the A-share full-market selection planning line; it does not ingest A-share market data yet, does not score stocks yet, and does not create real orders
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -77,6 +81,13 @@ Install and verify:
 ```powershell
 python -m trading_core.cli --help
 python -m pytest
+```
+
+Run v0.7 external intake:
+
+```powershell
+python scripts/download_external_research_repos.py
+python -m trading_core.cli external-project-intake
 ```
 
 Run plan alignment and MVP gap audit:

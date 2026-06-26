@@ -1,5 +1,45 @@
 # Release Notes
 
+## v0.7.0-external-project-intake-and-a-share-selection-plan
+
+This release opens the A-share full-market AI multi-horizon stock selection planning line. It downloads external research repositories into ignored `external_research/`, scans their README/license/source structure, writes an external intake report, generates an A-share full-market selection plan, produces a reuse matrix, and writes the v0.7 architecture and roadmap summary.
+
+Includes:
+
+- external research download script
+- `external-project-intake` CLI
+- `data/system/external_project_intake_report.json`
+- `outputs/system/EXTERNAL_PROJECT_INTAKE_REPORT.md`
+- `outputs/system/V0_7_ROADMAP_SUMMARY.md`
+- `docs/A_SHARE_FULL_MARKET_AI_STOCK_SELECTION_PLAN.md`
+- `docs/EXTERNAL_PROJECT_INTAKE.md`
+- `docs/EXTERNAL_PROJECT_REUSE_MATRIX.md`
+- `docs/V0_7_ARCHITECTURE.md`
+
+Audited & Validated scope:
+
+- external repos downloaded: 11
+- AlphaSift classified A for full-market scanning, candidate ranking, and T+N evaluation reference
+- qstock classified A for data adapters, WenCai-style screening, RPS/MM trend, fundamentals, and capital-flow reference
+- daily_stock_analysis classified A for daily briefing, LLM summary, and notification reference
+- guiwzh/stock classified A for long/short score weighting and stock score report reference
+- Qlib classified B for ML workflow, RankIC/IC, and walk-forward evaluation reference
+- AlphaEvo classified B for scoring weight optimization research
+- easytrader, easyquotation, and easyquant classified D for future broker/quote/event adapter research
+- THSTrader classified D for future Tonghuashun simulated trading adapter research
+- zvt included as optional B/C architecture reference
+- no third-party trading code merged into the main flow
+- ETF forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- broker not connected
+- real orders not placed
+- LLM not used for trading decisions
+- model profit not guaranteed
+- recommended next version is `v0.7.1-a-share-full-market-data-ingestion`
+
+Validation: pending release verification.
+
 ## v0.6.3.2-forward-dry-run-day1-owner-report-pack
 
 This release adds an owner-facing day1 report pack for the completed virtual forward dry-run day 1. It does not execute day2, does not execute day3, does not call `run-daily`, does not download real-time market data, does not call external market APIs, does not connect a broker, does not place real orders, and does not write main orders/trades/portfolio/accounts.

@@ -94,6 +94,7 @@ COMMANDS: list[dict[str, Any]] = [
     _record("quick-status", "reports", "Generate quick project status", ["data/system", "outputs/system"], ["status_only", "not_run_daily"]),
     _record("usability-audit", "audits", "Audit usability polish release candidate", ["data/system", "outputs/audit"], ["audit_only", "not_run_daily"]),
     _record("forward-dry-run-readiness", "audits", "Audit readiness to prepare 30 trading-day forward dry-run", ["data/system", "outputs/system", "outputs/audit"], ["readiness_only", "not_run_daily", "does_not_start_forward_dry_run"]),
+    _record("external-project-intake", "planning", "Scan external research repos and write v0.7 A-share selection planning artifacts", ["data/system", "outputs/system", "docs"], ["intake_only", "not_run_daily", "no_broker", "no_real_orders", "no_third_party_code_merge"]),
 ]
 
 

@@ -1,0 +1,1174 @@
+{
+  "intake_id": "EXTERNAL-PROJECT-INTAKE-V070",
+  "target_version": "v0.7.0-external-project-intake-and-a-share-selection-plan",
+  "generated_from": "local external_research shallow clones and repository metadata scan",
+  "external_research_root": "external_research",
+  "projects_total": 11,
+  "projects_downloaded": 11,
+  "required_projects_missing": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "projects": [
+    {
+      "repo_name": "AlphaSift",
+      "github_url": "https://github.com/ZhuLinsen/alphasift.git",
+      "local_path": "external_research/alphasift",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "Apache",
+      "main_language": "Python",
+      "project_focus": "full-market scanning, multi-factor candidate ranking, risk-aware scoring, saved-run evaluation",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "src/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "examples/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "configs/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "strategies/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "reports/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "evaluation/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "full-market scanner",
+        "hard filters",
+        "factor scoring",
+        "candidate ranking schema",
+        "T+N evaluation schema",
+        "saved run artifacts"
+      ],
+      "integration_priority": "A",
+      "integration_risk": "medium",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use as immediate design reference for scanner, ranking, and saved-run artifacts; do not allow LLM output to authorize trades.",
+      "source_structure": [
+        ".codex",
+        ".env.example",
+        ".github/",
+        ".gitignore",
+        "agents/",
+        "alphasift/",
+        "docs/",
+        "LICENSE",
+        "MANIFEST.in",
+        "pyproject.toml",
+        "README.md",
+        "README.zh-CN.md",
+        "SKILL.md",
+        "strategies/",
+        "tests/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "AlphaSift",
+          "Disclaimer",
+          "What AlphaSift does",
+          "Quick start",
+          "Install in editable mode",
+          "Copy configuration template",
+          "Edit .env if you want LLM ranking:",
+          "GEMINI_API_KEY / OPENAI_API_KEY / DEEPSEEK_API_KEY"
+        ],
+        "chars_scanned": 16914
+      },
+      "git_head": "fd45fb864b55daf53afd7253d468f72edda95860",
+      "git_remote": "https://github.com/ZhuLinsen/alphasift.git"
+    },
+    {
+      "repo_name": "qstock",
+      "github_url": "https://github.com/tkfy920/qstock.git",
+      "local_path": "external_research/qstock",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "A-share public data adapters, WenCai-style screening, RPS, MM trend, fundamentals, capital flow, visualization",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "qstock/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "qstock/data/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "qstock/stock/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "qstock/backtest/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "qstock/plot/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "data adapter",
+        "public screening condition expression",
+        "RPS indicator",
+        "MM trend model",
+        "fundamental fields",
+        "capital flow fields"
+      ],
+      "integration_priority": "A",
+      "integration_risk": "medium_high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use as data and factor-design reference; keep trading-core local persistence, hash, and coverage audit rules.",
+      "source_structure": [
+        ".github/",
+        "__init__.py",
+        "__pycache__/",
+        "backtest/",
+        "data/",
+        "LICENSE",
+        "plot/",
+        "README.md",
+        "stock/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "简介",
+          "导入qstock模块",
+          "数据模块",
+          "行情交易数据接口",
+          "实时行情数据",
+          "某市场所有标的最新行情",
+          "获取沪深A股最新行情指标",
+          "查看前几行"
+        ],
+        "chars_scanned": 24336
+      },
+      "git_head": "d710191e93184c51e14be036127511dac0df2a36",
+      "git_remote": "https://github.com/tkfy920/qstock.git"
+    },
+    {
+      "repo_name": "daily_stock_analysis",
+      "github_url": "https://github.com/ZhuLinsen/daily_stock_analysis.git",
+      "local_path": "external_research/daily_stock_analysis",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "daily stock analysis reports, LLM summaries, market/news organization, notification ideas",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "docs/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "reports/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "main.py",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "analysis/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "notification/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "daily briefing structure",
+        "LLM report prompt",
+        "multi-market report layout",
+        "notification workflow",
+        "news risk note"
+      ],
+      "integration_priority": "A",
+      "integration_risk": "medium",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use as owner-readable Chinese daily briefing reference; require local evidence chain for claims.",
+      "source_structure": [
+        ".claude/",
+        ".dockerignore",
+        ".env.example",
+        ".gitattributes",
+        ".github/",
+        ".gitignore",
+        "AGENTS.md",
+        "api/",
+        "apps/",
+        "bot/",
+        "CLAUDE.md",
+        "data_provider/",
+        "docker/",
+        "docs/",
+        "LICENSE",
+        "main.py",
+        "pyproject.toml",
+        "README.md",
+        "requirements.txt",
+        "scripts/",
+        "server.py",
+        "setup.cfg",
+        "SKILL.md",
+        "src/",
+        "strategies/",
+        "templates/",
+        "tests/",
+        "webui.py"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "📈 股票智能分析系统",
+          "💖 赞助商 (Sponsors)",
+          "🖥️ 产品预览",
+          "✨ 功能特性",
+          "技术栈与数据来源",
+          "🚀 快速开始",
+          "方式一：[GitHub Actions（推荐）](https://www.bilibili.com/video/BV11FEb66EXG/)",
+          "1. Fork 本仓库"
+        ],
+        "chars_scanned": 9824
+      },
+      "git_head": "7ff3297050cfebd6f741649d799cb50cad857451",
+      "git_remote": "https://github.com/ZhuLinsen/daily_stock_analysis.git"
+    },
+    {
+      "repo_name": "guiwzh/stock",
+      "github_url": "https://github.com/guiwzh/stock.git",
+      "local_path": "external_research/stock",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "not_detected",
+      "main_language": "Python",
+      "project_focus": "A-share stock scoring assistant with short/long score weighting and value/technical/valuation dimensions",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "src/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "config/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "strategy/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "short score weights",
+        "long score weights",
+        "value/technical/valuation scoring",
+        "readable stock score report"
+      ],
+      "integration_priority": "A",
+      "integration_risk": "medium",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use as scoring-weight reference and extend into LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, and CompositeOpportunityScore.",
+      "source_structure": [
+        ".dockerignore",
+        ".gitignore",
+        ".streamlit/",
+        "_strat_hist.pkl",
+        "app.py",
+        "backtest.py",
+        "backtest_sector.py",
+        "backtest_sf.py",
+        "CHANGELOG.md",
+        "docker-compose.yml",
+        "Dockerfile",
+        "factor_horizon.py",
+        "factor_lab.py",
+        "net_patch.py",
+        "README.md",
+        "requirements.txt",
+        "retry_1h.sh",
+        "screener.py",
+        "strategy.py",
+        "trend_test.py",
+        "wait_and_run.sh",
+        "启动.sh",
+        "回测样本_sf.csv"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "A股选股助手（价值 + 技术 + 估值分位）",
+          "打分逻辑",
+          "综合分 = w₁ × 价值分 + w₂ × 技术分 + w₃ × 估值分位",
+          "价值分（内部权重）",
+          "技术分（两层 + 方向随风格切换）",
+          "估值分位（防追高）",
+          "建议分级",
+          "量化多因子（默认风格，经回测验证有选股力）"
+        ],
+        "chars_scanned": 5958
+      },
+      "git_head": "14289d0cef90fa2e59b8c99c350f47aa362aaa18",
+      "git_remote": "https://github.com/guiwzh/stock.git"
+    },
+    {
+      "repo_name": "Qlib",
+      "github_url": "https://github.com/microsoft/qlib.git",
+      "local_path": "external_research/qlib",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "ML quant research workflow, dataset split, model evaluation, RankIC/IC, portfolio evaluation",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "examples/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "qlib/contrib/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "qlib/workflow/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "qlib/backtest/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "qlib/model/",
+          "exists": true,
+          "type": "dir"
+        }
+      ],
+      "reusable_design_patterns": [
+        "dataset split",
+        "model training workflow",
+        "backtest evaluation metrics",
+        "RankIC/IC evaluation",
+        "portfolio analysis report",
+        "experiment tracking"
+      ],
+      "integration_priority": "B",
+      "integration_risk": "high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use for ML and walk-forward evaluation design only; do not pull heavy framework dependencies into v0.7 main flow.",
+      "source_structure": [
+        ".commitlintrc.js",
+        ".deepsource.toml",
+        ".dockerignore",
+        ".github/",
+        ".gitignore",
+        ".mypy.ini",
+        ".pre-commit-config.yaml",
+        ".pylintrc",
+        ".readthedocs.yaml",
+        "build_docker_image.sh",
+        "CHANGELOG.md",
+        "CHANGES.rst",
+        "CODE_OF_CONDUCT.md",
+        "Dockerfile",
+        "docs/",
+        "examples/",
+        "LICENSE",
+        "Makefile",
+        "MANIFEST.in",
+        "pyproject.toml",
+        "qlib/",
+        "README.md",
+        "scripts/",
+        "SECURITY.md",
+        "setup.py",
+        "tests/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          ":newspaper: **What's NEW!** &nbsp;   :sparkling_heart:",
+          "Introducing <a href=\"https://github.com/microsoft/RD-Agent\"><img src=\"docs/_static/img/rdagent_logo.png\" alt=\"RD_Agent\" style=\"height: 2em\"></a>: LLM-Based Autonomous Evolving Agents for Industrial Data-Driven R&D",
+          "Plans",
+          "Framework of Qlib",
+          "Quick Start",
+          "Installation",
+          "Install with pip",
+          "Install from source"
+        ],
+        "chars_scanned": 42898
+      },
+      "git_head": "d5379c520f66a39953bad76234a7019a72796fd0",
+      "git_remote": "https://github.com/microsoft/qlib.git"
+    },
+    {
+      "repo_name": "AlphaEvo",
+      "github_url": "https://github.com/ZhuLinsen/alphaevo.git",
+      "local_path": "external_research/alphaevo",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "Apache",
+      "main_language": "Python",
+      "project_focus": "strategy weight mutation, controlled optimization, evolution report, failed strategy diagnosis",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "strategies/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "evolution/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "backtest/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "reports/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "controlled mutation",
+        "scoring weight optimization",
+        "strategy evolution report",
+        "parameter evidence chain",
+        "failed strategy diagnosis"
+      ],
+      "integration_priority": "B",
+      "integration_risk": "medium_high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use only for research on Long/Mid/ShortScore weights; require walk-forward validation and never allow automatic trading.",
+      "source_structure": [
+        ".dockerignore",
+        ".env.example",
+        ".github/",
+        ".gitignore",
+        "AGENTS.md",
+        "CHANGELOG.md",
+        "CONTRIBUTING.md",
+        "Dockerfile",
+        "docs/",
+        "examples/",
+        "LICENSE",
+        "pyproject.toml",
+        "README.md",
+        "requirements.txt",
+        "scripts/",
+        "SECURITY.md",
+        "sources/",
+        "src/",
+        "strategies/",
+        "tests/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "🧬 AlphaEvo",
+          "✨ Overview",
+          "Reproducible no-key showcase",
+          "Live-data LLM evolution path",
+          "🧠 Core Capabilities",
+          "🚀 Quick Start",
+          "Try the real-data showcase in 30 seconds (no API key needed)",
+          "Choose the right path"
+        ],
+        "chars_scanned": 18959
+      },
+      "git_head": "25136ee888b323d9d23fe74c80a16ef40c76e0c7",
+      "git_remote": "https://github.com/ZhuLinsen/alphaevo.git"
+    },
+    {
+      "repo_name": "zvt",
+      "github_url": "https://github.com/zvtvz/zvt.git",
+      "local_path": "external_research/zvt",
+      "downloaded": true,
+      "optional": true,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "market data, factor, and quant research framework reference",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "src/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "zvt/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "examples/",
+          "exists": true,
+          "type": "dir"
+        }
+      ],
+      "reusable_design_patterns": [
+        "data domain modeling",
+        "factor pipeline",
+        "research framework organization"
+      ],
+      "integration_priority": "B/C",
+      "integration_risk": "high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Keep as optional architecture reference; do not import into v0.7 main flow without separate dependency and license review.",
+      "source_structure": [
+        ".coveragerc",
+        ".github/",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".readthedocs.yaml",
+        "api-tests/",
+        "build.sh",
+        "code_of_conduct.md",
+        "docs/",
+        "examples/",
+        "init_env.sh",
+        "LICENSE",
+        "MANIFEST.in",
+        "pyproject.toml",
+        "README-cn.md",
+        "README.md",
+        "requirements/",
+        "requirements.txt",
+        "setup.py",
+        "sql/",
+        "src/",
+        "tests/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "Install",
+          "Main ui",
+          "Dash & Plotly UI",
+          "Rest api and standalone UI",
+          "Behold, the power of zvt:",
+          "Data",
+          "China stock",
+          "USA stock"
+        ],
+        "chars_scanned": 38049
+      },
+      "git_head": "f971f00c2181bc7d7fb7987a7875d4ec5960881a",
+      "git_remote": "https://github.com/zvtvz/zvt.git"
+    },
+    {
+      "repo_name": "easytrader",
+      "github_url": "https://github.com/shidenggui/easytrader.git",
+      "local_path": "external_research/easytrader",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "broker/client adapter reference, miniQMT, Xueqiu portfolio, future order-submit layering",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "easytrader/",
+          "exists": true,
+          "type": "dir"
+        },
+        {
+          "path": "easytrader/clienttrader.py",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "easytrader/miniqmt_trader.py",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "easytrader/xqtrader.py",
+          "exists": true,
+          "type": "file"
+        }
+      ],
+      "reusable_design_patterns": [
+        "broker adapter interface",
+        "miniQMT adapter",
+        "client automation separation",
+        "order preview to submit layering",
+        "read-only account sync"
+      ],
+      "integration_priority": "D",
+      "integration_risk": "high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use only for future adapter research; v0.7 must not submit orders or manage credentials.",
+      "source_structure": [
+        ".bumpversion.cfg",
+        ".coveragerc",
+        ".github/",
+        ".gitignore",
+        ".pylintrc",
+        ".readthedocs.yaml",
+        "docs/",
+        "easytrader/",
+        "gj_client.json",
+        "LICENSE",
+        "Makefile",
+        "MANIFEST.in",
+        "mkdocs.yml",
+        "mypy.ini",
+        "Pipfile",
+        "README.md",
+        "readthedocs-requirements.txt",
+        "requirements.txt",
+        "setup.py",
+        "test-requirements.txt",
+        "tests/",
+        "xq.json",
+        "yh_client.json"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "easytrader",
+          "微信群以及公众号",
+          "Author",
+          "相关",
+          "模拟交易",
+          "使用文档"
+        ],
+        "chars_scanned": 1440
+      },
+      "git_head": "def5a8edc5ebd7d49bf92a9f39e9e30c9bf47101",
+      "git_remote": "https://github.com/shidenggui/easytrader.git"
+    },
+    {
+      "repo_name": "easyquotation",
+      "github_url": "https://github.com/shidenggui/easyquotation.git",
+      "local_path": "external_research/easyquotation",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT",
+      "main_language": "Python",
+      "project_focus": "free quote adapters and quote normalization reference",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "easyquotation/",
+          "exists": true,
+          "type": "dir"
+        }
+      ],
+      "reusable_design_patterns": [
+        "quote adapter",
+        "quote normalization",
+        "watchlist polling",
+        "field standardization"
+      ],
+      "integration_priority": "D",
+      "integration_risk": "medium_high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use as future quote adapter reference; do not feed real-time quotes into formal v0.7 scoring by default.",
+      "source_structure": [
+        ".bumpversion.cfg",
+        ".coveragerc",
+        ".github/",
+        ".gitignore",
+        ".pre-commit-config.yaml",
+        ".pylintrc",
+        ".travis.yml",
+        "easyquotation/",
+        "LICENSE",
+        "Makefile",
+        "mypy.ini",
+        "Pipfile",
+        "Pipfile.lock",
+        "README.md",
+        "requirements.txt",
+        "setup.py",
+        "test-requirements.txt",
+        "tests/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "easyquotation",
+          "前言",
+          "微信群以及公众号",
+          "Author",
+          "其他作品",
+          "安装",
+          "用法",
+          "引入:"
+        ],
+        "chars_scanned": 5378
+      },
+      "git_head": "7778c1b9f93afb2ce2cf431de393fe690d4ec07c",
+      "git_remote": "https://github.com/shidenggui/easyquotation.git"
+    },
+    {
+      "repo_name": "easyquant",
+      "github_url": "https://github.com/shidenggui/easyquant.git",
+      "local_path": "external_research/easyquant",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "MIT_in_readme",
+      "main_language": "Python",
+      "project_focus": "event engine and quotation/trader layering reference",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "easyquant/",
+          "exists": true,
+          "type": "dir"
+        }
+      ],
+      "reusable_design_patterns": [
+        "event engine",
+        "quotation/trader separation",
+        "strategy event loop",
+        "simulated trading flow"
+      ],
+      "integration_priority": "D",
+      "integration_risk": "high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Use only as future event-engine and adapter reference; do not connect trading code in v0.7.",
+      "source_structure": [
+        ".gitignore",
+        "custom/",
+        "custom_engine_demo.py",
+        "easyquant/",
+        "gf.json",
+        "ht.json",
+        "README.md",
+        "redis.conf",
+        "requirements.txt",
+        "strategies/",
+        "test.py",
+        "unitest_demo.py",
+        "xq.json",
+        "yh.json",
+        "yjb.json"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "easyquant",
+          "微信群以及公众号",
+          "Author",
+          "requirements",
+          "关于行情",
+          "关于交易",
+          "使用",
+          "准备交易账户"
+        ],
+        "chars_scanned": 10164
+      },
+      "git_head": "bb5f0a1c21230bd421f7f8627c05817cff75c737",
+      "git_remote": "https://github.com/shidenggui/easyquant.git"
+    },
+    {
+      "repo_name": "THSTrader",
+      "github_url": "https://github.com/nladuo/THSTrader.git",
+      "local_path": "external_research/THSTrader",
+      "downloaded": true,
+      "optional": false,
+      "license_detected": "GPL",
+      "main_language": "Python",
+      "project_focus": "Tonghuashun simulated trading automation research",
+      "usable_modules": [
+        {
+          "path": "README.md",
+          "exists": true,
+          "type": "file"
+        },
+        {
+          "path": "trader/",
+          "exists": false,
+          "type": "missing"
+        },
+        {
+          "path": "examples/",
+          "exists": false,
+          "type": "missing"
+        }
+      ],
+      "reusable_design_patterns": [
+        "THS simulated trading flow",
+        "Android emulator/app automation",
+        "simulated order submit adapter"
+      ],
+      "integration_priority": "D",
+      "integration_risk": "high",
+      "requires_manual_review": true,
+      "can_import_directly": false,
+      "recommended_action": "Keep outside main flow as experimental_ths_sim_adapter research only.",
+      "source_structure": [
+        ".gitignore",
+        "assets/",
+        "LICENSE",
+        "README.md",
+        "requirements.txt",
+        "THS/"
+      ],
+      "readme_summary": {
+        "path": "README.md",
+        "exists": true,
+        "headings": [
+          "THSTrader",
+          "为什么有这个项目",
+          "安装说明",
+          "1. Python依赖",
+          "2. 安装雷电9模拟器",
+          "3. 配置模拟器分辨率",
+          "4. 安装同花顺APP",
+          "5. 安装配置ADB"
+        ],
+        "chars_scanned": 3158
+      },
+      "git_head": "fe07e879c6196ce63515e36594d37a03b085970d",
+      "git_remote": "https://github.com/nladuo/THSTrader.git"
+    }
+  ],
+  "top_priority_repos": [
+    "AlphaSift",
+    "qstock",
+    "daily_stock_analysis",
+    "guiwzh/stock"
+  ],
+  "reuse_matrix": [
+    {
+      "repo_name": "AlphaSift",
+      "priority": "A",
+      "immediate_use": "full-market scanning, multi-factor candidate ranking, risk-aware scoring, saved-run evaluation",
+      "reuse_patterns": [
+        "full-market scanner",
+        "hard filters",
+        "factor scoring",
+        "candidate ranking schema",
+        "T+N evaluation schema",
+        "saved run artifacts"
+      ],
+      "risk": "medium",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use as immediate design reference for scanner, ranking, and saved-run artifacts; do not allow LLM output to authorize trades."
+    },
+    {
+      "repo_name": "qstock",
+      "priority": "A",
+      "immediate_use": "A-share public data adapters, WenCai-style screening, RPS, MM trend, fundamentals, capital flow, visualization",
+      "reuse_patterns": [
+        "data adapter",
+        "public screening condition expression",
+        "RPS indicator",
+        "MM trend model",
+        "fundamental fields",
+        "capital flow fields"
+      ],
+      "risk": "medium_high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use as data and factor-design reference; keep trading-core local persistence, hash, and coverage audit rules."
+    },
+    {
+      "repo_name": "daily_stock_analysis",
+      "priority": "A",
+      "immediate_use": "daily stock analysis reports, LLM summaries, market/news organization, notification ideas",
+      "reuse_patterns": [
+        "daily briefing structure",
+        "LLM report prompt",
+        "multi-market report layout",
+        "notification workflow",
+        "news risk note"
+      ],
+      "risk": "medium",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use as owner-readable Chinese daily briefing reference; require local evidence chain for claims."
+    },
+    {
+      "repo_name": "guiwzh/stock",
+      "priority": "A",
+      "immediate_use": "A-share stock scoring assistant with short/long score weighting and value/technical/valuation dimensions",
+      "reuse_patterns": [
+        "short score weights",
+        "long score weights",
+        "value/technical/valuation scoring",
+        "readable stock score report"
+      ],
+      "risk": "medium",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use as scoring-weight reference and extend into LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, and CompositeOpportunityScore."
+    },
+    {
+      "repo_name": "Qlib",
+      "priority": "B",
+      "immediate_use": "ML quant research workflow, dataset split, model evaluation, RankIC/IC, portfolio evaluation",
+      "reuse_patterns": [
+        "dataset split",
+        "model training workflow",
+        "backtest evaluation metrics",
+        "RankIC/IC evaluation",
+        "portfolio analysis report",
+        "experiment tracking"
+      ],
+      "risk": "high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use for ML and walk-forward evaluation design only; do not pull heavy framework dependencies into v0.7 main flow."
+    },
+    {
+      "repo_name": "AlphaEvo",
+      "priority": "B",
+      "immediate_use": "strategy weight mutation, controlled optimization, evolution report, failed strategy diagnosis",
+      "reuse_patterns": [
+        "controlled mutation",
+        "scoring weight optimization",
+        "strategy evolution report",
+        "parameter evidence chain",
+        "failed strategy diagnosis"
+      ],
+      "risk": "medium_high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use only for research on Long/Mid/ShortScore weights; require walk-forward validation and never allow automatic trading."
+    },
+    {
+      "repo_name": "zvt",
+      "priority": "B/C",
+      "immediate_use": "market data, factor, and quant research framework reference",
+      "reuse_patterns": [
+        "data domain modeling",
+        "factor pipeline",
+        "research framework organization"
+      ],
+      "risk": "high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Keep as optional architecture reference; do not import into v0.7 main flow without separate dependency and license review."
+    },
+    {
+      "repo_name": "easytrader",
+      "priority": "D",
+      "immediate_use": "broker/client adapter reference, miniQMT, Xueqiu portfolio, future order-submit layering",
+      "reuse_patterns": [
+        "broker adapter interface",
+        "miniQMT adapter",
+        "client automation separation",
+        "order preview to submit layering",
+        "read-only account sync"
+      ],
+      "risk": "high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use only for future adapter research; v0.7 must not submit orders or manage credentials."
+    },
+    {
+      "repo_name": "easyquotation",
+      "priority": "D",
+      "immediate_use": "free quote adapters and quote normalization reference",
+      "reuse_patterns": [
+        "quote adapter",
+        "quote normalization",
+        "watchlist polling",
+        "field standardization"
+      ],
+      "risk": "medium_high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use as future quote adapter reference; do not feed real-time quotes into formal v0.7 scoring by default."
+    },
+    {
+      "repo_name": "easyquant",
+      "priority": "D",
+      "immediate_use": "event engine and quotation/trader layering reference",
+      "reuse_patterns": [
+        "event engine",
+        "quotation/trader separation",
+        "strategy event loop",
+        "simulated trading flow"
+      ],
+      "risk": "high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Use only as future event-engine and adapter reference; do not connect trading code in v0.7."
+    },
+    {
+      "repo_name": "THSTrader",
+      "priority": "D",
+      "immediate_use": "Tonghuashun simulated trading automation research",
+      "reuse_patterns": [
+        "THS simulated trading flow",
+        "Android emulator/app automation",
+        "simulated order submit adapter"
+      ],
+      "risk": "high",
+      "direct_import_allowed": false,
+      "manual_review_required": true,
+      "recommended_action": "Keep outside main flow as experimental_ths_sim_adapter research only."
+    }
+  ],
+  "v07_architecture": {
+    "positioning": "A-share full-market AI multi-horizon stock selection and virtual portfolio tracking system",
+    "main_lines": [
+      "A-share full-market stock selection is the main product line",
+      "ETF forward dry-run remains benchmark/control group and execution-rule foundation",
+      "Tonghuashun/miniQMT/broker adapters remain future research only"
+    ],
+    "v07_modules": [
+      "external_intake",
+      "equity_universe",
+      "equity_data",
+      "equity_features",
+      "equity_scoring",
+      "equity_selection",
+      "equity_portfolios",
+      "equity_briefing",
+      "equity_validation",
+      "integrations"
+    ],
+    "data_flow": [
+      "A-share universe",
+      "tradability/liquidity/risk filters",
+      "long/mid/short feature sets",
+      "LongScore/MidScore/ShortScore/RiskScore/LiquidityScore/IndustryScore",
+      "candidate pools and watchlists",
+      "long/mid/short virtual portfolios",
+      "daily Chinese owner briefing",
+      "walk-forward validation"
+    ],
+    "boundaries": {
+      "external_intake_only": true,
+      "third_party_code_merged_into_main_flow": false,
+      "day2_executed": false,
+      "run_daily_called": false,
+      "broker_connected": false,
+      "real_orders_placed": false,
+      "llm_trading_decision": false,
+      "model_profit_guaranteed": false,
+      "etf_forward_dry_run_status_changed": false
+    }
+  },
+  "recommended_next_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "boundary": {
+    "external_intake_only": true,
+    "third_party_code_merged_into_main_flow": false,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "llm_trading_decision": false,
+    "model_profit_guaranteed": false,
+    "etf_forward_dry_run_status_changed": false
+  },
+  "generated_docs": [
+    "docs/A_SHARE_FULL_MARKET_AI_STOCK_SELECTION_PLAN.md",
+    "docs/EXTERNAL_PROJECT_INTAKE.md",
+    "docs/EXTERNAL_PROJECT_REUSE_MATRIX.md",
+    "docs/V0_7_ARCHITECTURE.md"
+  ]
+}

@@ -2,6 +2,8 @@
 
 Current audited release: `v0.6.3.2-forward-dry-run-day1-owner-report-pack`.
 
+v0.7.0 external project intake does not change this forward dry-run status.
+
 ## State
 
 - forward dry-run started: true
@@ -29,3 +31,4 @@ Current audited release: `v0.6.3.2-forward-dry-run-day1-owner-report-pack`.
 - not strategy effectiveness proof
 - not full forward dry-run validation
 - not live trading readiness
+- v0.7.0 does not execute day2, does not call run-daily, does not connect a broker, and does not place real orders

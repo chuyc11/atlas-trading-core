@@ -8,6 +8,15 @@ All commands are local, file-backed, and virtual/research-only.
 python -m pytest
 ```
 
+## v0.7 external project intake and A-share selection plan
+
+```powershell
+python scripts/download_external_research_repos.py
+python -m trading_core.cli external-project-intake
+```
+
+This workflow downloads shallow external research repositories into ignored `external_research/`, scans README/license/source structure, and writes the v0.7 A-share selection plan, external intake report, reuse matrix, architecture, and roadmap summary. It does not merge third-party trading code, does not execute day2, does not call run-daily, does not connect a broker, and does not place real orders.
+
 ## Forward dry-run day1 owner report pack
 
 This v0.6.3.2 workflow generates owner-facing day1 reports from existing v0.6.3 and v0.6.3.1 artifacts. It does not execute day2, does not execute day3, does not call run-daily, does not download real-time market data, does not call external market APIs, does not write the main ledger, does not connect a broker, and does not place real orders.

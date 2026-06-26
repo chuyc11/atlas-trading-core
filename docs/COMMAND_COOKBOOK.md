@@ -36,6 +36,15 @@ python -m trading_core.cli audit-day0-readiness
 python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
 ```
 
+## Run v0.7 external project intake
+
+```bash
+python scripts/download_external_research_repos.py
+python -m trading_core.cli external-project-intake
+```
+
+This v0.7.0 path downloads ignored external research clones and generates intake/planning artifacts only. It does not merge third-party trading code, does not call run-daily, does not connect a broker, does not place real orders, and does not use LLM output as a trading decision.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash

@@ -22,6 +22,7 @@ from trading_core.evaluation.dry_run_validation_report import build_dry_run_vali
 from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, replay_last_trading_days
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
+from trading_core.external_intake.report import build_external_project_intake
 from trading_core.execution.ashare_execution_gap_plan import build_ashare_execution_gap_plan
 from trading_core.execution.ashare_execution_rules_audit import audit_ashare_execution_rules
 from trading_core.execution.ashare_lot_position_contract import build_lot_position_contract
@@ -745,6 +746,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("forward-dry-run-day1-continuation-blocker-note")
     subparsers.add_parser("forward-dry-run-day1-owner-report-pack-summary")
     subparsers.add_parser("audit-forward-dry-run-day1-owner-report-pack")
+    subparsers.add_parser("external-project-intake")
 
     return parser
 
@@ -2021,6 +2023,10 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "audit-forward-dry-run-day1-owner-report-pack":
         result = audit_day1_owner_report_pack(paths=paths)
         print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "external-project-intake":
+        result = build_external_project_intake(paths=paths)
+        print({"intake_id": result["intake_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "projects_downloaded": result["projects_downloaded"], "top_priority_repos": result["top_priority_repos"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
