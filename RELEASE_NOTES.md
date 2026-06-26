@@ -1,5 +1,57 @@
 # Release Notes
 
+## v0.7.1-a-share-full-market-data-ingestion
+
+This release adds the A-share full-market data ingestion foundation for the future AI stock selection line. It writes local master, calendar, market, industry, fundamental, source-manifest, coverage-audit, and schema-audit artifacts. It does not generate stock scores, candidates, watchlists, virtual portfolios, broker instructions, real orders, or official forward dry-run day2 artifacts.
+
+Includes:
+
+- A-share equity master for SSE/SZSE/BSE
+- A-share trading calendar foundation
+- daily price panel ingestion
+- adjusted price panel ingestion with coverage tracking
+- daily basic panel ingestion
+- industry classification ingestion
+- basic financials ingestion
+- data source manifest
+- coverage audit
+- schema audit
+- public provider fallback strategy documentation
+- A-share data ingestion, schema, and quality-audit documentation
+
+Audited & Validated scope:
+
+- provider selected: `qstock_reference_public_http`
+- source rows available: 5867
+- source raw total: 5867
+- source raw coverage ratio: 1.0
+- equity master symbols: 5867
+- observed exchanges: BSE, SSE, SZSE
+- daily price symbols: 5513
+- adjusted price symbols: 5513
+- daily basic symbols: 5867
+- industry symbols: 5867
+- financial symbols: 5867
+- min daily price date: `2026-06-26`
+- max daily price date: `2026-06-26`
+- trading days in calendar artifact: 282
+- coverage audit passed with no blocking reasons
+- schema audit passed with no blocking reasons
+- warnings: raw adjusted-price fallback, board-level industry fallback, nullable basic financial numeric fields, and 354 master symbols missing daily price in the current public snapshot
+- no stock scores generated
+- no candidates generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- no third-party code merged into the main flow
+- model profit not guaranteed
+- recommended next version is `v0.7.2-a-share-tradable-universe-filter`
+
+Validation: 951 tests passed, 1 skipped.
+
 ## v0.7.0-external-project-intake-and-a-share-selection-plan
 
 This release opens the A-share full-market AI multi-horizon stock selection planning line. It downloads external research repositories into ignored `external_research/`, scans their README/license/source structure, writes an external intake report, generates an A-share full-market selection plan, produces a reuse matrix, and writes the v0.7 architecture and roadmap summary.

@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.0-external-project-intake-and-a-share-selection-plan
+v0.7.1-a-share-full-market-data-ingestion
 
 ## Completed milestones
 
