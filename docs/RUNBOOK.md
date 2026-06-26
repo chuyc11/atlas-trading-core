@@ -397,3 +397,35 @@ Boundary:
 - no broker connected
 - no ML/LLM/RL trading decision
 - promotion not triggered
+
+## Owner manual confirmation materialization
+
+This v0.6.2.1 workflow materializes owner manual confirmation and revalidates day1 prompt eligibility. It does not start forward dry-run day 1 and does not generate a day1 execution prompt.
+
+```powershell
+python -m trading_core.cli forward-dry-run-owner-manual-confirmation-record
+python -m trading_core.cli complete-forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli update-forward-dry-run-owner-authorization-packet
+python -m trading_core.cli revalidate-forward-dry-run-start-gate-v0621
+python -m trading_core.cli revalidate-forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-authorization-materialization
+python -m trading_core.cli reclassify-day1-blockers-after-authorization-materialization
+```
+
+Boundary:
+
+- manual_confirmation_complete=true
+- forward_dry_run_start_authorized=true
+- day1_prompt_eligible=true
+- day1_prompt_generated=false
+- day1_start_allowed=false
+- next required action is owner requests day1 prompt
+- run-daily not called
+- forward dry-run not started
+- main ledger not written
+- not forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+- no broker connected
+- no ML/LLM/RL trading decision
+- promotion not triggered

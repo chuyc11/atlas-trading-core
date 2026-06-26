@@ -29,3 +29,13 @@ The next required action is owner manual confirmation. A future owner-confirmed 
 - RL not used
 - promotion not triggered
 
+## v0.6.2.1 Revalidation
+
+After owner manual confirmation is materialized, day1 prompt eligibility can become true:
+
+- `day1_prompt_eligible=true`
+- `day1_prompt_generated=false`
+- `day1_start_allowed=false`
+- `next_required_action=owner_requests_day1_prompt`
+
+This is still not a day1 execution prompt. Forward dry-run day 1 may only be prepared after the owner explicitly requests the day1 prompt.

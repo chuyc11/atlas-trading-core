@@ -24,3 +24,15 @@ The run-daily command preview is metadata only. It records the future command st
 - no ML/LLM/RL trading decision
 - promotion not triggered
 
+## v0.6.2.1 Revalidation
+
+After owner manual confirmation is materialized, the v0621 gate reports:
+
+- `technical_prerequisites_passed=true`
+- `manual_confirmation_complete=true`
+- `forward_dry_run_start_authorized=true`
+- `day1_prompt_eligible=true`
+- `day1_start_allowed=false`
+- deny reason: `day1_execution_requires_separate_prompt`
+
+The gate still does not start forward dry-run day 1 and does not call run-daily.

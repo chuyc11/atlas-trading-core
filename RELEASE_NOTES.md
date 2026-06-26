@@ -1,5 +1,40 @@
 # Release Notes
 
+## v0.6.2.1-owner-manual-confirmation-materialized
+
+This release materializes owner manual confirmation for the forward dry-run start authorization flow. It makes the system eligible for a future day1 prompt request, but it does not start forward dry-run day 1, does not call `run-daily`, does not generate a day1 execution prompt, and does not write the main ledger.
+
+Includes:
+
+- owner manual confirmation record
+- completed manual confirmation checklist v2
+- authorized owner packet for day1 prompt generation
+- start gate revalidation
+- day1 prompt eligibility revalidation
+- authorization materialization audit
+- day1 blocker reclassification v0621
+
+Audited & Validated scope:
+
+- `manual_confirmation_complete=true`
+- `forward_dry_run_start_authorized=true`
+- `day1_prompt_eligible=true`
+- `day1_prompt_generated=false`
+- `day1_start_allowed=false`
+- `run-daily` not called
+- forward dry-run not started
+- main ledger not written
+- labels not used as authorization
+- ML shadow not used as authorization
+- LLM not used for trading decision
+- RL not used
+- promotion not triggered
+- not forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+
+Validation: 877 tests passed, 1 skipped.
+
 ## v0.6.2-forward-dry-run-start-authorization-pack-audited
 
 This release creates the fail-closed start authorization pack required before any future forward dry-run day 1. It does not start forward dry-run, does not call `run-daily`, does not write the main orders/trades/portfolio/accounts ledger, and does not generate an executable day1 prompt.

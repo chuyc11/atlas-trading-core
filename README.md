@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.2-forward-dry-run-start-authorization-pack-audited
+v0.6.2.1-owner-manual-confirmation-materialized
 
 ## Completed milestones
 
@@ -42,6 +42,7 @@ v0.6.2-forward-dry-run-start-authorization-pack-audited
 - v0.6.0 baseline strategy pack audited
 - v0.6.1 daily workflow binding audited
 - v0.6.2 forward dry-run start authorization pack audited
+- v0.6.2.1 owner manual confirmation materialized
 
 ## Known limitations
 
@@ -58,6 +59,7 @@ v0.6.2-forward-dry-run-start-authorization-pack-audited
 - v0.6.1 binds daily research workflow previews using local authorized historical daily snapshots
 - v0.6.2 creates a start authorization pack only and does not start forward dry-run
 - v0.6.2 keeps manual confirmation false, owner authorization false, day1_start_allowed=false, day1_prompt_eligible=false, and day1_prompt_generated=false by default
+- v0.6.2.1 materializes owner manual confirmation: manual_confirmation_complete=true, forward_dry_run_start_authorized=true, day1_prompt_eligible=true, day1_prompt_generated=false, and day1_start_allowed=false
 - strategy effectiveness not proven
 - no live trading
 
@@ -146,6 +148,20 @@ python -m trading_core.cli reclassify-day1-blockers-after-start-authorization
 ```
 
 The v0.6.2 pack is fail-closed. Technical prerequisites are present, authorization remains pending, and the next required action is owner manual confirmation. The run-daily command preview is metadata only; run-daily is not called, forward dry-run is not started, the main ledger is not written, no broker is connected, ML/LLM/RL trading decisions are not added, and promotion is not triggered.
+
+Run v0.6.2.1 owner manual confirmation materialization:
+
+```powershell
+python -m trading_core.cli forward-dry-run-owner-manual-confirmation-record
+python -m trading_core.cli complete-forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli update-forward-dry-run-owner-authorization-packet
+python -m trading_core.cli revalidate-forward-dry-run-start-gate-v0621
+python -m trading_core.cli revalidate-forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-authorization-materialization
+python -m trading_core.cli reclassify-day1-blockers-after-authorization-materialization
+```
+
+The v0.6.2.1 pack materializes owner manual confirmation but does not start forward dry-run day 1. The next required action is owner requests day1 prompt. It does not call run-daily, does not write the main ledger, does not validate forward dry-run, does not prove strategy effectiveness, and does not certify live trading readiness.
 
 Build features and labels:
 

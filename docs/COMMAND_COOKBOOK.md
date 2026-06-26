@@ -202,6 +202,20 @@ python -m trading_core.cli reclassify-day1-blockers-after-start-authorization
 
 This v0.6.2 path creates a start authorization pack only. Technical prerequisites are present, manual confirmation defaults false, owner authorization defaults false, `day1_start_allowed=false`, `day1_prompt_eligible=false`, and `day1_prompt_generated=false`. The run-daily command preview is metadata only. It does not call run-daily, does not start forward dry-run, does not write the main ledger, does not use labels, ML shadow, LLM, RL, experiments, or promotion outputs as authorization, and does not certify live trading readiness.
 
+## Run owner manual confirmation materialization
+
+```bash
+python -m trading_core.cli forward-dry-run-owner-manual-confirmation-record
+python -m trading_core.cli complete-forward-dry-run-manual-confirmation-checklist-v2
+python -m trading_core.cli update-forward-dry-run-owner-authorization-packet
+python -m trading_core.cli revalidate-forward-dry-run-start-gate-v0621
+python -m trading_core.cli revalidate-forward-dry-run-day1-prompt-eligibility
+python -m trading_core.cli audit-forward-dry-run-authorization-materialization
+python -m trading_core.cli reclassify-day1-blockers-after-authorization-materialization
+```
+
+This v0.6.2.1 path materializes owner manual confirmation and authorizes day1 prompt generation only. It sets `manual_confirmation_complete=true`, `forward_dry_run_start_authorized=true`, and `day1_prompt_eligible=true`, while keeping `day1_prompt_generated=false` and `day1_start_allowed=false`. It does not call run-daily, does not start forward dry-run, does not write the main ledger, and remains not forward dry-run validation, not strategy effectiveness proof, and not live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -226,6 +240,7 @@ This v0.6.2 path creates a start authorization pack only. Technical prerequisite
 * do not treat protected path residue scans as cleanup authorization
 * do not treat the v0.6.2 start authorization pack as owner approval
 * do not generate day1 execution instructions before explicit owner confirmation
+* do not treat v0.6.2.1 prompt eligibility as day1 execution approval
 
 ## Boundary
 
@@ -241,3 +256,4 @@ This v0.6.2 path creates a start authorization pack only. Technical prerequisite
 * v0.6.0 baseline strategy pack writes no main ledger, does not call run-daily, and does not start forward dry-run.
 * v0.6.1 daily workflow binding writes no main ledger, does not call run-daily, does not download real-time market data, and does not start forward dry-run.
 * v0.6.2 start authorization pack writes no main ledger, does not call run-daily, does not start forward dry-run, and keeps authorization pending.
+* v0.6.2.1 owner manual confirmation materialization writes no main ledger, does not call run-daily, does not start forward dry-run, and does not generate a day1 execution prompt.

@@ -43,3 +43,19 @@ v0.6.2 creates a start authorization pack only and does not start forward dry-ru
 - RL not used
 - promotion not triggered
 
+## v0.6.2.1 Materialization
+
+v0.6.2.1 materializes owner manual confirmation and updates the owner packet for day1 prompt generation only.
+
+- `manual_confirmation_complete=true`
+- `forward_dry_run_start_authorized=true`
+- `day1_prompt_eligible=true`
+- `day1_prompt_generated=false`
+- `day1_start_allowed=false`
+- next required action is owner requests day1 prompt
+- run-daily not called
+- forward dry-run not started
+- main ledger not written
+- not forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness

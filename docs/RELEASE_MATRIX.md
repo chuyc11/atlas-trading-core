@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited start authorization line is `v0.6.2-forward-dry-run-start-authorization-pack-audited`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited owner confirmation line is `v0.6.2.1-owner-manual-confirmation-materialized`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -26,3 +26,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.6.0-baseline-strategy-pack-audited | v0.6.0-baseline-strategy-pack-audited | deterministic baseline strategy pack, contract, registry, PIT-safe signals, order previews, isolated strategy replay, benchmark comparison, strategy reports, summary, audit, and v060 blocker reclassification | yes | research-only; forward dry-run not started, run-daily not called, main ledger not written, no ML/LLM/RL/promotion authorization |
 | v0.6.1-daily-workflow-binding-audited | v0.6.1-daily-workflow-binding-audited | daily workflow scope plan, local historical daily snapshot, data quality audit, freeze manifest, daily baseline signals, order previews, isolated execution preview, report packet, residue scan, workflow audit, and v061 blocker reclassification | yes | research-only preview; no real-time download, no run-daily, no forward dry-run start, no main ledger write |
 | v0.6.2-forward-dry-run-start-authorization-pack-audited | v0.6.2-forward-dry-run-start-authorization-pack-audited | authorization scope plan, prerequisite inventory, readiness snapshot, manual confirmation checklist v2, owner authorization packet, start gate, run-daily preview metadata, day1 prompt eligibility, start authorization audit, and v062 blocker reclassification | yes | start authorization pack only; manual confirmation false, owner authorization false, day1_start_allowed=false, day1_prompt_eligible=false |
+| v0.6.2.1-owner-manual-confirmation-materialized | v0.6.2.1-owner-manual-confirmation-materialized | owner manual confirmation record, completed checklist, authorized owner packet for day1 prompt generation, start gate revalidation, day1 prompt eligibility revalidation, materialization audit, and v0621 blocker reclassification | yes | owner confirmation materialized; day1_prompt_eligible=true, day1_prompt_generated=false, day1_start_allowed=false, run-daily not called |
