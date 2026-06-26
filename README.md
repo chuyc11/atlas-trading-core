@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.3.1-forward-dry-run-day1-continuation-artifacts
+v0.6.3.2-forward-dry-run-day1-owner-report-pack
 
 ## Completed milestones
 
@@ -45,6 +45,7 @@ v0.6.3.1-forward-dry-run-day1-continuation-artifacts
 - v0.6.2.1 owner manual confirmation materialized
 - v0.6.3 forward dry-run day 1 executed and audited
 - v0.6.3.1 forward dry-run day1 continuation artifacts
+- v0.6.3.2 forward dry-run day1 owner report pack
 
 ## Known limitations
 
@@ -64,6 +65,8 @@ v0.6.3.1-forward-dry-run-day1-continuation-artifacts
 - v0.6.2.1 materializes owner manual confirmation: manual_confirmation_complete=true, forward_dry_run_start_authorized=true, day1_prompt_eligible=true, day1_prompt_generated=false, and day1_start_allowed=false
 - v0.6.3 executes virtual isolated forward dry-run day 1 only; it writes the forward dry-run ledger, not the main ledger
 - v0.6.3.1 only fills day1 continuation artifact gaps; it does not execute day2
+- v0.6.3.2 generates an owner-facing day1 report pack only; it does not execute day2, does not call run-daily, does not download real-time data, and does not call external APIs
+- day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
 

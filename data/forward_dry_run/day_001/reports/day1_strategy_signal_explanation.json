@@ -1,0 +1,117 @@
+{
+  "report_id": "FORWARD-DRY-RUN-DAY1-STRATEGY-SIGNAL-EXPLANATION",
+  "day_index": 1,
+  "strategies_total": 3,
+  "strategies_explained": 3,
+  "strategy_explanations": [
+    {
+      "strategy_id": "equal_weight_etf_rotation",
+      "strategy_positioning": "Diversified baseline allocation across the ETF universe with a small cash reserve.",
+      "input_data_date": "2026-06-25",
+      "target_weights_summary": {
+        "510300.SH": 0.1225,
+        "159915.SZ": 0.1225,
+        "588000.SH": 0.1225,
+        "512480.SH": 0.1225,
+        "512660.SH": 0.1225,
+        "512880.SH": 0.1225,
+        "2800.HK": 0.1225,
+        "3033.HK": 0.1225
+      },
+      "cash_weight": 0.02,
+      "main_signal_reasons": {
+        "diagnostics": {
+          "price_data_as_of": "2026-06-25"
+        },
+        "warnings": [],
+        "no_future_price_data": true,
+        "no_future_risk_proxy": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "promotion_authorized": false,
+      "strategy_effectiveness_proven": false
+    },
+    {
+      "strategy_id": "momentum_risk_adjusted_rotation",
+      "strategy_positioning": "Baseline rotation that tilts toward stronger price momentum while keeping risk controls explicit.",
+      "input_data_date": "2026-06-25",
+      "target_weights_summary": {
+        "512480.SH": 0.2425,
+        "588000.SH": 0.2425,
+        "159915.SZ": 0.2425,
+        "510300.SH": 0.2425
+      },
+      "cash_weight": 0.03,
+      "main_signal_reasons": {
+        "diagnostics": {
+          "price_data_as_of": "2026-06-25"
+        },
+        "warnings": [],
+        "no_future_price_data": true,
+        "no_future_risk_proxy": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "promotion_authorized": false,
+      "strategy_effectiveness_proven": false
+    },
+    {
+      "strategy_id": "defensive_cash_rotation",
+      "strategy_positioning": "Defensive baseline allocation that keeps more cash when risk signals are elevated.",
+      "input_data_date": "2026-06-25",
+      "target_weights_summary": {
+        "510300.SH": 0.2375,
+        "159915.SZ": 0.2375,
+        "588000.SH": 0.2375,
+        "512480.SH": 0.2375
+      },
+      "cash_weight": 0.05,
+      "main_signal_reasons": {
+        "diagnostics": {
+          "price_data_as_of": "2026-06-25",
+          "risk_data_as_of": "2026-06-25",
+          "risk_value": 0.223305
+        },
+        "warnings": [],
+        "no_future_price_data": true,
+        "no_future_risk_proxy": true
+      },
+      "uses_ml": false,
+      "uses_llm": false,
+      "uses_rl": false,
+      "promotion_authorized": false,
+      "strategy_effectiveness_proven": false
+    }
+  ],
+  "boundary": {
+    "baseline_strategies_only": true,
+    "day2_executed": false,
+    "day3_executed": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_fully_validated": false,
+    "live_trading_ready": false,
+    "report_generation_only": true,
+    "external_api_called": false,
+    "real_time_market_data_downloaded": false,
+    "main_orders_written": false,
+    "main_trades_written": false,
+    "main_portfolio_written": false,
+    "main_accounts_written": false,
+    "real_trading": false,
+    "broker_execution": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false
+  }
+}

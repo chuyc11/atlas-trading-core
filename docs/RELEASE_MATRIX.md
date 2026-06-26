@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited forward dry-run line is `v0.6.3.1-forward-dry-run-day1-continuation-artifacts`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited forward dry-run line is `v0.6.3.2-forward-dry-run-day1-owner-report-pack`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -29,3 +29,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.6.2.1-owner-manual-confirmation-materialized | v0.6.2.1-owner-manual-confirmation-materialized | owner manual confirmation record, completed checklist, authorized owner packet for day1 prompt generation, start gate revalidation, day1 prompt eligibility revalidation, materialization audit, and v0621 blocker reclassification | yes | owner confirmation materialized; day1_prompt_eligible=true, day1_prompt_generated=false, day1_start_allowed=false, run-daily not called |
 | v0.6.3-forward-dry-run-day1-executed-audited | v0.6.3-forward-dry-run-day1-executed-audited | day1 pre-execution gate, input snapshot, baseline signals, virtual order preview, virtual execution, isolated forward dry-run ledger snapshot, risk/boundary report, operator report, post-execution audit, status, and v063 blocker reclassification | yes | virtual isolated day 1 only; run-daily not called, broker not connected, real orders not placed, main ledger not written, full 30d dry-run not completed |
 | v0.6.3.1-forward-dry-run-day1-continuation-artifacts | v0.6.3.1-forward-dry-run-day1-continuation-artifacts | v0.6.4 blocking preflight absorption, day1 continuation gap analysis, day1 artifact manifest, day1 reproducibility manifest, day2 readiness packet, day2 continuation gate preview, continuation artifact audit, and v0631 reclassification | yes | continuation artifacts only; day2 not executed, run-daily not called, broker not connected, main ledger not written |
+| v0.6.3.2-forward-dry-run-day1-owner-report-pack | v0.6.3.2-forward-dry-run-day1-owner-report-pack | owner-facing day1 summary, strategy signal explanation, virtual order/fill report, isolated ledger report, data reproducibility appendix, continuation blocker note, pack summary, and audit | yes | report pack only; day2 not executed, run-daily not called, no external API, no real-time market download, main ledger not written; next is data horizon extension |

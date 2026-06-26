@@ -33,7 +33,24 @@ python -m trading_core.cli audit-global-briefing-evidence-quality
 python -m trading_core.cli audit-historical-data-acquisition
 python -m trading_core.cli audit-historical-data-gap-closure
 python -m trading_core.cli audit-day0-readiness
+python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
 ```
+
+## Run forward dry-run day1 owner report pack
+
+```bash
+python -m trading_core.cli forward-dry-run-day1-owner-report-scope-plan
+python -m trading_core.cli forward-dry-run-day1-owner-summary-report
+python -m trading_core.cli forward-dry-run-day1-strategy-signal-explanation
+python -m trading_core.cli forward-dry-run-day1-virtual-order-fill-report
+python -m trading_core.cli forward-dry-run-day1-isolated-ledger-report
+python -m trading_core.cli forward-dry-run-day1-data-reproducibility-appendix
+python -m trading_core.cli forward-dry-run-day1-continuation-blocker-note
+python -m trading_core.cli forward-dry-run-day1-owner-report-pack-summary
+python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
+```
+
+This v0.6.3.2 path is report-only. It does not execute day2, does not call run-daily, does not download real-time market data, does not call external market APIs, does not write main orders/trades/portfolio/accounts, does not connect a broker, and does not place real orders. Day2 is blocked by local data horizon insufficiency; the next step is `v0.6.3.3-forward-dry-run-data-horizon-extension`.
 
 ## Run reporting pipeline
 

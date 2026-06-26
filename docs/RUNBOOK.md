@@ -8,6 +8,24 @@ All commands are local, file-backed, and virtual/research-only.
 python -m pytest
 ```
 
+## Forward dry-run day1 owner report pack
+
+This v0.6.3.2 workflow generates owner-facing day1 reports from existing v0.6.3 and v0.6.3.1 artifacts. It does not execute day2, does not execute day3, does not call run-daily, does not download real-time market data, does not call external market APIs, does not write the main ledger, does not connect a broker, and does not place real orders.
+
+```powershell
+python -m trading_core.cli forward-dry-run-day1-owner-report-scope-plan
+python -m trading_core.cli forward-dry-run-day1-owner-summary-report
+python -m trading_core.cli forward-dry-run-day1-strategy-signal-explanation
+python -m trading_core.cli forward-dry-run-day1-virtual-order-fill-report
+python -m trading_core.cli forward-dry-run-day1-isolated-ledger-report
+python -m trading_core.cli forward-dry-run-day1-data-reproducibility-appendix
+python -m trading_core.cli forward-dry-run-day1-continuation-blocker-note
+python -m trading_core.cli forward-dry-run-day1-owner-report-pack-summary
+python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
+```
+
+Day2 remains blocked until local authorized market, benchmark, and risk proxy data extend beyond `2026-06-25`. Recommended next version: `v0.6.3.3-forward-dry-run-data-horizon-extension`.
+
 ## Historical data validation
 
 ```powershell

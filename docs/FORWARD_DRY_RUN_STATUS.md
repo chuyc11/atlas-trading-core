@@ -1,6 +1,6 @@
 # Forward Dry-Run Status
 
-Current audited release: `v0.6.3.1-forward-dry-run-day1-continuation-artifacts`.
+Current audited release: `v0.6.3.2-forward-dry-run-day1-owner-report-pack`.
 
 ## State
 
@@ -10,13 +10,19 @@ Current audited release: `v0.6.3.1-forward-dry-run-day1-continuation-artifacts`.
 - day1 continuation artifact gap resolved: true
 - day2 readiness packet exists: true
 - day2 continuation gate preview exists: true
+- owner report pack complete: true
 - day2 executed: false
 - day3 executed: false
+- day2 blocker: local data horizon insufficiency
+- latest common local data date: 2026-06-25
+- recommended next version: v0.6.3.3-forward-dry-run-data-horizon-extension
 
 ## Boundary
 
 - virtual forward dry-run only
-- run-daily not called in v0.6.3.1
+- run-daily not called in v0.6.3.2
+- external API not called
+- real-time market data not downloaded
 - broker not connected
 - real orders not placed
 - main orders/trades/portfolio/accounts not written

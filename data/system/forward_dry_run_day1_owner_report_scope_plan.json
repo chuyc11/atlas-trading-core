@@ -1,0 +1,26 @@
+{
+  "scope_plan_id": "FORWARD-DRY-RUN-DAY1-OWNER-REPORT-SCOPE-PLAN",
+  "target_version": "v0.6.3.2-forward-dry-run-day1-owner-report-pack",
+  "baseline_from": "v0.6.3.1-forward-dry-run-day1-continuation-artifacts",
+  "report_only": true,
+  "day1_executed": true,
+  "day2_execution_allowed": false,
+  "day3_execution_allowed": false,
+  "report_sections": [
+    "owner_summary",
+    "strategy_signal_explanation",
+    "virtual_order_fill_report",
+    "isolated_ledger_report",
+    "risk_boundary_report",
+    "data_reproducibility_appendix",
+    "day2_blocker_note"
+  ],
+  "boundary": {
+    "report_generation_only": true,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false
+  }
+}

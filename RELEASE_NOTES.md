@@ -1,5 +1,51 @@
 # Release Notes
 
+## v0.6.3.2-forward-dry-run-day1-owner-report-pack
+
+This release adds an owner-facing day1 report pack for the completed virtual forward dry-run day 1. It does not execute day2, does not execute day3, does not call `run-daily`, does not download real-time market data, does not call external market APIs, does not connect a broker, does not place real orders, and does not write main orders/trades/portfolio/accounts.
+
+Includes:
+
+- day1 owner report scope plan
+- day1 owner summary report
+- day1 strategy signal explanation
+- day1 virtual order and fill report
+- day1 isolated ledger report
+- day1 data reproducibility appendix
+- day1 continuation blocker note
+- day1 owner report pack summary
+- day1 owner report audit
+
+Audited & Validated scope:
+
+- day1 completed
+- day1 as_of_date is `2026-06-25`
+- `strategies_total=3`
+- `strategies_generated=3`
+- virtual order preview produced 16 orders
+- virtual execution produced 16 fills and 0 rejects
+- owner report pack complete
+- owner report audit passed with no blocking reasons
+- day2 not executed
+- day3 not executed
+- run-daily not called
+- real-time market data not downloaded
+- external API not called
+- main orders/trades/portfolio/accounts not written
+- broker not connected
+- real orders not placed
+- labels not used as authorization
+- ML shadow not used as authorization
+- LLM not used for trading decision
+- RL not used
+- promotion not triggered
+- not strategy effectiveness proof
+- not full forward dry-run validation
+- not live trading readiness
+- recommended next version is `v0.6.3.3-forward-dry-run-data-horizon-extension`
+
+Validation: full pytest passed with 1 skipped.
+
 ## v0.6.3.1-forward-dry-run-day1-continuation-artifacts
 
 This release absorbs the v0.6.4 blocking preflight and materializes the missing v0.6.3 day1 continuation artifacts required before a future day2 continuation attempt. It does not execute day2, does not execute day3, does not call `run-daily`, does not connect a broker, does not place real orders, and does not write main orders/trades/portfolio/accounts.

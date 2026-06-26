@@ -1,0 +1,106 @@
+{
+  "report_id": "FORWARD-DRY-RUN-DAY1-VIRTUAL-ORDER-FILL-REPORT",
+  "day_index": 1,
+  "orders_total": 16,
+  "fills_total": 16,
+  "rejects_total": 0,
+  "order_side_summary": {
+    "BUY": 16
+  },
+  "symbol_summary": {
+    "159915.SZ": {
+      "orders_or_fills": 3,
+      "quantity": 138600,
+      "gross_amount": 601939.791011,
+      "net_amount": 602722.502322
+    },
+    "2800.HK": {
+      "orders_or_fills": 1,
+      "quantity": 5200,
+      "gross_amount": 122200.0,
+      "net_amount": 122358.89666
+    },
+    "3033.HK": {
+      "orders_or_fills": 1,
+      "quantity": 28300,
+      "gross_amount": 122086.203671,
+      "net_amount": 122244.948686
+    },
+    "510300.SH": {
+      "orders_or_fills": 3,
+      "quantity": 119200,
+      "gross_amount": 601244.817733,
+      "net_amount": 602026.598613
+    },
+    "512480.SH": {
+      "orders_or_fills": 3,
+      "quantity": 218400,
+      "gross_amount": 601910.409164,
+      "net_amount": 602693.064093
+    },
+    "512660.SH": {
+      "orders_or_fills": 1,
+      "quantity": 97200,
+      "gross_amount": 122374.794531,
+      "net_amount": 122533.923952
+    },
+    "512880.SH": {
+      "orders_or_fills": 1,
+      "quantity": 106400,
+      "gross_amount": 122466.402435,
+      "net_amount": 122625.64306
+    },
+    "588000.SH": {
+      "orders_or_fills": 3,
+      "quantity": 275800,
+      "gross_amount": 602071.424198,
+      "net_amount": 602854.273442
+    }
+  },
+  "estimated_cost_summary": {
+    "orders_estimated_cost": 2900059.850828,
+    "fills_net_amount": 2900059.850828
+  },
+  "fee_tax_slippage_summary": {
+    "commission": 869.757028,
+    "tax": 0.0,
+    "slippage": 0.073202
+  },
+  "no_trade_fallback": false,
+  "t_plus_1_execution_notes": "Orders use the earliest execution date from the day1 signal preview; A-share available shares remain zero on fill day.",
+  "tradability_notes": "All filled orders passed the day1 tradability checks.",
+  "board_lot_odd_lot_notes": "Preview quantities apply board-lot rounding where required; no odd-lot real order was placed.",
+  "real_orders_placed": false,
+  "broker_orders_placed": false,
+  "main_orders_written": false,
+  "main_trades_written": false,
+  "boundary": {
+    "virtual_orders_only": true,
+    "day2_executed": false,
+    "day3_executed": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_fully_validated": false,
+    "live_trading_ready": false,
+    "report_generation_only": true,
+    "external_api_called": false,
+    "real_time_market_data_downloaded": false,
+    "main_orders_written": false,
+    "main_trades_written": false,
+    "main_portfolio_written": false,
+    "main_accounts_written": false,
+    "real_trading": false,
+    "broker_execution": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false,
+    "real_execution": false
+  }
+}

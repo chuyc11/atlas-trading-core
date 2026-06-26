@@ -46,17 +46,26 @@ from trading_core.forward_dry_run.completed_manual_confirmation_checklist_v2 imp
 from trading_core.forward_dry_run.day1_artifact_manifest import build_day1_artifact_manifest
 from trading_core.forward_dry_run.day1_continuation_artifact_audit import audit_day1_continuation_artifacts
 from trading_core.forward_dry_run.day1_continuation_gap_analysis import build_day1_continuation_gap_analysis
+from trading_core.forward_dry_run.day1_continuation_blocker_note import build_day1_continuation_blocker_note
+from trading_core.forward_dry_run.day1_data_reproducibility_appendix import build_day1_data_reproducibility_appendix
 from trading_core.forward_dry_run.day1_input_snapshot import build_day1_input_snapshot
+from trading_core.forward_dry_run.day1_isolated_ledger_report import build_day1_isolated_ledger_report
 from trading_core.forward_dry_run.day1_ledger_snapshot import build_day1_ledger_snapshot
 from trading_core.forward_dry_run.day1_operator_report import build_day1_operator_report
+from trading_core.forward_dry_run.day1_owner_report_audit import audit_day1_owner_report_pack
+from trading_core.forward_dry_run.day1_owner_report_pack_summary import build_day1_owner_report_pack_summary
+from trading_core.forward_dry_run.day1_owner_report_scope_plan import build_day1_owner_report_scope_plan
+from trading_core.forward_dry_run.day1_owner_summary_report import build_day1_owner_summary_report
 from trading_core.forward_dry_run.day1_post_execution_audit import audit_forward_dry_run_day1
 from trading_core.forward_dry_run.day1_pre_execution_gate import build_day1_pre_execution_gate
 from trading_core.forward_dry_run.day1_prompt_eligibility_report import build_forward_dry_run_day1_prompt_eligibility
 from trading_core.forward_dry_run.day1_prompt_eligibility_revalidation_v0621 import revalidate_forward_dry_run_day1_prompt_eligibility
 from trading_core.forward_dry_run.day1_reproducibility_manifest import build_day1_reproducibility_manifest
 from trading_core.forward_dry_run.day1_risk_and_boundary_report import build_day1_risk_and_boundary_report
+from trading_core.forward_dry_run.day1_strategy_signal_explanation import build_day1_strategy_signal_explanation
 from trading_core.forward_dry_run.day1_strategy_signals import build_day1_strategy_signals
 from trading_core.forward_dry_run.day1_virtual_execution_result import build_day1_virtual_execution_result
+from trading_core.forward_dry_run.day1_virtual_order_fill_report import build_day1_virtual_order_fill_report
 from trading_core.forward_dry_run.day1_virtual_order_preview import build_day1_virtual_order_preview
 from trading_core.forward_dry_run.day2_continuation_gate_preview import build_day2_continuation_gate_preview
 from trading_core.forward_dry_run.day2_readiness_packet import build_day2_readiness_packet
@@ -727,6 +736,15 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("forward-dry-run-day2-continuation-gate-preview")
     subparsers.add_parser("audit-forward-dry-run-day1-continuation-artifacts")
     subparsers.add_parser("reclassify-day1-continuation-artifacts-v0631")
+    subparsers.add_parser("forward-dry-run-day1-owner-report-scope-plan")
+    subparsers.add_parser("forward-dry-run-day1-owner-summary-report")
+    subparsers.add_parser("forward-dry-run-day1-strategy-signal-explanation")
+    subparsers.add_parser("forward-dry-run-day1-virtual-order-fill-report")
+    subparsers.add_parser("forward-dry-run-day1-isolated-ledger-report")
+    subparsers.add_parser("forward-dry-run-day1-data-reproducibility-appendix")
+    subparsers.add_parser("forward-dry-run-day1-continuation-blocker-note")
+    subparsers.add_parser("forward-dry-run-day1-owner-report-pack-summary")
+    subparsers.add_parser("audit-forward-dry-run-day1-owner-report-pack")
 
     return parser
 
@@ -1968,6 +1986,42 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = reclassify_day1_continuation_artifacts_v0631(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "continuation_artifact_gap_resolved": result["continuation_artifact_gap_resolved"], "remaining_continuation_artifact_gap_count": result["remaining_continuation_artifact_gap_count"], "day2_blocker_count": result["day2_blocker_count"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0 if result["continuation_artifact_gap_resolved"] else 1
+    if args.command == "forward-dry-run-day1-owner-report-scope-plan":
+        result = build_day1_owner_report_scope_plan(paths=paths)
+        print({"scope_plan_id": result["scope_plan_id"], "target_version": result["target_version"], "report_only": result["report_only"], "day2_execution_allowed": result["day2_execution_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-day1-owner-summary-report":
+        result = build_day1_owner_summary_report(paths=paths)
+        print({"report_id": result["report_id"], "as_of_date": result["as_of_date"], "key_numbers": result["key_numbers"], "day2_executed": result["boundary"]["day2_executed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-day1-strategy-signal-explanation":
+        result = build_day1_strategy_signal_explanation(paths=paths)
+        print({"report_id": result["report_id"], "strategies_total": result["strategies_total"], "strategies_explained": result["strategies_explained"], "promotion_triggered": result["boundary"]["promotion_triggered"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["strategies_explained"] == result["strategies_total"] else 1
+    if args.command == "forward-dry-run-day1-virtual-order-fill-report":
+        result = build_day1_virtual_order_fill_report(paths=paths)
+        print({"report_id": result["report_id"], "orders_total": result["orders_total"], "fills_total": result["fills_total"], "rejects_total": result["rejects_total"], "real_orders_placed": result["real_orders_placed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if not result["real_orders_placed"] and not result["broker_orders_placed"] else 1
+    if args.command == "forward-dry-run-day1-isolated-ledger-report":
+        result = build_day1_isolated_ledger_report(paths=paths)
+        print({"report_id": result["report_id"], "forward_dry_run_ledger_written": result["forward_dry_run_ledger_written"], "ledger_hash": result["ledger_hash"], "invariants": result["invariants"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["forward_dry_run_ledger_written"] and all(result["invariants"].values()) else 1
+    if args.command == "forward-dry-run-day1-data-reproducibility-appendix":
+        result = build_day1_data_reproducibility_appendix(paths=paths)
+        print({"appendix_id": result["appendix_id"], "day1_as_of_date": result["day1_as_of_date"], "external_api_called": result["external_api_called"], "real_time_market_data_downloaded": result["real_time_market_data_downloaded"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if not result["external_api_called"] and not result["real_time_market_data_downloaded"] else 1
+    if args.command == "forward-dry-run-day1-continuation-blocker-note":
+        result = build_day1_continuation_blocker_note(paths=paths)
+        print({"note_id": result["note_id"], "day1_completed": result["day1_completed"], "day2_executed": result["day2_executed"], "blocker_type": result["blocker_type"], "latest_common_local_data_date": result["latest_common_local_data_date"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["day1_completed"] and not result["day2_executed"] else 1
+    if args.command == "forward-dry-run-day1-owner-report-pack-summary":
+        result = build_day1_owner_report_pack_summary(paths=paths)
+        print({"summary_id": result["summary_id"], "reports_total": result["reports_total"], "reports_complete": result["reports_complete"], "missing_reports": result["missing_reports"], "owner_report_pack_complete": result["owner_report_pack_complete"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["owner_report_pack_complete"] else 1
+    if args.command == "audit-forward-dry-run-day1-owner-report-pack":
+        result = audit_day1_owner_report_pack(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)

@@ -1,0 +1,167 @@
+{
+  "baseline_tag": "v0.6.3.1-forward-dry-run-day1-continuation-artifacts",
+  "target_version": "v0.6.4-forward-dry-run-day2-continuation-audited",
+  "generated_at": "2026-06-26T18:33:11.846504+00:00",
+  "git": {
+    "head": "28e840853867cd3b93c74c1cdde5ec133eaa1e78",
+    "baseline_tag_commit": "28e840853867cd3b93c74c1cdde5ec133eaa1e78",
+    "status_short_before_report": ""
+  },
+  "day1_as_of_date": "2026-06-25",
+  "local_data_coverage": {
+    "market": {
+      "path": "data\\market\\historical\\authorized\\HIST-ETF-OHLCV-CN-HK-V1.csv",
+      "max_date": "2026-06-25",
+      "sha256": "1a4fb642d99bebea0470b779263a1c0058504af429c26d298369d21f0d2e565a"
+    },
+    "benchmark": {
+      "path": "data\\market\\historical\\authorized\\HIST-BENCHMARK-INDEX-CN-HK-V1.csv",
+      "max_date": "2026-06-25",
+      "sha256": "9b850b6540c544756947bf0999e84fdcebff7af7d8f2619fd6c5340555da009b"
+    },
+    "risk_proxy": {
+      "path": "data\\global_briefing\\normalized\\GB-AUTHORIZED-FULL-HISTORICAL-PROXY-V1.normalized.jsonl",
+      "max_date": "2026-06-25",
+      "sha256": "ea0cf204339df93ed569b603306c74e4e8a04f058f51c7613210edda60a95ada"
+    },
+    "market_dates_after_day1": [],
+    "benchmark_dates_after_day1": [],
+    "risk_dates_after_day1": [],
+    "common_dates_after_day1": []
+  },
+  "required_inputs": [
+    {
+      "path": "data/forward_dry_run/day_001/day1_pre_execution_gate.json",
+      "exists": true,
+      "sha256": "c5ee4f152647fa333bf2f9b16cf278f6b8603935e3e1a22a39f677701d1e9f2e"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_input_snapshot.json",
+      "exists": true,
+      "sha256": "45196fd692ad25d4ac093bf0855f30df193f879652664e6e91b99b3e339bff83"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_strategy_signals.json",
+      "exists": true,
+      "sha256": "ed64ede1e18a27720718ce4343e2d0be7055f95569608fc0602205fee9389d6c"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_virtual_order_preview.json",
+      "exists": true,
+      "sha256": "e57dea50f2895db80321cad175232d4c3a417dfc92f8d3565788c459bd77cd17"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_virtual_execution_result.json",
+      "exists": true,
+      "sha256": "f12ecec4886fdaaca0f26d06964c68f28ec21d332b008caf4089562f27755dbe"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_forward_dry_run_ledger_snapshot.json",
+      "exists": true,
+      "sha256": "03463ddc37597cf6528fad094fce76da40a320c105515776ae738f7b38dfa665"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_risk_and_boundary_report.json",
+      "exists": true,
+      "sha256": "c7bdc1bd5481694f29627ed8f0594618394785382c89cdeaf8424662a820df72"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_operator_report.json",
+      "exists": true,
+      "sha256": "93317e2506d70384ac8a221bfc53817477bc65117cff80a3d00cce57c15dc877"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_post_execution_audit.json",
+      "exists": true,
+      "sha256": "d5b5abcd778b5d16e0e77ed22b481c8c5d8c6d988c3ff641dbdb5e15eb218c27"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_artifact_manifest.json",
+      "exists": true,
+      "sha256": "2df0eb5c769f40e2d2183680a5fe7bc346cec53fe3dc1d04911d1f3cf7b0b5a1"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day1_reproducibility_manifest.json",
+      "exists": true,
+      "sha256": "7c6a2bd61d4dc1aa5303c266986901ae3142ef621aa4a25d0e61da21eeffa138"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day2_readiness_packet.json",
+      "exists": true,
+      "sha256": "eef8d9ac14c2b7213be5fbb54c9c705af3494b5b477718486ed7d82aa74638ee"
+    },
+    {
+      "path": "data/forward_dry_run/day_001/day2_continuation_gate_preview.json",
+      "exists": true,
+      "sha256": "24908fed3c63097dddd9e9e0c26764e95e1cfc965493aaef49ec75daa6d1d4b3"
+    },
+    {
+      "path": "data/system/forward_dry_run_status.json",
+      "exists": true,
+      "sha256": "d875a2205485ccb46397816506e668d6c652d1b7d7bc219e9c2bbdb8f7207779"
+    },
+    {
+      "path": "data/system/day1_blocker_reclassification_v063.json",
+      "exists": true,
+      "sha256": "babf2fdc0fefdfbf742c9c7402ffb653c778d613f41fb3e79cd518045013f774"
+    },
+    {
+      "path": "data/system/forward_dry_run_day1_continuation_artifact_audit.json",
+      "exists": true,
+      "sha256": "d9633985b5691948b2eca1388579d4e5a13dff403425487bcae3491c448d049a"
+    },
+    {
+      "path": "data/system/day1_continuation_reclassification_v0631.json",
+      "exists": true,
+      "sha256": "98b5483f399c117235d99cdfe31cd22a68eba6d687ab63ad53dc586c4a0cd2cf"
+    }
+  ],
+  "actions_taken": {
+    "day2_executed": false,
+    "day3_executed": false,
+    "run_daily_called": false,
+    "release_tag_created": false
+  },
+  "boundary": {
+    "virtual_forward_dry_run_only": true,
+    "day2_executed": false,
+    "day3_executed": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_fully_validated": false,
+    "live_trading_ready": false
+  },
+  "preflight_id": "FORWARD-DRY-RUN-DAY2-CONTINUATION-PREFLIGHT-V064",
+  "overall_passed": false,
+  "blocking_reasons": [
+    "eligible_day2_local_date_exists=false",
+    "no_eligible_local_trading_date_after_day1_as_of_date=2026-06-25"
+  ],
+  "warnings": [],
+  "checks": {
+    "baseline_tag_present": true,
+    "version_is_baseline": true,
+    "required_inputs_present": true,
+    "day1_post_execution_audit_passed": true,
+    "forward_dry_run_days_completed_is_1": true,
+    "next_day_index_is_2": true,
+    "day1_artifacts_complete": true,
+    "day2_prompt_eligible_after_operator_review": true,
+    "day2_continuation_structurally_eligible": true,
+    "continuation_artifact_audit_passed": true,
+    "continuation_gap_resolved": true,
+    "day2_not_executed": true,
+    "day3_not_executed": true,
+    "eligible_day2_local_date_exists": false
+  },
+  "day1_core_artifacts_valid": true,
+  "day1_continuation_artifacts_valid": true,
+  "day2_execution_allowed_after_operator_review": false
+}

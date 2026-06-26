@@ -56,3 +56,18 @@ After day1 execution, v0.6.3.1 adds:
 - day2 continuation gate preview
 
 These artifacts resolve the gap exposed by the v0.6.4 blocking preflight. They do not execute day2, do not call run-daily, do not write day_002 artifacts, and do not authorize real trading.
+
+## v0.6.3.2 Owner Report Pack
+
+v0.6.3.2 turns the completed day1 evidence into owner-facing reports:
+
+- owner summary report
+- strategy signal explanation
+- virtual order and fill report
+- isolated ledger report
+- data reproducibility appendix
+- continuation blocker note
+- owner report pack summary
+- owner report audit
+
+The report pack keeps the same day1 evidence: `as_of_date=2026-06-25`, `strategies_generated=3`, `virtual_orders_total=16`, `virtual_fills=16`, and `virtual_rejects=0`. It does not execute day2, does not call run-daily, does not download real-time market data, does not call external APIs, does not write the main ledger, does not connect a broker, and does not place real orders. Day2 remains blocked by local data horizon insufficiency.

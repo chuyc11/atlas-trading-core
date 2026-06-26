@@ -42,3 +42,21 @@ python -m trading_core.cli reclassify-day1-continuation-artifacts-v0631
 ```
 
 This prepares the next v0.6.4 attempt by creating day1-derived continuation artifacts. It does not execute day2, does not call run-daily, and does not write the main ledger.
+
+## v0.6.3.2 Day1 Owner Report Pack
+
+Run only after v0.6.3 and v0.6.3.1 artifacts exist:
+
+```bash
+python -m trading_core.cli forward-dry-run-day1-owner-report-scope-plan
+python -m trading_core.cli forward-dry-run-day1-owner-summary-report
+python -m trading_core.cli forward-dry-run-day1-strategy-signal-explanation
+python -m trading_core.cli forward-dry-run-day1-virtual-order-fill-report
+python -m trading_core.cli forward-dry-run-day1-isolated-ledger-report
+python -m trading_core.cli forward-dry-run-day1-data-reproducibility-appendix
+python -m trading_core.cli forward-dry-run-day1-continuation-blocker-note
+python -m trading_core.cli forward-dry-run-day1-owner-report-pack-summary
+python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
+```
+
+This generates owner-facing day1 reports only. It does not execute day2, does not execute day3, does not call run-daily, does not download real-time market data, does not call external APIs, does not write the main ledger, does not connect a broker, and does not place real orders. Day2 is blocked because local market, benchmark, and risk proxy data do not extend beyond `2026-06-25`. Recommended next version: `v0.6.3.3-forward-dry-run-data-horizon-extension`.
