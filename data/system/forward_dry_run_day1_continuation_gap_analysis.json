@@ -1,0 +1,42 @@
+{
+  "analysis_id": "FORWARD-DRY-RUN-DAY1-CONTINUATION-GAP-ANALYSIS",
+  "baseline_tag": "v0.6.3-forward-dry-run-day1-executed-audited",
+  "day1_core_execution_passed": true,
+  "v064_preflight_blocked": true,
+  "missing_artifacts": [
+    "data/forward_dry_run/day_001/day1_artifact_manifest.json",
+    "data/forward_dry_run/day_001/day1_reproducibility_manifest.json",
+    "data/forward_dry_run/day_001/day2_readiness_packet.json",
+    "data/forward_dry_run/day_001/day2_continuation_gate_preview.json"
+  ],
+  "v064_preflight_missing_artifacts": [
+    "data/forward_dry_run/day_001/day2_readiness_packet.json",
+    "data/forward_dry_run/day_001/day2_continuation_gate_preview.json",
+    "data/forward_dry_run/day_001/day1_artifact_manifest.json",
+    "data/forward_dry_run/day_001/day1_reproducibility_manifest.json"
+  ],
+  "missing_artifacts_derivable": true,
+  "day2_should_remain_blocked_until_artifacts_generated": true,
+  "day2_execution_allowed_in_this_stage": false,
+  "day2_executed": false,
+  "run_daily_called": false,
+  "main_ledger_written": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "boundary": {
+    "analysis_only": true,
+    "day2_executed": false,
+    "day3_executed": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "ml_shadow_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "forward_dry_run_fully_validated": false,
+    "live_trading_ready": false
+  }
+}

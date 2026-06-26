@@ -1,0 +1,17 @@
+{
+  "reclassification_id": "DAY1-CONTINUATION-RECLASSIFICATION-V0631",
+  "day1_core_execution_passed": true,
+  "continuation_artifact_gap_resolved": true,
+  "remaining_continuation_artifact_gap_count": 0,
+  "day2_blocker_count": 0,
+  "day2_executed": false,
+  "recommended_next_version": "v0.6.4-forward-dry-run-day2-continuation",
+  "boundary": {
+    "reclassification_only": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "main_ledger_written": false,
+    "real_trading": false,
+    "broker_connected": false
+  }
+}

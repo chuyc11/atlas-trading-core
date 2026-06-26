@@ -1,0 +1,20 @@
+{
+  "preview_id": "FORWARD-DRY-RUN-DAY2-CONTINUATION-GATE-PREVIEW",
+  "source_day_index": 1,
+  "next_day_index": 2,
+  "day2_continuation_structurally_eligible": true,
+  "operator_review_required": true,
+  "day2_execution_authorized_in_this_artifact": false,
+  "day2_executed": false,
+  "recommended_next_version": "v0.6.4-forward-dry-run-day2-continuation",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "boundary": {
+    "gate_preview_only": true,
+    "run_daily_called_for_day2": false,
+    "forward_dry_run_day2_started": false,
+    "main_ledger_written": false,
+    "broker_connected": false,
+    "real_orders_placed": false
+  }
+}

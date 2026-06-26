@@ -43,6 +43,9 @@ from trading_core.forward_dry_run.day0_warning_register import build_day0_warnin
 from trading_core.forward_dry_run.current_daily_workflow_readiness_snapshot import build_current_daily_workflow_readiness_snapshot
 from trading_core.forward_dry_run.authorization_materialization_audit import audit_forward_dry_run_authorization_materialization
 from trading_core.forward_dry_run.completed_manual_confirmation_checklist_v2 import complete_forward_dry_run_manual_confirmation_checklist_v2
+from trading_core.forward_dry_run.day1_artifact_manifest import build_day1_artifact_manifest
+from trading_core.forward_dry_run.day1_continuation_artifact_audit import audit_day1_continuation_artifacts
+from trading_core.forward_dry_run.day1_continuation_gap_analysis import build_day1_continuation_gap_analysis
 from trading_core.forward_dry_run.day1_input_snapshot import build_day1_input_snapshot
 from trading_core.forward_dry_run.day1_ledger_snapshot import build_day1_ledger_snapshot
 from trading_core.forward_dry_run.day1_operator_report import build_day1_operator_report
@@ -50,10 +53,13 @@ from trading_core.forward_dry_run.day1_post_execution_audit import audit_forward
 from trading_core.forward_dry_run.day1_pre_execution_gate import build_day1_pre_execution_gate
 from trading_core.forward_dry_run.day1_prompt_eligibility_report import build_forward_dry_run_day1_prompt_eligibility
 from trading_core.forward_dry_run.day1_prompt_eligibility_revalidation_v0621 import revalidate_forward_dry_run_day1_prompt_eligibility
+from trading_core.forward_dry_run.day1_reproducibility_manifest import build_day1_reproducibility_manifest
 from trading_core.forward_dry_run.day1_risk_and_boundary_report import build_day1_risk_and_boundary_report
 from trading_core.forward_dry_run.day1_strategy_signals import build_day1_strategy_signals
 from trading_core.forward_dry_run.day1_virtual_execution_result import build_day1_virtual_execution_result
 from trading_core.forward_dry_run.day1_virtual_order_preview import build_day1_virtual_order_preview
+from trading_core.forward_dry_run.day2_continuation_gate_preview import build_day2_continuation_gate_preview
+from trading_core.forward_dry_run.day2_readiness_packet import build_day2_readiness_packet
 from trading_core.forward_dry_run.forward_dry_run_status import build_forward_dry_run_status
 from trading_core.forward_dry_run.manual_confirmation_checklist_v2 import build_forward_dry_run_manual_confirmation_checklist_v2
 from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
@@ -112,6 +118,7 @@ from trading_core.planning.day1_blocker_reclassification_v061 import reclassify_
 from trading_core.planning.day1_blocker_reclassification_v062 import reclassify_day1_blockers_after_start_authorization
 from trading_core.planning.day1_blocker_reclassification_v0621 import reclassify_day1_blockers_after_authorization_materialization
 from trading_core.planning.day1_blocker_reclassification_v063 import reclassify_day1_blockers_after_forward_dry_run_day1
+from trading_core.planning.day1_continuation_reclassification_v0631 import reclassify_day1_continuation_artifacts_v0631
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -713,6 +720,13 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("audit-forward-dry-run-day1")
     subparsers.add_parser("forward-dry-run-status")
     subparsers.add_parser("reclassify-day1-blockers-after-forward-dry-run-day1")
+    subparsers.add_parser("forward-dry-run-day1-continuation-gap-analysis")
+    subparsers.add_parser("forward-dry-run-day1-artifact-manifest")
+    subparsers.add_parser("forward-dry-run-day1-reproducibility-manifest")
+    subparsers.add_parser("forward-dry-run-day2-readiness-packet")
+    subparsers.add_parser("forward-dry-run-day2-continuation-gate-preview")
+    subparsers.add_parser("audit-forward-dry-run-day1-continuation-artifacts")
+    subparsers.add_parser("reclassify-day1-continuation-artifacts-v0631")
 
     return parser
 
@@ -1926,6 +1940,34 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = reclassify_day1_blockers_after_forward_dry_run_day1(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "remaining_day1_blocker_count": result["remaining_day1_blocker_count"], "day2_blocker_count": result["day2_blocker_count"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
+    if args.command == "forward-dry-run-day1-continuation-gap-analysis":
+        result = build_day1_continuation_gap_analysis(paths=paths)
+        print({"analysis_id": result["analysis_id"], "day1_core_execution_passed": result["day1_core_execution_passed"], "v064_preflight_blocked": result["v064_preflight_blocked"], "missing_artifacts": result["missing_artifacts"], "day2_execution_allowed_in_this_stage": result["day2_execution_allowed_in_this_stage"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day1-artifact-manifest":
+        result = build_day1_artifact_manifest(paths=paths)
+        print({"manifest_id": result["manifest_id"], "required_artifacts_total": result["required_artifacts_total"], "required_artifacts_present": result["required_artifacts_present"], "missing_required_artifacts": result["missing_required_artifacts"], "overall_passed": result["overall_passed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day1-reproducibility-manifest":
+        result = build_day1_reproducibility_manifest(paths=paths)
+        print({"manifest_id": result["manifest_id"], "baseline_tag": result["baseline_tag"], "day1_as_of_date": result["day1_as_of_date"], "external_api_called": result["external_api_called"], "real_time_market_data_downloaded": result["real_time_market_data_downloaded"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day2-readiness-packet":
+        result = build_day2_readiness_packet(paths=paths)
+        print({"packet_id": result["packet_id"], "day1_passed": result["day1_passed"], "day1_artifacts_complete": result["day1_artifacts_complete"], "day2_prompt_eligible_after_operator_review": result["day2_prompt_eligible_after_operator_review"], "operator_review_required": result["operator_review_required"], "day2_executed": result["day2_executed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "forward-dry-run-day2-continuation-gate-preview":
+        result = build_day2_continuation_gate_preview(paths=paths)
+        print({"preview_id": result["preview_id"], "day2_continuation_structurally_eligible": result["day2_continuation_structurally_eligible"], "operator_review_required": result["operator_review_required"], "day2_execution_authorized_in_this_artifact": result["day2_execution_authorized_in_this_artifact"], "day2_executed": result["day2_executed"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-forward-dry-run-day1-continuation-artifacts":
+        result = audit_day1_continuation_artifacts(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-continuation-artifacts-v0631":
+        result = reclassify_day1_continuation_artifacts_v0631(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "continuation_artifact_gap_resolved": result["continuation_artifact_gap_resolved"], "remaining_continuation_artifact_gap_count": result["remaining_continuation_artifact_gap_count"], "day2_blocker_count": result["day2_blocker_count"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["continuation_artifact_gap_resolved"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
