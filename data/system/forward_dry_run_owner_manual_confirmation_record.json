@@ -1,0 +1,14 @@
+{
+  "record_id": "FORWARD-DRY-RUN-OWNER-MANUAL-CONFIRMATION-RECORD",
+  "owner_confirmation_recorded": true,
+  "owner_authorized_next_step": true,
+  "owner_authorized_day1_execution": false,
+  "confirmation_scope": "authorization_materialization_only",
+  "day1_execution_requires_separate_prompt": true,
+  "boundary": {
+    "confirmation_record_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "main_ledger_written": false
+  }
+}

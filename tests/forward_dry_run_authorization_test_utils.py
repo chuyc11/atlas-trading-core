@@ -34,3 +34,22 @@ def build_authorization_pack(paths) -> None:
     build_forward_dry_run_run_daily_command_preview(paths=paths)
     build_forward_dry_run_day1_prompt_eligibility(paths=paths)
     audit_forward_dry_run_start_authorization(paths=paths)
+
+
+def build_authorization_materialization_stack(paths) -> None:
+    from trading_core.forward_dry_run.authorization_materialization_audit import audit_forward_dry_run_authorization_materialization
+    from trading_core.forward_dry_run.completed_manual_confirmation_checklist_v2 import complete_forward_dry_run_manual_confirmation_checklist_v2
+    from trading_core.forward_dry_run.day1_prompt_eligibility_revalidation_v0621 import revalidate_forward_dry_run_day1_prompt_eligibility
+    from trading_core.forward_dry_run.owner_manual_confirmation_record import build_owner_manual_confirmation_record
+    from trading_core.forward_dry_run.start_gate_revalidation_v0621 import revalidate_forward_dry_run_start_gate_v0621
+    from trading_core.forward_dry_run.updated_owner_authorization_packet import update_forward_dry_run_owner_authorization_packet
+    from trading_core.planning.day1_blocker_reclassification_v0621 import reclassify_day1_blockers_after_authorization_materialization
+
+    build_authorization_pack(paths)
+    build_owner_manual_confirmation_record(paths=paths)
+    complete_forward_dry_run_manual_confirmation_checklist_v2(paths=paths)
+    update_forward_dry_run_owner_authorization_packet(paths=paths)
+    revalidate_forward_dry_run_start_gate_v0621(paths=paths)
+    revalidate_forward_dry_run_day1_prompt_eligibility(paths=paths)
+    audit_forward_dry_run_authorization_materialization(paths=paths)
+    reclassify_day1_blockers_after_authorization_materialization(paths=paths)

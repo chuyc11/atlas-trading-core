@@ -1,0 +1,15 @@
+{
+  "authorization_packet_id": "FORWARD-DRY-RUN-OWNER-AUTHORIZATION-PACKET-AUTHORIZED",
+  "source_packet": "data/system/forward_dry_run_owner_authorization_packet.json",
+  "authorization_status": "authorized_for_day1_prompt_generation",
+  "forward_dry_run_start_authorized": true,
+  "day1_execution_authorized": false,
+  "day1_execution_requires_separate_prompt": true,
+  "authorized_scope": "day1_prompt_generation_only",
+  "boundary": {
+    "authorization_packet_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "main_ledger_written": false
+  }
+}

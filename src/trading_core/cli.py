@@ -41,15 +41,21 @@ from trading_core.forward_dry_run.day0_readiness_report import build_day0_readin
 from trading_core.forward_dry_run.day0_run_daily_preflight import build_day0_run_daily_preflight
 from trading_core.forward_dry_run.day0_warning_register import build_day0_warning_register
 from trading_core.forward_dry_run.current_daily_workflow_readiness_snapshot import build_current_daily_workflow_readiness_snapshot
+from trading_core.forward_dry_run.authorization_materialization_audit import audit_forward_dry_run_authorization_materialization
+from trading_core.forward_dry_run.completed_manual_confirmation_checklist_v2 import complete_forward_dry_run_manual_confirmation_checklist_v2
 from trading_core.forward_dry_run.day1_prompt_eligibility_report import build_forward_dry_run_day1_prompt_eligibility
+from trading_core.forward_dry_run.day1_prompt_eligibility_revalidation_v0621 import revalidate_forward_dry_run_day1_prompt_eligibility
 from trading_core.forward_dry_run.manual_confirmation_checklist_v2 import build_forward_dry_run_manual_confirmation_checklist_v2
 from trading_core.forward_dry_run.operating_calendar import build_forward_dry_run_operating_calendar
+from trading_core.forward_dry_run.owner_manual_confirmation_record import build_owner_manual_confirmation_record
 from trading_core.forward_dry_run.owner_authorization_packet import build_forward_dry_run_owner_authorization_packet
 from trading_core.forward_dry_run.run_daily_command_preview_metadata import build_forward_dry_run_run_daily_command_preview
 from trading_core.forward_dry_run.start_authorization_audit import audit_forward_dry_run_start_authorization
 from trading_core.forward_dry_run.start_authorization_scope_plan import build_forward_dry_run_authorization_scope_plan
+from trading_core.forward_dry_run.start_gate_revalidation_v0621 import revalidate_forward_dry_run_start_gate_v0621
 from trading_core.forward_dry_run.start_gate_validator import validate_forward_dry_run_start_gate_v062
 from trading_core.forward_dry_run.start_prerequisite_inventory import build_forward_dry_run_start_prerequisite_inventory
+from trading_core.forward_dry_run.updated_owner_authorization_packet import update_forward_dry_run_owner_authorization_packet
 from trading_core.daily_workflow.daily_baseline_signal_binding import build_daily_baseline_signals
 from trading_core.daily_workflow.daily_data_quality_audit import audit_daily_data_quality
 from trading_core.daily_workflow.daily_input_freeze_manifest import build_daily_input_freeze_manifest
@@ -94,6 +100,7 @@ from trading_core.planning.day1_blocker_reclassification import reclassify_day1_
 from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_day1_blockers_after_baseline_strategies
 from trading_core.planning.day1_blocker_reclassification_v061 import reclassify_day1_blockers_after_daily_workflow
 from trading_core.planning.day1_blocker_reclassification_v062 import reclassify_day1_blockers_after_start_authorization
+from trading_core.planning.day1_blocker_reclassification_v0621 import reclassify_day1_blockers_after_authorization_materialization
 from trading_core.planning.mvp_gap_classifier import classify_mvp_gaps
 from trading_core.planning.mvp_requirement_map import build_mvp_requirement_map
 from trading_core.planning.next_work_register import build_next_work_register
@@ -675,6 +682,13 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("forward-dry-run-day1-prompt-eligibility")
     subparsers.add_parser("audit-forward-dry-run-start-authorization")
     subparsers.add_parser("reclassify-day1-blockers-after-start-authorization")
+    subparsers.add_parser("forward-dry-run-owner-manual-confirmation-record")
+    subparsers.add_parser("complete-forward-dry-run-manual-confirmation-checklist-v2")
+    subparsers.add_parser("update-forward-dry-run-owner-authorization-packet")
+    subparsers.add_parser("revalidate-forward-dry-run-start-gate-v0621")
+    subparsers.add_parser("revalidate-forward-dry-run-day1-prompt-eligibility")
+    subparsers.add_parser("audit-forward-dry-run-authorization-materialization")
+    subparsers.add_parser("reclassify-day1-blockers-after-authorization-materialization")
 
     return parser
 
@@ -1814,6 +1828,34 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0 if result["overall_passed"] else 1
     if args.command == "reclassify-day1-blockers-after-start-authorization":
         result = reclassify_day1_blockers_after_start_authorization(paths=paths)
+        print({"reclassification_id": result["reclassification_id"], "technical_day1_blocker_count": result["technical_day1_blocker_count"], "authorization_blocker_count": result["authorization_blocker_count"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_action": result["recommended_next_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "forward-dry-run-owner-manual-confirmation-record":
+        result = build_owner_manual_confirmation_record(paths=paths)
+        print({"record_id": result["record_id"], "owner_confirmation_recorded": result["owner_confirmation_recorded"], "owner_authorized_next_step": result["owner_authorized_next_step"], "owner_authorized_day1_execution": result["owner_authorized_day1_execution"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "complete-forward-dry-run-manual-confirmation-checklist-v2":
+        result = complete_forward_dry_run_manual_confirmation_checklist_v2(paths=paths)
+        print({"checklist_id": result["checklist_id"], "manual_confirmation_complete": result["manual_confirmation_complete"], "day1_execution_authorized": result["day1_execution_authorized"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "update-forward-dry-run-owner-authorization-packet":
+        result = update_forward_dry_run_owner_authorization_packet(paths=paths)
+        print({"authorization_packet_id": result["authorization_packet_id"], "authorization_status": result["authorization_status"], "forward_dry_run_start_authorized": result["forward_dry_run_start_authorized"], "day1_execution_authorized": result["day1_execution_authorized"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "revalidate-forward-dry-run-start-gate-v0621":
+        result = revalidate_forward_dry_run_start_gate_v0621(paths=paths)
+        print({"gate_id": result["gate_id"], "technical_prerequisites_passed": result["technical_prerequisites_passed"], "manual_confirmation_complete": result["manual_confirmation_complete"], "forward_dry_run_start_authorized": result["forward_dry_run_start_authorized"], "day1_prompt_eligible": result["day1_prompt_eligible"], "day1_start_allowed": result["day1_start_allowed"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "revalidate-forward-dry-run-day1-prompt-eligibility":
+        result = revalidate_forward_dry_run_day1_prompt_eligibility(paths=paths)
+        print({"eligibility_id": result["eligibility_id"], "day1_prompt_eligible": result["day1_prompt_eligible"], "day1_prompt_generated": result["day1_prompt_generated"], "next_required_action": result["next_required_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "audit-forward-dry-run-authorization-materialization":
+        result = audit_forward_dry_run_authorization_materialization(paths=paths)
+        print({"release_candidate": result["release_candidate"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "summary": result["summary"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "reclassify-day1-blockers-after-authorization-materialization":
+        result = reclassify_day1_blockers_after_authorization_materialization(paths=paths)
         print({"reclassification_id": result["reclassification_id"], "technical_day1_blocker_count": result["technical_day1_blocker_count"], "authorization_blocker_count": result["authorization_blocker_count"], "updated_day1_blocker_count": result["updated_day1_blocker_count"], "recommended_next_action": result["recommended_next_action"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
     if args.command == "admission":

@@ -1,0 +1,33 @@
+{
+  "eligibility_id": "FORWARD-DRY-RUN-DAY1-PROMPT-ELIGIBILITY-V0621",
+  "day1_prompt_eligible": true,
+  "day1_prompt_generated": false,
+  "day1_execution_requires_separate_prompt": true,
+  "next_required_action": "owner_requests_day1_prompt",
+  "boundary": {
+    "eligibility_revalidation_only": true,
+    "run_daily_called": false,
+    "forward_dry_run_started": false,
+    "forward_dry_run_validated": false,
+    "main_ledger_written": false,
+    "manual_confirmation_complete": true,
+    "forward_dry_run_start_authorized": true,
+    "day1_start_allowed": false,
+    "day1_prompt_generated": false,
+    "labels_used_as_authorization": false,
+    "ml_shadow_used_as_authorization": false,
+    "experiments_used_as_authorization": false,
+    "llm_trading_decision": false,
+    "rl_used": false,
+    "promotion_triggered": false,
+    "strategy_effectiveness_proven": false,
+    "live_trading_ready": false,
+    "broker_connected": false,
+    "ml_trading_approved": false,
+    "llm_trading_approved": false,
+    "rl_trading_approved": false,
+    "day1_prompt_eligible": true,
+    "day1_execution_authorized": false,
+    "day1_execution_requires_separate_prompt": true
+  }
+}

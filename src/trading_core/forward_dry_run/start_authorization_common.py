@@ -11,9 +11,12 @@ from trading_core.system.common import default_paths, write_json_markdown
 
 
 RELEASE_CANDIDATE = "v0.6.2-forward-dry-run-start-authorization-pack-audited"
+MATERIALIZATION_RELEASE_CANDIDATE = "v0.6.2.1-owner-manual-confirmation-materialized"
 BASELINE_FROM = "v0.6.1-daily-workflow-binding-audited"
 NEXT_REQUIRED_ACTION = "owner_manual_confirmation"
+MATERIALIZATION_NEXT_REQUIRED_ACTION = "owner_requests_day1_prompt"
 AUTHORIZATION_NOTICE = "v0.6.2 creates an authorization pack only and does not start forward dry-run"
+MATERIALIZATION_NOTICE = "v0.6.2.1 materializes owner authorization but does not start forward dry-run day 1"
 AS_OF_DATE = "2024-12-31"
 REQUIRED_PHRASE = "I explicitly authorize starting forward dry-run day 1"
 
@@ -48,6 +51,26 @@ def authorization_boundary(scope_key: str) -> dict[str, Any]:
     }
 
 
+def materialization_boundary(scope_key: str) -> dict[str, Any]:
+    boundary = authorization_boundary(scope_key)
+    boundary.update(
+        {
+            "manual_confirmation_complete": True,
+            "forward_dry_run_start_authorized": True,
+            "day1_prompt_eligible": True,
+            "day1_start_allowed": False,
+            "day1_prompt_generated": False,
+            "day1_execution_authorized": False,
+            "day1_execution_requires_separate_prompt": True,
+            "run_daily_called": False,
+            "forward_dry_run_started": False,
+            "forward_dry_run_validated": False,
+            "main_ledger_written": False,
+        }
+    )
+    return boundary
+
+
 def non_claim_markdown() -> list[str]:
     return [
         f"- {AUTHORIZATION_NOTICE}",
@@ -57,6 +80,29 @@ def non_claim_markdown() -> list[str]:
         "- main ledger not written",
         "- manual confirmation defaults false",
         "- owner authorization defaults false",
+        "- not forward dry-run validation",
+        "- not strategy effectiveness proof",
+        "- not live trading readiness",
+        "- no broker connected",
+        "- ML shadow not used as authorization",
+        "- LLM not used for trading decision",
+        "- RL not used",
+        "- promotion not triggered",
+    ]
+
+
+def materialization_non_claim_markdown() -> list[str]:
+    return [
+        f"- {MATERIALIZATION_NOTICE}",
+        "- manual_confirmation_complete=true",
+        "- forward_dry_run_start_authorized=true",
+        "- day1_prompt_eligible=true",
+        "- day1_prompt_generated=false",
+        "- day1_start_allowed=false",
+        "- run-daily not called",
+        "- forward dry-run not started",
+        "- forward dry-run not validated",
+        "- main ledger not written",
         "- not forward dry-run validation",
         "- not strategy effectiveness proof",
         "- not live trading readiness",
@@ -124,4 +170,3 @@ def command_preview_payload() -> dict[str, Any]:
             "main_ledger_written": False,
         },
     }
-
