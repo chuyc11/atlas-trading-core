@@ -1,0 +1,16 @@
+{
+  "manifest_id": "A-SHARE-DAILY-PRICE-PANEL-MANIFEST",
+  "target_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "source": "qstock_reference_public_http",
+  "rows": 5513,
+  "symbol_count": 5513,
+  "date_count": 1,
+  "min_date": "2026-06-26",
+  "max_date": "2026-06-26",
+  "duplicate_rows": 0,
+  "non_positive_prices": 0,
+  "high_low_inversion": 0,
+  "volume_negative": 0,
+  "amount_negative": 0,
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_market\\daily_price_panel.parquet"
+}

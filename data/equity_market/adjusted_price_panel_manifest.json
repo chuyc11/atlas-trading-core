@@ -1,0 +1,10 @@
+{
+  "manifest_id": "A-SHARE-ADJUSTED-PRICE-PANEL-MANIFEST",
+  "target_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "rows": 5513,
+  "symbol_count": 5513,
+  "adjustment_types": [
+    "raw"
+  ],
+  "coverage_note": "raw prices used as adjusted-price fallback with adj_factor=1.0; true forward/backward adjustment deferred to richer providers"
+}

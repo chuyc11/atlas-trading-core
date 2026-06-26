@@ -23,6 +23,17 @@ from trading_core.evaluation.historical_dry_run_replay import replay_dry_run, re
 from trading_core.evaluation.real_data_validation_report import build_real_data_validation_report
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.external_intake.report import build_external_project_intake
+from trading_core.equity_data.adjusted_price import ingest_a_share_adjusted_prices
+from trading_core.equity_data.daily_basic import ingest_a_share_daily_basic
+from trading_core.equity_data.daily_price import ingest_a_share_daily_prices
+from trading_core.equity_data_quality.coverage_audit import audit_a_share_data_coverage
+from trading_core.equity_data_quality.foundation import build_a_share_data_foundation
+from trading_core.equity_data_quality.schema_audit import audit_a_share_data_schema
+from trading_core.equity_data_quality.source_manifest import build_a_share_data_source_manifest
+from trading_core.equity_fundamental.basic_financials import ingest_a_share_basic_financials
+from trading_core.equity_industry.classification import ingest_a_share_industry_classification
+from trading_core.equity_universe.calendar import build_a_share_trading_calendar
+from trading_core.equity_universe.master import build_a_share_equity_master
 from trading_core.execution.ashare_execution_gap_plan import build_ashare_execution_gap_plan
 from trading_core.execution.ashare_execution_rules_audit import audit_ashare_execution_rules
 from trading_core.execution.ashare_lot_position_contract import build_lot_position_contract
@@ -747,6 +758,17 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("forward-dry-run-day1-owner-report-pack-summary")
     subparsers.add_parser("audit-forward-dry-run-day1-owner-report-pack")
     subparsers.add_parser("external-project-intake")
+    subparsers.add_parser("equity-data-source-manifest")
+    subparsers.add_parser("build-a-share-equity-master")
+    subparsers.add_parser("build-a-share-trading-calendar")
+    subparsers.add_parser("ingest-a-share-daily-prices")
+    subparsers.add_parser("ingest-a-share-adjusted-prices")
+    subparsers.add_parser("ingest-a-share-daily-basic")
+    subparsers.add_parser("ingest-a-share-industry-classification")
+    subparsers.add_parser("ingest-a-share-basic-financials")
+    subparsers.add_parser("audit-a-share-data-coverage")
+    subparsers.add_parser("audit-a-share-data-schema")
+    subparsers.add_parser("build-a-share-data-foundation")
 
     return parser
 
@@ -2027,6 +2049,50 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "external-project-intake":
         result = build_external_project_intake(paths=paths)
         print({"intake_id": result["intake_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "projects_downloaded": result["projects_downloaded"], "top_priority_repos": result["top_priority_repos"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "equity-data-source-manifest":
+        result = build_a_share_data_source_manifest(paths=paths)
+        print({"manifest_id": result["manifest_id"], "selected_provider": result["selected_provider"], "rows_available": result["rows_available"], "providers_succeeded": result["providers_succeeded"], "external_api_called": result["external_api_called"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["data_written_to_local_store"] else 1
+    if args.command == "build-a-share-equity-master":
+        result = build_a_share_equity_master(paths=paths)
+        print({"artifact_id": result["artifact_id"], "symbols": result["symbols"], "exchanges": result["exchanges"], "parquet_path": result["parquet_path"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["symbols"] > 0 else 1
+    if args.command == "build-a-share-trading-calendar":
+        result = build_a_share_trading_calendar(paths=paths)
+        print({"artifact_id": result["artifact_id"], "trading_days": result["trading_days"], "min_date": result["min_date"], "max_date": result["max_date"], "parquet_path": result["parquet_path"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["trading_days"] > 0 else 1
+    if args.command == "ingest-a-share-daily-prices":
+        result = ingest_a_share_daily_prices(paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "min_date": result["min_date"], "max_date": result["max_date"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["symbol_count"] > 0 and result["non_positive_prices"] == 0 else 1
+    if args.command == "ingest-a-share-adjusted-prices":
+        result = ingest_a_share_adjusted_prices(paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "adjustment_types": result["adjustment_types"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["symbol_count"] > 0 else 1
+    if args.command == "ingest-a-share-daily-basic":
+        result = ingest_a_share_daily_basic(paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "partial_fields": result["partial_fields"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["symbol_count"] > 0 else 1
+    if args.command == "ingest-a-share-industry-classification":
+        result = ingest_a_share_industry_classification(paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "industry_standard": result["industry_standard"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["symbol_count"] > 0 else 1
+    if args.command == "ingest-a-share-basic-financials":
+        result = ingest_a_share_basic_financials(paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "report_date_coverage": result["report_date_coverage"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["symbol_count"] > 0 else 1
+    if args.command == "audit-a-share-data-coverage":
+        result = audit_a_share_data_coverage(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "coverage": result["coverage"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-data-schema":
+        result = audit_a_share_data_schema(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-data-foundation":
+        result = build_a_share_data_foundation(paths=paths)
+        print({"foundation_id": result["foundation_id"], "overall_passed": result["overall_passed"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "schema_overall_passed": result["schema_audit"]["overall_passed"], "coverage": result["coverage_audit"]["coverage"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

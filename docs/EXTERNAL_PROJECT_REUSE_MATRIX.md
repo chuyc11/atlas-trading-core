@@ -17,3 +17,16 @@
 ## Integration Rule
 
 Do not merge third-party trading code into the main flow. All reuse must pass separate license, dependency, data reproducibility, and boundary review.
+
+## v0.7.1 Data Provider Use
+
+v0.7.1 uses external projects as design references only:
+
+- qstock is used as a public-data adapter reference. The implemented `qstock_reference_public_http` adapter is trading-core code and does not import `external_research/qstock`.
+- AkShare, Tushare, and BaoStock remain provider slots with explicit unavailable/not-used reasons when they are not active in the current run.
+- local CSV/Parquet import is kept as a fallback provider path.
+- iFinD and QuantAPI are reserved future adapter families and are not connected in v0.7.1.
+
+All provider results must pass through trading-core schema normalization, local persistence, source manifest, coverage audit, and schema audit before any future filter or scoring module can use them.
+
+v0.7.1 does not merge third-party trading code, does not connect a broker, does not place orders, does not call `run-daily`, and does not generate stock recommendations.

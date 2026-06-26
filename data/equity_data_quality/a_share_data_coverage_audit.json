@@ -1,0 +1,175 @@
+{
+  "audit_id": "A-SHARE-DATA-COVERAGE-AUDIT",
+  "target_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "adjusted_price_panel uses raw fallback with adj_factor=1.0",
+    "industry classification uses board-level fallback",
+    "basic financial numeric fields are nullable placeholders in v0.7.1",
+    "daily_price_panel missing 354 master symbols"
+  ],
+  "checks": {
+    "equity_master_exists": true,
+    "equity_master_supports_required_exchanges": true,
+    "trading_calendar_exists": true,
+    "daily_price_panel_exists": true,
+    "daily_price_supports_scan": true,
+    "source_rows_cover_raw_total": true,
+    "duplicate_daily_price_rows_zero": true,
+    "price_sanity_passed": true,
+    "volume_sanity_passed": true,
+    "market_cap_sanity_passed": true
+  },
+  "coverage": {
+    "equity_master_symbols": 5867,
+    "daily_price_symbols": 5513,
+    "adjusted_price_symbols": 5513,
+    "daily_basic_symbols": 5867,
+    "industry_symbols": 5867,
+    "financial_symbols": 5867,
+    "min_date": "2026-06-26",
+    "max_date": "2026-06-26",
+    "trading_days": 282,
+    "source_rows_available": 5867,
+    "source_raw_total": 5867,
+    "source_raw_coverage_ratio": 1.0,
+    "required_exchanges": [
+      "BSE",
+      "SSE",
+      "SZSE"
+    ],
+    "observed_exchanges": [
+      "BSE",
+      "SSE",
+      "SZSE"
+    ],
+    "daily_price_missing_symbols_count": 354,
+    "daily_price_missing_symbols_sample": [
+      "000003.SZ",
+      "000005.SZ",
+      "000013.SZ",
+      "000015.SZ",
+      "000018.SZ",
+      "000023.SZ",
+      "000024.SZ",
+      "000033.SZ",
+      "000038.SZ",
+      "000040.SZ",
+      "000046.SZ",
+      "000047.SZ",
+      "000150.SZ",
+      "000405.SZ",
+      "000406.SZ",
+      "000412.SZ",
+      "000413.SZ",
+      "000416.SZ",
+      "000418.SZ",
+      "000502.SZ",
+      "000508.SZ",
+      "000511.SZ",
+      "000515.SZ",
+      "000522.SZ",
+      "000524.SZ",
+      "000527.SZ",
+      "000535.SZ",
+      "000540.SZ",
+      "000542.SZ",
+      "000549.SZ",
+      "000556.SZ",
+      "000562.SZ",
+      "000569.SZ",
+      "000578.SZ",
+      "000583.SZ",
+      "000584.SZ",
+      "000585.SZ",
+      "000587.SZ",
+      "000588.SZ",
+      "000594.SZ",
+      "000602.SZ",
+      "000606.SZ",
+      "000611.SZ",
+      "000613.SZ",
+      "000616.SZ",
+      "000618.SZ",
+      "000621.SZ",
+      "000622.SZ",
+      "000627.SZ",
+      "000638.SZ"
+    ]
+  },
+  "artifact_hashes": {
+    "equity_master": "ac3cba82be6e023dcbb5c2cc5fc53fd22e1300f90120da343a39c9fd2530b8e3",
+    "trading_calendar": "ba487a7ccdaab69e2516fb5be0bee81aa424c03e0ce29eccf39cbf84cea4ae3d",
+    "daily_price_panel": "a0ebd2c51cb0a8725d35f3a42a6ec073978cb12cba2bca619ceddf77626d353b",
+    "adjusted_price_panel": "aa44e690daf6934745dc8a9812a5f3e10b4cbdfcadd7eb414de57bab50eacf93",
+    "daily_basic_panel": "94bc192156b05e44460073852dc8df4c14285637db9d8b56d7e512d2eca6da40",
+    "industry_classification": "51e5aab8054401108fe21768874f55ec5ad2503a7dbb3f754b7daacbbadf4117",
+    "basic_financials_panel": "d86850ccc3ed4acdd05ae09ea138a33ec4b544ecc3c5c55f5f481cb4bb564365",
+    "source_manifest": "6522ec3278a79ccb64456a1439ba32de83426dd3de255e6b4be0e0520b356202"
+  },
+  "artifacts": {
+    "equity_master": {
+      "path": "data/equity_universe/equity_master.parquet",
+      "exists": true,
+      "rows": 5867,
+      "sha256": "ac3cba82be6e023dcbb5c2cc5fc53fd22e1300f90120da343a39c9fd2530b8e3"
+    },
+    "trading_calendar": {
+      "path": "data/equity_universe/trading_calendar.parquet",
+      "exists": true,
+      "rows": 846,
+      "sha256": "ba487a7ccdaab69e2516fb5be0bee81aa424c03e0ce29eccf39cbf84cea4ae3d"
+    },
+    "daily_price_panel": {
+      "path": "data/equity_market/daily_price_panel.parquet",
+      "exists": true,
+      "rows": 5513,
+      "sha256": "a0ebd2c51cb0a8725d35f3a42a6ec073978cb12cba2bca619ceddf77626d353b"
+    },
+    "adjusted_price_panel": {
+      "path": "data/equity_market/adjusted_price_panel.parquet",
+      "exists": true,
+      "rows": 5513,
+      "sha256": "aa44e690daf6934745dc8a9812a5f3e10b4cbdfcadd7eb414de57bab50eacf93"
+    },
+    "daily_basic_panel": {
+      "path": "data/equity_market/daily_basic_panel.parquet",
+      "exists": true,
+      "rows": 5867,
+      "sha256": "94bc192156b05e44460073852dc8df4c14285637db9d8b56d7e512d2eca6da40"
+    },
+    "industry_classification": {
+      "path": "data/equity_industry/industry_classification.parquet",
+      "exists": true,
+      "rows": 5867,
+      "sha256": "51e5aab8054401108fe21768874f55ec5ad2503a7dbb3f754b7daacbbadf4117"
+    },
+    "basic_financials_panel": {
+      "path": "data/equity_fundamental/basic_financials_panel.parquet",
+      "exists": true,
+      "rows": 5867,
+      "sha256": "d86850ccc3ed4acdd05ae09ea138a33ec4b544ecc3c5c55f5f481cb4bb564365"
+    },
+    "source_manifest": {
+      "path": "data/equity_data_quality/a_share_data_source_manifest.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "6522ec3278a79ccb64456a1439ba32de83426dd3de255e6b4be0e0520b356202"
+    }
+  },
+  "recommended_next_version": "v0.7.2-a-share-tradable-universe-filter",
+  "boundary": {
+    "data_ingestion_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false
+  }
+}

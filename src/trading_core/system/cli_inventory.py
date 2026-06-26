@@ -95,6 +95,17 @@ COMMANDS: list[dict[str, Any]] = [
     _record("usability-audit", "audits", "Audit usability polish release candidate", ["data/system", "outputs/audit"], ["audit_only", "not_run_daily"]),
     _record("forward-dry-run-readiness", "audits", "Audit readiness to prepare 30 trading-day forward dry-run", ["data/system", "outputs/system", "outputs/audit"], ["readiness_only", "not_run_daily", "does_not_start_forward_dry_run"]),
     _record("external-project-intake", "planning", "Scan external research repos and write v0.7 A-share selection planning artifacts", ["data/system", "outputs/system", "docs"], ["intake_only", "not_run_daily", "no_broker", "no_real_orders", "no_third_party_code_merge"]),
+    _record("equity-data-source-manifest", "a-share data", "Probe public A-share data provider availability and write source manifest", ["data/equity_data_quality", "outputs/equity_data_quality"], ["data_ingestion_only", "not_run_daily", "no_broker", "no_real_orders"]),
+    _record("build-a-share-equity-master", "a-share data", "Build normalized A-share equity master", ["data/equity_universe", "outputs/equity_universe"], ["data_ingestion_only", "not_run_daily", "no_selection", "no_scores"]),
+    _record("build-a-share-trading-calendar", "a-share data", "Build SSE/SZSE/BSE trading calendar foundation", ["data/equity_universe", "outputs/equity_universe"], ["data_ingestion_only", "not_run_daily", "no_orders"]),
+    _record("ingest-a-share-daily-prices", "a-share data", "Ingest A-share daily OHLCV price panel", ["data/equity_market"], ["data_ingestion_only", "not_run_daily", "no_selection", "no_broker"]),
+    _record("ingest-a-share-adjusted-prices", "a-share data", "Build adjusted price panel with fallback coverage notes", ["data/equity_market"], ["data_ingestion_only", "not_run_daily", "raw_fallback_recorded"]),
+    _record("ingest-a-share-daily-basic", "a-share data", "Ingest A-share daily basic market indicators", ["data/equity_market"], ["data_ingestion_only", "not_run_daily", "partial_fields_allowed_with_audit"]),
+    _record("ingest-a-share-industry-classification", "a-share data", "Build A-share industry classification panel", ["data/equity_industry"], ["data_ingestion_only", "not_run_daily", "fallback_recorded"]),
+    _record("ingest-a-share-basic-financials", "a-share data", "Build basic financials panel with nullable field coverage", ["data/equity_fundamental"], ["data_ingestion_only", "not_run_daily", "partial_fields_allowed_with_audit"]),
+    _record("audit-a-share-data-coverage", "a-share data", "Audit A-share data artifact coverage and safety boundary", ["data/equity_data_quality", "outputs/audit"], ["audit_only", "not_run_daily", "no_scores", "no_orders"]),
+    _record("audit-a-share-data-schema", "a-share data", "Audit A-share data artifact schemas and sanity constraints", ["data/equity_data_quality", "outputs/audit"], ["audit_only", "not_run_daily", "no_scores", "no_orders"]),
+    _record("build-a-share-data-foundation", "a-share data", "Run the v0.7.1 A-share data foundation chain", ["data/equity_universe", "data/equity_market", "data/equity_industry", "data/equity_fundamental", "data/equity_data_quality", "outputs/equity_universe", "outputs/equity_data_quality", "outputs/audit"], ["data_ingestion_only", "not_run_daily", "no_broker", "no_real_orders", "no_selection", "no_scores"]),
 ]
 
 

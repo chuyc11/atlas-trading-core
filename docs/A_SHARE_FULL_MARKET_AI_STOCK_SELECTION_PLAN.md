@@ -16,8 +16,10 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 
 - v0.7.0 external project intake and A-share selection plan
 - v0.7.1 A-share full-market data ingestion
-  - outputs: `data/equity_universe/equity_master.parquet`, `data/equity_universe/trading_calendar.parquet`, `data/equity_market/daily_price_panel.parquet`, `data/equity_market/adjusted_price_panel.parquet`, `data/equity_market/daily_basic_panel.parquet`, `data/equity_fundamental/financial_panel.parquet`, `data/system/a_share_data_coverage_audit.json`, `outputs/audit/A_SHARE_DATA_COVERAGE_AUDIT.md`
+  - implemented data-only foundation outputs: `data/equity_universe/equity_master.parquet`, `data/equity_universe/trading_calendar.parquet`, `data/equity_market/daily_price_panel.parquet`, `data/equity_market/adjusted_price_panel.parquet`, `data/equity_market/daily_basic_panel.parquet`, `data/equity_industry/industry_classification.parquet`, `data/equity_fundamental/basic_financials_panel.parquet`, `data/equity_data_quality/a_share_data_source_manifest.json`, `data/equity_data_quality/a_share_data_coverage_audit.json`, `data/equity_data_quality/a_share_data_schema_audit.json`
   - source priority: qstock-style public adapters, AkShare, Tushare if token exists, BaoStock, local CSV/Parquet, future Tonghuashun iFinD/QuantAPI
+  - constraints: no LongScore/MidScore/ShortScore, no candidates, no virtual portfolios, no broker, no real orders, no `run-daily`, no official forward dry-run day2
+  - current public-source limitation: the qstock-style public HTTP snapshot may be partial or delayed; coverage and schema audits are the release gate
 - v0.7.2 tradable universe filter
   - filters: ST/*ST, delisting board, suspended stocks, listing age below 120 trading days, less than 18 effective trading days in the last 20, 20-day average amount below 50 million CNY, market cap below 3 billion CNY, price below 2 CNY, severe missing fundamentals, one-word limit-up/down execution risk, unresolved abnormal volatility
   - outputs: `tradable_universe.json`, `excluded_universe.json`, and `TRADABLE_UNIVERSE_REPORT.md`
@@ -51,6 +53,9 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/external_intake/`
 - `src/trading_core/equity_universe/`
 - `src/trading_core/equity_data/`
+- `src/trading_core/equity_industry/`
+- `src/trading_core/equity_fundamental/`
+- `src/trading_core/equity_data_quality/`
 - `src/trading_core/equity_features/`
 - `src/trading_core/equity_scoring/`
 - `src/trading_core/equity_selection/`
@@ -58,7 +63,7 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_briefing/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
-- `data/equity_universe/`, `data/equity_market/`, `data/equity_fundamental/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_validation/`
+- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_validation/`
 - `outputs/equity_selection/`, `outputs/equity_portfolios/`, `outputs/equity_validation/`
 
 ## Required Boundary
@@ -71,3 +76,5 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - No model profit guarantee.
 - ETF forward dry-run status unchanged.
 - `run-daily` not called.
+- Data ingestion artifacts are not stock recommendations.
+- Free public data source gaps must be recorded in source manifests and audits.

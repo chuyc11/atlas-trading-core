@@ -1,0 +1,19 @@
+{
+  "manifest_id": "A-SHARE-BASIC-FINANCIALS-MANIFEST",
+  "target_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "rows": 5867,
+  "symbol_count": 5867,
+  "report_date_coverage": 1,
+  "field_coverage": {
+    "revenue": 0.0,
+    "net_profit": 0.0,
+    "roe": 0.0,
+    "gross_margin": 0.0,
+    "net_margin": 0.0,
+    "operating_cash_flow": 0.0,
+    "debt_to_asset": 0.0,
+    "eps": 0.0,
+    "bps": 0.0
+  },
+  "coverage_note": "basic financial fields are present as nullable schema placeholders; richer free-source financial ingestion is deferred"
+}

@@ -45,6 +45,29 @@ python -m trading_core.cli external-project-intake
 
 This v0.7.0 path downloads ignored external research clones and generates intake/planning artifacts only. It does not merge third-party trading code, does not call run-daily, does not connect a broker, does not place real orders, and does not use LLM output as a trading decision.
 
+## Run v0.7.1 A-share data foundation
+
+```bash
+python -m trading_core.cli equity-data-source-manifest
+python -m trading_core.cli build-a-share-equity-master
+python -m trading_core.cli build-a-share-trading-calendar
+python -m trading_core.cli ingest-a-share-daily-prices
+python -m trading_core.cli ingest-a-share-adjusted-prices
+python -m trading_core.cli ingest-a-share-daily-basic
+python -m trading_core.cli ingest-a-share-industry-classification
+python -m trading_core.cli ingest-a-share-basic-financials
+python -m trading_core.cli audit-a-share-data-coverage
+python -m trading_core.cli audit-a-share-data-schema
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-a-share-data-foundation
+```
+
+This v0.7.1 path writes A-share master, calendar, market, industry, fundamental, source-manifest, coverage-audit, and schema-audit artifacts only. Public/free provider data may be delayed, partial, or unavailable; those limitations are recorded in the source manifest and audits. It does not generate LongScore/MidScore/ShortScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash
@@ -301,6 +324,8 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not treat v0.6.2.1 prompt eligibility as day1 execution approval
 * do not treat v0.6.3 day1 execution as completion of the full 30-day forward dry-run
 * do not treat v0.6.3.1 day2 readiness packet as day2 execution authorization
+* do not treat v0.7.1 data ingestion as stock recommendation, scoring, portfolio generation, or trading readiness
+* do not call provider APIs directly from future scoring modules without the v0.7.1 local schema and audit layer
 
 ## Boundary
 
@@ -319,3 +344,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.6.2.1 owner manual confirmation materialization writes no main ledger, does not call run-daily, does not start forward dry-run, and does not generate a day1 execution prompt.
 * v0.6.3 forward dry-run day 1 writes only isolated forward dry-run artifacts, does not call run-daily, does not connect a broker, does not place real orders, and does not write the main ledger.
 * v0.6.3.1 day1 continuation artifacts write no day_002 artifacts, do not call run-daily, do not connect a broker, do not place real orders, and do not write the main ledger.
+* v0.7.1 A-share data foundation writes equity data and quality artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.

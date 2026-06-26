@@ -48,6 +48,7 @@ v0.7.0-external-project-intake-and-a-share-selection-plan
 - v0.6.3.1 forward dry-run day1 continuation artifacts
 - v0.6.3.2 forward dry-run day1 owner report pack
 - v0.7.0 external project intake and A-share full-market selection plan
+- v0.7.1 A-share full-market data ingestion foundation
 
 ## Known limitations
 
@@ -70,6 +71,9 @@ v0.7.0-external-project-intake-and-a-share-selection-plan
 - v0.6.3.2 generates an owner-facing day1 report pack only; it does not execute day2, does not call run-daily, does not download real-time data, and does not call external APIs
 - v0.7.0 downloads and scans external research repositories for design intake only; it does not merge third-party trading code into the main flow
 - v0.7.0 starts the A-share full-market selection planning line; it does not ingest A-share market data yet, does not score stocks yet, and does not create real orders
+- v0.7.1 builds the A-share data foundation only; it does not score stocks, generate candidates, generate virtual portfolios, connect a broker, place real orders, call run-daily, or execute official forward dry-run day2
+- v0.7.1 may call public historical/delayed data endpoints; this is data ingestion only, not real-time trading data and not broker access
+- v0.7.1 records free-source limitations in coverage/schema audits; adjusted prices, industry classification, and financial fields may be partial or fallback-labeled
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -89,6 +93,29 @@ Run v0.7 external intake:
 python scripts/download_external_research_repos.py
 python -m trading_core.cli external-project-intake
 ```
+
+Run v0.7.1 A-share data foundation:
+
+```powershell
+python -m trading_core.cli equity-data-source-manifest
+python -m trading_core.cli build-a-share-equity-master
+python -m trading_core.cli build-a-share-trading-calendar
+python -m trading_core.cli ingest-a-share-daily-prices
+python -m trading_core.cli ingest-a-share-adjusted-prices
+python -m trading_core.cli ingest-a-share-daily-basic
+python -m trading_core.cli ingest-a-share-industry-classification
+python -m trading_core.cli ingest-a-share-basic-financials
+python -m trading_core.cli audit-a-share-data-coverage
+python -m trading_core.cli audit-a-share-data-schema
+```
+
+Or run the same foundation chain in one command:
+
+```powershell
+python -m trading_core.cli build-a-share-data-foundation
+```
+
+The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
 Run plan alignment and MVP gap audit:
 
@@ -344,3 +371,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.6.0 isolated strategy replay ledgers are written only under `data/replays/strategies/`
 - v0.6.1 daily workflow binding uses local authorized historical daily data snapshots and does not download real-time market data
 - v0.6.1 writes preview artifacts only under `data/daily_workflow/` and `outputs/daily_workflow/`
+- v0.7.1 writes A-share data foundation artifacts only under equity data/data-quality paths and does not call `run-daily`

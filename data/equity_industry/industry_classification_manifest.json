@@ -1,0 +1,9 @@
+{
+  "manifest_id": "A-SHARE-INDUSTRY-CLASSIFICATION-MANIFEST",
+  "target_version": "v0.7.1-a-share-full-market-data-ingestion",
+  "rows": 5867,
+  "symbol_count": 5867,
+  "industry_standard": "board_fallback",
+  "conflict_report": [],
+  "coverage_note": "public industry taxonomy not available in v0.7.1 provider snapshot; board-level fallback recorded"
+}
