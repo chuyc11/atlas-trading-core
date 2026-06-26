@@ -398,6 +398,39 @@ Boundary:
 - no ML/LLM/RL trading decision
 - promotion not triggered
 
+## Forward dry-run day 1 virtual execution
+
+This v0.6.3 workflow executes day 1 in an isolated virtual forward dry-run ledger. It requires the v0.6.2.1 owner materialization artifacts and a clean git status before the pre-execution gate.
+
+```powershell
+python -m trading_core.cli forward-dry-run-day1-pre-execution-gate
+python -m trading_core.cli forward-dry-run-day1-input-snapshot
+python -m trading_core.cli forward-dry-run-day1-strategy-signals
+python -m trading_core.cli forward-dry-run-day1-virtual-order-preview
+python -m trading_core.cli forward-dry-run-day1-virtual-execution
+python -m trading_core.cli forward-dry-run-day1-ledger-snapshot
+python -m trading_core.cli forward-dry-run-day1-risk-boundary-report
+python -m trading_core.cli forward-dry-run-day1-operator-report
+python -m trading_core.cli audit-forward-dry-run-day1
+python -m trading_core.cli forward-dry-run-status
+python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
+```
+
+Boundary:
+
+- as_of_date=2026-06-25
+- execution_mode=forward_dry_run_virtual
+- forward_dry_run_started=true
+- forward_dry_run_days_completed=1
+- next_day_index=2
+- run-daily not called
+- broker not connected
+- real orders not placed
+- main ledger not written
+- not full forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+
 ## Owner manual confirmation materialization
 
 This v0.6.2.1 workflow materializes owner manual confirmation and revalidates day1 prompt eligibility. It does not start forward dry-run day 1 and does not generate a day1 execution prompt.

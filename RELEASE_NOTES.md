@@ -1,5 +1,49 @@
 # Release Notes
 
+## v0.6.3-forward-dry-run-day1-executed-audited
+
+This release executes virtual isolated forward dry-run day 1 after owner authorization materialization. It starts the forward dry-run ledger for day 1 only. It does not call `run-daily`, does not connect a broker, does not place real orders, does not write the main orders/trades/portfolio/accounts ledger, and does not complete the 30-day forward dry-run.
+
+Includes:
+
+- day1 pre-execution gate with git-clean, authorization, data, protected-path, and no broker/live guard checks
+- day1 input snapshot from local authorized historical data as of 2026-06-25
+- day1 baseline strategy signals for all three baseline strategies
+- day1 virtual order preview with T+1, tradability, lot, and cost checks
+- day1 virtual execution result in `forward_dry_run_virtual` mode
+- isolated forward dry-run ledger snapshot
+- day1 risk and boundary report
+- day1 operator report
+- post-execution audit
+- forward dry-run status
+- day1 blocker reclassification v063
+
+Audited & Validated scope:
+
+- pre-execution gate passed
+- latest eligible local as-of date: 2026-06-25
+- `strategies_total=3`
+- `strategies_generated=3`
+- virtual order preview produced 16 orders and 0 rejects
+- virtual execution produced 16 fills and 0 rejects
+- `forward_dry_run_started=true`
+- `forward_dry_run_days_completed=1`
+- `next_day_index=2`
+- isolated forward dry-run ledger written
+- main ledger not written
+- broker not connected
+- real orders not placed
+- labels not used
+- ML shadow not used as authorization
+- LLM not used for trading decision
+- RL not used
+- promotion not triggered
+- not full forward dry-run validation
+- not strategy effectiveness proof
+- not live trading readiness
+
+Validation: 890 tests passed, 1 skipped.
+
 ## v0.6.2.1-owner-manual-confirmation-materialized
 
 This release materializes owner manual confirmation for the forward dry-run start authorization flow. It makes the system eligible for a future day1 prompt request, but it does not start forward dry-run day 1, does not call `run-daily`, does not generate a day1 execution prompt, and does not write the main ledger.

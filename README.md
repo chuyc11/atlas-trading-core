@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.2.1-owner-manual-confirmation-materialized
+v0.6.3-forward-dry-run-day1-executed-audited
 
 ## Completed milestones
 
@@ -43,10 +43,11 @@ v0.6.2.1-owner-manual-confirmation-materialized
 - v0.6.1 daily workflow binding audited
 - v0.6.2 forward dry-run start authorization pack audited
 - v0.6.2.1 owner manual confirmation materialized
+- v0.6.3 forward dry-run day 1 executed and audited
 
 ## Known limitations
 
-- forward 30d dry-run not completed
+- forward dry-run has started with virtual isolated day 1 complete; full 30d dry-run not completed
 - authorized historical data access is available, but historical data authorization is not trading authorization
 - authorized production global-briefing historical signal package is separately reported and may be `not_configured`
 - unified proxy signals are research proxy signals, not internal global-briefing signals
@@ -60,6 +61,7 @@ v0.6.2.1-owner-manual-confirmation-materialized
 - v0.6.2 creates a start authorization pack only and does not start forward dry-run
 - v0.6.2 keeps manual confirmation false, owner authorization false, day1_start_allowed=false, day1_prompt_eligible=false, and day1_prompt_generated=false by default
 - v0.6.2.1 materializes owner manual confirmation: manual_confirmation_complete=true, forward_dry_run_start_authorized=true, day1_prompt_eligible=true, day1_prompt_generated=false, and day1_start_allowed=false
+- v0.6.3 executes virtual isolated forward dry-run day 1 only; it writes the forward dry-run ledger, not the main ledger
 - strategy effectiveness not proven
 - no live trading
 
@@ -162,6 +164,24 @@ python -m trading_core.cli reclassify-day1-blockers-after-authorization-material
 ```
 
 The v0.6.2.1 pack materializes owner manual confirmation but does not start forward dry-run day 1. The next required action is owner requests day1 prompt. It does not call run-daily, does not write the main ledger, does not validate forward dry-run, does not prove strategy effectiveness, and does not certify live trading readiness.
+
+Run v0.6.3 virtual isolated forward dry-run day 1:
+
+```powershell
+python -m trading_core.cli forward-dry-run-day1-pre-execution-gate
+python -m trading_core.cli forward-dry-run-day1-input-snapshot
+python -m trading_core.cli forward-dry-run-day1-strategy-signals
+python -m trading_core.cli forward-dry-run-day1-virtual-order-preview
+python -m trading_core.cli forward-dry-run-day1-virtual-execution
+python -m trading_core.cli forward-dry-run-day1-ledger-snapshot
+python -m trading_core.cli forward-dry-run-day1-risk-boundary-report
+python -m trading_core.cli forward-dry-run-day1-operator-report
+python -m trading_core.cli audit-forward-dry-run-day1
+python -m trading_core.cli forward-dry-run-status
+python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
+```
+
+The v0.6.3 workflow executes day 1 in `forward_dry_run_virtual` mode using local authorized historical data as of 2026-06-25. It writes only isolated forward dry-run day 1 and ledger artifacts under `data/forward_dry_run/` and `outputs/forward_dry_run/`, plus status/audit summaries. It does not call run-daily, does not connect a broker, does not place real orders, does not write the main ledger, does not validate the full 30-day forward dry-run, does not prove strategy effectiveness, and does not certify live trading readiness.
 
 Build features and labels:
 

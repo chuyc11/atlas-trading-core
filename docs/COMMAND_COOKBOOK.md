@@ -216,6 +216,24 @@ python -m trading_core.cli reclassify-day1-blockers-after-authorization-material
 
 This v0.6.2.1 path materializes owner manual confirmation and authorizes day1 prompt generation only. It sets `manual_confirmation_complete=true`, `forward_dry_run_start_authorized=true`, and `day1_prompt_eligible=true`, while keeping `day1_prompt_generated=false` and `day1_start_allowed=false`. It does not call run-daily, does not start forward dry-run, does not write the main ledger, and remains not forward dry-run validation, not strategy effectiveness proof, and not live trading readiness.
 
+## Run virtual forward dry-run day 1
+
+```bash
+python -m trading_core.cli forward-dry-run-day1-pre-execution-gate
+python -m trading_core.cli forward-dry-run-day1-input-snapshot
+python -m trading_core.cli forward-dry-run-day1-strategy-signals
+python -m trading_core.cli forward-dry-run-day1-virtual-order-preview
+python -m trading_core.cli forward-dry-run-day1-virtual-execution
+python -m trading_core.cli forward-dry-run-day1-ledger-snapshot
+python -m trading_core.cli forward-dry-run-day1-risk-boundary-report
+python -m trading_core.cli forward-dry-run-day1-operator-report
+python -m trading_core.cli audit-forward-dry-run-day1
+python -m trading_core.cli forward-dry-run-status
+python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
+```
+
+This v0.6.3 path executes virtual isolated forward dry-run day 1 only. It uses local authorized historical data as of 2026-06-25, writes the isolated forward dry-run ledger, records `forward_dry_run_days_completed=1`, and sets `next_day_index=2`. It does not call run-daily, does not connect a broker, does not place real orders, does not write the main ledger, and remains not full forward dry-run validation, not strategy effectiveness proof, and not live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -241,6 +259,7 @@ This v0.6.2.1 path materializes owner manual confirmation and authorizes day1 pr
 * do not treat the v0.6.2 start authorization pack as owner approval
 * do not generate day1 execution instructions before explicit owner confirmation
 * do not treat v0.6.2.1 prompt eligibility as day1 execution approval
+* do not treat v0.6.3 day1 execution as completion of the full 30-day forward dry-run
 
 ## Boundary
 
@@ -257,3 +276,4 @@ This v0.6.2.1 path materializes owner manual confirmation and authorizes day1 pr
 * v0.6.1 daily workflow binding writes no main ledger, does not call run-daily, does not download real-time market data, and does not start forward dry-run.
 * v0.6.2 start authorization pack writes no main ledger, does not call run-daily, does not start forward dry-run, and keeps authorization pending.
 * v0.6.2.1 owner manual confirmation materialization writes no main ledger, does not call run-daily, does not start forward dry-run, and does not generate a day1 execution prompt.
+* v0.6.3 forward dry-run day 1 writes only isolated forward dry-run artifacts, does not call run-daily, does not connect a broker, does not place real orders, and does not write the main ledger.
