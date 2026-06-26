@@ -44,7 +44,7 @@ Audited & Validated scope:
 - not live trading readiness
 - recommended next version is `v0.6.3.3-forward-dry-run-data-horizon-extension`
 
-Validation: full pytest passed with 1 skipped.
+Validation: 935 tests passed, 1 skipped.
 
 ## v0.6.3.1-forward-dry-run-day1-continuation-artifacts
 
