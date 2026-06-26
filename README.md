@@ -17,7 +17,7 @@
 
 ## Current release
 
-v0.6.3-forward-dry-run-day1-executed-audited
+v0.6.3.1-forward-dry-run-day1-continuation-artifacts
 
 ## Completed milestones
 
@@ -44,6 +44,7 @@ v0.6.3-forward-dry-run-day1-executed-audited
 - v0.6.2 forward dry-run start authorization pack audited
 - v0.6.2.1 owner manual confirmation materialized
 - v0.6.3 forward dry-run day 1 executed and audited
+- v0.6.3.1 forward dry-run day1 continuation artifacts
 
 ## Known limitations
 
@@ -62,6 +63,7 @@ v0.6.3-forward-dry-run-day1-executed-audited
 - v0.6.2 keeps manual confirmation false, owner authorization false, day1_start_allowed=false, day1_prompt_eligible=false, and day1_prompt_generated=false by default
 - v0.6.2.1 materializes owner manual confirmation: manual_confirmation_complete=true, forward_dry_run_start_authorized=true, day1_prompt_eligible=true, day1_prompt_generated=false, and day1_start_allowed=false
 - v0.6.3 executes virtual isolated forward dry-run day 1 only; it writes the forward dry-run ledger, not the main ledger
+- v0.6.3.1 only fills day1 continuation artifact gaps; it does not execute day2
 - strategy effectiveness not proven
 - no live trading
 
@@ -182,6 +184,20 @@ python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
 ```
 
 The v0.6.3 workflow executes day 1 in `forward_dry_run_virtual` mode using local authorized historical data as of 2026-06-25. It writes only isolated forward dry-run day 1 and ledger artifacts under `data/forward_dry_run/` and `outputs/forward_dry_run/`, plus status/audit summaries. It does not call run-daily, does not connect a broker, does not place real orders, does not write the main ledger, does not validate the full 30-day forward dry-run, does not prove strategy effectiveness, and does not certify live trading readiness.
+
+Run v0.6.3.1 day1 continuation artifact materialization:
+
+```powershell
+python -m trading_core.cli forward-dry-run-day1-continuation-gap-analysis
+python -m trading_core.cli forward-dry-run-day1-artifact-manifest
+python -m trading_core.cli forward-dry-run-day1-reproducibility-manifest
+python -m trading_core.cli forward-dry-run-day2-readiness-packet
+python -m trading_core.cli forward-dry-run-day2-continuation-gate-preview
+python -m trading_core.cli audit-forward-dry-run-day1-continuation-artifacts
+python -m trading_core.cli reclassify-day1-continuation-artifacts-v0631
+```
+
+The v0.6.3.1 workflow absorbs the v0.6.4 blocking preflight and fills the missing day1 continuation artifacts required before a future day2 attempt. It does not execute day2 or day3, does not call run-daily, does not write the main ledger, and remains not strategy effectiveness proof, not full forward dry-run validation, and not live trading readiness.
 
 Build features and labels:
 

@@ -431,6 +431,37 @@ Boundary:
 - not strategy effectiveness proof
 - not live trading readiness
 
+## Day1 continuation artifacts
+
+This v0.6.3.1 workflow absorbs the v0.6.4 blocking preflight and materializes the missing day1 continuation artifacts. It does not execute day2, does not execute day3, and does not call run-daily.
+
+```powershell
+python -m trading_core.cli forward-dry-run-day1-continuation-gap-analysis
+python -m trading_core.cli forward-dry-run-day1-artifact-manifest
+python -m trading_core.cli forward-dry-run-day1-reproducibility-manifest
+python -m trading_core.cli forward-dry-run-day2-readiness-packet
+python -m trading_core.cli forward-dry-run-day2-continuation-gate-preview
+python -m trading_core.cli audit-forward-dry-run-day1-continuation-artifacts
+python -m trading_core.cli reclassify-day1-continuation-artifacts-v0631
+```
+
+Boundary:
+
+- v0.6.4 blocking preflight absorbed
+- day1 artifact manifest generated
+- day1 reproducibility manifest generated
+- day2 readiness packet generated
+- day2 continuation gate preview generated
+- day2_executed=false
+- day3_executed=false
+- run-daily not called
+- main ledger not written
+- broker not connected
+- real orders not placed
+- not strategy effectiveness proof
+- not full forward dry-run validation
+- not live trading readiness
+
 ## Owner manual confirmation materialization
 
 This v0.6.2.1 workflow materializes owner manual confirmation and revalidates day1 prompt eligibility. It does not start forward dry-run day 1 and does not generate a day1 execution prompt.

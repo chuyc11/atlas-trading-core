@@ -45,3 +45,14 @@ python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
 - full 30-day forward dry-run not completed
 - strategy effectiveness not proven
 - live trading readiness not certified
+
+## v0.6.3.1 Continuation Artifacts
+
+After day1 execution, v0.6.3.1 adds:
+
+- day1 artifact manifest
+- day1 reproducibility manifest
+- day2 readiness packet
+- day2 continuation gate preview
+
+These artifacts resolve the gap exposed by the v0.6.4 blocking preflight. They do not execute day2, do not call run-daily, do not write day_002 artifacts, and do not authorize real trading.

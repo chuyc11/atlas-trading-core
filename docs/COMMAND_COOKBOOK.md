@@ -234,6 +234,20 @@ python -m trading_core.cli reclassify-day1-blockers-after-forward-dry-run-day1
 
 This v0.6.3 path executes virtual isolated forward dry-run day 1 only. It uses local authorized historical data as of 2026-06-25, writes the isolated forward dry-run ledger, records `forward_dry_run_days_completed=1`, and sets `next_day_index=2`. It does not call run-daily, does not connect a broker, does not place real orders, does not write the main ledger, and remains not full forward dry-run validation, not strategy effectiveness proof, and not live trading readiness.
 
+## Run day1 continuation artifact materialization
+
+```bash
+python -m trading_core.cli forward-dry-run-day1-continuation-gap-analysis
+python -m trading_core.cli forward-dry-run-day1-artifact-manifest
+python -m trading_core.cli forward-dry-run-day1-reproducibility-manifest
+python -m trading_core.cli forward-dry-run-day2-readiness-packet
+python -m trading_core.cli forward-dry-run-day2-continuation-gate-preview
+python -m trading_core.cli audit-forward-dry-run-day1-continuation-artifacts
+python -m trading_core.cli reclassify-day1-continuation-artifacts-v0631
+```
+
+This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 preflight. It keeps `day2_executed=false`, `day3_executed=false`, and `run_daily_called=false`. It does not write day_002 artifacts, does not write the main ledger, and does not certify strategy effectiveness, full forward dry-run validation, or live trading readiness.
+
 ## What not to do
 
 * do not run live trading
@@ -260,6 +274,7 @@ This v0.6.3 path executes virtual isolated forward dry-run day 1 only. It uses l
 * do not generate day1 execution instructions before explicit owner confirmation
 * do not treat v0.6.2.1 prompt eligibility as day1 execution approval
 * do not treat v0.6.3 day1 execution as completion of the full 30-day forward dry-run
+* do not treat v0.6.3.1 day2 readiness packet as day2 execution authorization
 
 ## Boundary
 
@@ -277,3 +292,4 @@ This v0.6.3 path executes virtual isolated forward dry-run day 1 only. It uses l
 * v0.6.2 start authorization pack writes no main ledger, does not call run-daily, does not start forward dry-run, and keeps authorization pending.
 * v0.6.2.1 owner manual confirmation materialization writes no main ledger, does not call run-daily, does not start forward dry-run, and does not generate a day1 execution prompt.
 * v0.6.3 forward dry-run day 1 writes only isolated forward dry-run artifacts, does not call run-daily, does not connect a broker, does not place real orders, and does not write the main ledger.
+* v0.6.3.1 day1 continuation artifacts write no day_002 artifacts, do not call run-daily, do not connect a broker, do not place real orders, and do not write the main ledger.

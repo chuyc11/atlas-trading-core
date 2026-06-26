@@ -1,5 +1,49 @@
 # Release Notes
 
+## v0.6.3.1-forward-dry-run-day1-continuation-artifacts
+
+This release absorbs the v0.6.4 blocking preflight and materializes the missing v0.6.3 day1 continuation artifacts required before a future day2 continuation attempt. It does not execute day2, does not execute day3, does not call `run-daily`, does not connect a broker, does not place real orders, and does not write main orders/trades/portfolio/accounts.
+
+Includes:
+
+- day1 continuation gap analysis
+- day1 artifact manifest
+- day1 reproducibility manifest
+- day2 readiness packet
+- day2 continuation gate preview
+- day1 continuation artifact audit
+- day1 continuation reclassification v0631
+
+Audited & Validated scope:
+
+- v0.6.4 blocking preflight absorbed
+- missing continuation artifact gap resolved
+- `day1_artifact_manifest` generated
+- `day1_reproducibility_manifest` generated
+- `day2_readiness_packet` generated
+- `day2_continuation_gate_preview` generated
+- continuation artifact audit passed with no blocking reasons
+- `continuation_artifact_gap_resolved=true`
+- `remaining_continuation_artifact_gap_count=0`
+- `day2_blocker_count=0`
+- recommended next version is `v0.6.4-forward-dry-run-day2-continuation`
+- day2 not executed
+- day3 not executed
+- run-daily not called
+- main orders/trades/portfolio/accounts not written
+- broker not connected
+- real orders not placed
+- labels not used as authorization
+- ML shadow not used as authorization
+- LLM not used for trading decision
+- RL not used
+- promotion not triggered
+- not strategy effectiveness proof
+- not full forward dry-run validation
+- not live trading readiness
+
+Validation: full pytest passed with 1 skipped.
+
 ## v0.6.3-forward-dry-run-day1-executed-audited
 
 This release executes virtual isolated forward dry-run day 1 after owner authorization materialization. It starts the forward dry-run ledger for day 1 only. It does not call `run-daily`, does not connect a broker, does not place real orders, does not write the main orders/trades/portfolio/accounts ledger, and does not complete the 30-day forward dry-run.

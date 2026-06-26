@@ -92,6 +92,11 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Backtest / replay | `forward-dry-run-day1-risk-boundary-report` | Report day1 risk and safety boundaries | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | broker, real orders, promotion | report only |
 | Backtest / replay | `forward-dry-run-day1-operator-report` | Build operator report for day1 review | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | broker, real orders, main ledger | day2 review input |
 | Backtest / replay | `forward-dry-run-status` | Materialize forward dry-run status after day1 | data/system, outputs/system | orders/trades/portfolio/accounts | status only |
+| Backtest / replay | `forward-dry-run-day1-continuation-gap-analysis` | Analyze missing day1 continuation artifacts exposed by v0.6.4 preflight | data/system, outputs/audit | day_002, run-daily, main ledger | analysis only |
+| Backtest / replay | `forward-dry-run-day1-artifact-manifest` | Build manifest and hashes for v0.6.3 day1 artifacts | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | day_002, main ledger | manifest only |
+| Backtest / replay | `forward-dry-run-day1-reproducibility-manifest` | Build reproducibility manifest for v0.6.3 day1 | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | external APIs, day_002, main ledger | manifest only |
+| Backtest / replay | `forward-dry-run-day2-readiness-packet` | Materialize day2 readiness packet after day1 artifacts are complete | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | day2 execution, run-daily, main ledger | readiness only |
+| Backtest / replay | `forward-dry-run-day2-continuation-gate-preview` | Preview structural day2 continuation eligibility | data/forward_dry_run/day_001, outputs/forward_dry_run/day_001 | day2 execution, run-daily, main ledger | preview only; no authorization |
 | Planning | `plan-checklist` | Extract R001-R024 MVP requirements into a machine-readable checklist | data/system, outputs/system | orders/trades/portfolio/accounts | checklist only; does not authorize day 1 |
 | Planning | `mvp-requirement-map` | Map MVP requirements to candidate repo evidence | data/system, outputs/system | orders/trades/portfolio/accounts | evidence map only |
 | Planning | `artifact-coverage-scanner` | Scan modules, tests, artifacts, audits, reports, and docs as metadata-only evidence candidates | data/system, outputs/system | orders/trades/portfolio/accounts | scanner only |
@@ -103,6 +108,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Planning | `reclassify-day1-blockers-after-start-authorization` | Reclassify day-1 blockers after v0.6.2 start authorization pack | data/system, outputs/system | orders/trades/portfolio/accounts | technical blockers closed; authorization blockers remain |
 | Planning | `reclassify-day1-blockers-after-authorization-materialization` | Reclassify day-1 blockers after v0.6.2.1 owner materialization | data/system, outputs/system | orders/trades/portfolio/accounts | blocker count 0; day1 still requires owner prompt request |
 | Planning | `reclassify-day1-blockers-after-forward-dry-run-day1` | Reclassify day1 blockers after v0.6.3 virtual day1 execution | data/system, outputs/system | orders/trades/portfolio/accounts | day1 blocker count 0; day2 continuation next |
+| Planning | `reclassify-day1-continuation-artifacts-v0631` | Reclassify continuation artifact gap after v0.6.3.1 | data/system, outputs/system | day_002, run-daily, main ledger | gap resolved; v0.6.4 next |
 | Execution | `ashare-execution-gap-plan` | Build v0.5.9 execution blocker hardening plan from v0.5.8.1 artifacts | data/system, outputs/system | orders/trades/portfolio/accounts | planning only |
 | Execution | `ashare-trading-calendar-audit` | Generate and audit SSE/SZSE/HKEX trading calendar contract | data/system, outputs/system, outputs/audit | orders/trades/portfolio/accounts | calendar audit only |
 | Execution | `execution-timeline-contract` | Generate T-day close signal and T+1 execution timeline contract | data/system, outputs/system | orders/trades/portfolio/accounts | contract only |
@@ -172,6 +178,7 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Audits | `audit-forward-dry-run-start-authorization` | Audit v0.6.2 start authorization pack and fail-closed boundaries | data/system, outputs/audit | orders/trades/portfolio/accounts | release audit only; not forward dry-run validation |
 | Audits | `audit-forward-dry-run-authorization-materialization` | Audit v0.6.2.1 owner confirmation materialization | data/system, outputs/audit | orders/trades/portfolio/accounts | release audit only; not forward dry-run validation |
 | Audits | `audit-forward-dry-run-day1` | Audit v0.6.3 virtual isolated forward dry-run day1 execution package | data/forward_dry_run/day_001, outputs/audit | orders/trades/portfolio/accounts | day1 audit only; not full 30d validation |
+| Audits | `audit-forward-dry-run-day1-continuation-artifacts` | Audit v0.6.3.1 day1 continuation artifact package | data/system, outputs/audit | day_002, run-daily, main ledger | artifact audit only; not day2 execution |
 | Audits | `admission` | Run admission gate research check | stdout | broker | not automatic promotion |
 | Evolution | `score-signals` | Planned signal scoring | research artifacts | broker | not live |
 | Evolution | `classify-mistakes` | Planned mistake classification | research artifacts | broker | diagnostic only |

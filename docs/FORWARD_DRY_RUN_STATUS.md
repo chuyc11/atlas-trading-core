@@ -1,0 +1,25 @@
+# Forward Dry-Run Status
+
+Current audited release: `v0.6.3.1-forward-dry-run-day1-continuation-artifacts`.
+
+## State
+
+- forward dry-run started: true
+- completed days: 1
+- next day index: 2
+- day1 continuation artifact gap resolved: true
+- day2 readiness packet exists: true
+- day2 continuation gate preview exists: true
+- day2 executed: false
+- day3 executed: false
+
+## Boundary
+
+- virtual forward dry-run only
+- run-daily not called in v0.6.3.1
+- broker not connected
+- real orders not placed
+- main orders/trades/portfolio/accounts not written
+- not strategy effectiveness proof
+- not full forward dry-run validation
+- not live trading readiness
