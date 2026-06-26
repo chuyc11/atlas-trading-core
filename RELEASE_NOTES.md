@@ -38,7 +38,7 @@ Audited & Validated scope:
 - model profit not guaranteed
 - recommended next version is `v0.7.1-a-share-full-market-data-ingestion`
 
-Validation: pending release verification.
+Validation: 938 tests passed, 1 skipped.
 
 ## v0.6.3.2-forward-dry-run-day1-owner-report-pack
 
