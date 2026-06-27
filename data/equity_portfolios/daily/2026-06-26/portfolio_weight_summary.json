@@ -1,0 +1,20 @@
+{
+  "long_virtual_portfolio": {
+    "holdings": 30,
+    "weight_sum": 1.0,
+    "max_single_weight": 0.037139,
+    "max_industry_weight": 0.25
+  },
+  "mid_virtual_portfolio": {
+    "holdings": 30,
+    "weight_sum": 1.0,
+    "max_single_weight": 0.036981,
+    "max_industry_weight": 0.25
+  },
+  "short_virtual_portfolio": {
+    "holdings": 20,
+    "weight_sum": 1.0,
+    "max_single_weight": 0.055804,
+    "max_industry_weight": 0.3
+  }
+}
