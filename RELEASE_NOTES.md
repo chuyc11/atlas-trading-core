@@ -1,5 +1,45 @@
 # Release Notes
 
+## Unreleased: v0.7.1.1-a-share-historical-panel-backfill fail-closed
+
+This implementation adds the A-share historical panel backfill workflow and readiness audits, but it is not released as a success tag because the current public historical provider run did not satisfy the minimum historical coverage gate.
+
+Implemented:
+
+- historical backfill plan
+- daily price history panel writer
+- adjusted price history panel writer with raw fallback labeling
+- daily basic history panel writer with nullable field coverage
+- partial quarterly financial history panel writer
+- historical panel coverage audit
+- feature readiness audit
+- CLI commands for individual and one-command historical backfill
+- documentation for historical backfill and feature readiness
+
+Current fail-closed evidence:
+
+- price history symbols: 10
+- price history trading days: 841
+- symbols with 120d history: 10
+- symbols with 250d history: 10
+- financial symbols: 1237
+- financial quarter coverage ratio: 0.028407
+- historical panel coverage audit overall_passed=false
+- feature readiness audit overall_passed=false
+- blocking reasons include `price_history_symbols_minimum=false`, `symbols_with_120d_history_minimum=false`, and `symbols_with_250d_history_minimum=false`
+- no stock scores generated
+- no candidates generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- no model profit guarantee
+- no live trading readiness claim
+
+Validation: 961 tests passed, 1 skipped.
+
 ## v0.7.1-a-share-full-market-data-ingestion
 
 This release adds the A-share full-market data ingestion foundation for the future AI stock selection line. It writes local master, calendar, market, industry, fundamental, source-manifest, coverage-audit, and schema-audit artifacts. It does not generate stock scores, candidates, watchlists, virtual portfolios, broker instructions, real orders, or official forward dry-run day2 artifacts.

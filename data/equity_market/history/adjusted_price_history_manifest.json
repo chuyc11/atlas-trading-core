@@ -1,0 +1,27 @@
+{
+  "manifest_id": "A-SHARE-ADJUSTED-PRICE-HISTORY-MANIFEST",
+  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
+  "rows": 8405,
+  "symbol_count": 10,
+  "adjustment_types": [
+    "raw"
+  ],
+  "adjustment_conflict_count": 0,
+  "coverage_note": "raw price history is used as adjusted-price history fallback; true forward/backward adjustment deferred to richer providers",
+  "boundary": {
+    "historical_backfill_only": true,
+    "data_backfill_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}

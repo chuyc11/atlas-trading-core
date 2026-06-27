@@ -98,3 +98,16 @@ Current warnings are data-quality evidence, not recommendations:
 - raw adjusted-price fallback.
 - board-level industry fallback.
 - nullable basic financial numeric fields.
+
+## v0.7.1.1 Historical Audits
+
+v0.7.1.1 adds:
+
+```text
+data/equity_data_quality/a_share_historical_panel_coverage_audit.json
+outputs/audit/A_SHARE_HISTORICAL_PANEL_COVERAGE_AUDIT.md
+data/equity_data_quality/a_share_feature_readiness_audit.json
+outputs/audit/A_SHARE_FEATURE_READINESS_AUDIT.md
+```
+
+The historical coverage audit is fail-closed. If price history has fewer than 3000 symbols, fewer than 700 trading days, fewer than 3000 symbols with 120d history, or fewer than 2500 symbols with 250d history, `overall_passed=false`.

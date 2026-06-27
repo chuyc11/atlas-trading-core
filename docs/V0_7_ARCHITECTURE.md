@@ -6,7 +6,9 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - Public/local provider adapters
 - A-share universe and trading calendar
 - daily price, adjusted price, daily basic, industry, and basic financial data panels
+- historical price, adjusted price, daily basic, and financial panels
 - coverage audit and schema audit
+- historical coverage audit and feature readiness audit
 - tradability/liquidity/risk filters
 - long/mid/short feature sets
 - LongScore/MidScore/ShortScore/RiskScore/LiquidityScore/IndustryScore
@@ -62,6 +64,10 @@ v0.7.1 implements the first data-only layer. It writes local artifacts for:
 The current public provider path is a qstock-style public HTTP adapter. It does not import third-party project code. When a public endpoint is delayed, partial, or unavailable, the provider result must be recorded in the manifest and the coverage audit must fail closed if the key master/calendar/daily-price foundation is insufficient.
 
 v0.7.1 does not generate recommendations, scores, candidates, virtual portfolios, or trade instructions. Later filters, features, scores, and portfolios must consume the audited local data artifacts rather than calling provider APIs directly.
+
+## v0.7.1.1 Historical Panel Backfill
+
+v0.7.1.1 fills historical panels required by later filters and features. It remains data-only and readiness-audit-only. If minimum historical coverage is not met, the workflow must fail closed and no success release tag should be created.
 
 ## Boundary
 - No real trading.

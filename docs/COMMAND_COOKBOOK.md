@@ -68,6 +68,17 @@ python -m trading_core.cli build-a-share-data-foundation
 
 This v0.7.1 path writes A-share master, calendar, market, industry, fundamental, source-manifest, coverage-audit, and schema-audit artifacts only. Public/free provider data may be delayed, partial, or unavailable; those limitations are recorded in the source manifest and audits. It does not generate LongScore/MidScore/ShortScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
 
+## Run v0.7.1.1 A-share historical panel backfill
+
+```bash
+python -m trading_core.cli a-share-historical-backfill-plan
+python -m trading_core.cli backfill-a-share-historical-panels --target-start-date 2021-01-01 --minimum-start-date 2023-01-01 --end-date 2026-06-26
+python -m trading_core.cli audit-a-share-historical-panel-coverage
+python -m trading_core.cli audit-a-share-feature-readiness
+```
+
+This v0.7.1.1 path expands single-day A-share data into historical panels for future filters and multi-horizon features. It must fail closed when public historical provider coverage is insufficient. It does not generate scores, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash
@@ -326,6 +337,7 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not treat v0.6.3.1 day2 readiness packet as day2 execution authorization
 * do not treat v0.7.1 data ingestion as stock recommendation, scoring, portfolio generation, or trading readiness
 * do not call provider APIs directly from future scoring modules without the v0.7.1 local schema and audit layer
+* do not treat v0.7.1.1 historical backfill as scoring, candidate generation, portfolio generation, or trading readiness
 
 ## Boundary
 
@@ -345,3 +357,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.6.3 forward dry-run day 1 writes only isolated forward dry-run artifacts, does not call run-daily, does not connect a broker, does not place real orders, and does not write the main ledger.
 * v0.6.3.1 day1 continuation artifacts write no day_002 artifacts, do not call run-daily, do not connect a broker, do not place real orders, and do not write the main ledger.
 * v0.7.1 A-share data foundation writes equity data and quality artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
+* v0.7.1.1 A-share historical backfill writes history and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.

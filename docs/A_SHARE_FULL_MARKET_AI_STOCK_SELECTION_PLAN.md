@@ -20,6 +20,10 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - source priority: qstock-style public adapters, AkShare, Tushare if token exists, BaoStock, local CSV/Parquet, future Tonghuashun iFinD/QuantAPI
   - constraints: no LongScore/MidScore/ShortScore, no candidates, no virtual portfolios, no broker, no real orders, no `run-daily`, no official forward dry-run day2
   - current public-source limitation: the qstock-style public HTTP snapshot may be partial or delayed; coverage and schema audits are the release gate
+- v0.7.1.1 A-share historical panel backfill
+  - outputs: historical daily price, adjusted price, daily basic, financial panels, historical panel coverage audit, and feature readiness audit
+  - constraints: no scores, no candidates, no watchlists, no virtual portfolios, no broker, no real orders, no `run-daily`, no official forward dry-run day2
+  - purpose: prepare enough 20d/60d/120d/250d and financial history for v0.7.2 and v0.7.3
 - v0.7.2 tradable universe filter
   - filters: ST/*ST, delisting board, suspended stocks, listing age below 120 trading days, less than 18 effective trading days in the last 20, 20-day average amount below 50 million CNY, market cap below 3 billion CNY, price below 2 CNY, severe missing fundamentals, one-word limit-up/down execution risk, unresolved abnormal volatility
   - outputs: `tradable_universe.json`, `excluded_universe.json`, and `TRADABLE_UNIVERSE_REPORT.md`

@@ -15,6 +15,8 @@ from trading_core.system.common import default_paths, write_json_markdown
 
 
 TARGET_VERSION = "v0.7.1-a-share-full-market-data-ingestion"
+HISTORICAL_TARGET_VERSION = "v0.7.1.1-a-share-historical-panel-backfill"
+HISTORICAL_BASELINE_VERSION = "v0.7.1-a-share-full-market-data-ingestion"
 RECOMMENDED_NEXT_VERSION = "v0.7.2-a-share-tradable-universe-filter"
 SNAPSHOT_CACHE = "a_share_public_snapshot_cache.json"
 
@@ -41,6 +43,10 @@ ADJUSTED_PRICE_COLUMNS = ["date", "symbol", "adj_open", "adj_high", "adj_low", "
 DAILY_BASIC_COLUMNS = ["date", "symbol", "total_mv", "circ_mv", "turnover_rate", "volume_ratio", "pe", "pe_ttm", "pb", "ps", "ps_ttm", "dv_ratio", "dv_ttm", "source", "source_timestamp"]
 INDUSTRY_COLUMNS = ["symbol", "industry_level_1", "industry_level_2", "industry_level_3", "industry_standard", "effective_date", "source", "source_timestamp"]
 FINANCIAL_COLUMNS = ["report_date", "ann_date", "symbol", "revenue", "net_profit", "roe", "gross_margin", "net_margin", "operating_cash_flow", "debt_to_asset", "eps", "bps", "source", "source_timestamp"]
+DAILY_PRICE_HISTORY_COLUMNS = [*DAILY_PRICE_COLUMNS, "provider", "ingested_at"]
+ADJUSTED_PRICE_HISTORY_COLUMNS = [*ADJUSTED_PRICE_COLUMNS, "provider", "ingested_at"]
+DAILY_BASIC_HISTORY_COLUMNS = [*DAILY_BASIC_COLUMNS, "provider", "ingested_at"]
+FINANCIAL_HISTORY_COLUMNS = [*FINANCIAL_COLUMNS, "provider", "ingested_at"]
 
 PROTECTED_BOUNDARY = {
     "data_ingestion_only": True,
@@ -54,6 +60,22 @@ PROTECTED_BOUNDARY = {
     "real_orders_placed": False,
     "third_party_code_merged_into_main_flow": False,
     "model_profit_guaranteed": False,
+}
+HISTORICAL_BOUNDARY = {
+    "historical_backfill_only": True,
+    "data_backfill_only": True,
+    "selection_generated": False,
+    "scores_generated": False,
+    "candidates_generated": False,
+    "virtual_portfolio_generated": False,
+    "official_forward_dry_run_status_unchanged": True,
+    "day2_executed": False,
+    "run_daily_called": False,
+    "broker_connected": False,
+    "real_orders_placed": False,
+    "third_party_code_merged_into_main_flow": False,
+    "model_profit_guaranteed": False,
+    "live_trading_ready": False,
 }
 
 

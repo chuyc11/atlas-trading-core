@@ -64,6 +64,16 @@ Future versions should improve provider depth without weakening safety:
 - industry taxonomy and financials should prefer stable historical sources with point-in-time dates.
 - scoring modules must not call provider APIs directly.
 
+## Historical Provider Notes
+
+v0.7.1.1 uses public historical endpoints for backfill:
+
+- Eastmoney kline public HTTP for daily price history.
+- raw adjusted-price fallback when true adjustment factors are unavailable.
+- Eastmoney quarterly performance public HTTP for basic financial history.
+
+These are public historical data calls. They are not real-time trading data and not broker connectivity. Provider failures, missing symbols, missing dates, and field gaps must remain visible in manifests and audits.
+
 ## Forbidden Uses
 
 Provider adapters must not:

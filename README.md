@@ -74,6 +74,8 @@ v0.7.1-a-share-full-market-data-ingestion
 - v0.7.1 builds the A-share data foundation only; it does not score stocks, generate candidates, generate virtual portfolios, connect a broker, place real orders, call run-daily, or execute official forward dry-run day2
 - v0.7.1 may call public historical/delayed data endpoints; this is data ingestion only, not real-time trading data and not broker access
 - v0.7.1 records free-source limitations in coverage/schema audits; adjusted prices, industry classification, and financial fields may be partial or fallback-labeled
+- v0.7.1.1 historical panel backfill workflow is implemented and fail-closed in the current environment; public historical providers did not satisfy the release gate of 3000 price-history symbols
+- v0.7.1.1 is not released as a success tag; no scores, candidates, virtual portfolios, broker calls, real orders, run-daily, or day2 artifacts were generated
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -116,6 +118,17 @@ python -m trading_core.cli build-a-share-data-foundation
 ```
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
+
+Run v0.7.1.1 historical panel backfill readiness checks:
+
+```powershell
+python -m trading_core.cli a-share-historical-backfill-plan
+python -m trading_core.cli backfill-a-share-historical-panels --target-start-date 2021-01-01 --minimum-start-date 2023-01-01 --end-date 2026-06-26
+python -m trading_core.cli audit-a-share-historical-panel-coverage
+python -m trading_core.cli audit-a-share-feature-readiness
+```
+
+The current v0.7.1.1 evidence is fail-closed. The workflow writes historical sample panels and blocking audits, but it does not meet release conditions and must not be treated as a success release.
 
 Run plan alignment and MVP gap audit:
 

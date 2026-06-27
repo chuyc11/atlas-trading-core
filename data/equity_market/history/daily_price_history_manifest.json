@@ -1,0 +1,45 @@
+{
+  "manifest_id": "A-SHARE-DAILY-PRICE-HISTORY-MANIFEST",
+  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
+  "start_date": "2023-01-01",
+  "end_date": "2026-06-26",
+  "provider": "eastmoney_kline_public_http",
+  "providers_attempted": [
+    "eastmoney_kline_public_http"
+  ],
+  "providers_succeeded": [
+    "eastmoney_kline_public_http"
+  ],
+  "providers_failed": [],
+  "external_api_called": true,
+  "real_time_market_data_downloaded": false,
+  "attempted_symbols": 10,
+  "failed_symbols": 0,
+  "rows": 8405,
+  "symbol_count": 10,
+  "date_count": 841,
+  "min_date": "2023-01-03",
+  "max_date": "2026-06-26",
+  "duplicate_rows": 0,
+  "non_positive_prices": 0,
+  "high_low_inversion": 0,
+  "volume_negative": 0,
+  "amount_negative": 0,
+  "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_market\\history\\daily_price_history_panel.parquet",
+  "boundary": {
+    "historical_backfill_only": true,
+    "data_backfill_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}

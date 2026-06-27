@@ -1,0 +1,51 @@
+{
+  "audit_id": "A-SHARE-FEATURE-READINESS-AUDIT",
+  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
+  "overall_passed": false,
+  "blocking_reasons": [
+    "price_history_symbols_minimum=false",
+    "symbols_with_120d_history_minimum=false",
+    "symbols_with_250d_history_minimum=false",
+    "tradable_universe_filter_ready=false",
+    "short_horizon_feature_ready=false",
+    "mid_horizon_feature_ready=false"
+  ],
+  "warnings": [
+    "walk-forward validation remains deferred",
+    "long-horizon features have partial readiness"
+  ],
+  "readiness": {
+    "tradable_universe_filter_ready": false,
+    "short_horizon_feature_ready": false,
+    "mid_horizon_feature_ready": false,
+    "long_horizon_feature_ready": false,
+    "walk_forward_validation_ready": false
+  },
+  "minimum_requirements": {
+    "has_20d_history": false,
+    "has_60d_history": false,
+    "has_120d_history": false,
+    "has_250d_history": false,
+    "has_adjusted_prices": true,
+    "has_daily_basic_history": true,
+    "has_financial_quarters": true
+  },
+  "forbidden_wording_hits": [],
+  "boundary": {
+    "historical_backfill_only": true,
+    "data_backfill_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "recommended_next_version": "v0.7.2-a-share-tradable-universe-filter"
+}

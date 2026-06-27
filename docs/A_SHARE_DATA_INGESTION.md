@@ -53,3 +53,9 @@ If the public endpoint returns a partial page set, times out, or fails, the run 
 `external_api_called=true` means only that a public historical/delayed data endpoint was queried. It does not mean real-time trading data, broker connectivity, account access, order submission, or live readiness.
 
 Free public data can be incomplete, delayed, or schema-variable. Later filters and scoring modules must consume the audited local artifacts, not bypass the source manifest and audit layer.
+
+## v0.7.1.1 Historical Extension
+
+v0.7.1.1 adds historical panels under `data/equity_market/history/` and `data/equity_fundamental/history/`. It keeps the same rule: data first, audit first, no scores, no candidates, no virtual portfolios, no broker, and no orders.
+
+The historical extension must fail closed if the minimum history window is not met. Single-day v0.7.1 panels cannot be used as a substitute for historical data.

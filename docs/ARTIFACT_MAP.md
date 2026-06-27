@@ -17,8 +17,10 @@ Artifacts are file-backed research outputs. They are not broker instructions and
 | `data/forward_dry_run/day_001/reports/` | v0.6.3.2 owner-facing day1 report pack JSON artifacts | forward dry-run day1 owner report commands | yes | no | no |
 | `data/equity_universe/` | A-share equity master and trading calendar | A-share data foundation commands | yes | no | data input only |
 | `data/equity_market/` | daily price, adjusted price, and daily basic panels with manifests | A-share data foundation commands | yes | no | data input only |
+| `data/equity_market/history/` | daily price, adjusted price, and daily basic historical panels with manifests | A-share historical backfill commands | yes | no | data input only |
 | `data/equity_industry/` | industry classification panel and manifest | A-share data foundation commands | yes | no | data input only |
 | `data/equity_fundamental/` | basic financials panel and manifest | A-share data foundation commands | yes | no | data input only |
+| `data/equity_fundamental/history/` | basic financials historical panel and manifest | A-share historical backfill commands | yes | no | data input only |
 | `data/equity_data_quality/` | provider snapshot cache, data source manifest, coverage audit, and schema audit | A-share data foundation commands | yes | partial | audit input only |
 | `external_research/` | ignored shallow clones of external research repositories | `scripts/download_external_research_repos.py` | no | no | no |
 | `data/market/historical/authorized/` | authorized ETF and benchmark historical OHLCV packages | `download-historical-data-packages` | yes | no | no |
@@ -78,3 +80,5 @@ The v0.6.3.2 owner report layer writes `forward_dry_run_day1_owner_report_scope_
 The v0.7.0 external intake layer writes `external_project_intake_report.json`, `EXTERNAL_PROJECT_INTAKE_REPORT.md`, `V0_7_ROADMAP_SUMMARY.md`, and A-share planning docs under `docs/`. It scans ignored shallow clones under `external_research/` and does not merge third-party trading code into the main flow. It does not ingest A-share data, does not score stocks, does not execute day2, does not call run-daily, does not connect a broker, and does not place real orders.
 
 The v0.7.1 A-share data foundation layer writes `equity_master.parquet`, `trading_calendar.parquet`, `daily_price_panel.parquet`, `adjusted_price_panel.parquet`, `daily_basic_panel.parquet`, `industry_classification.parquet`, `basic_financials_panel.parquet`, `a_share_data_source_manifest.json`, `a_share_data_coverage_audit.json`, and `a_share_data_schema_audit.json`. These are data and audit artifacts only. They are not stock recommendations, not scores, not candidate pools, not virtual portfolios, not broker instructions, not real orders, not day2 forward dry-run artifacts, and not proof of model profitability. Public/free provider limitations must remain visible in manifest and audit warnings.
+
+The v0.7.1.1 historical backfill layer writes history panels and readiness audits only. It does not generate scores, candidates, watchlists, portfolios, orders, or day2 artifacts. If the public historical providers cannot satisfy minimum coverage, it must publish blocking audits rather than a success release tag.

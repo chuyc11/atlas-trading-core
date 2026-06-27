@@ -1,0 +1,37 @@
+{
+  "manifest_id": "A-SHARE-DAILY-BASIC-HISTORY-MANIFEST",
+  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
+  "rows": 8405,
+  "symbol_count": 10,
+  "date_count": 841,
+  "field_coverage_ratio": {
+    "total_mv": 0.0,
+    "circ_mv": 0.0,
+    "turnover_rate": 1.0,
+    "volume_ratio": 0.0,
+    "pe": 0.0,
+    "pe_ttm": 0.0,
+    "pb": 0.0,
+    "ps": 0.0,
+    "ps_ttm": 0.0,
+    "dv_ratio": 0.0,
+    "dv_ttm": 0.0
+  },
+  "coverage_note": "turnover_rate is derived from public kline turnover; valuation and market-cap history are nullable until richer providers are configured",
+  "boundary": {
+    "historical_backfill_only": true,
+    "data_backfill_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}

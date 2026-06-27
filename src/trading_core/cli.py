@@ -26,11 +26,19 @@ from trading_core.external_intake.report import build_external_project_intake
 from trading_core.equity_data.adjusted_price import ingest_a_share_adjusted_prices
 from trading_core.equity_data.daily_basic import ingest_a_share_daily_basic
 from trading_core.equity_data.daily_price import ingest_a_share_daily_prices
+from trading_core.equity_data.historical_adjusted_price import backfill_a_share_adjusted_price_history
+from trading_core.equity_data.historical_backfill import backfill_a_share_historical_panels
+from trading_core.equity_data.historical_daily_basic import backfill_a_share_daily_basic_history
+from trading_core.equity_data.historical_daily_price import backfill_a_share_daily_price_history
 from trading_core.equity_data_quality.coverage_audit import audit_a_share_data_coverage
+from trading_core.equity_data_quality.feature_readiness_audit import audit_a_share_feature_readiness
 from trading_core.equity_data_quality.foundation import build_a_share_data_foundation
+from trading_core.equity_data_quality.historical_coverage_audit import audit_a_share_historical_panel_coverage
+from trading_core.equity_data_quality.history_manifest import build_a_share_historical_backfill_plan
 from trading_core.equity_data_quality.schema_audit import audit_a_share_data_schema
 from trading_core.equity_data_quality.source_manifest import build_a_share_data_source_manifest
 from trading_core.equity_fundamental.basic_financials import ingest_a_share_basic_financials
+from trading_core.equity_fundamental.historical_financials import backfill_a_share_financial_history
 from trading_core.equity_industry.classification import ingest_a_share_industry_classification
 from trading_core.equity_universe.calendar import build_a_share_trading_calendar
 from trading_core.equity_universe.master import build_a_share_equity_master
@@ -769,6 +777,30 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers.add_parser("audit-a-share-data-coverage")
     subparsers.add_parser("audit-a-share-data-schema")
     subparsers.add_parser("build-a-share-data-foundation")
+    historical_plan = subparsers.add_parser("a-share-historical-backfill-plan")
+    historical_plan.add_argument("--target-start-date", default="2021-01-01")
+    historical_plan.add_argument("--minimum-start-date", default="2023-01-01")
+    historical_plan.add_argument("--end-date", default="2026-06-26")
+    history_price = subparsers.add_parser("backfill-a-share-daily-price-history")
+    history_price.add_argument("--start-date", required=True)
+    history_price.add_argument("--end-date", required=True)
+    history_price.add_argument("--max-symbols", type=int)
+    history_adjusted = subparsers.add_parser("backfill-a-share-adjusted-price-history")
+    history_adjusted.add_argument("--start-date", required=True)
+    history_adjusted.add_argument("--end-date", required=True)
+    history_basic = subparsers.add_parser("backfill-a-share-daily-basic-history")
+    history_basic.add_argument("--start-date", required=True)
+    history_basic.add_argument("--end-date", required=True)
+    history_financial = subparsers.add_parser("backfill-a-share-financial-history")
+    history_financial.add_argument("--start-date", required=True)
+    history_financial.add_argument("--end-date", required=True)
+    subparsers.add_parser("audit-a-share-historical-panel-coverage")
+    subparsers.add_parser("audit-a-share-feature-readiness")
+    historical_all = subparsers.add_parser("backfill-a-share-historical-panels")
+    historical_all.add_argument("--target-start-date", required=True)
+    historical_all.add_argument("--minimum-start-date", required=True)
+    historical_all.add_argument("--end-date", required=True)
+    historical_all.add_argument("--max-symbols", type=int)
 
     return parser
 
@@ -2093,6 +2125,38 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-data-foundation":
         result = build_a_share_data_foundation(paths=paths)
         print({"foundation_id": result["foundation_id"], "overall_passed": result["overall_passed"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "schema_overall_passed": result["schema_audit"]["overall_passed"], "coverage": result["coverage_audit"]["coverage"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "a-share-historical-backfill-plan":
+        result = build_a_share_historical_backfill_plan(target_start_date=args.target_start_date, minimum_start_date=args.minimum_start_date, end_date=args.end_date, paths=paths)
+        print({"plan_id": result["plan_id"], "target_start_date": result["target_start_date"], "minimum_start_date": result["minimum_start_date"], "end_date": result["end_date"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "backfill-a-share-daily-price-history":
+        result = backfill_a_share_daily_price_history(start_date=args.start_date, end_date=args.end_date, max_symbols=args.max_symbols, paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "date_count": result["date_count"], "min_date": result["min_date"], "max_date": result["max_date"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["rows"] > 0 else 1
+    if args.command == "backfill-a-share-adjusted-price-history":
+        result = backfill_a_share_adjusted_price_history(start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "adjustment_types": result["adjustment_types"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["rows"] > 0 else 1
+    if args.command == "backfill-a-share-daily-basic-history":
+        result = backfill_a_share_daily_basic_history(start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["rows"] > 0 else 1
+    if args.command == "backfill-a-share-financial-history":
+        result = backfill_a_share_financial_history(start_date=args.start_date, end_date=args.end_date, paths=paths)
+        print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "report_date_coverage": result["report_date_coverage"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
+        return 0 if result["rows"] > 0 else 1
+    if args.command == "audit-a-share-historical-panel-coverage":
+        result = audit_a_share_historical_panel_coverage(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "coverage": result["coverage"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-feature-readiness":
+        result = audit_a_share_feature_readiness(paths=paths)
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "readiness": result["readiness"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "backfill-a-share-historical-panels":
+        result = backfill_a_share_historical_panels(target_start_date=args.target_start_date, minimum_start_date=args.minimum_start_date, end_date=args.end_date, max_symbols=args.max_symbols, paths=paths)
+        print({"backfill_id": result["backfill_id"], "overall_passed": result["overall_passed"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "feature_readiness_overall_passed": result["feature_readiness_audit"]["overall_passed"], "coverage": result["coverage_audit"]["coverage"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

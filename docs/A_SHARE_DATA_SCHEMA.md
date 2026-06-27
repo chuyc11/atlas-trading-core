@@ -165,3 +165,23 @@ v0.7.1 permits nullable basic-financial fields when free-source coverage is unav
 ## Common Requirements
 
 Every persisted data table must include `source` and `source_timestamp`. Later v0.7 filters, features, scores, and portfolios must read these local schemas rather than provider-specific raw responses.
+
+## Historical Extensions
+
+v0.7.1.1 historical tables add:
+
+```text
+provider
+ingested_at
+```
+
+Historical table keys:
+
+| Table | Primary key |
+|---|---|
+| `daily_price_history_panel` | `date`, `symbol` |
+| `adjusted_price_history_panel` | `date`, `symbol`, `adjustment_type` |
+| `daily_basic_history_panel` | `date`, `symbol` |
+| `basic_financials_history_panel` | `report_date`, `symbol` |
+
+These history panels are still input data only. They are not scores or stock recommendations.
