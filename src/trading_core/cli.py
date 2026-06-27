@@ -43,6 +43,9 @@ from trading_core.equity_data_quality.source_manifest import build_a_share_data_
 from trading_core.equity_fundamental.basic_financials import ingest_a_share_basic_financials
 from trading_core.equity_fundamental.historical_financials import backfill_a_share_financial_history
 from trading_core.equity_industry.classification import ingest_a_share_industry_classification
+from trading_core.equity_selection.filter_config import TradableUniverseFilterConfig, parse_bool
+from trading_core.equity_selection.tradable_universe_audit import audit_a_share_tradable_universe
+from trading_core.equity_selection.tradable_universe_filter import build_a_share_tradable_universe
 from trading_core.equity_universe.calendar import build_a_share_trading_calendar
 from trading_core.equity_universe.master import build_a_share_equity_master
 from trading_core.execution.ashare_execution_gap_plan import build_ashare_execution_gap_plan
@@ -822,8 +825,40 @@ def build_parser() -> argparse.ArgumentParser:
     historical_full.add_argument("--rate-limit-per-minute", type=int, default=60)
     historical_full.add_argument("--retry", type=int, default=2)
     historical_full.add_argument("--sample-size", type=int)
+    tradable_build = subparsers.add_parser("build-a-share-tradable-universe")
+    _add_tradable_universe_arguments(tradable_build)
+    tradable_audit = subparsers.add_parser("audit-a-share-tradable-universe")
+    _add_tradable_universe_arguments(tradable_audit)
+    tradable_all = subparsers.add_parser("build-and-audit-a-share-tradable-universe")
+    _add_tradable_universe_arguments(tradable_all)
 
     return parser
+
+
+def _add_tradable_universe_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default="2026-06-26")
+    parser.add_argument("--min-listing-trading-days", type=int, default=120)
+    parser.add_argument("--min-avg-amount-20d", type=float, default=50_000_000)
+    parser.add_argument("--min-avg-amount-60d", type=float, default=30_000_000)
+    parser.add_argument("--min-total-mv", type=float, default=3_000_000_000)
+    parser.add_argument("--min-circ-mv", type=float, default=2_000_000_000)
+    parser.add_argument("--min-close-price", type=float, default=2.0)
+    parser.add_argument("--include-caution", nargs="?", const=True, default=False, type=parse_bool)
+    parser.add_argument("--allow-previous-trading-day", nargs="?", const=True, default=False, type=parse_bool)
+
+
+def _tradable_universe_config(args: argparse.Namespace) -> TradableUniverseFilterConfig:
+    return TradableUniverseFilterConfig(
+        as_of_date=args.as_of_date,
+        min_listing_trading_days=args.min_listing_trading_days,
+        min_avg_amount_20d=args.min_avg_amount_20d,
+        min_avg_amount_60d=args.min_avg_amount_60d,
+        min_total_mv=args.min_total_mv,
+        min_circ_mv=args.min_circ_mv,
+        min_close_price=args.min_close_price,
+        include_caution=args.include_caution,
+        allow_previous_trading_day=args.allow_previous_trading_day,
+    )
 
 
 def _resolve_cli_path(value: str, paths) -> Path:
@@ -2203,6 +2238,39 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         print({"scheduler_id": result["scheduler_id"], "overall_passed": result["overall_passed"], "release_eligible": result["release_eligible"], "queue": result["queue"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "feature_readiness_overall_passed": result["feature_readiness_audit"]["overall_passed"], "blocking_reasons": result["feature_readiness_audit"]["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-tradable-universe":
+        result = build_a_share_tradable_universe(config=_tradable_universe_config(args), paths=paths)
+        print({"builder_id": result["builder_id"], "as_of_date": result["as_of_date"], "counts": result["counts"], "warnings": len(result["warnings"]), "tradable_universe_path": result["artifacts"]["tradable_universe_json"], "manifest_path": result["artifacts"]["manifest"]})
+        return 0 if result["counts"]["strict_tradable_count"] > 0 else 1
+    if args.command == "audit-a-share-tradable-universe":
+        result = audit_a_share_tradable_universe(
+            as_of_date=args.as_of_date,
+            min_listing_trading_days=args.min_listing_trading_days,
+            min_avg_amount_20d=args.min_avg_amount_20d,
+            min_avg_amount_60d=args.min_avg_amount_60d,
+            min_total_mv=args.min_total_mv,
+            min_circ_mv=args.min_circ_mv,
+            min_close_price=args.min_close_price,
+            allow_previous_trading_day=args.allow_previous_trading_day,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "counts": result["counts"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-tradable-universe":
+        build_result = build_a_share_tradable_universe(config=_tradable_universe_config(args), paths=paths)
+        audit_result = audit_a_share_tradable_universe(
+            as_of_date=args.as_of_date,
+            min_listing_trading_days=args.min_listing_trading_days,
+            min_avg_amount_20d=args.min_avg_amount_20d,
+            min_avg_amount_60d=args.min_avg_amount_60d,
+            min_total_mv=args.min_total_mv,
+            min_circ_mv=args.min_circ_mv,
+            min_close_price=args.min_close_price,
+            allow_previous_trading_day=args.allow_previous_trading_day,
+            paths=paths,
+        )
+        print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "recommended_next_version": audit_result["recommended_next_version"]})
+        return 0 if audit_result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
         print(result)
