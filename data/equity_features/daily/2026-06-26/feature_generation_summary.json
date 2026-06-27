@@ -1,0 +1,252 @@
+{
+  "summary_id": "A-SHARE-MULTI-HORIZON-FEATURE-GENERATION-SUMMARY",
+  "target_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
+  "as_of_date": "2026-06-26",
+  "created_at": "2026-06-27T12:32:22.311660Z",
+  "strict_tradable_count": 3676,
+  "feature_groups": {
+    "short_horizon": {
+      "path": "data/equity_features/daily/2026-06-26/short_horizon_features.parquet",
+      "symbols": 3676,
+      "fields": 20,
+      "rows": 3676,
+      "sha256": "68a3f6c67350351591d31d320d12af61d7acc228dff9d4417c714c6fa0bea713"
+    },
+    "mid_horizon": {
+      "path": "data/equity_features/daily/2026-06-26/mid_horizon_features.parquet",
+      "symbols": 3676,
+      "fields": 22,
+      "rows": 3676,
+      "sha256": "243541282856345fa399881096e1b44962cc77516b3bacc6944e5a58f95dac8b"
+    },
+    "long_horizon": {
+      "path": "data/equity_features/daily/2026-06-26/long_horizon_features.parquet",
+      "symbols": 3676,
+      "fields": 14,
+      "rows": 3676,
+      "sha256": "a6271d29831b71e5369db87d1d5eb0076416cb4d732a58b2ef5d75fc36356d08"
+    },
+    "risk": {
+      "path": "data/equity_features/daily/2026-06-26/risk_features.parquet",
+      "symbols": 3676,
+      "fields": 19,
+      "rows": 3676,
+      "sha256": "31e38b2a5180e4605ab377aaf871a7a9ffbab941a7fbb4f8bf1e94656ecf616f"
+    },
+    "liquidity": {
+      "path": "data/equity_features/daily/2026-06-26/liquidity_features.parquet",
+      "symbols": 3676,
+      "fields": 14,
+      "rows": 3676,
+      "sha256": "7ac6f7a25b68d2cfd4fd4b3ac7f456dfba75d477ee9a8df505a523d5275abf23"
+    },
+    "industry": {
+      "path": "data/equity_features/daily/2026-06-26/industry_features.parquet",
+      "symbols": 3676,
+      "fields": 16,
+      "rows": 3676,
+      "sha256": "fb710200a4395eb161e7da7e1fdedd2964a8662cfdf28b02bfd50e9ff6d6f991"
+    },
+    "fundamental": {
+      "path": "data/equity_features/daily/2026-06-26/fundamental_features.parquet",
+      "symbols": 3676,
+      "fields": 21,
+      "rows": 3676,
+      "sha256": "e760bce209a7958a0bf4694567f8c3f76d4763cb3fc0af6ae5f2fb6d11474c48"
+    }
+  },
+  "field_coverage": {
+    "short_horizon": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "return_1d": 1.0,
+        "return_3d": 1.0,
+        "return_5d": 1.0,
+        "return_10d": 1.0,
+        "return_20d": 1.0,
+        "momentum_5d": 1.0,
+        "momentum_10d": 1.0,
+        "momentum_20d": 1.0,
+        "volume_change_5d": 1.0,
+        "amount_change_5d": 1.0,
+        "amount_change_20d": 1.0,
+        "close_to_20d_high": 1.0,
+        "close_to_20d_low": 1.0,
+        "breakout_20d_high": 1.0,
+        "drawdown_from_20d_high": 1.0,
+        "reversal_from_20d_low": 1.0,
+        "gap_1d": 1.0,
+        "intraday_range_1d": 1.0,
+        "amplitude_5d": 1.0,
+        "amplitude_20d": 1.0
+      },
+      "mandatory_field_coverage": 1.0
+    },
+    "mid_horizon": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "return_20d": 1.0,
+        "return_60d": 1.0,
+        "return_120d": 1.0,
+        "momentum_60d": 1.0,
+        "momentum_120d": 1.0,
+        "ma_20": 1.0,
+        "ma_60": 1.0,
+        "ma_120": 1.0,
+        "close_to_ma_20": 1.0,
+        "close_to_ma_60": 1.0,
+        "close_to_ma_120": 1.0,
+        "ma_20_slope": 1.0,
+        "ma_60_slope": 1.0,
+        "ma_120_slope": 1.0,
+        "trend_consistency_60d": 1.0,
+        "trend_consistency_120d": 1.0,
+        "relative_strength_60d_vs_market": 1.0,
+        "relative_strength_120d_vs_market": 1.0,
+        "relative_strength_60d_vs_industry": 1.0,
+        "relative_strength_120d_vs_industry": 1.0,
+        "volatility_adjusted_return_60d": 1.0,
+        "volatility_adjusted_return_120d": 1.0
+      },
+      "mandatory_field_coverage": 1.0
+    },
+    "long_horizon": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "return_250d": 1.0,
+        "return_3y": 0.967084,
+        "return_5y": 0.862894,
+        "ma_250": 1.0,
+        "close_to_ma_250": 1.0,
+        "ma_250_slope": 0.983678,
+        "max_drawdown_250d": 1.0,
+        "max_drawdown_3y": 1.0,
+        "annualized_return_250d": 1.0,
+        "annualized_volatility_250d": 1.0,
+        "calmar_250d": 1.0,
+        "relative_strength_250d_vs_market": 1.0,
+        "relative_strength_250d_vs_industry": 1.0,
+        "long_trend_consistency_250d": 1.0
+      },
+      "mandatory_field_coverage": 0.98669
+    },
+    "risk": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "volatility_20d": 1.0,
+        "volatility_60d": 1.0,
+        "volatility_120d": 1.0,
+        "volatility_250d": 1.0,
+        "downside_volatility_60d": 1.0,
+        "downside_volatility_120d": 1.0,
+        "max_drawdown_20d": 1.0,
+        "max_drawdown_60d": 1.0,
+        "max_drawdown_120d": 1.0,
+        "max_drawdown_250d": 1.0,
+        "var_95_20d": 1.0,
+        "var_95_60d": 1.0,
+        "expected_shortfall_95_60d": 1.0,
+        "skewness_60d": 1.0,
+        "kurtosis_60d": 1.0,
+        "limit_up_days_60d": 1.0,
+        "limit_down_days_60d": 1.0,
+        "large_drop_days_60d": 1.0,
+        "large_gap_days_60d": 1.0
+      },
+      "mandatory_field_coverage": 1.0
+    },
+    "liquidity": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "avg_amount_5d": 1.0,
+        "avg_amount_20d": 1.0,
+        "avg_amount_60d": 1.0,
+        "avg_volume_20d": 1.0,
+        "avg_volume_60d": 1.0,
+        "turnover_rate_20d_avg": 1.0,
+        "turnover_rate_60d_avg": 1.0,
+        "amount_stability_20d": 1.0,
+        "amount_stability_60d": 1.0,
+        "zero_volume_days_60d": 1.0,
+        "effective_trading_days_20d": 1.0,
+        "effective_trading_days_60d": 1.0,
+        "estimated_slippage_proxy_20d": 1.0,
+        "estimated_slippage_proxy_60d": 1.0
+      },
+      "mandatory_field_coverage": 1.0
+    },
+    "industry": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "industry_level_1": 1.0,
+        "industry_level_2": 1.0,
+        "industry_return_5d": 1.0,
+        "industry_return_20d": 1.0,
+        "industry_return_60d": 1.0,
+        "industry_return_120d": 1.0,
+        "industry_return_250d": 1.0,
+        "industry_relative_strength_20d": 1.0,
+        "industry_relative_strength_60d": 1.0,
+        "industry_relative_strength_120d": 1.0,
+        "industry_relative_strength_250d": 1.0,
+        "stock_rank_in_industry_by_return_20d": 1.0,
+        "stock_rank_in_industry_by_return_60d": 1.0,
+        "stock_rank_in_industry_by_return_120d": 1.0,
+        "stock_percentile_in_industry_by_return_20d": 1.0,
+        "stock_percentile_in_industry_by_return_60d": 1.0,
+        "stock_percentile_in_industry_by_return_120d": 1.0,
+        "industry_member_count": 1.0
+      },
+      "mandatory_field_coverage": 1.0
+    },
+    "fundamental": {
+      "symbols": 3676,
+      "symbol_coverage": 1.0,
+      "field_coverage": {
+        "pe_ttm": 1.0,
+        "pb": 1.0,
+        "ps_ttm": 0.0,
+        "dv_ttm": 0.0,
+        "pe_ttm_percentile_3y": 0.0,
+        "pb_percentile_3y": 0.0,
+        "ps_ttm_percentile_3y": 0.0,
+        "total_mv": 1.0,
+        "circ_mv": 1.0,
+        "revenue_growth_yoy": 0.991023,
+        "net_profit_growth_yoy": 0.991295,
+        "roe_latest": 0.990479,
+        "roe_ttm": 0.991295,
+        "gross_margin_latest": 0.964635,
+        "net_margin_latest": 0.991295,
+        "operating_cash_flow_latest": 0.991295,
+        "debt_to_asset_latest": 0.0,
+        "eps_latest": 0.991023,
+        "bps_latest": 0.991295,
+        "financial_report_age_days": 0.991295,
+        "financial_quarters_available": 1.0
+      },
+      "mandatory_field_coverage": 0.708806
+    }
+  },
+  "warnings": [],
+  "boundary": {
+    "feature_engineering_only": true,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "watchlist_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}

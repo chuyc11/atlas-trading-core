@@ -42,6 +42,9 @@ from trading_core.equity_data_quality.schema_audit import audit_a_share_data_sch
 from trading_core.equity_data_quality.source_manifest import build_a_share_data_source_manifest
 from trading_core.equity_fundamental.basic_financials import ingest_a_share_basic_financials
 from trading_core.equity_fundamental.historical_financials import backfill_a_share_financial_history
+from trading_core.equity_features.feature_audit import audit_a_share_multi_horizon_features
+from trading_core.equity_features.feature_config import DEFAULT_AS_OF_DATE
+from trading_core.equity_features.multi_horizon import build_a_share_multi_horizon_features
 from trading_core.equity_industry.classification import ingest_a_share_industry_classification
 from trading_core.equity_selection.filter_config import TradableUniverseFilterConfig, parse_bool
 from trading_core.equity_selection.tradable_universe_audit import audit_a_share_tradable_universe
@@ -831,6 +834,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_tradable_universe_arguments(tradable_audit)
     tradable_all = subparsers.add_parser("build-and-audit-a-share-tradable-universe")
     _add_tradable_universe_arguments(tradable_all)
+    feature_build = subparsers.add_parser("build-a-share-multi-horizon-features")
+    _add_multi_horizon_feature_arguments(feature_build)
+    feature_audit = subparsers.add_parser("audit-a-share-multi-horizon-features")
+    _add_multi_horizon_feature_arguments(feature_audit)
+    feature_all = subparsers.add_parser("build-and-audit-a-share-multi-horizon-features")
+    _add_multi_horizon_feature_arguments(feature_all)
 
     return parser
 
@@ -859,6 +868,11 @@ def _tradable_universe_config(args: argparse.Namespace) -> TradableUniverseFilte
         include_caution=args.include_caution,
         allow_previous_trading_day=args.allow_previous_trading_day,
     )
+
+
+def _add_multi_horizon_feature_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_AS_OF_DATE)
+    parser.add_argument("--allow-latest-tradable-universe", nargs="?", const=True, default=False, type=parse_bool)
 
 
 def _resolve_cli_path(value: str, paths) -> Path:
@@ -2270,6 +2284,35 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "recommended_next_version": audit_result["recommended_next_version"]})
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-multi-horizon-features":
+        result = build_a_share_multi_horizon_features(
+            as_of_date=args.as_of_date,
+            allow_latest_tradable_universe=args.allow_latest_tradable_universe,
+            paths=paths,
+        )
+        print({"builder_id": result["builder_id"], "as_of_date": result["as_of_date"], "strict_tradable_count": result["strict_tradable_count"], "feature_groups": result["feature_groups"], "warnings": len(result["warnings"]), "feature_manifest_path": result["feature_manifest_path"]})
+        return 0 if result["strict_tradable_count"] > 0 else 1
+    if args.command == "audit-a-share-multi-horizon-features":
+        result = audit_a_share_multi_horizon_features(
+            as_of_date=args.as_of_date,
+            allow_latest_tradable_universe=args.allow_latest_tradable_universe,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "counts": result["counts"], "coverage": result["coverage"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-multi-horizon-features":
+        build_result = build_a_share_multi_horizon_features(
+            as_of_date=args.as_of_date,
+            allow_latest_tradable_universe=args.allow_latest_tradable_universe,
+            paths=paths,
+        )
+        audit_result = audit_a_share_multi_horizon_features(
+            as_of_date=args.as_of_date,
+            allow_latest_tradable_universe=args.allow_latest_tradable_universe,
+            paths=paths,
+        )
+        print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "coverage": audit_result["coverage"], "recommended_next_version": audit_result["recommended_next_version"]})
         return 0 if audit_result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)
