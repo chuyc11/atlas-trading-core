@@ -1,5 +1,73 @@
 # Release Notes
 
+## v0.7.3-a-share-multi-horizon-feature-engineering
+
+This release adds the A-share multi-horizon feature engineering layer on top of the v0.7.2 strict tradable universe. It generates feature tables only. It does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker instructions, real orders, `run-daily` output, profit claims, or live-trading readiness.
+
+Includes:
+
+- strict-universe feature input loader with exact `as_of_date` fail-closed behavior
+- explicit `--allow-latest-tradable-universe` escape hatch for non-default historical runs
+- short-horizon price, momentum, volume, gap, range, and breakout features
+- mid-horizon moving average, trend, relative strength, and volatility-adjusted return features
+- long-horizon 250d/3y/5y trend, drawdown, annualized return, volatility, and relative strength features
+- risk features including volatility, downside volatility, drawdown, VaR, expected shortfall, skew/kurtosis, limit/drop/gap counts
+- liquidity features including amount, volume, turnover, stability, effective-day, zero-volume, and slippage-proxy fields
+- industry features including industry return, relative strength, member count, and allowed in-industry return rank features
+- fundamental features from daily basic and financial history with nullable valuation percentile placeholders
+- feature manifest, field coverage, generation summary, Markdown reports, and fail-closed audit
+- CLI commands: `build-a-share-multi-horizon-features`, `audit-a-share-multi-horizon-features`, and `build-and-audit-a-share-multi-horizon-features`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- strict tradable count: 3676
+- short / mid / long / risk / liquidity / industry / fundamental feature symbols: 3676 each
+- symbol coverage: 1.0 for all feature groups
+- mandatory field coverage:
+  - short horizon: 1.0
+  - mid horizon: 1.0
+  - long horizon: 0.98669
+  - risk: 1.0
+  - liquidity: 1.0
+  - industry: 1.0
+  - fundamental: 0.708806
+- audit overall_passed=true
+- blocking reasons: none
+- no future leakage detected
+- recommended next version: `v0.7.4-a-share-long-mid-short-scoring-system`
+
+Primary artifacts:
+
+- `data/equity_features/daily/2026-06-26/short_horizon_features.parquet`
+- `data/equity_features/daily/2026-06-26/mid_horizon_features.parquet`
+- `data/equity_features/daily/2026-06-26/long_horizon_features.parquet`
+- `data/equity_features/daily/2026-06-26/risk_features.parquet`
+- `data/equity_features/daily/2026-06-26/liquidity_features.parquet`
+- `data/equity_features/daily/2026-06-26/industry_features.parquet`
+- `data/equity_features/daily/2026-06-26/fundamental_features.parquet`
+- `data/equity_features/daily/2026-06-26/feature_manifest.json`
+- `data/equity_features/daily/2026-06-26/feature_field_coverage.json`
+- `data/equity_features/daily/2026-06-26/feature_generation_summary.json`
+- `data/equity_data_quality/a_share_multi_horizon_feature_audit.json`
+- `outputs/audit/A_SHARE_MULTI_HORIZON_FEATURE_AUDIT.md`
+
+Boundary:
+
+- feature engineering only
+- no stock scores generated
+- no candidates generated
+- no watchlist generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- no model profit guarantee
+- live trading readiness remains false
+
+Validation: 1002 tests passed, 1 skipped.
+
 ## v0.7.2-a-share-tradable-universe-filter
 
 This release adds the A-share tradable universe filter on top of the v0.7.1.2 full-market historical panels. It builds daily strict/caution/excluded/unknown buckets and an audit gate for future feature engineering. It is not a stock scoring, candidate generation, watchlist, portfolio, broker, or trading stage.

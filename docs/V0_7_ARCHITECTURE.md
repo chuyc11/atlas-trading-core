@@ -84,6 +84,12 @@ The output buckets are `strict_tradable_universe`, `caution_universe`, `excluded
 
 v0.7.2 does not generate scores, candidates, watchlists, virtual portfolios, orders, broker connections, `run-daily` output, or official forward dry-run day2 artifacts.
 
+## v0.7.3 Multi-Horizon Feature Engineering
+
+v0.7.3 consumes the `strict_tradable_universe` output from v0.7.2 and audited historical panels from v0.7.1.2. It writes feature tables under `data/equity_features/daily/YYYY-MM-DD/`, reports under `outputs/equity_features/daily/YYYY-MM-DD/`, and a release audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The feature groups are short horizon, mid horizon, long horizon, risk, liquidity, industry, and fundamental. These are atomic inputs for a future scoring stage. The stage does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, orders, broker connections, `run-daily` output, profit claims, live readiness, or official forward dry-run day2 artifacts.
+
 ## Boundary
 - No real trading.
 - No broker connection.
@@ -95,4 +101,5 @@ v0.7.2 does not generate scores, candidates, watchlists, virtual portfolios, ord
 - `run-daily` not called.
 - Data foundation only until coverage and schema audits pass.
 - v0.7.2 filter buckets are not recommendations and are not candidate lists.
+- v0.7.3 feature tables are not scores, recommendations, candidate lists, watchlists, portfolios, or order plans.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

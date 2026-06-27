@@ -41,6 +41,31 @@ unknown_status_count = 0
 recommended_next_version = v0.7.3-a-share-multi-horizon-feature-engineering
 ```
 
+## v0.7.3 Result
+
+The v0.7.3 multi-horizon feature audit passed for `as_of_date=2026-06-26`:
+
+```text
+strict_tradable_count = 3676
+short_horizon_feature_coverage = 1.0
+mid_horizon_feature_coverage = 1.0
+long_horizon_feature_coverage = 1.0
+risk_feature_coverage = 1.0
+liquidity_feature_coverage = 1.0
+industry_feature_coverage = 1.0
+fundamental_feature_coverage = 1.0
+short_horizon_mandatory_field_coverage = 1.0
+mid_horizon_mandatory_field_coverage = 1.0
+long_horizon_mandatory_field_coverage = 0.98669
+risk_mandatory_field_coverage = 1.0
+liquidity_mandatory_field_coverage = 1.0
+industry_mandatory_field_coverage = 1.0
+fundamental_mandatory_field_coverage = 0.708806
+recommended_next_version = v0.7.4-a-share-long-mid-short-scoring-system
+```
+
+v0.7.3 still does not generate scores, recommendations, candidates, watchlists, virtual portfolios, broker instructions, real orders, `run-daily`, profit claims, or live-trading readiness.
+
 ## Forbidden Claims
 
 The audit keeps the following claims forbidden:

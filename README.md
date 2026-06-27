@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.2-a-share-tradable-universe-filter
+v0.7.3-a-share-multi-horizon-feature-engineering
 
 ## Completed milestones
 
@@ -51,6 +51,7 @@ v0.7.2-a-share-tradable-universe-filter
 - v0.7.1 A-share full-market data ingestion foundation
 - v0.7.1.2 A-share historical data provider expansion
 - v0.7.2 A-share tradable universe filter
+- v0.7.3 A-share multi-horizon feature engineering
 
 ## Known limitations
 
@@ -80,6 +81,8 @@ v0.7.2-a-share-tradable-universe-filter
 - v0.7.1.1 is not released as a success tag; no scores, candidates, virtual portfolios, broker calls, real orders, run-daily, or day2 artifacts were generated
 - v0.7.1.2 expands historical data provider coverage and passes the minimum historical coverage gate for v0.7.2 preparation, but it still does not score stocks, generate candidates, generate watchlists, generate virtual portfolios, connect a broker, place real orders, call run-daily, or execute official forward dry-run day2
 - v0.7.2 builds the A-share strict/caution/excluded/unknown tradable universe buckets only; it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, or official forward dry-run day2 artifacts
+- v0.7.3 builds strict-universe multi-horizon feature artifacts only; it does not generate scores, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, profit claims, or official forward dry-run day2 artifacts
+- v0.7.3 fundamental feature coverage is partial by design because several valuation percentile fields remain nullable placeholders for a later data-quality/scoring stage
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -135,6 +138,21 @@ python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-dat
 ```
 
 The default downstream input is `strict_tradable_universe`. `caution_universe` is observation-only unless a future command explicitly allows it.
+
+Run v0.7.3 A-share multi-horizon feature engineering:
+
+```powershell
+python -m trading_core.cli build-a-share-multi-horizon-features --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-multi-horizon-features --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-of-date 2026-06-26
+```
+
+The v0.7.3 output is feature input for a future scoring stage. It is not a score table, recommendation list, candidate list, watchlist, virtual portfolio, order plan, broker instruction, or live-trading readiness claim.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 

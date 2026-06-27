@@ -106,6 +106,21 @@ python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-dat
 
 This v0.7.2 path filters the A-share full-market history into `strict_tradable_universe`, `caution_universe`, `excluded_universe`, and `unknown_status_universe`. It is not selection or scoring: it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
 
+## Run v0.7.3 A-share multi-horizon feature engineering
+
+```bash
+python -m trading_core.cli build-a-share-multi-horizon-features --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-multi-horizon-features --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-of-date 2026-06-26
+```
+
+This v0.7.3 path consumes `strict_tradable_universe` and writes feature-only parquet tables plus manifest, coverage, summary, and audit artifacts. It is not scoring or selection: it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash
