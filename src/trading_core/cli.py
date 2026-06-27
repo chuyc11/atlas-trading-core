@@ -49,6 +49,9 @@ from trading_core.equity_industry.classification import ingest_a_share_industry_
 from trading_core.equity_scoring.component_scores import build_a_share_scores
 from trading_core.equity_scoring.score_config import DEFAULT_AS_OF_DATE as DEFAULT_SCORE_AS_OF_DATE
 from trading_core.equity_scoring.scoring_audit import audit_a_share_scores
+from trading_core.equity_selection.candidate_config import DEFAULT_AS_OF_DATE as DEFAULT_CANDIDATE_AS_OF_DATE
+from trading_core.equity_selection.candidate_generation_audit import audit_a_share_candidates
+from trading_core.equity_selection.candidate_generator import generate_a_share_candidates
 from trading_core.equity_selection.filter_config import TradableUniverseFilterConfig, parse_bool
 from trading_core.equity_selection.tradable_universe_audit import audit_a_share_tradable_universe
 from trading_core.equity_selection.tradable_universe_filter import build_a_share_tradable_universe
@@ -849,6 +852,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_score_arguments(score_audit)
     score_all = subparsers.add_parser("build-and-audit-a-share-scores")
     _add_a_share_score_arguments(score_all)
+    candidate_build = subparsers.add_parser("generate-a-share-candidates")
+    _add_a_share_candidate_arguments(candidate_build)
+    candidate_audit = subparsers.add_parser("audit-a-share-candidates")
+    _add_a_share_candidate_arguments(candidate_audit)
+    candidate_all = subparsers.add_parser("generate-and-audit-a-share-candidates")
+    _add_a_share_candidate_arguments(candidate_all)
 
     return parser
 
@@ -887,6 +896,15 @@ def _add_multi_horizon_feature_arguments(parser: argparse.ArgumentParser) -> Non
 def _add_a_share_score_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_SCORE_AS_OF_DATE)
     parser.add_argument("--allow-latest-feature-date", nargs="?", const=True, default=False, type=parse_bool)
+
+
+def _add_a_share_candidate_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_CANDIDATE_AS_OF_DATE)
+    parser.add_argument("--allow-latest-score-date", nargs="?", const=True, default=False, type=parse_bool)
+    parser.add_argument("--long-count", type=int, default=30)
+    parser.add_argument("--mid-count", type=int, default=30)
+    parser.add_argument("--short-count", type=int, default=30)
+    parser.add_argument("--extended-count", type=int, default=100)
 
 
 def _resolve_cli_path(value: str, paths) -> Path:
@@ -2356,6 +2374,43 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "score_ranges": audit_result["score_ranges"], "recommended_next_version": audit_result["recommended_next_version"]})
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "generate-a-share-candidates":
+        result = generate_a_share_candidates(
+            as_of_date=args.as_of_date,
+            long_count=args.long_count,
+            mid_count=args.mid_count,
+            short_count=args.short_count,
+            extended_count=args.extended_count,
+            allow_latest_score_date=args.allow_latest_score_date,
+            paths=paths,
+        )
+        print({"builder_id": result["builder_id"], "as_of_date": result["as_of_date"], "candidate_counts": result["candidate_counts"], "warnings": len(result["warnings"]), "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["candidate_counts"]["long_candidates"] == args.long_count and result["candidate_counts"]["mid_candidates"] == args.mid_count and result["candidate_counts"]["short_candidates"] == args.short_count else 1
+    if args.command == "audit-a-share-candidates":
+        result = audit_a_share_candidates(
+            as_of_date=args.as_of_date,
+            allow_latest_score_date=args.allow_latest_score_date,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "counts": result["counts"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "generate-and-audit-a-share-candidates":
+        build_result = generate_a_share_candidates(
+            as_of_date=args.as_of_date,
+            long_count=args.long_count,
+            mid_count=args.mid_count,
+            short_count=args.short_count,
+            extended_count=args.extended_count,
+            allow_latest_score_date=args.allow_latest_score_date,
+            paths=paths,
+        )
+        audit_result = audit_a_share_candidates(
+            as_of_date=args.as_of_date,
+            allow_latest_score_date=args.allow_latest_score_date,
+            paths=paths,
+        )
+        print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "recommended_next_version": audit_result["recommended_next_version"]})
         return 0 if audit_result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

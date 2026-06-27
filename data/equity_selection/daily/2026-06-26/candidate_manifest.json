@@ -1,0 +1,110 @@
+{
+  "manifest_id": "A-SHARE-CANDIDATE-GENERATION-MANIFEST",
+  "target_version": "v0.7.5-a-share-candidate-generation-system",
+  "as_of_date": "2026-06-26",
+  "created_at": "2026-06-27T16:13:13.537228Z",
+  "input_score_manifest_path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+  "strict_tradable_count": 3676,
+  "scored_symbols": 3676,
+  "candidate_counts": {
+    "long_candidates": 30,
+    "mid_candidates": 30,
+    "short_candidates": 30,
+    "extended_watch_pool": 300,
+    "multi_horizon_candidates": 50,
+    "risk_downgraded_candidates": 294
+  },
+  "candidate_generation_only": true,
+  "scores_generated_upstream": true,
+  "virtual_portfolio_generated": false,
+  "buy_sell_signals_generated": false,
+  "order_instructions_generated": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "model_profit_guaranteed": false,
+  "boundary": {
+    "candidate_generation_only": true,
+    "scores_generated_upstream": true,
+    "candidates_generated": true,
+    "watchlists_generated": true,
+    "virtual_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "artifacts": {
+    "long_candidates_json": {
+      "path": "data/equity_selection/daily/2026-06-26/long_candidates.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "82609ee976e4660f0ceaede9ab5a62d4d2d557b8870a4639cccba2a7e68d5e00"
+    },
+    "long_candidates_parquet": {
+      "path": "data/equity_selection/daily/2026-06-26/long_candidates.parquet",
+      "exists": true,
+      "rows": 30,
+      "sha256": "83d130fee9a00714556ef86ff3f03369a814d4a5149e5094418496d15ac76502"
+    },
+    "mid_candidates_json": {
+      "path": "data/equity_selection/daily/2026-06-26/mid_candidates.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "dd8971ba2362e7df507cae4ca298067e464f0910a295726d300fb580ecfb17e8"
+    },
+    "mid_candidates_parquet": {
+      "path": "data/equity_selection/daily/2026-06-26/mid_candidates.parquet",
+      "exists": true,
+      "rows": 30,
+      "sha256": "d252c685d29b1d021d9e54cc78b2cb07a5b6e52c0be322a8bc9c17b5b2cc104b"
+    },
+    "short_candidates_json": {
+      "path": "data/equity_selection/daily/2026-06-26/short_candidates.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "30ebc97018e2ef1853cf21e900c07ef75c126e97401da559e31cfa64acd982d2"
+    },
+    "short_candidates_parquet": {
+      "path": "data/equity_selection/daily/2026-06-26/short_candidates.parquet",
+      "exists": true,
+      "rows": 30,
+      "sha256": "377c4ca4ecda115be0d8a9649172d7d2781c2fe65938879c8bf5b4e75f7e50d2"
+    },
+    "extended_watch_pool_json": {
+      "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "93a06711bfbfb084a1d78a0a10465f1358bc9a8e1c1c4527e3dd9730005898fa"
+    },
+    "extended_watch_pool_parquet": {
+      "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.parquet",
+      "exists": true,
+      "rows": 300,
+      "sha256": "c32a7cce18b6897ef208f0bf6fd0b4aa8b611ad54e06b6939f43d0bb74bffd70"
+    },
+    "multi_horizon_candidates": {
+      "path": "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "6948ff8f76fa4b11a0b42d0e0dc485e7055a3c41cb382f87158dbc0ebd199c2e"
+    },
+    "risk_downgraded_candidates": {
+      "path": "data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "353ab3b988dab1284a507628a3efbc12b3e486db208670e30617d49744fd467b"
+    },
+    "candidate_reason_breakdown": {
+      "path": "data/equity_selection/daily/2026-06-26/candidate_reason_breakdown.json",
+      "exists": true,
+      "rows": null,
+      "sha256": "b3f3d0301dfe975c7b1ef518a49066224049645693e7b82e5678143c086dcff2"
+    }
+  },
+  "recommended_next_version": "v0.7.6-a-share-virtual-portfolio-construction"
+}

@@ -1,0 +1,28 @@
+{
+  "inclusion_reason_counts": {
+    "acceptable_risk_score": 202,
+    "high_long_percentile": 130,
+    "high_mid_percentile": 130,
+    "high_short_percentile": 130,
+    "strong_composite_percentile": 361,
+    "strong_fundamental_score": 260,
+    "strong_industry_score": 252,
+    "strong_liquidity_score": 262,
+    "strong_momentum_component": 124,
+    "strong_trend_component": 122
+  },
+  "risk_reason_counts": {
+    "low_liquidity_score": 74,
+    "low_risk_score": 364,
+    "no_major_risk_flag_detected": 190,
+    "overheat_risk": 84
+  },
+  "candidate_horizon_counts": {
+    "ExtendedLong": 100,
+    "ExtendedMid": 100,
+    "ExtendedShort": 100,
+    "Long": 87,
+    "Mid": 187,
+    "Short": 110
+  }
+}
