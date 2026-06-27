@@ -29,8 +29,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - constraints: still no scores, no candidates, no watchlists, no virtual portfolios, no broker, no real orders, no `run-daily`, no official forward dry-run day2
   - purpose: resolve the v0.7.1.1 10-symbol coverage blocker and authorize the data foundation to proceed to v0.7.2
 - v0.7.2 tradable universe filter
-  - filters: ST/*ST, delisting board, suspended stocks, listing age below 120 trading days, less than 18 effective trading days in the last 20, 20-day average amount below 50 million CNY, market cap below 3 billion CNY, price below 2 CNY, severe missing fundamentals, one-word limit-up/down execution risk, unresolved abnormal volatility
-  - outputs: `tradable_universe.json`, `excluded_universe.json`, and `TRADABLE_UNIVERSE_REPORT.md`
+  - filters: eligibility, ST/risk warning, listing age below 120 trading days, missing/suspended price, 20d/60d effective trading observations, 20d/60d average amount, total/circulating market cap, close price, price sanity, one-word limit up/down risk, and 20d/60d/120d/250d data coverage
+  - outputs: `strict_tradable_universe`, `caution_universe`, `excluded_universe`, `unknown_status_universe`, reason breakdown, manifest, and audit
+  - result as of 2026-06-26: 3676 strict tradable, 0 caution, 2191 excluded, 0 unknown
+  - constraints: no LongScore/MidScore/ShortScore, no RiskScore/LiquidityScore, no candidates, no watchlists, no virtual portfolios, no broker, no real orders, no `run-daily`, no official forward dry-run day2
+  - default downstream input: `strict_tradable_universe`; `caution_universe` is observation-only unless a future command explicitly allows it
 - v0.7.3 multi-horizon feature engineering
   - long features: quality, ROE, gross margin, net margin, cash flow, leverage, valuation percentile, dividend, long-term trend
   - mid features: 60/120-day trend, relative strength, industry rotation, earnings improvement, volume confirmation, volatility-adjusted return
@@ -64,9 +67,9 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_industry/`
 - `src/trading_core/equity_fundamental/`
 - `src/trading_core/equity_data_quality/`
+- `src/trading_core/equity_selection/`
 - `src/trading_core/equity_features/`
 - `src/trading_core/equity_scoring/`
-- `src/trading_core/equity_selection/`
 - `src/trading_core/equity_portfolios/`
 - `src/trading_core/equity_briefing/`
 - `src/trading_core/equity_validation/`

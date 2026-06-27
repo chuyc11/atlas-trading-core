@@ -25,6 +25,22 @@ If `overall_passed=true` and `tradable_universe_filter_ready=true`, the audit re
 
 If `overall_passed=false`, the audit recommends `v0.7.1.3-a-share-historical-data-source-upgrade`. It must not recommend v0.7.2 while readiness is false.
 
+After v0.7.2 passes its own tradable universe audit, the next recommendation moves to `v0.7.3-a-share-multi-horizon-feature-engineering`. v0.7.2 does not itself calculate features, scores, candidates, watchlists, or portfolios.
+
+## v0.7.2 Result
+
+The v0.7.2 tradable universe audit passed for `as_of_date=2026-06-26`:
+
+```text
+equity_master_symbols = 5867
+input_symbols = 5867
+strict_tradable_count = 3676
+caution_count = 0
+excluded_count = 2191
+unknown_status_count = 0
+recommended_next_version = v0.7.3-a-share-multi-horizon-feature-engineering
+```
+
 ## Forbidden Claims
 
 The audit keeps the following claims forbidden:

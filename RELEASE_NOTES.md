@@ -1,5 +1,53 @@
 # Release Notes
 
+## v0.7.2-a-share-tradable-universe-filter
+
+This release adds the A-share tradable universe filter on top of the v0.7.1.2 full-market historical panels. It builds daily strict/caution/excluded/unknown buckets and an audit gate for future feature engineering. It is not a stock scoring, candidate generation, watchlist, portfolio, broker, or trading stage.
+
+Includes:
+
+- A-share tradable universe filter
+- strict/caution/excluded/unknown universe buckets
+- listing-age filter based on trading calendar age
+- suspension and missing-price filter
+- liquidity filter using 20d/60d average amount with explicit amount estimation flags
+- market-cap filter with daily basic snapshot fallback when historical market-cap fields are unavailable
+- low-price and price-sanity filters
+- one-word limit up/down risk filter
+- data coverage filter for 20d/60d/120d/250d history
+- filter reason taxonomy and reason breakdown artifacts
+- owner-facing tradable universe report
+- tradable universe audit with boundary and forbidden-positive-wording checks
+
+Audited result for `as_of_date=2026-06-26`:
+
+- equity master symbols: 5867
+- input symbols: 5867
+- strict tradable count: 3676
+- caution count: 0
+- excluded count: 2191
+- unknown status count: 0
+- audit overall_passed=true
+- blocking reasons: none
+- warnings: 1
+- recommended next version: `v0.7.3-a-share-multi-horizon-feature-engineering`
+
+Boundary:
+
+- no LongScore, MidScore, ShortScore, RiskScore, or LiquidityScore generated
+- no candidates generated
+- no watchlist generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- no model profit guarantee
+- live trading readiness remains false
+
+Validation: 988 tests passed, 1 skipped.
+
 ## v0.7.1.2-a-share-historical-data-provider-expansion
 
 This release resolves the v0.7.1.1 historical price coverage blocker by expanding the A-share historical backfill path from a limited/sample run to a full-market symbol queue sourced from `data/equity_universe/equity_master.parquet`.

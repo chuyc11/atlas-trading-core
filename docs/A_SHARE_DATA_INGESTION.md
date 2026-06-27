@@ -65,3 +65,11 @@ v0.7.1.2 fixes the v0.7.1.1 coverage blocker by building a full-market symbol qu
 The release evidence has 5516 price-history symbols, 1326 trading days, and passing historical coverage and feature-readiness audits. It remains data preparation only: no stock scores, no candidates, no watchlists, no virtual portfolios, no broker, no real orders, no `run-daily`, and no day2 forward dry-run.
 
 The historical extension must fail closed if the minimum history window is not met. Single-day v0.7.1 panels cannot be used as a substitute for historical data.
+
+## v0.7.2 Tradable Universe Filter Input
+
+v0.7.2 reads the local artifacts produced by v0.7.1 and v0.7.1.2. It does not call provider APIs directly from the filter stage.
+
+Required inputs include `equity_master`, `trading_calendar`, historical daily price and adjusted-price panels, daily basic history, the as-of daily basic snapshot for market-cap fallback when historical market-cap fields are unavailable, industry classification, financial history, the historical symbol manifest, and the coverage/readiness audits.
+
+The filter writes strict/caution/excluded/unknown buckets only. It does not generate scores, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or day2 forward dry-run artifacts.

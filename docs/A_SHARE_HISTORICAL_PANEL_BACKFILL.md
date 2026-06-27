@@ -70,3 +70,9 @@ price_history_coverage_vs_equity_master = 0.940174
 ## Public Provider Caveat
 
 The current price-history path uses Eastmoney public kline endpoints by symbol. This can be slow or rate-limited. `external_api_called=true` means public historical data download only; it does not mean real-time trading data, account access, broker connectivity, order placement, or live readiness.
+
+## v0.7.2 Handoff
+
+The v0.7.1.2 historical panel release is the data input for `v0.7.2-a-share-tradable-universe-filter`. The handoff is valid only through local artifacts and audits; v0.7.2 must not bypass them by calling provider APIs or producing scores.
+
+The v0.7.2 release consumes these panels and writes daily strict/caution/excluded/unknown universe buckets. It remains filter-only and still does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or day2 forward dry-run artifacts.

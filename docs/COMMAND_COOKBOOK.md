@@ -91,6 +91,21 @@ python -m trading_core.cli audit-a-share-feature-readiness
 
 This v0.7.1.2 path resolves the v0.7.1.1 10-symbol coverage blocker by using a full-market queue from `equity_master.parquet`, provider fallback tracking, checkpoint/resume, batch manifests, and per-symbol manifests. It remains data preparation only: no scores, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
 
+## Run v0.7.2 A-share tradable universe filter
+
+```bash
+python -m trading_core.cli build-a-share-tradable-universe --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-tradable-universe --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-date 2026-06-26
+```
+
+This v0.7.2 path filters the A-share full-market history into `strict_tradable_universe`, `caution_universe`, `excluded_universe`, and `unknown_status_universe`. It is not selection or scoring: it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, or official forward dry-run day2 artifacts.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash
@@ -351,6 +366,7 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not call provider APIs directly from future scoring modules without the v0.7.1 local schema and audit layer
 * do not treat v0.7.1.1 historical backfill as scoring, candidate generation, portfolio generation, or trading readiness
 * do not treat v0.7.1.2 historical provider expansion as scoring, candidate generation, portfolio generation, or trading readiness
+* do not treat v0.7.2 tradable universe filtering as scoring, candidate generation, watchlist generation, portfolio generation, or trading readiness
 
 ## Boundary
 
@@ -372,3 +388,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.7.1 A-share data foundation writes equity data and quality artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
 * v0.7.1.1 A-share historical backfill writes history and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
 * v0.7.1.2 A-share historical provider expansion writes history, queue, checkpoint, batch, manifest, and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
+* v0.7.2 A-share tradable universe filtering writes filter buckets and audits only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, watchlists, or virtual portfolios.

@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.1.2-a-share-historical-data-provider-expansion
+v0.7.2-a-share-tradable-universe-filter
 
 ## Completed milestones
 
@@ -50,6 +50,7 @@ v0.7.1.2-a-share-historical-data-provider-expansion
 - v0.7.0 external project intake and A-share full-market selection plan
 - v0.7.1 A-share full-market data ingestion foundation
 - v0.7.1.2 A-share historical data provider expansion
+- v0.7.2 A-share tradable universe filter
 
 ## Known limitations
 
@@ -78,6 +79,7 @@ v0.7.1.2-a-share-historical-data-provider-expansion
 - v0.7.1.1 historical panel backfill workflow is implemented and fail-closed in the current environment; public historical providers did not satisfy the release gate of 3000 price-history symbols
 - v0.7.1.1 is not released as a success tag; no scores, candidates, virtual portfolios, broker calls, real orders, run-daily, or day2 artifacts were generated
 - v0.7.1.2 expands historical data provider coverage and passes the minimum historical coverage gate for v0.7.2 preparation, but it still does not score stocks, generate candidates, generate watchlists, generate virtual portfolios, connect a broker, place real orders, call run-daily, or execute official forward dry-run day2
+- v0.7.2 builds the A-share strict/caution/excluded/unknown tradable universe buckets only; it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, or official forward dry-run day2 artifacts
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -118,6 +120,21 @@ Or run the same foundation chain in one command:
 ```powershell
 python -m trading_core.cli build-a-share-data-foundation
 ```
+
+Run v0.7.2 A-share tradable universe filter:
+
+```powershell
+python -m trading_core.cli build-a-share-tradable-universe --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-tradable-universe --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-date 2026-06-26
+```
+
+The default downstream input is `strict_tradable_universe`. `caution_universe` is observation-only unless a future command explicitly allows it.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 

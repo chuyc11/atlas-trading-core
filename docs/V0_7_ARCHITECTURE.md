@@ -9,7 +9,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - historical price, adjusted price, daily basic, and financial panels
 - coverage audit and schema audit
 - historical coverage audit and feature readiness audit
-- tradability/liquidity/risk filters
+- tradable universe filter with strict/caution/excluded/unknown buckets
 - long/mid/short feature sets
 - LongScore/MidScore/ShortScore/RiskScore/LiquidityScore/IndustryScore
 - candidate pools and watchlists
@@ -42,9 +42,10 @@ flowchart TD
   U --> I["Industry and basic financial panels"]
   M --> Q["Coverage audit and schema audit"]
   I --> Q
-  Q --> B["Tradability / risk / liquidity filters"]
-  B --> C["Long / Mid / Short features"]
-  C --> D["LongScore / MidScore / ShortScore"]
+  Q --> B["Tradable universe filter"]
+  B --> C["Strict tradable universe"]
+  C --> D0["Long / Mid / Short features"]
+  D0 --> D["LongScore / MidScore / ShortScore"]
   D --> E["Candidates / watchlist / risk alerts"]
   E --> F["Long / Mid / Short virtual portfolios"]
   F --> G["Daily Chinese owner briefing"]
@@ -75,6 +76,14 @@ v0.7.1.2 resolves the v0.7.1.1 coverage blocker by diagnosing the 10-symbol samp
 
 It still does not generate scores, candidates, watchlists, virtual portfolios, orders, broker connections, `run-daily` output, or official forward dry-run day2 artifacts.
 
+## v0.7.2 Tradable Universe Filter
+
+v0.7.2 consumes the audited local A-share master, trading calendar, historical price panels, daily basic data, industry classification, financial history, symbol manifest, and readiness audits. It writes daily filter artifacts under `data/equity_selection/daily/YYYY-MM-DD/` and reports under `outputs/equity_selection/daily/YYYY-MM-DD/`.
+
+The output buckets are `strict_tradable_universe`, `caution_universe`, `excluded_universe`, and `unknown_status_universe`. Future v0.7.3 feature engineering defaults to `strict_tradable_universe`; caution names are observation-only unless a future command explicitly allows them.
+
+v0.7.2 does not generate scores, candidates, watchlists, virtual portfolios, orders, broker connections, `run-daily` output, or official forward dry-run day2 artifacts.
+
 ## Boundary
 - No real trading.
 - No broker connection.
@@ -85,4 +94,5 @@ It still does not generate scores, candidates, watchlists, virtual portfolios, o
 - ETF forward dry-run status unchanged.
 - `run-daily` not called.
 - Data foundation only until coverage and schema audits pass.
+- v0.7.2 filter buckets are not recommendations and are not candidate lists.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.
