@@ -96,7 +96,17 @@ v0.7.4 consumes v0.7.3 strict-universe feature artifacts and writes score artifa
 
 The score set is `LongScore`, `MidScore`, `ShortScore`, `RiskScore`, `LiquidityScore`, `IndustryScore`, `FundamentalScore`, and `CompositeOpportunityScore`. Scores, percentiles, and ranks are relative research metrics only. They are not recommendations, buy/sell signals, candidate pools, watchlists, portfolio allocations, broker instructions, real orders, profit guarantees, live readiness, or official forward dry-run day2 artifacts.
 
-Candidate generation remains deferred to v0.7.5. Virtual portfolios remain deferred to v0.7.6.
+v0.7.5 consumes these scores for candidate generation. Virtual portfolios remain deferred to v0.7.6.
+
+## v0.7.5 Candidate Generation System
+
+v0.7.5 consumes v0.7.4 score artifacts and writes candidate artifacts under `data/equity_selection/daily/YYYY-MM-DD/`, reports under `outputs/equity_selection/daily/YYYY-MM-DD/`, and a candidate generation audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The candidate set includes long candidates, mid candidates, short candidates, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, generation summary, and manifest. Selection uses ranks and percentiles with risk, liquidity, confidence, and overheat gates. The output is a research candidate package only.
+
+Candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker instructions, not real orders, not profit guarantees, not live readiness, and not official forward dry-run day2 artifacts.
+
+Virtual portfolios remain deferred to v0.7.6. Daily AI stock selection briefing remains deferred to v0.7.7.
 
 ## Boundary
 - No real trading.
@@ -111,4 +121,5 @@ Candidate generation remains deferred to v0.7.5. Virtual portfolios remain defer
 - v0.7.2 filter buckets are not recommendations and are not candidate lists.
 - v0.7.3 feature tables are not scores, recommendations, candidate lists, watchlists, portfolios, or order plans.
 - v0.7.4 score tables are not recommendations, candidate lists, watchlists, portfolios, buy/sell signals, or order plans.
+- v0.7.5 candidate pools are not recommendations, buy/sell signals, portfolio allocations, order plans, broker instructions, or profit guarantees.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

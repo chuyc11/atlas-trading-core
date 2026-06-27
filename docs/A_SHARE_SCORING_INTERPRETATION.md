@@ -2,7 +2,7 @@
 
 v0.7.4 scores are relative research scores for the strict tradable universe.
 
-They are inputs for future candidate generation. They are not recommendations, not buy/sell signals, not portfolio weights, and not a profit guarantee.
+They are inputs for v0.7.5 candidate generation. They are not recommendations, not buy/sell signals, not portfolio weights, and not a profit guarantee.
 
 ## How To Read Scores
 
@@ -33,6 +33,6 @@ Scores do not mean:
 
 ## Next Stages
 
-- v0.7.5 will own candidate generation.
+- v0.7.5 owns candidate generation.
 - v0.7.6 will own virtual portfolios.
 - Later validation stages must test stability and outcomes before any stronger claims are allowed.

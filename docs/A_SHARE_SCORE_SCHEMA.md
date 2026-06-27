@@ -1,6 +1,6 @@
 # A-Share Score Schema
 
-This document describes the v0.7.4 score artifacts.
+This document describes the v0.7.4 score artifacts consumed by v0.7.5 candidate generation.
 
 ## Conventions
 
@@ -107,3 +107,5 @@ The sum of `component_contribution` for a symbol and score should approximately 
 ## Boundary
 
 Score schemas do not include buy/sell signal columns. They do not include candidate, watchlist, position, order, trade, or broker fields.
+
+v0.7.5 reads these score artifacts to generate research candidates in `data/equity_selection/daily/YYYY-MM-DD/`. The v0.7.5 candidate layer still must not add portfolio weights, position sizing, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.

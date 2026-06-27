@@ -44,7 +44,9 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - result as of 2026-06-26: 3676 strict tradable symbols scored, scoring audit passed, recommended next version `v0.7.5-a-share-candidate-generation-system`
   - constraints: no candidates, no watchlists, no virtual portfolios, no buy/sell signals, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness, no official forward dry-run day2
 - v0.7.5 candidate generation
-  - daily outputs: long 30, mid 30, short 30, watchlist 100-150, top 10 per horizon in the briefing
+  - implemented candidate-generation outputs: long candidates, mid candidates, short candidates, extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, manifest, summary, reports, and audit
+  - result as of 2026-06-26: 30 long candidates, 30 mid candidates, 30 short candidates, 300 extended watch-pool records, 50 multi-horizon candidates, 294 risk-downgraded candidates, candidate audit passed, recommended next version `v0.7.6-a-share-virtual-portfolio-construction`
+  - constraints: candidates are research inputs only, not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker access, not real orders, not `run-daily`, not profit guarantee, not live-trading readiness, no official forward dry-run day2
 - v0.7.6 three virtual portfolios
   - portfolios: long 20-40, mid 20-40, short 10-30; virtual only
 - v0.7.7 daily AI stock selection briefing
@@ -91,3 +93,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - Data ingestion artifacts are not stock recommendations.
 - Free public data source gaps must be recorded in source manifests and audits.
 - v0.7.4 scores are relative research inputs only; they are not recommendations, candidates, watchlists, portfolio actions, buy/sell signals, or profit claims.
+- v0.7.5 candidates are research inputs only; they are not investment advice, buy/sell signals, portfolio actions, order instructions, broker instructions, real orders, or profit claims.

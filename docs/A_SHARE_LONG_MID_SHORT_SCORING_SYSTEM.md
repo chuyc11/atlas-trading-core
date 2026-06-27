@@ -25,7 +25,7 @@ The default `as_of_date` is `2026-06-26`. The builder requires an exact feature 
 - `LongScore`: 6-24 month relative opportunity score.
 - `MidScore`: 1-6 month relative opportunity score.
 - `ShortScore`: 5-20 trading-day relative opportunity score.
-- `CompositeOpportunityScore`: blended ranking aid; not a candidate generator.
+- `CompositeOpportunityScore`: blended ranking aid consumed by the v0.7.5 candidate generator.
 
 All scores use a 0-100 convention. Percentiles use 0-100. Confidence values use 0-1.
 
@@ -74,7 +74,7 @@ The audit records one warning: fundamental score confidence is partial.
 
 v0.7.4 is a scoring stage.
 
-Scores are not recommendations. Scores are not buy/sell signals. Scores are not profit guarantees. Scores are inputs for a future candidate-generation system.
+Scores are not recommendations. Scores are not buy/sell signals. Scores are not profit guarantees. Scores are inputs consumed by the v0.7.5 candidate-generation system.
 
 These remain forbidden:
 
@@ -88,4 +88,4 @@ These remain forbidden:
 - official forward dry-run day2 execution
 - live-trading readiness claims
 
-Candidate generation is deferred to v0.7.5. Virtual portfolios are deferred to v0.7.6.
+Candidate generation is handled by v0.7.5. Virtual portfolios are deferred to v0.7.6.

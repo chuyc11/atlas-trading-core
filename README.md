@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.4-a-share-long-mid-short-scoring-system
+v0.7.5-a-share-candidate-generation-system
 
 ## Completed milestones
 
@@ -53,6 +53,7 @@ v0.7.4-a-share-long-mid-short-scoring-system
 - v0.7.2 A-share tradable universe filter
 - v0.7.3 A-share multi-horizon feature engineering
 - v0.7.4 A-share long/mid/short scoring system
+- v0.7.5 A-share candidate generation system
 
 ## Known limitations
 
@@ -85,7 +86,9 @@ v0.7.4-a-share-long-mid-short-scoring-system
 - v0.7.3 builds strict-universe multi-horizon feature artifacts only; it does not generate scores, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, profit claims, or official forward dry-run day2 artifacts
 - v0.7.3 fundamental feature coverage is partial by design because several valuation percentile fields remain nullable placeholders for a later data-quality/scoring stage
 - v0.7.4 builds strict-universe scores, ranks, distributions, component breakdowns, reports, and an audit only; it does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker calls, real orders, run-daily output, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
-- v0.7.4 scores are relative research inputs for future candidate generation in v0.7.5, not recommendations and not trading instructions
+- v0.7.4 scores are relative research inputs consumed by v0.7.5 candidate generation, not recommendations and not trading instructions
+- v0.7.5 generates research candidates and extended watch pools only; candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not a profit guarantee, and not live-trading readiness
+- v0.7.5 feeds future virtual portfolio construction in v0.7.6 and daily owner briefing in v0.7.7
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -170,7 +173,22 @@ Equivalent one-command path:
 python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26
 ```
 
-The v0.7.4 output is a score table and score audit for the strict tradable universe. It is not candidate generation, not a recommendation list, not a watchlist, not a virtual portfolio, not a buy/sell signal, not an order plan, not broker integration, not a profit guarantee, and not live-trading readiness. Candidate generation is deferred to v0.7.5 and virtual portfolios are deferred to v0.7.6.
+The v0.7.4 output is a score table and score audit for the strict tradable universe. It is not a recommendation list, not a virtual portfolio, not a buy/sell signal, not an order plan, not broker integration, not a profit guarantee, and not live-trading readiness. Candidate generation is handled by v0.7.5 and virtual portfolios are deferred to v0.7.6.
+
+Run v0.7.5 A-share candidate generation:
+
+```powershell
+python -m trading_core.cli generate-a-share-candidates --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26
+```
+
+The v0.7.5 output is a research candidate package for long, mid, and short horizons plus an extended watch pool, multi-horizon candidates, risk-downgraded candidates, reports, manifest, and audit. Candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker integration, not a profit guarantee, and not live-trading readiness. Virtual portfolios are deferred to v0.7.6. Daily owner briefing is deferred to v0.7.7.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -442,3 +460,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.6.1 daily workflow binding uses local authorized historical daily data snapshots and does not download real-time market data
 - v0.6.1 writes preview artifacts only under `data/daily_workflow/` and `outputs/daily_workflow/`
 - v0.7.1 writes A-share data foundation artifacts only under equity data/data-quality paths and does not call `run-daily`
+- v0.7.5 writes A-share candidate and watch-pool artifacts only under equity selection paths; it does not generate virtual portfolios, buy/sell signals, order previews, broker calls, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts

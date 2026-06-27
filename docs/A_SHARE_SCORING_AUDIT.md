@@ -52,6 +52,6 @@ recommended_next_version = v0.7.5-a-share-candidate-generation-system
 
 ## Boundary
 
-Passing audit does not mean stock recommendations are approved. It only means score artifacts are complete and boundary-safe.
+Passing audit does not mean stock recommendations are approved. It only means score artifacts are complete and boundary-safe for downstream v0.7.5 candidate generation.
 
 The audit must fail closed if candidate, watchlist, virtual portfolio, buy/sell signal, broker, real-order, profit-guarantee, or live-readiness artifacts appear in the v0.7.4 scoring stage.

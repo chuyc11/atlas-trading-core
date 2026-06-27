@@ -8,6 +8,7 @@
 | artifact-browser | reports | Generate human artifact browser | data/system, outputs/system | browser_only, not_run_daily |
 | artifact-inventory | audits | Generate artifact inventory | data/system, outputs/system | inventory_only, not_run_daily |
 | attribution | core / daily | Planned attribution generation | data/attribution | research_only |
+| audit-a-share-candidates | a-share candidates | Audit v0.7.5 candidate counts, explanations, forbidden artifacts, and boundaries | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, fail_closed, no_virtual_portfolio, no_buy_sell_signals, no_order_preview, no_broker, no_real_orders |
 | audit-a-share-data-coverage | a-share data | Audit A-share data artifact coverage and safety boundary | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
 | audit-a-share-data-schema | a-share data | Audit A-share data artifact schemas and sanity constraints | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
 | audit-a-share-feature-readiness | a-share history | Audit readiness for tradable universe and multi-horizon features | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_candidates |
@@ -55,6 +56,8 @@
 | fetch-prices | data acquisition / validation | Fetch price data | configured output | data_only |
 | final-handoff-review | reports | Generate final human handoff review | data/system, outputs/system | handoff_only, not_run_daily |
 | forward-dry-run-readiness | audits | Audit readiness to prepare 30 trading-day forward dry-run | data/system, outputs/system, outputs/audit | readiness_only, not_run_daily, does_not_start_forward_dry_run |
+| generate-a-share-candidates | a-share candidates | Generate v0.7.5 strict-universe long/mid/short research candidate pools | data/equity_selection/daily/YYYY-MM-DD, outputs/equity_selection/daily/YYYY-MM-DD | candidate_generation_only, not_run_daily, fail_closed, no_virtual_portfolio, no_buy_sell_signals, no_order_preview, no_broker, no_real_orders |
+| generate-and-audit-a-share-candidates | a-share candidates | Generate and audit the v0.7.5 A-share research candidate package | data/equity_selection/daily/YYYY-MM-DD, data/equity_data_quality, outputs/equity_selection/daily/YYYY-MM-DD, outputs/audit | candidate_generation_only, not_run_daily, fail_closed, no_virtual_portfolio, no_buy_sell_signals, no_order_preview, no_broker, no_real_orders |
 | generate-ml-shadow-signals | ml shadow | Generate shadow signals | data/shadow, outputs/shadow | shadow_output_is_not_order |
 | generate-orders | core / daily | Planned virtual order generation | data/orders | virtual_only, no_broker |
 | generate-signals | core / daily | Planned virtual signal generation | data/signals | virtual_only |

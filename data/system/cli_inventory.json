@@ -1,6 +1,6 @@
 {
   "inventory_id": "CLIINV-20260627-001",
-  "created_at": "2026-06-27T15:15:24.848781Z",
+  "created_at": "2026-06-27T16:26:53.057523Z",
   "commands": [
     {
       "command": "a-share-historical-backfill-plan",
@@ -110,6 +110,31 @@
       ],
       "safety": [
         "research_only"
+      ]
+    },
+    {
+      "command": "audit-a-share-candidates",
+      "category": "a-share candidates",
+      "purpose": "Audit v0.7.5 candidate counts, explanations, forbidden artifacts, and boundaries",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_virtual_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
       ]
     },
     {
@@ -1087,6 +1112,58 @@
         "readiness_only",
         "not_run_daily",
         "does_not_start_forward_dry_run"
+      ]
+    },
+    {
+      "command": "generate-a-share-candidates",
+      "category": "a-share candidates",
+      "purpose": "Generate v0.7.5 strict-universe long/mid/short research candidate pools",
+      "writes_to": [
+        "data/equity_selection/daily/YYYY-MM-DD",
+        "outputs/equity_selection/daily/YYYY-MM-DD"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "candidate_generation_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_virtual_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
+      ]
+    },
+    {
+      "command": "generate-and-audit-a-share-candidates",
+      "category": "a-share candidates",
+      "purpose": "Generate and audit the v0.7.5 A-share research candidate package",
+      "writes_to": [
+        "data/equity_selection/daily/YYYY-MM-DD",
+        "data/equity_data_quality",
+        "outputs/equity_selection/daily/YYYY-MM-DD",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "candidate_generation_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_virtual_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
       ]
     },
     {

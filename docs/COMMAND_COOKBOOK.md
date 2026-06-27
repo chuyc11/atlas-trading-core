@@ -34,6 +34,7 @@ python -m trading_core.cli audit-historical-data-acquisition
 python -m trading_core.cli audit-historical-data-gap-closure
 python -m trading_core.cli audit-day0-readiness
 python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
+python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
 ```
 
 ## Run v0.7 external project intake
@@ -135,6 +136,21 @@ python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-2
 ```
 
 This v0.7.4 path consumes v0.7.3 strict-universe features and writes scores, ranks, percentiles, component breakdowns, distributions, reports, and scoring audit artifacts only. It is not candidate generation or trading: it does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker calls, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
+
+## Run v0.7.5 A-share candidate generation
+
+```bash
+python -m trading_core.cli generate-a-share-candidates --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26
+```
+
+This v0.7.5 path consumes v0.7.4 score artifacts and writes long, mid, and short candidate pools, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, manifest, reports, summary, and candidate audit artifacts. It is candidate generation only: candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker calls, not real orders, not `run-daily`, not profit claims, not live readiness, and not official forward dry-run day2 artifacts. Virtual portfolios are deferred to v0.7.6 and daily briefing is deferred to v0.7.7.
 
 ## Run forward dry-run day1 owner report pack
 
@@ -397,6 +413,7 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not treat v0.7.1.1 historical backfill as scoring, candidate generation, portfolio generation, or trading readiness
 * do not treat v0.7.1.2 historical provider expansion as scoring, candidate generation, portfolio generation, or trading readiness
 * do not treat v0.7.2 tradable universe filtering as scoring, candidate generation, watchlist generation, portfolio generation, or trading readiness
+* do not treat v0.7.5 candidates or watch pools as investment advice, buy/sell signals, portfolio weights, order instructions, broker readiness, profit guarantees, or live trading readiness
 
 ## Boundary
 
@@ -419,3 +436,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.7.1.1 A-share historical backfill writes history and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
 * v0.7.1.2 A-share historical provider expansion writes history, queue, checkpoint, batch, manifest, and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
 * v0.7.2 A-share tradable universe filtering writes filter buckets and audits only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, watchlists, or virtual portfolios.
+* v0.7.5 A-share candidate generation writes candidate and watch-pool artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate virtual portfolios, buy/sell signals, or order previews.

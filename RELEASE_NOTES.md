@@ -1,5 +1,81 @@
 # Release Notes
 
+## v0.7.5-a-share-candidate-generation-system
+
+This release adds the A-share candidate generation system on top of the v0.7.4 strict-universe score package. It generates long, mid, and short research candidate pools, an extended watch pool, multi-horizon overlap candidates, risk-downgraded candidates, explanations, risk notes, a manifest, reports, and a fail-closed candidate audit. Candidates are research inputs only. They are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, and not a profit guarantee.
+
+Includes:
+
+- long candidate generation
+- mid candidate generation
+- short candidate generation
+- extended watch pool
+- multi-horizon candidates
+- risk-downgraded candidates
+- candidate reason taxonomy
+- candidate explanations and risk notes
+- candidate generation manifest
+- candidate generation audit
+- CLI commands: `generate-a-share-candidates`, `audit-a-share-candidates`, and `generate-and-audit-a-share-candidates`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- strict tradable count: 3676
+- scored symbols: 3676
+- long candidates: 30
+- mid candidates: 30
+- short candidates: 30
+- extended watch pool: 300
+- multi-horizon candidates: 50
+- risk-downgraded candidates: 294
+- audit overall_passed=true
+- blocking reasons: none
+- warnings: 0
+- candidate artifacts generated: true
+- watchlists generated: true
+- virtual portfolio artifacts present: none
+- buy/sell signal artifacts present: none
+- order preview artifacts present: none
+- recommended next version: `v0.7.6-a-share-virtual-portfolio-construction`
+
+Primary artifacts:
+
+- `data/equity_selection/daily/2026-06-26/candidate_generation_config.json`
+- `data/equity_selection/daily/2026-06-26/long_candidates.json`
+- `data/equity_selection/daily/2026-06-26/long_candidates.parquet`
+- `data/equity_selection/daily/2026-06-26/mid_candidates.json`
+- `data/equity_selection/daily/2026-06-26/mid_candidates.parquet`
+- `data/equity_selection/daily/2026-06-26/short_candidates.json`
+- `data/equity_selection/daily/2026-06-26/short_candidates.parquet`
+- `data/equity_selection/daily/2026-06-26/extended_watch_pool.json`
+- `data/equity_selection/daily/2026-06-26/extended_watch_pool.parquet`
+- `data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json`
+- `data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json`
+- `data/equity_selection/daily/2026-06-26/candidate_reason_breakdown.json`
+- `data/equity_selection/daily/2026-06-26/candidate_generation_summary.json`
+- `data/equity_selection/daily/2026-06-26/candidate_manifest.json`
+- `data/equity_data_quality/a_share_candidate_generation_audit.json`
+- `outputs/equity_selection/daily/2026-06-26/CANDIDATE_GENERATION_SUMMARY.md`
+- `outputs/audit/A_SHARE_CANDIDATE_GENERATION_AUDIT.md`
+
+Boundary:
+
+- candidate generation only
+- candidates generated from score tables and strict tradable universe
+- extended watch pool generated as research input only
+- no virtual portfolios generated
+- no buy/sell signals generated
+- no order preview generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not a model profit guarantee
+- live trading readiness remains false
+
+Validation: 1031 tests passed, 1 skipped.
+
 ## v0.7.4-a-share-long-mid-short-scoring-system
 
 This release adds the A-share long/mid/short scoring system on top of the v0.7.3 strict-universe feature package. It generates scores, ranks, percentiles, distributions, component breakdowns, reports, and an audit for the strict tradable universe only. Scores are not recommendations, not buy/sell signals, not candidate pools, not watchlists, not virtual portfolios, and not profit or live-trading claims.

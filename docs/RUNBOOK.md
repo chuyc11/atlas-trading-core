@@ -27,6 +27,16 @@ python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-2
 
 This workflow consumes v0.7.3 strict-universe feature artifacts and writes score artifacts only under `data/equity_scores/daily/YYYY-MM-DD/`, `outputs/equity_scores/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
 
+## v0.7.5 A-share candidate generation
+
+```powershell
+python -m trading_core.cli generate-a-share-candidates --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
+python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26
+```
+
+This workflow consumes v0.7.4 score artifacts and writes candidate artifacts only under `data/equity_selection/daily/YYYY-MM-DD/`, `outputs/equity_selection/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It generates long, mid, and short research candidates, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, explanations, risk notes, manifest, reports, summary, and audit. It does not generate virtual portfolios, portfolio weights, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Virtual portfolios are deferred to v0.7.6 and daily AI stock selection briefing is deferred to v0.7.7.
+
 ## Forward dry-run day1 owner report pack
 
 This v0.6.3.2 workflow generates owner-facing day1 reports from existing v0.6.3 and v0.6.3.1 artifacts. It does not execute day2, does not execute day3, does not call run-daily, does not download real-time market data, does not call external market APIs, does not write the main ledger, does not connect a broker, and does not place real orders.
