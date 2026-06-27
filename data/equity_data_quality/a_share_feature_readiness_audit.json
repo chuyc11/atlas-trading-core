@@ -1,35 +1,30 @@
 {
   "audit_id": "A-SHARE-FEATURE-READINESS-AUDIT",
-  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
-  "overall_passed": false,
-  "blocking_reasons": [
-    "price_history_symbols_minimum=false",
-    "symbols_with_120d_history_minimum=false",
-    "symbols_with_250d_history_minimum=false",
-    "tradable_universe_filter_ready=false",
-    "short_horizon_feature_ready=false",
-    "mid_horizon_feature_ready=false"
-  ],
+  "target_version": "v0.7.1.2-a-share-historical-data-provider-expansion",
+  "overall_passed": true,
+  "blocking_reasons": [],
   "warnings": [
-    "walk-forward validation remains deferred",
-    "long-horizon features have partial readiness"
+    "walk-forward validation remains deferred"
   ],
   "readiness": {
-    "tradable_universe_filter_ready": false,
-    "short_horizon_feature_ready": false,
-    "mid_horizon_feature_ready": false,
-    "long_horizon_feature_ready": false,
+    "tradable_universe_filter_ready": true,
+    "short_horizon_feature_ready": true,
+    "mid_horizon_feature_ready": true,
+    "long_horizon_feature_ready": true,
     "walk_forward_validation_ready": false
   },
   "minimum_requirements": {
-    "has_20d_history": false,
-    "has_60d_history": false,
-    "has_120d_history": false,
-    "has_250d_history": false,
+    "has_20d_history": true,
+    "has_60d_history": true,
+    "has_120d_history": true,
+    "has_250d_history": true,
     "has_adjusted_prices": true,
     "has_daily_basic_history": true,
     "has_financial_quarters": true
   },
+  "long_horizon_gap_reasons": [],
+  "financial_coverage_gap": false,
+  "recommended_future_data_source": "paid or authorized historical A-share data source with bulk full-market OHLCV and adjustment coverage",
   "forbidden_wording_hits": [],
   "boundary": {
     "historical_backfill_only": true,

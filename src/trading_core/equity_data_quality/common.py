@@ -15,9 +15,12 @@ from trading_core.system.common import default_paths, write_json_markdown
 
 
 TARGET_VERSION = "v0.7.1-a-share-full-market-data-ingestion"
-HISTORICAL_TARGET_VERSION = "v0.7.1.1-a-share-historical-panel-backfill"
+HISTORICAL_BACKFILL_VERSION = "v0.7.1.1-a-share-historical-panel-backfill"
+HISTORICAL_TARGET_VERSION = "v0.7.1.2-a-share-historical-data-provider-expansion"
 HISTORICAL_BASELINE_VERSION = "v0.7.1-a-share-full-market-data-ingestion"
+HISTORICAL_BASELINE_FAIL_CLOSED_COMMIT = "1138fc08ff9d406e6683e2b488358f1407c53143"
 RECOMMENDED_NEXT_VERSION = "v0.7.2-a-share-tradable-universe-filter"
+HISTORICAL_DATA_SOURCE_UPGRADE_VERSION = "v0.7.1.3-a-share-historical-data-source-upgrade"
 SNAPSHOT_CACHE = "a_share_public_snapshot_cache.json"
 
 EQUITY_MASTER_COLUMNS = [

@@ -1,8 +1,8 @@
 # A-Share Feature Readiness Audit
 
-- overall_passed: false
-- blocking_reasons: ['price_history_symbols_minimum=false', 'symbols_with_120d_history_minimum=false', 'symbols_with_250d_history_minimum=false', 'tradable_universe_filter_ready=false', 'short_horizon_feature_ready=false', 'mid_horizon_feature_ready=false']
-- readiness: {'tradable_universe_filter_ready': False, 'short_horizon_feature_ready': False, 'mid_horizon_feature_ready': False, 'long_horizon_feature_ready': False, 'walk_forward_validation_ready': False}
+- overall_passed: true
+- blocking_reasons: []
+- readiness: {'tradable_universe_filter_ready': True, 'short_horizon_feature_ready': True, 'mid_horizon_feature_ready': True, 'long_horizon_feature_ready': True, 'walk_forward_validation_ready': False}
 
 ## Boundary
 - Data ingestion only.

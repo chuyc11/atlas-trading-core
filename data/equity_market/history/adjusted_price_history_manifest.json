@@ -1,13 +1,41 @@
 {
   "manifest_id": "A-SHARE-ADJUSTED-PRICE-HISTORY-MANIFEST",
-  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
-  "rows": 8405,
-  "symbol_count": 10,
+  "target_version": "v0.7.1.2-a-share-historical-data-provider-expansion",
+  "source_symbols_total": 16,
+  "symbols_attempted": 16,
+  "symbols_succeeded": 5516,
+  "symbols_failed": 0,
+  "rows": 6594908,
+  "rows_total": 6594908,
+  "symbol_count": 5516,
+  "min_date": "2021-01-04",
+  "max_date": "2026-06-26",
+  "trading_days": 1326,
+  "provider_breakdown": {
+    "eastmoney_kline_public_http": {
+      "attempted_symbol_count": 16,
+      "succeeded_symbol_count": 16,
+      "failed_symbol_count": 0
+    }
+  },
+  "providers_attempted": [
+    "eastmoney_kline_public_http",
+    "akshare_provider",
+    "baostock_provider",
+    "tushare_provider",
+    "local_file_provider"
+  ],
+  "providers_succeeded": [
+    "eastmoney_kline_public_http"
+  ],
+  "providers_failed": [],
   "adjustment_types": [
     "raw"
   ],
   "adjustment_conflict_count": 0,
   "coverage_note": "raw price history is used as adjusted-price history fallback; true forward/backward adjustment deferred to richer providers",
+  "hash": "908a9434b92bb9100dec5623f9998d4ffb442aed67e92be67dab3268961297fe",
+  "created_at": "2026-06-27T10:13:31.415453Z",
   "boundary": {
     "historical_backfill_only": true,
     "data_backfill_only": true,

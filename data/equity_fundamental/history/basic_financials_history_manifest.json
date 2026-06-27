@@ -1,6 +1,6 @@
 {
   "manifest_id": "A-SHARE-BASIC-FINANCIALS-HISTORY-MANIFEST",
-  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
+  "target_version": "v0.7.1.2-a-share-historical-data-provider-expansion",
   "provider": "eastmoney_quarterly_performance_public_http",
   "providers_attempted": [
     "eastmoney_quarterly_performance_public_http"
@@ -12,20 +12,36 @@
   "coverage_note": "limited to 1 page(s) per quarter for daily executability",
   "external_api_called": true,
   "real_time_market_data_downloaded": false,
-  "rows": 2000,
-  "symbol_count": 1237,
-  "report_date_coverage": 4,
-  "field_coverage": {
-    "revenue": 0.9995,
-    "net_profit": 1.0,
-    "roe": 0.976,
-    "gross_margin": 0.958,
-    "net_margin": 0.0,
-    "operating_cash_flow": 0.987,
-    "debt_to_asset": 0.0,
-    "eps": 0.9815,
-    "bps": 0.988
+  "source_symbols_total": 5211,
+  "symbols_attempted": 5211,
+  "symbols_succeeded": 5211,
+  "symbols_failed": 0,
+  "rows": 92478,
+  "rows_total": 92478,
+  "symbol_count": 5211,
+  "report_date_coverage": 18,
+  "min_date": "2021-06-30",
+  "max_date": "2026-03-31",
+  "provider_breakdown": {
+    "eastmoney_quarterly_performance_public_http": {
+      "attempted_symbol_count": 5211,
+      "succeeded_symbol_count": 5211,
+      "failed_symbol_count": 0
+    }
   },
+  "field_coverage": {
+    "revenue": 0.999567,
+    "net_profit": 0.999989,
+    "roe": 0.980958,
+    "gross_margin": 0.974848,
+    "net_margin": 0.0,
+    "operating_cash_flow": 0.980644,
+    "debt_to_asset": 0.0,
+    "eps": 0.99349,
+    "bps": 0.980731
+  },
+  "hash": "650b855492f5b1412cbd2bde9c02551b53bb85befa3666525a9b4047bfdea950",
+  "created_at": "2026-06-27T09:42:37.021481Z",
   "boundary": {
     "historical_backfill_only": true,
     "data_backfill_only": true,

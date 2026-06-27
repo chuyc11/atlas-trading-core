@@ -18,7 +18,6 @@ from trading_core.storage.file_paths import ProjectPaths
 
 PRICE_PROVIDER = "eastmoney_kline_public_http"
 FINANCIAL_PROVIDER = "eastmoney_quarterly_performance_public_http"
-DEFAULT_HISTORY_SYMBOL_LIMIT = 4200
 DEFAULT_WORKERS = 32
 DEFAULT_FINANCIAL_QUARTERS = 4
 DEFAULT_FINANCIAL_PAGES_PER_QUARTER = 1
@@ -26,29 +25,31 @@ DEFAULT_FINANCIAL_PAGES_PER_QUARTER = 1
 
 def history_provider_priority() -> list[str]:
     return [
-        "qstock_reference_public_http",
-        "akshare_provider",
-        "tushare_provider",
-        "baostock_provider",
-        "local_file_provider",
         PRICE_PROVIDER,
+        "akshare_provider",
+        "baostock_provider",
+        "tushare_provider",
+        "local_file_provider",
         FINANCIAL_PROVIDER,
     ]
 
 
 def select_history_symbols(paths: ProjectPaths, *, max_symbols: int | None = None) -> list[str]:
-    price_path = paths.data_dir / "equity_market" / "daily_price_panel.parquet"
     master_path = paths.data_dir / "equity_universe" / "equity_master.parquet"
-    price = read_frame(price_path)
     master = read_frame(master_path)
-    if price.empty or master.empty:
+    if master.empty:
         return []
-    merged = price.merge(master[["symbol", "exchange"]], on="symbol", how="left")
-    merged = merged[merged["exchange"].isin(["SSE", "SZSE"])]
-    merged = merged.sort_values(["amount", "symbol"], ascending=[False, True])
-    symbols = merged["symbol"].drop_duplicates().tolist()
-    limit = max_symbols or DEFAULT_HISTORY_SYMBOL_LIMIT
-    return symbols[:limit]
+    frame = master.copy()
+    if "market" in frame.columns:
+        frame = frame[frame["market"].fillna("A_SHARE").eq("A_SHARE")]
+    if "is_active" in frame.columns:
+        frame = frame.sort_values(["is_active", "symbol"], ascending=[False, True])
+    else:
+        frame = frame.sort_values("symbol")
+    symbols = frame["symbol"].dropna().map(normalize_symbol).drop_duplicates().tolist()
+    if max_symbols and max_symbols > 0:
+        return symbols[:max_symbols]
+    return symbols
 
 
 def fetch_price_history(
@@ -63,6 +64,7 @@ def fetch_price_history(
     fqt = {"raw": "0", "forward_adjusted": "1", "backward_adjusted": "2"}.get(adjustment_type, "0")
     rows: list[dict[str, Any]] = []
     failed: list[dict[str, Any]] = []
+    symbol_results: list[dict[str, Any]] = []
     attempted = symbols
     started = time.time()
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -72,9 +74,12 @@ def fetch_price_history(
             try:
                 result = future.result()
             except Exception as exc:  # pragma: no cover - thread-level safeguard
-                failed.append({"symbol": symbol, "reason": f"{type(exc).__name__}: {exc}"})
+                reason = f"{type(exc).__name__}: {exc}"
+                failed.append({"symbol": symbol, "reason": reason})
+                symbol_results.append(_symbol_result(symbol, [], reason=reason, provider=PRICE_PROVIDER))
                 continue
             rows.extend(result["rows"])
+            symbol_results.append(_symbol_result(symbol, result["rows"], reason=result.get("reason", ""), provider=PRICE_PROVIDER))
             if len(result["rows"]) < min_rows_for_success:
                 failed.append({"symbol": symbol, "reason": result.get("reason", "no historical rows")})
     succeeded_symbols = sorted({row["symbol"] for row in rows})
@@ -83,11 +88,28 @@ def fetch_price_history(
         "attempted_symbols": attempted,
         "succeeded_symbols": succeeded_symbols,
         "failed_symbols": failed,
+        "symbol_results": symbol_results,
         "rows": rows,
         "external_api_called": True,
         "real_time_market_data_downloaded": False,
         "elapsed_seconds": round(time.time() - started, 3),
         "source_timestamp": utc_now(),
+    }
+
+
+def _symbol_result(symbol: str, rows: list[dict[str, Any]], *, reason: str, provider: str) -> dict[str, Any]:
+    dates = [row.get("date") for row in rows if row.get("date")]
+    return {
+        "symbol": normalize_symbol(symbol),
+        "provider": provider,
+        "provider_attempted": True,
+        "provider_succeeded": bool(rows),
+        "provider_failed": not bool(rows),
+        "row_count": len(rows),
+        "first_date": min(dates) if dates else "",
+        "last_date": max(dates) if dates else "",
+        "failure_reason": reason if not rows else "",
+        "last_attempted_at": utc_now(),
     }
 
 

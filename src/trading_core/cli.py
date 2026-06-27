@@ -26,13 +26,16 @@ from trading_core.external_intake.report import build_external_project_intake
 from trading_core.equity_data.adjusted_price import ingest_a_share_adjusted_prices
 from trading_core.equity_data.daily_basic import ingest_a_share_daily_basic
 from trading_core.equity_data.daily_price import ingest_a_share_daily_prices
+from trading_core.equity_data.full_market_symbol_queue import build_a_share_historical_backfill_symbol_queue
 from trading_core.equity_data.historical_adjusted_price import backfill_a_share_adjusted_price_history
 from trading_core.equity_data.historical_backfill import backfill_a_share_historical_panels
+from trading_core.equity_data.historical_backfill_scheduler import backfill_a_share_historical_panels_full_market
 from trading_core.equity_data.historical_daily_basic import backfill_a_share_daily_basic_history
 from trading_core.equity_data.historical_daily_price import backfill_a_share_daily_price_history
 from trading_core.equity_data_quality.coverage_audit import audit_a_share_data_coverage
 from trading_core.equity_data_quality.feature_readiness_audit import audit_a_share_feature_readiness
 from trading_core.equity_data_quality.foundation import build_a_share_data_foundation
+from trading_core.equity_data_quality.historical_backfill_root_cause import diagnose_a_share_historical_backfill_coverage
 from trading_core.equity_data_quality.historical_coverage_audit import audit_a_share_historical_panel_coverage
 from trading_core.equity_data_quality.history_manifest import build_a_share_historical_backfill_plan
 from trading_core.equity_data_quality.schema_audit import audit_a_share_data_schema
@@ -781,10 +784,17 @@ def build_parser() -> argparse.ArgumentParser:
     historical_plan.add_argument("--target-start-date", default="2021-01-01")
     historical_plan.add_argument("--minimum-start-date", default="2023-01-01")
     historical_plan.add_argument("--end-date", default="2026-06-26")
+    subparsers.add_parser("diagnose-a-share-historical-backfill-coverage")
+    symbol_queue = subparsers.add_parser("build-a-share-historical-backfill-symbol-queue")
+    symbol_queue.add_argument("--target-start-date", default="2021-01-01")
+    symbol_queue.add_argument("--end-date", default="2026-06-26")
     history_price = subparsers.add_parser("backfill-a-share-daily-price-history")
     history_price.add_argument("--start-date", required=True)
     history_price.add_argument("--end-date", required=True)
-    history_price.add_argument("--max-symbols", type=int)
+    history_price.add_argument("--max-symbols", type=int, default=0)
+    history_price.add_argument("--provider-priority", default=None)
+    history_price.add_argument("--rate-limit-per-minute", type=int, default=60)
+    history_price.add_argument("--retry", type=int, default=2)
     history_adjusted = subparsers.add_parser("backfill-a-share-adjusted-price-history")
     history_adjusted.add_argument("--start-date", required=True)
     history_adjusted.add_argument("--end-date", required=True)
@@ -800,7 +810,18 @@ def build_parser() -> argparse.ArgumentParser:
     historical_all.add_argument("--target-start-date", required=True)
     historical_all.add_argument("--minimum-start-date", required=True)
     historical_all.add_argument("--end-date", required=True)
-    historical_all.add_argument("--max-symbols", type=int)
+    historical_all.add_argument("--max-symbols", type=int, default=0)
+    historical_full = subparsers.add_parser("backfill-a-share-historical-panels-full-market")
+    historical_full.add_argument("--target-start-date", required=True)
+    historical_full.add_argument("--minimum-start-date", required=True)
+    historical_full.add_argument("--end-date", required=True)
+    historical_full.add_argument("--batch-size", type=int, default=100)
+    historical_full.add_argument("--max-symbols", type=int, default=0)
+    historical_full.add_argument("--resume", action="store_true")
+    historical_full.add_argument("--provider-priority", default="eastmoney,akshare,baostock,tushare,local")
+    historical_full.add_argument("--rate-limit-per-minute", type=int, default=60)
+    historical_full.add_argument("--retry", type=int, default=2)
+    historical_full.add_argument("--sample-size", type=int)
 
     return parser
 
@@ -2130,8 +2151,16 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = build_a_share_historical_backfill_plan(target_start_date=args.target_start_date, minimum_start_date=args.minimum_start_date, end_date=args.end_date, paths=paths)
         print({"plan_id": result["plan_id"], "target_start_date": result["target_start_date"], "minimum_start_date": result["minimum_start_date"], "end_date": result["end_date"], "json_path": result["json_path"], "report_path": result["report_path"]})
         return 0
+    if args.command == "diagnose-a-share-historical-backfill-coverage":
+        result = diagnose_a_share_historical_backfill_coverage(paths=paths)
+        print({"diagnostic_id": result["diagnostic_id"], "overall_diagnosis_passed": result["overall_diagnosis_passed"], "confirmed_root_causes": result["confirmed_root_causes"], "historical_price_symbols": result["historical_price_symbols"], "backfill_input_symbols": result["backfill_input_symbols"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0
+    if args.command == "build-a-share-historical-backfill-symbol-queue":
+        result = build_a_share_historical_backfill_symbol_queue(target_start_date=args.target_start_date, end_date=args.end_date, paths=paths)
+        print({"queue_id": result["queue_id"], "queue_total_symbols": result["queue_total_symbols"], "eligible_price_backfill_symbols": result["eligible_price_backfill_symbols"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["queue_total_symbols"] > 0 else 1
     if args.command == "backfill-a-share-daily-price-history":
-        result = backfill_a_share_daily_price_history(start_date=args.start_date, end_date=args.end_date, max_symbols=args.max_symbols, paths=paths)
+        result = backfill_a_share_daily_price_history(start_date=args.start_date, end_date=args.end_date, max_symbols=args.max_symbols, provider_priority=args.provider_priority, rate_limit_per_minute=args.rate_limit_per_minute, retry=args.retry, paths=paths)
         print({"manifest_id": result["manifest_id"], "rows": result["rows"], "symbol_count": result["symbol_count"], "date_count": result["date_count"], "min_date": result["min_date"], "max_date": result["max_date"], "parquet_path": result["parquet_path"], "manifest_path": result["manifest_path"]})
         return 0 if result["rows"] > 0 else 1
     if args.command == "backfill-a-share-adjusted-price-history":
@@ -2157,6 +2186,22 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "backfill-a-share-historical-panels":
         result = backfill_a_share_historical_panels(target_start_date=args.target_start_date, minimum_start_date=args.minimum_start_date, end_date=args.end_date, max_symbols=args.max_symbols, paths=paths)
         print({"backfill_id": result["backfill_id"], "overall_passed": result["overall_passed"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "feature_readiness_overall_passed": result["feature_readiness_audit"]["overall_passed"], "coverage": result["coverage_audit"]["coverage"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "backfill-a-share-historical-panels-full-market":
+        result = backfill_a_share_historical_panels_full_market(
+            target_start_date=args.target_start_date,
+            minimum_start_date=args.minimum_start_date,
+            end_date=args.end_date,
+            batch_size=args.batch_size,
+            max_symbols=args.max_symbols,
+            resume=args.resume,
+            provider_priority=args.provider_priority,
+            rate_limit_per_minute=args.rate_limit_per_minute,
+            retry=args.retry,
+            sample_size=args.sample_size,
+            paths=paths,
+        )
+        print({"scheduler_id": result["scheduler_id"], "overall_passed": result["overall_passed"], "release_eligible": result["release_eligible"], "queue": result["queue"], "coverage_overall_passed": result["coverage_audit"]["overall_passed"], "feature_readiness_overall_passed": result["feature_readiness_audit"]["overall_passed"], "blocking_reasons": result["feature_readiness_audit"]["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

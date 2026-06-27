@@ -1,23 +1,19 @@
 {
   "audit_id": "A-SHARE-HISTORICAL-PANEL-COVERAGE-AUDIT",
-  "target_version": "v0.7.1.1-a-share-historical-panel-backfill",
-  "overall_passed": false,
-  "blocking_reasons": [
-    "price_history_symbols_minimum=false",
-    "symbols_with_120d_history_minimum=false",
-    "symbols_with_250d_history_minimum=false"
-  ],
+  "target_version": "v0.7.1.2-a-share-historical-data-provider-expansion",
+  "overall_passed": true,
+  "blocking_reasons": [],
   "warnings": [
     "some symbols do not have 5-year price history",
-    "adjusted price history may use raw fallback when true adjustment data is unavailable",
-    "financial quarter history coverage is partial"
+    "adjusted price history may use raw fallback when true adjustment data is unavailable"
   ],
   "checks": {
     "daily_price_history_panel_exists": true,
-    "price_history_symbols_minimum": false,
+    "price_history_symbols_minimum": true,
     "price_history_trading_days_minimum": true,
-    "symbols_with_120d_history_minimum": false,
-    "symbols_with_250d_history_minimum": false,
+    "symbols_with_120d_history_minimum": true,
+    "symbols_with_250d_history_minimum": true,
+    "price_history_coverage_vs_equity_master_minimum": true,
     "adjusted_price_coverage_recorded": true,
     "daily_basic_history_coverage_recorded": true,
     "financial_quarter_coverage_recorded": true,
@@ -26,24 +22,33 @@
     "volume_sanity_passed": true
   },
   "coverage": {
-    "price_history_min_date": "2023-01-03",
+    "price_history_min_date": "2021-01-04",
     "price_history_max_date": "2026-06-26",
-    "price_history_trading_days": 841,
-    "price_history_symbols": 10,
-    "adjusted_price_symbols": 10,
-    "daily_basic_symbols": 10,
-    "financial_symbols": 1237,
-    "symbols_with_20d_history": 10,
-    "symbols_with_60d_history": 10,
-    "symbols_with_120d_history": 10,
-    "symbols_with_250d_history": 10,
-    "symbols_with_3y_history": 10,
-    "symbols_with_5y_history": 0,
+    "price_history_trading_days": 1326,
+    "price_history_symbols": 5516,
+    "adjusted_price_symbols": 5516,
+    "daily_basic_symbols": 5516,
+    "financial_symbols": 5211,
+    "symbols_with_20d_history": 5509,
+    "symbols_with_60d_history": 5474,
+    "symbols_with_120d_history": 5441,
+    "symbols_with_250d_history": 5379,
+    "symbols_with_3y_history": 5132,
+    "symbols_with_5y_history": 4458,
     "adjusted_price_coverage_ratio": 1.0,
     "daily_basic_history_coverage_ratio": 1.0,
-    "financial_quarter_coverage_ratio": 0.028407,
-    "symbols_with_12_financial_quarters": 0,
+    "financial_quarter_coverage_ratio": 1.0,
+    "symbols_with_12_financial_quarters": 5136,
     "financial_quarter_target_symbol_count": 5867
+  },
+  "coverage_global": {
+    "equity_master_symbols": 5867,
+    "backfill_queue_symbols": 5516,
+    "price_history_symbols": 5516,
+    "price_history_coverage_vs_equity_master": 0.940174,
+    "price_history_coverage_vs_queue": 1.0,
+    "daily_basic_coverage_vs_equity_master": 0.940174,
+    "financial_coverage_vs_equity_master": 0.888188
   },
   "providers": {
     "attempted": [
@@ -56,36 +61,37 @@
     ],
     "failed": []
   },
+  "provider_failure_summary": {},
   "artifact_hashes": {
-    "daily_price_history_panel": "6edd8698fdbb82630604b999fc47854751ae6be323a85746625e0ee1d639de92",
-    "adjusted_price_history_panel": "be871592c33608ab6cf153a671b72b078da91c0ee88e02aa8a931c7a9e994f85",
-    "daily_basic_history_panel": "dc0bd5ddbe11a9cd8b3fbb81aac6a31b29e3970af0d599590c5d7884ff873210",
-    "basic_financials_history_panel": "e92e5ed88d76461ee05496dea9eb13ad92ddf839f5171247f41b26ab96159a7e"
+    "daily_price_history_panel": "6a74fb8fac7cac58c9d8b85c1ad99c37620dd93ca2d2cfec692f488cbb49d807",
+    "adjusted_price_history_panel": "908a9434b92bb9100dec5623f9998d4ffb442aed67e92be67dab3268961297fe",
+    "daily_basic_history_panel": "401e978ab20f9991c9b69dea63b631c73c7af1897cd0c357e49d6287236febe1",
+    "basic_financials_history_panel": "650b855492f5b1412cbd2bde9c02551b53bb85befa3666525a9b4047bfdea950"
   },
   "artifacts": {
     "daily_price_history_panel": {
       "path": "data/equity_market/history/daily_price_history_panel.parquet",
       "exists": true,
-      "rows": 8405,
-      "sha256": "6edd8698fdbb82630604b999fc47854751ae6be323a85746625e0ee1d639de92"
+      "rows": 6594908,
+      "sha256": "6a74fb8fac7cac58c9d8b85c1ad99c37620dd93ca2d2cfec692f488cbb49d807"
     },
     "adjusted_price_history_panel": {
       "path": "data/equity_market/history/adjusted_price_history_panel.parquet",
       "exists": true,
-      "rows": 8405,
-      "sha256": "be871592c33608ab6cf153a671b72b078da91c0ee88e02aa8a931c7a9e994f85"
+      "rows": 6594908,
+      "sha256": "908a9434b92bb9100dec5623f9998d4ffb442aed67e92be67dab3268961297fe"
     },
     "daily_basic_history_panel": {
       "path": "data/equity_market/history/daily_basic_history_panel.parquet",
       "exists": true,
-      "rows": 8405,
-      "sha256": "dc0bd5ddbe11a9cd8b3fbb81aac6a31b29e3970af0d599590c5d7884ff873210"
+      "rows": 6594908,
+      "sha256": "401e978ab20f9991c9b69dea63b631c73c7af1897cd0c357e49d6287236febe1"
     },
     "basic_financials_history_panel": {
       "path": "data/equity_fundamental/history/basic_financials_history_panel.parquet",
       "exists": true,
-      "rows": 2000,
-      "sha256": "e92e5ed88d76461ee05496dea9eb13ad92ddf839f5171247f41b26ab96159a7e"
+      "rows": 92478,
+      "sha256": "650b855492f5b1412cbd2bde9c02551b53bb85befa3666525a9b4047bfdea950"
     }
   },
   "boundary": {

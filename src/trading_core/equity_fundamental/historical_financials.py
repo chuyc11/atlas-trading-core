@@ -6,7 +6,7 @@ from typing import Any
 
 import pandas as pd
 
-from trading_core.equity_data_quality.common import FINANCIAL_HISTORY_COLUMNS, HISTORICAL_BOUNDARY, HISTORICAL_TARGET_VERSION, write_frame, write_json
+from trading_core.equity_data_quality.common import FINANCIAL_HISTORY_COLUMNS, HISTORICAL_BOUNDARY, HISTORICAL_TARGET_VERSION, read_frame, sha256_file, utc_now, write_frame, write_json
 from trading_core.equity_data_quality.history_manifest import history_dirs
 from trading_core.integrations.public_data.historical_provider_registry import fetch_financial_history
 from trading_core.storage.file_paths import ProjectPaths
@@ -24,10 +24,13 @@ def backfill_a_share_financial_history(
     result = provider_result or fetch_financial_history(start_date=start_date, end_date=end_date)
     rows = [{column: row.get(column) for column in FINANCIAL_HISTORY_COLUMNS} for row in result.get("rows", [])]
     frame = pd.DataFrame(rows, columns=FINANCIAL_HISTORY_COLUMNS)
-    if not frame.empty:
-        frame = frame.drop_duplicates(["report_date", "symbol"]).sort_values(["report_date", "symbol"])
     dirs = history_dirs(paths)
     parquet_path = dirs["fundamental_history"] / "basic_financials_history_panel.parquet"
+    existing = read_frame(parquet_path)
+    if not existing.empty:
+        frame = pd.concat([existing[FINANCIAL_HISTORY_COLUMNS], frame], ignore_index=True)
+    if not frame.empty:
+        frame = frame.drop_duplicates(["report_date", "symbol"]).sort_values(["report_date", "symbol"])
     write_frame(frame, parquet_path)
     numeric_columns = [column for column in FINANCIAL_HISTORY_COLUMNS if column not in {"report_date", "ann_date", "symbol", "source", "source_timestamp", "provider", "ingested_at"}]
     manifest = {
@@ -40,10 +43,28 @@ def backfill_a_share_financial_history(
         "coverage_note": result.get("coverage_note", ""),
         "external_api_called": bool(result.get("external_api_called")),
         "real_time_market_data_downloaded": False,
+        "source_symbols_total": int(frame["symbol"].nunique()) if not frame.empty else 0,
+        "symbols_attempted": int(frame["symbol"].nunique()) if not frame.empty else 0,
+        "symbols_succeeded": int(frame["symbol"].nunique()) if not frame.empty else 0,
+        "symbols_failed": 0,
         "rows": int(len(frame)),
+        "rows_total": int(len(frame)),
         "symbol_count": int(frame["symbol"].nunique()) if not frame.empty else 0,
         "report_date_coverage": int(frame["report_date"].nunique()) if not frame.empty else 0,
+        "min_date": str(frame["report_date"].min()) if not frame.empty else "",
+        "max_date": str(frame["report_date"].max()) if not frame.empty else "",
+        "provider_breakdown": {
+            result.get("provider", ""): {
+                "attempted_symbol_count": int(frame["symbol"].nunique()) if not frame.empty else 0,
+                "succeeded_symbol_count": int(frame["symbol"].nunique()) if not frame.empty else 0,
+                "failed_symbol_count": len(result.get("failed_quarters", [])),
+            }
+        }
+        if result.get("provider")
+        else {},
         "field_coverage": {column: round(float(frame[column].notna().mean()), 6) if not frame.empty else 0.0 for column in numeric_columns},
+        "hash": sha256_file(parquet_path),
+        "created_at": utc_now(),
         "boundary": dict(HISTORICAL_BOUNDARY),
     }
     manifest_path = dirs["fundamental_history"] / "basic_financials_history_manifest.json"

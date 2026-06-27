@@ -1,0 +1,50 @@
+{
+  "diagnostic_id": "A-SHARE-HISTORICAL-BACKFILL-ROOT-CAUSE",
+  "target_version": "v0.7.1.2-a-share-historical-data-provider-expansion",
+  "baseline_fail_closed_commit": "1138fc08ff9d406e6683e2b488358f1407c53143",
+  "equity_master_symbols": 5867,
+  "historical_price_symbols": 10,
+  "backfill_input_symbols": 10,
+  "backfill_queue_symbols": 5516,
+  "suspected_root_causes": [
+    "historical price panel coverage is below release threshold",
+    "backfill input universe was materially smaller than equity master",
+    "legacy v0.7.1.1 manifest did not record a full-market symbol queue"
+  ],
+  "confirmed_root_causes": [
+    "controlled sample or max-symbols run overwrote historical price panel with about 10 symbols",
+    "full-market queue exists but historical provider coverage has not been materialized into the price panel"
+  ],
+  "uses_equity_master_as_source": true,
+  "uses_etf_universe": false,
+  "uses_fixture_universe": false,
+  "symbol_limit_detected": true,
+  "provider_batch_limit_detected": false,
+  "tests_accidentally_forced_sample_mode": false,
+  "cli_default_symbol_limit_exists": false,
+  "local_environment_variable_limited_symbols": false,
+  "provider_attempts": {
+    "eastmoney_kline_public_http": {
+      "attempted_symbol_count": 10,
+      "succeeded_symbol_count": 10,
+      "failed_symbol_count": 0
+    }
+  },
+  "overall_diagnosis_passed": true,
+  "boundary": {
+    "historical_backfill_only": true,
+    "data_backfill_only": true,
+    "selection_generated": false,
+    "scores_generated": false,
+    "candidates_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "third_party_code_merged_into_main_flow": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}

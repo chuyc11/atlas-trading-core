@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from trading_core.equity_data_quality.common import HISTORICAL_BOUNDARY, HISTORICAL_TARGET_VERSION, RECOMMENDED_NEXT_VERSION, data_quality_dir, markdown_boundary, read_json, write_report
+from trading_core.equity_data_quality.common import HISTORICAL_BOUNDARY, HISTORICAL_DATA_SOURCE_UPGRADE_VERSION, HISTORICAL_TARGET_VERSION, RECOMMENDED_NEXT_VERSION, data_quality_dir, markdown_boundary, read_json, write_report
 from trading_core.equity_data_quality.historical_coverage_audit import audit_a_share_historical_panel_coverage
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
@@ -69,6 +69,14 @@ def audit_a_share_feature_readiness(
         blocking.append("mid_horizon_feature_ready=false")
     if forbidden_hits:
         blocking.append("forbidden_wording_detected")
+    long_horizon_gap_reasons = []
+    if not minimum_requirements["has_250d_history"]:
+        long_horizon_gap_reasons.append("insufficient symbols with 250d history")
+    if not minimum_requirements["has_adjusted_prices"]:
+        long_horizon_gap_reasons.append("adjusted price coverage unavailable")
+    if not minimum_requirements["has_financial_quarters"]:
+        long_horizon_gap_reasons.append("financial quarter coverage unavailable")
+    recommended_next_version = RECOMMENDED_NEXT_VERSION if not blocking and readiness["tradable_universe_filter_ready"] else HISTORICAL_DATA_SOURCE_UPGRADE_VERSION
     payload: dict[str, Any] = {
         "audit_id": "A-SHARE-FEATURE-READINESS-AUDIT",
         "target_version": HISTORICAL_TARGET_VERSION,
@@ -77,9 +85,12 @@ def audit_a_share_feature_readiness(
         "warnings": ["walk-forward validation remains deferred"] + ([] if readiness["long_horizon_feature_ready"] else ["long-horizon features have partial readiness"]),
         "readiness": readiness,
         "minimum_requirements": minimum_requirements,
+        "long_horizon_gap_reasons": long_horizon_gap_reasons,
+        "financial_coverage_gap": coverage.get("financial_quarter_coverage_ratio", 0.0) < 1.0,
+        "recommended_future_data_source": "paid or authorized historical A-share data source with bulk full-market OHLCV and adjustment coverage",
         "forbidden_wording_hits": forbidden_hits,
         "boundary": dict(HISTORICAL_BOUNDARY),
-        "recommended_next_version": RECOMMENDED_NEXT_VERSION,
+        "recommended_next_version": recommended_next_version,
     }
     json_path = data_quality_dir(paths) / "a_share_feature_readiness_audit.json"
     report_path = paths.outputs_dir / "audit" / "A_SHARE_FEATURE_READINESS_AUDIT.md"
