@@ -2,16 +2,32 @@
 
 | command | category | purpose | writes_to | safety |
 |---|---|---|---|---|
+| a-share-historical-backfill-plan | a-share history | Write v0.7.1.1 historical panel backfill plan | data/equity_data_quality, outputs/equity_data_quality | plan_only, not_run_daily, no_scores, no_orders |
 | acceptance-report | reports | Write acceptance report materials | outputs | documentation_only |
 | admission | audits | Run admission research check | stdout | not_auto_promotion |
+| artifact-browser | reports | Generate human artifact browser | data/system, outputs/system | browser_only, not_run_daily |
 | artifact-inventory | audits | Generate artifact inventory | data/system, outputs/system | inventory_only, not_run_daily |
 | attribution | core / daily | Planned attribution generation | data/attribution | research_only |
+| audit-a-share-data-coverage | a-share data | Audit A-share data artifact coverage and safety boundary | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
+| audit-a-share-data-schema | a-share data | Audit A-share data artifact schemas and sanity constraints | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
+| audit-a-share-feature-readiness | a-share history | Audit readiness for tradable universe and multi-horizon features | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_candidates |
+| audit-a-share-historical-panel-coverage | a-share history | Audit historical panel coverage against v0.7.1.1 release gates | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, fail_closed |
 | audit-dry-run | backtest / replay | Audit dry-run range | outputs/audit | audit_only |
 | audit-experiment-system | audits | Audit experiment system | data/experiments, outputs/audit | audit_only |
 | audit-reporting-system | audits | Audit reporting system | data/system, outputs/audit | audit_only |
+| backfill-a-share-adjusted-price-history | a-share history | Build adjusted price history panel with raw fallback labeling | data/equity_market/history | historical_backfill_only, not_run_daily, raw_fallback_recorded |
+| backfill-a-share-daily-basic-history | a-share history | Build daily basic history panel with field coverage tracking | data/equity_market/history | historical_backfill_only, not_run_daily, partial_fields_allowed_with_audit |
+| backfill-a-share-daily-price-history | a-share history | Backfill public A-share daily price history panel | data/equity_market/history | historical_backfill_only, not_run_daily, no_scores, no_orders |
+| backfill-a-share-financial-history | a-share history | Backfill quarterly basic financial history panel | data/equity_fundamental/history | historical_backfill_only, not_run_daily, no_scores, no_orders |
+| backfill-a-share-historical-panels | a-share history | Run plan, history backfill, coverage audit, and feature readiness audit | data/equity_market/history, data/equity_fundamental/history, data/equity_data_quality, outputs/equity_data_quality, outputs/audit | historical_backfill_only, not_run_daily, no_broker, no_real_orders, no_scores, no_candidates |
+| backfill-a-share-historical-panels-full-market | a-share history | Run v0.7.1.2 full-market queued historical backfill with checkpoint/resume | data/equity_market/history, data/equity_fundamental/history, data/equity_data_quality, data/equity_data_quality/backfill_batches, outputs/equity_data_quality, outputs/audit | historical_backfill_only, not_run_daily, no_broker, no_real_orders, no_scores, no_candidates, fail_closed |
 | backtest | backtest / replay | Run historical backtest | data/backtests, outputs/backtests | historical_only |
 | benchmark | core / daily | Planned benchmark generation | data/benchmarks | research_only |
 | boundary-regression-audit | audits | Audit boundary regressions | data/system, outputs/audit | audit_only, not_run_daily |
+| build-a-share-data-foundation | a-share data | Run the v0.7.1 A-share data foundation chain | data/equity_universe, data/equity_market, data/equity_industry, data/equity_fundamental, data/equity_data_quality, outputs/equity_universe, outputs/equity_data_quality, outputs/audit | data_ingestion_only, not_run_daily, no_broker, no_real_orders, no_selection, no_scores |
+| build-a-share-equity-master | a-share data | Build normalized A-share equity master | data/equity_universe, outputs/equity_universe | data_ingestion_only, not_run_daily, no_selection, no_scores |
+| build-a-share-historical-backfill-symbol-queue | a-share history | Build full-market A-share historical backfill queue from equity_master | data/equity_data_quality, outputs/equity_data_quality | queue_only, not_run_daily, no_scores, no_orders |
+| build-a-share-trading-calendar | a-share data | Build SSE/SZSE/BSE trading calendar foundation | data/equity_universe, outputs/equity_universe | data_ingestion_only, not_run_daily, no_orders |
 | build-features | feature / label | Build feature matrix | data/features, outputs/features | research_only |
 | build-labels | feature / label | Build label matrix | data/labels, outputs/labels | not_run_daily_input |
 | build-ml-dataset | feature / label | Build ML walk-forward dataset | data/ml, outputs/ml | research_only |
@@ -20,17 +36,28 @@
 | classify-mistakes | evolution | Planned mistake classification | data/evolution | diagnostic_only |
 | cli-inventory | audits | Generate CLI inventory | data/system, outputs/system | inventory_only, not_run_daily |
 | compare-strategies | experiments | Compare strategies | data/experiments, outputs/experiments | comparison_only |
+| diagnose-a-share-historical-backfill-coverage | a-share history | Diagnose v0.7.1.1 historical backfill coverage blockers | data/equity_data_quality, outputs/audit | diagnostic_only, not_run_daily, fail_closed |
 | dry-run-validation-report | backtest / replay | Build dry-run validation report | outputs/validation | not_forward_proof |
+| equity-data-source-manifest | a-share data | Probe public A-share data provider availability and write source manifest | data/equity_data_quality, outputs/equity_data_quality | data_ingestion_only, not_run_daily, no_broker, no_real_orders |
 | execute | core / daily | Planned virtual execution | data/trades | virtual_only, no_broker |
 | experiment-dashboard | experiments | Build experiment dashboard | data/experiments, outputs/experiments | read_only_summary |
 | export-summary | reports | Export virtual trading summary | data/exports | virtual_summary |
+| external-project-intake | planning | Scan external research repos and write v0.7 A-share selection planning artifacts | data/system, outputs/system, docs | intake_only, not_run_daily, no_broker, no_real_orders, no_third_party_code_merge |
 | fetch-prices | data acquisition / validation | Fetch price data | configured output | data_only |
+| final-handoff-review | reports | Generate final human handoff review | data/system, outputs/system | handoff_only, not_run_daily |
+| forward-dry-run-readiness | audits | Audit readiness to prepare 30 trading-day forward dry-run | data/system, outputs/system, outputs/audit | readiness_only, not_run_daily, does_not_start_forward_dry_run |
 | generate-ml-shadow-signals | ml shadow | Generate shadow signals | data/shadow, outputs/shadow | shadow_output_is_not_order |
 | generate-orders | core / daily | Planned virtual order generation | data/orders | virtual_only, no_broker |
 | generate-signals | core / daily | Planned virtual signal generation | data/signals | virtual_only |
 | health | health / consistency | Load or generate runtime health | data/runtime | virtual_only |
 | import-prices | data acquisition / validation | Import historical prices | data/raw | data_only |
+| ingest-a-share-adjusted-prices | a-share data | Build adjusted price panel with fallback coverage notes | data/equity_market | data_ingestion_only, not_run_daily, raw_fallback_recorded |
+| ingest-a-share-basic-financials | a-share data | Build basic financials panel with nullable field coverage | data/equity_fundamental | data_ingestion_only, not_run_daily, partial_fields_allowed_with_audit |
+| ingest-a-share-daily-basic | a-share data | Ingest A-share daily basic market indicators | data/equity_market | data_ingestion_only, not_run_daily, partial_fields_allowed_with_audit |
+| ingest-a-share-daily-prices | a-share data | Ingest A-share daily OHLCV price panel | data/equity_market | data_ingestion_only, not_run_daily, no_selection, no_broker |
+| ingest-a-share-industry-classification | a-share data | Build A-share industry classification panel | data/equity_industry | data_ingestion_only, not_run_daily, fallback_recorded |
 | init | core / daily | Initialize project directories | data, outputs | setup_only |
+| latest-artifact | reports | Locate latest artifact by type | data/system, outputs/system | locator_only, not_run_daily |
 | leaderboard | reports | Build strategy leaderboard | outputs/strategy-leaderboard | research_only |
 | list-experiments | experiments | List experiments | stdout | read_only |
 | load-macro | core / daily | Load macro signals | stdout | read_only |
@@ -41,11 +68,13 @@
 | monthly-research-report | reports | Generate monthly research report | data/reports, outputs/reports | research_only, not_an_admission_gate |
 | predict-ml-shadow | ml shadow | Generate shadow predictions | data/ml | shadow_only |
 | project-status-report | reports | Generate project status report | data/system, outputs/system | governance_only |
+| quick-status | reports | Generate quick project status | data/system, outputs/system | status_only, not_run_daily |
 | real-data-validation-report | data acquisition / validation | Build real data validation report | outputs/validation | report_only |
 | register-experiment | experiments | Register experiment | data/experiments | registry_only |
 | replay-dry-run | backtest / replay | Replay historical dry-run | data/replays, outputs/replays | historical_only |
 | replay-last-trading-days | backtest / replay | Replay last trading days | data/replays, outputs/replays | historical_only |
 | report | core / daily | Planned daily report | outputs/daily | report_only |
+| report-index | reports | Generate human report index | data/system, outputs/system | index_only, not_run_daily |
 | run-backtest-batch | backtest / replay | Run batch backtests | data/backtests, outputs/backtests | historical_only |
 | run-daily | core / daily | Run virtual daily workflow | data/signals, data/orders, data/trades, data/portfolios, outputs/daily | virtual_only, no_broker, not_live |
 | run-evolution | evolution | Planned evolution workflow | data/evolution | no_auto_promotion |
@@ -63,6 +92,7 @@
 | update-experiment-queue | evolution | Planned experiment queue update | data/evolution | research_only |
 | update-mistake-patterns | experiments | Update mistake pattern library | data/experiments, outputs/experiments | diagnostic_only |
 | update-rule-memory | evolution | Planned rule memory update | data/evolution | research_only |
+| usability-audit | audits | Audit usability polish release candidate | data/system, outputs/audit | audit_only, not_run_daily |
 | validate-data-package | data acquisition / validation | Validate data package | outputs/validation | validation_only |
 | walk-forward | backtest / replay | Run walk-forward summary | stdout | research_only |
 | weekly-research-report | reports | Generate weekly research report | data/reports, outputs/reports | research_only, not_an_admission_gate |

@@ -1,7 +1,28 @@
 {
-  "inventory_id": "CLIINV-20260624-001",
-  "created_at": "2026-06-24T16:35:55.131818Z",
+  "inventory_id": "CLIINV-20260627-001",
+  "created_at": "2026-06-27T10:42:14.290281Z",
   "commands": [
+    {
+      "command": "a-share-historical-backfill-plan",
+      "category": "a-share history",
+      "purpose": "Write v0.7.1.1 historical panel backfill plan",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/equity_data_quality"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "plan_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
     {
       "command": "acceptance-report",
       "category": "reports",
@@ -34,6 +55,25 @@
       ],
       "safety": [
         "not_auto_promotion"
+      ]
+    },
+    {
+      "command": "artifact-browser",
+      "category": "reports",
+      "purpose": "Generate human artifact browser",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "browser_only",
+        "not_run_daily"
       ]
     },
     {
@@ -70,6 +110,89 @@
       ],
       "safety": [
         "research_only"
+      ]
+    },
+    {
+      "command": "audit-a-share-data-coverage",
+      "category": "a-share data",
+      "purpose": "Audit A-share data artifact coverage and safety boundary",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
+    {
+      "command": "audit-a-share-data-schema",
+      "category": "a-share data",
+      "purpose": "Audit A-share data artifact schemas and sanity constraints",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
+    {
+      "command": "audit-a-share-feature-readiness",
+      "category": "a-share history",
+      "purpose": "Audit readiness for tradable universe and multi-horizon features",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "no_scores",
+        "no_candidates"
+      ]
+    },
+    {
+      "command": "audit-a-share-historical-panel-coverage",
+      "category": "a-share history",
+      "purpose": "Audit historical panel coverage against v0.7.1.1 release gates",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "fail_closed"
       ]
     },
     {
@@ -126,6 +249,138 @@
       ]
     },
     {
+      "command": "backfill-a-share-adjusted-price-history",
+      "category": "a-share history",
+      "purpose": "Build adjusted price history panel with raw fallback labeling",
+      "writes_to": [
+        "data/equity_market/history"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "raw_fallback_recorded"
+      ]
+    },
+    {
+      "command": "backfill-a-share-daily-basic-history",
+      "category": "a-share history",
+      "purpose": "Build daily basic history panel with field coverage tracking",
+      "writes_to": [
+        "data/equity_market/history"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "partial_fields_allowed_with_audit"
+      ]
+    },
+    {
+      "command": "backfill-a-share-daily-price-history",
+      "category": "a-share history",
+      "purpose": "Backfill public A-share daily price history panel",
+      "writes_to": [
+        "data/equity_market/history"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
+    {
+      "command": "backfill-a-share-financial-history",
+      "category": "a-share history",
+      "purpose": "Backfill quarterly basic financial history panel",
+      "writes_to": [
+        "data/equity_fundamental/history"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
+    {
+      "command": "backfill-a-share-historical-panels",
+      "category": "a-share history",
+      "purpose": "Run plan, history backfill, coverage audit, and feature readiness audit",
+      "writes_to": [
+        "data/equity_market/history",
+        "data/equity_fundamental/history",
+        "data/equity_data_quality",
+        "outputs/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "no_broker",
+        "no_real_orders",
+        "no_scores",
+        "no_candidates"
+      ]
+    },
+    {
+      "command": "backfill-a-share-historical-panels-full-market",
+      "category": "a-share history",
+      "purpose": "Run v0.7.1.2 full-market queued historical backfill with checkpoint/resume",
+      "writes_to": [
+        "data/equity_market/history",
+        "data/equity_fundamental/history",
+        "data/equity_data_quality",
+        "data/equity_data_quality/backfill_batches",
+        "outputs/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "historical_backfill_only",
+        "not_run_daily",
+        "no_broker",
+        "no_real_orders",
+        "no_scores",
+        "no_candidates",
+        "fail_closed"
+      ]
+    },
+    {
       "command": "backtest",
       "category": "backtest / replay",
       "purpose": "Run historical backtest",
@@ -177,6 +432,97 @@
       "safety": [
         "audit_only",
         "not_run_daily"
+      ]
+    },
+    {
+      "command": "build-a-share-data-foundation",
+      "category": "a-share data",
+      "purpose": "Run the v0.7.1 A-share data foundation chain",
+      "writes_to": [
+        "data/equity_universe",
+        "data/equity_market",
+        "data/equity_industry",
+        "data/equity_fundamental",
+        "data/equity_data_quality",
+        "outputs/equity_universe",
+        "outputs/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "no_broker",
+        "no_real_orders",
+        "no_selection",
+        "no_scores"
+      ]
+    },
+    {
+      "command": "build-a-share-equity-master",
+      "category": "a-share data",
+      "purpose": "Build normalized A-share equity master",
+      "writes_to": [
+        "data/equity_universe",
+        "outputs/equity_universe"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "no_selection",
+        "no_scores"
+      ]
+    },
+    {
+      "command": "build-a-share-historical-backfill-symbol-queue",
+      "category": "a-share history",
+      "purpose": "Build full-market A-share historical backfill queue from equity_master",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/equity_data_quality"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "queue_only",
+        "not_run_daily",
+        "no_scores",
+        "no_orders"
+      ]
+    },
+    {
+      "command": "build-a-share-trading-calendar",
+      "category": "a-share data",
+      "purpose": "Build SSE/SZSE/BSE trading calendar foundation",
+      "writes_to": [
+        "data/equity_universe",
+        "outputs/equity_universe"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "no_orders"
       ]
     },
     {
@@ -322,6 +668,26 @@
       ]
     },
     {
+      "command": "diagnose-a-share-historical-backfill-coverage",
+      "category": "a-share history",
+      "purpose": "Diagnose v0.7.1.1 historical backfill coverage blockers",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "diagnostic_only",
+        "not_run_daily",
+        "fail_closed"
+      ]
+    },
+    {
       "command": "dry-run-validation-report",
       "category": "backtest / replay",
       "purpose": "Build dry-run validation report",
@@ -336,6 +702,27 @@
       ],
       "safety": [
         "not_forward_proof"
+      ]
+    },
+    {
+      "command": "equity-data-source-manifest",
+      "category": "a-share data",
+      "purpose": "Probe public A-share data provider availability and write source manifest",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/equity_data_quality"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "no_broker",
+        "no_real_orders"
       ]
     },
     {
@@ -392,6 +779,29 @@
       ]
     },
     {
+      "command": "external-project-intake",
+      "category": "planning",
+      "purpose": "Scan external research repos and write v0.7 A-share selection planning artifacts",
+      "writes_to": [
+        "data/system",
+        "outputs/system",
+        "docs"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "intake_only",
+        "not_run_daily",
+        "no_broker",
+        "no_real_orders",
+        "no_third_party_code_merge"
+      ]
+    },
+    {
       "command": "fetch-prices",
       "category": "data acquisition / validation",
       "purpose": "Fetch price data",
@@ -406,6 +816,46 @@
       ],
       "safety": [
         "data_only"
+      ]
+    },
+    {
+      "command": "final-handoff-review",
+      "category": "reports",
+      "purpose": "Generate final human handoff review",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "handoff_only",
+        "not_run_daily"
+      ]
+    },
+    {
+      "command": "forward-dry-run-readiness",
+      "category": "audits",
+      "purpose": "Audit readiness to prepare 30 trading-day forward dry-run",
+      "writes_to": [
+        "data/system",
+        "outputs/system",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "readiness_only",
+        "not_run_daily",
+        "does_not_start_forward_dry_run"
       ]
     },
     {
@@ -496,6 +946,102 @@
       ]
     },
     {
+      "command": "ingest-a-share-adjusted-prices",
+      "category": "a-share data",
+      "purpose": "Build adjusted price panel with fallback coverage notes",
+      "writes_to": [
+        "data/equity_market"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "raw_fallback_recorded"
+      ]
+    },
+    {
+      "command": "ingest-a-share-basic-financials",
+      "category": "a-share data",
+      "purpose": "Build basic financials panel with nullable field coverage",
+      "writes_to": [
+        "data/equity_fundamental"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "partial_fields_allowed_with_audit"
+      ]
+    },
+    {
+      "command": "ingest-a-share-daily-basic",
+      "category": "a-share data",
+      "purpose": "Ingest A-share daily basic market indicators",
+      "writes_to": [
+        "data/equity_market"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "partial_fields_allowed_with_audit"
+      ]
+    },
+    {
+      "command": "ingest-a-share-daily-prices",
+      "category": "a-share data",
+      "purpose": "Ingest A-share daily OHLCV price panel",
+      "writes_to": [
+        "data/equity_market"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "no_selection",
+        "no_broker"
+      ]
+    },
+    {
+      "command": "ingest-a-share-industry-classification",
+      "category": "a-share data",
+      "purpose": "Build A-share industry classification panel",
+      "writes_to": [
+        "data/equity_industry"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "data_ingestion_only",
+        "not_run_daily",
+        "fallback_recorded"
+      ]
+    },
+    {
       "command": "init",
       "category": "core / daily",
       "purpose": "Initialize project directories",
@@ -511,6 +1057,25 @@
       ],
       "safety": [
         "setup_only"
+      ]
+    },
+    {
+      "command": "latest-artifact",
+      "category": "reports",
+      "purpose": "Locate latest artifact by type",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "locator_only",
+        "not_run_daily"
       ]
     },
     {
@@ -688,6 +1253,25 @@
       ]
     },
     {
+      "command": "quick-status",
+      "category": "reports",
+      "purpose": "Generate quick project status",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "status_only",
+        "not_run_daily"
+      ]
+    },
+    {
       "command": "real-data-validation-report",
       "category": "data acquisition / validation",
       "purpose": "Build real data validation report",
@@ -772,6 +1356,25 @@
       ],
       "safety": [
         "report_only"
+      ]
+    },
+    {
+      "command": "report-index",
+      "category": "reports",
+      "purpose": "Generate human report index",
+      "writes_to": [
+        "data/system",
+        "outputs/system"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "index_only",
+        "not_run_daily"
       ]
     },
     {
@@ -1081,6 +1684,25 @@
       ],
       "safety": [
         "research_only"
+      ]
+    },
+    {
+      "command": "usability-audit",
+      "category": "audits",
+      "purpose": "Audit usability polish release candidate",
+      "writes_to": [
+        "data/system",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily"
       ]
     },
     {

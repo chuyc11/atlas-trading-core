@@ -111,3 +111,17 @@ outputs/audit/A_SHARE_FEATURE_READINESS_AUDIT.md
 ```
 
 The historical coverage audit is fail-closed. If price history has fewer than 3000 symbols, fewer than 700 trading days, fewer than 3000 symbols with 120d history, or fewer than 2500 symbols with 250d history, `overall_passed=false`.
+
+## v0.7.1.2 Historical Provider Expansion Audits
+
+v0.7.1.2 adds root-cause, queue, checkpoint, batch, and per-symbol evidence:
+
+```text
+data/equity_data_quality/a_share_historical_backfill_root_cause.json
+data/equity_data_quality/a_share_historical_backfill_symbol_queue.json
+data/equity_data_quality/a_share_historical_backfill_checkpoint.json
+data/equity_data_quality/a_share_historical_backfill_symbol_manifest.json
+data/equity_data_quality/backfill_batches/
+```
+
+The historical coverage audit now also reports `coverage_global`, including coverage versus `equity_master.parquet` and the backfill queue. Failed readiness recommends `v0.7.1.3-a-share-historical-data-source-upgrade`; passed readiness recommends `v0.7.2-a-share-tradable-universe-filter`.

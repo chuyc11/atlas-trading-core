@@ -1,6 +1,6 @@
 # A-share Feature Readiness Audit
 
-The v0.7.1.1 feature readiness audit decides whether the historical data foundation is sufficient to enter:
+The v0.7.1.2 feature readiness audit decides whether the historical data foundation is sufficient to enter:
 
 ```text
 v0.7.2-a-share-tradable-universe-filter
@@ -17,7 +17,13 @@ It does not calculate features and does not generate scores, recommendations, ca
 | `short_horizon_feature_ready` | enough 60d history |
 | `mid_horizon_feature_ready` | enough 250d history |
 | `long_horizon_feature_ready` | 250d history plus adjusted prices and financial quarters |
-| `walk_forward_validation_ready` | normally false in v0.7.1.1; later validation owns this |
+| `walk_forward_validation_ready` | normally false here; later validation owns this |
+
+## Recommendation Logic
+
+If `overall_passed=true` and `tradable_universe_filter_ready=true`, the audit recommends `v0.7.2-a-share-tradable-universe-filter`.
+
+If `overall_passed=false`, the audit recommends `v0.7.1.3-a-share-historical-data-source-upgrade`. It must not recommend v0.7.2 while readiness is false.
 
 ## Forbidden Claims
 

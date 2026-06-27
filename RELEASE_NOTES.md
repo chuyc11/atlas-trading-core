@@ -1,5 +1,56 @@
 # Release Notes
 
+## v0.7.1.2-a-share-historical-data-provider-expansion
+
+This release resolves the v0.7.1.1 historical price coverage blocker by expanding the A-share historical backfill path from a limited/sample run to a full-market symbol queue sourced from `data/equity_universe/equity_master.parquet`.
+
+Includes:
+
+- root-cause diagnostic for the v0.7.1.1 10-symbol fail-closed result
+- full-market A-share historical backfill symbol queue
+- Eastmoney historical kline provider expansion with AkShare, BaoStock, Tushare, and local fallback adapters
+- checkpoint/resume support for long full-market historical backfills
+- per-batch manifests and per-symbol backfill manifest
+- global coverage ratios against equity master and backfill queue
+- readiness recommendation fix: failed readiness recommends `v0.7.1.3-a-share-historical-data-source-upgrade`, not `v0.7.2`
+- updated historical coverage and feature-readiness audits
+
+Audited coverage:
+
+- equity master symbols: 5867
+- backfill queue symbols: 5516
+- price history symbols: 5516
+- price history date range: `2021-01-04` to `2026-06-26`
+- price history trading days: 1326
+- symbols with 20d / 60d / 120d / 250d / 3y / 5y history: 5509 / 5474 / 5441 / 5379 / 5132 / 4458
+- adjusted price symbols: 5516
+- daily basic symbols: 5516
+- financial symbols: 5211
+- price history coverage vs equity master: 0.940174
+- price history coverage vs queue: 1.0
+- daily basic coverage vs equity master: 0.940174
+- financial coverage vs equity master: 0.888188
+- historical panel coverage audit overall_passed=true
+- feature readiness audit overall_passed=true
+- blocking reasons: none
+
+Boundary:
+
+- no stock scores generated
+- no candidates generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- no third-party code merged into the main flow
+- no model profit guarantee
+- live trading readiness remains false
+- recommended next version is `v0.7.2-a-share-tradable-universe-filter`
+
+Validation: 976 tests passed, 1 skipped.
+
 ## Unreleased: v0.7.1.1-a-share-historical-panel-backfill fail-closed
 
 This implementation adds the A-share historical panel backfill workflow and readiness audits, but it is not released as a success tag because the current public historical provider run did not satisfy the minimum historical coverage gate.

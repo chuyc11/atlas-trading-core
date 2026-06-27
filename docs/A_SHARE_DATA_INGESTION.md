@@ -58,4 +58,10 @@ Free public data can be incomplete, delayed, or schema-variable. Later filters a
 
 v0.7.1.1 adds historical panels under `data/equity_market/history/` and `data/equity_fundamental/history/`. It keeps the same rule: data first, audit first, no scores, no candidates, no virtual portfolios, no broker, and no orders.
 
+## v0.7.1.2 Historical Provider Expansion
+
+v0.7.1.2 fixes the v0.7.1.1 coverage blocker by building a full-market symbol queue from `equity_master.parquet`, running checkpointed provider backfill, writing per-batch and per-symbol manifests, and auditing global coverage against both equity master and the backfill queue.
+
+The release evidence has 5516 price-history symbols, 1326 trading days, and passing historical coverage and feature-readiness audits. It remains data preparation only: no stock scores, no candidates, no watchlists, no virtual portfolios, no broker, no real orders, no `run-daily`, and no day2 forward dry-run.
+
 The historical extension must fail closed if the minimum history window is not met. Single-day v0.7.1 panels cannot be used as a substitute for historical data.

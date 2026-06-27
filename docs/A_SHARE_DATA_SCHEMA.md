@@ -185,3 +185,21 @@ Historical table keys:
 | `basic_financials_history_panel` | `report_date`, `symbol` |
 
 These history panels are still input data only. They are not scores or stock recommendations.
+
+v0.7.1.2 manifest extensions add:
+
+```text
+source_symbols_total
+symbols_attempted
+symbols_succeeded
+symbols_failed
+rows_total
+min_date
+max_date
+trading_days
+provider_breakdown
+hash
+created_at
+```
+
+Coverage audits also include `coverage_global` ratios against equity master and the historical backfill queue.

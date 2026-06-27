@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.1-a-share-full-market-data-ingestion
+v0.7.1.2-a-share-historical-data-provider-expansion
 
 ## Completed milestones
 
@@ -49,6 +49,7 @@ v0.7.1-a-share-full-market-data-ingestion
 - v0.6.3.2 forward dry-run day1 owner report pack
 - v0.7.0 external project intake and A-share full-market selection plan
 - v0.7.1 A-share full-market data ingestion foundation
+- v0.7.1.2 A-share historical data provider expansion
 
 ## Known limitations
 
@@ -76,6 +77,7 @@ v0.7.1-a-share-full-market-data-ingestion
 - v0.7.1 records free-source limitations in coverage/schema audits; adjusted prices, industry classification, and financial fields may be partial or fallback-labeled
 - v0.7.1.1 historical panel backfill workflow is implemented and fail-closed in the current environment; public historical providers did not satisfy the release gate of 3000 price-history symbols
 - v0.7.1.1 is not released as a success tag; no scores, candidates, virtual portfolios, broker calls, real orders, run-daily, or day2 artifacts were generated
+- v0.7.1.2 expands historical data provider coverage and passes the minimum historical coverage gate for v0.7.2 preparation, but it still does not score stocks, generate candidates, generate watchlists, generate virtual portfolios, connect a broker, place real orders, call run-daily, or execute official forward dry-run day2
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -119,16 +121,18 @@ python -m trading_core.cli build-a-share-data-foundation
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
-Run v0.7.1.1 historical panel backfill readiness checks:
+Run v0.7.1.2 historical provider expansion and readiness checks:
 
 ```powershell
 python -m trading_core.cli a-share-historical-backfill-plan
-python -m trading_core.cli backfill-a-share-historical-panels --target-start-date 2021-01-01 --minimum-start-date 2023-01-01 --end-date 2026-06-26
+python -m trading_core.cli diagnose-a-share-historical-backfill-coverage
+python -m trading_core.cli build-a-share-historical-backfill-symbol-queue
+python -m trading_core.cli backfill-a-share-historical-panels-full-market --target-start-date 2021-01-01 --minimum-start-date 2023-01-01 --end-date 2026-06-26 --batch-size 100 --max-symbols 0 --resume --retry 2
 python -m trading_core.cli audit-a-share-historical-panel-coverage
 python -m trading_core.cli audit-a-share-feature-readiness
 ```
 
-The current v0.7.1.1 evidence is fail-closed. The workflow writes historical sample panels and blocking audits, but it does not meet release conditions and must not be treated as a success release.
+The v0.7.1.2 evidence resolves the v0.7.1.1 coverage blocker with 5516 price-history symbols, 1326 trading days, and passing coverage/readiness audits. This remains historical data preparation only; it is not scoring, candidate generation, portfolio generation, broker integration, or live trading readiness.
 
 Run plan alignment and MVP gap audit:
 

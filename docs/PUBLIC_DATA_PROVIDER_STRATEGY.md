@@ -74,6 +74,15 @@ v0.7.1.1 uses public historical endpoints for backfill:
 
 These are public historical data calls. They are not real-time trading data and not broker connectivity. Provider failures, missing symbols, missing dates, and field gaps must remain visible in manifests and audits.
 
+v0.7.1.2 expands the historical provider path:
+
+- full-market queue is sourced from `data/equity_universe/equity_master.parquet`.
+- Eastmoney kline public HTTP remains the primary historical price provider.
+- AkShare, BaoStock, Tushare, and local-file adapters are available as fallback surfaces.
+- checkpoint/resume and per-batch manifests make long full-market runs restartable.
+- per-symbol manifests record provider attempts, successes, failures, row counts, first/last dates, and readiness flags.
+- readiness=false must recommend `v0.7.1.3-a-share-historical-data-source-upgrade`, not `v0.7.2-a-share-tradable-universe-filter`.
+
 ## Forbidden Uses
 
 Provider adapters must not:
