@@ -35,7 +35,17 @@ python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
 python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26
 ```
 
-This workflow consumes v0.7.4 score artifacts and writes candidate artifacts only under `data/equity_selection/daily/YYYY-MM-DD/`, `outputs/equity_selection/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It generates long, mid, and short research candidates, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, explanations, risk notes, manifest, reports, summary, and audit. It does not generate virtual portfolios, portfolio weights, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Virtual portfolios are deferred to v0.7.6 and daily AI stock selection briefing is deferred to v0.7.7.
+This workflow consumes v0.7.4 score artifacts and writes candidate artifacts only under `data/equity_selection/daily/YYYY-MM-DD/`, `outputs/equity_selection/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It generates long, mid, and short research candidates, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, explanations, risk notes, manifest, reports, summary, and audit. It does not generate virtual portfolios, portfolio weights, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Virtual portfolios are handled by v0.7.6 and daily AI stock selection briefing is deferred to v0.7.7.
+
+## v0.7.6 A-share virtual portfolio construction
+
+```powershell
+python -m trading_core.cli build-a-share-virtual-portfolios --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-virtual-portfolios --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-virtual-portfolios --as-of-date 2026-06-26
+```
+
+This workflow consumes v0.7.5 candidate artifacts and writes virtual portfolio artifacts only under `data/equity_portfolios/daily/YYYY-MM-DD/`, `outputs/equity_portfolios/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It generates long, mid, and short research-only virtual portfolios, virtual target weights, industry exposure, risk/liquidity summary, manifest, reports, summary, and audit. It does not generate real portfolios, buy/sell signals, broker order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Daily AI stock selection briefing is deferred to v0.7.7.
 
 ## Forward dry-run day1 owner report pack
 

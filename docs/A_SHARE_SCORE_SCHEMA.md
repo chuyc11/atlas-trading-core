@@ -108,4 +108,4 @@ The sum of `component_contribution` for a symbol and score should approximately 
 
 Score schemas do not include buy/sell signal columns. They do not include candidate, watchlist, position, order, trade, or broker fields.
 
-v0.7.5 reads these score artifacts to generate research candidates in `data/equity_selection/daily/YYYY-MM-DD/`. The v0.7.5 candidate layer still must not add portfolio weights, position sizing, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
+v0.7.5 reads these score artifacts to generate research candidates in `data/equity_selection/daily/YYYY-MM-DD/`. v0.7.6 reads those candidates to generate research-only virtual target weights in `data/equity_portfolios/daily/YYYY-MM-DD/`. Neither layer may add buy/sell signals, broker order previews, broker instructions, real orders, or profit guarantees.

@@ -35,6 +35,7 @@ python -m trading_core.cli audit-historical-data-gap-closure
 python -m trading_core.cli audit-day0-readiness
 python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
 python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-virtual-portfolios --as-of-date 2026-06-26
 ```
 
 ## Run v0.7 external project intake
@@ -150,7 +151,22 @@ Equivalent one-command path:
 python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26
 ```
 
-This v0.7.5 path consumes v0.7.4 score artifacts and writes long, mid, and short candidate pools, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, manifest, reports, summary, and candidate audit artifacts. It is candidate generation only: candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker calls, not real orders, not `run-daily`, not profit claims, not live readiness, and not official forward dry-run day2 artifacts. Virtual portfolios are deferred to v0.7.6 and daily briefing is deferred to v0.7.7.
+This v0.7.5 path consumes v0.7.4 score artifacts and writes long, mid, and short candidate pools, an extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, manifest, reports, summary, and candidate audit artifacts. It is candidate generation only: candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker calls, not real orders, not `run-daily`, not profit claims, not live readiness, and not official forward dry-run day2 artifacts. Virtual portfolios are handled by v0.7.6 and daily briefing is deferred to v0.7.7.
+
+## Run v0.7.6 A-share virtual portfolio construction
+
+```bash
+python -m trading_core.cli build-a-share-virtual-portfolios --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-virtual-portfolios --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-virtual-portfolios --as-of-date 2026-06-26
+```
+
+This v0.7.6 path consumes v0.7.5 candidate artifacts and writes long, mid, and short virtual portfolios, virtual target weights, industry exposure, risk/liquidity summary, manifest, reports, summary, and virtual portfolio audit artifacts. It is virtual portfolio construction only: virtual portfolios are not real portfolios, target weights are not order instructions, no buy/sell signals are generated, no broker order preview is generated, no broker is connected, no real orders are placed, `run-daily` is not called, and no profit or live readiness claim is made. Daily briefing is deferred to v0.7.7.
 
 ## Run forward dry-run day1 owner report pack
 
@@ -414,6 +430,7 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not treat v0.7.1.2 historical provider expansion as scoring, candidate generation, portfolio generation, or trading readiness
 * do not treat v0.7.2 tradable universe filtering as scoring, candidate generation, watchlist generation, portfolio generation, or trading readiness
 * do not treat v0.7.5 candidates or watch pools as investment advice, buy/sell signals, portfolio weights, order instructions, broker readiness, profit guarantees, or live trading readiness
+* do not treat v0.7.6 virtual portfolios or target weights as real portfolios, buy/sell signals, broker order previews, real-account rebalance instructions, profit guarantees, or live trading readiness
 
 ## Boundary
 
@@ -437,3 +454,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.7.1.2 A-share historical provider expansion writes history, queue, checkpoint, batch, manifest, and audit artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, or virtual portfolios.
 * v0.7.2 A-share tradable universe filtering writes filter buckets and audits only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate scores, candidates, watchlists, or virtual portfolios.
 * v0.7.5 A-share candidate generation writes candidate and watch-pool artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate virtual portfolios, buy/sell signals, or order previews.
+* v0.7.6 A-share virtual portfolio construction writes virtual portfolio artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or broker order previews.

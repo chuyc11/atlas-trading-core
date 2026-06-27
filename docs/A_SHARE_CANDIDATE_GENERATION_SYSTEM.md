@@ -103,4 +103,4 @@ These remain forbidden:
 - official forward dry-run day2 execution
 - live-trading readiness claims
 
-Virtual portfolios are deferred to v0.7.6. Daily AI stock selection briefing is deferred to v0.7.7.
+Virtual portfolios are handled by v0.7.6. Daily AI stock selection briefing is deferred to v0.7.7.

@@ -48,7 +48,9 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - result as of 2026-06-26: 30 long candidates, 30 mid candidates, 30 short candidates, 300 extended watch-pool records, 50 multi-horizon candidates, 294 risk-downgraded candidates, candidate audit passed, recommended next version `v0.7.6-a-share-virtual-portfolio-construction`
   - constraints: candidates are research inputs only, not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker access, not real orders, not `run-daily`, not profit guarantee, not live-trading readiness, no official forward dry-run day2
 - v0.7.6 three virtual portfolios
-  - portfolios: long 20-40, mid 20-40, short 10-30; virtual only
+  - implemented virtual-only outputs: long virtual portfolio, mid virtual portfolio, short virtual portfolio, target weights, industry exposure, risk/liquidity summary, manifest, reports, and audit
+  - result as of 2026-06-26: 30 long holdings, 30 mid holdings, 20 short holdings, all weight sums 1.0, virtual portfolio audit passed, recommended next version `v0.7.7-a-share-daily-stock-selection-briefing`
+  - constraints: virtual portfolios are not real portfolios, virtual target weights are not order instructions, no buy/sell signals, no broker order preview, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness, no official forward dry-run day2
 - v0.7.7 daily AI stock selection briefing
   - output: `outputs/equity_selection/daily/YYYY-MM-DD/DAILY_STOCK_SELECTION_BRIEFING.md`
   - must state: research and virtual tracking only, not investment advice, no broker connection, no real orders, no profit guarantee
@@ -94,3 +96,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - Free public data source gaps must be recorded in source manifests and audits.
 - v0.7.4 scores are relative research inputs only; they are not recommendations, candidates, watchlists, portfolio actions, buy/sell signals, or profit claims.
 - v0.7.5 candidates are research inputs only; they are not investment advice, buy/sell signals, portfolio actions, order instructions, broker instructions, real orders, or profit claims.
+- v0.7.6 virtual portfolios are research-only virtual tracking inputs; they are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit claims.

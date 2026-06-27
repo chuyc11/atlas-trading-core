@@ -114,4 +114,4 @@ Candidate schemas must not include:
 
 ## Boundary
 
-Candidate schemas describe research selection artifacts only. They are not investment advice, not buy/sell signals, not portfolio allocations, not order instructions, and not profit guarantees.
+Candidate schemas describe research selection artifacts consumed by v0.7.6 virtual portfolio construction. They are not investment advice, not buy/sell signals, not real portfolio allocations, not order instructions, and not profit guarantees.

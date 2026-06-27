@@ -1,5 +1,77 @@
 # Release Notes
 
+## v0.7.6-a-share-virtual-portfolio-construction
+
+This release adds A-share research-only virtual portfolio construction on top of the v0.7.5 candidate package. It generates long, mid, and short virtual portfolios, target weights, industry exposure, risk/liquidity summaries, a manifest, reports, and a fail-closed audit. Virtual portfolios are not real portfolios. Virtual target weights are not order instructions, not broker order previews, not buy/sell signals, and not profit guarantees.
+
+Includes:
+
+- long virtual portfolio
+- mid virtual portfolio
+- short virtual portfolio
+- portfolio construction config
+- portfolio target weights
+- industry exposure summary
+- risk/liquidity summary
+- portfolio manifest
+- virtual portfolio construction audit
+- CLI commands: `build-a-share-virtual-portfolios`, `audit-a-share-virtual-portfolios`, and `build-and-audit-a-share-virtual-portfolios`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- long holdings: 30
+- mid holdings: 30
+- short holdings: 20
+- long weight sum: 1.0
+- mid weight sum: 1.0
+- short weight sum: 1.0
+- long max single weight: 0.037139
+- mid max single weight: 0.036981
+- short max single weight: 0.055804
+- long max industry weight: 0.25
+- mid max industry weight: 0.25
+- short max industry weight: 0.30
+- audit overall_passed=true
+- blocking reasons: none
+- warnings: 3, raw `industry_level_1` contains `Unclassified`; audit uses documented fallback industry buckets for caps
+- risk-downgraded symbols included: none
+- excluded-universe symbols included: none
+- recommended next version: `v0.7.7-a-share-daily-stock-selection-briefing`
+
+Primary artifacts:
+
+- `data/equity_portfolios/daily/2026-06-26/portfolio_construction_config.json`
+- `data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json`
+- `data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.parquet`
+- `data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json`
+- `data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.parquet`
+- `data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json`
+- `data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.parquet`
+- `data/equity_portfolios/daily/2026-06-26/portfolio_weight_summary.json`
+- `data/equity_portfolios/daily/2026-06-26/portfolio_industry_exposure.json`
+- `data/equity_portfolios/daily/2026-06-26/portfolio_risk_liquidity_summary.json`
+- `data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json`
+- `data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json`
+- `outputs/equity_portfolios/daily/2026-06-26/PORTFOLIO_CONSTRUCTION_SUMMARY.md`
+- `outputs/audit/A_SHARE_VIRTUAL_PORTFOLIO_CONSTRUCTION_AUDIT.md`
+
+Boundary:
+
+- virtual portfolio construction only
+- virtual portfolios generated from candidate pools
+- no real portfolio generated
+- no buy/sell signals generated
+- no order preview generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not a model profit guarantee
+- live trading readiness remains false
+
+Validation: 1046 tests passed, 1 skipped.
+
 ## v0.7.5-a-share-candidate-generation-system
 
 This release adds the A-share candidate generation system on top of the v0.7.4 strict-universe score package. It generates long, mid, and short research candidate pools, an extended watch pool, multi-horizon overlap candidates, risk-downgraded candidates, explanations, risk notes, a manifest, reports, and a fail-closed candidate audit. Candidates are research inputs only. They are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, and not a profit guarantee.

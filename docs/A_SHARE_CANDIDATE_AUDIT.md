@@ -63,6 +63,6 @@ recommended_next_version = v0.7.6-a-share-virtual-portfolio-construction
 
 ## Boundary
 
-Passing audit does not approve stock recommendations, virtual portfolios, order previews, broker access, real orders, profit claims, or live-trading readiness.
+Passing audit does not approve stock recommendations, real portfolios, order previews, broker access, real orders, profit claims, or live-trading readiness. It only gates the research candidate package consumed by v0.7.6 virtual portfolio construction.
 
 The audit must fail closed if virtual portfolio, buy/sell signal, order preview, broker, real-order, profit-guarantee, or live-readiness artifacts appear in the v0.7.5 candidate generation stage.

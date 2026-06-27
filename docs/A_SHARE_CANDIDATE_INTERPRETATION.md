@@ -41,6 +41,6 @@ Candidates do not mean:
 
 ## Next Stages
 
-- v0.7.6 will own virtual portfolio construction.
+- v0.7.6 owns virtual portfolio construction.
 - v0.7.7 will own daily AI stock selection briefing.
 - Later validation stages must test stability and outcomes before any stronger claims are allowed.

@@ -34,5 +34,5 @@ Scores do not mean:
 ## Next Stages
 
 - v0.7.5 owns candidate generation.
-- v0.7.6 will own virtual portfolios.
+- v0.7.6 owns virtual portfolios.
 - Later validation stages must test stability and outcomes before any stronger claims are allowed.

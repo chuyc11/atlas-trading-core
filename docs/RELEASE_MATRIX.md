@@ -1,6 +1,6 @@
 # Release Matrix
 
-Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited forward dry-run line is `v0.6.3.2-forward-dry-run-day1-owner-report-pack`; the current A-share selection line is `v0.7.5-a-share-candidate-generation-system`.
+Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. The current audited forward dry-run line is `v0.6.3.2-forward-dry-run-day1-owner-report-pack`; the current A-share selection line is `v0.7.6-a-share-virtual-portfolio-construction`.
 
 | Version | Tag | Scope | Passed | Limitations |
 | ------- | --- | ----- | ------ | ----------- |
@@ -37,3 +37,4 @@ Note: `v0.5.1-validation-gap-remediation` is a narrow patch on the v0.5 line. Th
 | v0.7.3-a-share-multi-horizon-feature-engineering | v0.7.3-a-share-multi-horizon-feature-engineering | strict-universe short/mid/long/risk/liquidity/industry/fundamental feature tables, manifest, coverage, summary, reports, and audit | yes | feature engineering only; no scores, candidates, watchlists, portfolios, broker, real orders, run-daily, profit claim, live readiness, or day2 |
 | v0.7.4-a-share-long-mid-short-scoring-system | v0.7.4-a-share-long-mid-short-scoring-system | strict-universe risk/liquidity/industry/fundamental, long/mid/short, and composite score artifacts, ranks, distributions, reports, and audit | yes | scoring only; scores are not recommendations, candidates, watchlists, portfolios, buy/sell signals, broker instructions, real orders, profit claims, live readiness, run-daily output, or day2 |
 | v0.7.5-a-share-candidate-generation-system | v0.7.5-a-share-candidate-generation-system | strict-universe long/mid/short candidates, extended watch pool, multi-horizon candidates, risk-downgraded candidates, reason breakdown, manifest, reports, summary, and audit | yes | candidate generation only; candidates are not investment advice, buy/sell signals, order instructions, virtual portfolios, broker instructions, real orders, profit claims, live readiness, run-daily output, or day2 |
+| v0.7.6-a-share-virtual-portfolio-construction | v0.7.6-a-share-virtual-portfolio-construction | long/mid/short virtual portfolios, target weights, industry exposure, risk/liquidity summary, manifest, reports, and audit | yes | virtual portfolio construction only; target weights are not order instructions, no real portfolio, no buy/sell signals, no broker order preview, no broker, no real orders, no profit claim, no live readiness, no run-daily, no day2 |

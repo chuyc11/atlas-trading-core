@@ -88,4 +88,4 @@ These remain forbidden:
 - official forward dry-run day2 execution
 - live-trading readiness claims
 
-Candidate generation is handled by v0.7.5. Virtual portfolios are deferred to v0.7.6.
+Candidate generation is handled by v0.7.5. Virtual portfolio construction is handled by v0.7.6.

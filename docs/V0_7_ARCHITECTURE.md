@@ -96,7 +96,7 @@ v0.7.4 consumes v0.7.3 strict-universe feature artifacts and writes score artifa
 
 The score set is `LongScore`, `MidScore`, `ShortScore`, `RiskScore`, `LiquidityScore`, `IndustryScore`, `FundamentalScore`, and `CompositeOpportunityScore`. Scores, percentiles, and ranks are relative research metrics only. They are not recommendations, buy/sell signals, candidate pools, watchlists, portfolio allocations, broker instructions, real orders, profit guarantees, live readiness, or official forward dry-run day2 artifacts.
 
-v0.7.5 consumes these scores for candidate generation. Virtual portfolios remain deferred to v0.7.6.
+v0.7.5 consumes these scores for candidate generation. v0.7.6 consumes candidates for research-only virtual portfolios.
 
 ## v0.7.5 Candidate Generation System
 
@@ -106,7 +106,17 @@ The candidate set includes long candidates, mid candidates, short candidates, an
 
 Candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker instructions, not real orders, not profit guarantees, not live readiness, and not official forward dry-run day2 artifacts.
 
-Virtual portfolios remain deferred to v0.7.6. Daily AI stock selection briefing remains deferred to v0.7.7.
+v0.7.6 consumes these candidates for virtual portfolio construction. Daily AI stock selection briefing remains deferred to v0.7.7.
+
+## v0.7.6 Virtual Portfolio Construction
+
+v0.7.6 consumes v0.7.5 candidate artifacts and writes virtual portfolio artifacts under `data/equity_portfolios/daily/YYYY-MM-DD/`, reports under `outputs/equity_portfolios/daily/YYYY-MM-DD/`, and a virtual portfolio construction audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The portfolio set includes `long_virtual_portfolio`, `mid_virtual_portfolio`, `short_virtual_portfolio`, portfolio target weights, industry exposure, risk/liquidity summary, manifest, reports, and audit. The portfolios are long-only, unlevered, derivatives-free, and research-only.
+
+Virtual portfolios are not real portfolios. Virtual target weights are not buy/sell signals, not broker order previews, not real-account rebalance instructions, not broker instructions, not real orders, not profit guarantees, not live readiness, and not official forward dry-run day2 artifacts.
+
+Daily AI stock selection briefing remains deferred to v0.7.7.
 
 ## Boundary
 - No real trading.
@@ -122,4 +132,5 @@ Virtual portfolios remain deferred to v0.7.6. Daily AI stock selection briefing 
 - v0.7.3 feature tables are not scores, recommendations, candidate lists, watchlists, portfolios, or order plans.
 - v0.7.4 score tables are not recommendations, candidate lists, watchlists, portfolios, buy/sell signals, or order plans.
 - v0.7.5 candidate pools are not recommendations, buy/sell signals, portfolio allocations, order plans, broker instructions, or profit guarantees.
+- v0.7.6 virtual portfolios are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.
