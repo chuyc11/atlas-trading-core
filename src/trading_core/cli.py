@@ -46,6 +46,9 @@ from trading_core.equity_features.feature_audit import audit_a_share_multi_horiz
 from trading_core.equity_features.feature_config import DEFAULT_AS_OF_DATE
 from trading_core.equity_features.multi_horizon import build_a_share_multi_horizon_features
 from trading_core.equity_industry.classification import ingest_a_share_industry_classification
+from trading_core.equity_scoring.component_scores import build_a_share_scores
+from trading_core.equity_scoring.score_config import DEFAULT_AS_OF_DATE as DEFAULT_SCORE_AS_OF_DATE
+from trading_core.equity_scoring.scoring_audit import audit_a_share_scores
 from trading_core.equity_selection.filter_config import TradableUniverseFilterConfig, parse_bool
 from trading_core.equity_selection.tradable_universe_audit import audit_a_share_tradable_universe
 from trading_core.equity_selection.tradable_universe_filter import build_a_share_tradable_universe
@@ -840,6 +843,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_multi_horizon_feature_arguments(feature_audit)
     feature_all = subparsers.add_parser("build-and-audit-a-share-multi-horizon-features")
     _add_multi_horizon_feature_arguments(feature_all)
+    score_build = subparsers.add_parser("build-a-share-scores")
+    _add_a_share_score_arguments(score_build)
+    score_audit = subparsers.add_parser("audit-a-share-scores")
+    _add_a_share_score_arguments(score_audit)
+    score_all = subparsers.add_parser("build-and-audit-a-share-scores")
+    _add_a_share_score_arguments(score_all)
 
     return parser
 
@@ -873,6 +882,11 @@ def _tradable_universe_config(args: argparse.Namespace) -> TradableUniverseFilte
 def _add_multi_horizon_feature_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_AS_OF_DATE)
     parser.add_argument("--allow-latest-tradable-universe", nargs="?", const=True, default=False, type=parse_bool)
+
+
+def _add_a_share_score_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_SCORE_AS_OF_DATE)
+    parser.add_argument("--allow-latest-feature-date", nargs="?", const=True, default=False, type=parse_bool)
 
 
 def _resolve_cli_path(value: str, paths) -> Path:
@@ -2313,6 +2327,35 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "coverage": audit_result["coverage"], "recommended_next_version": audit_result["recommended_next_version"]})
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-scores":
+        result = build_a_share_scores(
+            as_of_date=args.as_of_date,
+            allow_latest_feature_date=args.allow_latest_feature_date,
+            paths=paths,
+        )
+        print({"builder_id": result["builder_id"], "as_of_date": result["as_of_date"], "strict_tradable_count": result["strict_tradable_count"], "scored_symbols": result["scored_symbols"], "warnings": len(result["warnings"]), "score_manifest_path": result["artifacts"]["score_manifest"]})
+        return 0 if result["scored_symbols"] == result["strict_tradable_count"] else 1
+    if args.command == "audit-a-share-scores":
+        result = audit_a_share_scores(
+            as_of_date=args.as_of_date,
+            allow_latest_feature_date=args.allow_latest_feature_date,
+            paths=paths,
+        )
+        print({"audit_id": result["audit_id"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "counts": result["counts"], "score_ranges": result["score_ranges"], "recommended_next_version": result["recommended_next_version"], "json_path": result["json_path"], "report_path": result["report_path"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-scores":
+        build_result = build_a_share_scores(
+            as_of_date=args.as_of_date,
+            allow_latest_feature_date=args.allow_latest_feature_date,
+            paths=paths,
+        )
+        audit_result = audit_a_share_scores(
+            as_of_date=args.as_of_date,
+            allow_latest_feature_date=args.allow_latest_feature_date,
+            paths=paths,
+        )
+        print({"builder_id": build_result["builder_id"], "audit_id": audit_result["audit_id"], "overall_passed": audit_result["overall_passed"], "blocking_reasons": audit_result["blocking_reasons"], "counts": audit_result["counts"], "score_ranges": audit_result["score_ranges"], "recommended_next_version": audit_result["recommended_next_version"]})
         return 0 if audit_result["overall_passed"] else 1
     if args.command == "admission":
         result = run_admission(args.strategy_id, args.date)

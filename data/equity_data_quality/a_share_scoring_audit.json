@@ -1,0 +1,130 @@
+{
+  "audit_id": "A-SHARE-SCORING-AUDIT",
+  "target_version": "v0.7.4-a-share-long-mid-short-scoring-system",
+  "as_of_date": "2026-06-26",
+  "requested_as_of_date": "2026-06-26",
+  "allow_latest_feature_date": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "fundamental score confidence is partial"
+  ],
+  "checks": {
+    "score_config_exists": true,
+    "score_manifest_exists": true,
+    "all_score_files_exist": true,
+    "score_reports_exist": true,
+    "input_feature_manifest_exists": true,
+    "score_symbols_subset_of_strict_tradable_universe": true,
+    "excluded_symbols_absent_from_scores": true,
+    "score_symbols_count_equals_strict_tradable_count": true,
+    "all_horizon_score_symbol_counts_equal_strict": true,
+    "composite_score_symbols_equal_strict": true,
+    "score_ranges_0_to_100": true,
+    "rank_columns_valid": true,
+    "percentile_columns_valid": true,
+    "confidence_columns_valid": true,
+    "component_breakdown_exists_for_all_scores": true,
+    "no_candidate_artifacts_generated": true,
+    "no_watchlist_artifacts_generated": true,
+    "no_virtual_portfolio_artifacts_generated": true,
+    "no_buy_sell_signal_columns": true,
+    "no_profit_or_live_trading_wording": true,
+    "scores_generated_true": true,
+    "candidates_generated_false": true,
+    "watchlists_generated_false": true,
+    "virtual_portfolio_generated_false": true,
+    "no_future_leakage_inherited_from_feature_manifest": true,
+    "target_version_matches": true,
+    "score_date_exact_or_allowed": true,
+    "boundary_scoring_only_true": true,
+    "boundary_scores_generated_true": true,
+    "boundary_candidates_generated_false": true,
+    "boundary_watchlists_generated_false": true,
+    "boundary_virtual_portfolio_generated_false": true,
+    "boundary_official_forward_dry_run_status_unchanged_true": true,
+    "boundary_day2_executed_false": true,
+    "boundary_run_daily_called_false": true,
+    "boundary_broker_connected_false": true,
+    "boundary_real_orders_placed_false": true,
+    "boundary_model_profit_guaranteed_false": true,
+    "boundary_live_trading_ready_false": true
+  },
+  "counts": {
+    "strict_tradable_count": 3676,
+    "scored_symbols": 3676,
+    "long_score_symbols": 3676,
+    "mid_score_symbols": 3676,
+    "short_score_symbols": 3676,
+    "composite_score_symbols": 3676
+  },
+  "score_ranges": {
+    "LongScore": {
+      "min": 28.067582,
+      "max": 70.446463
+    },
+    "MidScore": {
+      "min": 16.933246,
+      "max": 85.477234
+    },
+    "ShortScore": {
+      "min": 17.027915,
+      "max": 83.987027
+    },
+    "RiskScore": {
+      "min": 2.343807,
+      "max": 97.451374
+    },
+    "LiquidityScore": {
+      "min": 16.168843,
+      "max": 85.406692
+    },
+    "IndustryScore": {
+      "min": 17.826589,
+      "max": 86.121588
+    },
+    "FundamentalScore": {
+      "min": 29.313306,
+      "max": 73.700185
+    },
+    "CompositeOpportunityScore": {
+      "min": 23.917386,
+      "max": 76.936048
+    }
+  },
+  "forbidden_artifacts": {
+    "candidate_artifacts_present": [],
+    "watchlist_artifacts_present": [],
+    "virtual_portfolio_artifacts_present": []
+  },
+  "forbidden_wording_hits": [],
+  "artifacts": {
+    "score_config": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\score_config.json",
+    "risk_liquidity_industry_fundamental_scores": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\risk_liquidity_industry_fundamental_scores.parquet",
+    "horizon_scores": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\horizon_scores.parquet",
+    "composite_scores": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\composite_scores.parquet",
+    "score_component_breakdown": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\score_component_breakdown.parquet",
+    "score_distribution": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\score_distribution.json",
+    "score_manifest": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\score_manifest.json",
+    "scoring_summary": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-06-26\\scoring_summary.json",
+    "scoring_summary_report": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_scores\\daily\\2026-06-26\\SCORING_SUMMARY.md",
+    "score_distribution_report": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_scores\\daily\\2026-06-26\\SCORE_DISTRIBUTION_REPORT.md",
+    "audit_json": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_scoring_audit.json",
+    "audit_report": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\audit\\A_SHARE_SCORING_AUDIT.md"
+  },
+  "boundary": {
+    "scoring_only": true,
+    "scores_generated": true,
+    "candidates_generated": false,
+    "watchlists_generated": false,
+    "virtual_portfolio_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "recommended_next_version": "v0.7.5-a-share-candidate-generation-system"
+}
