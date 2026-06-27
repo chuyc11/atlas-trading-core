@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.3-a-share-multi-horizon-feature-engineering
+v0.7.4-a-share-long-mid-short-scoring-system
 
 ## Completed milestones
 
@@ -52,6 +52,7 @@ v0.7.3-a-share-multi-horizon-feature-engineering
 - v0.7.1.2 A-share historical data provider expansion
 - v0.7.2 A-share tradable universe filter
 - v0.7.3 A-share multi-horizon feature engineering
+- v0.7.4 A-share long/mid/short scoring system
 
 ## Known limitations
 
@@ -83,6 +84,8 @@ v0.7.3-a-share-multi-horizon-feature-engineering
 - v0.7.2 builds the A-share strict/caution/excluded/unknown tradable universe buckets only; it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, or official forward dry-run day2 artifacts
 - v0.7.3 builds strict-universe multi-horizon feature artifacts only; it does not generate scores, candidates, watchlists, virtual portfolios, broker calls, real orders, run-daily output, profit claims, or official forward dry-run day2 artifacts
 - v0.7.3 fundamental feature coverage is partial by design because several valuation percentile fields remain nullable placeholders for a later data-quality/scoring stage
+- v0.7.4 builds strict-universe scores, ranks, distributions, component breakdowns, reports, and an audit only; it does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker calls, real orders, run-daily output, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
+- v0.7.4 scores are relative research inputs for future candidate generation in v0.7.5, not recommendations and not trading instructions
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -153,6 +156,21 @@ python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-o
 ```
 
 The v0.7.3 output is feature input for a future scoring stage. It is not a score table, recommendation list, candidate list, watchlist, virtual portfolio, order plan, broker instruction, or live-trading readiness claim.
+
+Run v0.7.4 A-share long/mid/short scoring:
+
+```powershell
+python -m trading_core.cli build-a-share-scores --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-scores --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26
+```
+
+The v0.7.4 output is a score table and score audit for the strict tradable universe. It is not candidate generation, not a recommendation list, not a watchlist, not a virtual portfolio, not a buy/sell signal, not an order plan, not broker integration, not a profit guarantee, and not live-trading readiness. Candidate generation is deferred to v0.7.5 and virtual portfolios are deferred to v0.7.6.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 

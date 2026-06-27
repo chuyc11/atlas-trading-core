@@ -40,8 +40,9 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - short features: 5/10/20-day momentum, breakout, pullback repair, volume-price confirmation, capital flow, short-term heat
   - risk/liquidity/industry features are separate first-class feature groups
 - v0.7.4 Long/Mid/Short scoring system
-  - scores: LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, IndustryScore, CompositeOpportunityScore
-  - candidate gates: long 75/45/60, mid 75/55/65, short 80/65/75 for score/risk/liquidity
+  - implemented scoring-only outputs: LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, IndustryScore, FundamentalScore, CompositeOpportunityScore, ranks, percentiles, component breakdowns, distribution report, manifest, summary, and audit
+  - result as of 2026-06-26: 3676 strict tradable symbols scored, scoring audit passed, recommended next version `v0.7.5-a-share-candidate-generation-system`
+  - constraints: no candidates, no watchlists, no virtual portfolios, no buy/sell signals, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness, no official forward dry-run day2
 - v0.7.5 candidate generation
   - daily outputs: long 30, mid 30, short 30, watchlist 100-150, top 10 per horizon in the briefing
 - v0.7.6 three virtual portfolios
@@ -75,7 +76,7 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
 - `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_validation/`
-- `outputs/equity_selection/`, `outputs/equity_portfolios/`, `outputs/equity_validation/`
+- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_validation/`
 
 ## Required Boundary
 
@@ -89,3 +90,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `run-daily` not called.
 - Data ingestion artifacts are not stock recommendations.
 - Free public data source gaps must be recorded in source manifests and audits.
+- v0.7.4 scores are relative research inputs only; they are not recommendations, candidates, watchlists, portfolio actions, buy/sell signals, or profit claims.

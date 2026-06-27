@@ -1,5 +1,78 @@
 # Release Notes
 
+## v0.7.4-a-share-long-mid-short-scoring-system
+
+This release adds the A-share long/mid/short scoring system on top of the v0.7.3 strict-universe feature package. It generates scores, ranks, percentiles, distributions, component breakdowns, reports, and an audit for the strict tradable universe only. Scores are not recommendations, not buy/sell signals, not candidate pools, not watchlists, not virtual portfolios, and not profit or live-trading claims.
+
+Includes:
+
+- versioned score config and cross-sectional normalization with 1% / 99% winsorization
+- `RiskScore`
+- `LiquidityScore`
+- `IndustryScore`
+- `FundamentalScore`
+- `LongScore`
+- `MidScore`
+- `ShortScore`
+- `CompositeOpportunityScore`
+- score component breakdown
+- score distribution report
+- scoring audit
+- CLI commands: `build-a-share-scores`, `audit-a-share-scores`, and `build-and-audit-a-share-scores`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- strict tradable count: 3676
+- scored symbols: 3676
+- long / mid / short / composite score symbols: 3676 each
+- LongScore range: 28.067582 to 70.446463
+- MidScore range: 16.933246 to 85.477234
+- ShortScore range: 17.027915 to 83.987027
+- RiskScore range: 2.343807 to 97.451374
+- LiquidityScore range: 16.168843 to 85.406692
+- IndustryScore range: 17.826589 to 86.121588
+- FundamentalScore range: 29.313306 to 73.700185
+- CompositeOpportunityScore range: 23.917386 to 76.936048
+- audit overall_passed=true
+- blocking reasons: none
+- warnings: 1, fundamental score confidence is partial
+- candidate artifacts present: none
+- watchlist artifacts present: none
+- virtual portfolio artifacts present: none
+- recommended next version: `v0.7.5-a-share-candidate-generation-system`
+
+Primary artifacts:
+
+- `data/equity_scores/daily/2026-06-26/score_config.json`
+- `data/equity_scores/daily/2026-06-26/risk_liquidity_industry_fundamental_scores.parquet`
+- `data/equity_scores/daily/2026-06-26/horizon_scores.parquet`
+- `data/equity_scores/daily/2026-06-26/composite_scores.parquet`
+- `data/equity_scores/daily/2026-06-26/score_component_breakdown.parquet`
+- `data/equity_scores/daily/2026-06-26/score_distribution.json`
+- `data/equity_scores/daily/2026-06-26/score_manifest.json`
+- `data/equity_scores/daily/2026-06-26/scoring_summary.json`
+- `data/equity_data_quality/a_share_scoring_audit.json`
+- `outputs/equity_scores/daily/2026-06-26/SCORE_DISTRIBUTION_REPORT.md`
+- `outputs/equity_scores/daily/2026-06-26/SCORING_SUMMARY.md`
+- `outputs/audit/A_SHARE_SCORING_AUDIT.md`
+
+Boundary:
+
+- scoring only
+- scores generated for strict tradable universe only
+- no candidate stocks generated
+- no watchlists generated
+- no virtual portfolios generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not a model profit guarantee
+- live trading readiness remains false
+
+Validation: 1017 tests passed, 1 skipped.
+
 ## v0.7.3-a-share-multi-horizon-feature-engineering
 
 This release adds the A-share multi-horizon feature engineering layer on top of the v0.7.2 strict tradable universe. It generates feature tables only. It does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker instructions, real orders, `run-daily` output, profit claims, or live-trading readiness.

@@ -90,6 +90,14 @@ v0.7.3 consumes the `strict_tradable_universe` output from v0.7.2 and audited hi
 
 The feature groups are short horizon, mid horizon, long horizon, risk, liquidity, industry, and fundamental. These are atomic inputs for a future scoring stage. The stage does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, orders, broker connections, `run-daily` output, profit claims, live readiness, or official forward dry-run day2 artifacts.
 
+## v0.7.4 Long/Mid/Short Scoring System
+
+v0.7.4 consumes v0.7.3 strict-universe feature artifacts and writes score artifacts under `data/equity_scores/daily/YYYY-MM-DD/`, reports under `outputs/equity_scores/daily/YYYY-MM-DD/`, and a scoring audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The score set is `LongScore`, `MidScore`, `ShortScore`, `RiskScore`, `LiquidityScore`, `IndustryScore`, `FundamentalScore`, and `CompositeOpportunityScore`. Scores, percentiles, and ranks are relative research metrics only. They are not recommendations, buy/sell signals, candidate pools, watchlists, portfolio allocations, broker instructions, real orders, profit guarantees, live readiness, or official forward dry-run day2 artifacts.
+
+Candidate generation remains deferred to v0.7.5. Virtual portfolios remain deferred to v0.7.6.
+
 ## Boundary
 - No real trading.
 - No broker connection.
@@ -102,4 +110,5 @@ The feature groups are short horizon, mid horizon, long horizon, risk, liquidity
 - Data foundation only until coverage and schema audits pass.
 - v0.7.2 filter buckets are not recommendations and are not candidate lists.
 - v0.7.3 feature tables are not scores, recommendations, candidate lists, watchlists, portfolios, or order plans.
+- v0.7.4 score tables are not recommendations, candidate lists, watchlists, portfolios, buy/sell signals, or order plans.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

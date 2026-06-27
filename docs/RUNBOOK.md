@@ -17,6 +17,16 @@ python -m trading_core.cli external-project-intake
 
 This workflow downloads shallow external research repositories into ignored `external_research/`, scans README/license/source structure, and writes the v0.7 A-share selection plan, external intake report, reuse matrix, architecture, and roadmap summary. It does not merge third-party trading code, does not execute day2, does not call run-daily, does not connect a broker, and does not place real orders.
 
+## v0.7.4 A-share long/mid/short scoring
+
+```powershell
+python -m trading_core.cli build-a-share-scores --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-scores --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26
+```
+
+This workflow consumes v0.7.3 strict-universe feature artifacts and writes score artifacts only under `data/equity_scores/daily/YYYY-MM-DD/`, `outputs/equity_scores/daily/YYYY-MM-DD/`, `data/equity_data_quality/`, and `outputs/audit/`. It does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
+
 ## Forward dry-run day1 owner report pack
 
 This v0.6.3.2 workflow generates owner-facing day1 reports from existing v0.6.3 and v0.6.3.1 artifacts. It does not execute day2, does not execute day3, does not call run-daily, does not download real-time market data, does not call external market APIs, does not write the main ledger, does not connect a broker, and does not place real orders.

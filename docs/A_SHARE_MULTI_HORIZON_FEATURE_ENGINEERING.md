@@ -106,4 +106,6 @@ model_profit_guaranteed
 live_trading_ready
 ```
 
-The only allowed next step from a passing v0.7.3 audit is a future scoring/research stage such as `v0.7.4-a-share-long-mid-short-scoring-system`.
+The next step from a passing v0.7.3 audit is `v0.7.4-a-share-long-mid-short-scoring-system`.
+
+v0.7.4 consumes these feature artifacts to produce scores and score audit artifacts only. The v0.7.4 scoring stage still does not generate candidates, watchlists, virtual portfolios, broker instructions, real orders, buy/sell signals, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.

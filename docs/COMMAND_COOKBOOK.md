@@ -121,6 +121,21 @@ python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-o
 
 This v0.7.3 path consumes `strict_tradable_universe` and writes feature-only parquet tables plus manifest, coverage, summary, and audit artifacts. It is not scoring or selection: it does not generate LongScore, MidScore, ShortScore, RiskScore, LiquidityScore, candidates, watchlists, virtual portfolios, broker calls, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
 
+## Run v0.7.4 A-share long/mid/short scoring
+
+```bash
+python -m trading_core.cli build-a-share-scores --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-scores --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26
+```
+
+This v0.7.4 path consumes v0.7.3 strict-universe features and writes scores, ranks, percentiles, component breakdowns, distributions, reports, and scoring audit artifacts only. It is not candidate generation or trading: it does not generate candidates, watchlists, virtual portfolios, buy/sell signals, broker calls, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts.
+
 ## Run forward dry-run day1 owner report pack
 
 ```bash

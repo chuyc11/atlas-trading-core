@@ -66,6 +66,24 @@ recommended_next_version = v0.7.4-a-share-long-mid-short-scoring-system
 
 v0.7.3 still does not generate scores, recommendations, candidates, watchlists, virtual portfolios, broker instructions, real orders, `run-daily`, profit claims, or live-trading readiness.
 
+## v0.7.4 Result
+
+The v0.7.4 scoring audit passed for `as_of_date=2026-06-26`:
+
+```text
+strict_tradable_count = 3676
+scored_symbols = 3676
+long_score_symbols = 3676
+mid_score_symbols = 3676
+short_score_symbols = 3676
+composite_score_symbols = 3676
+overall_passed = true
+blocking_reasons = []
+recommended_next_version = v0.7.5-a-share-candidate-generation-system
+```
+
+v0.7.4 generates scores only. It does not generate recommendations, candidates, watchlists, virtual portfolios, broker instructions, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts.
+
 ## Forbidden Claims
 
 The audit keeps the following claims forbidden:
