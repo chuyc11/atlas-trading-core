@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
+v0.7.9-a-share-daily-workflow-orchestration
 
 ## Completed milestones
 
@@ -57,6 +57,7 @@ v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
 - v0.7.6 A-share virtual portfolio construction
 - v0.7.7 A-share daily stock selection briefing
 - v0.7.8 A-share virtual portfolio tracking and paper ledger
+- v0.7.9 A-share daily workflow orchestration
 
 ## Known limitations
 
@@ -94,7 +95,8 @@ v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
 - v0.7.5 feeds v0.7.6 virtual portfolio construction and v0.7.7 daily owner briefing
 - v0.7.6 generates research-only virtual portfolios and virtual target weights only; virtual portfolios are not real portfolios, target weights are not order instructions, no broker is connected, no real orders are placed, and no profit guarantee or live-trading readiness is claimed
 - v0.7.7 generates a daily Chinese stock selection research briefing from existing artifacts only; it does not regenerate scores, candidates, or virtual portfolios, and it does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, or live-trading readiness
-- v0.7.8 generates research-only virtual portfolio tracking and paper ledgers only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, no broker is connected, no real orders are placed, and v0.7.9 is the next daily workflow orchestration stage
+- v0.7.8 generates research-only virtual portfolio tracking and paper ledgers only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, no broker is connected, and no real orders are placed
+- v0.7.9 orchestrates the A-share daily research workflow only; it does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, and leaves benchmark data/performance comparison to v0.7.10
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -239,7 +241,23 @@ Equivalent one-command path:
 python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
 ```
 
-The v0.7.8 output is a research-only virtual tracking package for the existing long/mid/short virtual portfolios. It creates virtual paper ledgers, holdings snapshots, NAV, first-day return/drawdown snapshots, exposure summaries, benchmark placeholders, reports, manifest, source trace, and audit. The paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. It does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, live-trading readiness, `run-daily`, or official forward dry-run day2 artifacts. Daily workflow orchestration is deferred to v0.7.9.
+The v0.7.8 output is a research-only virtual tracking package for the existing long/mid/short virtual portfolios. It creates virtual paper ledgers, holdings snapshots, NAV, first-day return/drawdown snapshots, exposure summaries, benchmark placeholders, reports, manifest, source trace, and audit. The paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. It does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, live-trading readiness, `run-daily`, or official forward dry-run day2 artifacts.
+
+Run v0.7.9 A-share daily workflow orchestration:
+
+```powershell
+python -m trading_core.cli preflight-a-share-daily-workflow --as-of-date 2026-06-26
+python -m trading_core.cli run-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts
+python -m trading_core.cli audit-a-share-daily-research-workflow --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts
+```
+
+The v0.7.9 output is an orchestration-only daily research workflow package. It validates or runs the existing A-share research stages in order, writes workflow config, preflight, stage manifest, run manifest, source trace, boundary check, owner summary, and audit artifacts, and fails closed if a critical stage fails. It does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and is not live-trading ready. Benchmark data and relative performance comparison are deferred to v0.7.10.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -515,3 +533,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.6 writes A-share virtual portfolio artifacts only under equity portfolio paths; it does not generate real portfolios, buy/sell signals, broker order previews, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.7 writes A-share daily briefing artifacts only under equity briefing paths; it reads existing artifacts only and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.8 writes A-share virtual tracking artifacts only under equity portfolio tracking paths and its audit under equity data quality/audit paths; it does not write main orders/trades/accounts, does not generate real portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
+- v0.7.9 writes A-share workflow orchestration artifacts only under `data/equity_workflows/`, `outputs/equity_workflows/`, and workflow audit paths; it does not rewrite upstream modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, and does not certify live-trading readiness

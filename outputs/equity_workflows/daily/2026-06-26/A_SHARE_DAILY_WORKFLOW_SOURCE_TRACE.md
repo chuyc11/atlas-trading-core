@@ -25,9 +25,9 @@
 | data/equity_data_quality/a_share_daily_stock_selection_briefing_audit.json | true | c7f210cfb8eddbde09d482aa78697d25b88186b9c61c5a5275ee6a3f85255b19 |
 | data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json | true | d49e5df8ca380c617b5768f2df001151093ffdd72a1decf268756d0558884dd3 |
 | data/equity_workflows/daily/2026-06-26/workflow_config.json | true | a1e99479932228abbfa3e4b91b1c8381da2216b34841a0cbf8e308155744c987 |
-| data/equity_workflows/daily/2026-06-26/workflow_preflight.json | true | bc577a80505a5faffaf5c2360dda309884c41617c709e29dc0466de926c43816 |
-| data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json | true | 9f594b6bcf888cb0de2dfab9b80d65ad694dcb1f8871a34eed7a8cdd53e0583f |
-| data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json | true | ab07627d1a5818f73a8a34ed49733788880ddcca4ac85b1e5e30415a8d0330e9 |
+| data/equity_workflows/daily/2026-06-26/workflow_preflight.json | true | 0a3b090d964c0e975ce196deb5e31816b353a8f78228e471392cd5295f01d4d6 |
+| data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json | true | e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a |
+| data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json | true | 01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51 |
 | data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json | true | 4ae6e39cec0beae5bca70bacecef37ea79d43d9f83d9bed3e42c6475d733d463 |
 
 ## Stage Commands

@@ -24,4 +24,4 @@ v0.7.8 tracking answers a narrow research question: how the existing long/mid/sh
 
 For `2026-06-26`, `first_day_initialization=true` and `performance_not_yet_observed=true`. That means the ledger was initialized, but no next-day mark has been observed yet.
 
-Use the tracking report to inspect virtual holdings, NAV, exposure, and boundary status. Use later orchestration only after v0.7.9 defines the daily workflow.
+Use the tracking report to inspect virtual holdings, NAV, exposure, and boundary status. v0.7.9 now orchestrates the daily research workflow around this tracking package; benchmark-relative performance remains deferred to v0.7.10.

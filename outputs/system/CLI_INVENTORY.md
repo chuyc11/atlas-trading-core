@@ -9,6 +9,7 @@
 | artifact-inventory | audits | Generate artifact inventory | data/system, outputs/system | inventory_only, not_run_daily |
 | attribution | core / daily | Planned attribution generation | data/attribution | research_only |
 | audit-a-share-candidates | a-share candidates | Audit v0.7.5 candidate counts, explanations, forbidden artifacts, and boundaries | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, fail_closed, no_virtual_portfolio, no_buy_sell_signals, no_order_preview, no_broker, no_real_orders |
+| audit-a-share-daily-research-workflow | a-share workflow | Audit v0.7.9 workflow manifests, source trace, stage status, upstream audits, and boundaries | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, fail_closed, no_day2, no_broker, no_real_orders, no_buy_sell_signals, no_order_preview |
 | audit-a-share-daily-stock-selection-briefing | a-share briefings | Audit v0.7.7 briefing sections, source trace, wording, and boundaries | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, fail_closed, no_score_regeneration, no_candidate_regeneration, no_virtual_portfolio_regeneration, no_buy_sell_signals, no_order_preview, no_broker, no_real_orders |
 | audit-a-share-data-coverage | a-share data | Audit A-share data artifact coverage and safety boundary | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
 | audit-a-share-data-schema | a-share data | Audit A-share data artifact schemas and sanity constraints | data/equity_data_quality, outputs/audit | audit_only, not_run_daily, no_scores, no_orders |
@@ -88,6 +89,7 @@
 | ml-shadow-report | ml shadow | Build shadow report | outputs/shadow | report_only |
 | monthly-research-report | reports | Generate monthly research report | data/reports, outputs/reports | research_only, not_an_admission_gate |
 | predict-ml-shadow | ml shadow | Generate shadow predictions | data/ml | shadow_only |
+| preflight-a-share-daily-workflow | a-share workflow | Check v0.7.9 daily workflow readiness, versions, artifacts, CLI availability, and boundaries | data/equity_workflows/daily/YYYY-MM-DD | orchestration_only, not_run_daily, fail_closed, no_day2, no_broker, no_real_orders, no_buy_sell_signals, no_order_preview |
 | project-status-report | reports | Generate project status report | data/system, outputs/system | governance_only |
 | quick-status | reports | Generate quick project status | data/system, outputs/system | status_only, not_run_daily |
 | real-data-validation-report | data acquisition / validation | Build real data validation report | outputs/validation | report_only |
@@ -96,6 +98,8 @@
 | replay-last-trading-days | backtest / replay | Replay last trading days | data/replays, outputs/replays | historical_only |
 | report | core / daily | Planned daily report | outputs/daily | report_only |
 | report-index | reports | Generate human report index | data/system, outputs/system | index_only, not_run_daily |
+| run-a-share-daily-research-workflow | a-share workflow | Run the v0.7.9 A-share daily research workflow orchestration modes | data/equity_workflows/daily/YYYY-MM-DD, outputs/equity_workflows/daily/YYYY-MM-DD | orchestration_only, not_run_daily, fail_closed, no_day2, no_broker, no_real_orders, no_buy_sell_signals, no_order_preview |
+| run-and-audit-a-share-daily-research-workflow | a-share workflow | Run and audit the v0.7.9 A-share daily research workflow in one command | data/equity_workflows/daily/YYYY-MM-DD, data/equity_data_quality, outputs/equity_workflows/daily/YYYY-MM-DD, outputs/audit | orchestration_only, not_run_daily, fail_closed, no_day2, no_broker, no_real_orders, no_buy_sell_signals, no_order_preview |
 | run-backtest-batch | backtest / replay | Run batch backtests | data/backtests, outputs/backtests | historical_only |
 | run-daily | core / daily | Run virtual daily workflow | data/signals, data/orders, data/trades, data/portfolios, outputs/daily | virtual_only, no_broker, not_live |
 | run-evolution | evolution | Planned evolution workflow | data/evolution | no_auto_promotion |

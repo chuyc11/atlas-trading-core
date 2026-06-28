@@ -16,6 +16,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - long/mid/short virtual portfolios
 - daily Chinese owner briefing
 - virtual portfolio tracking and paper ledgers
+- daily workflow orchestration
 - walk-forward validation
 
 ## Modules
@@ -32,6 +33,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - `src/trading_core/equity_portfolios/`
 - `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_portfolio_tracking/`
+- `src/trading_core/equity_workflows/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
 
@@ -52,6 +54,7 @@ flowchart TD
   E --> F["Long / Mid / Short virtual portfolios"]
   F --> G["Daily Chinese owner briefing"]
   G --> T["Virtual tracking / paper ledgers"]
+  T --> W["Daily workflow orchestration"]
   T --> H["Walk-forward validation"]
   X["ETF forward dry-run"] --> J["Benchmark / control group"]
   K["Future adapters"] -. "research only" .-> F
@@ -137,7 +140,13 @@ The tracking set includes `tracking_config`, long/mid/short paper ledgers, long/
 
 Paper ledgers are virtual-only and research-only. They are not real-money ledgers. Virtual holdings are not real holdings. Virtual returns are not actual returns. The stage does not regenerate scores, candidates, or portfolios, does not generate buy/sell signals or order previews, does not connect a broker, does not place real orders, does not call `run-daily`, and does not claim profit or live-trading readiness.
 
-v0.7.9 consumes the audited v0.7.8 tracking package for daily workflow orchestration.
+## v0.7.9 Daily Workflow Orchestration
+
+v0.7.9 consumes the audited v0.7.2-v0.7.8 A-share research chain and writes orchestration artifacts under `data/equity_workflows/daily/YYYY-MM-DD/`, reports under `outputs/equity_workflows/daily/YYYY-MM-DD/`, and workflow audit output under `data/equity_data_quality/` and `outputs/audit/`.
+
+The orchestration set includes workflow config, preflight, stage manifest, run manifest, source trace, boundary check, summary, owner-facing report, stage report, source trace report, and audit. It supports `validate_existing_artifacts`, `build_from_existing_data`, and `full_research_run`. Public data refresh is disabled by default and only allowed when explicitly enabled.
+
+v0.7.9 is an orchestration layer only. It does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and does not certify live trading readiness. Benchmark data and relative performance comparison are deferred to v0.7.10.
 
 ## Boundary
 - No real trading.
@@ -156,4 +165,5 @@ v0.7.9 consumes the audited v0.7.8 tracking package for daily workflow orchestra
 - v0.7.6 virtual portfolios are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - v0.7.7 briefings are not trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - v0.7.8 paper ledgers are not real-money ledgers; virtual holdings and virtual returns are research-only and not real account state.
+- v0.7.9 workflow artifacts are orchestration-only and remain outside real trading, broker, order, and live-readiness surfaces.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

@@ -38,10 +38,10 @@
   "version_checks": {
     "version_file": "VERSION",
     "version_file_readable": true,
-    "version_file_content": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
-    "version_file_semver": "0.7.8",
-    "root_import_version": "0.7.8",
-    "src_import_version": "0.7.8",
+    "version_file_content": "v0.7.9-a-share-daily-workflow-orchestration",
+    "version_file_semver": "0.7.9",
+    "root_import_version": "0.7.9",
+    "src_import_version": "0.7.9",
     "root_import_file_readable": true,
     "src_import_file_readable": true,
     "version_consistent": true

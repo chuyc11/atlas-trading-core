@@ -63,3 +63,5 @@ Each record must include:
 - `not_live_trading_ready=true`
 
 Fractional shares are allowed because this is research tracking, not board-lot execution simulation.
+
+v0.7.9 orchestrates this paper-ledger package as an existing research artifact. It does not convert paper ledgers into real-money ledgers, does not call old `run-daily`, does not connect a broker, does not place real orders, does not generate buy/sell signals, and does not generate order previews.

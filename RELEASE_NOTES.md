@@ -1,5 +1,55 @@
 # Release Notes
 
+## v0.7.9-a-share-daily-workflow-orchestration
+
+This release adds the A-share daily research workflow orchestration layer. It strings the existing v0.7.2-v0.7.8 research chain into a repeatable, auditable, fail-closed daily workflow without rewriting upstream business modules.
+
+Includes:
+
+- fixed root import shim version mismatch
+- workflow config
+- workflow preflight
+- workflow stage manifest
+- workflow run manifest
+- workflow source trace
+- workflow boundary check
+- owner-facing Chinese workflow summary
+- workflow audit
+- `validate_existing_artifacts` mode
+- `build_from_existing_data` mode
+- `full_research_run` mode with public data refresh disabled by default
+- CLI commands: `preflight-a-share-daily-workflow`, `run-a-share-daily-research-workflow`, `audit-a-share-daily-research-workflow`, and `run-and-audit-a-share-daily-research-workflow`
+
+Audited result for `as_of_date=2026-06-26` in `validate_existing_artifacts` mode:
+
+- workflow audit overall_passed=true
+- blocking reasons: none
+- warnings: 7, all inherited from known upstream evidence/placeholder warnings
+- stage counts: total=11, passed=11, failed=0, skipped=0, blocked=0, not_run=0
+- candidate counts: long=30, mid=30, short=30, extended=300
+- portfolio NAVs: long=1000000.0, mid=1000000.0, short=1000000.0
+- source trace complete=true
+- upstream audits passed=true
+- build_timestamp_non_strict_idempotency=true
+- benchmark placeholder deferred to v0.7.10
+- recommended next version: `v0.7.10-a-share-benchmark-data-and-performance-comparison`
+
+Boundary:
+
+- workflow orchestration only
+- does not rewrite upstream business modules
+- old run-daily not called
+- official forward dry-run status unchanged
+- day2 not executed
+- no broker connected
+- no real orders placed
+- no buy/sell signals generated
+- no order preview generated
+- not model profit guarantee
+- not live trading ready
+
+Validation: 1092 tests passed, 1 skipped.
+
 ## v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
 
 This release adds research-only A-share virtual portfolio tracking and paper ledgers on top of the v0.7.6 long/mid/short virtual portfolios and the v0.7.7 daily briefing. It builds virtual initial positions, holdings snapshots, NAV, first-day performance, drawdown, exposure, benchmark comparison placeholders, source trace, reports, and a fail-closed audit.
@@ -84,7 +134,7 @@ Boundary:
 - no real orders placed
 - not a model profit guarantee
 - live trading readiness remains false
-- v0.7.9 is the next workflow orchestration stage
+- v0.7.9 implements the workflow orchestration handoff; v0.7.10 is the next benchmark data and performance comparison stage
 
 Validation: 1075 tests passed, 1 skipped.
 

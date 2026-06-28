@@ -3,7 +3,7 @@
   "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
   "as_of_date": "2026-06-26",
   "mode": "validate_existing_artifacts",
-  "generated_at": "2026-06-28T08:45:13.322432Z",
+  "generated_at": "2026-06-28T09:04:59.836758Z",
   "tradable_universe_source": {
     "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
     "exists": true,
@@ -79,12 +79,12 @@
   "stage_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
     "exists": true,
-    "sha256": "9f594b6bcf888cb0de2dfab9b80d65ad694dcb1f8871a34eed7a8cdd53e0583f"
+    "sha256": "e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a"
   },
   "run_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
     "exists": true,
-    "sha256": "ab07627d1a5818f73a8a34ed49733788880ddcca4ac85b1e5e30415a8d0330e9"
+    "sha256": "01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51"
   },
   "stage_commands": [
     {
@@ -243,17 +243,17 @@
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
       "exists": true,
-      "sha256": "bc577a80505a5faffaf5c2360dda309884c41617c709e29dc0466de926c43816"
+      "sha256": "0a3b090d964c0e975ce196deb5e31816b353a8f78228e471392cd5295f01d4d6"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
       "exists": true,
-      "sha256": "9f594b6bcf888cb0de2dfab9b80d65ad694dcb1f8871a34eed7a8cdd53e0583f"
+      "sha256": "e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
       "exists": true,
-      "sha256": "ab07627d1a5818f73a8a34ed49733788880ddcca4ac85b1e5e30415a8d0330e9"
+      "sha256": "01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",

@@ -427,6 +427,22 @@ python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --
 
 This v0.7.8 path creates research-only virtual paper ledgers, virtual holdings snapshots, NAV, first-day performance/drawdown, exposure, benchmark comparison placeholders, manifest, source trace, reports, and audit. The paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. It does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
 
+## Run A-share daily workflow orchestration
+
+```bash
+python -m trading_core.cli preflight-a-share-daily-workflow --as-of-date 2026-06-26
+python -m trading_core.cli run-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts
+python -m trading_core.cli audit-a-share-daily-research-workflow --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts
+```
+
+This v0.7.9 path orchestrates the existing v0.7.2-v0.7.8 A-share research chain only. `validate_existing_artifacts` verifies existing artifacts without rebuilding upstream stages. `build_from_existing_data` may rebuild the A-share research chain from existing historical panels. `full_research_run` keeps public data refresh disabled unless `--allow-public-data-refresh` is explicitly passed. The workflow does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and is not live-trading ready. Benchmark data and relative performance comparison are deferred to v0.7.10.
+
 ## What not to do
 
 * do not run live trading
@@ -489,3 +505,4 @@ This v0.7.8 path creates research-only virtual paper ledgers, virtual holdings s
 * v0.7.6 A-share virtual portfolio construction writes virtual portfolio artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or broker order previews.
 * v0.7.7 A-share daily stock selection briefing writes briefing artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, or order previews.
 * v0.7.8 A-share virtual portfolio tracking writes virtual tracking and paper ledger artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or order previews.
+* v0.7.9 A-share daily workflow orchestration writes workflow artifacts only, does not rewrite upstream modules, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.

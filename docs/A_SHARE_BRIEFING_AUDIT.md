@@ -38,7 +38,7 @@ Passing audit recommends:
 v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
 ```
 
-v0.7.8 implements that recommended virtual tracking handoff. Its own audit recommends `v0.7.9-a-share-daily-workflow-orchestration` only after tracking artifacts pass.
+v0.7.8 implements that recommended virtual tracking handoff. v0.7.9 now implements the daily workflow orchestration around the audited tracking artifacts.
 
 Failing audit recommends:
 

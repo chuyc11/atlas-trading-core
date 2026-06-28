@@ -39,5 +39,5 @@ Passing this audit does not authorize real trading. It only confirms that v0.7.8
 Recommended next version after a passing audit:
 
 ```text
-v0.7.9-a-share-daily-workflow-orchestration
+v0.7.10-a-share-benchmark-data-and-performance-comparison
 ```

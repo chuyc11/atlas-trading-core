@@ -17,6 +17,7 @@ Forbidden actions:
 - LLM trading decision
 - using labels in run-daily
 - treating shadow as active
+- treating A-share workflow orchestration as a broker workflow
 
 Required interpretations:
 
@@ -25,5 +26,7 @@ Required interpretations:
 - Research report is not an admission gate.
 - Historical replay is not forward 30d dry-run.
 - Price-only replay is not full global-briefing replay.
+- A-share daily workflow orchestration is not live trading readiness.
+- A-share daily workflow orchestration is not permission to call old run-daily, execute official forward dry-run day2, connect a broker, place real orders, generate buy/sell signals, or generate order previews.
 
 Operational rule: if an artifact says `watch`, `shadow`, `promising_shadow`, or `active_small_candidate`, it is still not permission to trade live or change strategy state.

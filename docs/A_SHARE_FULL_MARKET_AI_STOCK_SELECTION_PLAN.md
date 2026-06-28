@@ -60,7 +60,12 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - result as of 2026-06-26: 30 long holdings, 30 mid holdings, 20 short holdings, all NAVs 1000000.0, all weight sums approximately 1.0, tracking audit passed, recommended next version `v0.7.9-a-share-daily-workflow-orchestration`
   - constraints: paper ledger is not a real-money ledger, virtual holdings are not real holdings, virtual returns are not actual returns, no buy/sell signals, no order previews, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness
 - v0.7.9 daily workflow orchestration
-  - output: daily workflow orchestration around data refresh, briefing, virtual tracking, audits, and owner-facing reports
+  - implemented orchestration-only outputs: workflow config, preflight, stage manifest, run manifest, source trace, boundary check, owner summary, reports, and audit
+  - result as of 2026-06-26: validate_existing_artifacts mode passed, 11/11 stages passed, source trace complete, upstream audits passed, workflow audit passed, recommended next version `v0.7.10-a-share-benchmark-data-and-performance-comparison`
+  - boundary: no upstream module rewrite, no old run-daily, no official forward dry-run day2, no broker, no real orders, no buy/sell signals, no order preview, no profit claim, no live-trading readiness
+
+- v0.7.10 benchmark data and performance comparison
+  - planned output: CSI300, CSI500, CSI1000, cash, equal-weight universe benchmark package, relative performance, tracking error, relative drawdown, source trace, and audit
 - v0.8.0 Tonghuashun, miniQMT, and simulated adapter research
   - adapter research only: read-only quote/account sync, simulated adapter experiments, order preview, manual confirmation gate
 - v0.9.0 manual-confirmation trading preparation
@@ -81,10 +86,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_portfolios/`
 - `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_portfolio_tracking/`
+- `src/trading_core/equity_workflows/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
-- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_portfolio_tracking/`, `data/equity_validation/`
-- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_portfolio_tracking/`, `outputs/equity_validation/`
+- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_portfolio_tracking/`, `data/equity_workflows/`, `data/equity_validation/`
+- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_portfolio_tracking/`, `outputs/equity_workflows/`, `outputs/equity_validation/`
 
 ## Required Boundary
 
@@ -103,3 +109,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - v0.7.6 virtual portfolios are research-only virtual tracking inputs; they are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit claims.
 - v0.7.7 daily briefing is an information summary only; it does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, or profit claims.
 - v0.7.8 virtual tracking and paper ledger artifacts are research-only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, and no broker/order/live-trading claim is generated.
+- v0.7.9 workflow orchestration artifacts are research-only; they orchestrate v0.7.2-v0.7.8 stages and do not rewrite business modules, call old `run-daily`, execute day2, connect a broker, place real orders, generate buy/sell signals, generate order previews, claim profitability, or certify live readiness.
