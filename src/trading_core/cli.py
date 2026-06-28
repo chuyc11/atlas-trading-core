@@ -55,6 +55,9 @@ from trading_core.equity_portfolios.virtual_portfolio_builder import build_a_sha
 from trading_core.equity_briefings.briefing_config import DEFAULT_AS_OF_DATE as DEFAULT_BRIEFING_AS_OF_DATE
 from trading_core.equity_briefings.briefing_audit import audit_a_share_daily_stock_selection_briefing
 from trading_core.equity_briefings.daily_stock_selection_briefing import build_a_share_daily_stock_selection_briefing
+from trading_core.equity_portfolio_tracking.tracking_audit import audit_a_share_virtual_portfolio_tracking
+from trading_core.equity_portfolio_tracking.tracking_builder import build_a_share_virtual_portfolio_tracking
+from trading_core.equity_portfolio_tracking.tracking_config import DEFAULT_AS_OF_DATE as DEFAULT_TRACKING_AS_OF_DATE
 from trading_core.equity_selection.candidate_config import DEFAULT_AS_OF_DATE as DEFAULT_CANDIDATE_AS_OF_DATE
 from trading_core.equity_selection.candidate_generation_audit import audit_a_share_candidates
 from trading_core.equity_selection.candidate_generator import generate_a_share_candidates
@@ -876,6 +879,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_daily_stock_selection_briefing_arguments(briefing_audit)
     briefing_all = subparsers.add_parser("build-and-audit-a-share-daily-stock-selection-briefing")
     _add_a_share_daily_stock_selection_briefing_arguments(briefing_all)
+    tracking_build = subparsers.add_parser("build-a-share-virtual-portfolio-tracking")
+    _add_a_share_virtual_portfolio_tracking_arguments(tracking_build)
+    tracking_audit = subparsers.add_parser("audit-a-share-virtual-portfolio-tracking")
+    _add_a_share_virtual_portfolio_tracking_arguments(tracking_audit)
+    tracking_all = subparsers.add_parser("build-and-audit-a-share-virtual-portfolio-tracking")
+    _add_a_share_virtual_portfolio_tracking_arguments(tracking_all)
 
     return parser
 
@@ -936,6 +945,10 @@ def _add_a_share_virtual_portfolio_arguments(parser: argparse.ArgumentParser) ->
 def _add_a_share_daily_stock_selection_briefing_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_BRIEFING_AS_OF_DATE)
     parser.add_argument("--allow-latest-artifact-date", nargs="?", const=True, default=False, type=parse_bool)
+
+
+def _add_a_share_virtual_portfolio_tracking_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_TRACKING_AS_OF_DATE)
 
 
 def _resolve_cli_path(value: str, paths) -> Path:
@@ -2540,6 +2553,63 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "required_sections": audit_result["required_sections"],
                 "source_trace_complete": audit_result["checks"]["source_trace_complete"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-virtual-portfolio-tracking":
+        result = build_a_share_virtual_portfolio_tracking(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        counts = result["tracking_summary"]["counts"]
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "as_of_date": result["as_of_date"],
+                "counts": counts,
+                "first_day_initialization": result["tracking_summary"]["first_day_initialization"],
+                "performance_not_yet_observed": result["tracking_summary"]["performance_not_yet_observed"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if all(counts.get(f"{key}_holdings", 0) > 0 for key in ["long", "mid", "short"]) else 1
+    if args.command == "audit-a-share-virtual-portfolio-tracking":
+        result = audit_a_share_virtual_portfolio_tracking(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "counts": result["counts"],
+                "nav_checks": result["nav_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-virtual-portfolio-tracking":
+        build_result = build_a_share_virtual_portfolio_tracking(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        audit_result = audit_a_share_virtual_portfolio_tracking(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "counts": audit_result["counts"],
+                "nav_checks": audit_result["nav_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

@@ -1,0 +1,109 @@
+{
+  "trace_id": "A-SHARE-VIRTUAL-PORTFOLIO-TRACKING-SOURCE-TRACE",
+  "target_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
+  "as_of_date": "2026-06-26",
+  "requested_as_of_date": "2026-06-26",
+  "generated_at": "2026-06-28T04:09:44.853348Z",
+  "virtual_portfolio_source_paths": {
+    "long": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+    "mid": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+    "short": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json"
+  },
+  "candidate_manifest_source_path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+  "score_manifest_source_path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+  "briefing_manifest_source_path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
+  "price_source_path": {
+    "daily_price_history": "data/equity_market/history/daily_price_history_panel.parquet",
+    "adjusted_price_history": "data/equity_market/history/adjusted_price_history_panel.parquet"
+  },
+  "valuation_price_policy": "adjusted_close_then_close",
+  "benchmark_source_path": null,
+  "benchmark_gap_reason": "local benchmark price series not available for CSI300/CSI500/CSI1000 in v0.7.8 inputs",
+  "audit_source_path": "data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json",
+  "tracking_artifact_paths": {
+    "tracking_config": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_config.json",
+    "long_paper_ledger": "data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json",
+    "mid_paper_ledger": "data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json",
+    "short_paper_ledger": "data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json",
+    "long_holdings_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/long_holdings_snapshot.json",
+    "mid_holdings_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/mid_holdings_snapshot.json",
+    "short_holdings_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/short_holdings_snapshot.json",
+    "portfolio_nav_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_nav_snapshot.json",
+    "portfolio_performance_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_performance_snapshot.json",
+    "portfolio_drawdown_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_drawdown_snapshot.json",
+    "portfolio_exposure_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_exposure_snapshot.json",
+    "benchmark_comparison_snapshot": "data/equity_portfolio_tracking/daily/2026-06-26/benchmark_comparison_snapshot.json",
+    "tracking_manifest": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
+    "tracking_source_trace": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json",
+    "tracking_summary": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
+    "tracking_summary_report": "outputs/equity_portfolio_tracking/daily/2026-06-26/VIRTUAL_PORTFOLIO_TRACKING_SUMMARY.md",
+    "long_tracking_report": "outputs/equity_portfolio_tracking/daily/2026-06-26/LONG_PORTFOLIO_TRACKING.md",
+    "mid_tracking_report": "outputs/equity_portfolio_tracking/daily/2026-06-26/MID_PORTFOLIO_TRACKING.md",
+    "short_tracking_report": "outputs/equity_portfolio_tracking/daily/2026-06-26/SHORT_PORTFOLIO_TRACKING.md",
+    "benchmark_comparison_report": "outputs/equity_portfolio_tracking/daily/2026-06-26/BENCHMARK_COMPARISON.md"
+  },
+  "sources": [
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "a18fee694e7c4349f4b84a97dd19f5e2f98157fa0482a60215fc1c45a0d9e525"
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "02425e6ff839ac82e72b15cf55bab5c198f292a34c47ecebb0647d8494bfe0d3"
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "c7827ecfd54f5f121d84be5f522998ad7be9eed7033e1bca48745964f817c59b"
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+      "exists": true,
+      "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7"
+    },
+    {
+      "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+      "exists": true,
+      "sha256": "cfd5a577232117d1771aa509d60c9d5d2ad28205deac9c09c6d193b1c5ac9810"
+    },
+    {
+      "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
+      "exists": true,
+      "sha256": "73ef565ec9068df786fd5bf7a197f750ee62b21cfad1a0f941b3e735c3116a0a"
+    },
+    {
+      "path": "data/equity_market/history/daily_price_history_panel.parquet",
+      "exists": true,
+      "sha256": "6a74fb8fac7cac58c9d8b85c1ad99c37620dd93ca2d2cfec692f488cbb49d807"
+    },
+    {
+      "path": "data/equity_market/history/adjusted_price_history_panel.parquet",
+      "exists": true,
+      "sha256": "908a9434b92bb9100dec5623f9998d4ffb442aed67e92be67dab3268961297fe"
+    }
+  ],
+  "source_trace_complete": true,
+  "virtual_only": true,
+  "research_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "boundary": {
+    "virtual_tracking_only": true,
+    "paper_ledger_generated": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}
