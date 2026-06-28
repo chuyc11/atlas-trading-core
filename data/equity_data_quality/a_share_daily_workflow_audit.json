@@ -1,0 +1,171 @@
+{
+  "audit_id": "A-SHARE-DAILY-WORKFLOW-AUDIT",
+  "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
+  "as_of_date": "2026-06-26",
+  "mode": "validate_existing_artifacts",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "fundamental score confidence is partial",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+  ],
+  "stage_counts": {
+    "total": 11,
+    "passed": 11,
+    "failed": 0,
+    "skipped": 0,
+    "blocked": 0,
+    "not_run": 0
+  },
+  "required_stage_status": {
+    "stage_00_preflight": "passed",
+    "stage_01_data_readiness": "passed",
+    "stage_02_tradable_universe": "passed",
+    "stage_03_feature_engineering": "passed",
+    "stage_04_scoring": "passed",
+    "stage_05_candidate_generation": "passed",
+    "stage_06_virtual_portfolio_construction": "passed",
+    "stage_07_daily_briefing": "passed",
+    "stage_08_virtual_portfolio_tracking": "passed",
+    "stage_09_workflow_audit": "passed",
+    "stage_10_owner_summary": "passed"
+  },
+  "version_checks": {
+    "version_file": "VERSION",
+    "version_file_readable": true,
+    "version_file_content": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
+    "version_file_semver": "0.7.8",
+    "root_import_version": "0.7.8",
+    "src_import_version": "0.7.8",
+    "root_import_file_readable": true,
+    "src_import_file_readable": true,
+    "version_consistent": true
+  },
+  "checks": {
+    "workflow_config_exists": true,
+    "workflow_preflight_exists": true,
+    "workflow_run_manifest_exists": true,
+    "workflow_stage_manifest_exists": true,
+    "workflow_source_trace_exists": true,
+    "workflow_boundary_check_exists": true,
+    "workflow_summary_exists": true,
+    "workflow_summary_report_exists": true,
+    "all_required_stages_present": true,
+    "stage_ordering_correct": true,
+    "required_stages_passed": true,
+    "source_trace_complete": true,
+    "source_trace_has_no_forbidden_paths": true,
+    "input_artifacts_exist": true,
+    "upstream_audits_passed": true,
+    "root_import_shim_version_consistent": true,
+    "preflight_passed": true,
+    "boundary_check_passed": true,
+    "summary_passed": true,
+    "no_old_run_daily_called": true,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_not_executed": true,
+    "broker_not_connected": true,
+    "real_orders_not_placed": true,
+    "buy_sell_signals_not_generated": true,
+    "order_preview_not_generated": true,
+    "no_order_preview_artifact_generated": true,
+    "no_buy_sell_signal_artifacts_generated": true,
+    "no_broker_order_generated": true,
+    "no_real_order_generated": true,
+    "no_forbidden_positive_wording": true,
+    "model_profit_not_guaranteed": true,
+    "live_trading_not_ready": true,
+    "build_timestamp_non_strict_idempotency_recorded": true
+  },
+  "upstream_audit_status": {
+    "tradable_universe": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_tradable_universe_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": [
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable"
+      ]
+    },
+    "features": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_multi_horizon_feature_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": []
+    },
+    "scores": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_scoring_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": [
+        "fundamental score confidence is partial"
+      ]
+    },
+    "candidates": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_candidate_generation_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": []
+    },
+    "virtual_portfolios": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_virtual_portfolio_construction_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": [
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ]
+    },
+    "briefing": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_daily_stock_selection_briefing_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": [
+        "fundamental score confidence is partial",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ]
+    },
+    "tracking": {
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_virtual_portfolio_tracking_audit.json",
+      "exists": true,
+      "overall_passed": true,
+      "warnings": [
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders"
+      ]
+    }
+  },
+  "source_trace_complete": true,
+  "source_trace_forbidden_path_hits": [],
+  "forbidden_wording_positive_hits": [],
+  "build_timestamp_non_strict_idempotency": true,
+  "benchmark_placeholder_deferred_to_v0_7_10": true,
+  "boundary": {
+    "workflow_orchestration_only": true,
+    "call_old_run_daily": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "recommended_next_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison"
+}

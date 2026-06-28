@@ -1,0 +1,136 @@
+{
+  "preflight_id": "A-SHARE-DAILY-WORKFLOW-PREFLIGHT",
+  "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
+  "as_of_date": "2026-06-26",
+  "mode": "validate_existing_artifacts",
+  "generated_at": "2026-06-28T08:45:13.313185Z",
+  "git_status_clean": true,
+  "git_status_entries": [],
+  "version_file": "VERSION",
+  "version_file_content": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
+  "root_import_version": "0.7.8",
+  "src_import_version": "0.7.8",
+  "version_file_semver": "0.7.8",
+  "version_consistent": true,
+  "required_artifacts_present": true,
+  "required_upstream_audits_present": true,
+  "required_cli_commands_present": true,
+  "old_run_daily_disabled": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "safety_boundary_docs_exist": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "required_artifacts": {
+    "history_dir": {
+      "path": "data/equity_market/history",
+      "exists": true,
+      "readable": true
+    },
+    "tradable_universe": {
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe.json",
+      "exists": true,
+      "readable": true
+    },
+    "tradable_universe_manifest": {
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "feature_manifest": {
+      "path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "score_manifest": {
+      "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "candidate_manifest": {
+      "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "portfolio_manifest": {
+      "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "briefing_manifest": {
+      "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
+      "exists": true,
+      "readable": true
+    },
+    "tracking_manifest": {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
+      "exists": true,
+      "readable": true
+    }
+  },
+  "required_upstream_audits": {
+    "tradable_universe": {
+      "path": "data/equity_data_quality/a_share_tradable_universe_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "features": {
+      "path": "data/equity_data_quality/a_share_multi_horizon_feature_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "scores": {
+      "path": "data/equity_data_quality/a_share_scoring_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "candidates": {
+      "path": "data/equity_data_quality/a_share_candidate_generation_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "virtual_portfolios": {
+      "path": "data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "briefing": {
+      "path": "data/equity_data_quality/a_share_daily_stock_selection_briefing_audit.json",
+      "exists": true,
+      "readable": true
+    },
+    "tracking": {
+      "path": "data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json",
+      "exists": true,
+      "readable": true
+    }
+  },
+  "required_cli_commands": {
+    "preflight-a-share-daily-workflow": true,
+    "run-a-share-daily-research-workflow": true,
+    "audit-a-share-daily-research-workflow": true,
+    "run-and-audit-a-share-daily-research-workflow": true
+  },
+  "build_timestamp_non_strict_idempotency": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "boundary": {
+    "workflow_orchestration_only": true,
+    "call_old_run_daily": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}
