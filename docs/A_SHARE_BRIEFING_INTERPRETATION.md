@@ -23,4 +23,6 @@ They summarize existing candidates, virtual portfolios, industry exposure, risk/
 
 ## Next Stage
 
-v0.7.8 should add virtual portfolio tracking and a paper ledger. That stage should track daily price moves, virtual returns, drawdown, industry exposure drift, and benchmark comparison before any stronger interpretation is allowed.
+v0.7.8 adds virtual portfolio tracking and a paper ledger. That stage tracks virtual holdings, NAV, first-day virtual returns, drawdown, industry exposure, score exposure, and benchmark comparison placeholders.
+
+The v0.7.8 paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. The next deferred stage is v0.7.9 daily workflow orchestration.

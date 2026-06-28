@@ -15,6 +15,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - candidate pools and watchlists
 - long/mid/short virtual portfolios
 - daily Chinese owner briefing
+- virtual portfolio tracking and paper ledgers
 - walk-forward validation
 
 ## Modules
@@ -30,6 +31,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - `src/trading_core/equity_selection/`
 - `src/trading_core/equity_portfolios/`
 - `src/trading_core/equity_briefings/`
+- `src/trading_core/equity_portfolio_tracking/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
 
@@ -49,7 +51,8 @@ flowchart TD
   D --> E["Candidates / watchlist / risk alerts"]
   E --> F["Long / Mid / Short virtual portfolios"]
   F --> G["Daily Chinese owner briefing"]
-  G --> H["Walk-forward validation"]
+  G --> T["Virtual tracking / paper ledgers"]
+  T --> H["Walk-forward validation"]
   X["ETF forward dry-run"] --> J["Benchmark / control group"]
   K["Future adapters"] -. "research only" .-> F
 ```
@@ -126,7 +129,15 @@ The briefing includes executive summary, data coverage, long/mid/short candidate
 
 The briefing is information-only. It does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker instructions, real orders, profit guarantees, live readiness, `run-daily`, or official forward dry-run day2 artifacts.
 
-v0.7.8 consumes the briefing and virtual portfolio artifacts for virtual portfolio tracking and paper ledger work.
+## v0.7.8 Virtual Portfolio Tracking And Paper Ledger
+
+v0.7.8 consumes existing v0.7.6 virtual portfolios, v0.7.7 briefing manifests, v0.7.4 score snapshots, historical price panels, and the trading calendar. It writes tracking artifacts under `data/equity_portfolio_tracking/daily/YYYY-MM-DD/`, reports under `outputs/equity_portfolio_tracking/daily/YYYY-MM-DD/`, and a tracking audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The tracking set includes `tracking_config`, long/mid/short paper ledgers, long/mid/short holdings snapshots, NAV, performance, drawdown, exposure, benchmark comparison, source trace, manifest, summary, and reports. First-day initialization uses adjusted close when available and close as fallback.
+
+Paper ledgers are virtual-only and research-only. They are not real-money ledgers. Virtual holdings are not real holdings. Virtual returns are not actual returns. The stage does not regenerate scores, candidates, or portfolios, does not generate buy/sell signals or order previews, does not connect a broker, does not place real orders, does not call `run-daily`, and does not claim profit or live-trading readiness.
+
+v0.7.9 consumes the audited v0.7.8 tracking package for daily workflow orchestration.
 
 ## Boundary
 - No real trading.
@@ -144,4 +155,5 @@ v0.7.8 consumes the briefing and virtual portfolio artifacts for virtual portfol
 - v0.7.5 candidate pools are not recommendations, buy/sell signals, portfolio allocations, order plans, broker instructions, or profit guarantees.
 - v0.7.6 virtual portfolios are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - v0.7.7 briefings are not trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
+- v0.7.8 paper ledgers are not real-money ledgers; virtual holdings and virtual returns are research-only and not real account state.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

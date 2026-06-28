@@ -1,6 +1,6 @@
 {
   "inventory_id": "CLIINV-20260628-001",
-  "created_at": "2026-06-28T03:23:29.682268Z",
+  "created_at": "2026-06-28T04:20:58.928890Z",
   "commands": [
     {
       "command": "a-share-historical-backfill-plan",
@@ -318,6 +318,31 @@
         "no_scores",
         "no_candidates",
         "no_virtual_portfolio"
+      ]
+    },
+    {
+      "command": "audit-a-share-virtual-portfolio-tracking",
+      "category": "a-share tracking",
+      "purpose": "Audit v0.7.8 virtual tracking ledgers, NAV, exposure, benchmark placeholders, wording, and boundaries",
+      "writes_to": [
+        "data/equity_data_quality",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "audit_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_real_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
       ]
     },
     {
@@ -779,6 +804,33 @@
       ]
     },
     {
+      "command": "build-a-share-virtual-portfolio-tracking",
+      "category": "a-share tracking",
+      "purpose": "Build v0.7.8 research-only virtual portfolio tracking and paper ledgers from existing v0.7.6/v0.7.7 artifacts",
+      "writes_to": [
+        "data/equity_portfolio_tracking/daily/YYYY-MM-DD",
+        "outputs/equity_portfolio_tracking/daily/YYYY-MM-DD"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only",
+        "research_only",
+        "read_existing_artifacts_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_real_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
+      ]
+    },
+    {
       "command": "build-a-share-virtual-portfolios",
       "category": "a-share portfolios",
       "purpose": "Build v0.7.6 long/mid/short research-only virtual portfolios and target weights",
@@ -915,6 +967,35 @@
         "no_candidates",
         "no_watchlist",
         "no_virtual_portfolio"
+      ]
+    },
+    {
+      "command": "build-and-audit-a-share-virtual-portfolio-tracking",
+      "category": "a-share tracking",
+      "purpose": "Build and audit the v0.7.8 A-share virtual portfolio tracking package",
+      "writes_to": [
+        "data/equity_portfolio_tracking/daily/YYYY-MM-DD",
+        "data/equity_data_quality",
+        "outputs/equity_portfolio_tracking/daily/YYYY-MM-DD",
+        "outputs/audit"
+      ],
+      "does_not_write_to": [
+        "orders",
+        "trades",
+        "portfolio",
+        "accounts"
+      ],
+      "safety": [
+        "virtual_only",
+        "research_only",
+        "read_existing_artifacts_only",
+        "not_run_daily",
+        "fail_closed",
+        "no_real_portfolio",
+        "no_buy_sell_signals",
+        "no_order_preview",
+        "no_broker",
+        "no_real_orders"
       ]
     },
     {

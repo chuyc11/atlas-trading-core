@@ -181,7 +181,7 @@ Equivalent one-command path:
 python -m trading_core.cli build-and-audit-a-share-daily-stock-selection-briefing --as-of-date 2026-06-26
 ```
 
-This v0.7.7 path consumes existing feature, score, candidate, virtual portfolio, exposure, risk/liquidity, and audit artifacts. It writes daily Chinese briefing, source trace, manifest, boundary check, and briefing audit artifacts only. It does not regenerate scores, candidates, or virtual portfolios; it does not generate buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Virtual portfolio tracking and paper ledger work is deferred to v0.7.8.
+This v0.7.7 path consumes existing feature, score, candidate, virtual portfolio, exposure, risk/liquidity, and audit artifacts. It writes daily Chinese briefing, source trace, manifest, boundary check, and briefing audit artifacts only. It does not regenerate scores, candidates, or virtual portfolios; it does not generate buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live readiness, or official forward dry-run day2 artifacts. Virtual portfolio tracking and paper ledger work is implemented in v0.7.8.
 
 ## Run forward dry-run day1 owner report pack
 
@@ -412,6 +412,21 @@ python -m trading_core.cli reclassify-day1-continuation-artifacts-v0631
 
 This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 preflight. It keeps `day2_executed=false`, `day3_executed=false`, and `run_daily_called=false`. It does not write day_002 artifacts, does not write the main ledger, and does not certify strategy effectiveness, full forward dry-run validation, or live trading readiness.
 
+## Run A-share virtual portfolio tracking
+
+```bash
+python -m trading_core.cli build-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+```
+
+This v0.7.8 path creates research-only virtual paper ledgers, virtual holdings snapshots, NAV, first-day performance/drawdown, exposure, benchmark comparison placeholders, manifest, source trace, reports, and audit. The paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. It does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
+
 ## What not to do
 
 * do not run live trading
@@ -447,6 +462,7 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * do not treat v0.7.5 candidates or watch pools as investment advice, buy/sell signals, portfolio weights, order instructions, broker readiness, profit guarantees, or live trading readiness
 * do not treat v0.7.6 virtual portfolios or target weights as real portfolios, buy/sell signals, broker order previews, real-account rebalance instructions, profit guarantees, or live trading readiness
 * do not treat v0.7.7 daily briefings as trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker readiness, profit guarantees, or live trading readiness
+* do not treat v0.7.8 paper ledgers as real-money ledgers, virtual holdings as real holdings, or virtual returns as actual returns
 
 ## Boundary
 
@@ -472,3 +488,4 @@ This v0.6.3.1 path resolves the continuation artifact gap exposed by the v0.6.4 
 * v0.7.5 A-share candidate generation writes candidate and watch-pool artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate virtual portfolios, buy/sell signals, or order previews.
 * v0.7.6 A-share virtual portfolio construction writes virtual portfolio artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or broker order previews.
 * v0.7.7 A-share daily stock selection briefing writes briefing artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, or order previews.
+* v0.7.8 A-share virtual portfolio tracking writes virtual tracking and paper ledger artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or order previews.

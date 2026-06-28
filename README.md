@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.7-a-share-daily-stock-selection-briefing
+v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
 
 ## Completed milestones
 
@@ -56,6 +56,7 @@ v0.7.7-a-share-daily-stock-selection-briefing
 - v0.7.5 A-share candidate generation system
 - v0.7.6 A-share virtual portfolio construction
 - v0.7.7 A-share daily stock selection briefing
+- v0.7.8 A-share virtual portfolio tracking and paper ledger
 
 ## Known limitations
 
@@ -93,6 +94,7 @@ v0.7.7-a-share-daily-stock-selection-briefing
 - v0.7.5 feeds v0.7.6 virtual portfolio construction and v0.7.7 daily owner briefing
 - v0.7.6 generates research-only virtual portfolios and virtual target weights only; virtual portfolios are not real portfolios, target weights are not order instructions, no broker is connected, no real orders are placed, and no profit guarantee or live-trading readiness is claimed
 - v0.7.7 generates a daily Chinese stock selection research briefing from existing artifacts only; it does not regenerate scores, candidates, or virtual portfolios, and it does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, or live-trading readiness
+- v0.7.8 generates research-only virtual portfolio tracking and paper ledgers only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, no broker is connected, no real orders are placed, and v0.7.9 is the next daily workflow orchestration stage
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -222,7 +224,22 @@ Equivalent one-command path:
 python -m trading_core.cli build-and-audit-a-share-daily-stock-selection-briefing --as-of-date 2026-06-26
 ```
 
-The v0.7.7 output is a Chinese research briefing for the project owner. It summarizes existing long/mid/short candidates, multi-horizon candidates, risk-downgraded candidates, virtual portfolios, industry exposure, risk/liquidity status, and audit state. It does not regenerate scores, candidates, or virtual portfolios. It is not investment advice, not a buy/sell signal, not an order preview, not a broker instruction, not a real-account action, not a profit guarantee, and not live-trading readiness. Virtual portfolio tracking and the paper ledger are deferred to v0.7.8.
+The v0.7.7 output is a Chinese research briefing for the project owner. It summarizes existing long/mid/short candidates, multi-horizon candidates, risk-downgraded candidates, virtual portfolios, industry exposure, risk/liquidity status, and audit state. It does not regenerate scores, candidates, or virtual portfolios. It is not investment advice, not a buy/sell signal, not an order preview, not a broker instruction, not a real-account action, not a profit guarantee, and not live-trading readiness.
+
+Run v0.7.8 A-share virtual portfolio tracking and paper ledger:
+
+```powershell
+python -m trading_core.cli build-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26
+```
+
+The v0.7.8 output is a research-only virtual tracking package for the existing long/mid/short virtual portfolios. It creates virtual paper ledgers, holdings snapshots, NAV, first-day return/drawdown snapshots, exposure summaries, benchmark placeholders, reports, manifest, source trace, and audit. The paper ledger is not a real-money ledger. Virtual holdings are not real holdings. Virtual returns are not actual returns. It does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, live-trading readiness, `run-daily`, or official forward dry-run day2 artifacts. Daily workflow orchestration is deferred to v0.7.9.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -497,3 +514,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.5 writes A-share candidate and watch-pool artifacts only under equity selection paths; it does not generate virtual portfolios, buy/sell signals, order previews, broker calls, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.6 writes A-share virtual portfolio artifacts only under equity portfolio paths; it does not generate real portfolios, buy/sell signals, broker order previews, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.7 writes A-share daily briefing artifacts only under equity briefing paths; it reads existing artifacts only and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
+- v0.7.8 writes A-share virtual tracking artifacts only under equity portfolio tracking paths and its audit under equity data quality/audit paths; it does not write main orders/trades/accounts, does not generate real portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts

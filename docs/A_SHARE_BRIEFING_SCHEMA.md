@@ -66,3 +66,5 @@ Target weights are research tracking weights only. They are not real-account ins
 ```
 
 Briefing schemas describe information summaries only. They are not trading advice, not score-generation contracts, not order contracts, and not broker contracts.
+
+v0.7.8 tracking consumes the briefing manifest as an input source trace, but it does not change the v0.7.7 briefing schema. Paper ledger and holdings schemas are documented separately in `docs/A_SHARE_PAPER_LEDGER_SCHEMA.md` and `docs/A_SHARE_VIRTUAL_PORTFOLIO_TRACKING.md`.

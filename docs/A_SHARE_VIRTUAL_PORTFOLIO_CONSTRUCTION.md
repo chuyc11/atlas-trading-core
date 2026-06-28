@@ -107,4 +107,4 @@ These remain forbidden:
 - live-trading readiness claims
 - model profit guarantee claims
 
-Daily AI stock selection briefing is handled by v0.7.7. Virtual portfolio tracking and paper ledger work is deferred to v0.7.8.
+Daily AI stock selection briefing is handled by v0.7.7. Virtual portfolio tracking and paper ledger work is implemented in v0.7.8.

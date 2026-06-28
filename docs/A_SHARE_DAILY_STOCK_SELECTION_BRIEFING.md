@@ -58,4 +58,4 @@ The builder reads existing artifacts only. It does not regenerate scores, candid
 
 The briefing is not trading advice. It does not generate new scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, profit claims, live-trading readiness, `run-daily`, or official forward dry-run day2 artifacts.
 
-Virtual portfolio tracking and the paper ledger are deferred to v0.7.8.
+Virtual portfolio tracking and the paper ledger are implemented in v0.7.8. The briefing remains information-only; tracking outputs are separate virtual-only artifacts under `data/equity_portfolio_tracking/` and `outputs/equity_portfolio_tracking/`.

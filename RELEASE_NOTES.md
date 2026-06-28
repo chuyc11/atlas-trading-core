@@ -1,5 +1,93 @@
 # Release Notes
 
+## v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
+
+This release adds research-only A-share virtual portfolio tracking and paper ledgers on top of the v0.7.6 long/mid/short virtual portfolios and the v0.7.7 daily briefing. It builds virtual initial positions, holdings snapshots, NAV, first-day performance, drawdown, exposure, benchmark comparison placeholders, source trace, reports, and a fail-closed audit.
+
+Includes:
+
+- virtual portfolio tracking config
+- long/mid/short paper ledgers
+- long/mid/short holdings snapshots
+- NAV snapshot
+- performance snapshot
+- drawdown snapshot
+- exposure snapshot
+- benchmark comparison snapshot
+- tracking manifest and source trace
+- virtual portfolio tracking audit
+- CLI commands: `build-a-share-virtual-portfolio-tracking`, `audit-a-share-virtual-portfolio-tracking`, and `build-and-audit-a-share-virtual-portfolio-tracking`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- tracking audit overall_passed=true
+- blocking reasons: none
+- warnings: 1, CSI300/CSI500/CSI1000 benchmark price series unavailable and preserved as placeholders
+- long holdings / ledger records: 30 / 30
+- mid holdings / ledger records: 30 / 30
+- short holdings / ledger records: 20 / 20
+- long NAV / weight sum: 1000000.0 / 1.0
+- mid NAV / weight sum: 1000000.0 / 1.0
+- short NAV / weight sum: 1000000.0 / 1.0
+- first_day_initialization=true
+- performance_not_yet_observed=true
+- paper_ledger_generated=true
+- real_portfolio_generated=false
+- buy_sell_signals_generated=false
+- order_preview_generated=false
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not model profit guarantee
+- recommended next version: `v0.7.9-a-share-daily-workflow-orchestration`
+
+Primary artifacts:
+
+- `data/equity_portfolio_tracking/daily/2026-06-26/tracking_config.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/long_holdings_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/mid_holdings_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/short_holdings_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/portfolio_nav_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/portfolio_performance_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/portfolio_drawdown_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/portfolio_exposure_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/benchmark_comparison_snapshot.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json`
+- `data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json`
+- `outputs/equity_portfolio_tracking/daily/2026-06-26/VIRTUAL_PORTFOLIO_TRACKING_SUMMARY.md`
+- `outputs/equity_portfolio_tracking/daily/2026-06-26/LONG_PORTFOLIO_TRACKING.md`
+- `outputs/equity_portfolio_tracking/daily/2026-06-26/MID_PORTFOLIO_TRACKING.md`
+- `outputs/equity_portfolio_tracking/daily/2026-06-26/SHORT_PORTFOLIO_TRACKING.md`
+- `outputs/equity_portfolio_tracking/daily/2026-06-26/BENCHMARK_COMPARISON.md`
+- `data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json`
+- `outputs/audit/A_SHARE_VIRTUAL_PORTFOLIO_TRACKING_AUDIT.md`
+
+Boundary:
+
+- paper ledger is virtual-only and research-only
+- paper ledger is not a real-money ledger
+- virtual holdings are not real holdings
+- virtual returns are not actual returns
+- no real portfolio generated
+- no buy/sell signals generated
+- no order preview generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not a model profit guarantee
+- live trading readiness remains false
+- v0.7.9 is the next workflow orchestration stage
+
+Validation: 1075 tests passed, 1 skipped.
+
 ## v0.7.7-a-share-daily-stock-selection-briefing
 
 This release adds the daily Chinese A-share stock selection research briefing on top of the v0.7.6 virtual portfolio package. The briefing reads existing feature, score, candidate, virtual portfolio, exposure, risk/liquidity, and audit artifacts only. It does not regenerate scores, candidates, or virtual portfolios. It does not generate buy/sell signals, order previews, broker artifacts, real orders, profit guarantees, or live-trading readiness claims.

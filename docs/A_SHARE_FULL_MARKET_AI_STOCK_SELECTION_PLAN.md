@@ -56,9 +56,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - result as of 2026-06-26: all required sections present, source trace complete, briefing audit passed, recommended next version `v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger`
   - constraints: reads existing artifacts only, no score regeneration, no candidate regeneration, no virtual portfolio regeneration, no buy/sell signals, no order previews, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness
 - v0.7.8 virtual portfolio tracking and paper ledger
-  - tracks daily price moves, virtual portfolio returns, drawdown, industry exposure drift, and benchmark comparison without real orders
-- v0.7.9 30-day virtual forward tracking
-  - output: daily briefings plus `OWNER_30DAY_STOCK_SELECTION_BRIEFING.md`
+  - implemented virtual-only outputs: tracking config, long/mid/short paper ledgers, holdings snapshots, NAV, performance, drawdown, exposure, benchmark comparison, manifest, source trace, reports, and audit
+  - result as of 2026-06-26: 30 long holdings, 30 mid holdings, 20 short holdings, all NAVs 1000000.0, all weight sums approximately 1.0, tracking audit passed, recommended next version `v0.7.9-a-share-daily-workflow-orchestration`
+  - constraints: paper ledger is not a real-money ledger, virtual holdings are not real holdings, virtual returns are not actual returns, no buy/sell signals, no order previews, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness
+- v0.7.9 daily workflow orchestration
+  - output: daily workflow orchestration around data refresh, briefing, virtual tracking, audits, and owner-facing reports
 - v0.8.0 Tonghuashun, miniQMT, and simulated adapter research
   - adapter research only: read-only quote/account sync, simulated adapter experiments, order preview, manual confirmation gate
 - v0.9.0 manual-confirmation trading preparation
@@ -78,10 +80,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_scoring/`
 - `src/trading_core/equity_portfolios/`
 - `src/trading_core/equity_briefings/`
+- `src/trading_core/equity_portfolio_tracking/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
-- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_validation/`
-- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_validation/`
+- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_portfolio_tracking/`, `data/equity_validation/`
+- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_portfolio_tracking/`, `outputs/equity_validation/`
 
 ## Required Boundary
 
@@ -99,3 +102,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - v0.7.5 candidates are research inputs only; they are not investment advice, buy/sell signals, portfolio actions, order instructions, broker instructions, real orders, or profit claims.
 - v0.7.6 virtual portfolios are research-only virtual tracking inputs; they are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit claims.
 - v0.7.7 daily briefing is an information summary only; it does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, or profit claims.
+- v0.7.8 virtual tracking and paper ledger artifacts are research-only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, and no broker/order/live-trading claim is generated.
