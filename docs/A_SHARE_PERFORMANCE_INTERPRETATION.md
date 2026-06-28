@@ -22,3 +22,11 @@ Benchmark history can be available while portfolio virtual history remains limit
 ## Do Not Infer
 
 Do not infer a buy/sell decision, order instruction, broker workflow, profit guarantee, or live-trading readiness from v0.7.11 artifacts.
+
+## v0.7.12 Attribution Reading
+
+v0.7.12 explains the current virtual portfolio structure through holding, industry, candidate-source, score-bucket, risk-bucket, liquidity-bucket, benchmark-relative, concentration, and factor exposure diagnostics.
+
+For `2026-06-26`, realized multi-day attribution is still unavailable because the portfolio history is limited. Structural diagnostics are available, but they are not proof of strategy effectiveness and are not trading instructions.
+
+v0.7.12 does not create buy/sell signals, place orders, connect broker, call old `run-daily`, execute official forward dry-run day2, fabricate performance, or claim live trading readiness. v0.8.0 should focus on daily data refresh and provider hardening.

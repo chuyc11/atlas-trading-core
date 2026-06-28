@@ -540,3 +540,20 @@ This v0.7.11 path builds research-only virtual portfolio NAV, return, drawdown, 
 * v0.7.9 A-share daily workflow orchestration writes workflow artifacts only, does not rewrite upstream modules, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
 * v0.7.10 A-share benchmark comparison writes benchmark artifacts only, reads existing workflow/tracking/selection/portfolio/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
 * v0.7.11 A-share multi-day performance tracking writes virtual performance artifacts only, reads existing workflow/tracking/benchmark/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate portfolio history.
+* v0.7.12 A-share performance attribution writes attribution and risk diagnostics artifacts only, reads existing performance/benchmark/tracking/portfolio/candidate/score artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate realized attribution.
+
+## v0.7.12 A-Share Attribution Commands
+
+```powershell
+python -m trading_core.cli build-a-share-performance-attribution --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-performance-attribution --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-performance-attribution --as-of-date 2026-06-26
+```
+
+Modes:
+
+* `current_exposure_diagnostics`
+* `single_day_initialization_attribution`
+* `multi_day_performance_attribution`
+
+`multi_day_performance_attribution` remains insufficient-history until the configured observation window is met. Current outputs are structural diagnostics, not trading instructions.

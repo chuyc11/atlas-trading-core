@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.11-a-share-multi-day-portfolio-performance-tracking
+v0.7.12-a-share-performance-attribution-and-risk-diagnostics
 
 ## Completed milestones
 
@@ -60,6 +60,7 @@ v0.7.11-a-share-multi-day-portfolio-performance-tracking
 - v0.7.9 A-share daily workflow orchestration
 - v0.7.10 A-share benchmark data and performance comparison
 - v0.7.11 A-share multi-day virtual portfolio performance tracking
+- v0.7.12 A-share performance attribution and risk diagnostics
 
 ## Known limitations
 
@@ -101,6 +102,7 @@ v0.7.11-a-share-multi-day-portfolio-performance-tracking
 - v0.7.9 orchestrates the A-share daily research workflow only; it does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, and does not generate order previews
 - v0.7.10 adds CSI300, CSI500, CSI1000, CASH, strict-tradable equal-weight, and candidate-pool equal-weight benchmark comparison; it is research-only, does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and flags limited first-day portfolio history
 - v0.7.11 adds appendable multi-day virtual portfolio performance tracking with NAV, returns, drawdown, benchmark-relative status, holding mark-to-market, limitations, source trace, boundary check, and audit artifacts; it does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not fabricate portfolio history, and distinguishes limited history from observed performance
+- v0.7.12 adds performance attribution and risk diagnostics for existing virtual portfolios; it distinguishes structural diagnostics from realized performance attribution, correctly flags limited history, and does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate performance
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading

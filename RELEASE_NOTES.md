@@ -1,5 +1,59 @@
 # Release Notes
 
+## v0.7.12-a-share-performance-attribution-and-risk-diagnostics
+
+This release adds research-only A-share virtual portfolio performance attribution and risk diagnostics.
+
+Includes:
+
+- attribution config
+- attribution data availability
+- holding contribution snapshot
+- industry contribution snapshot
+- candidate source contribution snapshot
+- score bucket contribution snapshot
+- risk bucket contribution snapshot
+- liquidity bucket contribution snapshot
+- benchmark relative attribution snapshot
+- portfolio concentration diagnostics
+- risk diagnostics
+- liquidity diagnostics
+- industry diagnostics
+- factor exposure snapshot
+- attribution limitations
+- attribution source trace
+- attribution boundary check
+- attribution audit
+- CLI commands: `build-a-share-performance-attribution`, `audit-a-share-performance-attribution`, and `build-and-audit-a-share-performance-attribution`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- attribution audit overall_passed=true
+- blocking reasons: none
+- warnings: 1 limited-history warning
+- mode tested: `current_exposure_diagnostics`
+- current release correctly flags limited performance history
+- structural diagnostics are available
+- realized performance attribution is not fabricated
+- `risk_downgraded_symbols_in_portfolio=[]`
+- `excluded_universe_exposure=0`
+- holding, industry, score bucket, risk bucket, and liquidity bucket weights reconcile
+- recommended next version: `v0.8.0-a-share-daily-data-refresh-and-provider-hardening`
+- validation: 1154 passed, 1 skipped
+
+Boundary:
+
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not fabricate performance
+- does not claim model profit guarantee
+- does not claim live trading readiness
+- attribution is not used as a trade signal
+
 ## v0.7.11-a-share-multi-day-portfolio-performance-tracking
 
 This release adds research-only multi-day virtual portfolio performance tracking for A-share long/mid/short virtual portfolios.

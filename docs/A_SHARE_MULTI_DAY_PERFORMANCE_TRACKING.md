@@ -31,4 +31,4 @@ Modes:
 
 v0.7.11 does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not fabricate portfolio history, and does not claim live trading readiness.
 
-v0.7.12 should add attribution and risk diagnostics.
+v0.7.12 adds attribution and risk diagnostics through `data/equity_attribution/daily/YYYY-MM-DD/` and `outputs/equity_attribution/daily/YYYY-MM-DD/`. It distinguishes structural diagnostics from realized performance attribution, keeps limited history explicit, and does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate performance.

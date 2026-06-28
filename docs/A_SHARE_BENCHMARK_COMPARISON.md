@@ -39,3 +39,9 @@ This stage does not create buy/sell signals, does not generate order previews, d
 ## v0.7.11 Next Stage
 
 v0.7.11 consumes the benchmark NAV/return artifacts and the v0.7.8 virtual tracking artifacts to build portfolio NAV, return, drawdown, benchmark-relative, and holding mark-to-market series. It does not use benchmark history to fabricate portfolio history. Limited portfolio observations remain explicitly flagged until enough virtual tracking days exist.
+
+## v0.7.12 Attribution Stage
+
+v0.7.12 consumes v0.7.10 benchmark artifacts and v0.7.11 performance artifacts to build benchmark-relative structural attribution. CSI index constituent exposure is not fabricated when constituents are unavailable. Equal-weight strict tradable and candidate-pool exposure can be computed from available source records.
+
+This stage remains research-only and virtual-only. It does not create buy/sell signals, generate order previews, connect a broker, place orders, call old `run-daily`, execute official forward dry-run day2, fabricate performance, or claim live trading readiness.

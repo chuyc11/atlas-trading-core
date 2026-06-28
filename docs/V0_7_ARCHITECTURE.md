@@ -188,3 +188,11 @@ v0.7.10 is a benchmark comparison layer only. It does not create buy/sell signal
 Default mode is `current_snapshot`. `append_from_existing_tracking` appends without rewriting prior dates, and `rebuild_virtual_performance_series` requires explicit rebuild authorization. Historical reconstruction must be labeled separately and cannot be described as realized forward performance.
 
 The layer does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate portfolio history. v0.7.12 should explain performance changes through attribution and risk diagnostics.
+
+## v0.7.12 Attribution and Risk Diagnostics Layer
+
+`data/equity_attribution/daily/YYYY-MM-DD/` is the v0.7.12 layer after multi-day performance tracking. It reads existing v0.7.11 performance, v0.7.10 benchmark, v0.7.8 tracking, v0.7.6 portfolio, v0.7.5 candidate, and v0.7.4 score artifacts, then writes virtual-only attribution and risk diagnostics.
+
+The default mode is `current_exposure_diagnostics`. `single_day_initialization_attribution` preserves first-day initialization semantics, and `multi_day_performance_attribution` remains insufficient-history until the minimum observation window is met.
+
+The layer does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate realized performance attribution. v0.8.0 should focus on daily data refresh and provider hardening.

@@ -249,3 +249,11 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | Evolution | `update-rule-memory` | Planned rule memory update | research artifacts | strategy state | research only |
 | Evolution | `update-experiment-queue` | Planned queue update | research artifacts | strategy state | research only |
 | Evolution | `run-evolution` | Planned evolution run | research artifacts | strategy state | no auto promotion |
+
+## v0.7.12 A-Share Attribution Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share attribution | `build-a-share-performance-attribution` | Build virtual portfolio attribution and risk diagnostics | `data/equity_attribution/daily/YYYY-MM-DD`, `outputs/equity_attribution/daily/YYYY-MM-DD` | research-only, virtual-only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
+| A-share attribution | `audit-a-share-performance-attribution` | Audit attribution artifacts, reconciliations, source trace, and boundaries | `data/equity_data_quality/a_share_performance_attribution_audit.json`, `outputs/audit/A_SHARE_PERFORMANCE_ATTRIBUTION_AUDIT.md` | audit only |
+| A-share attribution | `build-and-audit-a-share-performance-attribution` | Build and audit v0.7.12 attribution package | attribution outputs plus audit outputs | fail-closed |
