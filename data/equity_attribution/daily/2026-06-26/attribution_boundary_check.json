@@ -1,0 +1,29 @@
+{
+  "boundary_id": "A-SHARE-PERFORMANCE-ATTRIBUTION-BOUNDARY-CHECK",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "performance_attribution_only": true,
+  "risk_diagnostics_only": true,
+  "research_only": true,
+  "virtual_only": true,
+  "real_portfolio_generated": false,
+  "buy_sell_signals_generated": false,
+  "order_preview_generated": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "run_daily_called": false,
+  "day2_executed": false,
+  "model_profit_guaranteed": false,
+  "live_trading_ready": false,
+  "historical_performance_fabricated": false,
+  "future_data_used": false,
+  "attribution_used_as_trade_signal": false,
+  "official_forward_dry_run_status_unchanged": true,
+  "forbidden_artifacts_present": [],
+  "forbidden_wording_positive_hits": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ]
+}

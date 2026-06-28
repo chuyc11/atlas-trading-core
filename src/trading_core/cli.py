@@ -66,6 +66,11 @@ from trading_core.equity_performance.performance_builder import build_a_share_mu
 from trading_core.equity_performance.performance_config import ALLOWED_MODES as A_SHARE_PERFORMANCE_MODES
 from trading_core.equity_performance.performance_config import DEFAULT_AS_OF_DATE as DEFAULT_PERFORMANCE_AS_OF_DATE
 from trading_core.equity_performance.performance_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS, DEFAULT_ROLLING_WINDOW_DAYS, DEFAULT_TRACKING_START_DATE
+from trading_core.equity_attribution.attribution_audit import audit_a_share_performance_attribution
+from trading_core.equity_attribution.attribution_builder import build_a_share_performance_attribution
+from trading_core.equity_attribution.attribution_config import ALLOWED_MODES as A_SHARE_ATTRIBUTION_MODES
+from trading_core.equity_attribution.attribution_config import DEFAULT_AS_OF_DATE as DEFAULT_ATTRIBUTION_AS_OF_DATE
+from trading_core.equity_attribution.attribution_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS as DEFAULT_ATTRIBUTION_MINIMUM_REQUIRED_OBSERVATIONS
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -918,6 +923,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_multi_day_performance_arguments(performance_audit)
     performance_all = subparsers.add_parser("build-and-audit-a-share-multi-day-performance")
     _add_a_share_multi_day_performance_arguments(performance_all)
+    attribution_build = subparsers.add_parser("build-a-share-performance-attribution")
+    _add_a_share_performance_attribution_arguments(attribution_build)
+    attribution_audit = subparsers.add_parser("audit-a-share-performance-attribution")
+    _add_a_share_performance_attribution_arguments(attribution_audit)
+    attribution_all = subparsers.add_parser("build-and-audit-a-share-performance-attribution")
+    _add_a_share_performance_attribution_arguments(attribution_all)
 
     return parser
 
@@ -1004,6 +1015,13 @@ def _add_a_share_multi_day_performance_arguments(parser: argparse.ArgumentParser
     parser.add_argument("--rolling-window-days", type=int, default=DEFAULT_ROLLING_WINDOW_DAYS)
     parser.add_argument("--allow-rebuild", action="store_true")
     parser.add_argument("--allow-historical-reconstruction", action="store_true")
+
+
+def _add_a_share_performance_attribution_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_ATTRIBUTION_AS_OF_DATE)
+    parser.add_argument("--mode", choices=A_SHARE_ATTRIBUTION_MODES, default="current_exposure_diagnostics")
+    parser.add_argument("--minimum-required-observations", type=int, default=DEFAULT_ATTRIBUTION_MINIMUM_REQUIRED_OBSERVATIONS)
+    parser.add_argument("--allow-limited-history", nargs="?", const=True, default=True, type=parse_bool)
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -2916,6 +2934,71 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "observation_checks": audit_result["observation_checks"],
                 "series_checks": audit_result["series_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-performance-attribution":
+        result = build_a_share_performance_attribution(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            minimum_required_observations=args.minimum_required_observations,
+            allow_limited_history=args.allow_limited_history,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "as_of_date": result["as_of_date"],
+                "mode": result["attribution_config"]["mode"],
+                "limited_history": result["attribution_data_availability"]["limited_history"],
+                "structural_diagnostics_available": result["attribution_data_availability"]["structural_diagnostics_available"],
+                "realized_performance_attribution_available": result["attribution_data_availability"]["realized_performance_attribution_available"],
+                "recommended_next_version": result["attribution_summary"]["recommended_next_version"],
+            }
+        )
+        return 0
+    if args.command == "audit-a-share-performance-attribution":
+        result = audit_a_share_performance_attribution(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "availability_checks": result["availability_checks"],
+                "reconciliation_checks": result["reconciliation_checks"],
+                "risk_checks": result["risk_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-performance-attribution":
+        build_result = build_a_share_performance_attribution(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            minimum_required_observations=args.minimum_required_observations,
+            allow_limited_history=args.allow_limited_history,
+            paths=paths,
+        )
+        audit_result = audit_a_share_performance_attribution(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "availability_checks": audit_result["availability_checks"],
+                "reconciliation_checks": audit_result["reconciliation_checks"],
+                "risk_checks": audit_result["risk_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

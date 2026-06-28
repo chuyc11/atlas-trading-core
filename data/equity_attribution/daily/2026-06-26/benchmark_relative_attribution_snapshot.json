@@ -1,0 +1,347 @@
+{
+  "snapshot_id": "A-SHARE-BENCHMARK-RELATIVE-ATTRIBUTION-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "records": [
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "CSI300",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "CSI500",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "CSI1000",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "CASH",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": {},
+      "active_industry_weight": {
+        "Unclassified": 0.9999999999999998
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "not_applicable",
+      "limitation": "Cash benchmark has no industry constituent exposure."
+    },
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_STRICT_TRADABLE",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 0.9999999999999786
+      },
+      "active_industry_weight": {
+        "Unclassified": 2.120525977034049e-14
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    },
+    {
+      "portfolio_id": "long_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_CANDIDATE_POOL",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999999999998
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 1.0000000000000007
+      },
+      "active_industry_weight": {
+        "Unclassified": -8.881784197001252e-16
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "CSI300",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "CSI500",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "CSI1000",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "CASH",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": {},
+      "active_industry_weight": {
+        "Unclassified": 1.0
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "not_applicable",
+      "limitation": "Cash benchmark has no industry constituent exposure."
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_STRICT_TRADABLE",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 0.9999999999999786
+      },
+      "active_industry_weight": {
+        "Unclassified": 2.142730437526552e-14
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    },
+    {
+      "portfolio_id": "mid_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_CANDIDATE_POOL",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 1.0
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 1.0000000000000007
+      },
+      "active_industry_weight": {
+        "Unclassified": -6.661338147750939e-16
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "CSI300",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "CSI500",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "CSI1000",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": null,
+      "active_industry_weight": null,
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "unavailable",
+      "limitation": "Benchmark index constituent exposure is unavailable; index return data is available but holdings are not fabricated."
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "CASH",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": {},
+      "active_industry_weight": {
+        "Unclassified": 0.9999999997999998
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "not_applicable",
+      "limitation": "Cash benchmark has no industry constituent exposure."
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_STRICT_TRADABLE",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 0.9999999999999786
+      },
+      "active_industry_weight": {
+        "Unclassified": -1.9997881128830386e-10
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    },
+    {
+      "portfolio_id": "short_virtual_portfolio",
+      "benchmark_id": "EQUAL_WEIGHT_CANDIDATE_POOL",
+      "portfolio_weight_by_industry": {
+        "Unclassified": 0.9999999997999998
+      },
+      "benchmark_weight_by_industry": {
+        "Unclassified": 1.0000000000000007
+      },
+      "active_industry_weight": {
+        "Unclassified": -2.000009047264939e-10
+      },
+      "active_score_bucket_weight": null,
+      "active_risk_bucket_weight": null,
+      "active_liquidity_bucket_weight": null,
+      "relative_performance_status": "insufficient_history",
+      "limited_history": true,
+      "benchmark_constituent_exposure_status": "available",
+      "limitation": null
+    }
+  ],
+  "index_constituent_exposure_unavailable": [
+    "CSI1000",
+    "CSI300",
+    "CSI500"
+  ],
+  "equal_weight_benchmark_exposure_available": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

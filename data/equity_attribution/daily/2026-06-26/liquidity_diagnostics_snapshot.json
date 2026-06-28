@@ -1,0 +1,126 @@
+{
+  "diagnostics_id": "A-SHARE-LIQUIDITY-DIAGNOSTICS-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "low_liquidity_exposure": 0.0,
+      "high_liquidity_exposure": 0.03382932129999999,
+      "weighted_average_liquidity_score": 64.61611078807985,
+      "minimum_liquidity_score_holding": {
+        "symbol": "301345.SZ",
+        "score": 44.601696,
+        "weight": 0.0335893579
+      },
+      "top_illiquidity_contributors": [
+        {
+          "symbol": "301345.SZ",
+          "liquidity_score": 44.601696,
+          "weight": 0.0335893579
+        },
+        {
+          "symbol": "688578.SH",
+          "liquidity_score": 49.093217,
+          "weight": 0.0363932815
+        },
+        {
+          "symbol": "688059.SH",
+          "liquidity_score": 49.406964,
+          "weight": 0.0338981217
+        },
+        {
+          "symbol": "601198.SH",
+          "liquidity_score": 51.706565,
+          "weight": 0.0307364759
+        },
+        {
+          "symbol": "603156.SH",
+          "liquidity_score": 54.477466,
+          "weight": 0.0324628564
+        }
+      ]
+    },
+    "mid_virtual_portfolio": {
+      "low_liquidity_exposure": 0.0,
+      "high_liquidity_exposure": 0.036981015,
+      "weighted_average_liquidity_score": 65.93927526094768,
+      "minimum_liquidity_score_holding": {
+        "symbol": "688359.SH",
+        "score": 49.252811,
+        "weight": 0.030305141100000002
+      },
+      "top_illiquidity_contributors": [
+        {
+          "symbol": "688359.SH",
+          "liquidity_score": 49.252811,
+          "weight": 0.030305141100000002
+        },
+        {
+          "symbol": "688059.SH",
+          "liquidity_score": 49.406964,
+          "weight": 0.0306841481
+        },
+        {
+          "symbol": "688383.SH",
+          "liquidity_score": 50.039218,
+          "weight": 0.0305587731
+        },
+        {
+          "symbol": "688669.SH",
+          "liquidity_score": 51.582789,
+          "weight": 0.031779591
+        },
+        {
+          "symbol": "603125.SH",
+          "liquidity_score": 51.616907,
+          "weight": 0.033071297
+        }
+      ]
+    },
+    "short_virtual_portfolio": {
+      "low_liquidity_exposure": 0.0,
+      "high_liquidity_exposure": 0.0554175282,
+      "weighted_average_liquidity_score": 67.1567718692914,
+      "minimum_liquidity_score_holding": {
+        "symbol": "002668.SZ",
+        "score": 51.832041,
+        "weight": 0.0451820468
+      },
+      "top_illiquidity_contributors": [
+        {
+          "symbol": "002668.SZ",
+          "liquidity_score": 51.832041,
+          "weight": 0.0451820468
+        },
+        {
+          "symbol": "603713.SH",
+          "liquidity_score": 54.680586,
+          "weight": 0.0471423606
+        },
+        {
+          "symbol": "300200.SZ",
+          "liquidity_score": 55.404198,
+          "weight": 0.0468864853
+        },
+        {
+          "symbol": "002559.SZ",
+          "liquidity_score": 58.681311,
+          "weight": 0.0450562666
+        },
+        {
+          "symbol": "603341.SH",
+          "liquidity_score": 59.824991,
+          "weight": 0.0478218891
+        }
+      ]
+    }
+  },
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

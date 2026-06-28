@@ -1,0 +1,250 @@
+{
+  "snapshot_id": "A-SHARE-RISK-BUCKET-CONTRIBUTION-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "portfolios": {
+    "long_virtual_portfolio": [
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "bucket_label": "0-20",
+        "bucket_min": 0,
+        "bucket_max": 20,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "bucket_label": "20-40",
+        "bucket_min": 20,
+        "bucket_max": 40,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "bucket_label": "40-60",
+        "bucket_min": 40,
+        "bucket_max": 60,
+        "holding_count": 6,
+        "weight": 0.1965063692,
+        "position_value": 196506.36920000002,
+        "average_actual_weight": 0.032751061533333334,
+        "average_risk_score": 52.18308572868093,
+        "average_liquidity_score": 66.07511147586713,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "bucket_label": "60-80",
+        "bucket_min": 60,
+        "bucket_max": 80,
+        "holding_count": 11,
+        "weight": 0.3729253454,
+        "position_value": 372925.3454,
+        "average_actual_weight": 0.03390230412727273,
+        "average_risk_score": 66.90957765226592,
+        "average_liquidity_score": 63.42074107001882,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "bucket_label": "80-100",
+        "bucket_min": 80,
+        "bucket_max": 100,
+        "holding_count": 13,
+        "weight": 0.43056828540000003,
+        "position_value": 430568.2854,
+        "average_actual_weight": 0.03312063733846154,
+        "average_risk_score": 91.66419664227243,
+        "average_liquidity_score": 64.98557770555942,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      }
+    ],
+    "mid_virtual_portfolio": [
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "bucket_label": "0-20",
+        "bucket_min": 0,
+        "bucket_max": 20,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "bucket_label": "20-40",
+        "bucket_min": 20,
+        "bucket_max": 40,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "bucket_label": "40-60",
+        "bucket_min": 40,
+        "bucket_max": 60,
+        "holding_count": 26,
+        "weight": 0.8664688498,
+        "position_value": 866468.8498,
+        "average_actual_weight": 0.033325724992307695,
+        "average_risk_score": 47.972888831878834,
+        "average_liquidity_score": 66.63600002235209,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "bucket_label": "60-80",
+        "bucket_min": 60,
+        "bucket_max": 80,
+        "holding_count": 4,
+        "weight": 0.1335311502,
+        "position_value": 133531.1502,
+        "average_actual_weight": 0.03338278755,
+        "average_risk_score": 66.48688912633204,
+        "average_liquidity_score": 61.418305421797356,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "bucket_label": "80-100",
+        "bucket_min": 80,
+        "bucket_max": 100,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      }
+    ],
+    "short_virtual_portfolio": [
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "bucket_label": "0-20",
+        "bucket_min": 0,
+        "bucket_max": 20,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "bucket_label": "20-40",
+        "bucket_min": 20,
+        "bucket_max": 40,
+        "holding_count": 0,
+        "weight": 0.0,
+        "position_value": 0.0,
+        "average_actual_weight": null,
+        "average_risk_score": null,
+        "average_liquidity_score": null,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "not_applicable"
+      },
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "bucket_label": "40-60",
+        "bucket_min": 40,
+        "bucket_max": 60,
+        "holding_count": 5,
+        "weight": 0.236181878,
+        "position_value": 236181.878,
+        "average_actual_weight": 0.047236375600000005,
+        "average_risk_score": 50.33591281527846,
+        "average_liquidity_score": 61.96801853420282,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "bucket_label": "60-80",
+        "bucket_min": 60,
+        "bucket_max": 80,
+        "holding_count": 8,
+        "weight": 0.4104102212,
+        "position_value": 410410.22119999997,
+        "average_actual_weight": 0.05130127765,
+        "average_risk_score": 69.54180250967127,
+        "average_liquidity_score": 71.09827647365289,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      },
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "bucket_label": "80-100",
+        "bucket_min": 80,
+        "bucket_max": 100,
+        "holding_count": 7,
+        "weight": 0.3534079006,
+        "position_value": 353407.9006,
+        "average_actual_weight": 0.050486842942857144,
+        "average_risk_score": 88.2709747421214,
+        "average_liquidity_score": 66.04716376853565,
+        "daily_contribution": 0.0,
+        "daily_contribution_status": "insufficient_history"
+      }
+    ]
+  },
+  "risk_diagnostics": {
+    "long_virtual_portfolio": {
+      "low_risk_bucket_exposure": 0.0,
+      "medium_risk_bucket_exposure": 0.5694317146,
+      "high_risk_bucket_exposure": 0.43056828540000003
+    },
+    "mid_virtual_portfolio": {
+      "low_risk_bucket_exposure": 0.0,
+      "medium_risk_bucket_exposure": 1.0,
+      "high_risk_bucket_exposure": 0.0
+    },
+    "short_virtual_portfolio": {
+      "low_risk_bucket_exposure": 0.0,
+      "medium_risk_bucket_exposure": 0.6465920992,
+      "high_risk_bucket_exposure": 0.3534079006
+    }
+  },
+  "risk_downgraded_exposure": 0,
+  "risk_downgraded_symbols_in_portfolio": [],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

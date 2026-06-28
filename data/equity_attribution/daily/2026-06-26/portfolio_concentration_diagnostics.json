@@ -1,0 +1,93 @@
+{
+  "diagnostics_id": "A-SHARE-PORTFOLIO-CONCENTRATION-DIAGNOSTICS",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "holding_count": 30,
+      "weighted_average_risk_score": 74.67428204756652,
+      "weighted_average_liquidity_score": 64.61611078807985,
+      "weighted_average_composite_score": 69.62040987832962,
+      "max_single_weight": 0.0371391982,
+      "top_5_weight": 0.1820724518,
+      "top_10_weight": 0.35500955040000004,
+      "max_industry_weight": 1.0,
+      "industry_count": 1,
+      "effective_number_of_holdings": 29.906817895774463,
+      "herfindahl_index": 0.03343719159574279,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "unclassified_industry_exposure": 1.0,
+      "low_liquidity_exposure": 0,
+      "high_risk_exposure": 0.43056828540000003,
+      "diagnostic_flags": {
+        "concentrated_top5": false,
+        "concentrated_industry": true,
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "low_liquidity_cluster": false,
+        "unclassified_industry_high": true
+      }
+    },
+    "mid_virtual_portfolio": {
+      "holding_count": 30,
+      "weighted_average_risk_score": 50.44508458600029,
+      "weighted_average_liquidity_score": 65.93927526094768,
+      "weighted_average_composite_score": 70.3160084917874,
+      "max_single_weight": 0.036981015,
+      "top_5_weight": 0.1780731592,
+      "top_10_weight": 0.3514212714,
+      "max_industry_weight": 1.0,
+      "industry_count": 1,
+      "effective_number_of_holdings": 29.918083255704335,
+      "herfindahl_index": 0.03342460115018681,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "unclassified_industry_exposure": 1.0,
+      "low_liquidity_exposure": 0,
+      "high_risk_exposure": 0,
+      "diagnostic_flags": {
+        "concentrated_top5": false,
+        "concentrated_industry": true,
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "low_liquidity_cluster": false,
+        "unclassified_industry_high": true
+      }
+    },
+    "short_virtual_portfolio": {
+      "holding_count": 20,
+      "weighted_average_risk_score": 71.62475685205135,
+      "weighted_average_liquidity_score": 67.1567718692914,
+      "weighted_average_composite_score": 68.68957294745942,
+      "max_single_weight": 0.055804088099999996,
+      "top_5_weight": 0.2728108106,
+      "top_10_weight": 0.5316406165,
+      "max_industry_weight": 0.9999999998,
+      "industry_count": 1,
+      "effective_number_of_holdings": 19.90389665379188,
+      "herfindahl_index": 0.05024141842142707,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "unclassified_industry_exposure": 0.9999999998,
+      "low_liquidity_exposure": 0,
+      "high_risk_exposure": 0.3534079006,
+      "diagnostic_flags": {
+        "concentrated_top5": false,
+        "concentrated_industry": true,
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "low_liquidity_cluster": false,
+        "unclassified_industry_high": true
+      }
+    }
+  },
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

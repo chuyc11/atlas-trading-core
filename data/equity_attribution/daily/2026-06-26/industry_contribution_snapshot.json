@@ -1,0 +1,65 @@
+{
+  "snapshot_id": "A-SHARE-INDUSTRY-CONTRIBUTION-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "industry_level": "industry_level_1",
+  "portfolios": {
+    "long_virtual_portfolio": [
+      {
+        "portfolio_id": "long_virtual_portfolio",
+        "industry_level_1": "Unclassified",
+        "holding_count": 30,
+        "weight": 1.0,
+        "position_value": 1000000.0,
+        "daily_contribution": 0.0,
+        "cumulative_contribution": 0.0,
+        "average_score": 69.62040987832962,
+        "average_risk_score": 74.67428204756652,
+        "average_liquidity_score": 64.61611078807985,
+        "concentration_share": 1.0,
+        "daily_contribution_status": "insufficient_history"
+      }
+    ],
+    "mid_virtual_portfolio": [
+      {
+        "portfolio_id": "mid_virtual_portfolio",
+        "industry_level_1": "Unclassified",
+        "holding_count": 30,
+        "weight": 1.0,
+        "position_value": 1000000.0,
+        "daily_contribution": 0.0,
+        "cumulative_contribution": 0.0,
+        "average_score": 70.3160084917874,
+        "average_risk_score": 50.44508458600029,
+        "average_liquidity_score": 65.93927526094768,
+        "concentration_share": 1.0,
+        "daily_contribution_status": "insufficient_history"
+      }
+    ],
+    "short_virtual_portfolio": [
+      {
+        "portfolio_id": "short_virtual_portfolio",
+        "industry_level_1": "Unclassified",
+        "holding_count": 20,
+        "weight": 0.9999999998,
+        "position_value": 999999.9998,
+        "daily_contribution": 0.0,
+        "cumulative_contribution": 0.0,
+        "average_score": 68.68957294745942,
+        "average_risk_score": 71.62475685205135,
+        "average_liquidity_score": 67.1567718692914,
+        "concentration_share": 1.0,
+        "daily_contribution_status": "insufficient_history"
+      }
+    ]
+  },
+  "unclassified_industry_notes": "Missing industry_level_1 is mapped to Unclassified.",
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

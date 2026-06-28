@@ -1,0 +1,32 @@
+{
+  "limitations_id": "A-SHARE-PERFORMANCE-ATTRIBUTION-LIMITATIONS",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "limited_history": true,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "structural_diagnostics_available": true,
+  "realized_performance_attribution_available": false,
+  "multi_day_performance_attribution_status": "insufficient_history",
+  "portfolio_observation_count": 1,
+  "minimum_required_observations": 20,
+  "limitations": [
+    "Current performance history is limited.",
+    "Only one portfolio observation is available unless more dates exist.",
+    "Realized multi-day attribution is not yet available.",
+    "Current outputs are mainly structural exposure diagnostics.",
+    "No real trades were placed.",
+    "No broker was connected.",
+    "No buy/sell signal was generated.",
+    "No live trading readiness is claimed.",
+    "Attribution is not investment advice."
+  ],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

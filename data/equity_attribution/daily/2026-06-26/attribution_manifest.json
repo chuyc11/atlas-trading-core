@@ -1,0 +1,93 @@
+{
+  "manifest_id": "A-SHARE-PERFORMANCE-ATTRIBUTION-MANIFEST",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "generated_at": "2026-06-28T14:49:48.752497Z",
+  "mode": "current_exposure_diagnostics",
+  "portfolio_ids": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "structural_diagnostics_available": true,
+  "realized_performance_attribution_available": false,
+  "limited_history": true,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "output_artifacts": {
+    "attribution_config": "data/equity_attribution/daily/2026-06-26/attribution_config.json",
+    "attribution_data_availability": "data/equity_attribution/daily/2026-06-26/attribution_data_availability.json",
+    "holding_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/holding_contribution_snapshot.json",
+    "industry_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/industry_contribution_snapshot.json",
+    "candidate_source_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/candidate_source_contribution_snapshot.json",
+    "score_bucket_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/score_bucket_contribution_snapshot.json",
+    "risk_bucket_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/risk_bucket_contribution_snapshot.json",
+    "liquidity_bucket_contribution_snapshot": "data/equity_attribution/daily/2026-06-26/liquidity_bucket_contribution_snapshot.json",
+    "benchmark_relative_attribution_snapshot": "data/equity_attribution/daily/2026-06-26/benchmark_relative_attribution_snapshot.json",
+    "portfolio_concentration_diagnostics": "data/equity_attribution/daily/2026-06-26/portfolio_concentration_diagnostics.json",
+    "risk_diagnostics_snapshot": "data/equity_attribution/daily/2026-06-26/risk_diagnostics_snapshot.json",
+    "liquidity_diagnostics_snapshot": "data/equity_attribution/daily/2026-06-26/liquidity_diagnostics_snapshot.json",
+    "industry_diagnostics_snapshot": "data/equity_attribution/daily/2026-06-26/industry_diagnostics_snapshot.json",
+    "factor_exposure_snapshot": "data/equity_attribution/daily/2026-06-26/factor_exposure_snapshot.json",
+    "attribution_limitations": "data/equity_attribution/daily/2026-06-26/attribution_limitations.json",
+    "attribution_source_trace": "data/equity_attribution/daily/2026-06-26/attribution_source_trace.json",
+    "attribution_manifest": "data/equity_attribution/daily/2026-06-26/attribution_manifest.json",
+    "attribution_boundary_check": "data/equity_attribution/daily/2026-06-26/attribution_boundary_check.json",
+    "attribution_summary": "data/equity_attribution/daily/2026-06-26/attribution_summary.json",
+    "attribution_summary_report": "outputs/equity_attribution/daily/2026-06-26/A_SHARE_ATTRIBUTION_SUMMARY.md",
+    "holding_industry_report": "outputs/equity_attribution/daily/2026-06-26/HOLDING_AND_INDUSTRY_ATTRIBUTION.md",
+    "score_risk_liquidity_report": "outputs/equity_attribution/daily/2026-06-26/SCORE_RISK_LIQUIDITY_DIAGNOSTICS.md",
+    "benchmark_relative_report": "outputs/equity_attribution/daily/2026-06-26/BENCHMARK_RELATIVE_ATTRIBUTION.md",
+    "attribution_limitations_report": "outputs/equity_attribution/daily/2026-06-26/ATTRIBUTION_LIMITATIONS.md",
+    "attribution_source_trace_report": "outputs/equity_attribution/daily/2026-06-26/ATTRIBUTION_SOURCE_TRACE.md",
+    "attribution_audit_json": "data/equity_data_quality/a_share_performance_attribution_audit.json",
+    "attribution_audit_report": "outputs/audit/A_SHARE_PERFORMANCE_ATTRIBUTION_AUDIT.md"
+  },
+  "source_artifacts": {},
+  "boundary": {
+    "boundary_id": "A-SHARE-PERFORMANCE-ATTRIBUTION-BOUNDARY-CHECK",
+    "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+    "as_of_date": "2026-06-26",
+    "performance_attribution_only": true,
+    "risk_diagnostics_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "historical_performance_fabricated": false,
+    "future_data_used": false,
+    "attribution_used_as_trade_signal": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "forbidden_artifacts_present": [],
+    "forbidden_wording_positive_hits": [],
+    "overall_passed": true,
+    "blocking_reasons": [],
+    "warnings": [
+      "portfolio observation history is below the minimum required window"
+    ]
+  },
+  "data_availability": {
+    "portfolio_observation_counts": {
+      "long_virtual_portfolio": 1,
+      "mid_virtual_portfolio": 1,
+      "short_virtual_portfolio": 1
+    },
+    "all_required_sources_available": true
+  },
+  "recommended_next_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening"
+}

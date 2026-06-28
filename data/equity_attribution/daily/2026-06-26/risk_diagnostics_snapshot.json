@@ -1,0 +1,49 @@
+{
+  "diagnostics_id": "A-SHARE-RISK-DIAGNOSTICS-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "weighted_average_risk_score": 74.67428204756652,
+      "high_risk_exposure": 0.43056828540000003,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "diagnostic_flags": {
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "high_risk_cluster": false
+      }
+    },
+    "mid_virtual_portfolio": {
+      "weighted_average_risk_score": 50.44508458600029,
+      "high_risk_exposure": 0,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "diagnostic_flags": {
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "high_risk_cluster": false
+      }
+    },
+    "short_virtual_portfolio": {
+      "weighted_average_risk_score": 71.62475685205135,
+      "high_risk_exposure": 0.3534079006,
+      "risk_downgraded_exposure": 0,
+      "excluded_universe_exposure": 0,
+      "diagnostic_flags": {
+        "contains_risk_downgraded": false,
+        "contains_excluded_universe": false,
+        "high_risk_cluster": false
+      }
+    }
+  },
+  "risk_downgraded_symbols_in_portfolio": [],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

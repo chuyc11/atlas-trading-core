@@ -1,0 +1,45 @@
+{
+  "snapshot_id": "A-SHARE-FACTOR-EXPOSURE-SNAPSHOT",
+  "target_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "as_of_date": "2026-06-26",
+  "mode": "current_exposure_diagnostics",
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "CompositeOpportunityScore": 69.62040987832962,
+      "LongScore": 66.74571761766903,
+      "MidScore": 72.10322728986498,
+      "ShortScore": 69.5841818078028,
+      "RiskScore": 74.67428204756652,
+      "LiquidityScore": 64.61611078807985,
+      "IndustryScore": 61.4641048004566,
+      "FundamentalScore": 65.79523899905794
+    },
+    "mid_virtual_portfolio": {
+      "CompositeOpportunityScore": 70.3160084917874,
+      "LongScore": 62.77079437728484,
+      "MidScore": 80.45012277444646,
+      "ShortScore": 70.03203711953189,
+      "RiskScore": 50.44508458600029,
+      "LiquidityScore": 65.93927526094768,
+      "IndustryScore": 67.46553619000456,
+      "FundamentalScore": 55.840330067657085
+    },
+    "short_virtual_portfolio": {
+      "CompositeOpportunityScore": 68.68957294745942,
+      "LongScore": 60.0431303416266,
+      "MidScore": 68.08895340940829,
+      "ShortScore": 79.62569537730658,
+      "RiskScore": 71.62475685205135,
+      "LiquidityScore": 67.1567718692914,
+      "IndustryScore": 53.31891839447028,
+      "FundamentalScore": 55.939235630030076
+    }
+  },
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_real_trade": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}
