@@ -1,0 +1,232 @@
+{
+  "trace_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING-SOURCE-TRACE",
+  "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
+  "as_of_date": "2026-06-26",
+  "requested_as_of_date": "2026-06-26",
+  "generated_at": "2026-06-28T03:20:25.457000Z",
+  "sections": {
+    "executive_summary": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+        "data/equity_scores/daily/2026-06-26/score_manifest.json",
+        "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+        "data/equity_portfolios/daily/2026-06-26/portfolio_industry_exposure.json",
+        "data/equity_portfolios/daily/2026-06-26/portfolio_risk_liquidity_summary.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+          "exists": true,
+          "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7"
+        },
+        {
+          "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+          "exists": true,
+          "sha256": "cfd5a577232117d1771aa509d60c9d5d2ad28205deac9c09c6d193b1c5ac9810"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+          "exists": true,
+          "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_industry_exposure.json",
+          "exists": true,
+          "sha256": "62082733c6ccaa64cb1a2c59d891c83815a95f0a7982632c09fcce800a2c7ebc"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_risk_liquidity_summary.json",
+          "exists": true,
+          "sha256": "ebfdb5903bcfb759a932886a911055a2d65eba82bd23649ac8ae6d77f85959fe"
+        }
+      ],
+      "complete": true
+    },
+    "long_candidates_top10": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/long_candidates.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/long_candidates.json",
+          "exists": true,
+          "sha256": "82609ee976e4660f0ceaede9ab5a62d4d2d557b8870a4639cccba2a7e68d5e00"
+        }
+      ],
+      "complete": true
+    },
+    "mid_candidates_top10": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/mid_candidates.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/mid_candidates.json",
+          "exists": true,
+          "sha256": "dd8971ba2362e7df507cae4ca298067e464f0910a295726d300fb580ecfb17e8"
+        }
+      ],
+      "complete": true
+    },
+    "short_candidates_top10": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/short_candidates.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/short_candidates.json",
+          "exists": true,
+          "sha256": "30ebc97018e2ef1853cf21e900c07ef75c126e97401da559e31cfa64acd982d2"
+        }
+      ],
+      "complete": true
+    },
+    "multi_horizon_candidates": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json",
+          "exists": true,
+          "sha256": "6948ff8f76fa4b11a0b42d0e0dc485e7055a3c41cb382f87158dbc0ebd199c2e"
+        }
+      ],
+      "complete": true
+    },
+    "risk_downgraded_candidates": {
+      "source_paths": [
+        "data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json",
+          "exists": true,
+          "sha256": "353ab3b988dab1284a507628a3efbc12b3e486db208670e30617d49744fd467b"
+        }
+      ],
+      "complete": true
+    },
+    "virtual_portfolio_summary": {
+      "source_paths": [
+        "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+        "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+        "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
+        "data/equity_portfolios/daily/2026-06-26/portfolio_weight_summary.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+          "exists": true,
+          "sha256": "a18fee694e7c4349f4b84a97dd19f5e2f98157fa0482a60215fc1c45a0d9e525"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+          "exists": true,
+          "sha256": "02425e6ff839ac82e72b15cf55bab5c198f292a34c47ecebb0647d8494bfe0d3"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
+          "exists": true,
+          "sha256": "c7827ecfd54f5f121d84be5f522998ad7be9eed7033e1bca48745964f817c59b"
+        },
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_weight_summary.json",
+          "exists": true,
+          "sha256": "7a7f49d2d2260904730a29b305e435505c766f8ec83e04e62c84742fbe1f79ac"
+        }
+      ],
+      "complete": true
+    },
+    "industry_exposure_summary": {
+      "source_paths": [
+        "data/equity_portfolios/daily/2026-06-26/portfolio_industry_exposure.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_industry_exposure.json",
+          "exists": true,
+          "sha256": "62082733c6ccaa64cb1a2c59d891c83815a95f0a7982632c09fcce800a2c7ebc"
+        }
+      ],
+      "complete": true
+    },
+    "risk_liquidity_summary": {
+      "source_paths": [
+        "data/equity_portfolios/daily/2026-06-26/portfolio_risk_liquidity_summary.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_risk_liquidity_summary.json",
+          "exists": true,
+          "sha256": "ebfdb5903bcfb759a932886a911055a2d65eba82bd23649ac8ae6d77f85959fe"
+        }
+      ],
+      "complete": true
+    },
+    "audit_status": {
+      "source_paths": [
+        "data/equity_data_quality/a_share_candidate_generation_audit.json",
+        "data/equity_data_quality/a_share_scoring_audit.json",
+        "data/equity_data_quality/a_share_multi_horizon_feature_audit.json",
+        "data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_data_quality/a_share_candidate_generation_audit.json",
+          "exists": true,
+          "sha256": "28cc99eb857a9dadd7884bcc7a51d95119a50bb70432d1a0867d8fbc51b6704b"
+        },
+        {
+          "path": "data/equity_data_quality/a_share_scoring_audit.json",
+          "exists": true,
+          "sha256": "18259c6c330257acbf190c1fe207e4f1382a35f09d9a5c865ba8319ea06a9127"
+        },
+        {
+          "path": "data/equity_data_quality/a_share_multi_horizon_feature_audit.json",
+          "exists": true,
+          "sha256": "3aa6477294afc46f7f9d7a18bdf66a2c3091ea8d6bef6eafd6c7350c2a255d0a"
+        },
+        {
+          "path": "data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json",
+          "exists": true,
+          "sha256": "a4df8be6e16fc6d05a51bd0747fc8394a4fe6b3343327302b7c1ea582d8b76e5"
+        }
+      ],
+      "complete": true
+    },
+    "do_not_misread": {
+      "source_paths": [
+        "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+        "data/equity_selection/daily/2026-06-26/candidate_manifest.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+          "exists": true,
+          "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda"
+        },
+        {
+          "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+          "exists": true,
+          "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7"
+        }
+      ],
+      "complete": true
+    },
+    "next_tracking_actions": {
+      "source_paths": [
+        "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json"
+      ],
+      "sources": [
+        {
+          "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+          "exists": true,
+          "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda"
+        }
+      ],
+      "complete": true
+    }
+  },
+  "source_trace_complete": true
+}
