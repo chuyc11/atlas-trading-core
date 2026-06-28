@@ -1,0 +1,142 @@
+{
+  "plan_id": "A-SHARE-DATASET-REFRESH-PLAN",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "mode": "validate_existing_data",
+  "datasets": [
+    {
+      "dataset_id": "equity_master",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "name",
+        "exchange",
+        "list_date",
+        "status"
+      ],
+      "criticality": "important",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "daily_price",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "trade_date",
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "amount"
+      ],
+      "criticality": "critical",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "adjusted_price",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "trade_date",
+        "adjusted_close"
+      ],
+      "criticality": "critical",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "daily_basic",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "trade_date",
+        "turnover_rate",
+        "total_mv",
+        "circ_mv"
+      ],
+      "criticality": "important",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "index_price",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "index_code",
+        "trade_date",
+        "close"
+      ],
+      "criticality": "critical",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "industry_classification",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "industry_level_1"
+      ],
+      "criticality": "important",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "financial_indicators",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "symbol",
+        "report_date"
+      ],
+      "criticality": "important",
+      "refresh_action": "validate_existing"
+    },
+    {
+      "dataset_id": "trading_calendar",
+      "required": true,
+      "primary_provider": "local_file_provider",
+      "fallback_providers": [
+        "cached_panel_provider"
+      ],
+      "target_as_of_date": "2026-06-26",
+      "required_fields": [
+        "trade_date",
+        "is_open"
+      ],
+      "criticality": "critical",
+      "refresh_action": "validate_existing"
+    }
+  ]
+}

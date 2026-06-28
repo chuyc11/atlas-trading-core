@@ -71,6 +71,10 @@ from trading_core.equity_attribution.attribution_builder import build_a_share_pe
 from trading_core.equity_attribution.attribution_config import ALLOWED_MODES as A_SHARE_ATTRIBUTION_MODES
 from trading_core.equity_attribution.attribution_config import DEFAULT_AS_OF_DATE as DEFAULT_ATTRIBUTION_AS_OF_DATE
 from trading_core.equity_attribution.attribution_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS as DEFAULT_ATTRIBUTION_MINIMUM_REQUIRED_OBSERVATIONS
+from trading_core.equity_data_refresh.data_refresh_audit import audit_a_share_daily_data_refresh
+from trading_core.equity_data_refresh.data_refresh_builder import build_a_share_daily_data_refresh
+from trading_core.equity_data_refresh.data_refresh_config import ALLOWED_MODES as A_SHARE_DATA_REFRESH_MODES
+from trading_core.equity_data_refresh.data_refresh_config import DEFAULT_AS_OF_DATE as DEFAULT_DATA_REFRESH_AS_OF_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -929,6 +933,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_performance_attribution_arguments(attribution_audit)
     attribution_all = subparsers.add_parser("build-and-audit-a-share-performance-attribution")
     _add_a_share_performance_attribution_arguments(attribution_all)
+    data_refresh_build = subparsers.add_parser("build-a-share-daily-data-refresh")
+    _add_a_share_daily_data_refresh_arguments(data_refresh_build)
+    data_refresh_audit = subparsers.add_parser("audit-a-share-daily-data-refresh")
+    _add_a_share_daily_data_refresh_arguments(data_refresh_audit)
+    data_refresh_all = subparsers.add_parser("build-and-audit-a-share-daily-data-refresh")
+    _add_a_share_daily_data_refresh_arguments(data_refresh_all)
 
     return parser
 
@@ -1022,6 +1032,19 @@ def _add_a_share_performance_attribution_arguments(parser: argparse.ArgumentPars
     parser.add_argument("--mode", choices=A_SHARE_ATTRIBUTION_MODES, default="current_exposure_diagnostics")
     parser.add_argument("--minimum-required-observations", type=int, default=DEFAULT_ATTRIBUTION_MINIMUM_REQUIRED_OBSERVATIONS)
     parser.add_argument("--allow-limited-history", nargs="?", const=True, default=True, type=parse_bool)
+
+
+def _add_a_share_daily_data_refresh_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_DATA_REFRESH_AS_OF_DATE)
+    parser.add_argument("--mode", choices=A_SHARE_DATA_REFRESH_MODES, default="validate_existing_data")
+    parser.add_argument("--resolve-latest-completed-trading-day", action="store_true")
+    parser.add_argument("--allow-network-providers", action="store_true")
+    parser.add_argument("--allow-public-providers", action="store_true")
+    parser.add_argument("--allow-intraday-research-refresh", action="store_true")
+    parser.add_argument("--allow-non-trading-day", action="store_true")
+    parser.add_argument("--allow-partial-refresh", action="store_true")
+    parser.add_argument("--allow-latest-available-if-exact-missing", action="store_true")
+    parser.add_argument("--allow-research-workflow-after-refresh", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -2999,6 +3022,84 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "availability_checks": audit_result["availability_checks"],
                 "reconciliation_checks": audit_result["reconciliation_checks"],
                 "risk_checks": audit_result["risk_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-daily-data-refresh":
+        result = build_a_share_daily_data_refresh(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            resolve_latest_completed_trading_day=args.resolve_latest_completed_trading_day,
+            allow_network_providers=args.allow_network_providers,
+            allow_public_providers=args.allow_public_providers,
+            allow_intraday_research_refresh=args.allow_intraday_research_refresh,
+            allow_non_trading_day=args.allow_non_trading_day,
+            allow_partial_refresh=args.allow_partial_refresh,
+            allow_latest_available_if_exact_missing=args.allow_latest_available_if_exact_missing,
+            allow_research_workflow_after_refresh=args.allow_research_workflow_after_refresh,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "as_of_date": result["as_of_date"],
+                "mode": result["data_refresh_config"]["mode"],
+                "resolved_as_of_date": result["date_resolution"]["resolved_as_of_date"],
+                "schema_validation_status": result["dataset_schema_validation"]["schema_validation_status"],
+                "freshness_validation_status": result["dataset_freshness_validation"]["freshness_validation_status"],
+                "coverage_validation_status": result["dataset_coverage_summary"]["coverage_validation_status"],
+                "recommended_next_version": result["data_refresh_summary"]["recommended_next_version"],
+            }
+        )
+        return 0
+    if args.command == "audit-a-share-daily-data-refresh":
+        result = audit_a_share_daily_data_refresh(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "dataset_checks": result["dataset_checks"],
+                "provider_checks": result["provider_checks"],
+                "validation_checks": result["validation_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-daily-data-refresh":
+        build_result = build_a_share_daily_data_refresh(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            resolve_latest_completed_trading_day=args.resolve_latest_completed_trading_day,
+            allow_network_providers=args.allow_network_providers,
+            allow_public_providers=args.allow_public_providers,
+            allow_intraday_research_refresh=args.allow_intraday_research_refresh,
+            allow_non_trading_day=args.allow_non_trading_day,
+            allow_partial_refresh=args.allow_partial_refresh,
+            allow_latest_available_if_exact_missing=args.allow_latest_available_if_exact_missing,
+            allow_research_workflow_after_refresh=args.allow_research_workflow_after_refresh,
+            paths=paths,
+        )
+        audit_result = audit_a_share_daily_data_refresh(
+            as_of_date=build_result["as_of_date"],
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "dataset_checks": audit_result["dataset_checks"],
+                "provider_checks": audit_result["provider_checks"],
+                "validation_checks": audit_result["validation_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

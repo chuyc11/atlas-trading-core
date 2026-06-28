@@ -1,0 +1,293 @@
+{
+  "coverage_id": "A-SHARE-DATASET-COVERAGE-SUMMARY",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "coverage_validation_status": "passed",
+  "equity_master_symbols": 5867,
+  "daily_price_symbols": 5516,
+  "adjusted_price_symbols": 5516,
+  "daily_basic_symbols": 5516,
+  "index_price_ids": [
+    "CSI1000",
+    "CSI300",
+    "CSI500"
+  ],
+  "industry_symbols": 5867,
+  "financial_symbols": 5211,
+  "tradable_universe_symbols_if_available": 5516,
+  "coverage_vs_equity_master": {
+    "equity_master": 1.0,
+    "daily_price": 0.9401738537583092,
+    "adjusted_price": 0.9401738537583092,
+    "daily_basic": 0.9401738537583092,
+    "index_price": 0.0,
+    "industry_classification": 1.0,
+    "financial_indicators": 0.8878472814044657,
+    "trading_calendar": 0.0
+  },
+  "coverage_vs_tradable_universe": {
+    "equity_master": 1.0,
+    "daily_price": 1.0,
+    "adjusted_price": 1.0,
+    "daily_basic": 1.0,
+    "index_price": 0.0,
+    "industry_classification": 1.0,
+    "financial_indicators": 0.9419869470630892,
+    "trading_calendar": 0.0
+  },
+  "field_coverage": {
+    "equity_master": {
+      "symbol": 1.0,
+      "name": 1.0,
+      "exchange": 1.0,
+      "list_date": 1.0,
+      "status": 1.0
+    },
+    "daily_price": {
+      "symbol": 1.0,
+      "trade_date": 1.0,
+      "open": 1.0,
+      "high": 1.0,
+      "low": 1.0,
+      "close": 1.0,
+      "volume": 1.0,
+      "amount": 1.0
+    },
+    "adjusted_price": {
+      "symbol": 1.0,
+      "trade_date": 1.0,
+      "adjusted_close": 1.0
+    },
+    "daily_basic": {
+      "symbol": 1.0,
+      "trade_date": 1.0,
+      "turnover_rate": 1.0,
+      "total_mv": 0.0,
+      "circ_mv": 0.0
+    },
+    "index_price": {
+      "index_code": 1.0,
+      "trade_date": 1.0,
+      "close": 1.0
+    },
+    "industry_classification": {
+      "symbol": 1.0,
+      "industry_level_1": 1.0
+    },
+    "financial_indicators": {
+      "symbol": 1.0,
+      "report_date": 1.0
+    },
+    "trading_calendar": {
+      "trade_date": 1.0,
+      "is_open": 1.0
+    }
+  },
+  "null_rate_summary": {
+    "equity_master": {
+      "symbol": 0.0,
+      "name": 0.0,
+      "exchange": 0.0,
+      "list_date": 0.0,
+      "status": 0.0
+    },
+    "daily_price": {
+      "symbol": 0.0,
+      "trade_date": 0.0,
+      "open": 0.0,
+      "high": 0.0,
+      "low": 0.0,
+      "close": 0.0,
+      "volume": 0.0,
+      "amount": 0.0
+    },
+    "adjusted_price": {
+      "symbol": 0.0,
+      "trade_date": 0.0,
+      "adjusted_close": 0.0
+    },
+    "daily_basic": {
+      "symbol": 0.0,
+      "trade_date": 0.0,
+      "turnover_rate": 0.0,
+      "total_mv": 1.0,
+      "circ_mv": 1.0
+    },
+    "index_price": {
+      "index_code": 0.0,
+      "trade_date": 0.0,
+      "close": 0.0
+    },
+    "industry_classification": {
+      "symbol": 0.0,
+      "industry_level_1": 0.0
+    },
+    "financial_indicators": {
+      "symbol": 0.0,
+      "report_date": 0.0
+    },
+    "trading_calendar": {
+      "trade_date": 0.0,
+      "is_open": 0.0
+    }
+  },
+  "critical_missing_count": 0,
+  "datasets": {
+    "equity_master": {
+      "symbol_count": 5867,
+      "coverage_vs_equity_master": 1.0,
+      "coverage_vs_tradable_universe": 1.0,
+      "field_coverage": {
+        "symbol": 1.0,
+        "name": 1.0,
+        "exchange": 1.0,
+        "list_date": 1.0,
+        "status": 1.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "name": 0.0,
+        "exchange": 0.0,
+        "list_date": 0.0,
+        "status": 0.0
+      },
+      "threshold": null,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "daily_price": {
+      "symbol_count": 5516,
+      "coverage_vs_equity_master": 0.9401738537583092,
+      "coverage_vs_tradable_universe": 1.0,
+      "field_coverage": {
+        "symbol": 1.0,
+        "trade_date": 1.0,
+        "open": 1.0,
+        "high": 1.0,
+        "low": 1.0,
+        "close": 1.0,
+        "volume": 1.0,
+        "amount": 1.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "trade_date": 0.0,
+        "open": 0.0,
+        "high": 0.0,
+        "low": 0.0,
+        "close": 0.0,
+        "volume": 0.0,
+        "amount": 0.0
+      },
+      "threshold": 0.9,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "adjusted_price": {
+      "symbol_count": 5516,
+      "coverage_vs_equity_master": 0.9401738537583092,
+      "coverage_vs_tradable_universe": 1.0,
+      "field_coverage": {
+        "symbol": 1.0,
+        "trade_date": 1.0,
+        "adjusted_close": 1.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "trade_date": 0.0,
+        "adjusted_close": 0.0
+      },
+      "threshold": 0.9,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "daily_basic": {
+      "symbol_count": 5516,
+      "coverage_vs_equity_master": 0.9401738537583092,
+      "coverage_vs_tradable_universe": 1.0,
+      "field_coverage": {
+        "symbol": 1.0,
+        "trade_date": 1.0,
+        "turnover_rate": 1.0,
+        "total_mv": 0.0,
+        "circ_mv": 0.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "trade_date": 0.0,
+        "turnover_rate": 0.0,
+        "total_mv": 1.0,
+        "circ_mv": 1.0
+      },
+      "threshold": 0.85,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "index_price": {
+      "symbol_count": 3,
+      "coverage_vs_equity_master": 0.0,
+      "coverage_vs_tradable_universe": 0.0,
+      "field_coverage": {
+        "index_code": 1.0,
+        "trade_date": 1.0,
+        "close": 1.0
+      },
+      "null_rate_summary": {
+        "index_code": 0.0,
+        "trade_date": 0.0,
+        "close": 0.0
+      },
+      "threshold": null,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "industry_classification": {
+      "symbol_count": 5867,
+      "coverage_vs_equity_master": 1.0,
+      "coverage_vs_tradable_universe": 1.0,
+      "field_coverage": {
+        "symbol": 1.0,
+        "industry_level_1": 1.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "industry_level_1": 0.0
+      },
+      "threshold": 0.8,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "financial_indicators": {
+      "symbol_count": 5211,
+      "coverage_vs_equity_master": 0.8878472814044657,
+      "coverage_vs_tradable_universe": 0.9419869470630892,
+      "field_coverage": {
+        "symbol": 1.0,
+        "report_date": 1.0
+      },
+      "null_rate_summary": {
+        "symbol": 0.0,
+        "report_date": 0.0
+      },
+      "threshold": null,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    },
+    "trading_calendar": {
+      "symbol_count": 0,
+      "coverage_vs_equity_master": 0.0,
+      "coverage_vs_tradable_universe": 0.0,
+      "field_coverage": {
+        "trade_date": 1.0,
+        "is_open": 1.0
+      },
+      "null_rate_summary": {
+        "trade_date": 0.0,
+        "is_open": 0.0
+      },
+      "threshold": null,
+      "threshold_passed": true,
+      "critical_missing_count": 0
+    }
+  }
+}

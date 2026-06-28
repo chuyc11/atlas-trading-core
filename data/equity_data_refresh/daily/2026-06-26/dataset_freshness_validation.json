@@ -1,0 +1,104 @@
+{
+  "validation_id": "A-SHARE-DATASET-FRESHNESS-VALIDATION",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "freshness_validation_status": "passed",
+  "datasets": [
+    {
+      "dataset_id": "equity_master",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "",
+      "as_of_date_available": false,
+      "freshness_lag_trading_days": null,
+      "freshness_status": "lagged_allowed",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "daily_price",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "freshness_lag_trading_days": 0,
+      "freshness_status": "fresh",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "adjusted_price",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "freshness_lag_trading_days": 0,
+      "freshness_status": "fresh",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "daily_basic",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "freshness_lag_trading_days": 0,
+      "freshness_status": "fresh",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "index_price",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "freshness_lag_trading_days": 0,
+      "freshness_status": "fresh",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "industry_classification",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "",
+      "as_of_date_available": false,
+      "freshness_lag_trading_days": null,
+      "freshness_status": "lagged_allowed",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "financial_indicators",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-03-31",
+      "as_of_date_available": false,
+      "freshness_lag_trading_days": 63,
+      "freshness_status": "lagged_allowed",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "dataset_id": "trading_calendar",
+      "target_as_of_date": "2026-06-26",
+      "latest_available_date": "2026-07-24",
+      "as_of_date_available": true,
+      "freshness_lag_trading_days": 0,
+      "freshness_status": "fresh",
+      "is_stale": false,
+      "stale_reason": null,
+      "blocking_reasons": [],
+      "warnings": []
+    }
+  ]
+}

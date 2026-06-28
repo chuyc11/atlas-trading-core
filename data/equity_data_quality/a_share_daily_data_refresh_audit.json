@@ -1,0 +1,77 @@
+{
+  "audit_id": "A-SHARE-DAILY-DATA-REFRESH-AUDIT",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "mode": "validate_existing_data",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "dataset_checks": {
+    "equity_master": "passed",
+    "daily_price": "passed",
+    "adjusted_price": "passed",
+    "daily_basic": "passed",
+    "index_price": "passed",
+    "industry_classification": "passed",
+    "financial_indicators": "passed",
+    "trading_calendar": "passed"
+  },
+  "provider_checks": {
+    "providers_registered": true,
+    "provider_health_checked": true,
+    "fallbacks_recorded": true,
+    "broker_provider_used": false,
+    "real_account_provider_used": false,
+    "order_provider_used": false
+  },
+  "validation_checks": {
+    "schema_validation_passed": true,
+    "freshness_validation_passed": true,
+    "coverage_validation_passed": true,
+    "critical_datasets_available": true
+  },
+  "checks": {
+    "all_required_artifacts_exist": true,
+    "target_version_matches": true,
+    "all_required_datasets_present": true,
+    "critical_datasets_passed": true,
+    "schema_validation_passed": true,
+    "freshness_validation_passed": true,
+    "coverage_validation_passed": true,
+    "trading_calendar_covers_as_of_date": true,
+    "daily_price_fresh_enough": true,
+    "adjusted_price_fresh_enough": true,
+    "index_price_contains_required_ids": true,
+    "no_forbidden_provider_used": true,
+    "provider_fallback_recorded": true,
+    "registry_rejects_broker_provider": true,
+    "source_trace_complete": true,
+    "source_trace_no_forbidden_paths": true,
+    "source_trace_hashes_match": true,
+    "boundary_fields_clean": true,
+    "boundary_overall_passed": true,
+    "no_forbidden_artifacts_generated": true,
+    "no_forbidden_positive_wording": true,
+    "manifest_generated": true
+  },
+  "boundary": {
+    "data_refresh_only": true,
+    "market_data_only": true,
+    "research_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "research_workflow_triggered": false,
+    "official_forward_dry_run_status_unchanged": true
+  },
+  "recommended_next_version": "v0.8.1-a-share-current-day-research-workflow-runner"
+}

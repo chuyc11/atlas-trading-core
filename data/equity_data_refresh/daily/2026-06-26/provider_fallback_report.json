@@ -1,0 +1,13 @@
+{
+  "fallback_report_id": "A-SHARE-DATA-REFRESH-PROVIDER-FALLBACK-REPORT",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "fallback_used": false,
+  "fallback_count": 0,
+  "fallbacks": [],
+  "policy": {
+    "never_silent_fallback": true,
+    "fallback_must_preserve_schema": true,
+    "fallback_to_stale_data_requires_warning_or_blocking": true
+  }
+}

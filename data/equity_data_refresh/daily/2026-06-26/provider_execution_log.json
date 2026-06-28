@@ -1,0 +1,148 @@
+{
+  "execution_log_id": "A-SHARE-DATA-REFRESH-PROVIDER-EXECUTION-LOG",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "mode": "validate_existing_data",
+  "network_providers_used": [],
+  "external_network_calls_made": false,
+  "broker_provider_used": false,
+  "real_account_provider_used": false,
+  "order_provider_used": false,
+  "records": [
+    {
+      "dataset_id": "equity_master",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "daily_price",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "adjusted_price",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "daily_basic",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "index_price",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "industry_classification",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "financial_indicators",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    },
+    {
+      "dataset_id": "trading_calendar",
+      "provider_id": "local_file_provider",
+      "attempted": true,
+      "action": "validate_existing",
+      "status": "passed",
+      "request_metadata": {
+        "requires_network": false,
+        "requires_token": false,
+        "requires_broker_account": false,
+        "timeout_seconds": 20,
+        "max_retries": 2,
+        "rate_limit_policy": "local_file_read"
+      },
+      "fallback_used": false,
+      "fallback_provider_id": null
+    }
+  ]
+}

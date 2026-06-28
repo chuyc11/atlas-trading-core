@@ -1,0 +1,21 @@
+{
+  "gap_report_id": "A-SHARE-DATA-GAP-REPORT",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "missing_datasets": [],
+  "missing_dates": [
+    "equity_master",
+    "industry_classification",
+    "financial_indicators"
+  ],
+  "missing_fields": [],
+  "lagged_datasets": [
+    "equity_master",
+    "industry_classification",
+    "financial_indicators"
+  ],
+  "stale_datasets": [],
+  "provider_failures": [],
+  "coverage_failures": [],
+  "recommended_data_fixes": []
+}

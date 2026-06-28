@@ -1,0 +1,71 @@
+{
+  "summary_id": "A-SHARE-DAILY-DATA-REFRESH-SUMMARY",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "as_of_date": "2026-06-26",
+  "mode": "validate_existing_data",
+  "resolved_as_of_date": "2026-06-26",
+  "provider_summary": {
+    "registered": 7,
+    "enabled": [
+      "local_file_provider",
+      "cached_panel_provider"
+    ]
+  },
+  "dataset_status": {
+    "equity_master": "passed",
+    "daily_price": "passed",
+    "adjusted_price": "passed",
+    "daily_basic": "passed",
+    "index_price": "passed",
+    "industry_classification": "passed",
+    "financial_indicators": "passed",
+    "trading_calendar": "passed"
+  },
+  "schema_validation_status": "passed",
+  "freshness_validation_status": "passed",
+  "coverage_validation_status": "passed",
+  "data_gaps": {
+    "missing_datasets": [],
+    "stale_datasets": [],
+    "lagged_datasets": [
+      "equity_master",
+      "industry_classification",
+      "financial_indicators"
+    ]
+  },
+  "fallback_used": false,
+  "boundary": {
+    "boundary_id": "A-SHARE-DAILY-DATA-REFRESH-BOUNDARY-CHECK",
+    "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+    "as_of_date": "2026-06-26",
+    "data_refresh_only": true,
+    "market_data_only": true,
+    "research_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "research_workflow_triggered": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "forbidden_artifacts_present": [],
+    "forbidden_wording_positive_hits": [],
+    "overall_passed": true,
+    "blocking_reasons": [],
+    "warnings": [
+      "daily_basic:required_field_all_null",
+      "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+    ]
+  },
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "blocking_reasons": [],
+  "disclaimer": "Data refresh success is research data readiness only and is not live trading readiness.",
+  "recommended_next_version": "v0.8.1-a-share-current-day-research-workflow-runner"
+}

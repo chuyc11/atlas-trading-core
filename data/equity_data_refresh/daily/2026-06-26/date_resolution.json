@@ -1,0 +1,17 @@
+{
+  "resolution_id": "A-SHARE-DATA-REFRESH-DATE-RESOLUTION",
+  "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
+  "requested_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "requested_date_mode": "explicit_as_of_date",
+  "is_trading_day": true,
+  "is_completed_trading_day": true,
+  "calendar_source": "data/equity_universe/trading_calendar.parquet",
+  "previous_completed_trading_day": "2026-06-25",
+  "next_trading_day": "2026-06-29",
+  "allow_intraday_research_refresh": false,
+  "allow_non_trading_day": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}
