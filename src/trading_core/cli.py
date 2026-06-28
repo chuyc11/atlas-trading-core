@@ -58,6 +58,9 @@ from trading_core.equity_briefings.daily_stock_selection_briefing import build_a
 from trading_core.equity_portfolio_tracking.tracking_audit import audit_a_share_virtual_portfolio_tracking
 from trading_core.equity_portfolio_tracking.tracking_builder import build_a_share_virtual_portfolio_tracking
 from trading_core.equity_portfolio_tracking.tracking_config import DEFAULT_AS_OF_DATE as DEFAULT_TRACKING_AS_OF_DATE
+from trading_core.equity_benchmarks.benchmark_audit import audit_a_share_benchmark_comparison
+from trading_core.equity_benchmarks.benchmark_builder import build_a_share_benchmark_comparison
+from trading_core.equity_benchmarks.benchmark_config import DEFAULT_AS_OF_DATE as DEFAULT_BENCHMARK_AS_OF_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -898,6 +901,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_daily_workflow_arguments(workflow_audit)
     workflow_all = subparsers.add_parser("run-and-audit-a-share-daily-research-workflow")
     _add_a_share_daily_workflow_arguments(workflow_all)
+    benchmark_build = subparsers.add_parser("build-a-share-benchmark-comparison")
+    _add_a_share_benchmark_comparison_arguments(benchmark_build)
+    benchmark_audit = subparsers.add_parser("audit-a-share-benchmark-comparison")
+    _add_a_share_benchmark_comparison_arguments(benchmark_audit)
+    benchmark_all = subparsers.add_parser("build-and-audit-a-share-benchmark-comparison")
+    _add_a_share_benchmark_comparison_arguments(benchmark_all)
 
     return parser
 
@@ -962,6 +971,18 @@ def _add_a_share_daily_stock_selection_briefing_arguments(parser: argparse.Argum
 
 def _add_a_share_virtual_portfolio_tracking_arguments(parser: argparse.ArgumentParser) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_TRACKING_AS_OF_DATE)
+
+
+def _add_a_share_benchmark_comparison_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_AS_OF_DATE)
+    parser.add_argument("--lookback-trading-days", type=int, default=250)
+    parser.add_argument("--minimum-required-trading-days", type=int, default=20)
+    parser.add_argument("--allow-placeholder-benchmarks", action="store_true")
+    parser.add_argument("--fail-on-placeholder-benchmarks", nargs="?", const=True, default=True, type=parse_bool)
+
+
+def _benchmark_fail_on_placeholder(args: argparse.Namespace) -> bool:
+    return False if args.allow_placeholder_benchmarks else bool(args.fail_on_placeholder_benchmarks)
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -2733,6 +2754,78 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "warnings": len(audit_result["warnings"]),
                 "stage_counts": audit_result["stage_counts"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-benchmark-comparison":
+        result = build_a_share_benchmark_comparison(
+            as_of_date=args.as_of_date,
+            lookback_trading_days=args.lookback_trading_days,
+            minimum_required_trading_days=args.minimum_required_trading_days,
+            allow_placeholder_benchmarks=args.allow_placeholder_benchmarks,
+            fail_on_placeholder_benchmarks=_benchmark_fail_on_placeholder(args),
+            paths=paths,
+        )
+        availability = {
+            row["benchmark_id"]: row["status"]
+            for row in result["benchmark_data_availability"]["benchmarks"]
+        }
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "as_of_date": result["as_of_date"],
+                "benchmark_availability": availability,
+                "limited_history_flagged": result["relative_performance_snapshot"]["limited_history_flagged"],
+                "performance_not_yet_observed": result["relative_performance_snapshot"]["performance_not_yet_observed"],
+                "recommended_next_version": result["benchmark_summary"]["recommended_next_version"],
+            }
+        )
+        return 0 if all(status == "available" for status in availability.values()) else 1
+    if args.command == "audit-a-share-benchmark-comparison":
+        result = audit_a_share_benchmark_comparison(
+            as_of_date=args.as_of_date,
+            allow_placeholder_benchmarks=args.allow_placeholder_benchmarks,
+            fail_on_placeholder_benchmarks=_benchmark_fail_on_placeholder(args),
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "benchmark_availability_checks": result["benchmark_availability_checks"],
+                "comparison_checks": result["comparison_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-benchmark-comparison":
+        build_result = build_a_share_benchmark_comparison(
+            as_of_date=args.as_of_date,
+            lookback_trading_days=args.lookback_trading_days,
+            minimum_required_trading_days=args.minimum_required_trading_days,
+            allow_placeholder_benchmarks=args.allow_placeholder_benchmarks,
+            fail_on_placeholder_benchmarks=_benchmark_fail_on_placeholder(args),
+            paths=paths,
+        )
+        audit_result = audit_a_share_benchmark_comparison(
+            as_of_date=args.as_of_date,
+            allow_placeholder_benchmarks=args.allow_placeholder_benchmarks,
+            fail_on_placeholder_benchmarks=_benchmark_fail_on_placeholder(args),
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "benchmark_availability_checks": audit_result["benchmark_availability_checks"],
+                "comparison_checks": audit_result["comparison_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

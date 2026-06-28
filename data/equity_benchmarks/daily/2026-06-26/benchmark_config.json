@@ -1,0 +1,63 @@
+{
+  "config_id": "A-SHARE-BENCHMARK-COMPARISON-CONFIG",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "currency": "CNY",
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "index_code_map": {
+    "CSI300": [
+      "000300.SH",
+      "399300.SZ"
+    ],
+    "CSI500": [
+      "000905.SH"
+    ],
+    "CSI1000": [
+      "000852.SH"
+    ]
+  },
+  "price_policy": "adjusted_close_if_available_else_close",
+  "cash_benchmark_daily_return": 0.0,
+  "lookback_trading_days": 250,
+  "minimum_required_trading_days": 20,
+  "allow_placeholder_benchmarks": false,
+  "fail_on_placeholder_benchmarks": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "boundary": {
+    "benchmark_comparison_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "raw_config": {
+    "as_of_date": "2026-06-26",
+    "lookback_trading_days": 250,
+    "minimum_required_trading_days": 20,
+    "allow_placeholder_benchmarks": false,
+    "fail_on_placeholder_benchmarks": true,
+    "currency": "CNY",
+    "cash_benchmark_daily_return": 0.0
+  }
+}

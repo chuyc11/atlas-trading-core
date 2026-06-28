@@ -1,0 +1,24 @@
+{
+  "boundary_id": "A-SHARE-BENCHMARK-COMPARISON-BOUNDARY-CHECK",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "benchmark_comparison_only": true,
+  "research_only": true,
+  "virtual_only": true,
+  "real_portfolio_generated": false,
+  "buy_sell_signals_generated": false,
+  "order_preview_generated": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "run_daily_called": false,
+  "day2_executed": false,
+  "model_profit_guaranteed": false,
+  "live_trading_ready": false,
+  "forbidden_artifacts_present": [],
+  "forbidden_wording_positive_hits": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "portfolio relative metrics limited by first-day initialization"
+  ]
+}

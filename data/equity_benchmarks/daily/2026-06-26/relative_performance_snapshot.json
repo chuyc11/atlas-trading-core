@@ -1,0 +1,42 @@
+{
+  "snapshot_id": "A-SHARE-RELATIVE-PERFORMANCE-SNAPSHOT",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "comparison_status": {
+    "long_virtual_portfolio": {
+      "CSI300": "limited_history",
+      "CSI500": "limited_history",
+      "CSI1000": "limited_history",
+      "CASH": "limited_history",
+      "EQUAL_WEIGHT_STRICT_TRADABLE": "limited_history",
+      "EQUAL_WEIGHT_CANDIDATE_POOL": "limited_history"
+    },
+    "mid_virtual_portfolio": {
+      "CSI300": "limited_history",
+      "CSI500": "limited_history",
+      "CSI1000": "limited_history",
+      "CASH": "limited_history",
+      "EQUAL_WEIGHT_STRICT_TRADABLE": "limited_history",
+      "EQUAL_WEIGHT_CANDIDATE_POOL": "limited_history"
+    },
+    "short_virtual_portfolio": {
+      "CSI300": "limited_history",
+      "CSI500": "limited_history",
+      "CSI1000": "limited_history",
+      "CASH": "limited_history",
+      "EQUAL_WEIGHT_STRICT_TRADABLE": "limited_history",
+      "EQUAL_WEIGHT_CANDIDATE_POOL": "limited_history"
+    }
+  },
+  "relative_performance_available": false,
+  "limited_history_flagged": true,
+  "performance_not_yet_observed": true,
+  "minimum_required_trading_days": 20,
+  "reason": "portfolio tracking has only one observed day; multi-day relative metrics are intentionally not fabricated",
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

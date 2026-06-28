@@ -1,0 +1,69 @@
+{
+  "manifest_id": "A-SHARE-BENCHMARK-COMPARISON-MANIFEST",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "generated_at": "2026-06-28T09:51:36.297330Z",
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "portfolio_ids": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "output_artifacts": {
+    "benchmark_config": "data/equity_benchmarks/daily/2026-06-26/benchmark_config.json",
+    "benchmark_data_availability": "data/equity_benchmarks/daily/2026-06-26/benchmark_data_availability.json",
+    "benchmark_universe_snapshot": "data/equity_benchmarks/daily/2026-06-26/benchmark_universe_snapshot.json",
+    "benchmark_price_snapshot": "data/equity_benchmarks/daily/2026-06-26/benchmark_price_snapshot.json",
+    "benchmark_return_snapshot": "data/equity_benchmarks/daily/2026-06-26/benchmark_return_snapshot.json",
+    "benchmark_nav_snapshot": "data/equity_benchmarks/daily/2026-06-26/benchmark_nav_snapshot.json",
+    "portfolio_benchmark_comparison": "data/equity_benchmarks/daily/2026-06-26/portfolio_benchmark_comparison.json",
+    "relative_performance_snapshot": "data/equity_benchmarks/daily/2026-06-26/relative_performance_snapshot.json",
+    "benchmark_exclusion_report": "data/equity_benchmarks/daily/2026-06-26/benchmark_exclusion_report.json",
+    "benchmark_source_trace": "data/equity_benchmarks/daily/2026-06-26/benchmark_source_trace.json",
+    "benchmark_manifest": "data/equity_benchmarks/daily/2026-06-26/benchmark_manifest.json",
+    "benchmark_boundary_check": "data/equity_benchmarks/daily/2026-06-26/benchmark_boundary_check.json",
+    "benchmark_summary": "data/equity_benchmarks/daily/2026-06-26/benchmark_summary.json",
+    "benchmark_summary_report": "outputs/equity_benchmarks/daily/2026-06-26/A_SHARE_BENCHMARK_SUMMARY.md",
+    "portfolio_benchmark_comparison_report": "outputs/equity_benchmarks/daily/2026-06-26/PORTFOLIO_BENCHMARK_COMPARISON.md",
+    "benchmark_data_availability_report": "outputs/equity_benchmarks/daily/2026-06-26/BENCHMARK_DATA_AVAILABILITY.md",
+    "benchmark_source_trace_report": "outputs/equity_benchmarks/daily/2026-06-26/BENCHMARK_SOURCE_TRACE.md",
+    "benchmark_audit_json": "data/equity_data_quality/a_share_benchmark_comparison_audit.json",
+    "benchmark_audit_report": "outputs/audit/A_SHARE_BENCHMARK_COMPARISON_AUDIT.md"
+  },
+  "source_artifacts": {
+    "workflow": "data/equity_workflows/daily/2026-06-26",
+    "tracking": "data/equity_portfolio_tracking/daily/2026-06-26",
+    "selection": "data/equity_selection/daily/2026-06-26",
+    "portfolios": "data/equity_portfolios/daily/2026-06-26",
+    "price_panels": "data/equity_market/history"
+  },
+  "benchmark_availability": {
+    "CSI300": "available",
+    "CSI500": "available",
+    "CSI1000": "available",
+    "CASH": "available",
+    "EQUAL_WEIGHT_STRICT_TRADABLE": "available",
+    "EQUAL_WEIGHT_CANDIDATE_POOL": "available"
+  },
+  "comparison_status": {
+    "long_virtual_portfolio": "limited_history",
+    "mid_virtual_portfolio": "limited_history",
+    "short_virtual_portfolio": "limited_history"
+  },
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "recommended_next_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking"
+}

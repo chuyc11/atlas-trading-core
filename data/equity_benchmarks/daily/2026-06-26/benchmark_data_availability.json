@@ -1,0 +1,93 @@
+{
+  "availability_id": "A-SHARE-BENCHMARK-DATA-AVAILABILITY",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "benchmarks": [
+    {
+      "benchmark_id": "CSI300",
+      "status": "available",
+      "source_type": "local_index_price_panel",
+      "source_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_benchmarks\\history\\index_price_history_panel.parquet",
+      "symbol_or_index_code": "000300.SH",
+      "first_available_date": "2025-06-16",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 251,
+      "missing_reason": null,
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "CSI500",
+      "status": "available",
+      "source_type": "local_index_price_panel",
+      "source_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_benchmarks\\history\\index_price_history_panel.parquet",
+      "symbol_or_index_code": "000905.SH",
+      "first_available_date": "2025-06-16",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 251,
+      "missing_reason": null,
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "CSI1000",
+      "status": "available",
+      "source_type": "local_index_price_panel",
+      "source_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_benchmarks\\history\\index_price_history_panel.parquet",
+      "symbol_or_index_code": "000852.SH",
+      "first_available_date": "2025-06-16",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 251,
+      "missing_reason": null,
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "CASH",
+      "status": "available",
+      "source_type": "cash_assumption_zero_return",
+      "source_path": null,
+      "symbol_or_index_code": "CNY_CASH_0_RETURN",
+      "first_available_date": "2025-06-16",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 251,
+      "missing_reason": null,
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_STRICT_TRADABLE",
+      "status": "available",
+      "source_type": "internal_equal_weight_as_of_universe",
+      "source_path": null,
+      "symbol_or_index_code": "as_of_universe_constituents",
+      "first_available_date": "2025-04-08",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 296,
+      "missing_reason": null,
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_CANDIDATE_POOL",
+      "status": "available",
+      "source_type": "internal_equal_weight_as_of_universe",
+      "source_path": null,
+      "symbol_or_index_code": "as_of_universe_constituents",
+      "first_available_date": "2025-05-16",
+      "last_available_date": "2026-06-26",
+      "as_of_date_available": true,
+      "trading_days_available": 271,
+      "missing_reason": null,
+      "is_placeholder": false
+    }
+  ],
+  "all_required_benchmarks_available": true,
+  "placeholder_benchmarks_used": [],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

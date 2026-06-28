@@ -1,0 +1,64 @@
+{
+  "audit_id": "A-SHARE-BENCHMARK-COMPARISON-AUDIT",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "portfolio relative metrics limited by first-day initialization"
+  ],
+  "benchmark_availability_checks": {
+    "CSI300": "available",
+    "CSI500": "available",
+    "CSI1000": "available",
+    "CASH": "available",
+    "EQUAL_WEIGHT_STRICT_TRADABLE": "available",
+    "EQUAL_WEIGHT_CANDIDATE_POOL": "available"
+  },
+  "comparison_checks": {
+    "long_comparisons_present": true,
+    "mid_comparisons_present": true,
+    "short_comparisons_present": true,
+    "limited_history_correctly_flagged": true,
+    "performance_not_fabricated": true
+  },
+  "checks": {
+    "benchmark_config_exists": true,
+    "all_required_artifacts_exist": true,
+    "target_version_matches": true,
+    "all_required_benchmark_ids_present": true,
+    "cash_available": true,
+    "strict_equal_weight_available": true,
+    "candidate_equal_weight_available": true,
+    "source_trace_complete": true,
+    "source_trace_no_forbidden_paths": true,
+    "portfolio_history_limitation_correctly_flagged": true,
+    "benchmark_metrics_do_not_fabricate_portfolio_history": true,
+    "boundary_fields_clean": true,
+    "boundary_overall_passed": true,
+    "no_forbidden_artifacts_generated": true,
+    "no_forbidden_positive_wording": true,
+    "no_future_leakage": true,
+    "CSI300_available": true,
+    "CSI300_not_placeholder": true,
+    "CSI500_available": true,
+    "CSI500_not_placeholder": true,
+    "CSI1000_available": true,
+    "CSI1000_not_placeholder": true
+  },
+  "boundary": {
+    "benchmark_comparison_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "recommended_next_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking"
+}

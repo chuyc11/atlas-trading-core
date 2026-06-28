@@ -1,0 +1,381 @@
+{
+  "trace_id": "A-SHARE-BENCHMARK-COMPARISON-SOURCE-TRACE",
+  "target_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
+  "as_of_date": "2026-06-26",
+  "generated_at": "2026-06-28T09:51:36.297330Z",
+  "source_artifacts": [
+    {
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_config.json",
+      "exists": true,
+      "sha256": "a1e99479932228abbfa3e4b91b1c8381da2216b34841a0cbf8e308155744c987",
+      "size_bytes": 1642,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
+      "exists": true,
+      "sha256": "01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51",
+      "size_bytes": 19044,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
+      "exists": true,
+      "sha256": "e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a",
+      "size_bytes": 17873,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_source_trace.json",
+      "exists": true,
+      "sha256": "c8904934f33e14e2b2785fdf82f5d99741fa4cc8a322ace24dcdeb36423465af",
+      "size_bytes": 10905,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",
+      "exists": true,
+      "sha256": "4ae6e39cec0beae5bca70bacecef37ea79d43d9f83d9bed3e42c6475d733d463",
+      "size_bytes": 1626,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+      "exists": true,
+      "sha256": "67f9e90be4545344835a04eaf53851ce17cc53851f11289bebe64d8fb22548ff",
+      "size_bytes": 7546,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_config.json",
+      "exists": true,
+      "sha256": "3a27ffc3cbe5122d6a9cc0a6a36cbd3176f4eb308672503f02ce95f9214c9e58",
+      "size_bytes": 1884,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json",
+      "exists": true,
+      "sha256": "cf16f8b3d05684ad771f19d5561e8b01e2e861699c2f3aa05984fb370d9e2e96",
+      "size_bytes": 71959,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json",
+      "exists": true,
+      "sha256": "3659c52313dbdc7fc5f9d657e890e2526c2b7b543b1b52a23ca308912a491f81",
+      "size_bytes": 71748,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json",
+      "exists": true,
+      "sha256": "3deac0b06f7fad3f5ee6d349cd653e7944bb54083fd3e2ad30bcd7af860c8868",
+      "size_bytes": 48416,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_holdings_snapshot.json",
+      "exists": true,
+      "sha256": "c3309292553fb443486d25397e0ce38b77b2dcbf8a314dad887382aaa00dc456",
+      "size_bytes": 40340,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/mid_holdings_snapshot.json",
+      "exists": true,
+      "sha256": "75715d36e9fc85889f780a008921dfd30ee620c3179f9605dfbde7254d29df86",
+      "size_bytes": 40224,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/short_holdings_snapshot.json",
+      "exists": true,
+      "sha256": "e1831c375592610585dd8d43103e6a44146aa3dc81e400ff917bc12d5ed4cd95",
+      "size_bytes": 27567,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_nav_snapshot.json",
+      "exists": true,
+      "sha256": "377105aa7a27f93f8b54a8422514034c178b4950d9a92aa127c7319780d53b19",
+      "size_bytes": 3612,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/portfolio_performance_snapshot.json",
+      "exists": true,
+      "sha256": "21ff9593b98db3275084afac639d1279ac2d473fa2333c7b7c17974f2f18b067",
+      "size_bytes": 3097,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
+      "exists": true,
+      "sha256": "c2f3727a76f998dccffbf745b4af4ba758ac60fc2de97c97204766430a046f74",
+      "size_bytes": 7262,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json",
+      "exists": true,
+      "sha256": "8ce7349ff321ab92ff8e904fc3a2deee22224a795cd246c3745cc1e99834df7a",
+      "size_bytes": 6001,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
+      "exists": true,
+      "sha256": "2f90a008a9f197857fda80a4ebe1072e677167cc9792c9cc574509d221b9bce6",
+      "size_bytes": 7406,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe.json",
+      "exists": true,
+      "sha256": "3a28e0d6b5a53260d1e61535d99230fff50e9b4262355e4ce6e0e0046d7b91eb",
+      "size_bytes": 4502169,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/long_candidates.json",
+      "exists": true,
+      "sha256": "82609ee976e4660f0ceaede9ab5a62d4d2d557b8870a4639cccba2a7e68d5e00",
+      "size_bytes": 55696,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/mid_candidates.json",
+      "exists": true,
+      "sha256": "dd8971ba2362e7df507cae4ca298067e464f0910a295726d300fb580ecfb17e8",
+      "size_bytes": 56920,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/short_candidates.json",
+      "exists": true,
+      "sha256": "30ebc97018e2ef1853cf21e900c07ef75c126e97401da559e31cfa64acd982d2",
+      "size_bytes": 56184,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json",
+      "exists": true,
+      "sha256": "6948ff8f76fa4b11a0b42d0e0dc485e7055a3c41cb382f87158dbc0ebd199c2e",
+      "size_bytes": 45465,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+      "exists": true,
+      "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7",
+      "size_bytes": 4312,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "a18fee694e7c4349f4b84a97dd19f5e2f98157fa0482a60215fc1c45a0d9e525",
+      "size_bytes": 54029,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "02425e6ff839ac82e72b15cf55bab5c198f292a34c47ecebb0647d8494bfe0d3",
+      "size_bytes": 53703,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
+      "exists": true,
+      "sha256": "c7827ecfd54f5f121d84be5f522998ad7be9eed7033e1bca48745964f817c59b",
+      "size_bytes": 41057,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+      "exists": true,
+      "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda",
+      "size_bytes": 4399,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_market/history/daily_price_history_panel.parquet",
+      "exists": true,
+      "sha256": null,
+      "size_bytes": 207824014,
+      "hash_skipped_reason": "large_file"
+    },
+    {
+      "path": "data/equity_market/history/adjusted_price_history_panel.parquet",
+      "exists": true,
+      "sha256": "908a9434b92bb9100dec5623f9998d4ffb442aed67e92be67dab3268961297fe",
+      "size_bytes": 87161122,
+      "hash_skipped_reason": null
+    },
+    {
+      "path": "data/equity_benchmarks/history/index_price_history_panel.parquet",
+      "exists": true,
+      "sha256": "60ba644cad43f5af4646aec1d09cef55cfefb3c8a79e78f632f18bcae2fa3f64",
+      "size_bytes": 42236,
+      "hash_skipped_reason": null
+    }
+  ],
+  "index_benchmark_source": {
+    "source_type": "local_index_price_panel",
+    "source_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_benchmarks\\history\\index_price_history_panel.parquet",
+    "source_attempts": []
+  },
+  "cash_benchmark_assumption": {
+    "source_type": "cash_assumption_zero_return",
+    "daily_return": 0.0
+  },
+  "equal_weight_universe_construction": {
+    "strict_tradable": "as_of_date filter_passed symbols with adjusted close preferred",
+    "candidate_pool": "deduplicated long, mid, short, and multi-horizon candidate symbols"
+  },
+  "output_artifacts": {
+    "benchmark_config": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_config.json",
+      "exists": true,
+      "sha256": "7610f13b0f8cfb3a01d38ef4691ffd4f59790f41d1591535229d1e54e9bc7b64",
+      "size_bytes": 1764,
+      "hash_skipped_reason": null
+    },
+    "benchmark_data_availability": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_data_availability.json",
+      "exists": true,
+      "sha256": "ae876711248efc73ba5dd231924ad70be66991fd980570fccd1b5b375eda1f65",
+      "size_bytes": 3567,
+      "hash_skipped_reason": null
+    },
+    "benchmark_universe_snapshot": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_universe_snapshot.json",
+      "exists": true,
+      "sha256": "9b189053043e59ce841fe92286de16eebb389b52b07f48ba53eaee5a0e8c4afe",
+      "size_bytes": 1208,
+      "hash_skipped_reason": null
+    },
+    "benchmark_price_snapshot": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_price_snapshot.json",
+      "exists": true,
+      "sha256": "2445643be9db0c02e3be0028230b6e646d861c37576b575c0b9926c83b41ad8e",
+      "size_bytes": 384038,
+      "hash_skipped_reason": null
+    },
+    "benchmark_return_snapshot": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_return_snapshot.json",
+      "exists": true,
+      "sha256": "03cc30ff281e868e1264d6c9856bff24c115fafe838c593175c858f49b34bf54",
+      "size_bytes": 393711,
+      "hash_skipped_reason": null
+    },
+    "benchmark_nav_snapshot": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_nav_snapshot.json",
+      "exists": true,
+      "sha256": "3c664bec80dbf38831bc0e798f56ff7b2e58bf96f61650eb3de60d046d118b6d",
+      "size_bytes": 464540,
+      "hash_skipped_reason": null
+    },
+    "portfolio_benchmark_comparison": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/portfolio_benchmark_comparison.json",
+      "exists": true,
+      "sha256": "71e6a05316b2cfa9b24548fdc8addea4a62710d265c3faf145ab220f8a622a2e",
+      "size_bytes": 20864,
+      "hash_skipped_reason": null
+    },
+    "relative_performance_snapshot": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/relative_performance_snapshot.json",
+      "exists": true,
+      "sha256": "84d4ca0a57c3d83916f2ec461c057caeeb0dd579399c9b8d4a4c6105fc478df5",
+      "size_bytes": 1570,
+      "hash_skipped_reason": null
+    },
+    "benchmark_exclusion_report": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_exclusion_report.json",
+      "exists": true,
+      "sha256": "1c1bace84e736b7f0e492eaee0e3722306943af07fadd3d7999cc49d55ee2788",
+      "size_bytes": 767,
+      "hash_skipped_reason": null
+    },
+    "benchmark_source_trace": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_source_trace.json",
+      "exists": true,
+      "sha256": "9c187dc468d3080e126d74b094038916d7144e909d35e6078e96ce92df7e4754",
+      "size_bytes": 15268,
+      "hash_skipped_reason": null
+    },
+    "benchmark_manifest": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_manifest.json",
+      "exists": true,
+      "sha256": "7a409b3611003ff52acc295239d26cd49dd9e2c658f99b749a3a219697c39a90",
+      "size_bytes": 3662,
+      "hash_skipped_reason": null
+    },
+    "benchmark_boundary_check": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_boundary_check.json",
+      "exists": true,
+      "sha256": "fcb51d76ff86d87d0fffe904c18015e00716836e996a9436e7dd6cd427ba541b",
+      "size_bytes": 800,
+      "hash_skipped_reason": null
+    },
+    "benchmark_summary": {
+      "path": "data/equity_benchmarks/daily/2026-06-26/benchmark_summary.json",
+      "exists": true,
+      "sha256": "3fb8cc67718346c37879b30e91a9de03fbfa96905ba07b6d98955e428307e05d",
+      "size_bytes": 1739,
+      "hash_skipped_reason": null
+    },
+    "benchmark_summary_report": {
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/A_SHARE_BENCHMARK_SUMMARY.md",
+      "exists": true,
+      "sha256": "8aaf7a45bdd9d7a7bd6e38484e390d91663c4558754c19360f229a16fd6d6c6a",
+      "size_bytes": 1434,
+      "hash_skipped_reason": null
+    },
+    "portfolio_benchmark_comparison_report": {
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/PORTFOLIO_BENCHMARK_COMPARISON.md",
+      "exists": true,
+      "sha256": "bbaacde1cf3886ca9901767ab041f1460b0a096804493a9f9cc58f431a54dafb",
+      "size_bytes": 2701,
+      "hash_skipped_reason": null
+    },
+    "benchmark_data_availability_report": {
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/BENCHMARK_DATA_AVAILABILITY.md",
+      "exists": true,
+      "sha256": "6ff3d193d2b505ccabdc44ec6d0a9a8cb06cbe2f8fb608ae5345b23da8978129",
+      "size_bytes": 853,
+      "hash_skipped_reason": null
+    },
+    "benchmark_source_trace_report": {
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/BENCHMARK_SOURCE_TRACE.md",
+      "exists": true,
+      "sha256": "36b49839193b7433b3938965f73385ece4373f9d24cba06febdd43b107d63c3e",
+      "size_bytes": 4896,
+      "hash_skipped_reason": null
+    },
+    "benchmark_audit_json": {
+      "path": "data/equity_data_quality/a_share_benchmark_comparison_audit.json",
+      "exists": true,
+      "sha256": "3309ee2e1cea4aa77e634ea64875495bafc43cc362a0d61320adba37a4d49121",
+      "size_bytes": 2255,
+      "hash_skipped_reason": null
+    },
+    "benchmark_audit_report": {
+      "path": "outputs/audit/A_SHARE_BENCHMARK_COMPARISON_AUDIT.md",
+      "exists": true,
+      "sha256": "cd04abbafeba0f45c0983b4b20030ad861797db73ebf51935a879427b1a0cfd1",
+      "size_bytes": 818,
+      "hash_skipped_reason": null
+    }
+  },
+  "forbidden_source_path_hits": [],
+  "source_trace_complete": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}
