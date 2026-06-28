@@ -65,7 +65,8 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - boundary: no upstream module rewrite, no old run-daily, no official forward dry-run day2, no broker, no real orders, no buy/sell signals, no order preview, no profit claim, no live-trading readiness
 
 - v0.7.10 benchmark data and performance comparison
-  - planned output: CSI300, CSI500, CSI1000, cash, equal-weight universe benchmark package, relative performance, tracking error, relative drawdown, source trace, and audit
+  - implemented benchmark-only outputs: CSI300, CSI500, CSI1000, CASH, strict-tradable equal-weight, candidate-pool equal-weight, benchmark availability, price/return/NAV snapshots, portfolio comparison, relative performance, exclusion report, source trace, boundary check, reports, and audit
+  - result as of 2026-06-26: all six benchmark ids available, placeholder benchmarks used none, first-day portfolio limitations explicit, benchmark audit passed, recommended next version `v0.7.11-a-share-multi-day-portfolio-performance-tracking`
 - v0.8.0 Tonghuashun, miniQMT, and simulated adapter research
   - adapter research only: read-only quote/account sync, simulated adapter experiments, order preview, manual confirmation gate
 - v0.9.0 manual-confirmation trading preparation
@@ -87,10 +88,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_portfolio_tracking/`
 - `src/trading_core/equity_workflows/`
+- `src/trading_core/equity_benchmarks/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
-- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_portfolio_tracking/`, `data/equity_workflows/`, `data/equity_validation/`
-- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_portfolio_tracking/`, `outputs/equity_workflows/`, `outputs/equity_validation/`
+- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_portfolio_tracking/`, `data/equity_workflows/`, `data/equity_benchmarks/`, `data/equity_validation/`
+- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_portfolio_tracking/`, `outputs/equity_workflows/`, `outputs/equity_benchmarks/`, `outputs/equity_validation/`
 
 ## Required Boundary
 
@@ -110,3 +112,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - v0.7.7 daily briefing is an information summary only; it does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, or profit claims.
 - v0.7.8 virtual tracking and paper ledger artifacts are research-only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, and no broker/order/live-trading claim is generated.
 - v0.7.9 workflow orchestration artifacts are research-only; they orchestrate v0.7.2-v0.7.8 stages and do not rewrite business modules, call old `run-daily`, execute day2, connect a broker, place real orders, generate buy/sell signals, generate order previews, claim profitability, or certify live readiness.
+- v0.7.10 benchmark comparison artifacts are research-only; they compare virtual portfolios to benchmark series, keep limited first-day history explicit, and do not create buy/sell signals, generate order previews, connect a broker, place real orders, call old `run-daily`, execute day2, claim profitability, or certify live readiness.

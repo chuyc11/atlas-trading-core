@@ -1,5 +1,45 @@
 # Release Notes
 
+## v0.7.10-a-share-benchmark-data-and-performance-comparison
+
+This release adds research-only A-share benchmark data and performance comparison for the existing long/mid/short virtual portfolios.
+
+Includes:
+
+- CSI300, CSI500, and CSI1000 benchmark support using local/public historical index data
+- CASH benchmark with zero daily return
+- equal-weight strict tradable benchmark
+- equal-weight candidate pool benchmark
+- benchmark NAV and return snapshots
+- portfolio benchmark comparison
+- relative performance snapshot
+- benchmark source trace
+- benchmark boundary check
+- benchmark audit
+- CLI commands: `build-a-share-benchmark-comparison`, `audit-a-share-benchmark-comparison`, and `build-and-audit-a-share-benchmark-comparison`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- benchmark audit overall_passed=true
+- blocking reasons: none
+- benchmark ids available: CSI300, CSI500, CSI1000, CASH, EQUAL_WEIGHT_STRICT_TRADABLE, EQUAL_WEIGHT_CANDIDATE_POOL
+- placeholder benchmarks used: none
+- limited first-day portfolio history explicitly flagged
+- performance_not_yet_observed=true
+- recommended next version: `v0.7.11-a-share-multi-day-portfolio-performance-tracking`
+
+Boundary:
+
+- benchmark comparison is research-only
+- no buy/sell signals generated
+- no order preview generated
+- no broker connected
+- no real orders placed
+- old run-daily not called
+- official forward dry-run day2 not executed
+- not model profit guarantee
+- not live trading ready
+
 ## v0.7.9-a-share-daily-workflow-orchestration
 
 This release adds the A-share daily research workflow orchestration layer. It strings the existing v0.7.2-v0.7.8 research chain into a repeatable, auditable, fail-closed daily workflow without rewriting upstream business modules.

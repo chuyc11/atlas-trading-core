@@ -441,7 +441,22 @@ Equivalent one-command path:
 python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts
 ```
 
-This v0.7.9 path orchestrates the existing v0.7.2-v0.7.8 A-share research chain only. `validate_existing_artifacts` verifies existing artifacts without rebuilding upstream stages. `build_from_existing_data` may rebuild the A-share research chain from existing historical panels. `full_research_run` keeps public data refresh disabled unless `--allow-public-data-refresh` is explicitly passed. The workflow does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and is not live-trading ready. Benchmark data and relative performance comparison are deferred to v0.7.10.
+This v0.7.9 path orchestrates the existing v0.7.2-v0.7.8 A-share research chain only. `validate_existing_artifacts` verifies existing artifacts without rebuilding upstream stages. `build_from_existing_data` may rebuild the A-share research chain from existing historical panels. `full_research_run` keeps public data refresh disabled unless `--allow-public-data-refresh` is explicitly passed. The workflow does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and is not live-trading ready.
+
+## Run A-share benchmark comparison
+
+```bash
+python -m trading_core.cli build-a-share-benchmark-comparison --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-benchmark-comparison --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-benchmark-comparison --as-of-date 2026-06-26
+```
+
+This v0.7.10 path builds research-only benchmark data and portfolio comparison artifacts for CSI300, CSI500, CSI1000, CASH, strict-tradable equal weight, and candidate-pool equal weight. It resolves the prior index placeholder warning when real benchmark history is available. It does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews. First-day portfolio history remains explicitly limited.
 
 ## What not to do
 
@@ -479,6 +494,7 @@ This v0.7.9 path orchestrates the existing v0.7.2-v0.7.8 A-share research chain 
 * do not treat v0.7.6 virtual portfolios or target weights as real portfolios, buy/sell signals, broker order previews, real-account rebalance instructions, profit guarantees, or live trading readiness
 * do not treat v0.7.7 daily briefings as trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker readiness, profit guarantees, or live trading readiness
 * do not treat v0.7.8 paper ledgers as real-money ledgers, virtual holdings as real holdings, or virtual returns as actual returns
+* do not treat v0.7.10 benchmark comparison as investment advice, order instruction, realized multi-day portfolio evidence, profit guarantee, broker readiness, or live trading readiness
 
 ## Boundary
 
@@ -506,3 +522,4 @@ This v0.7.9 path orchestrates the existing v0.7.2-v0.7.8 A-share research chain 
 * v0.7.7 A-share daily stock selection briefing writes briefing artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, or order previews.
 * v0.7.8 A-share virtual portfolio tracking writes virtual tracking and paper ledger artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or order previews.
 * v0.7.9 A-share daily workflow orchestration writes workflow artifacts only, does not rewrite upstream modules, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
+* v0.7.10 A-share benchmark comparison writes benchmark artifacts only, reads existing workflow/tracking/selection/portfolio/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.

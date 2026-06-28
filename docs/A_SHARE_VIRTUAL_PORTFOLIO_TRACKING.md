@@ -57,4 +57,4 @@ python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --
 - Virtual portfolio tracking does not generate buy/sell signals.
 - Virtual portfolio tracking does not generate order previews.
 - v0.7.9 implements daily workflow orchestration around this tracking package.
-- v0.7.10 is reserved for benchmark data and relative performance comparison.
+- v0.7.10 implements benchmark data and relative performance comparison without modifying the v0.7.8 paper ledgers.

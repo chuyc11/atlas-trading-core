@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.9-a-share-daily-workflow-orchestration
+v0.7.10-a-share-benchmark-data-and-performance-comparison
 
 ## Completed milestones
 
@@ -58,6 +58,7 @@ v0.7.9-a-share-daily-workflow-orchestration
 - v0.7.7 A-share daily stock selection briefing
 - v0.7.8 A-share virtual portfolio tracking and paper ledger
 - v0.7.9 A-share daily workflow orchestration
+- v0.7.10 A-share benchmark data and performance comparison
 
 ## Known limitations
 
@@ -96,7 +97,8 @@ v0.7.9-a-share-daily-workflow-orchestration
 - v0.7.6 generates research-only virtual portfolios and virtual target weights only; virtual portfolios are not real portfolios, target weights are not order instructions, no broker is connected, no real orders are placed, and no profit guarantee or live-trading readiness is claimed
 - v0.7.7 generates a daily Chinese stock selection research briefing from existing artifacts only; it does not regenerate scores, candidates, or virtual portfolios, and it does not generate buy/sell signals, order previews, broker artifacts, real orders, profit claims, or live-trading readiness
 - v0.7.8 generates research-only virtual portfolio tracking and paper ledgers only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, no broker is connected, and no real orders are placed
-- v0.7.9 orchestrates the A-share daily research workflow only; it does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, and leaves benchmark data/performance comparison to v0.7.10
+- v0.7.9 orchestrates the A-share daily research workflow only; it does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, and does not generate order previews
+- v0.7.10 adds CSI300, CSI500, CSI1000, CASH, strict-tradable equal-weight, and candidate-pool equal-weight benchmark comparison; it is research-only, does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and flags limited first-day portfolio history
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -258,6 +260,21 @@ python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of
 ```
 
 The v0.7.9 output is an orchestration-only daily research workflow package. It validates or runs the existing A-share research stages in order, writes workflow config, preflight, stage manifest, run manifest, source trace, boundary check, owner summary, and audit artifacts, and fails closed if a critical stage fails. It does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and is not live-trading ready. Benchmark data and relative performance comparison are deferred to v0.7.10.
+
+Run v0.7.10 A-share benchmark data and performance comparison:
+
+```powershell
+python -m trading_core.cli build-a-share-benchmark-comparison --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-benchmark-comparison --as-of-date 2026-06-26
+```
+
+Combined:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-benchmark-comparison --as-of-date 2026-06-26
+```
+
+The v0.7.10 output is a research-only benchmark package. It resolves the prior CSI300/CSI500/CSI1000 placeholder warning when real/public index history is available, adds CASH and equal-weight universe benchmarks, writes benchmark NAV/return snapshots, compares long/mid/short virtual portfolios against each benchmark, and explicitly marks first-day portfolio history as limited. It does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -534,3 +551,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.7 writes A-share daily briefing artifacts only under equity briefing paths; it reads existing artifacts only and does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.8 writes A-share virtual tracking artifacts only under equity portfolio tracking paths and its audit under equity data quality/audit paths; it does not write main orders/trades/accounts, does not generate real portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.9 writes A-share workflow orchestration artifacts only under `data/equity_workflows/`, `outputs/equity_workflows/`, and workflow audit paths; it does not rewrite upstream modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, and does not certify live-trading readiness
+- v0.7.10 writes benchmark comparison artifacts only under `data/equity_benchmarks/`, `outputs/equity_benchmarks/`, and benchmark audit paths; it does not write main orders/trades/accounts, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2

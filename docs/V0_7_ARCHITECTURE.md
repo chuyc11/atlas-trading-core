@@ -17,6 +17,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - daily Chinese owner briefing
 - virtual portfolio tracking and paper ledgers
 - daily workflow orchestration
+- benchmark data and performance comparison
 - walk-forward validation
 
 ## Modules
@@ -34,6 +35,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_portfolio_tracking/`
 - `src/trading_core/equity_workflows/`
+- `src/trading_core/equity_benchmarks/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
 
@@ -55,7 +57,8 @@ flowchart TD
   F --> G["Daily Chinese owner briefing"]
   G --> T["Virtual tracking / paper ledgers"]
   T --> W["Daily workflow orchestration"]
-  T --> H["Walk-forward validation"]
+  W --> B0["Benchmark data / relative comparison"]
+  B0 --> H["Walk-forward validation"]
   X["ETF forward dry-run"] --> J["Benchmark / control group"]
   K["Future adapters"] -. "research only" .-> F
 ```
@@ -146,7 +149,15 @@ v0.7.9 consumes the audited v0.7.2-v0.7.8 A-share research chain and writes orch
 
 The orchestration set includes workflow config, preflight, stage manifest, run manifest, source trace, boundary check, summary, owner-facing report, stage report, source trace report, and audit. It supports `validate_existing_artifacts`, `build_from_existing_data`, and `full_research_run`. Public data refresh is disabled by default and only allowed when explicitly enabled.
 
-v0.7.9 is an orchestration layer only. It does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and does not certify live trading readiness. Benchmark data and relative performance comparison are deferred to v0.7.10.
+v0.7.9 is an orchestration layer only. It does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not claim model profitability, and does not certify live trading readiness.
+
+## v0.7.10 Benchmark Data And Performance Comparison
+
+v0.7.10 consumes v0.7.9 workflow artifacts, v0.7.8 tracking artifacts, v0.7.2-v0.7.6 selection/candidate/portfolio artifacts, local price panels, and index benchmark history. It writes benchmark artifacts under `data/equity_benchmarks/daily/YYYY-MM-DD/`, reports under `outputs/equity_benchmarks/daily/YYYY-MM-DD/`, and benchmark audit output under `data/equity_data_quality/` and `outputs/audit/`.
+
+The benchmark set is CSI300, CSI500, CSI1000, CASH, equal-weight strict tradable universe, and equal-weight candidate pool. Index benchmarks must be available by default; placeholder index benchmarks are fail-closed unless explicitly allowed for non-release local runs.
+
+v0.7.10 is a benchmark comparison layer only. It does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim model profitability, and does not certify live trading readiness. First-day portfolio history remains explicitly limited until v0.7.11 extends multi-day tracking.
 
 ## Boundary
 - No real trading.
@@ -166,4 +177,5 @@ v0.7.9 is an orchestration layer only. It does not rewrite upstream business mod
 - v0.7.7 briefings are not trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - v0.7.8 paper ledgers are not real-money ledgers; virtual holdings and virtual returns are research-only and not real account state.
 - v0.7.9 workflow artifacts are orchestration-only and remain outside real trading, broker, order, and live-readiness surfaces.
+- v0.7.10 benchmark artifacts are comparison-only and remain outside real trading, broker, order, and live-readiness surfaces.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

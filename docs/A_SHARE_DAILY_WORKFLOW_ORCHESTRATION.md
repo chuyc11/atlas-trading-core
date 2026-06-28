@@ -61,4 +61,4 @@ Boundary:
 - no model profit guarantee
 - not live trading ready
 
-Benchmark data and relative performance comparison are deferred to `v0.7.10-a-share-benchmark-data-and-performance-comparison`.
+Benchmark data and relative performance comparison are implemented by `v0.7.10-a-share-benchmark-data-and-performance-comparison`.
