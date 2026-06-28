@@ -1,5 +1,65 @@
 # Release Notes
 
+## v0.8.0-a-share-daily-data-refresh-and-provider-hardening
+
+This release adds research-only A-share daily data refresh validation and provider hardening.
+
+Includes:
+
+- daily data refresh configuration
+- latest completed trading day date resolution
+- provider registry snapshot
+- provider health check
+- provider execution log
+- dataset contracts
+- dataset refresh plan
+- dataset refresh result
+- schema validation
+- freshness validation
+- coverage summary
+- data gap report
+- provider fallback report
+- data refresh source trace
+- data refresh manifest
+- data refresh boundary check
+- owner-facing refresh reports
+- data refresh audit
+- CLI commands: `build-a-share-daily-data-refresh`, `audit-a-share-daily-data-refresh`, and `build-and-audit-a-share-daily-data-refresh`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- data refresh audit overall_passed=true
+- blocking reasons: none
+- warnings: 2 (`daily_basic:required_field_all_null`, `trading_calendar:exchange_level_calendar_collapsed_to_trade_date`)
+- mode tested: `validate_existing_data`
+- resolved_as_of_date: `2026-06-26`
+- datasets checked: equity_master, daily_price, adjusted_price, daily_basic, index_price, industry_classification, financial_indicators, trading_calendar
+- schema validation passed
+- freshness validation passed
+- coverage validation passed
+- critical datasets available
+- provider fallback used=false
+- network providers used=false
+- broker provider used=false
+- real account provider used=false
+- order provider used=false
+- recommended next version: `v0.8.1-a-share-current-day-research-workflow-runner`
+- validation: 1174 passed, 1 skipped
+
+Boundary:
+
+- does not trigger the full research workflow by default
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not use real-account provider
+- does not use order provider
+- does not place real orders
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.7.12-a-share-performance-attribution-and-risk-diagnostics
 
 This release adds research-only A-share virtual portfolio performance attribution and risk diagnostics.

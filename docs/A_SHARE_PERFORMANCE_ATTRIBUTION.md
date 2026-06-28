@@ -24,4 +24,6 @@ Boundary:
 - v0.7.12 does not fabricate performance
 - v0.7.12 distinguishes structural diagnostics from realized performance attribution
 
-Recommended next version: `v0.8.0-a-share-daily-data-refresh-and-provider-hardening`.
+v0.8.0 adds daily data refresh and provider hardening without changing attribution outputs into trading instructions.
+
+Recommended next version: `v0.8.1-a-share-current-day-research-workflow-runner`.

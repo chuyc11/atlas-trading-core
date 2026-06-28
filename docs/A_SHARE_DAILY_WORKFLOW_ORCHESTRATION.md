@@ -67,3 +67,9 @@ Benchmark data and relative performance comparison are implemented by `v0.7.10-a
 v0.7.9 orchestrates the daily research workflow through tracking. v0.7.10 adds benchmark comparison. v0.7.11 adds downstream virtual performance tracking without changing the workflow runner or calling old `run-daily`.
 
 The performance stage reads existing workflow, tracking, benchmark, and price artifacts. It writes performance artifacts only under `data/equity_performance/`, `outputs/equity_performance/`, and audit outputs. It does not execute official forward dry-run day2, connect a broker, place real orders, create buy/sell signals, generate order previews, or fabricate portfolio history.
+
+## v0.8.0 Data Refresh Relationship
+
+v0.8.0 validates daily research data freshness and provider health before a current-day workflow runner exists. It does not call this workflow automatically and does not run `run-a-share-daily-research-workflow` unless a later stage explicitly authorizes that behavior.
+
+v0.8.1 should use the refreshed data to run the current-day research workflow.

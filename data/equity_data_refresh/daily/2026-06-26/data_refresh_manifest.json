@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-DAILY-DATA-REFRESH-MANIFEST",
   "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-06-28T15:27:38.135195Z",
+  "generated_at": "2026-06-28T15:58:06.233662Z",
   "mode": "validate_existing_data",
   "resolved_as_of_date": "2026-06-26",
   "datasets": {

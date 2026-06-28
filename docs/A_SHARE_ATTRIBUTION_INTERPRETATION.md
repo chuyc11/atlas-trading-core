@@ -12,4 +12,6 @@ For the current `2026-06-26` baseline:
 
 Do not interpret score, risk, liquidity, industry, or benchmark-relative diagnostics as trade instructions. These artifacts explain the current virtual portfolio shape and risk exposures.
 
-Recommended next version: `v0.8.0-a-share-daily-data-refresh-and-provider-hardening`.
+v0.8.0 adds daily data refresh and provider hardening. It validates data freshness and coverage, but does not generate buy/sell signals, place orders, connect broker, call old `run-daily`, or execute official forward dry-run day2.
+
+Recommended next version: `v0.8.1-a-share-current-day-research-workflow-runner`.

@@ -257,3 +257,11 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share attribution | `build-a-share-performance-attribution` | Build virtual portfolio attribution and risk diagnostics | `data/equity_attribution/daily/YYYY-MM-DD`, `outputs/equity_attribution/daily/YYYY-MM-DD` | research-only, virtual-only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
 | A-share attribution | `audit-a-share-performance-attribution` | Audit attribution artifacts, reconciliations, source trace, and boundaries | `data/equity_data_quality/a_share_performance_attribution_audit.json`, `outputs/audit/A_SHARE_PERFORMANCE_ATTRIBUTION_AUDIT.md` | audit only |
 | A-share attribution | `build-and-audit-a-share-performance-attribution` | Build and audit v0.7.12 attribution package | attribution outputs plus audit outputs | fail-closed |
+
+## v0.8.0 A-Share Data Refresh Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share data refresh | `build-a-share-daily-data-refresh` | Build daily data refresh and provider hardening artifacts | `data/equity_data_refresh/daily/YYYY-MM-DD`, `outputs/equity_data_refresh/daily/YYYY-MM-DD` | data refresh only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
+| A-share data refresh | `audit-a-share-daily-data-refresh` | Audit provider health, schema, freshness, coverage, source trace, and boundaries | `data/equity_data_quality/a_share_daily_data_refresh_audit.json`, `outputs/audit/A_SHARE_DAILY_DATA_REFRESH_AUDIT.md` | audit only |
+| A-share data refresh | `build-and-audit-a-share-daily-data-refresh` | Build and audit v0.8.0 daily data refresh package | data refresh outputs plus audit outputs | fail-closed |

@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.12-a-share-performance-attribution-and-risk-diagnostics
+v0.8.0-a-share-daily-data-refresh-and-provider-hardening
 
 ## Completed milestones
 
@@ -61,6 +61,7 @@ v0.7.12-a-share-performance-attribution-and-risk-diagnostics
 - v0.7.10 A-share benchmark data and performance comparison
 - v0.7.11 A-share multi-day virtual portfolio performance tracking
 - v0.7.12 A-share performance attribution and risk diagnostics
+- v0.8.0 A-share daily data refresh and provider hardening
 
 ## Known limitations
 
@@ -103,6 +104,7 @@ v0.7.12-a-share-performance-attribution-and-risk-diagnostics
 - v0.7.10 adds CSI300, CSI500, CSI1000, CASH, strict-tradable equal-weight, and candidate-pool equal-weight benchmark comparison; it is research-only, does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and flags limited first-day portfolio history
 - v0.7.11 adds appendable multi-day virtual portfolio performance tracking with NAV, returns, drawdown, benchmark-relative status, holding mark-to-market, limitations, source trace, boundary check, and audit artifacts; it does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not fabricate portfolio history, and distinguishes limited history from observed performance
 - v0.7.12 adds performance attribution and risk diagnostics for existing virtual portfolios; it distinguishes structural diagnostics from realized performance attribution, correctly flags limited history, and does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate performance
+- v0.8.0 validates daily A-share research data freshness and provider readiness; it does not trigger the full research workflow by default, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -279,6 +281,21 @@ python -m trading_core.cli build-and-audit-a-share-benchmark-comparison --as-of-
 ```
 
 The v0.7.10 output is a research-only benchmark package. It resolves the prior CSI300/CSI500/CSI1000 placeholder warning when real/public index history is available, adds CASH and equal-weight universe benchmarks, writes benchmark NAV/return snapshots, compares long/mid/short virtual portfolios against each benchmark, and explicitly marks first-day portfolio history as limited. It does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
+
+Run v0.8.0 A-share daily data refresh and provider hardening:
+
+```powershell
+python -m trading_core.cli build-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data
+python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26
+```
+
+Combined:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data
+```
+
+The v0.8.0 output is a data-refresh and provider-hardening package. It validates the latest usable research datasets, records provider registry/health/execution state, checks schema/freshness/coverage, reports data gaps and fallback choices, writes source trace and audit artifacts, and fails closed on critical data blockers. It does not trigger the full research workflow by default, does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -556,3 +573,6 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.8 writes A-share virtual tracking artifacts only under equity portfolio tracking paths and its audit under equity data quality/audit paths; it does not write main orders/trades/accounts, does not generate real portfolios, buy/sell signals, order previews, broker artifacts, real orders, `run-daily`, profit claims, live-trading readiness, or official forward dry-run day2 artifacts
 - v0.7.9 writes A-share workflow orchestration artifacts only under `data/equity_workflows/`, `outputs/equity_workflows/`, and workflow audit paths; it does not rewrite upstream modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, and does not certify live-trading readiness
 - v0.7.10 writes benchmark comparison artifacts only under `data/equity_benchmarks/`, `outputs/equity_benchmarks/`, and benchmark audit paths; it does not write main orders/trades/accounts, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2
+- v0.7.11 writes virtual performance tracking artifacts only under `data/equity_performance/`, `outputs/equity_performance/`, and audit paths; it does not fabricate history, connect a broker, place real orders, generate buy/sell signals, generate order previews, call old `run-daily`, or execute official forward dry-run day2
+- v0.7.12 writes attribution and risk diagnostics only under `data/equity_attribution/`, `outputs/equity_attribution/`, and audit paths; it does not fabricate performance, connect a broker, place real orders, generate buy/sell signals, generate order previews, call old `run-daily`, or execute official forward dry-run day2
+- v0.8.0 writes daily data refresh and provider hardening artifacts only under `data/equity_data_refresh/`, `outputs/equity_data_refresh/`, and audit paths; it does not trigger the full research workflow by default, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, and does not execute official forward dry-run day2

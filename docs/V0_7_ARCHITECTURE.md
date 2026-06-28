@@ -195,4 +195,12 @@ The layer does not create buy/sell signals, place orders, connect a broker, call
 
 The default mode is `current_exposure_diagnostics`. `single_day_initialization_attribution` preserves first-day initialization semantics, and `multi_day_performance_attribution` remains insufficient-history until the minimum observation window is met.
 
-The layer does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate realized performance attribution. v0.8.0 should focus on daily data refresh and provider hardening.
+The layer does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate realized performance attribution.
+
+## v0.8.0 Daily Data Refresh Layer
+
+`data/equity_data_refresh/daily/YYYY-MM-DD/` is the v0.8.0 layer after attribution. It validates local A-share research data freshness, schema, coverage, provider health, fallback reporting, source trace, and audit boundaries.
+
+Release mode uses `validate_existing_data`, so it does not require network provider success. Public provider refresh is explicit opt-in only. v0.8.0 does not generate buy/sell signals, place orders, connect broker, call old `run-daily`, execute official forward dry-run day2, or trigger the full research workflow by default.
+
+v0.8.1 should use refreshed data to run the current-day research workflow.

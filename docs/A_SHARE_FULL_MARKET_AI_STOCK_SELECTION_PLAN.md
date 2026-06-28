@@ -121,4 +121,10 @@ v0.7.11 adds multi-day virtual portfolio performance tracking to the A-share ful
 
 The release does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate portfolio history. The default 2026-06-26 release has one portfolio observation, so it explicitly distinguishes limited history from observed performance.
 
-v0.7.12 adds attribution and risk diagnostics while preserving the limited-history boundary. It distinguishes structural diagnostics from realized performance attribution and recommends `v0.8.0-a-share-daily-data-refresh-and-provider-hardening` as the next stage.
+v0.7.12 adds attribution and risk diagnostics while preserving the limited-history boundary. It distinguishes structural diagnostics from realized performance attribution.
+
+## v0.8.0 Daily Data Refresh Update
+
+v0.8.0 adds daily data refresh and provider hardening. It validates schema, freshness, coverage, provider health, fallback decisions, source trace, and audit boundaries for A-share research data.
+
+v0.8.0 does not generate buy/sell signals, does not place orders, does not connect broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat data freshness as trading readiness. v0.8.1 should use refreshed data to run the current-day research workflow.

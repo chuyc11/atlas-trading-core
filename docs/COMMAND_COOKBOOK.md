@@ -541,6 +541,7 @@ This v0.7.11 path builds research-only virtual portfolio NAV, return, drawdown, 
 * v0.7.10 A-share benchmark comparison writes benchmark artifacts only, reads existing workflow/tracking/selection/portfolio/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
 * v0.7.11 A-share multi-day performance tracking writes virtual performance artifacts only, reads existing workflow/tracking/benchmark/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate portfolio history.
 * v0.7.12 A-share performance attribution writes attribution and risk diagnostics artifacts only, reads existing performance/benchmark/tracking/portfolio/candidate/score artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate realized attribution.
+* v0.8.0 A-share daily data refresh writes provider and dataset validation artifacts only, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not trigger the full research workflow by default.
 
 ## v0.7.12 A-Share Attribution Commands
 
@@ -557,3 +558,20 @@ Modes:
 * `multi_day_performance_attribution`
 
 `multi_day_performance_attribution` remains insufficient-history until the configured observation window is met. Current outputs are structural diagnostics, not trading instructions.
+
+## v0.8.0 A-Share Daily Data Refresh Commands
+
+```powershell
+python -m trading_core.cli build-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data
+python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data
+```
+
+Modes:
+
+* `validate_existing_data`
+* `refresh_from_local_sources`
+* `refresh_from_public_providers`
+* `refresh_and_validate`
+
+Release E2E uses `validate_existing_data`. Public providers require explicit opt-in. This path validates data freshness and coverage but is not a trading-readiness claim.

@@ -2,7 +2,7 @@
   "trace_id": "A-SHARE-DAILY-DATA-REFRESH-SOURCE-TRACE",
   "target_version": "v0.8.0-a-share-daily-data-refresh-and-provider-hardening",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-06-28T15:27:38.135195Z",
+  "generated_at": "2026-06-28T15:58:06.233662Z",
   "source_artifacts": [
     {
       "path": "data/equity_universe/equity_master.parquet",
@@ -200,7 +200,7 @@
     "data_refresh_manifest": {
       "path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_manifest.json",
       "exists": true,
-      "sha256": "baf6e96d232997d6334a61be4da11086188505777c27e1ce94409d65a1c5eab9",
+      "sha256": "8b2917d9b41f29b9dc7aa69f1c8966c47dfb3021c05509d79719227a9d24f29b",
       "size_bytes": 17516,
       "hash_skipped_reason": null
     },
