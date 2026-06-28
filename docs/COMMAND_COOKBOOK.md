@@ -458,6 +458,21 @@ python -m trading_core.cli build-and-audit-a-share-benchmark-comparison --as-of-
 
 This v0.7.10 path builds research-only benchmark data and portfolio comparison artifacts for CSI300, CSI500, CSI1000, CASH, strict-tradable equal weight, and candidate-pool equal weight. It resolves the prior index placeholder warning when real benchmark history is available. It does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews. First-day portfolio history remains explicitly limited.
 
+## Run A-share multi-day performance tracking
+
+```bash
+python -m trading_core.cli build-a-share-multi-day-performance --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-multi-day-performance --as-of-date 2026-06-26
+```
+
+Equivalent one-command path:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-multi-day-performance --as-of-date 2026-06-26
+```
+
+This v0.7.11 path builds research-only virtual portfolio NAV, return, drawdown, benchmark-relative, holding mark-to-market, source trace, limitation, boundary, summary, and audit artifacts. The default `current_snapshot` mode uses only the current tracking date. If only one tracking day exists, it records `sufficient_history=false`, `first_day_initialization=true`, and `performance_not_yet_observed=true`. It does not fabricate portfolio history, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
+
 ## What not to do
 
 * do not run live trading
@@ -495,6 +510,7 @@ This v0.7.10 path builds research-only benchmark data and portfolio comparison a
 * do not treat v0.7.7 daily briefings as trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker readiness, profit guarantees, or live trading readiness
 * do not treat v0.7.8 paper ledgers as real-money ledgers, virtual holdings as real holdings, or virtual returns as actual returns
 * do not treat v0.7.10 benchmark comparison as investment advice, order instruction, realized multi-day portfolio evidence, profit guarantee, broker readiness, or live trading readiness
+* do not treat v0.7.11 first-day performance tracking as observed strategy performance, investment advice, order instruction, realized multi-day evidence, profit guarantee, broker readiness, or live trading readiness
 
 ## Boundary
 
@@ -523,3 +539,4 @@ This v0.7.10 path builds research-only benchmark data and portfolio comparison a
 * v0.7.8 A-share virtual portfolio tracking writes virtual tracking and paper ledger artifacts only, reads existing artifacts only, does not call run-daily, does not execute day2, does not connect a broker, does not place real orders, and does not generate real portfolios, buy/sell signals, or order previews.
 * v0.7.9 A-share daily workflow orchestration writes workflow artifacts only, does not rewrite upstream modules, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
 * v0.7.10 A-share benchmark comparison writes benchmark artifacts only, reads existing workflow/tracking/selection/portfolio/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, and does not generate buy/sell signals or order previews.
+* v0.7.11 A-share multi-day performance tracking writes virtual performance artifacts only, reads existing workflow/tracking/benchmark/price artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate portfolio history.

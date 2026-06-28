@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.7.10-a-share-benchmark-data-and-performance-comparison
+v0.7.11-a-share-multi-day-portfolio-performance-tracking
 
 ## Completed milestones
 
@@ -59,6 +59,7 @@ v0.7.10-a-share-benchmark-data-and-performance-comparison
 - v0.7.8 A-share virtual portfolio tracking and paper ledger
 - v0.7.9 A-share daily workflow orchestration
 - v0.7.10 A-share benchmark data and performance comparison
+- v0.7.11 A-share multi-day virtual portfolio performance tracking
 
 ## Known limitations
 
@@ -99,6 +100,7 @@ v0.7.10-a-share-benchmark-data-and-performance-comparison
 - v0.7.8 generates research-only virtual portfolio tracking and paper ledgers only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, no broker is connected, and no real orders are placed
 - v0.7.9 orchestrates the A-share daily research workflow only; it does not rewrite upstream business modules, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals, and does not generate order previews
 - v0.7.10 adds CSI300, CSI500, CSI1000, CASH, strict-tradable equal-weight, and candidate-pool equal-weight benchmark comparison; it is research-only, does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and flags limited first-day portfolio history
+- v0.7.11 adds appendable multi-day virtual portfolio performance tracking with NAV, returns, drawdown, benchmark-relative status, holding mark-to-market, limitations, source trace, boundary check, and audit artifacts; it does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not fabricate portfolio history, and distinguishes limited history from observed performance
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading

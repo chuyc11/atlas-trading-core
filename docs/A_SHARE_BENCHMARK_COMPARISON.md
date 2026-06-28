@@ -35,3 +35,7 @@ Index benchmarks must be available by default. Placeholder index benchmarks are 
 ## Boundary
 
 This stage does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place orders, does not call old `run-daily`, and does not execute official forward dry-run day2.
+
+## v0.7.11 Next Stage
+
+v0.7.11 consumes the benchmark NAV/return artifacts and the v0.7.8 virtual tracking artifacts to build portfolio NAV, return, drawdown, benchmark-relative, and holding mark-to-market series. It does not use benchmark history to fabricate portfolio history. Limited portfolio observations remain explicitly flagged until enough virtual tracking days exist.

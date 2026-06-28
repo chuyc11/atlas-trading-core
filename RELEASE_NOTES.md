@@ -1,5 +1,56 @@
 # Release Notes
 
+## v0.7.11-a-share-multi-day-portfolio-performance-tracking
+
+This release adds research-only multi-day virtual portfolio performance tracking for A-share long/mid/short virtual portfolios.
+
+Includes:
+
+- performance config
+- performance data availability
+- portfolio NAV series
+- portfolio return series
+- portfolio drawdown series
+- benchmark-relative performance series
+- holding mark-to-market series
+- performance metric snapshot
+- performance limitations report
+- append-only performance log
+- performance source trace
+- performance boundary check
+- performance audit
+- CLI commands: `build-a-share-multi-day-performance`, `audit-a-share-multi-day-performance`, and `build-and-audit-a-share-multi-day-performance`
+- `current_snapshot` mode
+- `append_from_existing_tracking` mode
+- `rebuild_virtual_performance_series` mode with explicit safeguards
+
+Audited result for `as_of_date=2026-06-26`:
+
+- performance audit overall_passed=true
+- blocking reasons: none
+- portfolio observation counts: long=1, mid=1, short=1
+- minimum required observations: 20
+- sufficient_history=false
+- insufficient_history correctly flagged
+- first_day_initialization=true
+- performance_not_yet_observed=true
+- current release correctly flags limited history and first-day initialization
+- does not fabricate multi-day performance
+- recommended next version: `v0.7.12-a-share-performance-attribution-and-risk-diagnostics`
+- validation: 1131 passed, 1 skipped
+
+Boundary:
+
+- research-only and virtual-only
+- no buy/sell signals generated
+- no order preview generated
+- no broker connected
+- no real orders placed
+- old run-daily not called
+- official forward dry-run day2 not executed
+- not model profit guarantee
+- not live trading ready
+
 ## v0.7.10-a-share-benchmark-data-and-performance-comparison
 
 This release adds research-only A-share benchmark data and performance comparison for the existing long/mid/short virtual portfolios.

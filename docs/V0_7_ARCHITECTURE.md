@@ -18,6 +18,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - virtual portfolio tracking and paper ledgers
 - daily workflow orchestration
 - benchmark data and performance comparison
+- multi-day virtual portfolio performance tracking
 - walk-forward validation
 
 ## Modules
@@ -179,3 +180,11 @@ v0.7.10 is a benchmark comparison layer only. It does not create buy/sell signal
 - v0.7.9 workflow artifacts are orchestration-only and remain outside real trading, broker, order, and live-readiness surfaces.
 - v0.7.10 benchmark artifacts are comparison-only and remain outside real trading, broker, order, and live-readiness surfaces.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.
+
+## v0.7.11 Multi-Day Performance Layer
+
+`data/equity_performance/daily/YYYY-MM-DD/` is the v0.7.11 layer after benchmark comparison. It reads existing v0.7.8 tracking, v0.7.9 workflow, v0.7.10 benchmark, and local price-panel artifacts, then writes virtual-only performance series and audit evidence.
+
+Default mode is `current_snapshot`. `append_from_existing_tracking` appends without rewriting prior dates, and `rebuild_virtual_performance_series` requires explicit rebuild authorization. Historical reconstruction must be labeled separately and cannot be described as realized forward performance.
+
+The layer does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or fabricate portfolio history. v0.7.12 should explain performance changes through attribution and risk diagnostics.

@@ -113,3 +113,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - v0.7.8 virtual tracking and paper ledger artifacts are research-only; paper ledgers are not real-money ledgers, virtual holdings are not real holdings, virtual returns are not actual returns, and no broker/order/live-trading claim is generated.
 - v0.7.9 workflow orchestration artifacts are research-only; they orchestrate v0.7.2-v0.7.8 stages and do not rewrite business modules, call old `run-daily`, execute day2, connect a broker, place real orders, generate buy/sell signals, generate order previews, claim profitability, or certify live readiness.
 - v0.7.10 benchmark comparison artifacts are research-only; they compare virtual portfolios to benchmark series, keep limited first-day history explicit, and do not create buy/sell signals, generate order previews, connect a broker, place real orders, call old `run-daily`, execute day2, claim profitability, or certify live readiness.
+
+## v0.7.11 Performance Tracking Update
+
+v0.7.11 adds multi-day virtual portfolio performance tracking to the A-share full-market research chain. It materializes NAV, daily return, cumulative return, drawdown, benchmark-relative status, holding mark-to-market, limitations, source trace, boundary check, and audit artifacts.
+
+The release does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate portfolio history. The default 2026-06-26 release has one portfolio observation, so it explicitly distinguishes limited history from observed performance.
+
+v0.7.12 should add attribution and risk diagnostics.

@@ -58,3 +58,11 @@ python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --
 - Virtual portfolio tracking does not generate order previews.
 - v0.7.9 implements daily workflow orchestration around this tracking package.
 - v0.7.10 implements benchmark data and relative performance comparison without modifying the v0.7.8 paper ledgers.
+
+## v0.7.11 Relationship
+
+v0.7.8 initializes virtual tracking and paper ledgers. v0.7.11 consumes those tracking artifacts to build appendable performance series under `data/equity_performance/daily/YYYY-MM-DD/`.
+
+When only the initialization date is available, v0.7.11 keeps daily return, cumulative return, and drawdown at zero, sets `sufficient_history=false`, and records `performance_not_yet_observed=true`. This prevents first-day initialization from being mistaken for observed strategy performance.
+
+v0.7.11 remains virtual-only and research-only. It does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, and does not execute official forward dry-run day2.

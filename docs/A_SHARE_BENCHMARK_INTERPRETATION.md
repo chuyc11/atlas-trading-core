@@ -19,3 +19,9 @@ v0.7.10 answers a narrow research question: how the initialized long/mid/short v
 - It is not live-trading readiness.
 
 v0.7.11 should extend the portfolio side into multi-day performance tracking before users interpret tracking error, information ratio, correlation, drawdown, or attribution as stable research evidence.
+
+## v0.7.11 Follow-Through
+
+v0.7.11 implements that multi-day performance tracking shell and keeps the first release honest: one portfolio observation is not enough for tracking error, information ratio, beta, correlation, rolling volatility, or stable drawdown statistics. Those metrics remain `insufficient_history` until the minimum observation window is reached.
+
+The v0.7.11 layer still does not create buy/sell signals, place orders, connect a broker, call old `run-daily`, execute official forward dry-run day2, or claim live-trading readiness.
