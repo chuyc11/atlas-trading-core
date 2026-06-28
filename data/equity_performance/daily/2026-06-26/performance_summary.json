@@ -1,0 +1,107 @@
+{
+  "summary_id": "A-SHARE-MULTI-DAY-PERFORMANCE-SUMMARY",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "mode": "current_snapshot",
+  "portfolio_ids": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "portfolio_observation_count": 1,
+  "minimum_required_observations": 20,
+  "sufficient_history": false,
+  "insufficient_history": true,
+  "multi_day_performance_available": false,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 30,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    },
+    "mid_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 30,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    },
+    "short_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 20,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    }
+  },
+  "source_trace_summary": "v0.7.8 tracking, v0.7.9 workflow, and v0.7.10 benchmark artifacts are traced.",
+  "boundary_overall_passed": true,
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ],
+  "disclaimer": "Research-only virtual tracking output. It is not investment advice, not an order instruction, and not a profit guarantee.",
+  "recommended_next_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "boundary": {
+    "multi_day_performance_tracking_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "historical_performance_fabricated": false,
+    "future_data_used": false,
+    "official_forward_dry_run_status_unchanged": true
+  }
+}

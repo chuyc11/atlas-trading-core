@@ -1,0 +1,47 @@
+{
+  "availability_id": "A-SHARE-MULTI-DAY-PERFORMANCE-DATA-AVAILABILITY",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "mode": "current_snapshot",
+  "tracking_snapshots_available": true,
+  "benchmark_snapshots_available": true,
+  "price_panels_available": {
+    "adjusted_price_history_panel": true,
+    "daily_price_history_panel": true
+  },
+  "portfolio_observation_count": 1,
+  "portfolio_observation_counts": {
+    "long_virtual_portfolio": 1,
+    "mid_virtual_portfolio": 1,
+    "short_virtual_portfolio": 1
+  },
+  "benchmark_observation_count": 251,
+  "benchmark_observation_counts": {
+    "CSI300": 251,
+    "CSI500": 251,
+    "CSI1000": 251,
+    "CASH": 251,
+    "EQUAL_WEIGHT_STRICT_TRADABLE": 296,
+    "EQUAL_WEIGHT_CANDIDATE_POOL": 271
+  },
+  "common_observation_count": 1,
+  "common_observation_dates": [
+    "2026-06-26"
+  ],
+  "minimum_required_observations": 20,
+  "sufficient_history": false,
+  "insufficient_history": true,
+  "missing_dates": [],
+  "duplicate_dates": [],
+  "data_gaps": [],
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

@@ -1,0 +1,83 @@
+{
+  "manifest_id": "A-SHARE-MULTI-DAY-PERFORMANCE-MANIFEST",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "generated_at": "2026-06-28T13:44:36.622369Z",
+  "mode": "current_snapshot",
+  "portfolio_ids": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "benchmark_ids": [
+    "CSI300",
+    "CSI500",
+    "CSI1000",
+    "CASH",
+    "EQUAL_WEIGHT_STRICT_TRADABLE",
+    "EQUAL_WEIGHT_CANDIDATE_POOL"
+  ],
+  "observation_counts": {
+    "long_virtual_portfolio": 1,
+    "mid_virtual_portfolio": 1,
+    "short_virtual_portfolio": 1
+  },
+  "sufficient_history": false,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "output_artifacts": {
+    "performance_config": "data/equity_performance/daily/2026-06-26/performance_config.json",
+    "performance_data_availability": "data/equity_performance/daily/2026-06-26/performance_data_availability.json",
+    "portfolio_nav_series": "data/equity_performance/daily/2026-06-26/portfolio_nav_series.json",
+    "portfolio_return_series": "data/equity_performance/daily/2026-06-26/portfolio_return_series.json",
+    "portfolio_drawdown_series": "data/equity_performance/daily/2026-06-26/portfolio_drawdown_series.json",
+    "portfolio_relative_performance_series": "data/equity_performance/daily/2026-06-26/portfolio_relative_performance_series.json",
+    "portfolio_benchmark_relative_series": "data/equity_performance/daily/2026-06-26/portfolio_benchmark_relative_series.json",
+    "holding_mark_to_market_series": "data/equity_performance/daily/2026-06-26/holding_mark_to_market_series.json",
+    "performance_metric_snapshot": "data/equity_performance/daily/2026-06-26/performance_metric_snapshot.json",
+    "performance_limitations": "data/equity_performance/daily/2026-06-26/performance_limitations.json",
+    "performance_append_log": "data/equity_performance/daily/2026-06-26/performance_append_log.json",
+    "performance_source_trace": "data/equity_performance/daily/2026-06-26/performance_source_trace.json",
+    "performance_manifest": "data/equity_performance/daily/2026-06-26/performance_manifest.json",
+    "performance_boundary_check": "data/equity_performance/daily/2026-06-26/performance_boundary_check.json",
+    "performance_summary": "data/equity_performance/daily/2026-06-26/performance_summary.json",
+    "performance_summary_report": "outputs/equity_performance/daily/2026-06-26/A_SHARE_MULTI_DAY_PERFORMANCE_SUMMARY.md",
+    "portfolio_nav_return_report": "outputs/equity_performance/daily/2026-06-26/PORTFOLIO_NAV_AND_RETURN_SERIES.md",
+    "portfolio_relative_performance_report": "outputs/equity_performance/daily/2026-06-26/PORTFOLIO_RELATIVE_PERFORMANCE.md",
+    "performance_limitations_report": "outputs/equity_performance/daily/2026-06-26/PERFORMANCE_LIMITATIONS.md",
+    "performance_source_trace_report": "outputs/equity_performance/daily/2026-06-26/PERFORMANCE_SOURCE_TRACE.md",
+    "performance_audit_json": "data/equity_data_quality/a_share_multi_day_performance_audit.json",
+    "performance_audit_report": "outputs/audit/A_SHARE_MULTI_DAY_PERFORMANCE_AUDIT.md"
+  },
+  "source_artifacts": {
+    "tracking": "data/equity_portfolio_tracking/daily/2026-06-26",
+    "workflow": "data/equity_workflows/daily/2026-06-26",
+    "benchmark": "data/equity_benchmarks/daily/2026-06-26",
+    "price_panels": "data/equity_market/history"
+  },
+  "boundary": {
+    "multi_day_performance_tracking_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "historical_performance_fabricated": false,
+    "future_data_used": false,
+    "official_forward_dry_run_status_unchanged": true
+  },
+  "recommended_next_version": "v0.7.12-a-share-performance-attribution-and-risk-diagnostics",
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

@@ -1,0 +1,29 @@
+{
+  "limitations_id": "A-SHARE-MULTI-DAY-PERFORMANCE-LIMITATIONS",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "mode": "current_snapshot",
+  "portfolio_observation_count": 1,
+  "minimum_required_observations": 20,
+  "sufficient_history": false,
+  "insufficient_history": true,
+  "multi_day_performance_available": false,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "limitations": [
+    "Current portfolio tracking has limited observations.",
+    "First-day initialization is not evidence of strategy performance.",
+    "Benchmark history may be available, but portfolio realized virtual history is limited.",
+    "No real trades were placed.",
+    "No broker was connected.",
+    "No buy/sell signal was generated.",
+    "No live trading readiness is claimed."
+  ],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

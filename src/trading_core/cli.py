@@ -61,6 +61,11 @@ from trading_core.equity_portfolio_tracking.tracking_config import DEFAULT_AS_OF
 from trading_core.equity_benchmarks.benchmark_audit import audit_a_share_benchmark_comparison
 from trading_core.equity_benchmarks.benchmark_builder import build_a_share_benchmark_comparison
 from trading_core.equity_benchmarks.benchmark_config import DEFAULT_AS_OF_DATE as DEFAULT_BENCHMARK_AS_OF_DATE
+from trading_core.equity_performance.performance_audit import audit_a_share_multi_day_performance
+from trading_core.equity_performance.performance_builder import build_a_share_multi_day_performance
+from trading_core.equity_performance.performance_config import ALLOWED_MODES as A_SHARE_PERFORMANCE_MODES
+from trading_core.equity_performance.performance_config import DEFAULT_AS_OF_DATE as DEFAULT_PERFORMANCE_AS_OF_DATE
+from trading_core.equity_performance.performance_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS, DEFAULT_ROLLING_WINDOW_DAYS, DEFAULT_TRACKING_START_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -907,6 +912,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_benchmark_comparison_arguments(benchmark_audit)
     benchmark_all = subparsers.add_parser("build-and-audit-a-share-benchmark-comparison")
     _add_a_share_benchmark_comparison_arguments(benchmark_all)
+    performance_build = subparsers.add_parser("build-a-share-multi-day-performance")
+    _add_a_share_multi_day_performance_arguments(performance_build)
+    performance_audit = subparsers.add_parser("audit-a-share-multi-day-performance")
+    _add_a_share_multi_day_performance_arguments(performance_audit)
+    performance_all = subparsers.add_parser("build-and-audit-a-share-multi-day-performance")
+    _add_a_share_multi_day_performance_arguments(performance_all)
 
     return parser
 
@@ -983,6 +994,16 @@ def _add_a_share_benchmark_comparison_arguments(parser: argparse.ArgumentParser)
 
 def _benchmark_fail_on_placeholder(args: argparse.Namespace) -> bool:
     return False if args.allow_placeholder_benchmarks else bool(args.fail_on_placeholder_benchmarks)
+
+
+def _add_a_share_multi_day_performance_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_PERFORMANCE_AS_OF_DATE)
+    parser.add_argument("--mode", choices=A_SHARE_PERFORMANCE_MODES, default="current_snapshot")
+    parser.add_argument("--tracking-start-date", default=DEFAULT_TRACKING_START_DATE)
+    parser.add_argument("--minimum-required-observations", type=int, default=DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS)
+    parser.add_argument("--rolling-window-days", type=int, default=DEFAULT_ROLLING_WINDOW_DAYS)
+    parser.add_argument("--allow-rebuild", action="store_true")
+    parser.add_argument("--allow-historical-reconstruction", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -2826,6 +2847,75 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "benchmark_availability_checks": audit_result["benchmark_availability_checks"],
                 "comparison_checks": audit_result["comparison_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-multi-day-performance":
+        result = build_a_share_multi_day_performance(
+            as_of_date=args.as_of_date,
+            tracking_start_date=args.tracking_start_date,
+            mode=args.mode,
+            minimum_required_observations=args.minimum_required_observations,
+            rolling_window_days=args.rolling_window_days,
+            allow_rebuild=args.allow_rebuild,
+            allow_historical_reconstruction=args.allow_historical_reconstruction,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "as_of_date": result["as_of_date"],
+                "mode": result["performance_config"]["mode"],
+                "portfolio_observation_counts": result["performance_data_availability"]["portfolio_observation_counts"],
+                "sufficient_history": result["performance_data_availability"]["sufficient_history"],
+                "performance_not_yet_observed": result["performance_summary"]["performance_not_yet_observed"],
+                "recommended_next_version": result["performance_summary"]["recommended_next_version"],
+            }
+        )
+        return 0
+    if args.command == "audit-a-share-multi-day-performance":
+        result = audit_a_share_multi_day_performance(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "observation_checks": result["observation_checks"],
+                "series_checks": result["series_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-multi-day-performance":
+        build_result = build_a_share_multi_day_performance(
+            as_of_date=args.as_of_date,
+            tracking_start_date=args.tracking_start_date,
+            mode=args.mode,
+            minimum_required_observations=args.minimum_required_observations,
+            rolling_window_days=args.rolling_window_days,
+            allow_rebuild=args.allow_rebuild,
+            allow_historical_reconstruction=args.allow_historical_reconstruction,
+            paths=paths,
+        )
+        audit_result = audit_a_share_multi_day_performance(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "observation_checks": audit_result["observation_checks"],
+                "series_checks": audit_result["series_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

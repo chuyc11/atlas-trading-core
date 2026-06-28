@@ -1,0 +1,616 @@
+{
+  "snapshot_id": "A-SHARE-PERFORMANCE-METRIC-SNAPSHOT",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "mode": "current_snapshot",
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "observation_count": 1,
+      "minimum_required_observations": 20,
+      "sufficient_history": false,
+      "metric_status": "insufficient_history",
+      "daily_return_latest": 0.0,
+      "cumulative_return_latest": 0.0,
+      "max_drawdown_latest": 0.0,
+      "rolling_volatility": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "rolling_drawdown_statistics": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "benchmark_metrics": {
+        "CSI300": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI500": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI1000": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CASH": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_STRICT_TRADABLE": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_CANDIDATE_POOL": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        }
+      },
+      "first_day_initialization": true,
+      "performance_not_yet_observed": true,
+      "research_only": true,
+      "virtual_only": true,
+      "not_investment_advice": true,
+      "not_order_instruction": true,
+      "not_profit_guarantee": true,
+      "not_live_trading_ready": true
+    },
+    "mid_virtual_portfolio": {
+      "observation_count": 1,
+      "minimum_required_observations": 20,
+      "sufficient_history": false,
+      "metric_status": "insufficient_history",
+      "daily_return_latest": 0.0,
+      "cumulative_return_latest": 0.0,
+      "max_drawdown_latest": 0.0,
+      "rolling_volatility": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "rolling_drawdown_statistics": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "benchmark_metrics": {
+        "CSI300": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI500": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI1000": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CASH": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_STRICT_TRADABLE": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_CANDIDATE_POOL": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        }
+      },
+      "first_day_initialization": true,
+      "performance_not_yet_observed": true,
+      "research_only": true,
+      "virtual_only": true,
+      "not_investment_advice": true,
+      "not_order_instruction": true,
+      "not_profit_guarantee": true,
+      "not_live_trading_ready": true
+    },
+    "short_virtual_portfolio": {
+      "observation_count": 1,
+      "minimum_required_observations": 20,
+      "sufficient_history": false,
+      "metric_status": "insufficient_history",
+      "daily_return_latest": 0.0,
+      "cumulative_return_latest": 0.0,
+      "max_drawdown_latest": 0.0,
+      "rolling_volatility": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "rolling_drawdown_statistics": {
+        "metric_status": "insufficient_history",
+        "value": null,
+        "required_observations": 20,
+        "available_observations": 1
+      },
+      "benchmark_metrics": {
+        "CSI300": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI500": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CSI1000": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "CASH": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_STRICT_TRADABLE": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        },
+        "EQUAL_WEIGHT_CANDIDATE_POOL": {
+          "observation_count": 1,
+          "metric_status": "insufficient_history",
+          "tracking_error": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "information_ratio": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "correlation": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          },
+          "beta": {
+            "metric_status": "insufficient_history",
+            "value": null,
+            "required_observations": 20,
+            "available_observations": 1
+          }
+        }
+      },
+      "first_day_initialization": true,
+      "performance_not_yet_observed": true,
+      "research_only": true,
+      "virtual_only": true,
+      "not_investment_advice": true,
+      "not_order_instruction": true,
+      "not_profit_guarantee": true,
+      "not_live_trading_ready": true
+    }
+  },
+  "minimum_required_observations": 20,
+  "rolling_window_days": 20,
+  "sufficient_history": false,
+  "insufficient_history": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

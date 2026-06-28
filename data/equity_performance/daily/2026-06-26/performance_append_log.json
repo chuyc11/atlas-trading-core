@@ -1,0 +1,28 @@
+{
+  "append_log_id": "A-SHARE-MULTI-DAY-PERFORMANCE-APPEND-LOG",
+  "target_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
+  "as_of_date": "2026-06-26",
+  "tracking_start_date": "2026-06-26",
+  "generated_at": "2026-06-28T13:44:36.622369Z",
+  "mode": "current_snapshot",
+  "append_only": true,
+  "allow_rebuild": false,
+  "allow_idempotent_append": true,
+  "allow_historical_reconstruction": false,
+  "existing_dates": [],
+  "appended_dates": [
+    "2026-06-26"
+  ],
+  "duplicate_dates": [],
+  "idempotent_dates": [],
+  "rebuilt_dates": [],
+  "prior_dates_rewritten": false,
+  "historical_reconstruction_used": false,
+  "historical_reconstruction_labeled_separately": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}
