@@ -52,10 +52,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
   - result as of 2026-06-26: 30 long holdings, 30 mid holdings, 20 short holdings, all weight sums 1.0, virtual portfolio audit passed, recommended next version `v0.7.7-a-share-daily-stock-selection-briefing`
   - constraints: virtual portfolios are not real portfolios, virtual target weights are not order instructions, no buy/sell signals, no broker order preview, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness, no official forward dry-run day2
 - v0.7.7 daily AI stock selection briefing
-  - output: `outputs/equity_selection/daily/YYYY-MM-DD/DAILY_STOCK_SELECTION_BRIEFING.md`
-  - must state: research and virtual tracking only, not investment advice, no broker connection, no real orders, no profit guarantee
-- v0.7.8 historical walk-forward validation
-  - validates Top 10/Top 30 long/mid/short, composite pool, removal pool, and risk-alert pool on 5/10/20/60/120-day horizons
+  - implemented briefing-only outputs: daily stock selection briefing JSON, Markdown briefing, source trace, manifest, boundary check, and audit
+  - result as of 2026-06-26: all required sections present, source trace complete, briefing audit passed, recommended next version `v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger`
+  - constraints: reads existing artifacts only, no score regeneration, no candidate regeneration, no virtual portfolio regeneration, no buy/sell signals, no order previews, no broker, no real orders, no `run-daily`, no profit guarantee, no live-trading readiness
+- v0.7.8 virtual portfolio tracking and paper ledger
+  - tracks daily price moves, virtual portfolio returns, drawdown, industry exposure drift, and benchmark comparison without real orders
 - v0.7.9 30-day virtual forward tracking
   - output: daily briefings plus `OWNER_30DAY_STOCK_SELECTION_BRIEFING.md`
 - v0.8.0 Tonghuashun, miniQMT, and simulated adapter research
@@ -76,11 +77,11 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - `src/trading_core/equity_features/`
 - `src/trading_core/equity_scoring/`
 - `src/trading_core/equity_portfolios/`
-- `src/trading_core/equity_briefing/`
+- `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
-- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_validation/`
-- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_validation/`
+- `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, `data/equity_data_quality/`, `data/equity_features/`, `data/equity_scores/`, `data/equity_selection/`, `data/equity_portfolios/`, `data/equity_briefings/`, `data/equity_validation/`
+- `outputs/equity_selection/`, `outputs/equity_scores/`, `outputs/equity_portfolios/`, `outputs/equity_briefings/`, `outputs/equity_validation/`
 
 ## Required Boundary
 
@@ -97,3 +98,4 @@ Priorities: stock selection quality, usability, daily executability, explainabil
 - v0.7.4 scores are relative research inputs only; they are not recommendations, candidates, watchlists, portfolio actions, buy/sell signals, or profit claims.
 - v0.7.5 candidates are research inputs only; they are not investment advice, buy/sell signals, portfolio actions, order instructions, broker instructions, real orders, or profit claims.
 - v0.7.6 virtual portfolios are research-only virtual tracking inputs; they are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit claims.
+- v0.7.7 daily briefing is an information summary only; it does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker artifacts, real orders, or profit claims.

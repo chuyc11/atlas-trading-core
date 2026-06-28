@@ -62,4 +62,4 @@ Warnings note that raw `industry_level_1` contains `Unclassified`; the audit use
 
 Passing audit does not approve real trading, buy/sell signals, broker order previews, real orders, profit claims, or live-trading readiness.
 
-The audit must fail closed if real portfolio, buy/sell signal, order preview, broker order, real order, broker, profit-guarantee, or live-readiness artifacts appear in the v0.7.6 virtual portfolio stage.
+The audit must fail closed if real portfolio, buy/sell signal, order preview, broker order, real order, broker, profit-guarantee, or live-readiness artifacts appear in the v0.7.6 virtual portfolio stage. v0.7.7 consumes this audit as briefing input but does not rewrite virtual portfolio artifacts.

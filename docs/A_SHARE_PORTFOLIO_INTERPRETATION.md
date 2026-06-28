@@ -28,6 +28,6 @@ Target weights do not mean:
 
 ## Next Stage
 
-v0.7.7 will own daily AI stock selection briefing.
+v0.7.7 owns daily AI stock selection briefing from existing candidate, score, and virtual portfolio artifacts.
 
 Later validation stages must evaluate virtual tracking behavior before any stronger claim is allowed.

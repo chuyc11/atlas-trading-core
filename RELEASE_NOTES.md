@@ -1,5 +1,73 @@
 # Release Notes
 
+## v0.7.7-a-share-daily-stock-selection-briefing
+
+This release adds the daily Chinese A-share stock selection research briefing on top of the v0.7.6 virtual portfolio package. The briefing reads existing feature, score, candidate, virtual portfolio, exposure, risk/liquidity, and audit artifacts only. It does not regenerate scores, candidates, or virtual portfolios. It does not generate buy/sell signals, order previews, broker artifacts, real orders, profit guarantees, or live-trading readiness claims.
+
+Includes:
+
+- daily stock selection briefing JSON
+- daily stock selection briefing Markdown report
+- briefing source trace JSON and Markdown
+- briefing manifest
+- briefing boundary check
+- briefing audit
+- long/mid/short candidate Top 10 summaries
+- multi-horizon candidate summary
+- risk-downgraded candidate summary
+- long/mid/short virtual portfolio summaries
+- industry exposure and concentration summary
+- risk/liquidity summary
+- CLI commands: `build-a-share-daily-stock-selection-briefing`, `audit-a-share-daily-stock-selection-briefing`, and `build-and-audit-a-share-daily-stock-selection-briefing`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- briefing audit overall_passed=true
+- blocking reasons: none
+- warnings: 5, including partial fundamental score confidence and documented `Unclassified` industry fallback disclosures
+- required sections: all present
+- long candidates Top 10 included
+- mid candidates Top 10 included
+- short candidates Top 10 included
+- multi-horizon section included
+- risk-downgraded section included
+- virtual portfolio section included
+- industry exposure section included
+- risk/liquidity section included
+- do-not-misread section included
+- source trace complete=true
+- recommended next version: `v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger`
+
+Primary artifacts:
+
+- `data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json`
+- `data/equity_briefings/daily/2026-06-26/briefing_manifest.json`
+- `data/equity_briefings/daily/2026-06-26/briefing_source_trace.json`
+- `data/equity_briefings/daily/2026-06-26/briefing_boundary_check.json`
+- `outputs/equity_briefings/daily/2026-06-26/DAILY_STOCK_SELECTION_BRIEFING.md`
+- `outputs/equity_briefings/daily/2026-06-26/BRIEFING_SOURCE_TRACE.md`
+- `data/equity_data_quality/a_share_daily_stock_selection_briefing_audit.json`
+- `outputs/audit/A_SHARE_DAILY_STOCK_SELECTION_BRIEFING_AUDIT.md`
+
+Boundary:
+
+- briefing only
+- existing artifacts read only
+- no scores regenerated
+- no candidates regenerated
+- no virtual portfolios regenerated
+- no buy/sell signals generated
+- no order preview generated
+- official forward dry-run status unchanged
+- day2 not executed
+- run-daily not called
+- no broker connected
+- no real orders placed
+- not a model profit guarantee
+- live trading readiness remains false
+
+Validation: 1056 tests passed, 1 skipped.
+
 ## v0.7.6-a-share-virtual-portfolio-construction
 
 This release adds A-share research-only virtual portfolio construction on top of the v0.7.5 candidate package. It generates long, mid, and short virtual portfolios, target weights, industry exposure, risk/liquidity summaries, a manifest, reports, and a fail-closed audit. Virtual portfolios are not real portfolios. Virtual target weights are not order instructions, not broker order previews, not buy/sell signals, and not profit guarantees.

@@ -94,4 +94,4 @@ Virtual portfolio schemas must not include:
 
 ## Boundary
 
-Virtual portfolio schemas describe research target weights only. They are not real portfolios, not buy/sell signals, not broker order previews, not real orders, and not profit guarantees.
+Virtual portfolio schemas describe research target weights only. They are consumed by v0.7.7 briefings and future virtual tracking. They are not real portfolios, not buy/sell signals, not broker order previews, not real orders, and not profit guarantees.

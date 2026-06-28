@@ -29,7 +29,7 @@ Positioning: A-share full-market AI multi-horizon stock selection and virtual po
 - `src/trading_core/equity_scoring/`
 - `src/trading_core/equity_selection/`
 - `src/trading_core/equity_portfolios/`
-- `src/trading_core/equity_briefing/`
+- `src/trading_core/equity_briefings/`
 - `src/trading_core/equity_validation/`
 - `src/trading_core/integrations/`
 
@@ -106,7 +106,7 @@ The candidate set includes long candidates, mid candidates, short candidates, an
 
 Candidates are not investment advice, not buy/sell signals, not order instructions, not virtual portfolios, not broker instructions, not real orders, not profit guarantees, not live readiness, and not official forward dry-run day2 artifacts.
 
-v0.7.6 consumes these candidates for virtual portfolio construction. Daily AI stock selection briefing remains deferred to v0.7.7.
+v0.7.6 consumes these candidates for virtual portfolio construction. v0.7.7 consumes candidates, scores, and virtual portfolios for the daily Chinese research briefing.
 
 ## v0.7.6 Virtual Portfolio Construction
 
@@ -116,7 +116,17 @@ The portfolio set includes `long_virtual_portfolio`, `mid_virtual_portfolio`, `s
 
 Virtual portfolios are not real portfolios. Virtual target weights are not buy/sell signals, not broker order previews, not real-account rebalance instructions, not broker instructions, not real orders, not profit guarantees, not live readiness, and not official forward dry-run day2 artifacts.
 
-Daily AI stock selection briefing remains deferred to v0.7.7.
+Daily AI stock selection briefing is handled by v0.7.7.
+
+## v0.7.7 Daily Stock Selection Briefing
+
+v0.7.7 consumes existing v0.7.3 feature, v0.7.4 score, v0.7.5 candidate, and v0.7.6 virtual portfolio artifacts. It writes briefing artifacts under `data/equity_briefings/daily/YYYY-MM-DD/`, reports under `outputs/equity_briefings/daily/YYYY-MM-DD/`, and a briefing audit under `data/equity_data_quality/` and `outputs/audit/`.
+
+The briefing includes executive summary, data coverage, long/mid/short candidate Top 10 tables, multi-horizon candidates, risk-downgraded candidates, long/mid/short virtual portfolio summaries, industry exposure, risk/liquidity notes, audit status, do-not-misread notes, next tracking actions, and disclaimers.
+
+The briefing is information-only. It does not regenerate scores, candidates, virtual portfolios, buy/sell signals, order previews, broker instructions, real orders, profit guarantees, live readiness, `run-daily`, or official forward dry-run day2 artifacts.
+
+v0.7.8 consumes the briefing and virtual portfolio artifacts for virtual portfolio tracking and paper ledger work.
 
 ## Boundary
 - No real trading.
@@ -133,4 +143,5 @@ Daily AI stock selection briefing remains deferred to v0.7.7.
 - v0.7.4 score tables are not recommendations, candidate lists, watchlists, portfolios, buy/sell signals, or order plans.
 - v0.7.5 candidate pools are not recommendations, buy/sell signals, portfolio allocations, order plans, broker instructions, or profit guarantees.
 - v0.7.6 virtual portfolios are not real portfolios, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
+- v0.7.7 briefings are not trading advice, score regeneration, candidate regeneration, portfolio regeneration, buy/sell signals, order previews, broker instructions, real orders, or profit guarantees.
 - Public data may be delayed or partial; limitations are evidence, not recommendations.

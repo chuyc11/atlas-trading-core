@@ -92,7 +92,7 @@ recommended_next_version = v0.7.7-a-share-daily-stock-selection-briefing
 
 v0.7.6 is a virtual portfolio construction stage.
 
-Virtual portfolios are not real portfolios. Virtual target weights are not order instructions. Virtual portfolios do not connect brokers. Virtual portfolios do not place real orders. They are inputs for future virtual tracking and v0.7.7 daily stock selection briefing.
+Virtual portfolios are not real portfolios. Virtual target weights are not order instructions. Virtual portfolios do not connect brokers. Virtual portfolios do not place real orders. They are inputs for v0.7.7 daily stock selection briefing and future virtual tracking.
 
 These remain forbidden:
 
@@ -107,4 +107,4 @@ These remain forbidden:
 - live-trading readiness claims
 - model profit guarantee claims
 
-Daily AI stock selection briefing is deferred to v0.7.7.
+Daily AI stock selection briefing is handled by v0.7.7. Virtual portfolio tracking and paper ledger work is deferred to v0.7.8.
