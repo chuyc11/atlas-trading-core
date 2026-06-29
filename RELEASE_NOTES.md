@@ -1,5 +1,70 @@
 # Release Notes
 
+## v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
+
+v0.8.8 A-share build_from_existing_data repeatability and diff stability.
+
+Adds:
+
+- repeatability config
+- repeatability input availability
+- repeatability date alignment
+- protected path pre-run snapshot
+- repeat build execution plan
+- repeat build execution record
+- repeat build workflow result
+- protected path post-run snapshot
+- protected path modification check
+- first and second build artifact snapshots
+- build-vs-build comparison
+- repeatability drift summary
+- deterministic field normalization
+- repeatability warning comparison
+- repeatability source trace
+- repeatability boundary check
+- repeatability manifest and summary
+- owner-facing repeatability reports
+- build repeatability audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- repeatability audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- workflow_mode=`build_from_existing_data`
+- repeat_build_execution_performed=true
+- repeat_build_audit_passed=true
+- comparison_completed=true
+- business_output_drift_count=0
+- timestamp_only_drift_count=41
+- metadata_hash_drift_count=23
+- missing_required_artifact_count=0
+- boundary_drift=false
+- protected_path_drift=false
+- source_trace_missing=false
+- preexisting protected paths: `data/orders`, `data/trades`
+- protected_path_modifications_detected=false
+- protected files modified/created/deleted: none
+- recommended next version: `v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh`
+- validation: 1350 passed, 1 skipped
+
+Boundary:
+
+- repeats gated `build_from_existing_data`
+- distinguishes pre-existing protected paths from modified protected paths
+- does not refresh public network data
+- does not run `full_research_run`
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not read real account data
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat repeatability as a trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
 
 v0.8.7 A-share gated current-day build-from-existing-data dry-run.

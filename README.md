@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
+v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
 
 ## Completed milestones
 
@@ -69,6 +69,30 @@ v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
 - v0.8.5 A-share daily ops command center
 - v0.8.6 A-share ops run history deepening and trend baselines
 - v0.8.7 A-share gated current-day build-from-existing-data dry-run
+- v0.8.8 A-share build_from_existing_data repeatability and diff stability
+
+## v0.8.8 build repeatability boundary
+
+- repeats the gated `build_from_existing_data` current-day workflow
+- compares first-build and second-build artifacts
+- classifies timestamp-only drift, metadata/hash drift, business output drift, missing artifacts, boundary drift, protected path drift, and source trace drift
+- distinguishes pre-existing protected paths from modified protected paths
+- pre-existing `data/orders` and `data/trades` are informational if unchanged
+- new, modified, or deleted protected order/trade/account files are blocking
+- business output drift is blocking by default
+- release audit passed for `as_of_date=2026-06-26`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not treat repeatability as a trade instruction
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
 
 ## v0.8.7 gated build-from-existing-data boundary
 
