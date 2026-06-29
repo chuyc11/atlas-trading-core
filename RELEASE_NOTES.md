@@ -1,5 +1,76 @@
 # Release Notes
 
+## v0.8.3-a-share-owner-alerting-and-run-history-monitoring
+
+This release adds local owner alerting and run history monitoring for the A-share research system.
+
+Includes:
+
+- monitoring config
+- monitoring input availability
+- run history update
+- run history snapshot
+- append-only run history index
+- warning history index
+- blocking history index
+- alert history index
+- alert rule config
+- alert evaluation result
+- alert event log
+- warning trend snapshot
+- blocking trend snapshot
+- provider health trend snapshot
+- workflow health trend snapshot
+- dashboard health trend snapshot
+- monitoring status card
+- owner alert summary card
+- run history summary card
+- monitoring source trace
+- monitoring boundary check
+- monitoring manifest
+- monitoring summary
+- owner monitoring Markdown reports
+- owner monitoring fail-close audit
+- CLI commands: `validate-a-share-owner-monitoring-inputs`, `build-a-share-owner-monitoring`, `audit-a-share-owner-monitoring`, and `build-and-audit-a-share-owner-monitoring`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner monitoring audit overall_passed=true
+- blocking reasons: none
+- warnings: none
+- run_history_observation_count=1
+- trend_analysis_available=false
+- insufficient_history_correctly_flagged=true
+- critical alerts: 0
+- warning alerts: 0
+- informational alerts: 0
+- known non-blocking alerts: 0
+- external_notifications_sent=false
+- input owner dashboard audit passed
+- input current-day run audit passed
+- input data refresh audit passed
+- source trace complete
+- boundary check passed
+- recommended next version: `v0.8.4-a-share-owner-remediation-runbook-and-action-checklist`
+- validation: 1233 passed, 1 skipped
+
+Boundary:
+
+- generates local alert artifacts only
+- does not send external notifications by default
+- does not refresh data
+- does not rerun the research workflow
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate buy/sell signals
+- does not generate order preview
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat alerts as trade instructions
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard
 
 This release adds a research-only owner dashboard for the existing A-share current-day research run.

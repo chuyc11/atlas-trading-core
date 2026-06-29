@@ -2,7 +2,7 @@
   "trace_id": "A-SHARE-OWNER-MONITORING-SOURCE-TRACE",
   "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T06:46:52.251571+00:00",
+  "generated_at": "2026-06-29T07:02:36.820300+00:00",
   "source_artifacts": [
     {
       "path": "data/equity_data_quality/a_share_owner_dashboard_audit.json",
@@ -186,12 +186,12 @@
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/alert_evaluation_result.json",
       "exists": true,
-      "sha256": "b31a961e428f40171a613dcf4593dabb8cfd8ca54cc31141eb055436a3751068"
+      "sha256": "fa6a95d9fddd2716f95b5a25817470545e58a230f7e9b0297eeb34e18aff492d"
     },
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/alert_event_log.json",
       "exists": true,
-      "sha256": "4fb394b79ce5e216174e4eb9b2cbc2c3a100fffd936624a018922ff56d906102"
+      "sha256": "2fe7d90fa754395c03a2a8e2b5f5eb5b4e28fb48ec13ecaacad300a839b2672c"
     },
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/warning_trend_snapshot.json",
@@ -226,7 +226,7 @@
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/owner_alert_summary_card.json",
       "exists": true,
-      "sha256": "db5d0a1771433d1f465d3e5c3292927f484e161d9862a58fea0353f41212178b"
+      "sha256": "a7d61247cb1c23d41d2f33a597a0e96d1ec50e810a6008179c926cd24b558ae9"
     },
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/run_history_summary_card.json",
@@ -236,7 +236,7 @@
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/monitoring_source_trace.json",
       "exists": true,
-      "sha256": "e5f192ca81364b1db08d2f498a34f30777d9a4e72422cabfcb813a4ba101dcb8"
+      "sha256": "c623a33f015b86e35191fced7b0e3a82895df11f28e0431d0cd1bbc32509e3a0"
     },
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/monitoring_boundary_check.json",
@@ -246,7 +246,7 @@
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/monitoring_manifest.json",
       "exists": true,
-      "sha256": "bd3ac450d950e438f85b57b00dae2aecaeb8b2e14ec750aa85c7b8442971a0c9"
+      "sha256": "082fb895684b9843754b8c18b0ac177b196f52b3a2391c41598e75c023521a6b"
     },
     {
       "path": "data/equity_owner_monitoring/daily/2026-06-26/monitoring_summary.json",
@@ -296,7 +296,7 @@
     {
       "path": "outputs/equity_owner_monitoring/daily/2026-06-26/A_SHARE_MONITORING_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "81e8aba32b0739257ebc170ea549d2ea15200ebeded6f16b76860077826cab6c"
+      "sha256": "2f012c86121e5cfe941788d2998eb384c06c93f39aae02da7d2167b140ada249"
     }
   ],
   "alert_rule_decisions": [
@@ -312,7 +312,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -327,7 +327,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -342,7 +342,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -357,7 +357,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -372,7 +372,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -387,7 +387,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -402,7 +402,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -417,7 +417,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -432,7 +432,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -447,7 +447,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -462,7 +462,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": true,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -477,7 +477,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -492,7 +492,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -507,7 +507,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     },
     {
@@ -522,7 +522,7 @@
       "owner_action": "monitor",
       "blocking": false,
       "known_non_blocking": false,
-      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "created_at": "2026-06-29T07:02:37.053350+00:00",
       "external_notification_sent": false
     }
   ],
