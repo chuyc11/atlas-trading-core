@@ -1,0 +1,73 @@
+{
+  "index_id": "A-SHARE-OPS-MODULE-STATUS-HISTORY-INDEX",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "records": [
+    {
+      "module_id": "data_refresh",
+      "observation_count": 1,
+      "pass_count": 1,
+      "warning_count": 2,
+      "fail_count": 0,
+      "blocking_count": 0,
+      "latest_status": "passed_with_warnings",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    },
+    {
+      "module_id": "current_day_research_run",
+      "observation_count": 1,
+      "pass_count": 1,
+      "warning_count": 9,
+      "fail_count": 0,
+      "blocking_count": 0,
+      "latest_status": "passed_with_warnings",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    },
+    {
+      "module_id": "owner_dashboard",
+      "observation_count": 1,
+      "pass_count": 1,
+      "warning_count": 11,
+      "fail_count": 0,
+      "blocking_count": 0,
+      "latest_status": "passed_with_warnings",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    },
+    {
+      "module_id": "owner_monitoring",
+      "observation_count": 1,
+      "pass_count": 1,
+      "warning_count": 0,
+      "fail_count": 0,
+      "blocking_count": 0,
+      "latest_status": "passed",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    },
+    {
+      "module_id": "owner_remediation",
+      "observation_count": 1,
+      "pass_count": 1,
+      "warning_count": 0,
+      "fail_count": 0,
+      "blocking_count": 0,
+      "latest_status": "passed",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    },
+    {
+      "module_id": "ops_center",
+      "observation_count": 1,
+      "pass_count": 0,
+      "warning_count": 0,
+      "fail_count": 1,
+      "blocking_count": 0,
+      "latest_status": "missing",
+      "reliability_rate": null,
+      "trend_status": "insufficient_history"
+    }
+  ]
+}

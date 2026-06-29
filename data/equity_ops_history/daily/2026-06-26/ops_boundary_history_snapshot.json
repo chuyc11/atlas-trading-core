@@ -1,0 +1,22 @@
+{
+  "snapshot_id": "A-SHARE-OPS-BOUNDARY-HISTORY-SNAPSHOT",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "source_version": "v0.8.5-a-share-daily-ops-command-center",
+      "boundary_clean": true,
+      "run_daily_called": false,
+      "old_run_daily_called": false,
+      "day2_executed": false,
+      "broker_connected": false,
+      "real_orders_placed": false,
+      "buy_sell_signals_generated": false,
+      "order_preview_generated": false,
+      "model_profit_guaranteed": false,
+      "live_trading_ready": false,
+      "real_account_data_read": false
+    }
+  ]
+}

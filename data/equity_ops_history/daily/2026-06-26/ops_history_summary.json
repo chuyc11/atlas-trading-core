@@ -1,0 +1,19 @@
+{
+  "summary_id": "A-SHARE-OPS-HISTORY-BASELINE-SUMMARY",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "mode": "build_trend_baselines",
+  "source_version": "v0.8.5-a-share-daily-ops-command-center",
+  "ops_health_score": 65,
+  "ops_health_grade": "C",
+  "overall_status": "passed_with_warnings",
+  "run_history_observation_count": 1,
+  "trend_analysis_available": false,
+  "baseline_status": "insufficient_history",
+  "append_completed": true,
+  "idempotent_append": true,
+  "synthetic_history_used": false,
+  "future_dates_used": false,
+  "commands_executed": [],
+  "recommended_next_version": "v0.8.7-a-share-current-day-build-from-existing-data-promotion-gate"
+}

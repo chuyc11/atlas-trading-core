@@ -36,7 +36,24 @@ python -m trading_core.cli audit-day0-readiness
 python -m trading_core.cli audit-forward-dry-run-day1-owner-report-pack
 python -m trading_core.cli audit-a-share-candidates --as-of-date 2026-06-26
 python -m trading_core.cli audit-a-share-virtual-portfolios --as-of-date 2026-06-26
+python -m trading_core.cli audit-a-share-ops-history-baseline --as-of-date 2026-06-26
 ```
+
+## Run v0.8.6 A-share ops history baseline
+
+```bash
+python -m trading_core.cli validate-a-share-ops-history-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-ops-history-baseline --as-of-date 2026-06-26 --mode build_trend_baselines
+python -m trading_core.cli audit-a-share-ops-history-baseline --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-ops-history-baseline --as-of-date 2026-06-26 --mode build_trend_baselines
+```
+
+This path appends real ops run history and builds operational baselines only. It does not synthesize history, generate orders, connect a broker, call old run-daily, execute official day2, or treat trends as trade instructions.
 
 ## Run v0.7 external project intake
 

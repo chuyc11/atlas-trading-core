@@ -1,0 +1,11 @@
+{
+  "snapshot_id": "A-SHARE-OPS-BASELINE-DRIFT-SNAPSHOT",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "minimum_required_observations": 5,
+  "drift_available": false,
+  "drift_status": "insufficient_history",
+  "synthetic_history_used": false,
+  "future_dates_used": false
+}

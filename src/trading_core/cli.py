@@ -97,6 +97,13 @@ from trading_core.equity_ops_center.ops_audit import audit_a_share_daily_ops_cen
 from trading_core.equity_ops_center.ops_builder import build_a_share_daily_ops_center, validate_a_share_daily_ops_inputs
 from trading_core.equity_ops_center.ops_config import ALLOWED_MODES as A_SHARE_OPS_CENTER_MODES
 from trading_core.equity_ops_center.ops_config import DEFAULT_AS_OF_DATE as DEFAULT_OPS_CENTER_AS_OF_DATE
+from trading_core.equity_ops_history.ops_history_audit import audit_a_share_ops_history_baseline
+from trading_core.equity_ops_history.ops_history_builder import build_a_share_ops_history_baseline, validate_a_share_ops_history_inputs
+from trading_core.equity_ops_history.ops_history_config import ALLOWED_MODES as A_SHARE_OPS_HISTORY_MODES
+from trading_core.equity_ops_history.ops_history_config import DEFAULT_AS_OF_DATE as DEFAULT_OPS_HISTORY_AS_OF_DATE
+from trading_core.equity_ops_history.ops_history_config import DEFAULT_BASELINE_WINDOW_OBSERVATIONS as DEFAULT_OPS_HISTORY_BASELINE_WINDOW_OBSERVATIONS
+from trading_core.equity_ops_history.ops_history_config import DEFAULT_HISTORY_WINDOW_DAYS as DEFAULT_OPS_HISTORY_WINDOW_DAYS
+from trading_core.equity_ops_history.ops_history_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS as DEFAULT_OPS_HISTORY_MINIMUM_REQUIRED_OBSERVATIONS
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -1001,6 +1008,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_daily_ops_center_arguments(ops_center_audit, include_mode=False)
     ops_center_all = subparsers.add_parser("build-and-audit-a-share-daily-ops-center")
     _add_a_share_daily_ops_center_arguments(ops_center_all)
+    ops_history_validate = subparsers.add_parser("validate-a-share-ops-history-inputs")
+    _add_a_share_ops_history_arguments(ops_history_validate, include_mode=False)
+    ops_history_build = subparsers.add_parser("build-a-share-ops-history-baseline")
+    _add_a_share_ops_history_arguments(ops_history_build)
+    ops_history_audit = subparsers.add_parser("audit-a-share-ops-history-baseline")
+    _add_a_share_ops_history_arguments(ops_history_audit, include_mode=False)
+    ops_history_all = subparsers.add_parser("build-and-audit-a-share-ops-history-baseline")
+    _add_a_share_ops_history_arguments(ops_history_all)
 
     return parser
 
@@ -1170,6 +1185,19 @@ def _add_a_share_daily_ops_center_arguments(parser: argparse.ArgumentParser, *, 
         parser.add_argument("--mode", choices=A_SHARE_OPS_CENTER_MODES, default="validate_ops_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--allow-safe-validation-chain", action="store_true")
+
+
+def _add_a_share_ops_history_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OPS_HISTORY_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OPS_HISTORY_MODES, default="build_trend_baselines")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OPS_HISTORY_MODES, default="validate_history_inputs")
+    parser.add_argument("--history-window-days", type=int, default=DEFAULT_OPS_HISTORY_WINDOW_DAYS)
+    parser.add_argument("--minimum-required-observations", type=int, default=DEFAULT_OPS_HISTORY_MINIMUM_REQUIRED_OBSERVATIONS)
+    parser.add_argument("--baseline-window-observations", type=int, default=DEFAULT_OPS_HISTORY_BASELINE_WINDOW_OBSERVATIONS)
+    parser.add_argument("--allow-rebuild-history", action="store_true")
+    parser.add_argument("--allow-synthetic-history", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3614,6 +3642,86 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "overall_passed": audit_result["overall_passed"],
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "warnings": len(audit_result["warnings"]),
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-ops-history-inputs":
+        result = validate_a_share_ops_history_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "ops_center_audit_passed": result["ops_center_audit_passed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-ops-history-baseline":
+        result = build_a_share_ops_history_baseline(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            history_window_days=args.history_window_days,
+            minimum_required_observations=args.minimum_required_observations,
+            baseline_window_observations=args.baseline_window_observations,
+            allow_rebuild_history=args.allow_rebuild_history,
+            allow_synthetic_history=args.allow_synthetic_history,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "run_history_observation_count": result["run_history_observation_count"],
+                "trend_analysis_available": result["trend_analysis_available"],
+                "baseline_status": result["baseline_status"],
+                "append_completed": result["append_completed"],
+                "idempotent_append": result["idempotent_append"],
+                "commands_executed": result["commands_executed"],
+                "ops_run_history_baseline_report": result["ops_run_history_baseline_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-ops-history-baseline":
+        result = audit_a_share_ops_history_baseline(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "trend_sufficiency": result["trend_sufficiency"],
+                "append_result": result["append_result"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-ops-history-baseline":
+        build_result = build_a_share_ops_history_baseline(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            history_window_days=args.history_window_days,
+            minimum_required_observations=args.minimum_required_observations,
+            baseline_window_observations=args.baseline_window_observations,
+            allow_rebuild_history=args.allow_rebuild_history,
+            allow_synthetic_history=args.allow_synthetic_history,
+            paths=paths,
+        )
+        audit_result = audit_a_share_ops_history_baseline(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
+                "trend_sufficiency": audit_result["trend_sufficiency"],
+                "append_result": audit_result["append_result"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

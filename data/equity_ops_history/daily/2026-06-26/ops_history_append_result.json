@@ -1,0 +1,12 @@
+{
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "append_attempted": true,
+  "append_completed": true,
+  "idempotent_append": true,
+  "duplicate_detected": true,
+  "same_date_changed_content_warning": false,
+  "records_before": 1,
+  "records_after": 1,
+  "blocking_reasons": [],
+  "warnings": []
+}

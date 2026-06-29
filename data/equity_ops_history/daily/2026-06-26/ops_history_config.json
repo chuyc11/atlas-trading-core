@@ -1,0 +1,40 @@
+{
+  "config_id": "A-SHARE-OPS-HISTORY-BASELINE-CONFIG",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "mode": "build_trend_baselines",
+  "allowed_modes": [
+    "validate_history_inputs",
+    "append_current_ops_run_to_history",
+    "build_trend_baselines",
+    "build_history_baseline_report",
+    "audit_existing_history_baselines"
+  ],
+  "history_window_days": 90,
+  "minimum_required_observations": 5,
+  "baseline_window_observations": 20,
+  "append_only_history": true,
+  "allow_rebuild_history": false,
+  "allow_synthetic_history": false,
+  "allow_future_dates": false,
+  "owner_facing": true,
+  "machine_readable": true,
+  "generate_markdown": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "raw_config": {
+    "as_of_date": "2026-06-26",
+    "mode": "build_trend_baselines",
+    "history_window_days": 90,
+    "minimum_required_observations": 5,
+    "baseline_window_observations": 20,
+    "allow_rebuild_history": false,
+    "allow_synthetic_history": false
+  }
+}

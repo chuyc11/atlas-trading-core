@@ -1,0 +1,19 @@
+{
+  "baseline_id": "A-SHARE-OPS-HEALTH-SCORE-BASELINE",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "minimum_required_observations": 5,
+  "baseline_window_observations": 20,
+  "baseline_available": false,
+  "baseline_status": "insufficient_history",
+  "latest_score": 65,
+  "latest_grade": "C",
+  "average_score": null,
+  "mean_score": null,
+  "median_score": null,
+  "min_score": null,
+  "max_score": null,
+  "score_change_vs_previous": null,
+  "score_trend_status": "insufficient_history"
+}

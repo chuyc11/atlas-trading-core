@@ -1,0 +1,103 @@
+{
+  "index_id": "A-SHARE-OPS-ACTION-HISTORY-INDEX",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "records": [
+    {
+      "safe_action_type": "manual_owner_review_01",
+      "action_title": "检查 audit 是否通过",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_owner_review_02",
+      "action_title": "检查 warning 是否为已知非阻塞",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_owner_review_03",
+      "action_title": "检查 source trace 是否完整",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_owner_review_04",
+      "action_title": "检查 boundary 是否干净",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_owner_review_05",
+      "action_title": "检查是否需要安全重跑数据验证",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_safe_action_06",
+      "action_title": "manual safe action 06",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_safe_action_07",
+      "action_title": "manual safe action 07",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    },
+    {
+      "safe_action_type": "manual_safe_action_08",
+      "action_title": "manual safe action 08",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "automatic_action_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "recurrence_status": "new"
+    }
+  ]
+}

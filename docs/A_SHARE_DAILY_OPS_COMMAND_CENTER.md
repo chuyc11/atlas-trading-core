@@ -1,5 +1,17 @@
 # A Share Daily Ops Command Center
 
+## v0.8.6 downstream history baseline
+
+The v0.8.6 ops history baseline reads the v0.8.5 daily ops command center artifacts and appends the current ops run into `data/equity_ops_history/history/ops_run_history_index.json`.
+
+Use:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-ops-history-baseline --as-of-date 2026-06-26 --mode build_trend_baselines
+```
+
+The first release baseline has one real observation, so trend analysis is intentionally unavailable and `baseline_status=insufficient_history`. The baseline is research-only and does not generate orders, broker activity, or buy/sell instructions.
+
 v0.8.5 adds a daily ops command center for the A-share research system.
 
 It aggregates existing data refresh, current-day research, owner dashboard, owner monitoring, and owner remediation artifacts into one owner-facing operations control plane.

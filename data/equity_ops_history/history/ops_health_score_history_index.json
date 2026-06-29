@@ -1,0 +1,19 @@
+{
+  "history_id": "A-SHARE-OPS-HEALTH-SCORE-HISTORY",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "score": 65,
+      "grade": "C",
+      "overall_status": "passed_with_warnings",
+      "blocking_issue_count": 0,
+      "warning_issue_count": 10,
+      "known_non_blocking_issue_count": 5,
+      "source_ops_manifest": "data/equity_ops_center/daily/2026-06-26/ops_manifest.json",
+      "source_ops_audit": "data/equity_data_quality/a_share_daily_ops_center_audit.json"
+    }
+  ],
+  "index_id": "A-SHARE-OPS-HEALTH-SCORE-HISTORY-INDEX"
+}

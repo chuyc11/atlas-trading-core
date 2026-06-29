@@ -1,0 +1,205 @@
+{
+  "baseline_id": "A-SHARE-OPS-WARNING-RECURRENCE-BASELINE",
+  "target_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
+  "as_of_date": "2026-06-26",
+  "items": [
+    {
+      "warning_code": "daily_basic:required_field_all_null",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "fundamental score confidence is partial",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "WARNING_COUNT_INCREASE",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "warning_trend",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "PROVIDER_HEALTH_DEGRADED",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "provider_health",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "DATA_FRESHNESS_DEGRADED",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "provider_health",
+      "known_non_blocking": false,
+      "recurrence_status": "new",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "daily_basic:required_field_all_null",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "portfolio observation history is below the minimum required window",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "known_non_blocking",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "portfolio relative metrics limited by first-day initialization",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "known_non_blocking",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "warning",
+      "source_module": "owner_dashboard",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "REPEATED_KNOWN_WARNING",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "known_non_blocking",
+      "source_module": "warning_trend",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    },
+    {
+      "warning_code": "insufficient_history_for_trends",
+      "first_seen_date": "2026-06-26",
+      "last_seen_date": "2026-06-26",
+      "seen_count": 1,
+      "severity": "known_non_blocking",
+      "source_module": "run_history",
+      "known_non_blocking": true,
+      "recurrence_status": "known_non_blocking",
+      "owner_action_status": "document_and_monitor"
+    }
+  ]
+}

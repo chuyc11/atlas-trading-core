@@ -1,5 +1,11 @@
 # A Share Full Market AI Stock Selection Plan
 
+## v0.8.6 ops history baseline note
+
+v0.8.6 adds an operational run-history layer after the v0.8.5 daily ops command center. It records real ops runs, evaluates whether trend baselines have enough observations, and keeps health/module/warning/issue/action/boundary history indexes.
+
+This phase does not produce trading recommendations, order previews, broker actions, or live-ready claims. With only the first real v0.8.5 ops run available, the release baseline correctly reports `run_history_observation_count=1` and `baseline_status=insufficient_history`.
+
 ## Positioning
 
 The project upgrades from an ETF virtual trading MVP into an A-share full-market AI multi-horizon stock selection and virtual portfolio tracking system.
