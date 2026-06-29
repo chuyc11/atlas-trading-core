@@ -3,7 +3,7 @@
   "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
   "as_of_date": "2026-06-26",
   "mode": "validate_existing_artifacts",
-  "generated_at": "2026-06-28T09:04:59.836758Z",
+  "generated_at": "2026-06-29T03:27:18.673214Z",
   "tradable_universe_source": {
     "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
     "exists": true,
@@ -79,12 +79,12 @@
   "stage_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
     "exists": true,
-    "sha256": "e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a"
+    "sha256": "fe6cec7d45d72a42ac878e4651f53efcc447aef2ed22bf771bc58fa308c5aed9"
   },
   "run_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
     "exists": true,
-    "sha256": "01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51"
+    "sha256": "34adcd8ef911b7856dc68c8c2a0c7cb3bcdc5b0666d69b8f843393d0340dfbc3"
   },
   "stage_commands": [
     {
@@ -243,22 +243,22 @@
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
       "exists": true,
-      "sha256": "0a3b090d964c0e975ce196deb5e31816b353a8f78228e471392cd5295f01d4d6"
+      "sha256": "0604d39cef1adda30d42f34959daf8915efa5117245f3b0e1f7805dfe1a56b16"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
       "exists": true,
-      "sha256": "e7f92cfded6de11f6ff3aa485c012d213d81ed5bbece6823c3b5660159f40d2a"
+      "sha256": "fe6cec7d45d72a42ac878e4651f53efcc447aef2ed22bf771bc58fa308c5aed9"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
       "exists": true,
-      "sha256": "01c0142ad30c7b5170c940a76f6a2a944bdb55b1906a42f4c42755c07a180b51"
+      "sha256": "34adcd8ef911b7856dc68c8c2a0c7cb3bcdc5b0666d69b8f843393d0340dfbc3"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",
       "exists": true,
-      "sha256": "4ae6e39cec0beae5bca70bacecef37ea79d43d9f83d9bed3e42c6475d733d463"
+      "sha256": "2c6b3b7ec5b4442b9541c99e0dbe811bb76ebf87c3a81552c5503acefab55dbe"
     }
   ],
   "source_trace_complete": true,

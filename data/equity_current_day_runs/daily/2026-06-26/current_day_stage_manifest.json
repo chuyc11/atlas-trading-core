@@ -1,0 +1,288 @@
+{
+  "manifest_id": "A-SHARE-CURRENT-DAY-STAGE-MANIFEST",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "mode": "run_research_from_existing_refresh",
+  "workflow_mode": "validate_existing_artifacts",
+  "generated_at": "2026-06-29T03:27:18.571550Z",
+  "stages": [
+    {
+      "stage_id": "stage_00_current_day_config",
+      "stage_name": "current_day_config",
+      "stage_order": 0,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_run_config.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_01_data_refresh_readiness",
+      "stage_name": "data_refresh_readiness",
+      "stage_order": 1,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [
+        "data/equity_data_quality/a_share_daily_data_refresh_audit.json"
+      ],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_readiness.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "stage_id": "stage_02_date_alignment",
+      "stage_name": "date_alignment",
+      "stage_order": 2,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_data_refresh_link.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_03_workflow_plan",
+      "stage_name": "workflow_plan",
+      "stage_order": 3,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_readiness.json"
+      ],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_plan.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_04_workflow_execution",
+      "stage_name": "workflow_execution",
+      "stage_order": 4,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_plan.json"
+      ],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "fundamental score confidence is partial",
+        "git status is not clean; release gate must be checked after implementation commit",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ]
+    },
+    {
+      "stage_id": "stage_05_workflow_audit_collection",
+      "stage_name": "workflow_audit_collection",
+      "stage_order": 5,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [],
+      "audit_artifacts": [
+        "data/equity_data_quality/a_share_current_day_research_run_audit.json"
+      ],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_06_artifact_index",
+      "stage_name": "artifact_index",
+      "stage_order": 6,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_07_warning_summary",
+      "stage_name": "warning_summary",
+      "stage_order": 7,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_warning_summary.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "fundamental score confidence is partial",
+        "git status is not clean; release gate must be checked after implementation commit",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "stage_id": "stage_08_source_trace",
+      "stage_name": "source_trace",
+      "stage_order": 8,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_source_trace.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "fundamental score confidence is partial",
+        "git status is not clean; release gate must be checked after implementation commit",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "stage_id": "stage_09_boundary_check",
+      "stage_name": "boundary_check",
+      "stage_order": 9,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "fundamental score confidence is partial",
+        "git status is not clean; release gate must be checked after implementation commit",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "stage_id": "stage_10_current_day_audit",
+      "stage_name": "current_day_audit",
+      "stage_order": 10,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json"
+      ],
+      "output_artifacts": [],
+      "audit_artifacts": [
+        "data/equity_data_quality/a_share_current_day_research_run_audit.json"
+      ],
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    {
+      "stage_id": "stage_11_owner_summary",
+      "stage_name": "owner_summary",
+      "stage_order": 11,
+      "status": "passed",
+      "started_at": "2026-06-29T03:27:18.571550Z",
+      "finished_at": "2026-06-29T03:27:18.571550Z",
+      "duration_seconds": 0.0,
+      "input_artifacts": [],
+      "output_artifacts": [
+        "data/equity_current_day_runs/daily/2026-06-26/current_day_summary.json",
+        "outputs/equity_current_day_runs/daily/2026-06-26/A_SHARE_CURRENT_DAY_RUN_SUMMARY.md"
+      ],
+      "audit_artifacts": [],
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "fundamental score confidence is partial",
+        "git status is not clean; release gate must be checked after implementation commit",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    }
+  ],
+  "stage_count": 12,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true
+}

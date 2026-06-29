@@ -128,7 +128,7 @@ def read_version_checks(*, paths: ProjectPaths | None = None) -> dict[str, Any]:
     if not root_version and "_read_src_version" in _read_text(root_init):
         root_version = src_version
     version_semver = _parse_version_file_semver(version_content)
-    accepted_version_file = version_content.startswith("v0.7.8") or version_content.startswith("v0.7.9")
+    accepted_version_file = version_content.startswith(("v0.7.8", "v0.7.9", "v0.8."))
     version_consistent = bool(src_version and root_version and src_version == root_version and version_semver == src_version and accepted_version_file)
     return {
         "version_file": relative(version_path, paths.project_root),

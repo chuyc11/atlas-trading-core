@@ -1,0 +1,100 @@
+{
+  "plan_id": "A-SHARE-CURRENT-DAY-WORKFLOW-PLAN",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "workflow_command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts",
+  "workflow_mode": "validate_existing_artifacts",
+  "stage_order": [
+    {
+      "stage_id": "stage_00_preflight",
+      "stage_name": "preflight",
+      "stage_order": 0
+    },
+    {
+      "stage_id": "stage_01_data_readiness",
+      "stage_name": "data_readiness",
+      "stage_order": 1
+    },
+    {
+      "stage_id": "stage_02_tradable_universe",
+      "stage_name": "tradable_universe",
+      "stage_order": 2
+    },
+    {
+      "stage_id": "stage_03_feature_engineering",
+      "stage_name": "feature_engineering",
+      "stage_order": 3
+    },
+    {
+      "stage_id": "stage_04_scoring",
+      "stage_name": "scoring",
+      "stage_order": 4
+    },
+    {
+      "stage_id": "stage_05_candidate_generation",
+      "stage_name": "candidate_generation",
+      "stage_order": 5
+    },
+    {
+      "stage_id": "stage_06_virtual_portfolio_construction",
+      "stage_name": "virtual_portfolio_construction",
+      "stage_order": 6
+    },
+    {
+      "stage_id": "stage_07_daily_briefing",
+      "stage_name": "daily_briefing",
+      "stage_order": 7
+    },
+    {
+      "stage_id": "stage_08_virtual_portfolio_tracking",
+      "stage_name": "virtual_portfolio_tracking",
+      "stage_order": 8
+    },
+    {
+      "stage_id": "stage_09_workflow_audit",
+      "stage_name": "workflow_audit",
+      "stage_order": 9
+    },
+    {
+      "stage_id": "stage_10_owner_summary",
+      "stage_name": "owner_summary",
+      "stage_order": 10
+    }
+  ],
+  "expected_stage_artifacts": {
+    "workflow_config": "data/equity_workflows/daily/2026-06-26/workflow_config.json",
+    "workflow_preflight": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
+    "workflow_stage_manifest": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
+    "workflow_run_manifest": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
+    "workflow_source_trace": "data/equity_workflows/daily/2026-06-26/workflow_source_trace.json",
+    "workflow_boundary_check": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",
+    "workflow_summary": "data/equity_workflows/daily/2026-06-26/workflow_summary.json",
+    "workflow_summary_report": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SUMMARY.md",
+    "workflow_stage_report": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_STAGE_REPORT.md",
+    "workflow_source_trace_report": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SOURCE_TRACE.md"
+  },
+  "expected_audit_artifacts": {
+    "workflow_audit_json": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+    "workflow_audit_report": "outputs/audit/A_SHARE_DAILY_WORKFLOW_AUDIT.md"
+  },
+  "post_workflow_modules_enabled": false,
+  "post_workflow_commands": [],
+  "boundary_expectations": {
+    "current_day_research_run_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "old_run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "real_account_data_read": false,
+    "research_result_used_as_trade_instruction": false
+  }
+}

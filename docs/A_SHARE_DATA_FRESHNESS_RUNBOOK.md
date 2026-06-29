@@ -12,6 +12,15 @@ Resolve the latest completed trading day:
 python -m trading_core.cli build-a-share-daily-data-refresh --resolve-latest-completed-trading-day --mode validate_existing_data
 ```
 
+After a passing data refresh audit, v0.8.1 can validate and run the current-day research workflow:
+
+```bash
+python -m trading_core.cli validate-a-share-current-day-readiness --as-of-date 2026-06-26
+python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts
+```
+
+Do not continue to the current-day runner if the data refresh audit fails.
+
 Default behavior:
 
 - does not use intraday data

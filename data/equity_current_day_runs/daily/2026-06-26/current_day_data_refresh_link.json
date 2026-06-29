@@ -1,0 +1,61 @@
+{
+  "link_id": "A-SHARE-CURRENT-DAY-DATA-REFRESH-LINK",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "data_refresh_artifacts": {
+    "data_refresh_config": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_config.json",
+      "exists": true,
+      "sha256": "11142e964ce4e1fdce90805f98bfce2bb60f9aad0050b0c968ee483f92b64b11"
+    },
+    "date_resolution": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/date_resolution.json",
+      "exists": true,
+      "sha256": "cc22bb69a024a5e3b5efee1800551b2fc06af3687f403903dfbd72617ffab38e"
+    },
+    "dataset_refresh_result": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_refresh_result.json",
+      "exists": true,
+      "sha256": "f922109cfd405f680d14c93580eeab2822c9019e9c3a2ec10884ff0e12fe8560"
+    },
+    "dataset_schema_validation": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_schema_validation.json",
+      "exists": true,
+      "sha256": "2e58e95a4c556abad625ad0266589477ff00ac4a9cf5585087b7e158e09a9585"
+    },
+    "dataset_freshness_validation": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_freshness_validation.json",
+      "exists": true,
+      "sha256": "6326a4280a539e15db133ece547ce73e63997122a64f73ed81ce1faa1bd619b4"
+    },
+    "dataset_coverage_summary": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_coverage_summary.json",
+      "exists": true,
+      "sha256": "2c4c1179c7fb4cc4280cefd9ced30ceda62baff2c7e91b5b90270bfca8b3645a"
+    },
+    "data_refresh_audit_json": {
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "exists": true,
+      "sha256": "2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592"
+    }
+  },
+  "data_refresh_audit_path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+  "data_refresh_audit_hash": "2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592",
+  "data_refresh_audit_passed": true,
+  "data_refresh_blocking_reasons": [],
+  "data_refresh_warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "datasets_passed": [
+    "equity_master",
+    "daily_price",
+    "adjusted_price",
+    "daily_basic",
+    "index_price",
+    "industry_classification",
+    "financial_indicators",
+    "trading_calendar"
+  ]
+}

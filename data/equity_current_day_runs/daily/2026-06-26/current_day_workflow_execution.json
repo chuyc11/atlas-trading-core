@@ -1,0 +1,40 @@
+{
+  "execution_id": "A-SHARE-CURRENT-DAY-WORKFLOW-EXECUTION",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "mode": "run_research_from_existing_refresh",
+  "workflow_mode": "validate_existing_artifacts",
+  "command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts",
+  "started_at": "2026-06-29T03:27:18.586832Z",
+  "finished_at": "2026-06-29T03:27:18.890279Z",
+  "duration_seconds": 0.303447,
+  "exit_code": 0,
+  "status": "passed",
+  "workflow_audit_path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+  "workflow_audit_overall_passed": true,
+  "workflow_blocking_reasons": [],
+  "workflow_warnings": [
+    "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+  ],
+  "post_workflow_modules_run": false,
+  "post_workflow_results": [],
+  "blocking_reasons": [],
+  "warnings": [
+    "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+  ]
+}

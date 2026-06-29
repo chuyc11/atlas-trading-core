@@ -1,0 +1,41 @@
+{
+  "readiness_id": "A-SHARE-CURRENT-DAY-RESEARCH-READINESS",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "data_refresh_audit_passed": true,
+  "critical_datasets_passed": true,
+  "schema_validation_passed": true,
+  "freshness_validation_passed": true,
+  "coverage_validation_passed": true,
+  "workflow_cli_available": true,
+  "workflow_mode_allowed": true,
+  "known_warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "checks": {
+    "data_refresh_audit_exists": true,
+    "data_refresh_audit_passed": true,
+    "data_refresh_blocking_reasons_empty": true,
+    "resolved_as_of_date_valid": true,
+    "resolved_as_of_date_matches_requested_date": true,
+    "critical_datasets_passed": true,
+    "schema_validation_passed": true,
+    "freshness_validation_passed": true,
+    "coverage_validation_passed": true,
+    "known_data_refresh_warnings_carried_forward": true,
+    "workflow_cli_available": true,
+    "workflow_mode_allowed": true,
+    "old_run_daily_disabled": true,
+    "broker_disabled": true,
+    "real_orders_disabled": true,
+    "research_only_boundary_clean": true
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ]
+}

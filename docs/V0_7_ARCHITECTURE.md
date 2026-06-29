@@ -203,4 +203,12 @@ The layer does not create buy/sell signals, place orders, connect a broker, call
 
 Release mode uses `validate_existing_data`, so it does not require network provider success. Public provider refresh is explicit opt-in only. v0.8.0 does not generate buy/sell signals, place orders, connect broker, call old `run-daily`, execute official forward dry-run day2, or trigger the full research workflow by default.
 
-v0.8.1 should use refreshed data to run the current-day research workflow.
+v0.8.1 uses refreshed data to run the current-day research workflow.
+
+## v0.8.1 Current-Day Research Runner
+
+`data/equity_current_day_runs/daily/YYYY-MM-DD/` is the v0.8.1 layer after data refresh. It verifies the v0.8.0 data refresh audit, resolves the current research date, runs the new A-share daily research workflow CLI, collects workflow audit status, carries forward warnings, and writes current-day source trace, boundary, manifest, summary, and audit artifacts.
+
+The layer does not call old `run-daily`, execute official forward dry-run day2, connect a broker, read real account data, place real orders, generate buy/sell signals, generate order previews, treat research output as trade instruction, claim profitability, or certify live trading readiness.
+
+v0.8.2 should add owner-facing dashboard and monitoring for latest run status, data freshness, workflow status, warning cards, and research output summary.

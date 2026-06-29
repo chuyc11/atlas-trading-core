@@ -75,6 +75,11 @@ from trading_core.equity_data_refresh.data_refresh_audit import audit_a_share_da
 from trading_core.equity_data_refresh.data_refresh_builder import build_a_share_daily_data_refresh
 from trading_core.equity_data_refresh.data_refresh_config import ALLOWED_MODES as A_SHARE_DATA_REFRESH_MODES
 from trading_core.equity_data_refresh.data_refresh_config import DEFAULT_AS_OF_DATE as DEFAULT_DATA_REFRESH_AS_OF_DATE
+from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
+from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
+from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
+from trading_core.equity_current_day.current_day_config import DEFAULT_AS_OF_DATE as DEFAULT_CURRENT_DAY_AS_OF_DATE
+from trading_core.equity_current_day.current_day_runner import run_a_share_current_day_research, validate_a_share_current_day_readiness
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -939,6 +944,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_daily_data_refresh_arguments(data_refresh_audit)
     data_refresh_all = subparsers.add_parser("build-and-audit-a-share-daily-data-refresh")
     _add_a_share_daily_data_refresh_arguments(data_refresh_all)
+    current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
+    _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
+    current_day_run = subparsers.add_parser("run-a-share-current-day-research")
+    _add_a_share_current_day_arguments(current_day_run)
+    current_day_audit = subparsers.add_parser("audit-a-share-current-day-research-run")
+    _add_a_share_current_day_arguments(current_day_audit)
+    current_day_all = subparsers.add_parser("run-and-audit-a-share-current-day-research")
+    _add_a_share_current_day_arguments(current_day_all)
 
     return parser
 
@@ -1045,6 +1058,22 @@ def _add_a_share_daily_data_refresh_arguments(parser: argparse.ArgumentParser) -
     parser.add_argument("--allow-partial-refresh", action="store_true")
     parser.add_argument("--allow-latest-available-if-exact-missing", action="store_true")
     parser.add_argument("--allow-research-workflow-after-refresh", action="store_true")
+
+
+def _add_a_share_current_day_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_CURRENT_DAY_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_CURRENT_DAY_MODES, default="run_research_from_existing_refresh")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_CURRENT_DAY_MODES, default="validate_current_day_readiness")
+    parser.add_argument("--workflow-mode", choices=A_SHARE_CURRENT_DAY_WORKFLOW_MODES, default="validate_existing_artifacts")
+    parser.add_argument("--use-data-refresh-resolved-date", action="store_true")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--allow-refresh-before-run", action="store_true")
+    parser.add_argument("--allow-network-providers", action="store_true")
+    parser.add_argument("--allow-public-providers", action="store_true")
+    parser.add_argument("--run-post-workflow-modules", action="store_true")
+    parser.add_argument("--allow-post-workflow-warnings-only", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3100,6 +3129,104 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "dataset_checks": audit_result["dataset_checks"],
                 "provider_checks": audit_result["provider_checks"],
                 "validation_checks": audit_result["validation_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-current-day-readiness":
+        result = validate_a_share_current_day_readiness(
+            as_of_date=args.as_of_date,
+            use_data_refresh_resolved_date=args.use_data_refresh_resolved_date,
+            allow_date_mismatch=args.allow_date_mismatch,
+            workflow_mode=args.workflow_mode,
+            paths=paths,
+        )
+        readiness = result["current_day_readiness"]
+        print(
+            {
+                "runner_id": result["runner_id"],
+                "readiness_id": readiness["readiness_id"],
+                "overall_passed": readiness["overall_passed"],
+                "blocking_reasons": readiness["blocking_reasons"],
+                "warnings": len(readiness["warnings"]),
+                "resolved_as_of_date": readiness["resolved_as_of_date"],
+                "recommended_next_version": result["current_day_run_manifest"]["recommended_next_version"],
+            }
+        )
+        return 0 if readiness["overall_passed"] else 1
+    if args.command == "run-a-share-current-day-research":
+        result = run_a_share_current_day_research(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            workflow_mode=args.workflow_mode,
+            use_data_refresh_resolved_date=args.use_data_refresh_resolved_date,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_refresh_before_run=args.allow_refresh_before_run,
+            allow_network_providers=args.allow_network_providers,
+            allow_public_providers=args.allow_public_providers,
+            run_post_workflow_modules=args.run_post_workflow_modules,
+            allow_post_workflow_warnings_only=args.allow_post_workflow_warnings_only,
+            paths=paths,
+        )
+        manifest = result["current_day_run_manifest"]
+        print(
+            {
+                "runner_id": result["runner_id"],
+                "overall_passed": manifest["overall_passed"],
+                "blocking_reasons": manifest["blocking_reasons"],
+                "warnings": len(manifest["warnings"]),
+                "mode": manifest["mode"],
+                "workflow_mode": manifest["workflow_mode"],
+                "workflow_audit_passed": manifest["workflow_audit_passed"],
+                "recommended_next_version": manifest["recommended_next_version"],
+            }
+        )
+        return 0 if manifest["overall_passed"] else 1
+    if args.command == "audit-a-share-current-day-research-run":
+        result = audit_a_share_current_day_research_run(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "readiness_checks": result["readiness_checks"],
+                "workflow_checks": result["workflow_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-and-audit-a-share-current-day-research":
+        run_result = run_a_share_current_day_research(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            workflow_mode=args.workflow_mode,
+            use_data_refresh_resolved_date=args.use_data_refresh_resolved_date,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_refresh_before_run=args.allow_refresh_before_run,
+            allow_network_providers=args.allow_network_providers,
+            allow_public_providers=args.allow_public_providers,
+            run_post_workflow_modules=args.run_post_workflow_modules,
+            allow_post_workflow_warnings_only=args.allow_post_workflow_warnings_only,
+            paths=paths,
+        )
+        audit_result = audit_a_share_current_day_research_run(
+            as_of_date=args.as_of_date,
+            paths=paths,
+        )
+        print(
+            {
+                "runner_id": run_result["runner_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
+                "workflow_checks": audit_result["workflow_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

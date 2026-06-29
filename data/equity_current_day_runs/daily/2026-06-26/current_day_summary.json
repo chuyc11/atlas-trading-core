@@ -1,0 +1,155 @@
+{
+  "summary_id": "A-SHARE-CURRENT-DAY-RESEARCH-RUN-SUMMARY",
+  "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "mode": "run_research_from_existing_refresh",
+  "workflow_mode": "validate_existing_artifacts",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "data_refresh_audit_passed": true,
+  "workflow_audit_passed": true,
+  "stage_status": {
+    "stage_00_current_day_config": "passed",
+    "stage_01_data_refresh_readiness": "passed",
+    "stage_02_date_alignment": "passed",
+    "stage_03_workflow_plan": "passed",
+    "stage_04_workflow_execution": "passed",
+    "stage_05_workflow_audit_collection": "passed",
+    "stage_06_artifact_index": "passed",
+    "stage_07_warning_summary": "passed",
+    "stage_08_source_trace": "passed",
+    "stage_09_boundary_check": "passed",
+    "stage_10_current_day_audit": "passed",
+    "stage_11_owner_summary": "passed"
+  },
+  "key_artifacts": {
+    "data_refresh_audit_json": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+    "workflow_audit_json": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+    "workflow_summary": "data/equity_workflows/daily/2026-06-26/workflow_summary.json",
+    "current_day_run_manifest": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+    "current_day_summary_report": "outputs/equity_current_day_runs/daily/2026-06-26/A_SHARE_CURRENT_DAY_RUN_SUMMARY.md"
+  },
+  "warning_summary": {
+    "warning_summary_id": "A-SHARE-CURRENT-DAY-WARNING-SUMMARY",
+    "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+    "as_of_date": "2026-06-26",
+    "resolved_as_of_date": "2026-06-26",
+    "warnings": [
+      {
+        "source": "data_refresh",
+        "warning": "daily_basic:required_field_all_null",
+        "classification": "known_non_blocking"
+      },
+      {
+        "source": "data_refresh",
+        "warning": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+        "classification": "known_non_blocking"
+      },
+      {
+        "source": "workflow",
+        "warning": "fundamental score confidence is partial",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "git status is not clean; release gate must be checked after implementation commit",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "classification": "warning"
+      },
+      {
+        "source": "workflow",
+        "warning": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "classification": "warning"
+      }
+    ],
+    "warning_count": 10,
+    "blocking_warning_count": 0,
+    "known_warnings_carried_forward": [
+      "daily_basic:required_field_all_null",
+      "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+    ],
+    "overall_passed": true,
+    "blocking_reasons": []
+  },
+  "boundary": {
+    "boundary_id": "A-SHARE-CURRENT-DAY-RESEARCH-RUN-BOUNDARY-CHECK",
+    "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+    "as_of_date": "2026-06-26",
+    "current_day_research_run_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "old_run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "real_account_data_read": false,
+    "research_result_used_as_trade_instruction": false,
+    "forbidden_artifacts_present": [],
+    "forbidden_wording_positive_hits": [],
+    "overall_passed": true,
+    "blocking_reasons": [],
+    "warnings": [
+      "daily_basic:required_field_all_null",
+      "fundamental score confidence is partial",
+      "git status is not clean; release gate must be checked after implementation commit",
+      "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+    ]
+  },
+  "disclaimer": "本产物仅用于研究工作流状态汇总，不是交易指令，不连接券商，不下真实订单。",
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "recommended_next_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard"
+}
