@@ -1,0 +1,24 @@
+{
+  "summary_id": "A-SHARE-BUILD-OUTPUT-OWNER-DASHBOARD-SUMMARY",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "mode": "build_owner_dashboard_from_build_output",
+  "source_workflow_mode": "build_from_existing_data",
+  "overall_passed": true,
+  "overall_status": "passed",
+  "blocking_reasons": [],
+  "warnings": [
+    "metadata_hash_drift_non_blocking",
+    "timestamp_only_drift_non_blocking"
+  ],
+  "gated_build_audit_passed": true,
+  "repeatability_audit_passed": true,
+  "business_output_drift_count": 0,
+  "protected_path_modifications_detected": false,
+  "required_cards_present": true,
+  "optional_cards_present": true,
+  "required_validate_fallback_used": false,
+  "optional_validate_fallback_used": false,
+  "comparison_completed": true,
+  "recommended_next_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh"
+}

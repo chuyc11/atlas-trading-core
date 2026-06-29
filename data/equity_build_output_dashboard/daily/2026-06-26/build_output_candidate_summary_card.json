@@ -1,0 +1,12 @@
+{
+  "card_id": "BUILD_OUTPUT_CANDIDATE_SUMMARY",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "available": true,
+  "source_path": "data\\equity_selection\\daily\\2026-06-26\\candidate_generation_summary.json",
+  "overall_passed": null,
+  "blocking_reasons": [],
+  "warnings": [],
+  "summary": {}
+}

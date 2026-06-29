@@ -1,0 +1,38 @@
+{
+  "config_id": "A-SHARE-BUILD-OUTPUT-OWNER-DASHBOARD-CONFIG",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "mode": "build_owner_dashboard_from_build_output",
+  "allowed_modes": [
+    "validate_build_output_dashboard_inputs",
+    "resolve_build_output_sources",
+    "build_owner_dashboard_from_build_output",
+    "compare_validate_dashboard_vs_build_dashboard",
+    "audit_existing_build_output_dashboard"
+  ],
+  "source_workflow_mode": "build_from_existing_data",
+  "prefer_build_output": true,
+  "allow_validate_fallback_for_required_artifacts": false,
+  "allow_validate_fallback_for_optional_artifacts": true,
+  "require_repeatability_audit_passed": true,
+  "require_business_output_drift_count_zero": true,
+  "require_protected_path_modification_clean": true,
+  "owner_facing": true,
+  "machine_readable": true,
+  "generate_markdown": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "raw_config": {
+    "as_of_date": "2026-06-26",
+    "mode": "build_owner_dashboard_from_build_output",
+    "allow_date_mismatch": false,
+    "allow_required_validate_fallback": false,
+    "allow_business_output_drift": false
+  }
+}

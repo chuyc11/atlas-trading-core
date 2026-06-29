@@ -1,0 +1,13 @@
+{
+  "card_id": "BUILD_OUTPUT_WORKFLOW_STATUS",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "repeat_build_status": "passed",
+  "repeat_build_exit_code": 0,
+  "repeat_build_audit_passed": true,
+  "gated_build_audit_passed": true,
+  "stage_count": 12,
+  "failed_stage_count": 0,
+  "old_run_daily_called": false
+}

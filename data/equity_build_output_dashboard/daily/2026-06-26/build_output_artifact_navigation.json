@@ -1,0 +1,69 @@
+{
+  "navigation_id": "A-SHARE-BUILD-OUTPUT-ARTIFACT-NAVIGATION",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "artifact_count": 10,
+  "entries": [
+    {
+      "artifact_id": "repeatability_summary",
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_summary.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "repeatability_audit",
+      "path": "data/equity_data_quality/a_share_build_repeatability_audit.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "gated_build_summary",
+      "path": "data/equity_current_day_builds/daily/2026-06-26/gated_build_summary.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "build_artifact_index",
+      "path": "data/equity_current_day_builds/daily/2026-06-26/build_artifact_index.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "current_day_summary",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_summary.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "candidate_summary",
+      "path": "data/equity_selection/daily/2026-06-26/candidate_generation_summary.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "portfolio_manifest",
+      "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "briefing",
+      "path": "data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "tracking_summary",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    },
+    {
+      "artifact_id": "build_output_dashboard_report",
+      "path": "outputs/equity_build_output_dashboard/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_OWNER_DASHBOARD.md",
+      "exists": true,
+      "source_workflow_mode": "build_from_existing_data"
+    }
+  ]
+}

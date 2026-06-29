@@ -1,0 +1,36 @@
+{
+  "comparison_id": "A-SHARE-VALIDATE-DASHBOARD-VS-BUILD-DASHBOARD",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "comparison_completed": true,
+  "expected_source_mode_difference": {
+    "validate_dashboard_source_workflow_mode": "validate_existing_artifacts",
+    "build_dashboard_source_workflow_mode": "build_from_existing_data",
+    "expected_different": true
+  },
+  "overall_status_comparison": {
+    "validate_overall_passed": true,
+    "build_overall_passed": true
+  },
+  "warning_count_comparison": {
+    "validate_warning_count": 0,
+    "build_warning_count": 2
+  },
+  "artifact_navigation_comparison": {
+    "build_navigation_available": true,
+    "required_validate_fallback_used": false,
+    "optional_validate_fallback_used": false
+  },
+  "availability_comparison": {
+    "candidate_available": true,
+    "portfolio_available": true,
+    "benchmark_available": true,
+    "performance_available": true,
+    "attribution_available": true
+  },
+  "unexpected_business_output_differences": [],
+  "blocking_reasons": [],
+  "warnings": [
+    "source_mode_changed_to_build_from_existing_data"
+  ]
+}

@@ -1,0 +1,27 @@
+# A-Share Build Output Owner Dashboard
+
+v0.8.9 refreshes the owner dashboard from stable `build_from_existing_data` outputs.
+
+It reads v0.8.8 repeatability evidence, v0.8.7 gated build evidence, v0.8.2 validate-source dashboard evidence, and v0.8.0 data refresh evidence. It then writes a separate build-output dashboard under:
+
+- `data/equity_build_output_dashboard/daily/YYYY-MM-DD/`
+- `outputs/equity_build_output_dashboard/daily/YYYY-MM-DD/`
+- `data/equity_data_quality/a_share_build_output_owner_dashboard_audit.json`
+- `outputs/audit/A_SHARE_BUILD_OUTPUT_OWNER_DASHBOARD_AUDIT.md`
+
+Boundary:
+
+- prefers build output over validate-source artifacts
+- requires repeatability audit passed
+- requires `business_output_drift_count=0`
+- distinguishes pre-existing protected paths from modified protected paths
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not call old run-daily
+- does not connect broker
+- does not place orders
+- dashboard output is not a trade instruction
+
+Recommended next: `v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh`.
+

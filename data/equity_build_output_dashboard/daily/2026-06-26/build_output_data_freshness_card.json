@@ -1,0 +1,15 @@
+{
+  "card_id": "BUILD_OUTPUT_DATA_FRESHNESS",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "data_refresh_audit_passed": true,
+  "schema_validation_passed": true,
+  "freshness_validation_passed": true,
+  "coverage_validation_passed": true,
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "summary_available": true
+}

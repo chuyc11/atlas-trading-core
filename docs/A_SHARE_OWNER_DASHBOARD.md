@@ -2,6 +2,14 @@
 
 v0.8.2 adds an owner-facing monitoring dashboard for an existing A-share current-day research run.
 
+## v0.8.9 Build-Output Dashboard Refresh
+
+v0.8.9 adds a separate owner dashboard sourced from stable `build_from_existing_data` outputs instead of only the earlier validate-source current-day artifacts.
+
+It requires the v0.8.8 repeatability audit to pass, requires `business_output_drift_count=0`, carries protected path status forward, and records whether any validate-source fallback was used. Required dashboard cards use build-output sources by default.
+
+v0.8.9 does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not call old run-daily, does not connect broker, does not place orders, and does not treat dashboard content as a trade instruction.
+
 The dashboard reads existing artifacts only:
 
 - v0.8.0 daily data refresh artifacts

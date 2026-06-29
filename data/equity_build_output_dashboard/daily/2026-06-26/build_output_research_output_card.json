@@ -1,0 +1,32 @@
+{
+  "card_id": "BUILD_OUTPUT_RESEARCH_OUTPUT",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "artifact_groups": {
+    "features": {
+      "available": true,
+      "file_count": 10
+    },
+    "scores": {
+      "available": true,
+      "file_count": 8
+    },
+    "selection": {
+      "available": true,
+      "file_count": 23
+    },
+    "portfolios": {
+      "available": true,
+      "file_count": 11
+    },
+    "briefings": {
+      "available": true,
+      "file_count": 4
+    },
+    "tracking": {
+      "available": true,
+      "file_count": 15
+    }
+  }
+}

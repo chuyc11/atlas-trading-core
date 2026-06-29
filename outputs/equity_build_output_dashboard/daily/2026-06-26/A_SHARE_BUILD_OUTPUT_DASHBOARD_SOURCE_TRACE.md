@@ -1,0 +1,39 @@
+# A 股 Build Output Dashboard Source Trace
+
+- source_trace_complete: True
+- fallback_decisions: {'fallback_used': False, 'required_validate_fallback_used': False, 'optional_validate_fallback_used': False, 'fallback_reasons': []}
+
+- repeatability_audit: exists=True sha256=f3e4d642aeab
+- gated_build_audit: exists=True sha256=64f0bcbff5cf
+- owner_dashboard_audit: exists=True sha256=21c2bcd0d202
+- data_refresh_audit: exists=True sha256=6fda172e7592
+- repeatability_summary: exists=True sha256=7b019648ee91
+- gated_build_summary: exists=True sha256=63fa383e32ff
+- build_artifact_index: exists=True sha256=dbbf909b5eb3
+- current_day_summary: exists=True sha256=89d928599ec6
+- candidate_summary: exists=True sha256=53819dd49a40
+- portfolio_manifest: exists=True sha256=677b44a6735b
+- briefing: exists=True sha256=f1b259cdeaa7
+- tracking_summary: exists=True sha256=b21e40bc2b11
+- build_output_dashboard_config: exists=True sha256=eaf000c3de1e
+- build_output_input_availability: exists=True sha256=70118ef3ddf1
+- build_output_source_resolution: exists=True sha256=95d37c1aead7
+- build_output_date_alignment: exists=True sha256=10e0ad8b4f8a
+- build_output_executive_status_card: exists=True sha256=22984364f8f7
+- build_output_data_freshness_card: exists=True sha256=ed7148c46cf8
+- build_output_workflow_status_card: exists=True sha256=8db46c9292f2
+- build_output_research_output_card: exists=True sha256=8bdc9caac6fe
+- build_output_candidate_summary_card: exists=True sha256=02591277a3f6
+- build_output_portfolio_summary_card: exists=True sha256=698c659553af
+- build_output_benchmark_summary_card: exists=True sha256=11d9f2e47540
+- build_output_performance_summary_card: exists=True sha256=1f59ab8005a2
+- build_output_attribution_summary_card: exists=True sha256=64201cf8f408
+- build_output_repeatability_card: exists=True sha256=fd33665cd51b
+- build_output_protected_path_card: exists=True sha256=afa928a46c3d
+- build_output_warning_and_blocker_card: exists=True sha256=7e09fdda6b88
+- build_output_artifact_navigation: exists=True sha256=6a11ae6de669
+- validate_dashboard_vs_build_dashboard_comparison: exists=True sha256=8a4ed877e754
+- build_output_dashboard_source_trace: exists=True sha256=f90ad9465158
+- build_output_dashboard_boundary_check: exists=True sha256=b9e1dafb98e8
+- build_output_dashboard_manifest: exists=True sha256=783ff36fa01e
+- build_output_dashboard_summary: exists=True sha256=1dabb1312148

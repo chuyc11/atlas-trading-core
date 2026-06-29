@@ -1,0 +1,14 @@
+{
+  "card_id": "BUILD_OUTPUT_ATTRIBUTION_SUMMARY",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "available": true,
+  "source_path": "data\\equity_attribution\\daily\\2026-06-26\\attribution_summary.json",
+  "overall_passed": null,
+  "blocking_reasons": [],
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ],
+  "summary": {}
+}

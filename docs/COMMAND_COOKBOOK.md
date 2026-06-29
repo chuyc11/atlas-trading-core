@@ -87,6 +87,22 @@ python -m trading_core.cli build-and-audit-a-share-build-repeatability --as-of-d
 
 This path repeats the gated `build_from_existing_data` workflow, compares first-build and second-build artifacts, and snapshots protected order/trade/account paths before and after the repeat run. Pre-existing `data/orders` or `data/trades` directories are allowed if unchanged; new, modified, or deleted protected files are blocking. It does not refresh public network data, run `full_research_run`, call old `run-daily`, connect broker, generate buy/sell signals, generate order previews, place orders, or treat repeatability as a trade instruction.
 
+## Run v0.8.9 A-share build-output owner dashboard
+
+```bash
+python -m trading_core.cli validate-a-share-build-output-owner-dashboard-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-build-output-owner-dashboard --as-of-date 2026-06-26 --mode build_owner_dashboard_from_build_output
+python -m trading_core.cli audit-a-share-build-output-owner-dashboard --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-build-output-owner-dashboard --as-of-date 2026-06-26 --mode build_owner_dashboard_from_build_output
+```
+
+This path refreshes owner-facing dashboard artifacts from stable `build_from_existing_data` outputs. It prefers build output over validate-source artifacts, requires repeatability audit success, requires `business_output_drift_count=0`, and carries protected path status forward. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, call old `run-daily`, connect broker, create order previews, place orders, or treat dashboard output as a trade instruction.
+
 ## Run v0.7 external project intake
 
 ```bash

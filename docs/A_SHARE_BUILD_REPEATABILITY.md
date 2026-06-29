@@ -26,3 +26,8 @@ Boundary:
 
 Recommended next: `v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh`.
 
+## v0.8.9 dashboard handoff
+
+v0.8.9 consumes the repeatability audit, build-vs-build comparison, protected path check, and gated build evidence from v0.8.8/v0.8.7 to refresh the owner dashboard from `build_from_existing_data` outputs.
+
+v0.8.9 does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not call old run-daily, and does not treat dashboard output as a trade instruction.

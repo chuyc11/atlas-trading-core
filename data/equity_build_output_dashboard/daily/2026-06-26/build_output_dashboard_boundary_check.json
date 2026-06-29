@@ -1,0 +1,33 @@
+{
+  "boundary_id": "A-SHARE-BUILD-OUTPUT-DASHBOARD-BOUNDARY-CHECK",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "build_output_dashboard_only": true,
+  "research_only": true,
+  "virtual_only": true,
+  "real_portfolio_generated": false,
+  "buy_sell_signals_generated": false,
+  "order_preview_generated": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "run_daily_called": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "official_forward_dry_run_status_unchanged": true,
+  "external_notifications_sent": false,
+  "public_network_refresh_run": false,
+  "full_research_run": false,
+  "model_profit_guaranteed": false,
+  "live_trading_ready": false,
+  "real_account_data_read": false,
+  "dashboard_used_as_trade_instruction": false,
+  "protected_path_modifications_detected": false,
+  "forbidden_artifacts_present": [],
+  "forbidden_wording_positive_hits": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "metadata_hash_drift_non_blocking",
+    "timestamp_only_drift_non_blocking"
+  ]
+}

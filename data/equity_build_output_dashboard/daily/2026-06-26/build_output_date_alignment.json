@@ -1,0 +1,10 @@
+{
+  "alignment_id": "A-SHARE-BUILD-OUTPUT-DASHBOARD-DATE-ALIGNMENT",
+  "target_version": "v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "mismatches": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}
