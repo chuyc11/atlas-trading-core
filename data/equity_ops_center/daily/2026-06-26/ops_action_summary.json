@@ -1,0 +1,19 @@
+{
+  "summary_id": "A-SHARE-DAILY-OPS-CENTER-ACTION-SUMMARY",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "manual_review_count": 8,
+  "rerun_safe_validation_count": 3,
+  "wait_for_history_count": 1,
+  "escalation_count": 0,
+  "top_owner_actions": [
+    "检查 audit 是否通过",
+    "检查 warning 是否为已知非阻塞",
+    "检查 source trace 是否完整",
+    "检查 boundary 是否干净",
+    "检查是否需要安全重跑数据验证"
+  ],
+  "forbidden_action_hits": []
+}

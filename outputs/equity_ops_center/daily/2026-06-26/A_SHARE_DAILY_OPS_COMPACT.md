@@ -1,0 +1,1 @@
+今日Ops状态：passed_with_warnings。健康分：65，等级：C。模块：data_refresh=passed_with_warnings, current_day_research_run=passed_with_warnings, owner_dashboard=passed_with_warnings, owner_monitoring=passed, owner_remediation=passed。blocking=0，warning=10，safe_action=8。下一步：查看 remediation checklist 与 artifact navigation。边界：仅聚合既有artifacts，不执行刷新、研究流程、remediation action，不连接券商，不下单。

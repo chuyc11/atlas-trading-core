@@ -1,0 +1,1082 @@
+{
+  "summary_id": "A-SHARE-DAILY-OPS-CENTER-ISSUE-SUMMARY",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "blocking_issues": [],
+  "warning_issues": [
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-b5b3abd71a",
+      "issue_code": "daily_basic:required_field_all_null",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "daily_basic:required_field_all_null 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-889e6d91e2",
+      "issue_code": "fundamental score confidence is partial",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "fundamental score confidence is partial 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-5b34bf9394",
+      "issue_code": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-01d11b7814",
+      "issue_code": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-7a6d26ce1a",
+      "issue_code": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-c94a197b09",
+      "issue_code": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-784cd89b21",
+      "issue_code": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-c528a20964",
+      "issue_code": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-d37003548a",
+      "issue_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-f19a9dc46c",
+      "issue_code": "WARNING_COUNT_INCREASE",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "trend analysis requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-bb5076bdc0",
+      "issue_code": "PROVIDER_HEALTH_DEGRADED",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "severity": "warning",
+      "category": "provider_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "provider trend requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "provider_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review provider health and fallback reports.",
+        "Check whether the provider issue is transient or repeated."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-1ae924da42",
+      "issue_code": "DATA_FRESHNESS_DEGRADED",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "severity": "warning",
+      "category": "freshness_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "data freshness trend requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "freshness_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review dataset freshness validation.",
+        "Confirm whether the requested date is covered by existing local data."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    }
+  ],
+  "known_non_blocking_issues": [
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-b5b3abd71a",
+      "issue_code": "daily_basic:required_field_all_null",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "daily_basic:required_field_all_null 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-dce2a963eb",
+      "issue_code": "portfolio observation history is below the minimum required window",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "portfolio observation history is below the minimum required window 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-58ac770ef9",
+      "issue_code": "portfolio relative metrics limited by first-day initialization",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "portfolio relative metrics limited by first-day initialization 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-d37003548a",
+      "issue_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-a74f73a76a",
+      "issue_code": "REPEATED_KNOWN_WARNING",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "trend analysis requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-a4596d0565",
+      "issue_code": "insufficient_history_for_trends",
+      "source_stage": "run_history",
+      "source_artifact": "run_history_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "run history observation count is below trend threshold",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    }
+  ],
+  "informational_issues": [
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-8a12b95b3f",
+      "issue_code": "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "source_stage": "run_history",
+      "source_artifact": "run_history_snapshot",
+      "severity": "informational",
+      "category": "insufficient_history_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "trend analysis intentionally disabled until enough observations exist",
+      "owner_impact": "Trend interpretation should wait for more run history.",
+      "remediation_category": "insufficient_history_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Confirm run history observation count.",
+        "Wait for more daily observations before interpreting trend direction."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    }
+  ],
+  "remediation_issues": [
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-b5b3abd71a",
+      "issue_code": "daily_basic:required_field_all_null",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "daily_basic:required_field_all_null 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-889e6d91e2",
+      "issue_code": "fundamental score confidence is partial",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "fundamental score confidence is partial 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-5b34bf9394",
+      "issue_code": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-01d11b7814",
+      "issue_code": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-7a6d26ce1a",
+      "issue_code": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-c94a197b09",
+      "issue_code": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-dce2a963eb",
+      "issue_code": "portfolio observation history is below the minimum required window",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "portfolio observation history is below the minimum required window 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-58ac770ef9",
+      "issue_code": "portfolio relative metrics limited by first-day initialization",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "portfolio relative metrics limited by first-day initialization 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-784cd89b21",
+      "issue_code": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-c528a20964",
+      "issue_code": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps 尚未纳入固定映射，需人工分类。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-d37003548a",
+      "issue_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "source_stage": "owner_dashboard",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "schema_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date 需要按 schema_issue 的安全排查步骤处理。",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "schema_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-f19a9dc46c",
+      "issue_code": "WARNING_COUNT_INCREASE",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "warning",
+      "category": "unknown_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "trend analysis requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": true,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-a74f73a76a",
+      "issue_code": "REPEATED_KNOWN_WARNING",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "trend analysis requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-bb5076bdc0",
+      "issue_code": "PROVIDER_HEALTH_DEGRADED",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "severity": "warning",
+      "category": "provider_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "provider trend requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "provider_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review provider health and fallback reports.",
+        "Check whether the provider issue is transient or repeated."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-1ae924da42",
+      "issue_code": "DATA_FRESHNESS_DEGRADED",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "severity": "warning",
+      "category": "freshness_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "data freshness trend requires more run observations",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "freshness_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review dataset freshness validation.",
+        "Confirm whether the requested date is covered by existing local data."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-8a12b95b3f",
+      "issue_code": "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "source_stage": "run_history",
+      "source_artifact": "run_history_snapshot",
+      "severity": "informational",
+      "category": "insufficient_history_issue",
+      "blocking": false,
+      "known_non_blocking": false,
+      "detected": true,
+      "message": "trend analysis intentionally disabled until enough observations exist",
+      "owner_impact": "Trend interpretation should wait for more run history.",
+      "remediation_category": "insufficient_history_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Confirm run history observation count.",
+        "Wait for more daily observations before interpreting trend direction."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": false
+    },
+    {
+      "issue_id": "A-SHARE-OWNER-ISSUE-a4596d0565",
+      "issue_code": "insufficient_history_for_trends",
+      "source_stage": "run_history",
+      "source_artifact": "run_history_snapshot",
+      "severity": "known_non_blocking",
+      "category": "known_non_blocking_issue",
+      "blocking": false,
+      "known_non_blocking": true,
+      "detected": true,
+      "message": "run history observation count is below trend threshold",
+      "owner_impact": "Requires owner awareness and safe artifact inspection only.",
+      "remediation_category": "unknown_issue",
+      "recommended_safe_actions": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "manual_review_required": false,
+      "explicitly_classified_unknown": true
+    }
+  ],
+  "non_actionable_issues": [
+    {
+      "issue_code": "insufficient_history_for_trends",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "performance_not_yet_observed",
+      "why_no_immediate_action_is_required": "首日或早期组合表现样本不足，只能记录观察。",
+      "what_future_data_will_resolve_it": "积累多日 tracking 和 performance artifacts。",
+      "when_it_should_be_escalated": "多日表现审计失败或出现 blocking boundary issue。"
+    },
+    {
+      "issue_code": "daily_basic:required_field_all_null",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "portfolio observation history is below the minimum required window",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "portfolio relative metrics limited by first-day initialization",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "REPEATED_KNOWN_WARNING",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    }
+  ],
+  "issue_count": 17,
+  "blocking_issue_count": 0,
+  "warning_issue_count": 10,
+  "known_non_blocking_issue_count": 5
+}

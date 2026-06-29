@@ -1,0 +1,118 @@
+{
+  "alignment_id": "A-SHARE-DAILY-OPS-CENTER-DATE-ALIGNMENT",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "date_records": [
+    {
+      "artifact_id": "data_refresh_audit",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "data_refresh_summary",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "dataset_coverage_summary",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "current_day_run_audit",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "current_day_run_manifest",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "current_day_readiness",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "current_day_warning_summary",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "owner_dashboard_audit",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "dashboard_manifest",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "owner_monitoring_audit",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "owner_alert_summary_card",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "run_history_summary_card",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "monitoring_manifest",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "owner_remediation_audit",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "remediation_config",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "remediation_priority_summary",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "remediation_manifest",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    },
+    {
+      "artifact_id": "remediation_summary",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "aligned": true
+    }
+  ],
+  "all_dates_aligned": true,
+  "blocking_reasons": []
+}

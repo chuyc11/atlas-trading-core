@@ -1,0 +1,68 @@
+"""Source trace for the daily ops center."""
+
+from __future__ import annotations
+
+from pathlib import Path
+from typing import Any
+
+from trading_core.equity_data_quality.common import sha256_file
+from trading_core.equity_ops_center.ops_config import FORBIDDEN_PATH_TOKENS, TARGET_VERSION
+from trading_core.storage.file_paths import ProjectPaths
+from trading_core.system.common import default_paths, relative
+
+
+def build_ops_source_trace(
+    *,
+    paths: ProjectPaths | None,
+    as_of_date: str,
+    generated_at: str,
+    source_paths: dict[str, Path],
+    output_paths: dict[str, Path],
+    command_policy_decisions: dict[str, Any],
+) -> dict[str, Any]:
+    paths = default_paths(paths)
+    sources = [_record(paths, key, path) for key, path in source_paths.items()]
+    outputs = [_record(paths, key, path) for key, path in output_paths.items()]
+    hits = forbidden_source_path_hits(sources + outputs)
+    return {
+        "trace_id": "A-SHARE-DAILY-OPS-CENTER-SOURCE-TRACE",
+        "target_version": TARGET_VERSION,
+        "as_of_date": as_of_date,
+        "generated_at": generated_at,
+        "source_artifacts": sources,
+        "output_artifacts": outputs,
+        "boundary_assumptions": [
+            "ops_center_only",
+            "aggregate_existing_artifacts_only",
+            "research_only",
+            "virtual_only",
+            "no_data_refresh_run",
+            "no_current_day_research_run",
+            "no_dashboard_build",
+            "no_monitoring_build",
+            "no_remediation_actions",
+            "no_broker",
+        ],
+        "command_policy_decisions": command_policy_decisions,
+        "forbidden_path_hits": hits,
+        "source_trace_complete": not hits and all(row["exists"] for row in sources),
+    }
+
+
+def forbidden_source_path_hits(records: list[dict[str, Any]]) -> list[str]:
+    hits: list[str] = []
+    for row in records:
+        path = str(row.get("path") or "").lower().replace("\\", "/")
+        for token in FORBIDDEN_PATH_TOKENS:
+            if token in path:
+                hits.append(f"{row.get('path')}:{token}")
+    return sorted(set(hits))
+
+
+def _record(paths: ProjectPaths, artifact_id: str, path: Path) -> dict[str, Any]:
+    return {
+        "artifact_id": artifact_id,
+        "path": relative(path, paths.project_root),
+        "exists": path.exists(),
+        "sha256": sha256_file(path) if path.exists() and path.is_file() else None,
+    }

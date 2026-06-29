@@ -1,0 +1,41 @@
+{
+  "config_id": "A-SHARE-DAILY-OPS-CENTER-CONFIG",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "mode": "aggregate_existing_ops_artifacts",
+  "allowed_modes": [
+    "validate_ops_inputs",
+    "build_ops_plan",
+    "aggregate_existing_ops_artifacts",
+    "run_safe_ops_validation_chain",
+    "audit_existing_ops_center"
+  ],
+  "allow_date_mismatch": false,
+  "allow_safe_validation_chain": false,
+  "owner_facing": true,
+  "machine_readable": true,
+  "generate_markdown": true,
+  "aggregate_existing_artifacts_only": true,
+  "allow_data_refresh_run": false,
+  "allow_current_day_research_run": false,
+  "allow_dashboard_build": false,
+  "allow_monitoring_build": false,
+  "allow_remediation_build": false,
+  "execute_remediation_actions": false,
+  "send_external_notifications": false,
+  "commands_executed": [],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "raw_config": {
+    "as_of_date": "2026-06-26",
+    "mode": "aggregate_existing_ops_artifacts",
+    "allow_date_mismatch": false,
+    "allow_safe_validation_chain": false
+  }
+}

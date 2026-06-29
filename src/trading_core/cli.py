@@ -93,6 +93,10 @@ from trading_core.equity_owner_remediation.remediation_audit import audit_a_shar
 from trading_core.equity_owner_remediation.remediation_builder import build_a_share_owner_remediation, validate_a_share_owner_remediation_inputs
 from trading_core.equity_owner_remediation.remediation_config import ALLOWED_MODES as A_SHARE_OWNER_REMEDIATION_MODES
 from trading_core.equity_owner_remediation.remediation_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_REMEDIATION_AS_OF_DATE
+from trading_core.equity_ops_center.ops_audit import audit_a_share_daily_ops_center
+from trading_core.equity_ops_center.ops_builder import build_a_share_daily_ops_center, validate_a_share_daily_ops_inputs
+from trading_core.equity_ops_center.ops_config import ALLOWED_MODES as A_SHARE_OPS_CENTER_MODES
+from trading_core.equity_ops_center.ops_config import DEFAULT_AS_OF_DATE as DEFAULT_OPS_CENTER_AS_OF_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -989,6 +993,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_remediation_arguments(owner_remediation_audit, include_mode=False)
     owner_remediation_all = subparsers.add_parser("build-and-audit-a-share-owner-remediation")
     _add_a_share_owner_remediation_arguments(owner_remediation_all)
+    ops_center_validate = subparsers.add_parser("validate-a-share-daily-ops-inputs")
+    _add_a_share_daily_ops_center_arguments(ops_center_validate, include_mode=False)
+    ops_center_build = subparsers.add_parser("build-a-share-daily-ops-center")
+    _add_a_share_daily_ops_center_arguments(ops_center_build)
+    ops_center_audit = subparsers.add_parser("audit-a-share-daily-ops-center")
+    _add_a_share_daily_ops_center_arguments(ops_center_audit, include_mode=False)
+    ops_center_all = subparsers.add_parser("build-and-audit-a-share-daily-ops-center")
+    _add_a_share_daily_ops_center_arguments(ops_center_all)
 
     return parser
 
@@ -1148,6 +1160,16 @@ def _add_a_share_owner_remediation_arguments(parser: argparse.ArgumentParser, *,
     parser.add_argument("--allow-research-workflow-rerun", action="store_true")
     parser.add_argument("--allow-dashboard-rerun", action="store_true")
     parser.add_argument("--allow-monitoring-rerun", action="store_true")
+
+
+def _add_a_share_daily_ops_center_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OPS_CENTER_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OPS_CENTER_MODES, default="aggregate_existing_ops_artifacts")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OPS_CENTER_MODES, default="validate_ops_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--allow-safe-validation-chain", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3517,6 +3539,74 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         audit_result = audit_a_share_owner_remediation(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-daily-ops-inputs":
+        result = validate_a_share_daily_ops_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "required_modules_available": result["required_modules_available"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-daily-ops-center":
+        result = build_a_share_daily_ops_center(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_safe_validation_chain=args.allow_safe_validation_chain,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "ops_health_score": result["ops_health_score"],
+                "ops_health_grade": result["ops_health_grade"],
+                "overall_status": result["overall_status"],
+                "commands_executed": result["commands_executed"],
+                "ops_command_center_report": result["ops_command_center_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-daily-ops-center":
+        result = audit_a_share_daily_ops_center(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-daily-ops-center":
+        build_result = build_a_share_daily_ops_center(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_safe_validation_chain=args.allow_safe_validation_chain,
+            paths=paths,
+        )
+        audit_result = audit_a_share_daily_ops_center(as_of_date=args.as_of_date, paths=paths)
         print(
             {
                 "builder_id": build_result["builder_id"],

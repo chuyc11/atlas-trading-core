@@ -1,0 +1,18 @@
+{
+  "card_id": "OPS_HEALTH_SCORE",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "score": 65,
+  "grade": "C",
+  "overall_status": "passed_with_warnings",
+  "required_modules_passed": true,
+  "blocking_issue_count": 0,
+  "warning_issue_count": 10,
+  "known_non_blocking_issue_count": 5,
+  "critical_alert_count": 0,
+  "score_explanation": [
+    "base score=100",
+    "minus 30 for warning issues",
+    "minus 5 for known non-blocking issues"
+  ]
+}

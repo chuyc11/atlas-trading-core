@@ -1,0 +1,17 @@
+{
+  "summary_id": "A-SHARE-DAILY-OPS-CENTER-SUMMARY",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "mode": "aggregate_existing_ops_artifacts",
+  "overall_status": "passed_with_warnings",
+  "ops_health_score": 65,
+  "ops_health_grade": "C",
+  "required_modules_passed": true,
+  "blocking_issue_count": 0,
+  "warning_issue_count": 10,
+  "known_non_blocking_issue_count": 5,
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "commands_executed": [],
+  "recommended_next_version": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines"
+}

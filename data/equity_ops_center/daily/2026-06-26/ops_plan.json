@@ -1,0 +1,83 @@
+{
+  "plan_id": "A-SHARE-DAILY-OPS-CENTER-PLAN",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "mode": "aggregate_existing_ops_artifacts",
+  "planned_sequence": [
+    {
+      "step": 1,
+      "action": "validate data refresh audit",
+      "command": "python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26",
+      "command_class": "audit"
+    },
+    {
+      "step": 2,
+      "action": "validate current-day run audit",
+      "command": "python -m trading_core.cli audit-a-share-current-day-research-run --as-of-date 2026-06-26",
+      "command_class": "audit"
+    },
+    {
+      "step": 3,
+      "action": "validate owner dashboard audit",
+      "command": "python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26",
+      "command_class": "audit"
+    },
+    {
+      "step": 4,
+      "action": "validate owner monitoring audit",
+      "command": "python -m trading_core.cli audit-a-share-owner-monitoring --as-of-date 2026-06-26",
+      "command_class": "audit"
+    },
+    {
+      "step": 5,
+      "action": "validate owner remediation audit",
+      "command": "python -m trading_core.cli audit-a-share-owner-remediation --as-of-date 2026-06-26",
+      "command_class": "audit"
+    },
+    {
+      "step": 6,
+      "action": "aggregate module statuses",
+      "command": null,
+      "command_class": "aggregate"
+    },
+    {
+      "step": 7,
+      "action": "aggregate issues and safe actions",
+      "command": null,
+      "command_class": "aggregate"
+    },
+    {
+      "step": 8,
+      "action": "generate ops center reports",
+      "command": null,
+      "command_class": "aggregate"
+    },
+    {
+      "step": 9,
+      "action": "audit ops center",
+      "command": "python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts",
+      "command_class": "audit"
+    }
+  ],
+  "planned_commands": [
+    "python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-current-day-research-run --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-monitoring --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-remediation --as-of-date 2026-06-26",
+    "python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts"
+  ],
+  "commands_allowed": [
+    "python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-current-day-research-run --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-monitoring --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-remediation --as-of-date 2026-06-26",
+    "python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts"
+  ],
+  "commands_disallowed": [],
+  "commands_executed": [],
+  "execute_plan": false,
+  "execution_policy": "aggregate_existing_artifacts_only",
+  "external_side_effects": false
+}

@@ -1,0 +1,44 @@
+{
+  "reference_id": "A-SHARE-DAILY-OPS-CENTER-COMMAND-REFERENCE",
+  "target_version": "v0.8.5-a-share-daily-ops-command-center",
+  "as_of_date": "2026-06-26",
+  "safe_owner_commands": [
+    {
+      "command": "python -m trading_core.cli audit-a-share-daily-data-refresh --as-of-date 2026-06-26",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": false
+    },
+    {
+      "command": "python -m trading_core.cli audit-a-share-current-day-research-run --as-of-date 2026-06-26",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": false
+    },
+    {
+      "command": "python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": false
+    },
+    {
+      "command": "python -m trading_core.cli audit-a-share-owner-monitoring --as-of-date 2026-06-26",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": false
+    },
+    {
+      "command": "python -m trading_core.cli audit-a-share-owner-remediation --as-of-date 2026-06-26",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": false
+    },
+    {
+      "command": "python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts",
+      "class": "audit_or_aggregate",
+      "allowed_by_default": true
+    }
+  ],
+  "excluded_command_classes": [
+    "run-daily",
+    "broker commands",
+    "order commands",
+    "trade commands",
+    "real account commands"
+  ]
+}
