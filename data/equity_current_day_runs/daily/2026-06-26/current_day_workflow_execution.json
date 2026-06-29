@@ -6,9 +6,9 @@
   "mode": "run_research_from_existing_refresh",
   "workflow_mode": "validate_existing_artifacts",
   "command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts",
-  "started_at": "2026-06-29T03:27:18.586832Z",
-  "finished_at": "2026-06-29T03:27:18.890279Z",
-  "duration_seconds": 0.303447,
+  "started_at": "2026-06-29T03:41:25.323610Z",
+  "finished_at": "2026-06-29T03:41:25.581888Z",
+  "duration_seconds": 0.258278,
   "exit_code": 0,
   "status": "passed",
   "workflow_audit_path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
@@ -16,7 +16,6 @@
   "workflow_blocking_reasons": [],
   "workflow_warnings": [
     "fundamental score confidence is partial",
-    "git status is not clean; release gate must be checked after implementation commit",
     "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
     "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
@@ -29,7 +28,6 @@
   "blocking_reasons": [],
   "warnings": [
     "fundamental score confidence is partial",
-    "git status is not clean; release gate must be checked after implementation commit",
     "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
     "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",

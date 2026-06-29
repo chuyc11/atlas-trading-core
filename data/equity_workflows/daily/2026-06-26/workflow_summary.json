@@ -7,7 +7,6 @@
   "blocking_reasons": [],
   "warnings": [
     "fundamental score confidence is partial",
-    "git status is not clean; release gate must be checked after implementation commit",
     "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
     "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",

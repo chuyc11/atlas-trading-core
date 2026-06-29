@@ -240,7 +240,7 @@
       "stage": "workflow",
       "path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
       "exists": true,
-      "sha256": "58341b051d0edb3748c11f85cf6ffdce6a08d3ec483601af74b1db55786a6624",
+      "sha256": "22a3266be3092ad7773cf8619f52a1992de6c208aaf2d271f53fbaf36dda57c5",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -250,7 +250,7 @@
       "stage": "workflow",
       "path": "outputs/audit/A_SHARE_DAILY_WORKFLOW_AUDIT.md",
       "exists": true,
-      "sha256": "9d76f304a7b9cbc9db8bfb95437093401f54c44159023c0cbd094a42cdd4827d",
+      "sha256": "a5f2c92d12774dfecaccd3850ce4628388fe216ff2d92a9e85136d2d8c54e6e1",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -260,7 +260,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",
       "exists": true,
-      "sha256": "2c6b3b7ec5b4442b9541c99e0dbe811bb76ebf87c3a81552c5503acefab55dbe",
+      "sha256": "4ae6e39cec0beae5bca70bacecef37ea79d43d9f83d9bed3e42c6475d733d463",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -280,7 +280,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
       "exists": true,
-      "sha256": "0604d39cef1adda30d42f34959daf8915efa5117245f3b0e1f7805dfe1a56b16",
+      "sha256": "db11ba4fa8bc1d708fe9f400e02ff299139098bbd4cd0e6e97ae151e978b4eeb",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -290,7 +290,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
       "exists": true,
-      "sha256": "34adcd8ef911b7856dc68c8c2a0c7cb3bcdc5b0666d69b8f843393d0340dfbc3",
+      "sha256": "bcd1de537423d52f705f974b4cc029e3c7c9a8d2a8c9d0e100f3dde400094c5e",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -300,7 +300,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_source_trace.json",
       "exists": true,
-      "sha256": "c2abb14953186cb198f4feb4083fde88fdf7a548cb5ba3e37b096ca2a8e6b0f4",
+      "sha256": "40668e56633ad9e56055675497c5161d16235fe7c0210900f9670cc9be88a8cb",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -310,7 +310,7 @@
       "stage": "workflow",
       "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "3ce2b1e1c69fce2f1db9593ded1189e7fc9c126b06ad8eb5d63e2e703d6e389a",
+      "sha256": "c97bfcb1ec969b8f879027177636a9da11c1199f94c8821f9f4fdd3a2b52cd53",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -320,7 +320,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
       "exists": true,
-      "sha256": "fe6cec7d45d72a42ac878e4651f53efcc447aef2ed22bf771bc58fa308c5aed9",
+      "sha256": "b0d4eae9ad950ba5174384abe0a1bf34fbf0390b3f7814bb53c3a5fbdcb8eaca",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -330,7 +330,7 @@
       "stage": "workflow",
       "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_STAGE_REPORT.md",
       "exists": true,
-      "sha256": "ff149f8cf7a63fa03cb5f204c9a20caa2857749ead8a8aa111364b508e70e576",
+      "sha256": "5a9a28f5178eed1aacaf0470a89883f9c8533302b09fcb2abfc24451650f8490",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -340,7 +340,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_summary.json",
       "exists": true,
-      "sha256": "690b7194e39b8f058bb6cc97ef2e00037120ba49851806259b1b078bdb636c33",
+      "sha256": "7ad35334dc8afd2541dad94a83229bb163b71542a77088d908cfe508a807d6ad",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -350,7 +350,7 @@
       "stage": "workflow",
       "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SUMMARY.md",
       "exists": true,
-      "sha256": "72e02684b94891699993e7e5e4c444fe001d933a077622601534862df7265435",
+      "sha256": "2d55c3d211d9dfb4cdb32f9930a70ea0c0c14f5433d3cd230dffd3fd3974d981",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -360,7 +360,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json",
       "exists": true,
-      "sha256": "e3c019f60bdf4dab11fb5c3530e03f9bcdc2c92847f2bb12becde8154df6f05e",
+      "sha256": "e519bc4cf6ceb097662e6459bd4511105531c0e5934295183efe0c1a1c13ebf6",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -390,7 +390,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json",
       "exists": true,
-      "sha256": "17b2eadf1b957b7b69f7d42a47e10dab30fd01b8c7a03e222514348a318b78ef",
+      "sha256": "f2042c7e917d8d07795128985674cd60f5bde628205101c82b38e7826036da84",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -440,7 +440,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
       "exists": true,
-      "sha256": "1a57798c5a3008c6912f50c03749fe64e4b0df3c4dcad79e4ec823367521046d",
+      "sha256": "101b45bd088639e01df5c0f6fe5415125e2236c821eaff8f8d2c4d680cdcae53",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -450,7 +450,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_source_trace.json",
       "exists": true,
-      "sha256": "234a3a7083ff24af480674af5667cf0c1d1a644ea0a0a9e7cfea46db8ac46c3f",
+      "sha256": "7c3a6a1b8008a0389ec9a13098251d3403189eb152884fe61c500d943f87a900",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -460,7 +460,7 @@
       "stage": "current_day",
       "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "284e427688cdf85f79c70da860ba329d5f565d6e511d3e6780def50feda09973",
+      "sha256": "a3bfab6013961260546ab11fa70ca5e83f217910181d8452178fccc1055279d2",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -470,7 +470,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_stage_manifest.json",
       "exists": true,
-      "sha256": "b599ebde9882c143025fff641212ccabe75a5d73e819057c6900ab314623f94e",
+      "sha256": "c07b94401ab960d5f3fac2f2e32382254cbe1603610b25b93a06721dbc4238c5",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -500,7 +500,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_warning_summary.json",
       "exists": true,
-      "sha256": "02e9ebd83a8eb12e404a67032de24330c03c40e2253e3278ffce2c07a87a1efe",
+      "sha256": "2a3e5e87a976c60df99cab0161b2ae00c76b56b47ab08de7c1f0aa5b8bbe75c3",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -520,7 +520,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json",
       "exists": true,
-      "sha256": "f36774c0ddfedd588e2f5643b636509cb0a96db9df9229262bea5719cb338b51",
+      "sha256": "ed3b0e8842c8c35ab394e478c353fbc4a47e4d2625f7caeb21ae3eb84cb0d291",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },

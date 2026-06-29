@@ -7,7 +7,7 @@
 - workflow_mode: validate_existing_artifacts
 - overall_passed: true
 - blocking_reasons: []
-- warnings: 10
+- warnings: 9
 
 ## Boundary
 - run_daily_called: false

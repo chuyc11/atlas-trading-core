@@ -10,7 +10,6 @@
   "warnings": [
     "daily_basic:required_field_all_null",
     "fundamental score confidence is partial",
-    "git status is not clean; release gate must be checked after implementation commit",
     "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
     "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
@@ -65,11 +64,6 @@
       },
       {
         "source": "workflow",
-        "warning": "git status is not clean; release gate must be checked after implementation commit",
-        "classification": "warning"
-      },
-      {
-        "source": "workflow",
         "warning": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
         "classification": "warning"
       },
@@ -99,7 +93,7 @@
         "classification": "warning"
       }
     ],
-    "warning_count": 10,
+    "warning_count": 9,
     "blocking_warning_count": 0,
     "known_warnings_carried_forward": [
       "daily_basic:required_field_all_null",
@@ -134,7 +128,6 @@
     "warnings": [
       "daily_basic:required_field_all_null",
       "fundamental score confidence is partial",
-      "git status is not clean; release gate must be checked after implementation commit",
       "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
       "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
       "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",

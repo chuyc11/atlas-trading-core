@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.0-a-share-daily-data-refresh-and-provider-hardening
+v0.8.1-a-share-current-day-research-workflow-runner
 
 ## Completed milestones
 
@@ -62,6 +62,7 @@ v0.8.0-a-share-daily-data-refresh-and-provider-hardening
 - v0.7.11 A-share multi-day virtual portfolio performance tracking
 - v0.7.12 A-share performance attribution and risk diagnostics
 - v0.8.0 A-share daily data refresh and provider hardening
+- v0.8.1 A-share current-day research workflow runner
 
 ## Known limitations
 
@@ -105,6 +106,7 @@ v0.8.0-a-share-daily-data-refresh-and-provider-hardening
 - v0.7.11 adds appendable multi-day virtual portfolio performance tracking with NAV, returns, drawdown, benchmark-relative status, holding mark-to-market, limitations, source trace, boundary check, and audit artifacts; it does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not fabricate portfolio history, and distinguishes limited history from observed performance
 - v0.7.12 adds performance attribution and risk diagnostics for existing virtual portfolios; it distinguishes structural diagnostics from realized performance attribution, correctly flags limited history, and does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate performance
 - v0.8.0 validates daily A-share research data freshness and provider readiness; it does not trigger the full research workflow by default, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2
+- v0.8.1 requires the data refresh audit to pass, then runs the new A-share daily research workflow CLI for the current research date; it does not create buy/sell signals, does not generate order previews, does not connect a broker, does not read real account data, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -296,6 +298,22 @@ python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-da
 ```
 
 The v0.8.0 output is a data-refresh and provider-hardening package. It validates the latest usable research datasets, records provider registry/health/execution state, checks schema/freshness/coverage, reports data gaps and fallback choices, writes source trace and audit artifacts, and fails closed on critical data blockers. It does not trigger the full research workflow by default, does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
+
+Run v0.8.1 A-share current-day research workflow runner:
+
+```powershell
+python -m trading_core.cli validate-a-share-current-day-readiness --as-of-date 2026-06-26
+python -m trading_core.cli run-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts
+python -m trading_core.cli audit-a-share-current-day-research-run --as-of-date 2026-06-26
+```
+
+Combined:
+
+```powershell
+python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts
+```
+
+The v0.8.1 output is a current-day research run package. It requires the v0.8.0 data refresh audit to pass, runs the new A-share daily research workflow CLI, collects workflow audit status and warnings, writes source trace, boundary, manifest, owner summary, and audit artifacts, and fails closed on readiness or workflow blockers. It does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not read real account data, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 
@@ -576,3 +594,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.11 writes virtual performance tracking artifacts only under `data/equity_performance/`, `outputs/equity_performance/`, and audit paths; it does not fabricate history, connect a broker, place real orders, generate buy/sell signals, generate order previews, call old `run-daily`, or execute official forward dry-run day2
 - v0.7.12 writes attribution and risk diagnostics only under `data/equity_attribution/`, `outputs/equity_attribution/`, and audit paths; it does not fabricate performance, connect a broker, place real orders, generate buy/sell signals, generate order previews, call old `run-daily`, or execute official forward dry-run day2
 - v0.8.0 writes daily data refresh and provider hardening artifacts only under `data/equity_data_refresh/`, `outputs/equity_data_refresh/`, and audit paths; it does not trigger the full research workflow by default, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, and does not execute official forward dry-run day2
+- v0.8.1 writes current-day research run artifacts only under `data/equity_current_day_runs/`, `outputs/equity_current_day_runs/`, and audit paths; it requires the data refresh audit first, does not connect a broker, does not read real account data, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction

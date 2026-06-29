@@ -1,5 +1,59 @@
 # Release Notes
 
+## v0.8.1-a-share-current-day-research-workflow-runner
+
+This release adds a research-only A-share current-day research workflow runner.
+
+Includes:
+
+- current-day run config
+- current-day readiness check
+- data refresh link
+- workflow plan
+- workflow execution record
+- current-day stage manifest
+- artifact index
+- warning summary
+- current-day source trace
+- current-day boundary check
+- current-day run manifest
+- current-day owner summary
+- current-day research run audit
+- CLI commands: `validate-a-share-current-day-readiness`, `run-a-share-current-day-research`, `audit-a-share-current-day-research-run`, and `run-and-audit-a-share-current-day-research`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- current-day research run audit overall_passed=true
+- blocking reasons: none
+- warnings: 9
+- mode tested: `run_research_from_existing_refresh`
+- workflow_mode tested: `validate_existing_artifacts`
+- resolved_as_of_date: `2026-06-26`
+- data refresh audit passed
+- critical datasets passed
+- schema validation passed
+- freshness validation passed
+- coverage validation passed
+- known data refresh warnings carried forward
+- workflow audit passed
+- workflow command uses the new A-share daily research workflow CLI
+- old run-daily called=false
+- recommended next version: `v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard`
+- validation: 1194 passed, 1 skipped
+
+Boundary:
+
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate buy/sell signals
+- does not generate order preview
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat research output as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.0-a-share-daily-data-refresh-and-provider-hardening
 
 This release adds research-only A-share daily data refresh validation and provider hardening.
