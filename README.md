@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.5-a-share-daily-ops-command-center
+v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
 
 ## Completed milestones
 
@@ -67,6 +67,26 @@ v0.8.5-a-share-daily-ops-command-center
 - v0.8.3 A-share owner alerting and run history monitoring
 - v0.8.4 A-share owner remediation runbook and safe action checklist
 - v0.8.5 A-share daily ops command center
+- v0.8.6 A-share ops run history deepening and trend baselines
+
+## v0.8.6 ops history boundary
+
+- adds append-only ops run history and trend baseline artifacts
+- reads existing v0.8.5 daily ops command center artifacts
+- current release has one real observation
+- `trend_analysis_available=false`
+- `baseline_status=insufficient_history`
+- does not synthesize history
+- does not refresh data
+- does not rerun current-day research
+- does not generate buy/sell signals
+- does not generate order preview
+- does not place orders
+- does not connect broker
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat trend baselines as trade instructions
+- recommended next version: v0.8.7-a-share-current-day-build-from-existing-data-promotion-gate
 
 ## v0.8.5 daily ops boundary
 

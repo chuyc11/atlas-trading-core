@@ -1,5 +1,69 @@
 # Release Notes
 
+## v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
+
+v0.8.6 A-share ops run history deepening and trend baselines.
+
+Adds:
+
+- ops history config
+- ops history input availability
+- ops run record
+- append-only ops run history index
+- ops history snapshot
+- trend baseline config
+- trend sufficiency evaluation
+- health score history and baseline
+- module reliability baseline
+- warning, issue, and safe action recurrence baselines
+- boundary history snapshot
+- baseline drift snapshot
+- ops history source trace
+- ops history boundary check
+- ops history manifest and summary
+- owner-facing ops history Markdown reports
+- fail-close ops history audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- ops history audit overall_passed=true
+- blocking reasons: none
+- warnings: none
+- run_history_observation_count=1
+- minimum_required_observations=5
+- trend_analysis_available=false
+- baseline_status=insufficient_history
+- synthetic_history_used=false
+- future_dates_used=false
+- append_completed=true
+- idempotent_append=true
+- duplicate_detected=true
+- records_before=1
+- records_after=1
+- commands_executed=[]
+- source trace complete
+- boundary clean
+- recommended next version: `v0.8.7-a-share-current-day-build-from-existing-data-promotion-gate`
+- validation: 1303 passed, 1 skipped
+
+Boundary:
+
+- appends real ops run history only
+- does not synthesize historical observations
+- does not use future dates
+- does not refresh data
+- does not rerun current-day research
+- does not rebuild dashboard, monitoring, remediation, or ops center artifacts
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat trend baselines as trade instructions
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.5-a-share-daily-ops-command-center
 
 v0.8.5 A-share daily ops command center.
