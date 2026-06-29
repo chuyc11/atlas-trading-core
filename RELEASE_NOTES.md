@@ -1,5 +1,67 @@
 # Release Notes
 
+## v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
+
+v0.8.9 A-share current-day build output owner dashboard refresh.
+
+Adds:
+
+- build-output dashboard config, input availability, source resolution, and date alignment
+- executive, data freshness, workflow, research output, candidate, portfolio, benchmark, performance, attribution, repeatability, protected path, warning, and blocker cards
+- build-output artifact navigation
+- validate-dashboard-vs-build-dashboard comparison
+- build-output source trace
+- build-output boundary check
+- build-output dashboard manifest and summary
+- owner-facing build-output dashboard, compact dashboard, artifact navigation, repeatability card, comparison report, and source trace report
+- fail-close build-output owner dashboard audit
+- CLI commands:
+  - `validate-a-share-build-output-owner-dashboard-inputs`
+  - `build-a-share-build-output-owner-dashboard`
+  - `audit-a-share-build-output-owner-dashboard`
+  - `build-and-audit-a-share-build-output-owner-dashboard`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- build-output owner dashboard audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- source_workflow_mode=`build_from_existing_data`
+- repeatability_audit_passed=true
+- gated_build_audit_passed=true
+- validate_source_dashboard_audit_passed=true
+- data_refresh_audit_passed=true
+- required_cards_present=true
+- optional_cards_present=true
+- business_output_drift_count=0
+- protected_path_modifications_detected=false
+- required_validate_fallback_used=false
+- optional_validate_fallback_used=false
+- comparison_completed=true
+- boundary clean
+- recommended next version: `v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh`
+- validation: 1372 passed, 1 skipped
+
+Boundary:
+
+- refreshes dashboard artifacts from stable `build_from_existing_data` output
+- prefers build output over validate-source artifacts
+- requires repeatability audit success and zero business output drift
+- distinguishes pre-existing protected paths from modified protected paths
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not read real account data
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat dashboard output as a trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
 
 v0.8.8 A-share build_from_existing_data repeatability and diff stability.

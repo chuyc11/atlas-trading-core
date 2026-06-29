@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
+v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
 
 ## Completed milestones
 
@@ -70,6 +70,30 @@ v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
 - v0.8.6 A-share ops run history deepening and trend baselines
 - v0.8.7 A-share gated current-day build-from-existing-data dry-run
 - v0.8.8 A-share build_from_existing_data repeatability and diff stability
+- v0.8.9 A-share current-day build output owner dashboard refresh
+
+## v0.8.9 build output owner dashboard boundary
+
+- refreshes owner-facing dashboard artifacts from stable `build_from_existing_data` output
+- prefers build output over validate-source artifacts
+- requires v0.8.8 repeatability audit success
+- requires `business_output_drift_count=0`
+- distinguishes pre-existing protected paths from modified protected paths
+- release audit passed for `as_of_date=2026-06-26`
+- produces build-output dashboard data, owner reports, source trace, manifest, summary, and audit artifacts
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not treat dashboard output as a trade instruction
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
 
 ## v0.8.8 build repeatability boundary
 
