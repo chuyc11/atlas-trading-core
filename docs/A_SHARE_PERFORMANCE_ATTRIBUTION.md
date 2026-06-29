@@ -26,4 +26,6 @@ Boundary:
 
 v0.8.0 adds daily data refresh and provider hardening without changing attribution outputs into trading instructions.
 
-Recommended next version: `v0.8.1-a-share-current-day-research-workflow-runner`.
+v0.8.2 reads attribution summary and audit artifacts into the owner dashboard. It displays structural diagnostics and limited-history status only. It does not upgrade attribution into realized strategy proof, trading advice, broker readiness, or live-trading readiness.
+
+Recommended next version: `v0.8.3-a-share-owner-alerting-and-run-history-monitoring`.

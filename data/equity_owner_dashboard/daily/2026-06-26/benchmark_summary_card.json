@@ -1,0 +1,20 @@
+{
+  "card_id": "BENCHMARK_SUMMARY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "status": "available",
+  "CSI300_status": "available",
+  "CSI500_status": "available",
+  "CSI1000_status": "available",
+  "CASH_status": "available",
+  "EQUAL_WEIGHT_STRICT_TRADABLE_status": "available",
+  "EQUAL_WEIGHT_CANDIDATE_POOL_status": "available",
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "relative_performance_available": false,
+  "placeholder_benchmarks_used": [],
+  "limited_history_status": "limited_history",
+  "warnings": [
+    "portfolio relative metrics limited by first-day initialization"
+  ]
+}

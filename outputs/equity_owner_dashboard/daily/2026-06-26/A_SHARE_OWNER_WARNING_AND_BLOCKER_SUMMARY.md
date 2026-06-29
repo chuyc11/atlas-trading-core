@@ -1,0 +1,87 @@
+# A Share Owner Warning And Blocker Summary
+
+- Blocking count: 0
+- Warning count: 65
+- Critical warning count: 0
+
+## Blocking Reasons
+- None
+
+## Warnings
+- daily_basic:required_field_all_null
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- fundamental score confidence is partial
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- fundamental score confidence is partial
+- long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage
+- short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders
+- portfolio relative metrics limited by first-day initialization
+- portfolio relative metrics limited by first-day initialization
+- portfolio observation history is below the minimum required window
+- portfolio observation history is below the minimum required window
+- portfolio observation history is below the minimum required window
+- portfolio observation history is below the minimum required window
+
+## Carry Forward Decisions
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date
+- daily_basic:required_field_all_null
+- trading_calendar:exchange_level_calendar_collapsed_to_trade_date

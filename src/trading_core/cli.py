@@ -80,6 +80,10 @@ from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as 
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
 from trading_core.equity_current_day.current_day_config import DEFAULT_AS_OF_DATE as DEFAULT_CURRENT_DAY_AS_OF_DATE
 from trading_core.equity_current_day.current_day_runner import run_a_share_current_day_research, validate_a_share_current_day_readiness
+from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
+from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
+from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
+from trading_core.equity_owner_dashboard.dashboard_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_DASHBOARD_AS_OF_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -952,6 +956,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_current_day_arguments(current_day_audit)
     current_day_all = subparsers.add_parser("run-and-audit-a-share-current-day-research")
     _add_a_share_current_day_arguments(current_day_all)
+    owner_dashboard_validate = subparsers.add_parser("validate-a-share-owner-dashboard-inputs")
+    _add_a_share_owner_dashboard_arguments(owner_dashboard_validate, include_mode=False)
+    owner_dashboard_build = subparsers.add_parser("build-a-share-owner-dashboard")
+    _add_a_share_owner_dashboard_arguments(owner_dashboard_build)
+    owner_dashboard_audit = subparsers.add_parser("audit-a-share-owner-dashboard")
+    _add_a_share_owner_dashboard_arguments(owner_dashboard_audit, include_mode=False)
+    owner_dashboard_all = subparsers.add_parser("build-and-audit-a-share-owner-dashboard")
+    _add_a_share_owner_dashboard_arguments(owner_dashboard_all)
 
     return parser
 
@@ -1074,6 +1086,17 @@ def _add_a_share_current_day_arguments(parser: argparse.ArgumentParser, *, inclu
     parser.add_argument("--allow-public-providers", action="store_true")
     parser.add_argument("--run-post-workflow-modules", action="store_true")
     parser.add_argument("--allow-post-workflow-warnings-only", action="store_true")
+
+
+def _add_a_share_owner_dashboard_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_DASHBOARD_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_DASHBOARD_MODES, default="build_dashboard_from_existing_run")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_DASHBOARD_MODES, default="validate_existing_dashboard_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--fail-on-missing-optional-card", action="store_true")
+    parser.add_argument("--compact-only", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3227,6 +3250,80 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "blocking_reasons": audit_result["blocking_reasons"],
                 "warnings": len(audit_result["warnings"]),
                 "workflow_checks": audit_result["workflow_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-dashboard-inputs":
+        result = validate_a_share_owner_dashboard_inputs(
+            as_of_date=args.as_of_date,
+            allow_date_mismatch=args.allow_date_mismatch,
+            fail_on_missing_optional_card=args.fail_on_missing_optional_card,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "resolved_as_of_date": result["resolved_as_of_date"],
+                "dashboard_input_availability_path": result["dashboard_input_availability_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-dashboard":
+        result = build_a_share_owner_dashboard(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            fail_on_missing_optional_card=args.fail_on_missing_optional_card,
+            compact_only=args.compact_only,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "overall_status": result["overall_status"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+                "dashboard_report_path": result["dashboard_report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-dashboard":
+        result = audit_a_share_owner_dashboard(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-dashboard":
+        build_result = build_a_share_owner_dashboard(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            fail_on_missing_optional_card=args.fail_on_missing_optional_card,
+            compact_only=args.compact_only,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_dashboard(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

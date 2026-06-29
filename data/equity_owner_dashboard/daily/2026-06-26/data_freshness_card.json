@@ -1,0 +1,36 @@
+{
+  "card_id": "DATA_FRESHNESS",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "data_refresh_audit_passed": true,
+  "critical_datasets_passed": true,
+  "schema_validation_passed": true,
+  "freshness_validation_passed": true,
+  "coverage_validation_passed": true,
+  "dataset_status_table": {
+    "equity_master": "passed",
+    "daily_price": "passed",
+    "adjusted_price": "passed",
+    "daily_basic": "passed",
+    "index_price": "passed",
+    "industry_classification": "passed",
+    "financial_indicators": "passed",
+    "trading_calendar": "passed"
+  },
+  "known_warnings": [
+    "daily_basic:required_field_all_null",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "data_gaps": {
+    "missing_datasets": [],
+    "stale_datasets": [],
+    "lagged_datasets": [
+      "equity_master",
+      "industry_classification",
+      "financial_indicators"
+    ]
+  },
+  "freshness_status": "passed",
+  "coverage_status": "passed"
+}

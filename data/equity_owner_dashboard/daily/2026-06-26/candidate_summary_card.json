@@ -1,0 +1,57 @@
+{
+  "card_id": "CANDIDATE_SUMMARY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "status": "available",
+  "long_candidate_count": 30,
+  "mid_candidate_count": 30,
+  "short_candidate_count": 30,
+  "extended_watch_pool_count": 300,
+  "multi_horizon_candidate_count": 50,
+  "risk_downgraded_count": 294,
+  "top10_symbols": {
+    "long": [
+      "688002.SH",
+      "603259.SH",
+      "688127.SH",
+      "600999.SH",
+      "603268.SH",
+      "601066.SH",
+      "600909.SH",
+      "300308.SZ",
+      "600160.SH",
+      "601939.SH"
+    ],
+    "mid": [
+      "300408.SZ",
+      "600183.SH",
+      "688059.SH",
+      "600176.SH",
+      "300308.SZ",
+      "688127.SH",
+      "600206.SH",
+      "301536.SZ",
+      "688383.SH",
+      "300201.SZ"
+    ],
+    "short": [
+      "600909.SH",
+      "601066.SH",
+      "600999.SH",
+      "603019.SH",
+      "300759.SZ",
+      "601995.SH",
+      "002668.SZ",
+      "603259.SH",
+      "603010.SH",
+      "601108.SH"
+    ]
+  },
+  "safe_wording": [
+    "研究候选",
+    "候选跟踪",
+    "高评分候选",
+    "观察池"
+  ],
+  "warnings": []
+}

@@ -79,3 +79,7 @@ v0.8.1 should use the refreshed data to run the current-day research workflow.
 v0.8.1 wraps this workflow with a data-refresh gate. It first checks the v0.8.0 data refresh audit, then calls `run-and-audit-a-share-daily-research-workflow` for the resolved date. The wrapper writes current-day run manifest, warning summary, source trace, owner summary, and audit artifacts.
 
 The wrapper does not call old `run-daily`, does not execute official forward dry-run day2, does not connect broker, does not read real account data, does not place real orders, and does not convert research output into trade instructions.
+
+## v0.8.2 Owner Dashboard Relationship
+
+v0.8.2 reads the v0.7.9 workflow summary, stage manifest, run manifest, and audit artifacts through the v0.8.1 current-day run package. It displays workflow status and stage counts only. It does not rerun workflow, call old `run-daily`, execute official forward dry-run day2, connect broker, place real orders, create buy/sell signals, or generate order previews.

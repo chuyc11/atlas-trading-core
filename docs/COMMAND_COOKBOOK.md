@@ -511,6 +511,7 @@ This v0.7.11 path builds research-only virtual portfolio NAV, return, drawdown, 
 * do not treat v0.7.8 paper ledgers as real-money ledgers, virtual holdings as real holdings, or virtual returns as actual returns
 * do not treat v0.7.10 benchmark comparison as investment advice, order instruction, realized multi-day portfolio evidence, profit guarantee, broker readiness, or live trading readiness
 * do not treat v0.7.11 first-day performance tracking as observed strategy performance, investment advice, order instruction, realized multi-day evidence, profit guarantee, broker readiness, or live trading readiness
+* do not treat v0.8.2 owner dashboard content as a trading instruction, order plan, broker status, real-account state, profit guarantee, or live trading readiness
 
 ## Boundary
 
@@ -543,6 +544,7 @@ This v0.7.11 path builds research-only virtual portfolio NAV, return, drawdown, 
 * v0.7.12 A-share performance attribution writes attribution and risk diagnostics artifacts only, reads existing performance/benchmark/tracking/portfolio/candidate/score artifacts, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not fabricate realized attribution.
 * v0.8.0 A-share daily data refresh writes provider and dataset validation artifacts only, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not place real orders, does not generate buy/sell signals or order previews, and does not trigger the full research workflow by default.
 * v0.8.1 A-share current-day research runner requires the data refresh audit to pass, then runs the new A-share research workflow CLI; it does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not read real account data, does not place real orders, does not generate buy/sell signals or order previews, and does not treat research output as trade instruction.
+* v0.8.2 A-share owner dashboard reads existing run artifacts only, does not refresh data, does not rerun workflow, does not call old run-daily, does not execute official forward dry-run day2, does not connect a broker, does not read real account data, does not place real orders, does not generate buy/sell signals or order previews, and does not treat dashboard content as trade instruction.
 
 ## v0.7.12 A-Share Attribution Commands
 
@@ -587,3 +589,20 @@ python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-da
 ```
 
 Release E2E uses `run_research_from_existing_refresh` and `validate_existing_artifacts`. The runner fails closed if the data refresh audit fails.
+
+## v0.8.2 A-Share Owner Dashboard Commands
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-dashboard-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run
+python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run
+```
+
+Modes:
+
+* `validate_existing_dashboard_inputs`
+* `build_dashboard_from_existing_run`
+* `audit_existing_dashboard`
+
+Release E2E uses `build_dashboard_from_existing_run`. The dashboard reads existing artifacts only and should be followed by v0.8.3 alerting/run-history work.

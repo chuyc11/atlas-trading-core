@@ -1,0 +1,101 @@
+{
+  "audit_id": "A-SHARE-OWNER-DASHBOARD-AUDIT",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "portfolio observation history is below the minimum required window",
+    "portfolio relative metrics limited by first-day initialization",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "checks": {
+    "all_required_artifacts_exist": true,
+    "target_version_matches": true,
+    "input_availability_passed": true,
+    "required_cards_present": true,
+    "optional_cards_present": true,
+    "warning_blocker_card_passed": true,
+    "no_blocking_reasons": true,
+    "source_trace_complete": true,
+    "source_trace_no_forbidden_paths": true,
+    "source_trace_hashes_match": true,
+    "boundary_overall_passed": true,
+    "no_forbidden_artifacts_generated": true,
+    "no_forbidden_positive_wording": true,
+    "manifest_generated": true,
+    "manifest_boundary_passed": true,
+    "summary_generated": true,
+    "compact_report_exists": true,
+    "full_report_exists": true
+  },
+  "card_checks": {
+    "required_cards": {
+      "executive_status_card": true,
+      "data_freshness_card": true,
+      "workflow_status_card": true,
+      "research_output_card": true,
+      "warning_and_blocker_card": true,
+      "artifact_navigation_index": true
+    },
+    "optional_cards": {
+      "provider_health_card": true,
+      "candidate_summary_card": true,
+      "portfolio_summary_card": true,
+      "benchmark_summary_card": true,
+      "performance_summary_card": true,
+      "attribution_summary_card": true
+    }
+  },
+  "boundary": {
+    "boundary_id": "A-SHARE-OWNER-DASHBOARD-BOUNDARY-CHECK",
+    "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+    "as_of_date": "2026-06-26",
+    "owner_dashboard_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "run_daily_called": false,
+    "old_run_daily_called": false,
+    "day2_executed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "real_account_data_read": false,
+    "research_result_used_as_trade_instruction": false,
+    "dashboard_used_as_trade_instruction": false,
+    "forbidden_artifacts_present": [],
+    "forbidden_wording_positive_hits": [],
+    "overall_passed": true,
+    "blocking_reasons": [],
+    "warnings": [
+      "daily_basic:required_field_all_null",
+      "fundamental score confidence is partial",
+      "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "portfolio observation history is below the minimum required window",
+      "portfolio relative metrics limited by first-day initialization",
+      "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+    ]
+  },
+  "source_trace": {
+    "source_trace_complete": true,
+    "forbidden_path_hits": []
+  },
+  "recommended_next_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring"
+}

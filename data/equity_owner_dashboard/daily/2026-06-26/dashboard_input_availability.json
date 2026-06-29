@@ -1,0 +1,137 @@
+{
+  "availability_id": "A-SHARE-OWNER-DASHBOARD-INPUT-AVAILABILITY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "input_groups": [
+    {
+      "input_group": "current_day_run",
+      "required": true,
+      "available": true,
+      "source_path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+      "source_audit_path": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "fundamental score confidence is partial",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "input_group": "data_refresh",
+      "required": true,
+      "available": true,
+      "source_path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "daily_basic:required_field_all_null",
+        "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+      ]
+    },
+    {
+      "input_group": "workflow",
+      "required": true,
+      "available": true,
+      "source_path": "data/equity_workflows/daily/2026-06-26/workflow_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "fundamental score confidence is partial",
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ]
+    },
+    {
+      "input_group": "daily_briefing",
+      "required": true,
+      "available": true,
+      "source_path": "data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json",
+      "source_audit_path": "data/equity_data_quality/a_share_daily_stock_selection_briefing_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "fundamental score confidence is partial",
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ]
+    },
+    {
+      "input_group": "portfolio_tracking",
+      "required": true,
+      "available": true,
+      "source_path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders"
+      ]
+    },
+    {
+      "input_group": "benchmark",
+      "required": false,
+      "available": true,
+      "source_path": "data/equity_benchmarks/daily/2026-06-26/benchmark_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_benchmark_comparison_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "portfolio relative metrics limited by first-day initialization"
+      ]
+    },
+    {
+      "input_group": "performance",
+      "required": false,
+      "available": true,
+      "source_path": "data/equity_performance/daily/2026-06-26/performance_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_multi_day_performance_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "portfolio observation history is below the minimum required window"
+      ]
+    },
+    {
+      "input_group": "attribution",
+      "required": false,
+      "available": true,
+      "source_path": "data/equity_attribution/daily/2026-06-26/attribution_summary.json",
+      "source_audit_path": "data/equity_data_quality/a_share_performance_attribution_audit.json",
+      "source_audit_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "portfolio observation history is below the minimum required window"
+      ]
+    }
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "portfolio observation history is below the minimum required window",
+    "portfolio relative metrics limited by first-day initialization",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ]
+}

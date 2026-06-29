@@ -1,0 +1,98 @@
+{
+  "navigation_id": "A-SHARE-OWNER-ARTIFACT-NAVIGATION",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "artifacts": [
+    {
+      "artifact_id": "data_refresh_summary",
+      "label_zh": "数据刷新汇总",
+      "category": "data_refresh",
+      "path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_summary.json",
+      "exists": true,
+      "sha256": "e2622889d905c137d51bd75b8ce684376d37c9454e9d5171cf0d51bea5ad6b2c",
+      "owner_priority": "high"
+    },
+    {
+      "artifact_id": "current_day_run_summary",
+      "label_zh": "当前日运行汇总",
+      "category": "current_day",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/A_SHARE_CURRENT_DAY_RUN_SUMMARY.md",
+      "exists": true,
+      "sha256": "4581d83ca7fe607deb4a0d156b118b538131aa4917e5d4d90c957aa09b4d86d3",
+      "owner_priority": "high"
+    },
+    {
+      "artifact_id": "daily_briefing",
+      "label_zh": "每日研究简报",
+      "category": "briefing",
+      "path": "outputs/equity_briefings/daily/2026-06-26/DAILY_STOCK_SELECTION_BRIEFING.md",
+      "exists": true,
+      "sha256": "3ee48fce907b633c25d4a1c9c88c8d0f0cdddb78c5a8fd8013a4e6d19de5df43",
+      "owner_priority": "high"
+    },
+    {
+      "artifact_id": "tracking_summary",
+      "label_zh": "虚拟组合跟踪",
+      "category": "tracking",
+      "path": "outputs/equity_portfolio_tracking/daily/2026-06-26/VIRTUAL_PORTFOLIO_TRACKING_SUMMARY.md",
+      "exists": true,
+      "sha256": "0e831cd792808c9cf1ff06d0fabf2327a9a0e21c120803711266ed11899c29bf",
+      "owner_priority": "high"
+    },
+    {
+      "artifact_id": "benchmark_summary",
+      "label_zh": "Benchmark 汇总",
+      "category": "benchmark",
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/A_SHARE_BENCHMARK_SUMMARY.md",
+      "exists": true,
+      "sha256": "8aaf7a45bdd9d7a7bd6e38484e390d91663c4558754c19360f229a16fd6d6c6a",
+      "owner_priority": "medium"
+    },
+    {
+      "artifact_id": "performance_summary",
+      "label_zh": "多日绩效状态",
+      "category": "performance",
+      "path": "outputs/equity_performance/daily/2026-06-26/A_SHARE_MULTI_DAY_PERFORMANCE_SUMMARY.md",
+      "exists": true,
+      "sha256": "1298c42fa985206f41527dad60cba57ec7eed2758b4fb7d86eeb51a7df1614e0",
+      "owner_priority": "medium"
+    },
+    {
+      "artifact_id": "attribution_summary",
+      "label_zh": "归因与风险诊断",
+      "category": "attribution",
+      "path": "outputs/equity_attribution/daily/2026-06-26/A_SHARE_ATTRIBUTION_SUMMARY.md",
+      "exists": true,
+      "sha256": "3ea0803958765b7e3eda499fa4127f0e5d97ae21206005727dc75a2becd72131",
+      "owner_priority": "medium"
+    },
+    {
+      "artifact_id": "current_day_audit",
+      "label_zh": "当前日运行审计",
+      "category": "audit",
+      "path": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+      "exists": true,
+      "sha256": "fffab67fe6dd03edd98c30429c777d2a78c4c5f6ed5bdaf8f3af73a8a1df7960",
+      "owner_priority": "diagnostic"
+    },
+    {
+      "artifact_id": "data_refresh_audit",
+      "label_zh": "数据刷新审计",
+      "category": "audit",
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "exists": true,
+      "sha256": "2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592",
+      "owner_priority": "diagnostic"
+    },
+    {
+      "artifact_id": "workflow_audit",
+      "label_zh": "研究 workflow 审计",
+      "category": "audit",
+      "path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
+      "exists": true,
+      "sha256": "22a3266be3092ad7773cf8619f52a1992de6c208aaf2d271f53fbaf36dda57c5",
+      "owner_priority": "diagnostic"
+    }
+  ],
+  "artifact_count": 10
+}

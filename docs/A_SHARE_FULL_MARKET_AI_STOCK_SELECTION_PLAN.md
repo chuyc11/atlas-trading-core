@@ -133,4 +133,10 @@ v0.8.0 does not generate buy/sell signals, does not place orders, does not conne
 
 v0.8.1 adds a current-day research workflow runner after the data refresh layer. It requires the v0.8.0 data refresh audit to pass, runs the new A-share daily research workflow CLI for the resolved date, collects workflow and audit outputs, carries forward warnings, and writes owner-facing current-day run summaries.
 
-v0.8.1 does not generate buy/sell signals, does not generate order previews, does not place orders, does not connect broker, does not read real account data, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction. v0.8.2 should add owner-facing dashboard and monitoring.
+v0.8.1 does not generate buy/sell signals, does not generate order previews, does not place orders, does not connect broker, does not read real account data, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction.
+
+## v0.8.2 Owner Dashboard Update
+
+v0.8.2 adds an owner-facing dashboard and monitoring package for the existing current-day run. It materializes executive status, data freshness, provider health, workflow status, research output, candidates, virtual portfolios, benchmarks, performance, attribution, warnings/blockers, navigation, source trace, boundary, manifest, summary, reports, and audit artifacts.
+
+v0.8.2 does not refresh data, rerun the research workflow, generate buy/sell signals, generate order previews, place orders, connect broker, read real account data, call old `run-daily`, execute official forward dry-run day2, or treat dashboard content as trade instruction. v0.8.3 should add owner alerting and run-history monitoring.

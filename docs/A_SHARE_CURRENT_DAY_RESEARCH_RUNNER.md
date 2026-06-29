@@ -21,5 +21,10 @@ Boundary:
 - v0.8.1 does not execute official forward dry-run day2
 - v0.8.1 does not treat research output as trade instruction
 
-v0.8.2 should add owner-facing dashboard and monitoring.
+## v0.8.2 Owner Dashboard Consumer
 
+v0.8.2 consumes the v0.8.1 current-day run package and builds an owner-facing monitoring dashboard from existing artifacts only.
+
+It reads the current-day audit, data refresh audit, workflow audit, briefing, tracking, benchmark, performance, and attribution outputs, then writes dashboard cards, reports, source trace, boundary, manifest, summary, and an owner dashboard audit.
+
+The dashboard does not refresh data, rerun workflow, call old `run-daily`, execute official forward dry-run day2, connect broker, read real account data, place orders, generate buy/sell signals, generate order previews, or turn research output into trade instructions.

@@ -1,0 +1,25 @@
+{
+  "card_id": "PROVIDER_HEALTH",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "status": "available",
+  "provider_health_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_refresh\\daily\\2026-06-26\\provider_health_check.json",
+  "provider_count": 7,
+  "enabled_provider_count": 2,
+  "disabled_provider_count": 5,
+  "enabled_providers": [
+    "local_file_provider",
+    "cached_panel_provider"
+  ],
+  "disabled_providers": [
+    "eastmoney_public_provider",
+    "akshare_provider",
+    "qstock_provider",
+    "baostock_provider",
+    "tushare_provider"
+  ],
+  "fallback_used": [],
+  "network_providers_disabled": true,
+  "warnings": []
+}

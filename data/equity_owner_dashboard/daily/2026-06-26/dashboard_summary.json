@@ -1,0 +1,26 @@
+{
+  "summary_id": "A-SHARE-OWNER-DASHBOARD-SUMMARY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "mode": "build_dashboard_from_existing_run",
+  "overall_status": "passed_with_warnings",
+  "blocking_count": 0,
+  "warning_count": 65,
+  "cards": {
+    "executive_status_card": "EXECUTIVE_STATUS",
+    "data_freshness_card": "DATA_FRESHNESS",
+    "provider_health_card": "PROVIDER_HEALTH",
+    "workflow_status_card": "WORKFLOW_STATUS",
+    "research_output_card": "RESEARCH_OUTPUT",
+    "candidate_summary_card": "CANDIDATE_SUMMARY",
+    "portfolio_summary_card": "PORTFOLIO_SUMMARY",
+    "benchmark_summary_card": "BENCHMARK_SUMMARY",
+    "performance_summary_card": "PERFORMANCE_SUMMARY",
+    "attribution_summary_card": "ATTRIBUTION_SUMMARY",
+    "warning_and_blocker_card": "WARNING_AND_BLOCKER",
+    "artifact_navigation_index": null
+  },
+  "disclaimer": "本 dashboard 仅用于研究运行监控，不是交易指令，不连接券商，不下真实订单。",
+  "recommended_next_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring"
+}

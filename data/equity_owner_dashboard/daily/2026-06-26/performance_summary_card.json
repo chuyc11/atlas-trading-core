@@ -1,0 +1,65 @@
+{
+  "card_id": "PERFORMANCE_SUMMARY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "status": "limited_history",
+  "observation_counts": 1,
+  "minimum_required_observations": 20,
+  "sufficient_history": false,
+  "first_day_initialization": true,
+  "performance_not_yet_observed": true,
+  "portfolios": {
+    "long_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 30,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    },
+    "mid_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 30,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    },
+    "short_virtual_portfolio": {
+      "nav": 1000000.0,
+      "daily_return": 0.0,
+      "cumulative_return": 0.0,
+      "drawdown": 0.0,
+      "max_drawdown": 0.0,
+      "holding_count": 20,
+      "benchmark_relative_status": {
+        "CSI300": "insufficient_history",
+        "CSI500": "insufficient_history",
+        "CSI1000": "insufficient_history",
+        "CASH": "insufficient_history",
+        "EQUAL_WEIGHT_STRICT_TRADABLE": "insufficient_history",
+        "EQUAL_WEIGHT_CANDIDATE_POOL": "insufficient_history"
+      }
+    }
+  },
+  "limited_history_disclaimer": "observation count below minimum; do not imply performance effectiveness",
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ]
+}

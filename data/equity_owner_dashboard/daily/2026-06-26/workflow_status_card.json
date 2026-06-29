@@ -1,0 +1,85 @@
+{
+  "card_id": "WORKFLOW_STATUS",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "resolved_as_of_date": "2026-06-26",
+  "current_day_run_audit_passed": true,
+  "workflow_audit_passed": true,
+  "workflow_mode": "validate_existing_artifacts",
+  "workflow_command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts",
+  "old_run_daily_called": false,
+  "run_daily_called": false,
+  "day2_executed": false,
+  "stage_status_table": [
+    {
+      "stage_id": "stage_00_preflight",
+      "stage_name": "preflight",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_01_data_readiness",
+      "stage_name": "data_readiness",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_02_tradable_universe",
+      "stage_name": "tradable_universe",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_03_feature_engineering",
+      "stage_name": "feature_engineering",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_04_scoring",
+      "stage_name": "scoring",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_05_candidate_generation",
+      "stage_name": "candidate_generation",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_06_virtual_portfolio_construction",
+      "stage_name": "virtual_portfolio_construction",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_07_daily_briefing",
+      "stage_name": "daily_briefing",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_08_virtual_portfolio_tracking",
+      "stage_name": "virtual_portfolio_tracking",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_09_workflow_audit",
+      "stage_name": "workflow_audit",
+      "status": "passed"
+    },
+    {
+      "stage_id": "stage_10_owner_summary",
+      "stage_name": "owner_summary",
+      "status": "passed"
+    }
+  ],
+  "stage_passed_count": 11,
+  "stage_warning_count": 11,
+  "stage_failed_count": 0,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "card_id": "RESEARCH_OUTPUT",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "outputs": [
+    {
+      "output_id": "daily_briefing",
+      "path": "outputs/equity_briefings/daily/2026-06-26/DAILY_STOCK_SELECTION_BRIEFING.md",
+      "required": true,
+      "exists": true,
+      "status": "available"
+    },
+    {
+      "output_id": "tracking",
+      "path": "outputs/equity_portfolio_tracking/daily/2026-06-26/VIRTUAL_PORTFOLIO_TRACKING_SUMMARY.md",
+      "required": true,
+      "exists": true,
+      "status": "available"
+    },
+    {
+      "output_id": "benchmark",
+      "path": "outputs/equity_benchmarks/daily/2026-06-26/A_SHARE_BENCHMARK_SUMMARY.md",
+      "required": false,
+      "exists": true,
+      "status": "available"
+    },
+    {
+      "output_id": "performance",
+      "path": "outputs/equity_performance/daily/2026-06-26/A_SHARE_MULTI_DAY_PERFORMANCE_SUMMARY.md",
+      "required": false,
+      "exists": true,
+      "status": "available"
+    },
+    {
+      "output_id": "attribution",
+      "path": "outputs/equity_attribution/daily/2026-06-26/A_SHARE_ATTRIBUTION_SUMMARY.md",
+      "required": false,
+      "exists": true,
+      "status": "available"
+    },
+    {
+      "output_id": "current_day_run",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/A_SHARE_CURRENT_DAY_RUN_SUMMARY.md",
+      "required": true,
+      "exists": true,
+      "status": "available"
+    }
+  ],
+  "briefing_status": "available",
+  "tracking_status": "available",
+  "benchmark_status": "available",
+  "performance_status": "available",
+  "attribution_status": "available",
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -1,0 +1,52 @@
+{
+  "card_id": "ATTRIBUTION_SUMMARY",
+  "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+  "as_of_date": "2026-06-26",
+  "status": "structural_diagnostics_available",
+  "limited_history": true,
+  "structural_diagnostics_available": true,
+  "realized_performance_attribution_available": false,
+  "risk_downgraded_symbols_in_portfolio": [],
+  "excluded_universe_exposure": 0,
+  "weight_reconciliation_status": "available",
+  "concentration_diagnostics": {
+    "long_virtual_portfolio": {
+      "concentrated_top5": false,
+      "concentrated_industry": true,
+      "contains_risk_downgraded": false,
+      "contains_excluded_universe": false,
+      "low_liquidity_cluster": false,
+      "unclassified_industry_high": true
+    },
+    "mid_virtual_portfolio": {
+      "concentrated_top5": false,
+      "concentrated_industry": true,
+      "contains_risk_downgraded": false,
+      "contains_excluded_universe": false,
+      "low_liquidity_cluster": false,
+      "unclassified_industry_high": true
+    },
+    "short_virtual_portfolio": {
+      "concentrated_top5": false,
+      "concentrated_industry": true,
+      "contains_risk_downgraded": false,
+      "contains_excluded_universe": false,
+      "low_liquidity_cluster": false,
+      "unclassified_industry_high": true
+    }
+  },
+  "liquidity_diagnostics": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "industry_diagnostics": [
+    "long_virtual_portfolio",
+    "mid_virtual_portfolio",
+    "short_virtual_portfolio"
+  ],
+  "structural_diagnostics_are_not_trade_signals": true,
+  "warnings": [
+    "portfolio observation history is below the minimum required window"
+  ]
+}

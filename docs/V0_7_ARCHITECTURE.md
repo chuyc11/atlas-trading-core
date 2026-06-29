@@ -211,4 +211,12 @@ v0.8.1 uses refreshed data to run the current-day research workflow.
 
 The layer does not call old `run-daily`, execute official forward dry-run day2, connect a broker, read real account data, place real orders, generate buy/sell signals, generate order previews, treat research output as trade instruction, claim profitability, or certify live trading readiness.
 
-v0.8.2 should add owner-facing dashboard and monitoring for latest run status, data freshness, workflow status, warning cards, and research output summary.
+v0.8.2 adds owner-facing dashboard and monitoring for latest run status, data freshness, workflow status, warning cards, and research output summary.
+
+## v0.8.2 Owner Dashboard Layer
+
+`data/equity_owner_dashboard/daily/YYYY-MM-DD/` is the v0.8.2 layer after the current-day research runner. It reads existing data refresh, current-day run, workflow, briefing, tracking, benchmark, performance, and attribution artifacts, then writes owner-facing status cards, warning/blocker cards, artifact navigation, source trace, boundary, manifest, summary, reports, and audit evidence.
+
+The layer does not refresh data, rerun the research workflow, call old `run-daily`, execute official forward dry-run day2, connect a broker, read real account data, place real orders, generate buy/sell signals, generate order previews, claim profitability, or certify live trading readiness.
+
+v0.8.3 should add alerting and run-history monitoring on top of the dashboard artifacts.

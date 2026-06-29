@@ -30,3 +30,7 @@ Boundary:
 ## v0.8.1 Consumer
 
 v0.8.1 consumes the data refresh audit as a required gate. If the audit fails or has blocking reasons, the current-day research workflow must not run. Passing data refresh is still not trading readiness; the current-day runner remains research-only and does not connect broker, place orders, generate buy/sell signals, generate order previews, call old run-daily, or execute official forward dry-run day2.
+
+## v0.8.2 Dashboard Consumer
+
+v0.8.2 reads the data refresh audit, summary, provider health, freshness, coverage, and gap artifacts as dashboard inputs. It does not trigger data refresh or call public/network providers. Data freshness warnings are carried forward to the owner warning card and audit evidence.
