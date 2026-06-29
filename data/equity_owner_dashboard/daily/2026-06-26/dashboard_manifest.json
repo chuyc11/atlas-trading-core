@@ -3,7 +3,7 @@
   "target_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
   "as_of_date": "2026-06-26",
   "resolved_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T04:12:44.941604+00:00",
+  "generated_at": "2026-06-29T04:33:13.939629+00:00",
   "mode": "build_dashboard_from_existing_run",
   "overall_status": "passed_with_warnings",
   "required_cards_present": true,

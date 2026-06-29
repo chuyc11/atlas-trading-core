@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.1-a-share-current-day-research-workflow-runner
+v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard
 
 ## Completed milestones
 
@@ -63,6 +63,7 @@ v0.8.1-a-share-current-day-research-workflow-runner
 - v0.7.12 A-share performance attribution and risk diagnostics
 - v0.8.0 A-share daily data refresh and provider hardening
 - v0.8.1 A-share current-day research workflow runner
+- v0.8.2 A-share owner briefing and monitoring dashboard
 
 ## Known limitations
 
@@ -107,6 +108,7 @@ v0.8.1-a-share-current-day-research-workflow-runner
 - v0.7.12 adds performance attribution and risk diagnostics for existing virtual portfolios; it distinguishes structural diagnostics from realized performance attribution, correctly flags limited history, and does not create buy/sell signals, does not place orders, does not connect a broker, does not call old `run-daily`, does not execute official forward dry-run day2, and does not fabricate performance
 - v0.8.0 validates daily A-share research data freshness and provider readiness; it does not trigger the full research workflow by default, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2
 - v0.8.1 requires the data refresh audit to pass, then runs the new A-share daily research workflow CLI for the current research date; it does not create buy/sell signals, does not generate order previews, does not connect a broker, does not read real account data, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction
+- v0.8.2 builds an owner-facing dashboard from existing current-day artifacts only; it does not refresh data, does not rerun workflow, does not create buy/sell signals, does not generate order previews, does not connect a broker, does not read real account data, does not place real orders, and does not treat dashboard content as trade instruction
 - day2 is blocked by local data horizon insufficiency; the latest common local market/benchmark/risk-proxy date is 2026-06-25, which day1 already used
 - strategy effectiveness not proven
 - no live trading
@@ -314,6 +316,17 @@ python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-da
 ```
 
 The v0.8.1 output is a current-day research run package. It requires the v0.8.0 data refresh audit to pass, runs the new A-share daily research workflow CLI, collects workflow audit status and warnings, writes source trace, boundary, manifest, owner summary, and audit artifacts, and fails closed on readiness or workflow blockers. It does not generate buy/sell signals, does not generate order previews, does not connect a broker, does not read real account data, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not claim profitability, and is not live-trading ready.
+
+Run v0.8.2 owner dashboard from an existing current-day run:
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-dashboard-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run
+python -m trading_core.cli audit-a-share-owner-dashboard --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run
+```
+
+The v0.8.2 output is an owner-facing monitoring package. It reads existing data refresh, workflow, briefing, tracking, benchmark, performance, attribution, and current-day run artifacts; it does not refresh data, rerun workflow, create trading instructions, connect a broker, or place orders.
 
 The v0.7.1 foundation writes local data artifacts under `data/equity_universe/`, `data/equity_market/`, `data/equity_industry/`, `data/equity_fundamental/`, and `data/equity_data_quality/`. It does not write scores, candidates, virtual portfolios, broker artifacts, real orders, main ledgers, or official forward dry-run day2 artifacts.
 

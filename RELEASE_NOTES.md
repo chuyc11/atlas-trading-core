@@ -1,5 +1,48 @@
 # Release Notes
 
+## v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard
+
+This release adds a research-only owner dashboard for the existing A-share current-day research run.
+
+Includes:
+
+- owner dashboard config and input availability validation
+- executive, data freshness, provider health, workflow, research output, candidate, portfolio, benchmark, performance, attribution, warning/blocker, artifact navigation, source trace, boundary, manifest, and summary JSON artifacts
+- owner-facing Markdown dashboard, compact dashboard, warning/blocker summary, artifact navigation, and source trace reports
+- owner dashboard fail-close audit
+- CLI commands: `validate-a-share-owner-dashboard-inputs`, `build-a-share-owner-dashboard`, `audit-a-share-owner-dashboard`, and `build-and-audit-a-share-owner-dashboard`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner dashboard audit overall_passed=true
+- blocking reasons: none
+- warnings: 11
+- mode tested: `build_dashboard_from_existing_run`
+- resolved_as_of_date: `2026-06-26`
+- required cards present
+- optional cards present
+- source trace complete
+- boundary check passed
+- no forbidden artifacts generated
+- no forbidden positive wording found
+- recommended next version: `v0.8.3-a-share-owner-alerting-and-run-history-monitoring`
+- validation: owner dashboard focused tests 20 passed
+
+Boundary:
+
+- does not refresh data
+- does not rerun the research workflow
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate buy/sell signals
+- does not generate order preview
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat dashboard content as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.1-a-share-current-day-research-workflow-runner
 
 This release adds a research-only A-share current-day research workflow runner.

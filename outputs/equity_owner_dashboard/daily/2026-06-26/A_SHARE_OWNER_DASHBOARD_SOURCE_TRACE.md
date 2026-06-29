@@ -38,14 +38,14 @@
 ## Outputs
 - data/equity_owner_dashboard/daily/2026-06-26/dashboard_config.json | exists=True | sha256=4dbf5eaad3da6b7f6141f292e9e3b69e06e06ba1fe994cc4baff1d9fd4bc08de
 - data/equity_owner_dashboard/daily/2026-06-26/dashboard_input_availability.json | exists=True | sha256=62ce1f4599c2fe06f65468791bb2c086defba367c1b2a10d3db84a3d5a3d85ee
-- data/equity_owner_dashboard/daily/2026-06-26/dashboard_source_trace.json | exists=True | sha256=7c2eb9b5f7731d054a72c3f2390b519bd715df46e93374d4bc1a0ef650f14a91
+- data/equity_owner_dashboard/daily/2026-06-26/dashboard_source_trace.json | exists=True | sha256=c32ee9dbf101485d3a39ff8509e0ca99be9a5642c70afa6c2b5b6f4b5bc3e4f1
 - data/equity_owner_dashboard/daily/2026-06-26/dashboard_boundary_check.json | exists=True | sha256=e70e61c89992e397c0010af2d268a538043e95e1443398798aaf5ca6236f23f2
-- data/equity_owner_dashboard/daily/2026-06-26/dashboard_manifest.json | exists=True | sha256=2ecda5e9eaa99eca2efb8f85199c91de2c3d7ae7c2b7a90c168d5a9325ce8619
+- data/equity_owner_dashboard/daily/2026-06-26/dashboard_manifest.json | exists=True | sha256=e8995fee74bf5e66059f2d20fa58226658d680792dc736105ea3750402eefe01
 - data/equity_owner_dashboard/daily/2026-06-26/dashboard_summary.json | exists=True | sha256=1f999ac51e02fa446988ada4a4bef7f674ff2c0b5f9002163e3235271ce25918
 - outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD.md | exists=True | sha256=18094ab094ec50e8125fd160f6fa848a5e58f3994882bc3ce9b976de2aa2ed23
 - outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD_COMPACT.md | exists=True | sha256=3a187cc123c32d3625eb1d6b6e9380713b110ac2061c54433b924b3e2a49448d
 - outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_WARNING_AND_BLOCKER_SUMMARY.md | exists=True | sha256=9b5016a8a9765ddbe13216d05000589d1eee115c23aab32a2b91e961912f61a3
 - outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_ARTIFACT_NAVIGATION.md | exists=True | sha256=4e674d0aa1dd0cee71e177271036231ab53fc7e6d1a00bbd9f064bbeaec8ebe7
-- outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD_SOURCE_TRACE.md | exists=True | sha256=9a4b155ab7ea2ae0dab01692e20387064929a4ff08fc854040302cf680de2146
+- outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD_SOURCE_TRACE.md | exists=True | sha256=967c627b776ee42ba91f5e805d9ec206caa92ad091efdd73216bcaada40c641f
 - data/equity_data_quality/a_share_owner_dashboard_audit.json | exists=True | sha256=3c9ca016fd6cbf7c9177d4abe5f3ba885c7ad5b3de293dc605fe21c2bcd0d202
 - outputs/audit/A_SHARE_OWNER_DASHBOARD_AUDIT.md | exists=True | sha256=3329b65691f545fbc8b3aa4d30a657f7cefc86b0563338d497ffa1da8c9b6a0b
