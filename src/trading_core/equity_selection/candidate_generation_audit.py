@@ -78,6 +78,7 @@ def audit_a_share_candidates(
     as_of_date: str = DEFAULT_AS_OF_DATE,
     minimum_strict_count: int = 500,
     allow_latest_score_date: bool = False,
+    allow_existing_downstream_artifacts: bool = False,
     paths: ProjectPaths | None = None,
 ) -> dict[str, Any]:
     paths = default_paths(paths)
@@ -115,6 +116,7 @@ def audit_a_share_candidates(
         score_symbols=score_symbols,
         counts=counts,
         minimum_strict_count=minimum_strict_count,
+        allow_existing_downstream_artifacts=allow_existing_downstream_artifacts,
         forbidden_artifacts=forbidden_artifacts,
         forbidden_wording_hits=forbidden_wording_hits,
     )
@@ -124,6 +126,7 @@ def audit_a_share_candidates(
         "target_version": TARGET_VERSION,
         "as_of_date": effective_as_of_date,
         "requested_as_of_date": as_of_date,
+        "allow_existing_downstream_artifacts": allow_existing_downstream_artifacts,
         "overall_passed": not blocking,
         "blocking_reasons": blocking,
         "warnings": list(summary.get("warnings", [])) if isinstance(summary, dict) else [],
@@ -196,7 +199,7 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
         "candidate_records_contain_explanations": _records_have_fields(frames, ["primary_inclusion_reasons", "component_highlights", "confidence_notes"]),
         "candidate_records_contain_risk_notes": _records_have_fields(frames, ["main_risk_reasons"]),
         "candidate_records_contain_not_investment_advice_flags": _disclaimer_flags_valid(frames, json_rows),
-        "no_virtual_portfolio_artifacts_generated": not kwargs["forbidden_artifacts"]["virtual_portfolio_artifacts_present"],
+        "no_virtual_portfolio_artifacts_generated": kwargs["allow_existing_downstream_artifacts"] or not kwargs["forbidden_artifacts"]["virtual_portfolio_artifacts_present"],
         "no_buy_sell_signal_artifacts_generated": not kwargs["forbidden_artifacts"]["buy_sell_signal_artifacts_present"],
         "no_order_preview_generated": not kwargs["forbidden_artifacts"]["order_preview_artifacts_present"],
         "no_buy_sell_or_order_columns": not _disallowed_columns(frames),

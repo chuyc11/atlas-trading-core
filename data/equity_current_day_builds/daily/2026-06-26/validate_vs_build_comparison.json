@@ -1,0 +1,35 @@
+{
+  "comparison_id": "A-SHARE-VALIDATE-VS-BUILD-COMPARISON",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "from_workflow_mode": "validate_existing_artifacts",
+  "to_workflow_mode": "build_from_existing_data",
+  "comparisons": {
+    "workflow_mode_difference": {
+      "validate_mode": "validate_existing_artifacts",
+      "build_mode": "build_from_existing_data",
+      "expected_different": true
+    },
+    "audit_status_comparison": {
+      "validate_audit_passed": true,
+      "build_exit_code": 0,
+      "build_status": "passed"
+    },
+    "boundary_comparison": {
+      "validate_boundary_passed": true,
+      "build_boundary_passed": true
+    },
+    "artifact_count_comparison": {
+      "validate_artifact_count": 120,
+      "build_artifact_count": 120
+    }
+  },
+  "blocking_reasons": [],
+  "warnings": [],
+  "comparison_completed": true,
+  "business_output_drift": [],
+  "timestamp_only_drift": [],
+  "hash_only_drift": [],
+  "missing_required_artifacts": [],
+  "new_artifacts": []
+}

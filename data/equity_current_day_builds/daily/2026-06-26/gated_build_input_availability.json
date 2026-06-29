@@ -1,0 +1,119 @@
+{
+  "availability_id": "A-SHARE-GATED-BUILD-INPUT-AVAILABILITY",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "inputs": {
+    "ops_history_audit": {
+      "path": "data/equity_data_quality/a_share_ops_history_baseline_audit.json",
+      "exists": true
+    },
+    "ops_center_audit": {
+      "path": "data/equity_data_quality/a_share_daily_ops_center_audit.json",
+      "exists": true
+    },
+    "current_day_audit": {
+      "path": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+      "exists": true
+    },
+    "data_refresh_audit": {
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "exists": true
+    },
+    "ops_trend_sufficiency": {
+      "path": "data/equity_ops_history/daily/2026-06-26/ops_trend_sufficiency.json",
+      "exists": true
+    },
+    "ops_health_score_baseline": {
+      "path": "data/equity_ops_history/daily/2026-06-26/ops_health_score_baseline.json",
+      "exists": true
+    },
+    "ops_boundary_history_snapshot": {
+      "path": "data/equity_ops_history/daily/2026-06-26/ops_boundary_history_snapshot.json",
+      "exists": true
+    },
+    "ops_history_boundary_check": {
+      "path": "data/equity_ops_history/daily/2026-06-26/ops_history_boundary_check.json",
+      "exists": true
+    },
+    "ops_history_manifest": {
+      "path": "data/equity_ops_history/daily/2026-06-26/ops_history_manifest.json",
+      "exists": true
+    },
+    "ops_health_score_card": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_health_score_card.json",
+      "exists": true
+    },
+    "ops_module_status_matrix": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_module_status_matrix.json",
+      "exists": true
+    },
+    "ops_issue_summary": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_issue_summary.json",
+      "exists": true
+    },
+    "ops_action_summary": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_action_summary.json",
+      "exists": true
+    },
+    "ops_boundary_check": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_boundary_check.json",
+      "exists": true
+    },
+    "ops_manifest": {
+      "path": "data/equity_ops_center/daily/2026-06-26/ops_manifest.json",
+      "exists": true
+    },
+    "current_day_run_config": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_config.json",
+      "exists": true
+    },
+    "current_day_readiness": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_readiness.json",
+      "exists": true
+    },
+    "current_day_workflow_execution": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json",
+      "exists": true
+    },
+    "current_day_stage_manifest": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_stage_manifest.json",
+      "exists": true
+    },
+    "current_day_artifact_index": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json",
+      "exists": true
+    },
+    "current_day_boundary_check": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json",
+      "exists": true
+    },
+    "current_day_run_manifest": {
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+      "exists": true
+    },
+    "dataset_schema_validation": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_schema_validation.json",
+      "exists": true
+    },
+    "dataset_freshness_validation": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_freshness_validation.json",
+      "exists": true
+    },
+    "dataset_coverage_summary": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_coverage_summary.json",
+      "exists": true
+    },
+    "data_refresh_boundary_check": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_boundary_check.json",
+      "exists": true
+    },
+    "data_refresh_manifest": {
+      "path": "data/equity_data_refresh/daily/2026-06-26/data_refresh_manifest.json",
+      "exists": true
+    }
+  },
+  "missing_inputs": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

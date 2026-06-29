@@ -2,7 +2,7 @@
   "config_id": "A-SHARE-DAILY-RESEARCH-WORKFLOW-CONFIG",
   "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
   "as_of_date": "2026-06-26",
-  "mode": "validate_existing_artifacts",
+  "mode": "build_from_existing_data",
   "allowed_modes": [
     "validate_existing_artifacts",
     "build_from_existing_data",
@@ -39,7 +39,7 @@
   },
   "raw_config": {
     "as_of_date": "2026-06-26",
-    "mode": "validate_existing_artifacts",
+    "mode": "build_from_existing_data",
     "allow_public_data_refresh": false,
     "allow_latest_artifact_date": false,
     "allow_build_timestamp_drift": true,

@@ -2,42 +2,42 @@
   "trace_id": "A-SHARE-DAILY-WORKFLOW-SOURCE-TRACE",
   "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
   "as_of_date": "2026-06-26",
-  "mode": "validate_existing_artifacts",
-  "generated_at": "2026-06-29T03:41:25.400229Z",
+  "mode": "build_from_existing_data",
+  "generated_at": "2026-06-29T18:41:38.302108Z",
   "tradable_universe_source": {
     "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
     "exists": true,
-    "sha256": "0a5a8d426dee93bd90343e008a5e662afc0c5803293cf00a08eaf599a9038c45"
+    "sha256": "7f9439bbe7f234aba9fc71e3a540547c6639040b246b16618d649c4c8f1e1a2d"
   },
   "features_source": {
     "path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
     "exists": true,
-    "sha256": "c00f9d61c5c5ece4b2403665d4c8c7fb10ba219154cf519574ef6620d47afff4"
+    "sha256": "df11e3c9ac0bed0a3f10151daafc59ee866e40b5b855e0ee6f0382fdcd6cf8c2"
   },
   "scores_source": {
     "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
     "exists": true,
-    "sha256": "cfd5a577232117d1771aa509d60c9d5d2ad28205deac9c09c6d193b1c5ac9810"
+    "sha256": "cdf143c5a86302051894a81e486e30ee8631e4f706a2e5ea6fa843749b3f9d07"
   },
   "candidates_source": {
     "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
     "exists": true,
-    "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7"
+    "sha256": "0d55632badcf3214198cc2a1c273b1ba24e5b68b3032d3017c1c2b7635f27101"
   },
   "virtual_portfolios_source": {
     "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
     "exists": true,
-    "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda"
+    "sha256": "9f031f287ea0e863d80b3261a73b80f7a168a60f4e9f3dc89cda58f6b6aa3d90"
   },
   "briefing_source": {
     "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
     "exists": true,
-    "sha256": "73ef565ec9068df786fd5bf7a197f750ee62b21cfad1a0f941b3e735c3116a0a"
+    "sha256": "f75faac6002feb2bce6236d180e5f4c091f14d8b524e5e038325b26451667c2a"
   },
   "tracking_source": {
     "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
     "exists": true,
-    "sha256": "c2f3727a76f998dccffbf745b4af4ba758ac60fc2de97c97204766430a046f74"
+    "sha256": "522d5b7a5a2b050827afaf0e69dccb3632423fe26eae1c4ed9ea3f12f1a646d5"
   },
   "audit_sources": {
     "tradable_universe": {
@@ -53,12 +53,12 @@
     "scores": {
       "path": "data/equity_data_quality/a_share_scoring_audit.json",
       "exists": true,
-      "sha256": "18259c6c330257acbf190c1fe207e4f1382a35f09d9a5c865ba8319ea06a9127"
+      "sha256": "37196a6aef1d6cca52931f2a3e304ec50af2e351c73221ed3ed3214d77a2c593"
     },
     "candidates": {
       "path": "data/equity_data_quality/a_share_candidate_generation_audit.json",
       "exists": true,
-      "sha256": "28cc99eb857a9dadd7884bcc7a51d95119a50bb70432d1a0867d8fbc51b6704b"
+      "sha256": "40ae2f38386148386eb1b5af5a01a2f2e2fd9e6bc611245492c4ffe766186d9a"
     },
     "virtual_portfolios": {
       "path": "data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json",
@@ -79,12 +79,12 @@
   "stage_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
     "exists": true,
-    "sha256": "b0d4eae9ad950ba5174384abe0a1bf34fbf0390b3f7814bb53c3a5fbdcb8eaca"
+    "sha256": "006b642ff1c4bf287c5e7433b593eeadb6ae24779b3f45c10f8ec422452aee65"
   },
   "run_manifest_source": {
     "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
     "exists": true,
-    "sha256": "bcd1de537423d52f705f974b4cc029e3c7c9a8d2a8c9d0e100f3dde400094c5e"
+    "sha256": "b1a3ef4eb087f422888708678307da064ed3894b0198a3d83668054fdccdb71a"
   },
   "stage_commands": [
     {
@@ -96,49 +96,49 @@
     {
       "stage_id": "stage_01_data_readiness",
       "stage_order": 1,
-      "command": "verify required A-share research artifacts",
+      "command": "verify historical A-share data panels",
       "status": "passed"
     },
     {
       "stage_id": "stage_02_tradable_universe",
       "stage_order": 2,
-      "command": "verify existing artifacts for tradable_universe",
+      "command": "python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_03_feature_engineering",
       "stage_order": 3,
-      "command": "verify existing artifacts for feature_engineering",
+      "command": "python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_04_scoring",
       "stage_order": 4,
-      "command": "verify existing artifacts for scoring",
+      "command": "python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_05_candidate_generation",
       "stage_order": 5,
-      "command": "verify existing artifacts for candidate_generation",
+      "command": "python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_06_virtual_portfolio_construction",
       "stage_order": 6,
-      "command": "verify existing artifacts for virtual_portfolio_construction",
+      "command": "python -m trading_core.cli build-and-audit-a-share-virtual-portfolios --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_07_daily_briefing",
       "stage_order": 7,
-      "command": "verify existing artifacts for daily_briefing",
+      "command": "python -m trading_core.cli build-and-audit-a-share-daily-stock-selection-briefing --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
       "stage_id": "stage_08_virtual_portfolio_tracking",
       "stage_order": 8,
-      "command": "verify existing artifacts for virtual_portfolio_tracking",
+      "command": "python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26",
       "status": "passed"
     },
     {
@@ -163,42 +163,42 @@
     {
       "path": "data/equity_selection/daily/2026-06-26/tradable_universe.json",
       "exists": true,
-      "sha256": "3a28e0d6b5a53260d1e61535d99230fff50e9b4262355e4ce6e0e0046d7b91eb"
+      "sha256": "f680cae08302fd5d45147ef3cf4a5ee18fe9f07d6a5217dd289b3b4406be407f"
     },
     {
       "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
       "exists": true,
-      "sha256": "0a5a8d426dee93bd90343e008a5e662afc0c5803293cf00a08eaf599a9038c45"
+      "sha256": "7f9439bbe7f234aba9fc71e3a540547c6639040b246b16618d649c4c8f1e1a2d"
     },
     {
       "path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
       "exists": true,
-      "sha256": "c00f9d61c5c5ece4b2403665d4c8c7fb10ba219154cf519574ef6620d47afff4"
+      "sha256": "df11e3c9ac0bed0a3f10151daafc59ee866e40b5b855e0ee6f0382fdcd6cf8c2"
     },
     {
       "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
       "exists": true,
-      "sha256": "cfd5a577232117d1771aa509d60c9d5d2ad28205deac9c09c6d193b1c5ac9810"
+      "sha256": "cdf143c5a86302051894a81e486e30ee8631e4f706a2e5ea6fa843749b3f9d07"
     },
     {
       "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
       "exists": true,
-      "sha256": "9a4bd4c13f2feeffd15ce8296e35fea659f9cb66fa7e971fdbc98fb8ec692ce7"
+      "sha256": "0d55632badcf3214198cc2a1c273b1ba24e5b68b3032d3017c1c2b7635f27101"
     },
     {
       "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
       "exists": true,
-      "sha256": "bf757c2fa15b274a65a890e331b676a8990fe19602b335d5993a4a0b2475cbda"
+      "sha256": "9f031f287ea0e863d80b3261a73b80f7a168a60f4e9f3dc89cda58f6b6aa3d90"
     },
     {
       "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
       "exists": true,
-      "sha256": "73ef565ec9068df786fd5bf7a197f750ee62b21cfad1a0f941b3e735c3116a0a"
+      "sha256": "f75faac6002feb2bce6236d180e5f4c091f14d8b524e5e038325b26451667c2a"
     },
     {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
       "exists": true,
-      "sha256": "c2f3727a76f998dccffbf745b4af4ba758ac60fc2de97c97204766430a046f74"
+      "sha256": "522d5b7a5a2b050827afaf0e69dccb3632423fe26eae1c4ed9ea3f12f1a646d5"
     },
     {
       "path": "data/equity_data_quality/a_share_tradable_universe_audit.json",
@@ -213,12 +213,12 @@
     {
       "path": "data/equity_data_quality/a_share_scoring_audit.json",
       "exists": true,
-      "sha256": "18259c6c330257acbf190c1fe207e4f1382a35f09d9a5c865ba8319ea06a9127"
+      "sha256": "37196a6aef1d6cca52931f2a3e304ec50af2e351c73221ed3ed3214d77a2c593"
     },
     {
       "path": "data/equity_data_quality/a_share_candidate_generation_audit.json",
       "exists": true,
-      "sha256": "28cc99eb857a9dadd7884bcc7a51d95119a50bb70432d1a0867d8fbc51b6704b"
+      "sha256": "40ae2f38386148386eb1b5af5a01a2f2e2fd9e6bc611245492c4ffe766186d9a"
     },
     {
       "path": "data/equity_data_quality/a_share_virtual_portfolio_construction_audit.json",
@@ -238,27 +238,27 @@
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_config.json",
       "exists": true,
-      "sha256": "a1e99479932228abbfa3e4b91b1c8381da2216b34841a0cbf8e308155744c987"
+      "sha256": "5de510a2b17c7db3354d919013095b3796510484a70ee4a402e622e42d1d151e"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
       "exists": true,
-      "sha256": "db11ba4fa8bc1d708fe9f400e02ff299139098bbd4cd0e6e97ae151e978b4eeb"
+      "sha256": "412e6e6870fd70aad81e9cd1c00fb0b448ce05b61eed58280af912f4392d0e25"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
       "exists": true,
-      "sha256": "b0d4eae9ad950ba5174384abe0a1bf34fbf0390b3f7814bb53c3a5fbdcb8eaca"
+      "sha256": "006b642ff1c4bf287c5e7433b593eeadb6ae24779b3f45c10f8ec422452aee65"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
       "exists": true,
-      "sha256": "bcd1de537423d52f705f974b4cc029e3c7c9a8d2a8c9d0e100f3dde400094c5e"
+      "sha256": "b1a3ef4eb087f422888708678307da064ed3894b0198a3d83668054fdccdb71a"
     },
     {
       "path": "data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json",
       "exists": true,
-      "sha256": "4ae6e39cec0beae5bca70bacecef37ea79d43d9f83d9bed3e42c6475d733d463"
+      "sha256": "2c6b3b7ec5b4442b9541c99e0dbe811bb76ebf87c3a81552c5503acefab55dbe"
     }
   ],
   "source_trace_complete": true,

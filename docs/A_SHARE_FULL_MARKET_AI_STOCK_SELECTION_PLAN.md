@@ -6,6 +6,12 @@ v0.8.6 adds an operational run-history layer after the v0.8.5 daily ops command 
 
 This phase does not produce trading recommendations, order previews, broker actions, or live-ready claims. With only the first real v0.8.5 ops run available, the release baseline correctly reports `run_history_observation_count=1` and `baseline_status=insufficient_history`.
 
+## v0.8.7 gated current-day dry-run note
+
+v0.8.7 executes the first gated current-day `build_from_existing_data` dry-run from existing local data and audited operations artifacts. It requires a preflight gate, records validate-vs-build comparison and artifact drift, and prepares v0.8.8 repeatability/diff-stability hardening.
+
+This phase does not refresh public network data, does not run `full_research_run`, does not generate buy/sell signals, does not generate order previews, does not connect broker, does not place real orders, does not call old `run-daily`, and does not execute official forward dry-run day2.
+
 ## Positioning
 
 The project upgrades from an ETF virtual trading MVP into an A-share full-market AI multi-horizon stock selection and virtual portfolio tracking system.

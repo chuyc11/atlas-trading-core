@@ -1,0 +1,43 @@
+{
+  "plan_id": "A-SHARE-GATED-BUILD-FROM-EXISTING-DATA-EXECUTION-PLAN",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "preflight_required": true,
+  "preflight_must_pass": true,
+  "preflight_passed": true,
+  "workflow_command": "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode build_from_existing_data",
+  "workflow_mode": "build_from_existing_data",
+  "commands_allowed": [
+    "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode build_from_existing_data"
+  ],
+  "commands_forbidden": [
+    "run-daily",
+    "broker",
+    "order",
+    "trade",
+    "easytrader",
+    "THSTrader",
+    "buy",
+    "sell"
+  ],
+  "expected_outputs": [
+    "gated_build_execution_record",
+    "build_from_existing_data_workflow_result",
+    "build_from_existing_data_audit_link",
+    "build_artifact_index",
+    "validate_vs_build_comparison",
+    "artifact_drift_summary"
+  ],
+  "expected_audits": [
+    "gated_build_audit_json",
+    "gated_build_boundary_check"
+  ],
+  "boundary_expectations": {
+    "gated_build_from_existing_data_only": true,
+    "research_only": true,
+    "virtual_only": true,
+    "old_run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false
+  }
+}

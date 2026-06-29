@@ -1,0 +1,19 @@
+{
+  "drift_summary_id": "A-SHARE-GATED-BUILD-ARTIFACT-DRIFT-SUMMARY",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "drift_items": [
+    {
+      "artifact": "all",
+      "drift_category": "no_drift",
+      "severity": "informational",
+      "description": "No drift detected between validate and build outputs"
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": [],
+  "drift_categories_found": [
+    "no_drift"
+  ],
+  "overall_status": "clean"
+}

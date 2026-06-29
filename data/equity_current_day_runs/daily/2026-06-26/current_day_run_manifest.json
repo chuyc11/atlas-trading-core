@@ -3,9 +3,9 @@
   "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
   "as_of_date": "2026-06-26",
   "resolved_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T03:41:25.311974Z",
+  "generated_at": "2026-06-29T18:38:59.614443Z",
   "mode": "run_research_from_existing_refresh",
-  "workflow_mode": "validate_existing_artifacts",
+  "workflow_mode": "build_from_existing_data",
   "data_refresh_audit_passed": true,
   "workflow_audit_passed": true,
   "overall_passed": true,
@@ -13,6 +13,7 @@
   "warnings": [
     "daily_basic:required_field_all_null",
     "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
     "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
     "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
@@ -171,6 +172,7 @@
     "warnings": [
       "daily_basic:required_field_all_null",
       "fundamental score confidence is partial",
+      "git status is not clean; release gate must be checked after implementation commit",
       "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
       "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
       "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",

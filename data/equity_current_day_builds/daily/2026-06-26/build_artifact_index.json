@@ -1,0 +1,146 @@
+{
+  "index_id": "A-SHARE-GATED-BUILD-ARTIFACT-INDEX",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "artifact_count": 17,
+  "artifacts": [
+    {
+      "artifact_id": "current_day_artifact_index",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json",
+      "exists": true,
+      "sha256": "7e7598fc6fc54bfb65c1d6029fbe6713bfd9a4d0ec7bb26a5bf4a2246647c20c",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_boundary_check",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json",
+      "exists": true,
+      "sha256": "17b2eadf1b957b7b69f7d42a47e10dab30fd01b8c7a03e222514348a318b78ef",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_data_refresh_link",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_data_refresh_link.json",
+      "exists": true,
+      "sha256": "8ce6435a8c84cebc846a3dd40d893ab5972af9fc0c94ecabab1baac14bc22968",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_readiness",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_readiness.json",
+      "exists": true,
+      "sha256": "8b2942515ca708ade04ce6d7868ea974ae49b5bc415d8a70f00b927872478618",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_run_config",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_config.json",
+      "exists": true,
+      "sha256": "52b7fa642a6911a2b98834da747efc084d336910f96bba473c87cc09ce84cfa6",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_run_manifest",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+      "exists": true,
+      "sha256": "d28047a8be2e35e8280b091b7038aea7b66b9a3814c7e01c8ca2c33a8d40cc51",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_source_trace",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_source_trace.json",
+      "exists": true,
+      "sha256": "2ca298c783a9171fef5230dcc5b70f323ac19f3fe56ce1eab825d50b985ac012",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_stage_manifest",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_stage_manifest.json",
+      "exists": true,
+      "sha256": "07c8038761c000b891af0b44c8e7dd0ef1af0e0fcf1d9292923fa677ff6a3f64",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_summary",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_summary.json",
+      "exists": true,
+      "sha256": "2eda30e505a807b14d934dc6f7d56ea7f866a0ad52e3c140c72189d928599ec6",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_warning_summary",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_warning_summary.json",
+      "exists": true,
+      "sha256": "02e9ebd83a8eb12e404a67032de24330c03c40e2253e3278ffce2c07a87a1efe",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_workflow_execution",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json",
+      "exists": true,
+      "sha256": "84421aef22426d76f3b40e4b7671aa452f9c5e82abac09e8099a69c4c6d0dbd5",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "current_day_workflow_plan",
+      "artifact_type": "json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_plan.json",
+      "exists": true,
+      "sha256": "a351972479c967d1a834083d0721c5285c2b00e05e39fbfe91780631e0cb1e40",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "A_SHARE_CURRENT_DAY_RUN_SUMMARY",
+      "artifact_type": "md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/A_SHARE_CURRENT_DAY_RUN_SUMMARY.md",
+      "exists": true,
+      "sha256": "f91641eced309703a5088b87a63051eb2f8fe6a72b4cb7168606543ab6b3b793",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "CURRENT_DAY_READINESS",
+      "artifact_type": "md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_READINESS.md",
+      "exists": true,
+      "sha256": "7c223c7557d402202406fbc2c876c1b0b77b9c8bac96debc3b82c84a0da33852",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "CURRENT_DAY_SOURCE_TRACE",
+      "artifact_type": "md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_SOURCE_TRACE.md",
+      "exists": true,
+      "sha256": "eb7297df52f6bf92a152b9bb2f96a4af65881cdcdd6aa5caf5f93d4187681c0a",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "CURRENT_DAY_WARNING_SUMMARY",
+      "artifact_type": "md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_WARNING_SUMMARY.md",
+      "exists": true,
+      "sha256": "def0c75e9c79595783db09c879b6f12c3d9081ac57514aa9c44eff8476c5bd82",
+      "source_stage": "current_day_build"
+    },
+    {
+      "artifact_id": "CURRENT_DAY_WORKFLOW_STAGE_REPORT",
+      "artifact_type": "md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_WORKFLOW_STAGE_REPORT.md",
+      "exists": true,
+      "sha256": "a1fe8890664e11224391152fc0dfcc2e6f026b976c795235362f2a710ae52739",
+      "source_stage": "current_day_build"
+    }
+  ],
+  "workflow_status": "passed",
+  "workflow_audit_passed": true
+}

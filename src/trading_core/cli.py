@@ -80,6 +80,10 @@ from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as 
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
 from trading_core.equity_current_day.current_day_config import DEFAULT_AS_OF_DATE as DEFAULT_CURRENT_DAY_AS_OF_DATE
 from trading_core.equity_current_day.current_day_runner import run_a_share_current_day_research, validate_a_share_current_day_readiness
+from trading_core.equity_current_day_builds.gated_build_audit import audit_a_share_gated_build
+from trading_core.equity_current_day_builds.gated_build_builder import build_a_share_gated_build, validate_a_share_gated_build_inputs
+from trading_core.equity_current_day_builds.gated_build_config import ALLOWED_MODES as A_SHARE_GATED_BUILD_MODES
+from trading_core.equity_current_day_builds.gated_build_config import DEFAULT_AS_OF_DATE as DEFAULT_GATED_BUILD_AS_OF_DATE
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1016,6 +1020,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_ops_history_arguments(ops_history_audit, include_mode=False)
     ops_history_all = subparsers.add_parser("build-and-audit-a-share-ops-history-baseline")
     _add_a_share_ops_history_arguments(ops_history_all)
+    gated_build_validate = subparsers.add_parser("validate-a-share-gated-build-inputs")
+    _add_a_share_gated_build_arguments(gated_build_validate, include_mode=False)
+    gated_build = subparsers.add_parser("build-a-share-gated-build-from-existing-data")
+    _add_a_share_gated_build_arguments(gated_build)
+    gated_build_audit = subparsers.add_parser("audit-a-share-gated-build-from-existing-data")
+    _add_a_share_gated_build_arguments(gated_build_audit, include_mode=False)
+    gated_build_all = subparsers.add_parser("build-and-audit-a-share-gated-build-from-existing-data")
+    _add_a_share_gated_build_arguments(gated_build_all)
 
     return parser
 
@@ -1198,6 +1210,23 @@ def _add_a_share_ops_history_arguments(parser: argparse.ArgumentParser, *, inclu
     parser.add_argument("--baseline-window-observations", type=int, default=DEFAULT_OPS_HISTORY_BASELINE_WINDOW_OBSERVATIONS)
     parser.add_argument("--allow-rebuild-history", action="store_true")
     parser.add_argument("--allow-synthetic-history", action="store_true")
+
+
+def _add_a_share_gated_build_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_GATED_BUILD_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_GATED_BUILD_MODES, default="run_gated_build_from_existing_data")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_GATED_BUILD_MODES, default="validate_gated_build_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--minimum-ops-health-score", type=int, default=60)
+    parser.add_argument("--allow-public-network-refresh", action="store_true")
+    parser.add_argument("--allow-full-research-run", action="store_true")
+    parser.add_argument("--allow-old-run-daily", action="store_true")
+    parser.add_argument("--allow-broker", action="store_true")
+    parser.add_argument("--allow-real-orders", action="store_true")
+    parser.add_argument("--allow-order-preview", action="store_true")
+    parser.add_argument("--allow-buy-sell-signals", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3722,6 +3751,99 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": len(audit_result["warnings"]),
                 "trend_sufficiency": audit_result["trend_sufficiency"],
                 "append_result": audit_result["append_result"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-gated-build-inputs":
+        result = validate_a_share_gated_build_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "ops_history_audit_passed": result["ops_history_audit_passed"],
+                "ops_center_audit_passed": result["ops_center_audit_passed"],
+                "current_day_audit_passed": result["current_day_audit_passed"],
+                "data_refresh_audit_passed": result["data_refresh_audit_passed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-gated-build-from-existing-data":
+        result = build_a_share_gated_build(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            minimum_ops_health_score=args.minimum_ops_health_score,
+            allow_public_network_refresh=args.allow_public_network_refresh,
+            allow_full_research_run=args.allow_full_research_run,
+            allow_broker=args.allow_broker,
+            allow_real_orders=args.allow_real_orders,
+            allow_order_preview=args.allow_order_preview,
+            allow_buy_sell_signals=args.allow_buy_sell_signals,
+            allow_old_run_daily=args.allow_old_run_daily,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "preflight_gate_passed": result["preflight_gate_passed"],
+                "gated_build_execution_performed": result["gated_build_execution_performed"],
+                "workflow_mode": result["workflow_mode"],
+                "workflow_audit_passed": result["workflow_audit_passed"],
+                "comparison_completed": result["comparison_completed"],
+                "recommended_next_version": result["recommended_next_version"],
+                "gated_build_dry_run_report": result["gated_build_dry_run_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-gated-build-from-existing-data":
+        result = audit_a_share_gated_build(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "preflight_checks": result["preflight_checks"],
+                "execution_checks": result["execution_checks"],
+                "comparison_checks": result["comparison_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-gated-build-from-existing-data":
+        build_result = build_a_share_gated_build(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            minimum_ops_health_score=args.minimum_ops_health_score,
+            allow_public_network_refresh=args.allow_public_network_refresh,
+            allow_full_research_run=args.allow_full_research_run,
+            allow_broker=args.allow_broker,
+            allow_real_orders=args.allow_real_orders,
+            allow_order_preview=args.allow_order_preview,
+            allow_buy_sell_signals=args.allow_buy_sell_signals,
+            allow_old_run_daily=args.allow_old_run_daily,
+            paths=paths,
+        )
+        audit_result = audit_a_share_gated_build(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "preflight_checks": audit_result["preflight_checks"],
+                "execution_checks": audit_result["execution_checks"],
+                "comparison_checks": audit_result["comparison_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

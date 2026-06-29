@@ -1,0 +1,56 @@
+{
+  "gate_id": "A-SHARE-GATED-BUILD-FROM-EXISTING-DATA-PREFLIGHT",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "from_workflow_mode": "validate_existing_artifacts",
+  "to_workflow_mode": "build_from_existing_data",
+  "overall_passed": true,
+  "eligible_for_gated_dry_run": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "manual_review_required": true,
+  "manual_review_recorded": true,
+  "audit_results": {
+    "ops_history_audit": {
+      "exists": true,
+      "overall_passed": true,
+      "blocking_reasons": []
+    },
+    "ops_center_audit": {
+      "exists": true,
+      "overall_passed": true,
+      "blocking_reasons": []
+    },
+    "current_day_audit": {
+      "exists": true,
+      "overall_passed": true,
+      "blocking_reasons": []
+    },
+    "data_refresh_audit": {
+      "exists": true,
+      "overall_passed": true,
+      "blocking_reasons": []
+    }
+  },
+  "ops_health_score": 65,
+  "ops_health_gate_passed": true,
+  "minimum_ops_health_score": 60,
+  "data_refresh_checks": {
+    "data_refresh_audit_passed": true,
+    "critical_datasets_passed": true,
+    "schema_validation_passed": true,
+    "freshness_validation_passed": true,
+    "coverage_validation_passed": true
+  },
+  "ops_gate": {
+    "blocking_issue_count": 0,
+    "critical_alert_count": 0
+  },
+  "history_gate": {
+    "synthetic_history_used": false,
+    "future_dates_used": false
+  },
+  "boundary_clean": true,
+  "research_only": true,
+  "virtual_only": true
+}

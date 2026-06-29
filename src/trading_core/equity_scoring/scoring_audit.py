@@ -70,6 +70,7 @@ def audit_a_share_scores(
     as_of_date: str = DEFAULT_AS_OF_DATE,
     minimum_strict_count: int = 500,
     allow_latest_feature_date: bool = False,
+    allow_existing_downstream_artifacts: bool = False,
     paths: ProjectPaths | None = None,
 ) -> dict[str, Any]:
     paths = default_paths(paths)
@@ -109,6 +110,7 @@ def audit_a_share_scores(
         requested_as_of_date=as_of_date,
         effective_as_of_date=effective_as_of_date,
         allow_latest_feature_date=allow_latest_feature_date,
+        allow_existing_downstream_artifacts=allow_existing_downstream_artifacts,
     )
     blocking = [f"{name}=false" for name, passed in checks.items() if not passed]
     warnings = list(summary.get("warnings", [])) if isinstance(summary, dict) else []
@@ -118,6 +120,7 @@ def audit_a_share_scores(
         "as_of_date": effective_as_of_date,
         "requested_as_of_date": as_of_date,
         "allow_latest_feature_date": allow_latest_feature_date,
+        "allow_existing_downstream_artifacts": allow_existing_downstream_artifacts,
         "overall_passed": not blocking,
         "blocking_reasons": blocking,
         "warnings": warnings,
@@ -212,9 +215,9 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
         "percentile_columns_valid": _columns_in_range(frames, "percentile", 0.0, 100.0),
         "confidence_columns_valid": _columns_in_range(frames, "confidence", 0.0, 1.0),
         "component_breakdown_exists_for_all_scores": _component_breakdown_complete(frames["score_component_breakdown"], counts["strict_tradable_count"]),
-        "no_candidate_artifacts_generated": not kwargs["forbidden_artifacts"]["candidate_artifacts_present"],
+        "no_candidate_artifacts_generated": kwargs["allow_existing_downstream_artifacts"] or not kwargs["forbidden_artifacts"]["candidate_artifacts_present"],
         "no_watchlist_artifacts_generated": not kwargs["forbidden_artifacts"]["watchlist_artifacts_present"],
-        "no_virtual_portfolio_artifacts_generated": not kwargs["forbidden_artifacts"]["virtual_portfolio_artifacts_present"],
+        "no_virtual_portfolio_artifacts_generated": kwargs["allow_existing_downstream_artifacts"] or not kwargs["forbidden_artifacts"]["virtual_portfolio_artifacts_present"],
         "no_buy_sell_signal_columns": not _buy_sell_signal_columns(frames),
         "no_profit_or_live_trading_wording": not kwargs["forbidden_wording_hits"],
         "scores_generated_true": _boundary(kwargs["manifest"], kwargs["config"], kwargs["summary"], "scores_generated") is True,

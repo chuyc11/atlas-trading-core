@@ -19,3 +19,6 @@ Current release state:
 
 The history baseline is operational evidence only. It does not generate order previews, broker actions, or buy/sell instructions.
 
+## v0.8.7 Consumer
+
+v0.8.7 reads the ops history audit, trend sufficiency, health baseline, boundary history, and manifest as a preflight dependency for the first gated `build_from_existing_data` dry-run. The history remains operational evidence only and is not used as a trade signal.

@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-CANDIDATE-GENERATION-MANIFEST",
   "target_version": "v0.7.5-a-share-candidate-generation-system",
   "as_of_date": "2026-06-26",
-  "created_at": "2026-06-27T16:13:13.537228Z",
+  "created_at": "2026-06-29T18:41:29.646452Z",
   "input_score_manifest_path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
   "strict_tradable_count": 3676,
   "scored_symbols": 3676,
@@ -43,61 +43,61 @@
       "path": "data/equity_selection/daily/2026-06-26/long_candidates.json",
       "exists": true,
       "rows": null,
-      "sha256": "82609ee976e4660f0ceaede9ab5a62d4d2d557b8870a4639cccba2a7e68d5e00"
+      "sha256": "790e784a9fae5f4b411645a795120523bbf551eb6b5ad2aebc28a6144885505f"
     },
     "long_candidates_parquet": {
       "path": "data/equity_selection/daily/2026-06-26/long_candidates.parquet",
       "exists": true,
       "rows": 30,
-      "sha256": "83d130fee9a00714556ef86ff3f03369a814d4a5149e5094418496d15ac76502"
+      "sha256": "477f7ae3ed98fcb4796149e8da5c20c15d9b34622c7d962f58604b6ed5f2ebe2"
     },
     "mid_candidates_json": {
       "path": "data/equity_selection/daily/2026-06-26/mid_candidates.json",
       "exists": true,
       "rows": null,
-      "sha256": "dd8971ba2362e7df507cae4ca298067e464f0910a295726d300fb580ecfb17e8"
+      "sha256": "f2eb95ac7aa87648df12555021bc0cc445b8343bb6a30d14bbffe68ad0167cac"
     },
     "mid_candidates_parquet": {
       "path": "data/equity_selection/daily/2026-06-26/mid_candidates.parquet",
       "exists": true,
       "rows": 30,
-      "sha256": "d252c685d29b1d021d9e54cc78b2cb07a5b6e52c0be322a8bc9c17b5b2cc104b"
+      "sha256": "83fba18025da3118227c5f078ffe22a6b3666c20b45447cf060c10a37ede26e2"
     },
     "short_candidates_json": {
       "path": "data/equity_selection/daily/2026-06-26/short_candidates.json",
       "exists": true,
       "rows": null,
-      "sha256": "30ebc97018e2ef1853cf21e900c07ef75c126e97401da559e31cfa64acd982d2"
+      "sha256": "b64e9a534f91186a386927325364787ea2ee0fdd7337edd2fab3454503f9e252"
     },
     "short_candidates_parquet": {
       "path": "data/equity_selection/daily/2026-06-26/short_candidates.parquet",
       "exists": true,
       "rows": 30,
-      "sha256": "377c4ca4ecda115be0d8a9649172d7d2781c2fe65938879c8bf5b4e75f7e50d2"
+      "sha256": "f54444490dee53c1374165db6114e037478be86844d66859b989dcc5c778ef4d"
     },
     "extended_watch_pool_json": {
       "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.json",
       "exists": true,
       "rows": null,
-      "sha256": "93a06711bfbfb084a1d78a0a10465f1358bc9a8e1c1c4527e3dd9730005898fa"
+      "sha256": "40ee3bf26a2e5ce32c8ded28a0988d56aaf745d041c49530d72fc21acd73ddc9"
     },
     "extended_watch_pool_parquet": {
       "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.parquet",
       "exists": true,
       "rows": 300,
-      "sha256": "c32a7cce18b6897ef208f0bf6fd0b4aa8b611ad54e06b6939f43d0bb74bffd70"
+      "sha256": "a79eee7a5e6a8896f4832b639465015dc24ecd9f2ec8b995d19953427cc2f147"
     },
     "multi_horizon_candidates": {
       "path": "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json",
       "exists": true,
       "rows": null,
-      "sha256": "6948ff8f76fa4b11a0b42d0e0dc485e7055a3c41cb382f87158dbc0ebd199c2e"
+      "sha256": "5869bf04edc7900cad68a978e8f6582803381841661940c7021c1dace19d361a"
     },
     "risk_downgraded_candidates": {
       "path": "data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json",
       "exists": true,
       "rows": null,
-      "sha256": "353ab3b988dab1284a507628a3efbc12b3e486db208670e30617d49744fd467b"
+      "sha256": "58b166b2c536310657018702dfc140d56907146a8a35a5c0481f48e1fa6bbdc6"
     },
     "candidate_reason_breakdown": {
       "path": "data/equity_selection/daily/2026-06-26/candidate_reason_breakdown.json",

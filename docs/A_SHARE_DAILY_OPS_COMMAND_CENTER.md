@@ -12,6 +12,10 @@ python -m trading_core.cli build-and-audit-a-share-ops-history-baseline --as-of-
 
 The first release baseline has one real observation, so trend analysis is intentionally unavailable and `baseline_status=insufficient_history`. The baseline is research-only and does not generate orders, broker activity, or buy/sell instructions.
 
+## v0.8.7 gated current-day build consumer
+
+v0.8.7 consumes the v0.8.5 ops center and v0.8.6 ops history audit trail as preflight evidence before running `build_from_existing_data`. The preflight gate requires ops health score >= 60, zero blocking issues, clean history boundaries, and passed data/current-day/ops audits.
+
 v0.8.5 adds a daily ops command center for the A-share research system.
 
 It aggregates existing data refresh, current-day research, owner dashboard, owner monitoring, and owner remediation artifacts into one owner-facing operations control plane.

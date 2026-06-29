@@ -4,10 +4,10 @@
 - as_of_date: 2026-06-26
 - resolved_as_of_date: 2026-06-26
 - mode: run_research_from_existing_refresh
-- workflow_mode: validate_existing_artifacts
+- workflow_mode: build_from_existing_data
 - overall_passed: true
 - blocking_reasons: []
-- warnings: 9
+- warnings: 10
 
 ## Boundary
 - run_daily_called: false

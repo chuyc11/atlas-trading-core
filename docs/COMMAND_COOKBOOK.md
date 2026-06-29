@@ -55,6 +55,22 @@ python -m trading_core.cli build-and-audit-a-share-ops-history-baseline --as-of-
 
 This path appends real ops run history and builds operational baselines only. It does not synthesize history, generate orders, connect a broker, call old run-daily, execute official day2, or treat trends as trade instructions.
 
+## Run v0.8.7 A-share gated build_from_existing_data dry-run
+
+```bash
+python -m trading_core.cli validate-a-share-gated-build-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-gated-build-from-existing-data --as-of-date 2026-06-26 --mode run_gated_build_from_existing_data
+python -m trading_core.cli audit-a-share-gated-build-from-existing-data --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-gated-build-from-existing-data --as-of-date 2026-06-26 --mode run_gated_build_from_existing_data
+```
+
+This path requires the preflight gate, uses `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not call old `run-daily`, does not connect a broker, and does not generate orders or buy/sell signals.
+
 ## Run v0.7 external project intake
 
 ```bash

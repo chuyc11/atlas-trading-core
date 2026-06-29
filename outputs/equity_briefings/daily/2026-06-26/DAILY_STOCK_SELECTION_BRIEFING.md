@@ -1,7 +1,7 @@
 # A 股全市场 AI 选股研究简报 - 2026-06-26
 
 - as_of_date: 2026-06-26
-- generated_at: 2026-06-28T03:20:25.457000Z
+- generated_at: 2026-06-29T18:41:36.763470Z
 - current_version: v0.7.7-a-share-daily-stock-selection-briefing
 - input_chain: v0.7.3 features -> v0.7.4 scores -> v0.7.5 candidates -> v0.7.6 virtual portfolios -> v0.7.7 briefing
 - data_sources: existing score, candidate, virtual portfolio, exposure, risk/liquidity, and audit artifacts

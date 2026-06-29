@@ -21,6 +21,11 @@
     },
     {
       "source": "workflow",
+      "warning": "git status is not clean; release gate must be checked after implementation commit",
+      "classification": "warning"
+    },
+    {
+      "source": "workflow",
       "warning": "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
       "classification": "warning"
     },
@@ -50,7 +55,7 @@
       "classification": "warning"
     }
   ],
-  "warning_count": 9,
+  "warning_count": 10,
   "blocking_warning_count": 0,
   "known_warnings_carried_forward": [
     "daily_basic:required_field_all_null",

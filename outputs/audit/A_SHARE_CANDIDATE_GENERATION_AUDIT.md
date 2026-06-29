@@ -6,7 +6,7 @@
 - blocking_reasons: []
 - warnings: 0
 - counts: {'strict_tradable_count': 3676, 'scored_symbols': 3676, 'long_candidates': 30, 'mid_candidates': 30, 'short_candidates': 30, 'extended_watch_pool': 300, 'multi_horizon_candidates': 50, 'risk_downgraded_candidates': 294}
-- forbidden_artifacts: {'virtual_portfolio_artifacts_present': [], 'buy_sell_signal_artifacts_present': [], 'order_preview_artifacts_present': []}
+- forbidden_artifacts: {'virtual_portfolio_artifacts_present': ['C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios', 'C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_portfolios'], 'buy_sell_signal_artifacts_present': [], 'order_preview_artifacts_present': []}
 
 ## Boundary
 - Candidate generation only.

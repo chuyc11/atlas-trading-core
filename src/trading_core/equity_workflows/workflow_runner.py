@@ -283,10 +283,20 @@ def _execute_build_stage(definition: dict[str, Any], config: WorkflowConfig, pat
         return audit_a_share_multi_horizon_features(paths=paths, as_of_date=as_of_date, allow_latest_tradable_universe=config.allow_latest_artifact_date)
     if stage_id == "stage_04_scoring":
         build_a_share_scores(paths=paths, as_of_date=as_of_date, allow_latest_feature_date=config.allow_latest_artifact_date)
-        return audit_a_share_scores(paths=paths, as_of_date=as_of_date, allow_latest_feature_date=config.allow_latest_artifact_date)
+        return audit_a_share_scores(
+            paths=paths,
+            as_of_date=as_of_date,
+            allow_latest_feature_date=config.allow_latest_artifact_date,
+            allow_existing_downstream_artifacts=config.mode == BUILD_FROM_EXISTING_DATA,
+        )
     if stage_id == "stage_05_candidate_generation":
         generate_a_share_candidates(paths=paths, as_of_date=as_of_date, allow_latest_score_date=config.allow_latest_artifact_date)
-        return audit_a_share_candidates(paths=paths, as_of_date=as_of_date, allow_latest_score_date=config.allow_latest_artifact_date)
+        return audit_a_share_candidates(
+            paths=paths,
+            as_of_date=as_of_date,
+            allow_latest_score_date=config.allow_latest_artifact_date,
+            allow_existing_downstream_artifacts=config.mode == BUILD_FROM_EXISTING_DATA,
+        )
     if stage_id == "stage_06_virtual_portfolio_construction":
         build_a_share_virtual_portfolios(paths=paths, as_of_date=as_of_date, allow_latest_candidate_date=config.allow_latest_artifact_date)
         return audit_a_share_virtual_portfolios(paths=paths, as_of_date=as_of_date, allow_latest_candidate_date=config.allow_latest_artifact_date)

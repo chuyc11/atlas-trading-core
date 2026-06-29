@@ -4,6 +4,7 @@
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
   "allow_latest_feature_date": false,
+  "allow_existing_downstream_artifacts": true,
   "overall_passed": true,
   "blocking_reasons": [],
   "warnings": [
@@ -93,9 +94,15 @@
     }
   },
   "forbidden_artifacts": {
-    "candidate_artifacts_present": [],
+    "candidate_artifacts_present": [
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-06-26\\long_candidates.json",
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-06-26\\mid_candidates.json",
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-06-26\\short_candidates.json"
+    ],
     "watchlist_artifacts_present": [],
-    "virtual_portfolio_artifacts_present": []
+    "virtual_portfolio_artifacts_present": [
+      "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios"
+    ]
   },
   "forbidden_wording_hits": [],
   "artifacts": {

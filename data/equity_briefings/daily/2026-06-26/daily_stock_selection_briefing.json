@@ -3,7 +3,7 @@
   "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-28T03:20:25.457000Z",
+  "generated_at": "2026-06-29T18:41:36.763470Z",
   "input_versions": {
     "feature_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
     "score_version": "v0.7.4-a-share-long-mid-short-scoring-system",

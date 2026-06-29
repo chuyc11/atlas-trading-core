@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-TRADABLE-UNIVERSE-MANIFEST",
   "target_version": "v0.7.2-a-share-tradable-universe-filter",
   "as_of_date": "2026-06-26",
-  "created_at": "2026-06-27T11:20:31.171827Z",
+  "created_at": "2026-06-29T18:39:27.965945Z",
   "counts": {
     "equity_master_symbols": 5867,
     "input_symbols": 5867,
@@ -24,12 +24,12 @@
     "filter_reason_breakdown": "data/equity_selection/daily/2026-06-26/filter_reason_breakdown.json"
   },
   "artifact_hashes": {
-    "filter_config": "ccb4d62864ec24b2c547bd6548bdc0a78707e5e3e7ff0c6c43a8f46a76876dc1",
-    "tradable_universe_json": "3a28e0d6b5a53260d1e61535d99230fff50e9b4262355e4ce6e0e0046d7b91eb",
-    "tradable_universe_parquet": "caaf23cc82ded8d5a8f630383146a16103f597fbcc46af9a0dd2efc8445ed412",
-    "strict_tradable_universe_json": "3a28e0d6b5a53260d1e61535d99230fff50e9b4262355e4ce6e0e0046d7b91eb",
+    "filter_config": "5b05523a0b8261bd86f1462d070fc5735a8d61fb307b3f1418829366dc2beaae",
+    "tradable_universe_json": "f680cae08302fd5d45147ef3cf4a5ee18fe9f07d6a5217dd289b3b4406be407f",
+    "tradable_universe_parquet": "cc0aeda466d9a3bdc6588177ee3777ca01fd2281fed48c29c283190578242b4c",
+    "strict_tradable_universe_json": "f680cae08302fd5d45147ef3cf4a5ee18fe9f07d6a5217dd289b3b4406be407f",
     "caution_universe": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
-    "excluded_universe": "65ccdcf4a6a39bfa343bced756632a1650a12498c9c3b433d57c59e56bee0d2a",
+    "excluded_universe": "99b7f192c3a2f8b7ffcabcccdf3d46ae0a5c874552a98ad2676c416dacabb65c",
     "unknown_status_universe": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
     "filter_reason_breakdown": "b5dc7d5e8c4bea0e750e341cb0e97ce776c5f9969cc580643daf900a214a2a67"
   },

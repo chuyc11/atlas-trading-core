@@ -1,0 +1,33 @@
+{
+  "execution_id": "A-SHARE-GATED-BUILD-FROM-EXISTING-DATA-EXECUTION",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "workflow_mode": "build_from_existing_data",
+  "command": "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode build_from_existing_data",
+  "command_executed": true,
+  "exit_code": 0,
+  "status": "passed",
+  "started_at": "2026-06-29T18:38:58.165897Z",
+  "finished_at": "2026-06-29T18:41:40.372016Z",
+  "duration_seconds": 162.206,
+  "workflow_audit_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_current_day_research_run_audit.json",
+  "workflow_audit_overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "git status is not clean; release gate must be checked after implementation commit",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ],
+  "old_run_daily_called": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "buy_sell_signals_generated": false,
+  "order_preview_generated": false
+}

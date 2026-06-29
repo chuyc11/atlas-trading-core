@@ -34,3 +34,15 @@ The dashboard does not refresh data, rerun workflow, call old `run-daily`, execu
 v0.8.3 consumes the v0.8.2 owner dashboard and v0.8.1 current-day run audit trail to build local alert and run-history monitoring. It does not invoke the current-day runner, does not rerun workflow, does not refresh data, and does not send external notifications by default.
 
 Alerts are system-health prompts only. They are not trading instructions, broker status, real-account state, or order plans.
+
+## v0.8.7 Gated build_from_existing_data Dry-Run
+
+v0.8.7 runs the first preflight-gated current-day `build_from_existing_data` dry-run after the v0.8.0-v0.8.6 data, current-day, ops center, and ops history audits pass.
+
+The gated path uses:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-gated-build-from-existing-data --as-of-date 2026-06-26 --mode run_gated_build_from_existing_data
+```
+
+It does not refresh public network data, does not run `full_research_run`, does not call old `run-daily`, does not execute official forward dry-run day2, does not connect broker, does not place orders, and does not treat build output as trade instruction.

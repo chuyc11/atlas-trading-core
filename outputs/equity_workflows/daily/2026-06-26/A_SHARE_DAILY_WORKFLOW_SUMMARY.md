@@ -1,7 +1,7 @@
 # A 股每日研究工作流汇总
 
 - 日期: 2026-06-26
-- 模式: validate_existing_artifacts
+- 模式: build_from_existing_data
 - 总体状态: 通过
 - research_only: true
 - virtual_only: true
@@ -14,7 +14,7 @@
 
 | 阶段 | 名称 | 状态 | 警告 | 阻断 |
 |---|---|---|---:|---:|
-| stage_00_preflight | preflight | passed | 0 | 0 |
+| stage_00_preflight | preflight | passed | 1 | 0 |
 | stage_01_data_readiness | data_readiness | passed | 0 | 0 |
 | stage_02_tradable_universe | tradable_universe | passed | 1 | 0 |
 | stage_03_feature_engineering | feature_engineering | passed | 0 | 0 |
@@ -40,7 +40,7 @@
 
 ## 警告与阻断
 
-- warnings: ['fundamental score confidence is partial', 'index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders', 'long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps', 'market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable', 'mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps', 'raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage', 'short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps']
+- warnings: ['fundamental score confidence is partial', 'git status is not clean; release gate must be checked after implementation commit', 'index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders', 'long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps', 'market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable', 'mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps', 'raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage', 'short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps']
 - blocking_reasons: []
 
 ## 边界摘要

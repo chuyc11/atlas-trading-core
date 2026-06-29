@@ -1,0 +1,16 @@
+{
+  "alignment_id": "A-SHARE-GATED-BUILD-DATE-ALIGNMENT",
+  "target_version": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+  "as_of_date": "2026-06-26",
+  "resolved_dates": {
+    "ops_history_audit": "2026-06-26",
+    "ops_center_audit": "2026-06-26",
+    "current_day_audit": "2026-06-26",
+    "data_refresh_audit": "2026-06-26"
+  },
+  "misaligned": [],
+  "allow_date_mismatch": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

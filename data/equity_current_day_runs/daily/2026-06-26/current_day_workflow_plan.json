@@ -3,8 +3,8 @@
   "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
   "as_of_date": "2026-06-26",
   "resolved_as_of_date": "2026-06-26",
-  "workflow_command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode validate_existing_artifacts",
-  "workflow_mode": "validate_existing_artifacts",
+  "workflow_command": "python -m trading_core.cli run-and-audit-a-share-daily-research-workflow --as-of-date 2026-06-26 --mode build_from_existing_data",
+  "workflow_mode": "build_from_existing_data",
   "stage_order": [
     {
       "stage_id": "stage_00_preflight",
