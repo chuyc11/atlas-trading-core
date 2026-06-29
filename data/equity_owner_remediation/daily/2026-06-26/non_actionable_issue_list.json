@@ -1,0 +1,49 @@
+{
+  "list_id": "A-SHARE-OWNER-REMEDIATION-NON-ACTIONABLE-ISSUE-LIST",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "items": [
+    {
+      "issue_code": "insufficient_history_for_trends",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "performance_not_yet_observed",
+      "why_no_immediate_action_is_required": "首日或早期组合表现样本不足，只能记录观察。",
+      "what_future_data_will_resolve_it": "积累多日 tracking 和 performance artifacts。",
+      "when_it_should_be_escalated": "多日表现审计失败或出现 blocking boundary issue。"
+    },
+    {
+      "issue_code": "daily_basic:required_field_all_null",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "portfolio observation history is below the minimum required window",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "portfolio relative metrics limited by first-day initialization",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    },
+    {
+      "issue_code": "REPEATED_KNOWN_WARNING",
+      "why_no_immediate_action_is_required": "上游 audit 已通过，当前按已知非阻塞事项记录。",
+      "what_future_data_will_resolve_it": "后续数据刷新或更多历史样本可能自然消除该 warning。",
+      "when_it_should_be_escalated": "同一 warning 重复并伴随 audit failure 或 boundary failure。"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "summary_id": "A-SHARE-OWNER-REMEDIATION-SUMMARY",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "mode": "build_remediation_runbook",
+  "issue_count": 17,
+  "blocking_issue_count": 0,
+  "warning_issue_count": 10,
+  "known_non_blocking_issue_count": 5,
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "execute_remediation_actions": false,
+  "external_notifications_sent": false,
+  "priority_status": "manual_review_required",
+  "recommended_next_version": "v0.8.5-a-share-daily-ops-command-center"
+}

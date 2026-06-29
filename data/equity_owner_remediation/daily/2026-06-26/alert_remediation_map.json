@@ -1,0 +1,682 @@
+{
+  "map_id": "A-SHARE-OWNER-ALERT-REMEDIATION-MAP",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "map_type": "alert_remediation",
+  "items": [
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-BLOCKING-AUDIT-FAILURE",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "BLOCKING_AUDIT_FAILURE",
+      "category": "unknown_issue",
+      "severity": "informational",
+      "owner_summary_zh": "BLOCKING_AUDIT_FAILURE 尚未纳入固定映射，需人工分类。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue repeats or cannot be mapped to a documented remediation category.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "issue_catalog.json"
+      ],
+      "explicitly_classified_unknown": true
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-BOUNDARY-VIOLATION",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "BOUNDARY_VIOLATION",
+      "category": "boundary_issue",
+      "severity": "critical",
+      "owner_summary_zh": "BOUNDARY_VIOLATION 需要按 boundary_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Stop release validation and inspect boundary check details.",
+        "Escalate before running any further workflow."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_boundary_check.json",
+        "dashboard_boundary_check.json",
+        "current_day_boundary_check.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-BROKER-OR-ORDER-SURFACE-DETECTED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "BROKER_OR_ORDER_SURFACE_DETECTED",
+      "category": "boundary_issue",
+      "severity": "critical",
+      "owner_summary_zh": "BROKER_OR_ORDER_SURFACE_DETECTED 需要按 boundary_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Stop release validation and inspect boundary check details.",
+        "Escalate before running any further workflow."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_boundary_check.json",
+        "dashboard_boundary_check.json",
+        "current_day_boundary_check.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-COVERAGE-VALIDATION-FAILED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "COVERAGE_VALIDATION_FAILED",
+      "category": "coverage_issue",
+      "severity": "critical",
+      "owner_summary_zh": "COVERAGE_VALIDATION_FAILED 需要按 coverage_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review coverage summary and gap report.",
+        "Identify the affected dataset and symbol scope."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "dataset_coverage_summary.json",
+        "data_gap_report.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-CURRENT-DAY-RUN-FAILURE",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "CURRENT_DAY_RUN_FAILURE",
+      "category": "workflow_issue",
+      "severity": "critical",
+      "owner_summary_zh": "CURRENT_DAY_RUN_FAILURE 需要按 workflow_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review current-day run audit and workflow manifest.",
+        "Confirm all expected research artifacts are present."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "current_day_run_manifest.json",
+        "a_share_current_day_research_run_audit.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-DASHBOARD-AUDIT-FAILED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "DASHBOARD_AUDIT_FAILED",
+      "category": "dashboard_issue",
+      "severity": "critical",
+      "owner_summary_zh": "DASHBOARD_AUDIT_FAILED 需要按 dashboard_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review owner dashboard audit and dashboard boundary check.",
+        "Confirm required cards are present."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "dashboard_summary.json",
+        "a_share_owner_dashboard_audit.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-DATA-FRESHNESS-DEGRADED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "DATA_FRESHNESS_DEGRADED",
+      "category": "freshness_issue",
+      "severity": "warning",
+      "owner_summary_zh": "DATA_FRESHNESS_DEGRADED 需要按 freshness_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review dataset freshness validation.",
+        "Confirm whether the requested date is covered by existing local data."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "dataset_freshness_validation.json",
+        "data_gap_report.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-DATA-REFRESH-FAILURE",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "DATA_REFRESH_FAILURE",
+      "category": "data_refresh_issue",
+      "severity": "critical",
+      "owner_summary_zh": "DATA_REFRESH_FAILURE 需要按 data_refresh_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "issue_catalog.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-DAY2-EXECUTED-DETECTED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "DAY2_EXECUTED_DETECTED",
+      "category": "boundary_issue",
+      "severity": "critical",
+      "owner_summary_zh": "DAY2_EXECUTED_DETECTED 需要按 boundary_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Stop release validation and inspect boundary check details.",
+        "Escalate before running any further workflow."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_boundary_check.json",
+        "dashboard_boundary_check.json",
+        "current_day_boundary_check.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-FORBIDDEN-WORDING-DETECTED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "FORBIDDEN_WORDING_DETECTED",
+      "category": "boundary_issue",
+      "severity": "critical",
+      "owner_summary_zh": "FORBIDDEN_WORDING_DETECTED 需要按 boundary_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Stop release validation and inspect boundary check details.",
+        "Escalate before running any further workflow."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_boundary_check.json",
+        "dashboard_boundary_check.json",
+        "current_day_boundary_check.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-MISSING-REQUIRED-ARTIFACT",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "MISSING_REQUIRED_ARTIFACT",
+      "category": "documentation_issue",
+      "severity": "critical",
+      "owner_summary_zh": "MISSING_REQUIRED_ARTIFACT 需要按 documentation_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "issue_catalog.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-MONITORING-AUDIT-FAILED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "MONITORING_AUDIT_FAILED",
+      "category": "monitoring_issue",
+      "severity": "critical",
+      "owner_summary_zh": "MONITORING_AUDIT_FAILED 需要按 monitoring_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review owner monitoring audit and alert event log.",
+        "Confirm monitoring boundary remains clean."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-owner-monitoring --as-of-date 2026-06-26 --mode build_monitoring_dashboard"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_summary.json",
+        "a_share_owner_monitoring_audit.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-OLD-RUN-DAILY-DETECTED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "OLD_RUN_DAILY_DETECTED",
+      "category": "boundary_issue",
+      "severity": "critical",
+      "owner_summary_zh": "OLD_RUN_DAILY_DETECTED 需要按 boundary_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Stop release validation and inspect boundary check details.",
+        "Escalate before running any further workflow."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "monitoring_boundary_check.json",
+        "dashboard_boundary_check.json",
+        "current_day_boundary_check.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-OWNER-DASHBOARD-FAILURE",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "OWNER_DASHBOARD_FAILURE",
+      "category": "dashboard_issue",
+      "severity": "critical",
+      "owner_summary_zh": "OWNER_DASHBOARD_FAILURE 需要按 dashboard_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review owner dashboard audit and dashboard boundary check.",
+        "Confirm required cards are present."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "dashboard_summary.json",
+        "a_share_owner_dashboard_audit.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-PROVIDER-HEALTH-DEGRADED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "PROVIDER_HEALTH_DEGRADED",
+      "category": "provider_issue",
+      "severity": "warning",
+      "owner_summary_zh": "PROVIDER_HEALTH_DEGRADED 需要按 provider_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review provider health and fallback reports.",
+        "Check whether the provider issue is transient or repeated."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "provider_health_check.json",
+        "provider_fallback_report.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-REPEATED-KNOWN-WARNING",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "REPEATED_KNOWN_WARNING",
+      "category": "unknown_issue",
+      "severity": "informational",
+      "owner_summary_zh": "REPEATED_KNOWN_WARNING 尚未纳入固定映射，需人工分类。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue repeats or cannot be mapped to a documented remediation category.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "issue_catalog.json"
+      ],
+      "explicitly_classified_unknown": true
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-SCHEMA-VALIDATION-FAILED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "SCHEMA_VALIDATION_FAILED",
+      "category": "schema_issue",
+      "severity": "critical",
+      "owner_summary_zh": "SCHEMA_VALIDATION_FAILED 需要按 schema_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review schema validation details.",
+        "Check whether known nullable fields are documented."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "dataset_schema_validation.json",
+        "data_gap_report.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-TREND-ANALYSIS-INSUFFICIENT-HISTORY",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "category": "insufficient_history_issue",
+      "severity": "informational",
+      "owner_summary_zh": "运行历史样本不足，趋势判断应等待更多观察。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Confirm run history observation count.",
+        "Wait for more daily observations before interpreting trend direction."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Document that trend analysis is intentionally unavailable until the minimum observation count is reached."
+      ],
+      "escalation_condition": "Escalate if the issue persists after safe validation artifacts are regenerated by a human.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "run_history_snapshot.json",
+        "warning_trend_snapshot.json"
+      ],
+      "explicitly_classified_unknown": false
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-WARNING-COUNT-INCREASE",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "WARNING_COUNT_INCREASE",
+      "category": "unknown_issue",
+      "severity": "informational",
+      "owner_summary_zh": "WARNING_COUNT_INCREASE 尚未纳入固定映射，需人工分类。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Classify the issue manually and document why it is safe or unsafe to proceed."
+      ],
+      "safe_rerun_commands": [],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate if the issue repeats or cannot be mapped to a documented remediation category.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "issue_catalog.json"
+      ],
+      "explicitly_classified_unknown": true
+    },
+    {
+      "remediation_id": "A-SHARE-OWNER-REMEDIATION-WORKFLOW-AUDIT-FAILED",
+      "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "as_of_date": "2026-06-26",
+      "issue_code": "WORKFLOW_AUDIT_FAILED",
+      "category": "workflow_issue",
+      "severity": "critical",
+      "owner_summary_zh": "WORKFLOW_AUDIT_FAILED 需要按 workflow_issue 的安全排查步骤处理。",
+      "safe_diagnostic_steps": [
+        "Open the source artifact listed in the issue catalog.",
+        "Confirm the related upstream audit status before any rerun plan is considered.",
+        "Review current-day run audit and workflow manifest.",
+        "Confirm all expected research artifacts are present."
+      ],
+      "safe_rerun_commands": [
+        "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts"
+      ],
+      "manual_review_steps": [
+        "Owner reviews the referenced artifacts.",
+        "Developer review is required if a boundary, missing artifact, or failed audit is present."
+      ],
+      "escalation_condition": "Escalate immediately if the audit is failing or boundary check is not clean.",
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "expected_artifacts_to_check": [
+        "current_day_run_manifest.json",
+        "a_share_current_day_research_run_audit.json"
+      ],
+      "explicitly_classified_unknown": false
+    }
+  ]
+}

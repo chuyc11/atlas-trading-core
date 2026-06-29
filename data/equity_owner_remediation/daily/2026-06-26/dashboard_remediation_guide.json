@@ -1,0 +1,44 @@
+{
+  "guide_id": "A-SHARE-DASHBOARD-REMEDIATION-GUIDE",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "applicable_issue_categories": [
+    "dashboard_issue"
+  ],
+  "safe_diagnostic_steps": [
+    "Open owner dashboard audit.",
+    "Open dashboard_summary.json.",
+    "Confirm required dashboard cards are present and boundary is clean."
+  ],
+  "safe_artifacts_to_open": [
+    "data/equity_data_quality/a_share_owner_dashboard_audit.json",
+    "data/equity_owner_dashboard/daily/2026-06-26/dashboard_summary.json"
+  ],
+  "safe_cli_checks": [
+    "python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run"
+  ],
+  "manual_review_required": true,
+  "owner_decision_points": [
+    "Decide whether the issue is understood.",
+    "Decide whether developer escalation is required."
+  ],
+  "disallowed_actions": [
+    "do not connect broker",
+    "do not read real account",
+    "do not place orders",
+    "do not generate buy or sell signals",
+    "do not treat remediation as a trade instruction"
+  ],
+  "success_criteria": [
+    "Relevant audit is passing.",
+    "Boundary remains clean.",
+    "Source trace is complete."
+  ],
+  "failure_escalation": "Escalate to developer if validation remains failing or any boundary field is unsafe.",
+  "disclaimer": [
+    "This guide is not an investment recommendation.",
+    "This guide does not authorize trades.",
+    "This guide does not connect broker.",
+    "This guide does not place orders."
+  ]
+}

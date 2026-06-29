@@ -1,0 +1,179 @@
+{
+  "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "issue_count": 17,
+  "items": [
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "VERIFY-AUDITS",
+      "priority": "P0",
+      "category": "audit",
+      "title_zh": "检查 audit 是否通过",
+      "description_zh": "确认 data refresh、current-day、dashboard、monitoring audit 都通过。",
+      "safe_action_type": "verify_audit",
+      "command_if_any": null,
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "CHECK-WARNINGS",
+      "priority": "P1",
+      "category": "warning",
+      "title_zh": "检查 warning 是否为已知非阻塞",
+      "description_zh": "逐条确认 warning 已映射或明确分类为 unknown。",
+      "safe_action_type": "document_known_warning",
+      "command_if_any": null,
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "CHECK-SOURCE-TRACE",
+      "priority": "P1",
+      "category": "source_trace",
+      "title_zh": "检查 source trace 是否完整",
+      "description_zh": "确认 remediation source trace 没有禁用来源。",
+      "safe_action_type": "inspect_artifact",
+      "command_if_any": null,
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "CHECK-BOUNDARY",
+      "priority": "P0",
+      "category": "boundary",
+      "title_zh": "检查 boundary 是否干净",
+      "description_zh": "确认没有 broker、真实账户、订单、旧 run-daily 或 day2 执行痕迹。",
+      "safe_action_type": "verify_audit",
+      "command_if_any": null,
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "REVIEW-DATA-VALIDATION",
+      "priority": "P1",
+      "category": "data",
+      "title_zh": "检查是否需要安全重跑数据验证",
+      "description_zh": "仅作为人工可复核命令，不由本 builder 执行。",
+      "safe_action_type": "rerun_safe_data_validation",
+      "command_if_any": "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data",
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "REVIEW-CURRENT-DAY-VALIDATION",
+      "priority": "P1",
+      "category": "workflow",
+      "title_zh": "检查是否需要安全重跑 current-day validation",
+      "description_zh": "仅验证既有 artifacts，不自动刷新数据。",
+      "safe_action_type": "rerun_safe_current_day_research_validation",
+      "command_if_any": "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts",
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "REVIEW-DASHBOARD-MONITORING",
+      "priority": "P1",
+      "category": "dashboard_monitoring",
+      "title_zh": "检查是否需要安全重跑 dashboard / monitoring",
+      "description_zh": "仅由 owner 人工决定是否执行本地验证命令。",
+      "safe_action_type": "rerun_safe_dashboard_build",
+      "command_if_any": "python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run",
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    },
+    {
+      "checklist_id": "A-SHARE-OWNER-SAFE-ACTION-CHECKLIST",
+      "item_id": "WAIT-HISTORY",
+      "priority": "P4",
+      "category": "history",
+      "title_zh": "检查是否需要等待更多历史数据",
+      "description_zh": "如果趋势样本不足，记录并等待更多日度观察。",
+      "safe_action_type": "wait_for_more_history",
+      "command_if_any": null,
+      "expected_output": "Audit stays passed, source trace complete, boundary clean.",
+      "manual_review_required": true,
+      "allowed_to_execute_automatically": false,
+      "disallowed_actions": [
+        "do not connect broker",
+        "do not read real account",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not treat remediation as a trade instruction"
+      ],
+      "status": "pending_manual_review"
+    }
+  ],
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "blocking_reasons": []
+}

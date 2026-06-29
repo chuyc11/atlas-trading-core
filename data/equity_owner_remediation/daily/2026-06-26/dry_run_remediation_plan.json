@@ -1,0 +1,57 @@
+{
+  "plan_id": "A-SHARE-OWNER-REMEDIATION-DRY-RUN-PLAN",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "execute_remediation_actions": false,
+  "dry_run_only": true,
+  "planned_actions": [
+    {
+      "item_id": "VERIFY-AUDITS",
+      "safe_action_type": "verify_audit",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "CHECK-WARNINGS",
+      "safe_action_type": "document_known_warning",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "CHECK-SOURCE-TRACE",
+      "safe_action_type": "inspect_artifact",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "CHECK-BOUNDARY",
+      "safe_action_type": "verify_audit",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "REVIEW-DATA-VALIDATION",
+      "safe_action_type": "rerun_safe_data_validation",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "REVIEW-CURRENT-DAY-VALIDATION",
+      "safe_action_type": "rerun_safe_current_day_research_validation",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "REVIEW-DASHBOARD-MONITORING",
+      "safe_action_type": "rerun_safe_dashboard_build",
+      "manual_review_required": true
+    },
+    {
+      "item_id": "WAIT-HISTORY",
+      "safe_action_type": "wait_for_more_history",
+      "manual_review_required": true
+    }
+  ],
+  "commands_to_review": [
+    "python -m trading_core.cli build-and-audit-a-share-daily-data-refresh --as-of-date 2026-06-26 --mode validate_existing_data",
+    "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts",
+    "python -m trading_core.cli build-and-audit-a-share-owner-dashboard --as-of-date 2026-06-26 --mode build_dashboard_from_existing_run"
+  ],
+  "commands_executed": [],
+  "external_side_effects": false,
+  "broker_or_order_side_effects": false
+}

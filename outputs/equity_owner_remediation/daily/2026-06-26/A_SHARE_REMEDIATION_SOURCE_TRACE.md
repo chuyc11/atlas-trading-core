@@ -1,0 +1,69 @@
+# A Share Remediation Source Trace
+
+- source trace complete: True
+
+## source_artifacts
+
+- data/equity_data_quality/a_share_owner_monitoring_audit.json | exists=True | sha256=27f1717f6fe5022abf042035604b5919fb0e72d3118c12cd730356b79e5e19ba
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_config.json | exists=True | sha256=94823289c88c15c6557d7a81ec9f763964fc346c41fea0e2891773e62337ff2d
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_input_availability.json | exists=True | sha256=5cae9d99294ca2c2032344467132ed6bc34ae2e2d8d79bac7abee122346b568a
+- data/equity_owner_monitoring/daily/2026-06-26/run_history_snapshot.json | exists=True | sha256=207e1910362d362b4e16c5cb08fbbdfe77f9e5e5a654e9868b563a8d40f94d6d
+- data/equity_owner_monitoring/daily/2026-06-26/alert_rule_config.json | exists=True | sha256=d693a1fdab89eed5619721b661f97cfe35280bd708c684d83bb1e03a607d26e8
+- data/equity_owner_monitoring/daily/2026-06-26/alert_evaluation_result.json | exists=True | sha256=fa6a95d9fddd2716f95b5a25817470545e58a230f7e9b0297eeb34e18aff492d
+- data/equity_owner_monitoring/daily/2026-06-26/alert_event_log.json | exists=True | sha256=2fe7d90fa754395c03a2a8e2b5f5eb5b4e28fb48ec13ecaacad300a839b2672c
+- data/equity_owner_monitoring/daily/2026-06-26/warning_trend_snapshot.json | exists=True | sha256=f63b68995397f1e90d729b0886e86bedde8dba99c25ee865a206b5acdad7ce60
+- data/equity_owner_monitoring/daily/2026-06-26/blocking_trend_snapshot.json | exists=True | sha256=abe70269addea299593f168692377b05a17d717c2cc3e7e530950017c902a0ba
+- data/equity_owner_monitoring/daily/2026-06-26/provider_health_trend_snapshot.json | exists=True | sha256=be90d8ae6cf2469222a289c716f457a1917c83d5ef335aeee480b61942ae31f0
+- data/equity_owner_monitoring/daily/2026-06-26/workflow_health_trend_snapshot.json | exists=True | sha256=f21877c2f5bdda0eff67d6268ec56950794c533c62b1391ae460734dc84d11bd
+- data/equity_owner_monitoring/daily/2026-06-26/dashboard_health_trend_snapshot.json | exists=True | sha256=a9c0e987687f3777ec8af0530126a3c2fca684637240ba4021675dad45a0c9f7
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_status_card.json | exists=True | sha256=4f4bf7245ba5af052298f0561feb56ea8e58cb3dcc09bec50f8228f9ed62253d
+- data/equity_owner_monitoring/daily/2026-06-26/owner_alert_summary_card.json | exists=True | sha256=a7d61247cb1c23d41d2f33a597a0e96d1ec50e810a6008179c926cd24b558ae9
+- data/equity_owner_monitoring/daily/2026-06-26/run_history_summary_card.json | exists=True | sha256=67f16099d7da026c411ecf332188872db7912d03b2a1297a0d6829c9a666a9bf
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_source_trace.json | exists=True | sha256=9741dfaf74722d4402862974310979c67c7fa9337e1a4fad368f1a8ee0550ace
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_boundary_check.json | exists=True | sha256=f18770fcf851e681f6867557196b1a556bfb0f7df7b98253ecdc63868000af9d
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_manifest.json | exists=True | sha256=082fb895684b9843754b8c18b0ac177b196f52b3a2391c41598e75c023521a6b
+- data/equity_owner_monitoring/daily/2026-06-26/monitoring_summary.json | exists=True | sha256=45b597e2f715cbc24fe3e05d3c3676ac611c0d6c64e07bd0903bfde3aefb12d7
+- data/equity_owner_dashboard/daily/2026-06-26/warning_and_blocker_card.json | exists=True | sha256=c41a0358181e72ac8687dc6e3a112ad06e17dc68ced537999691b6da891a8ad8
+- data/equity_owner_dashboard/daily/2026-06-26/dashboard_boundary_check.json | exists=True | sha256=e70e61c89992e397c0010af2d268a538043e95e1443398798aaf5ca6236f23f2
+- data/equity_owner_dashboard/daily/2026-06-26/dashboard_summary.json | exists=True | sha256=1f999ac51e02fa446988ada4a4bef7f674ff2c0b5f9002163e3235271ce25918
+- data/equity_data_quality/a_share_owner_dashboard_audit.json | exists=True | sha256=3c9ca016fd6cbf7c9177d4abe5f3ba885c7ad5b3de293dc605fe21c2bcd0d202
+- data/equity_current_day_runs/daily/2026-06-26/current_day_warning_summary.json | exists=True | sha256=2a3e5e87a976c60df99cab0161b2ae00c76b56b47ab08de7c1f0aa5b8bbe75c3
+- data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json | exists=True | sha256=f2042c7e917d8d07795128985674cd60f5bde628205101c82b38e7826036da84
+- data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json | exists=True | sha256=e8b9973031413eba430d9d835f2391465d70f278e04054d664d20a205ae2222b
+- data/equity_data_quality/a_share_current_day_research_run_audit.json | exists=True | sha256=fffab67fe6dd03edd98c30429c777d2a78c4c5f6ed5bdaf8f3af73a8a1df7960
+- data/equity_data_refresh/daily/2026-06-26/data_gap_report.json | exists=True | sha256=c274fa33e1fc9340491df2577003ce62edb29c469322ec9c13a453833b60650a
+- data/equity_data_refresh/daily/2026-06-26/provider_fallback_report.json | exists=True | sha256=a9fc434dac887ba799662d16df3967ba40568d4e26b3d6ebb35165683c3388f0
+- data/equity_data_refresh/daily/2026-06-26/provider_health_check.json | exists=True | sha256=5710280f832b1ed74519c3daa3957e0f5e84dd7a6e4d0ebea49232ef1c043c5d
+- data/equity_data_refresh/daily/2026-06-26/dataset_schema_validation.json | exists=True | sha256=2e58e95a4c556abad625ad0266589477ff00ac4a9cf5585087b7e158e09a9585
+- data/equity_data_refresh/daily/2026-06-26/dataset_freshness_validation.json | exists=True | sha256=6326a4280a539e15db133ece547ce73e63997122a64f73ed81ce1faa1bd619b4
+- data/equity_data_refresh/daily/2026-06-26/dataset_coverage_summary.json | exists=True | sha256=2c4c1179c7fb4cc4280cefd9ced30ceda62baff2c7e91b5b90270bfca8b3645a
+- data/equity_data_quality/a_share_daily_data_refresh_audit.json | exists=True | sha256=2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592
+
+## output_artifacts
+
+- data/equity_owner_remediation/daily/2026-06-26/remediation_config.json | exists=True | sha256=789dd5faf8987a7904ed7f4dec80744a87c5b5e316658f095a14285bba3be55f
+- data/equity_owner_remediation/daily/2026-06-26/remediation_input_availability.json | exists=True | sha256=a307cd742bd37d77c08fbc4255c6002db7d68e92f6b34bcb1539acba1c0c5d4d
+- data/equity_owner_remediation/daily/2026-06-26/issue_catalog.json | exists=True | sha256=2a1f45f1dc5330b6fc6aa1205a0b660ec0699f329ee1ab8f96c287415cb3873f
+- data/equity_owner_remediation/daily/2026-06-26/warning_remediation_map.json | exists=True | sha256=d8c00c69650c2627f8005706cc8289147822109f6ababf454dbe44ef0a37e184
+- data/equity_owner_remediation/daily/2026-06-26/blocking_remediation_map.json | exists=True | sha256=227bd2baa26183ec55a50fc1bd07e69b0ae72074739993761ac051dfa139d16e
+- data/equity_owner_remediation/daily/2026-06-26/alert_remediation_map.json | exists=True | sha256=33f8e17248d57b2d36814da06735aacd9827e47e2fd94a902d2043bda3e4e34b
+- data/equity_owner_remediation/daily/2026-06-26/provider_remediation_guide.json | exists=True | sha256=2fed8b82806c7b2bf3a57b1ed7e1d912743576697712afed7edeade4e5dae4f0
+- data/equity_owner_remediation/daily/2026-06-26/data_freshness_remediation_guide.json | exists=True | sha256=849d35284138e6a32784291b6be2f9939882b2a34d71f31f1bd634971e67a147
+- data/equity_owner_remediation/daily/2026-06-26/schema_coverage_remediation_guide.json | exists=True | sha256=aa158a096740f190172c20dd4bae40d44c8dd19b850310f5d4a4782d7bbe85b0
+- data/equity_owner_remediation/daily/2026-06-26/workflow_remediation_guide.json | exists=True | sha256=517ddd84a60cc79881d99750640e3d02c232aea428ebca4322646e8955344e74
+- data/equity_owner_remediation/daily/2026-06-26/dashboard_remediation_guide.json | exists=True | sha256=a2162fcf81bd555070fe3fd01bfda26137fd3ad2ee696535810cb100a57c7dc1
+- data/equity_owner_remediation/daily/2026-06-26/monitoring_remediation_guide.json | exists=True | sha256=1623cfb65d5561194c464826588ef772e40d3eb18db94fe006ec12a8f6ea1d71
+- data/equity_owner_remediation/daily/2026-06-26/safe_owner_action_checklist.json | exists=True | sha256=fb78360dbaefd38b957163ae3bfe7b7955e27751a99ebbd959c7d33c82ab3214
+- data/equity_owner_remediation/daily/2026-06-26/manual_verification_checklist.json | exists=True | sha256=251ee9fdadc47e93c5d0307fb1d083dd1e7d8d0771d9a4ff815eb5e6e2b9015d
+- data/equity_owner_remediation/daily/2026-06-26/non_actionable_issue_list.json | exists=True | sha256=492599774fdc46ee275cfc9e7b0c70b3ec02b46c9b1513c5ed83405f2dcd4a29
+- data/equity_owner_remediation/daily/2026-06-26/dry_run_remediation_plan.json | exists=True | sha256=38c917d82844c7127aefb1eabf2cb62f28c1b5e70496482a85f9e83ef0668a8f
+- data/equity_owner_remediation/daily/2026-06-26/remediation_priority_summary.json | exists=True | sha256=272865295acc92bb0e47a17fe5133f233cc05aacae1221aa798bbaaddd7222b9
+- data/equity_owner_remediation/daily/2026-06-26/remediation_source_trace.json | exists=True | sha256=c95923c5164793c03a3e8de320e67d57736302ec63f69c82821353c59589563e
+- data/equity_owner_remediation/daily/2026-06-26/remediation_boundary_check.json | exists=True | sha256=101099423398c6fe854e95320e69c22b55c6b35a4c56a20c2e76bc44768156c6
+- data/equity_owner_remediation/daily/2026-06-26/remediation_manifest.json | exists=True | sha256=a6a326cf4f07adfbb3f088b985e1a85b5b20e6444f11e3be2a742445655747b5
+- data/equity_owner_remediation/daily/2026-06-26/remediation_summary.json | exists=True | sha256=cdbfaa92c0a364f3ea23e427efd5dfc25236f63e1d33ca633da3a226aca1aeb4
+- outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_OWNER_REMEDIATION_RUNBOOK.md | exists=True | sha256=6af922587f31a10c5cb1931a7f0706b89d34314f1dea31354f43b40288ea8f3d
+- outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_SAFE_ACTION_CHECKLIST.md | exists=True | sha256=e91487fc6bf7f69579c3b0e957339c62566f6c68bc9668c55b9ac14f3cd86c73
+- outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_DATA_REMEDIATION_GUIDE.md | exists=True | sha256=d492fcb4da14f15a1434e347a3b66f3aa173329b5b30fae757f09afe0f9d7bf2
+- outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_WORKFLOW_REMEDIATION_GUIDE.md | exists=True | sha256=8047e07abaf28ae635daca4a1635b8f10451e661e4d0a7e7106a1eb9188aaf74
+- outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_REMEDIATION_SOURCE_TRACE.md | exists=True | sha256=9e9f26fa326feb83fa0b8bc0c8c9f7ab489637d3ea8216a191a2d10827a67bd3

@@ -89,6 +89,10 @@ from trading_core.equity_owner_monitoring.monitoring_builder import build_a_shar
 from trading_core.equity_owner_monitoring.monitoring_config import ALLOWED_MODES as A_SHARE_OWNER_MONITORING_MODES
 from trading_core.equity_owner_monitoring.monitoring_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_MONITORING_AS_OF_DATE
 from trading_core.equity_owner_monitoring.monitoring_config import DEFAULT_HISTORY_WINDOW_DAYS, DEFAULT_MINIMUM_HISTORY_OBSERVATIONS
+from trading_core.equity_owner_remediation.remediation_audit import audit_a_share_owner_remediation
+from trading_core.equity_owner_remediation.remediation_builder import build_a_share_owner_remediation, validate_a_share_owner_remediation_inputs
+from trading_core.equity_owner_remediation.remediation_config import ALLOWED_MODES as A_SHARE_OWNER_REMEDIATION_MODES
+from trading_core.equity_owner_remediation.remediation_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_REMEDIATION_AS_OF_DATE
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -977,6 +981,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_monitoring_arguments(owner_monitoring_audit, include_mode=False)
     owner_monitoring_all = subparsers.add_parser("build-and-audit-a-share-owner-monitoring")
     _add_a_share_owner_monitoring_arguments(owner_monitoring_all)
+    owner_remediation_validate = subparsers.add_parser("validate-a-share-owner-remediation-inputs")
+    _add_a_share_owner_remediation_arguments(owner_remediation_validate, include_mode=False)
+    owner_remediation_build = subparsers.add_parser("build-a-share-owner-remediation")
+    _add_a_share_owner_remediation_arguments(owner_remediation_build)
+    owner_remediation_audit = subparsers.add_parser("audit-a-share-owner-remediation")
+    _add_a_share_owner_remediation_arguments(owner_remediation_audit, include_mode=False)
+    owner_remediation_all = subparsers.add_parser("build-and-audit-a-share-owner-remediation")
+    _add_a_share_owner_remediation_arguments(owner_remediation_all)
 
     return parser
 
@@ -1122,6 +1134,20 @@ def _add_a_share_owner_monitoring_arguments(parser: argparse.ArgumentParser, *, 
     parser.add_argument("--minimum-history-observations", type=int, default=DEFAULT_MINIMUM_HISTORY_OBSERVATIONS)
     parser.add_argument("--allow-rebuild-history", action="store_true")
     parser.add_argument("--send-external-notifications", action="store_true")
+
+
+def _add_a_share_owner_remediation_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_REMEDIATION_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_REMEDIATION_MODES, default="build_remediation_runbook")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_REMEDIATION_MODES, default="validate_remediation_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--allow-safe-local-dry-run", action="store_true")
+    parser.add_argument("--allow-data-refresh-rerun", action="store_true")
+    parser.add_argument("--allow-research-workflow-rerun", action="store_true")
+    parser.add_argument("--allow-dashboard-rerun", action="store_true")
+    parser.add_argument("--allow-monitoring-rerun", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3416,6 +3442,81 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         audit_result = audit_a_share_owner_monitoring(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-remediation-inputs":
+        result = validate_a_share_owner_remediation_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "input_artifact_count": result["input_artifact_count"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-remediation":
+        result = build_a_share_owner_remediation(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_safe_local_dry_run=args.allow_safe_local_dry_run,
+            allow_data_refresh_rerun=args.allow_data_refresh_rerun,
+            allow_research_workflow_rerun=args.allow_research_workflow_rerun,
+            allow_dashboard_rerun=args.allow_dashboard_rerun,
+            allow_monitoring_rerun=args.allow_monitoring_rerun,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "issue_count": result["issue_count"],
+                "safe_action_count": result["safe_action_count"],
+                "automatic_action_count": result["automatic_action_count"],
+                "owner_remediation_runbook_report": result["owner_remediation_runbook_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-remediation":
+        result = audit_a_share_owner_remediation(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-remediation":
+        build_result = build_a_share_owner_remediation(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_safe_local_dry_run=args.allow_safe_local_dry_run,
+            allow_data_refresh_rerun=args.allow_data_refresh_rerun,
+            allow_research_workflow_rerun=args.allow_research_workflow_rerun,
+            allow_dashboard_rerun=args.allow_dashboard_rerun,
+            allow_monitoring_rerun=args.allow_monitoring_rerun,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_remediation(as_of_date=args.as_of_date, paths=paths)
         print(
             {
                 "builder_id": build_result["builder_id"],

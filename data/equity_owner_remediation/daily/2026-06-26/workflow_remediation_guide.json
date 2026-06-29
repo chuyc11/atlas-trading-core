@@ -1,0 +1,46 @@
+{
+  "guide_id": "A-SHARE-WORKFLOW-REMEDIATION-GUIDE",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "applicable_issue_categories": [
+    "workflow_issue",
+    "documentation_issue",
+    "boundary_issue"
+  ],
+  "safe_diagnostic_steps": [
+    "Open current_day_run_manifest.json.",
+    "Open current-day audit JSON.",
+    "Confirm source trace and boundary are clean before any validation rerun."
+  ],
+  "safe_artifacts_to_open": [
+    "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+    "data/equity_data_quality/a_share_current_day_research_run_audit.json"
+  ],
+  "safe_cli_checks": [
+    "python -m trading_core.cli run-and-audit-a-share-current-day-research --as-of-date 2026-06-26 --mode run_research_from_existing_refresh --workflow-mode validate_existing_artifacts"
+  ],
+  "manual_review_required": true,
+  "owner_decision_points": [
+    "Decide whether the issue is understood.",
+    "Decide whether developer escalation is required."
+  ],
+  "disallowed_actions": [
+    "do not connect broker",
+    "do not read real account",
+    "do not place orders",
+    "do not generate buy or sell signals",
+    "do not treat remediation as a trade instruction"
+  ],
+  "success_criteria": [
+    "Relevant audit is passing.",
+    "Boundary remains clean.",
+    "Source trace is complete."
+  ],
+  "failure_escalation": "Escalate to developer if validation remains failing or any boundary field is unsafe.",
+  "disclaimer": [
+    "This guide is not an investment recommendation.",
+    "This guide does not authorize trades.",
+    "This guide does not connect broker.",
+    "This guide does not place orders."
+  ]
+}

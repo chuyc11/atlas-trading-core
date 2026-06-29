@@ -1,0 +1,38 @@
+{
+  "summary_id": "A-SHARE-OWNER-REMEDIATION-PRIORITY-SUMMARY",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "status": "manual_review_required",
+  "priority_buckets": {
+    "P0_blocking": [],
+    "P1_high_warning": [
+      "fundamental score confidence is partial",
+      "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+      "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+      "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+      "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "WARNING_COUNT_INCREASE",
+      "PROVIDER_HEALTH_DEGRADED",
+      "DATA_FRESHNESS_DEGRADED"
+    ],
+    "P2_known_non_blocking": [
+      "daily_basic:required_field_all_null",
+      "portfolio observation history is below the minimum required window",
+      "portfolio relative metrics limited by first-day initialization",
+      "trading_calendar:exchange_level_calendar_collapsed_to_trade_date",
+      "REPEATED_KNOWN_WARNING"
+    ],
+    "P3_informational": [],
+    "P4_wait_for_history": [
+      "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "insufficient_history_for_trends"
+    ]
+  },
+  "issue_count": 17,
+  "blocking_issue_count": 0,
+  "warning_issue_count": 10,
+  "known_non_blocking_issue_count": 5,
+  "wait_for_history_issue_count": 2
+}

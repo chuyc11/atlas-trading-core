@@ -1,0 +1,77 @@
+{
+  "checklist_id": "A-SHARE-OWNER-REMEDIATION-MANUAL-VERIFICATION-CHECKLIST",
+  "target_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+  "as_of_date": "2026-06-26",
+  "checks": [
+    {
+      "check_id": "data_refresh_audit_path_exists",
+      "description": "data_refresh_audit path exists",
+      "passed": true,
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json"
+    },
+    {
+      "check_id": "current_day_run_audit_path_exists",
+      "description": "current_day_run_audit path exists",
+      "passed": true,
+      "path": "data/equity_data_quality/a_share_current_day_research_run_audit.json"
+    },
+    {
+      "check_id": "owner_dashboard_audit_path_exists",
+      "description": "owner_dashboard_audit path exists",
+      "passed": true,
+      "path": "data/equity_data_quality/a_share_owner_dashboard_audit.json"
+    },
+    {
+      "check_id": "owner_monitoring_audit_path_exists",
+      "description": "owner_monitoring_audit path exists",
+      "passed": true,
+      "path": "data/equity_data_quality/a_share_owner_monitoring_audit.json"
+    },
+    {
+      "check_id": "blocking_reasons_empty",
+      "description": "blocking_reasons=[]",
+      "passed": true
+    },
+    {
+      "check_id": "boundary_clean",
+      "description": "boundary clean",
+      "passed": true
+    },
+    {
+      "check_id": "source_trace_complete",
+      "description": "source trace complete",
+      "passed": true
+    },
+    {
+      "check_id": "warnings_understood",
+      "description": "warnings understood",
+      "passed": true
+    },
+    {
+      "check_id": "known_warnings_documented",
+      "description": "known warnings documented",
+      "passed": true
+    },
+    {
+      "check_id": "no_broker_order_artifacts",
+      "description": "no broker/order artifacts",
+      "passed": true
+    },
+    {
+      "check_id": "no_forbidden_wording",
+      "description": "no forbidden positive wording",
+      "passed": true
+    },
+    {
+      "check_id": "version_and_tag_correct",
+      "description": "VERSION and tag correct",
+      "passed": true
+    },
+    {
+      "check_id": "git_status_clean",
+      "description": "git status clean before release",
+      "passed": true
+    }
+  ],
+  "overall_passed": true
+}
