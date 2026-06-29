@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-VIRTUAL-PORTFOLIO-MANIFEST",
   "target_version": "v0.7.6-a-share-virtual-portfolio-construction",
   "as_of_date": "2026-06-26",
-  "created_at": "2026-06-29T18:41:36.236363Z",
+  "created_at": "2026-06-29T19:30:45.759723Z",
   "input_candidate_manifest_path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
   "input_score_manifest_path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
   "portfolios": {
@@ -54,37 +54,37 @@
       "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
       "exists": true,
       "rows": null,
-      "sha256": "a4d33d76ee5980b88bb64c91f6876613857a0fff4f52d04dfb1a4251ad61ec17"
+      "sha256": "093e62918669c8bf822e2b3379db9866cb58db411bcbd9d934f13dd54adbfc4d"
     },
     "long_virtual_portfolio_parquet": {
       "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.parquet",
       "exists": true,
       "rows": 30,
-      "sha256": "5ea1d711c70233e6b8e7f571c8601b00dd920a60cf9aa3ee844d5d5ae0a21e0c"
+      "sha256": "4c33937deeb9abb2741517e5d2827dc0058abeaa12c3a7c81171f2e5d1fb5c05"
     },
     "mid_virtual_portfolio_json": {
       "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
       "exists": true,
       "rows": null,
-      "sha256": "da2e4ddabb0cdadfcf99f86618dce9a5d95b6902ff6d8b2568cb623dee2fcc17"
+      "sha256": "e0164810046a086aaf85ab8aa2d6d85b8fa9d98e9584bc2215e5ee9e08303287"
     },
     "mid_virtual_portfolio_parquet": {
       "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.parquet",
       "exists": true,
       "rows": 30,
-      "sha256": "1ae65455238f71bd46274e1e1bf9d2046f1f60b4a57cfa842ab737a522d38430"
+      "sha256": "5b5443b3b7aaa600c55a4c6753386da2c440686cea11eb6ac63e13ddd87c7a0e"
     },
     "short_virtual_portfolio_json": {
       "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
       "exists": true,
       "rows": null,
-      "sha256": "230e799f9d2466faa8df85be1baa8892655a151dad6c8e1fef3e93541c9cab86"
+      "sha256": "6978888bcd794f344bf4afcbe0ea797878c1756a5feb5ab2c23cac670859f3d6"
     },
     "short_virtual_portfolio_parquet": {
       "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.parquet",
       "exists": true,
       "rows": 20,
-      "sha256": "14f8bc301e6945261db7d105f70b668be814983074c3f73c806660d5d87aac48"
+      "sha256": "9d18102d97c0cf838b9fe15ca7ad505e4ef7826b0b29f57cb8b9a514efa43fda"
     },
     "portfolio_weight_summary": {
       "path": "data/equity_portfolios/daily/2026-06-26/portfolio_weight_summary.json",

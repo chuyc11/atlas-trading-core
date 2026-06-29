@@ -3,7 +3,7 @@
   "target_version": "v0.7.9-a-share-daily-workflow-orchestration",
   "as_of_date": "2026-06-26",
   "mode": "build_from_existing_data",
-  "generated_at": "2026-06-29T18:41:38.302108Z",
+  "generated_at": "2026-06-29T19:30:47.278217Z",
   "stages": [
     {
       "stage_id": "stage_00_preflight",
@@ -11,8 +11,8 @@
       "stage_order": 0,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli preflight-a-share-daily-workflow --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:38:59.869099Z",
-      "finished_at": "2026-06-29T18:38:59.869099Z",
+      "started_at": "2026-06-29T19:28:29.260864Z",
+      "finished_at": "2026-06-29T19:28:29.260864Z",
       "duration_seconds": 0.0,
       "status": "passed",
       "input_artifacts": [
@@ -49,8 +49,8 @@
       "stage_order": 1,
       "mode": "build_from_existing_data",
       "command": "verify historical A-share data panels",
-      "started_at": "2026-06-29T18:38:59.869099Z",
-      "finished_at": "2026-06-29T18:38:59.869099Z",
+      "started_at": "2026-06-29T19:28:29.260864Z",
+      "finished_at": "2026-06-29T19:28:29.260864Z",
       "duration_seconds": 0.0,
       "status": "passed",
       "input_artifacts": [
@@ -89,9 +89,9 @@
       "stage_order": 2,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-tradable-universe --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:38:59.874721Z",
-      "finished_at": "2026-06-29T18:39:36.078031Z",
-      "duration_seconds": 36.20331,
+      "started_at": "2026-06-29T19:28:29.264412Z",
+      "finished_at": "2026-06-29T19:28:57.275905Z",
+      "duration_seconds": 28.011493,
       "status": "passed",
       "input_artifacts": [
         "data/equity_selection/daily/2026-06-26/tradable_universe.json",
@@ -129,9 +129,9 @@
       "stage_order": 3,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-multi-horizon-features --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:39:36.078031Z",
-      "finished_at": "2026-06-29T18:41:15.993516Z",
-      "duration_seconds": 99.915485,
+      "started_at": "2026-06-29T19:28:57.280035Z",
+      "finished_at": "2026-06-29T19:30:25.614377Z",
+      "duration_seconds": 88.334342,
       "status": "passed",
       "input_artifacts": [
         "data/equity_features/daily/2026-06-26/feature_manifest.json"
@@ -165,9 +165,9 @@
       "stage_order": 4,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-scores --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:15.995524Z",
-      "finished_at": "2026-06-29T18:41:29.461577Z",
-      "duration_seconds": 13.466053,
+      "started_at": "2026-06-29T19:30:25.614377Z",
+      "finished_at": "2026-06-29T19:30:39.511204Z",
+      "duration_seconds": 13.896827,
       "status": "passed",
       "input_artifacts": [
         "data/equity_scores/daily/2026-06-26/score_manifest.json"
@@ -203,9 +203,9 @@
       "stage_order": 5,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli generate-and-audit-a-share-candidates --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:29.461577Z",
-      "finished_at": "2026-06-29T18:41:36.036207Z",
-      "duration_seconds": 6.57463,
+      "started_at": "2026-06-29T19:30:39.511204Z",
+      "finished_at": "2026-06-29T19:30:45.593547Z",
+      "duration_seconds": 6.082343,
       "status": "passed",
       "input_artifacts": [
         "data/equity_selection/daily/2026-06-26/candidate_manifest.json"
@@ -239,9 +239,9 @@
       "stage_order": 6,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-virtual-portfolios --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:36.036207Z",
-      "finished_at": "2026-06-29T18:41:36.684728Z",
-      "duration_seconds": 0.648521,
+      "started_at": "2026-06-29T19:30:45.593547Z",
+      "finished_at": "2026-06-29T19:30:46.024281Z",
+      "duration_seconds": 0.430734,
       "status": "passed",
       "input_artifacts": [
         "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json"
@@ -279,9 +279,9 @@
       "stage_order": 7,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-daily-stock-selection-briefing --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:36.684728Z",
-      "finished_at": "2026-06-29T18:41:36.963634Z",
-      "duration_seconds": 0.278906,
+      "started_at": "2026-06-29T19:30:46.024281Z",
+      "finished_at": "2026-06-29T19:30:46.157608Z",
+      "duration_seconds": 0.133327,
       "status": "passed",
       "input_artifacts": [
         "data/equity_briefings/daily/2026-06-26/briefing_manifest.json"
@@ -321,9 +321,9 @@
       "stage_order": 8,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli build-and-audit-a-share-virtual-portfolio-tracking --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:36.965639Z",
-      "finished_at": "2026-06-29T18:41:38.300416Z",
-      "duration_seconds": 1.334777,
+      "started_at": "2026-06-29T19:30:46.157608Z",
+      "finished_at": "2026-06-29T19:30:47.278217Z",
+      "duration_seconds": 1.120609,
       "status": "passed",
       "input_artifacts": [
         "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json"
@@ -359,8 +359,8 @@
       "stage_order": 9,
       "mode": "build_from_existing_data",
       "command": "python -m trading_core.cli audit-a-share-daily-research-workflow --as-of-date 2026-06-26",
-      "started_at": "2026-06-29T18:41:38.302108Z",
-      "finished_at": "2026-06-29T18:41:38.302108Z",
+      "started_at": "2026-06-29T19:30:47.278217Z",
+      "finished_at": "2026-06-29T19:30:47.278217Z",
       "duration_seconds": 0.0,
       "status": "passed",
       "input_artifacts": [
@@ -401,8 +401,8 @@
       "stage_order": 10,
       "mode": "build_from_existing_data",
       "command": "write owner-facing A-share daily workflow summary",
-      "started_at": "2026-06-29T18:41:38.302108Z",
-      "finished_at": "2026-06-29T18:41:38.302108Z",
+      "started_at": "2026-06-29T19:30:47.278217Z",
+      "finished_at": "2026-06-29T19:30:47.278217Z",
       "duration_seconds": 0.0,
       "status": "passed",
       "input_artifacts": [

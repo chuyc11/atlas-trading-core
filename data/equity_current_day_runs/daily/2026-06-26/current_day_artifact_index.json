@@ -240,7 +240,7 @@
       "stage": "workflow",
       "path": "data/equity_data_quality/a_share_daily_workflow_audit.json",
       "exists": true,
-      "sha256": "deb040d646308dda7b8554db3181b45caf375d7ba8ab39c5c0a7584173bd6bbe",
+      "sha256": "9c67182a40ae69ec20a22738f70a371e6180acfeb065639105beca70f43e9680",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -280,7 +280,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
       "exists": true,
-      "sha256": "412e6e6870fd70aad81e9cd1c00fb0b448ce05b61eed58280af912f4392d0e25",
+      "sha256": "fd4c0a3550fbee9e3790b7b01d7147761b1e87ca579f57840007e0999061ffb7",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -290,7 +290,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
       "exists": true,
-      "sha256": "b1a3ef4eb087f422888708678307da064ed3894b0198a3d83668054fdccdb71a",
+      "sha256": "fad9142c2f15dc55c21fe3bc068538b835c229bfd9eb7b2a6a54a747da165905",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -300,7 +300,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_source_trace.json",
       "exists": true,
-      "sha256": "fbe8a270cb33c1c6ac84273621648ccf6694ec85e79bfac796ed575a941dd85f",
+      "sha256": "3fd352b73ff7e7d60aac0c04b06c4dea205150678c57222cc827e74f4c01fb7b",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -310,7 +310,7 @@
       "stage": "workflow",
       "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "cebb1d3b69164621545c013c72d548a9ac271f0ccedc46f3df56b3406cbc5186",
+      "sha256": "3d54ce194ccc51e43438919fdd16e235181ab8b3ec71cfdba1cc1dba738507fd",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -320,7 +320,7 @@
       "stage": "workflow",
       "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
       "exists": true,
-      "sha256": "006b642ff1c4bf287c5e7433b593eeadb6ae24779b3f45c10f8ec422452aee65",
+      "sha256": "8a4a3ee4df43093ee510cb853e8508b13dbcb67d477638ef518552b9a6cb9b17",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -330,7 +330,7 @@
       "stage": "workflow",
       "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_STAGE_REPORT.md",
       "exists": true,
-      "sha256": "d623b6e8ec7d2c2ac3365d61147c253b023899100005623f18b6f1ab853cacc9",
+      "sha256": "4a1ff32b9659a954dc371e464c811d02888f4ba30a5524516d8948de04d4f477",
       "source_version": "v0.7.9",
       "created_by_current_day_run": false
     },
@@ -360,7 +360,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json",
       "exists": true,
-      "sha256": "26c3dff2f99a7cb165a1a48c2dbe407089ff290f9e1b350e9c7c7cf98f7dc726",
+      "sha256": "c5152a7b88b1cd0bcd78e089cf37da9d590b7a4be12032ce25be73786fb617d1",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -440,7 +440,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
       "exists": true,
-      "sha256": "3f5c9fba2d1009ef8462e6ebefac9d635d010c0740146ce09c47d7d66bb5b749",
+      "sha256": "ffaef418b89cf08db48140dcbf0d14de4818e47fd8c69d9fc09f019e3ecc9a92",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -450,7 +450,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_source_trace.json",
       "exists": true,
-      "sha256": "9bfd654798ad7f36db880f8e07ac58e5bd6ef182708c8524e50339e4c81dcafd",
+      "sha256": "3cbbf47c8c61f27df5f92d17bf864a1d21b7a380a0a92a2b44fb53790f3089fb",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -460,7 +460,7 @@
       "stage": "current_day",
       "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "90d859df7fecfd9e78a94ab45bb16919c72def966304fac97eb1ef2e26d448a6",
+      "sha256": "6bb454eeb162756ac3e69b88d404b118aa4db22c86eccf1c740f21293c5ef719",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -470,7 +470,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_stage_manifest.json",
       "exists": true,
-      "sha256": "07c8038761c000b891af0b44c8e7dd0ef1af0e0fcf1d9292923fa677ff6a3f64",
+      "sha256": "8213b1ebbe376b9ada291613a271f4f88ec1e8b836c433820a46aa475815d526",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -520,7 +520,7 @@
       "stage": "current_day",
       "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json",
       "exists": true,
-      "sha256": "84421aef22426d76f3b40e4b7671aa452f9c5e82abac09e8099a69c4c6d0dbd5",
+      "sha256": "3cc76a375f9b43b51a45ee1f71a3299cb45e73e03571be2fdec30cfe90f838cc",
       "source_version": "v0.8.1-a-share-current-day-research-workflow-runner",
       "created_by_current_day_run": true
     },
@@ -550,7 +550,7 @@
       "stage": "briefing",
       "path": "data/equity_briefings/daily/2026-06-26/briefing_boundary_check.json",
       "exists": true,
-      "sha256": "050c588e29b7bac7ae86bca556e1f865170cafb2e9eb9e5c09cff98c43ef4b02",
+      "sha256": "bf82220b4bc6a4f1af23a4cb5f7d580b787873cbf5ba3431e90b6b3e83367e16",
       "source_version": "v0.7.7",
       "created_by_current_day_run": false
     },
@@ -560,7 +560,7 @@
       "stage": "briefing",
       "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
       "exists": true,
-      "sha256": "f75faac6002feb2bce6236d180e5f4c091f14d8b524e5e038325b26451667c2a",
+      "sha256": "8bbad188fd65afccca118c6b48f029cfa8f99611ff6b78f24c29c974cacd3421",
       "source_version": "v0.7.7",
       "created_by_current_day_run": false
     },
@@ -570,7 +570,7 @@
       "stage": "briefing",
       "path": "data/equity_briefings/daily/2026-06-26/briefing_source_trace.json",
       "exists": true,
-      "sha256": "56b8e3b5354210400a97488fedb6612c39d3829b33dd54c2bf09f424151d503a",
+      "sha256": "4886f3b48bf7dd7f312a4eae84fa7a68681934ada35998981f04a970c5c43e81",
       "source_version": "v0.7.7",
       "created_by_current_day_run": false
     },
@@ -580,7 +580,7 @@
       "stage": "briefing",
       "path": "data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json",
       "exists": true,
-      "sha256": "356d66593bcec632be4d63f95e965f330621b2f8f8e587b794dafd9ccc78d1e9",
+      "sha256": "c57a9cad201fa71d14a3ac7d0c4fc27b02e2135593235d47b319f1b259cdeaa7",
       "source_version": "v0.7.7",
       "created_by_current_day_run": false
     },
@@ -610,7 +610,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json",
       "exists": true,
-      "sha256": "1dd8e0ea6c3dbc8f194cf947007985f1736225c096693609476340e9dd0f59d6",
+      "sha256": "8c0cd8b34e96cea7032e0b156123f30a58d11ba1b6b996da6527dbb1e42441bb",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },
@@ -630,7 +630,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json",
       "exists": true,
-      "sha256": "7d8a59048e073cdd00dbe4f5dbeec6a788feec4dcb1b0f27bb391cffb865ca6f",
+      "sha256": "1bb09b3bdc3b1e74a0cfc584c75ac25988a9d0a7265e4e27644c182ab5efbf13",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },
@@ -690,7 +690,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json",
       "exists": true,
-      "sha256": "7afa3bfb8ced47ba979ca256901d1d052b6fd9dada578e8708d24c75d57abe09",
+      "sha256": "a7f637cc3344da8d6deb84dd1a3c6f4d81e1d7d8bf942b77a8fc5d76992975ff",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },
@@ -710,7 +710,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
       "exists": true,
-      "sha256": "522d5b7a5a2b050827afaf0e69dccb3632423fe26eae1c4ed9ea3f12f1a646d5",
+      "sha256": "4aee40da0f618adcacd82302e89a47480c14717d99b85b4090a8ca1f4a884f5f",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },
@@ -720,7 +720,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json",
       "exists": true,
-      "sha256": "51690c4934b33537d2cef3e45f97a22a3b972926fb00d76954d3c858ceb3e835",
+      "sha256": "b044914a88086f8086ba48c44d750ac736f64815ad9500d2149eb54c38465988",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },
@@ -730,7 +730,7 @@
       "stage": "tracking",
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
       "exists": true,
-      "sha256": "43d2de7dd280eb635ecfbd188b9d31859bbc4ced6a2979a2da22b8bff93fd1d8",
+      "sha256": "6633ee8a849724af7cff06e3734e2e45cade3b9a864afda43f80b21e40bc2b11",
       "source_version": "v0.7.8",
       "created_by_current_day_run": false
     },

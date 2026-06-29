@@ -1,0 +1,29 @@
+{
+  "normalization_id": "A-SHARE-DETERMINISTIC-FIELD-NORMALIZATION",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "normalized_fields": [
+    "duration_seconds",
+    "finished_at",
+    "generated_at",
+    "latest_modified_at",
+    "modified_at",
+    "records_after",
+    "records_before",
+    "sha256",
+    "sha256_tree_hash",
+    "started_at"
+  ],
+  "timestamp_fields": [
+    "generated_at",
+    "started_at",
+    "finished_at",
+    "modified_at",
+    "latest_modified_at"
+  ],
+  "hash_fields": [
+    "sha256",
+    "sha256_tree_hash"
+  ],
+  "normalization_applied": true
+}

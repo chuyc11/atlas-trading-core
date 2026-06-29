@@ -71,6 +71,22 @@ python -m trading_core.cli build-and-audit-a-share-gated-build-from-existing-dat
 
 This path requires the preflight gate, uses `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not call old `run-daily`, does not connect a broker, and does not generate orders or buy/sell signals.
 
+## Run v0.8.8 A-share build_from_existing_data repeatability
+
+```bash
+python -m trading_core.cli validate-a-share-build-repeatability-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-build-repeatability --as-of-date 2026-06-26 --mode run_repeat_build_from_existing_data
+python -m trading_core.cli audit-a-share-build-repeatability --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-build-repeatability --as-of-date 2026-06-26 --mode run_repeat_build_from_existing_data
+```
+
+This path repeats the gated `build_from_existing_data` workflow, compares first-build and second-build artifacts, and snapshots protected order/trade/account paths before and after the repeat run. Pre-existing `data/orders` or `data/trades` directories are allowed if unchanged; new, modified, or deleted protected files are blocking. It does not refresh public network data, run `full_research_run`, call old `run-daily`, connect broker, generate buy/sell signals, generate order previews, place orders, or treat repeatability as a trade instruction.
+
 ## Run v0.7 external project intake
 
 ```bash

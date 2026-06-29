@@ -3,7 +3,7 @@
   "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T18:41:36.763470Z",
+  "generated_at": "2026-06-29T19:30:46.054944Z",
   "input_candidate_manifest_path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
   "input_score_manifest_path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
   "input_feature_manifest_path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
@@ -40,27 +40,27 @@
     "daily_stock_selection_briefing": {
       "path": "data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json",
       "exists": true,
-      "sha256": "356d66593bcec632be4d63f95e965f330621b2f8f8e587b794dafd9ccc78d1e9"
+      "sha256": "c57a9cad201fa71d14a3ac7d0c4fc27b02e2135593235d47b319f1b259cdeaa7"
     },
     "briefing_manifest": {
       "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
       "exists": true,
-      "sha256": "5bbb9a7aba66b04c06437b22d7d302418663764083babfc74186b6a060ead1ad"
+      "sha256": "3240b22159de1d9a0e9e63e38852f4a19b3d87fd1bc1e2087d7df02f52b07036"
     },
     "briefing_source_trace": {
       "path": "data/equity_briefings/daily/2026-06-26/briefing_source_trace.json",
       "exists": true,
-      "sha256": "56b8e3b5354210400a97488fedb6612c39d3829b33dd54c2bf09f424151d503a"
+      "sha256": "4886f3b48bf7dd7f312a4eae84fa7a68681934ada35998981f04a970c5c43e81"
     },
     "briefing_boundary_check": {
       "path": "data/equity_briefings/daily/2026-06-26/briefing_boundary_check.json",
       "exists": true,
-      "sha256": "050c588e29b7bac7ae86bca556e1f865170cafb2e9eb9e5c09cff98c43ef4b02"
+      "sha256": "bf82220b4bc6a4f1af23a4cb5f7d580b787873cbf5ba3431e90b6b3e83367e16"
     },
     "daily_stock_selection_briefing_report": {
       "path": "outputs/equity_briefings/daily/2026-06-26/DAILY_STOCK_SELECTION_BRIEFING.md",
       "exists": true,
-      "sha256": "d00d6dd8a12e7b3f187ec6a33c0fc0147a400d51a5951ec4f28d438c9a434abf"
+      "sha256": "db2ed1b0f86d4a3866547c478ca488694ab44045020bef4b81e47e22514dabfb"
     },
     "briefing_source_trace_report": {
       "path": "outputs/equity_briefings/daily/2026-06-26/BRIEFING_SOURCE_TRACE.md",

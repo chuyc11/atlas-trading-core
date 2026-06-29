@@ -1,0 +1,19 @@
+{
+  "drift_summary_id": "A-SHARE-REPEATABILITY-DRIFT-SUMMARY",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "overall_status": "passed",
+  "drift_categories_found": [
+    "metadata_hash_drift",
+    "timestamp_only_drift"
+  ],
+  "timestamp_only_drift_count": 41,
+  "metadata_hash_drift_count": 23,
+  "business_output_drift_count": 0,
+  "missing_required_artifact_count": 0,
+  "boundary_drift": false,
+  "protected_path_drift": false,
+  "source_trace_drift": false,
+  "blocking_reasons": [],
+  "warnings": []
+}

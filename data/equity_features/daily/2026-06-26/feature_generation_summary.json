@@ -2,7 +2,7 @@
   "summary_id": "A-SHARE-MULTI-HORIZON-FEATURE-GENERATION-SUMMARY",
   "target_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
   "as_of_date": "2026-06-26",
-  "created_at": "2026-06-29T18:40:23.607978Z",
+  "created_at": "2026-06-29T19:29:37.261964Z",
   "strict_tradable_count": 3676,
   "feature_groups": {
     "short_horizon": {
@@ -10,49 +10,49 @@
       "symbols": 3676,
       "fields": 20,
       "rows": 3676,
-      "sha256": "310992cdf45f72b05e32a9ba8d62c027a7585e3b1005dc57975282f9b99a8e78"
+      "sha256": "422520c5545dcbf5580c663fe5c303f96f739859862f3d1b6b86c2fa38480323"
     },
     "mid_horizon": {
       "path": "data/equity_features/daily/2026-06-26/mid_horizon_features.parquet",
       "symbols": 3676,
       "fields": 22,
       "rows": 3676,
-      "sha256": "939e19f43d87609fa2d4fbe2db1dfc6ecefeeb52d7c4c6df4a593c30a6cc03cd"
+      "sha256": "6a007ec36bb984186061faca3d1d6385206ef1da216bd893062b2890ac62ffa3"
     },
     "long_horizon": {
       "path": "data/equity_features/daily/2026-06-26/long_horizon_features.parquet",
       "symbols": 3676,
       "fields": 14,
       "rows": 3676,
-      "sha256": "4022898e93626762e7c3f1f91005300b587997e3e48f663b0b65c270222f8a5a"
+      "sha256": "b1ef3e8f29acc5b58c1547b9ac62b033c80ed71f59acc65fec3f464281bbec77"
     },
     "risk": {
       "path": "data/equity_features/daily/2026-06-26/risk_features.parquet",
       "symbols": 3676,
       "fields": 19,
       "rows": 3676,
-      "sha256": "5be7751fe5e9aecb861d64af690b5fa3b8371357c746966bdab04ac5997e703d"
+      "sha256": "a3aae6d07e263e7cab99ad9a38db58e4a3bdcf24ffbfcc8692585979dfd5577d"
     },
     "liquidity": {
       "path": "data/equity_features/daily/2026-06-26/liquidity_features.parquet",
       "symbols": 3676,
       "fields": 14,
       "rows": 3676,
-      "sha256": "e2edc148de8fd1f6028f2bc5618cf9af64c2c0f53913d08e2697caa503ab3267"
+      "sha256": "e925a26fe0d22249fb0e75c535d0e87bf28365ed8bcbb4b85e932f2122ccfd47"
     },
     "industry": {
       "path": "data/equity_features/daily/2026-06-26/industry_features.parquet",
       "symbols": 3676,
       "fields": 16,
       "rows": 3676,
-      "sha256": "9a1cdd1a29399ec9e764f5da94c21928c389b7db827964e4ade5a41368983529"
+      "sha256": "762a3e59d33ea84224ef6c0b969e08284aac626ce18c84490c3b2906b4b3f10c"
     },
     "fundamental": {
       "path": "data/equity_features/daily/2026-06-26/fundamental_features.parquet",
       "symbols": 3676,
       "fields": 21,
       "rows": 3676,
-      "sha256": "c6f143813d76552b8591cee1f62f3912083971e8718a7910a4e2ded855afc9ab"
+      "sha256": "7fdd917f337f6fd889f5ea1dcf20173acade3359c25f7d0c136a54409662ef83"
     }
   },
   "field_coverage": {

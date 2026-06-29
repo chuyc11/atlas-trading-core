@@ -3,7 +3,7 @@
   "target_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T18:41:37.205878Z",
+  "generated_at": "2026-06-29T19:30:46.345675Z",
   "input_portfolio_manifest_path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
   "input_briefing_manifest_path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
   "tracking_config_path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_config.json",
@@ -57,17 +57,17 @@
     "long_paper_ledger": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json",
       "exists": true,
-      "sha256": "1dd8e0ea6c3dbc8f194cf947007985f1736225c096693609476340e9dd0f59d6"
+      "sha256": "8c0cd8b34e96cea7032e0b156123f30a58d11ba1b6b996da6527dbb1e42441bb"
     },
     "mid_paper_ledger": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json",
       "exists": true,
-      "sha256": "7d8a59048e073cdd00dbe4f5dbeec6a788feec4dcb1b0f27bb391cffb865ca6f"
+      "sha256": "1bb09b3bdc3b1e74a0cfc584c75ac25988a9d0a7265e4e27644c182ab5efbf13"
     },
     "short_paper_ledger": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json",
       "exists": true,
-      "sha256": "7afa3bfb8ced47ba979ca256901d1d052b6fd9dada578e8708d24c75d57abe09"
+      "sha256": "a7f637cc3344da8d6deb84dd1a3c6f4d81e1d7d8bf942b77a8fc5d76992975ff"
     },
     "long_holdings_snapshot": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_holdings_snapshot.json",
@@ -117,12 +117,12 @@
     "tracking_source_trace": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json",
       "exists": true,
-      "sha256": "51690c4934b33537d2cef3e45f97a22a3b972926fb00d76954d3c858ceb3e835"
+      "sha256": "b044914a88086f8086ba48c44d750ac736f64815ad9500d2149eb54c38465988"
     },
     "tracking_summary": {
       "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
       "exists": true,
-      "sha256": "43d2de7dd280eb635ecfbd188b9d31859bbc4ced6a2979a2da22b8bff93fd1d8"
+      "sha256": "6633ee8a849724af7cff06e3734e2e45cade3b9a864afda43f80b21e40bc2b11"
     },
     "tracking_summary_report": {
       "path": "outputs/equity_portfolio_tracking/daily/2026-06-26/VIRTUAL_PORTFOLIO_TRACKING_SUMMARY.md",

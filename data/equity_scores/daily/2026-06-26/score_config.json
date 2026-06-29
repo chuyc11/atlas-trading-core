@@ -458,7 +458,7 @@
     "score_fill_when_missing": 50.0,
     "allow_partial_score": true
   },
-  "created_at": "2026-06-29T18:41:16.169640Z",
+  "created_at": "2026-06-29T19:30:25.815936Z",
   "boundary": {
     "scoring_only": true,
     "scores_generated": true,

@@ -1,0 +1,427 @@
+{
+  "comparison_id": "A-SHARE-BUILD-VS-BUILD-COMPARISON",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "workflow_mode": "build_from_existing_data",
+  "comparison_completed": true,
+  "comparison_categories": [
+    "workflow_audit_status",
+    "stage_status",
+    "artifact_inventory",
+    "summary_values",
+    "warnings",
+    "source_trace",
+    "boundary",
+    "protected_path_state",
+    "business_outputs",
+    "timestamp_fields",
+    "hash_fields"
+  ],
+  "first_artifact_count": 298,
+  "second_artifact_count": 298,
+  "missing_required_artifacts": [],
+  "new_expected_artifacts": [],
+  "unexpected_artifacts": [],
+  "timestamp_only_drift": [
+    {
+      "artifact_id": "data/equity_briefings/daily/{as_of_date}/briefing_boundary_check.json",
+      "path": "data/equity_briefings/daily/2026-06-26/briefing_boundary_check.json",
+      "stage": "briefing",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_briefings/daily/{as_of_date}/briefing_manifest.json",
+      "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
+      "stage": "briefing",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_briefings/daily/{as_of_date}/briefing_source_trace.json",
+      "path": "data/equity_briefings/daily/2026-06-26/briefing_source_trace.json",
+      "stage": "briefing",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_briefings/daily/{as_of_date}/daily_stock_selection_briefing.json",
+      "path": "data/equity_briefings/daily/2026-06-26/daily_stock_selection_briefing.json",
+      "stage": "briefing",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_current_day_runs/daily/{as_of_date}/current_day_artifact_index.json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_artifact_index.json",
+      "stage": "current_day",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_current_day_runs/daily/{as_of_date}/current_day_run_manifest.json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+      "stage": "current_day",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_current_day_runs/daily/{as_of_date}/current_day_source_trace.json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_source_trace.json",
+      "stage": "current_day",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_current_day_runs/daily/{as_of_date}/current_day_stage_manifest.json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_stage_manifest.json",
+      "stage": "current_day",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_current_day_runs/daily/{as_of_date}/current_day_workflow_execution.json",
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_workflow_execution.json",
+      "stage": "current_day",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/feature_generation_summary.json",
+      "path": "data/equity_features/daily/2026-06-26/feature_generation_summary.json",
+      "stage": "features",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/feature_manifest.json",
+      "path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
+      "stage": "features",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/long_paper_ledger.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/long_paper_ledger.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/mid_paper_ledger.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/mid_paper_ledger.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/short_paper_ledger.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/short_paper_ledger.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/tracking_manifest.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/tracking_source_trace.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_source_trace.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolio_tracking/daily/{as_of_date}/tracking_summary.json",
+      "path": "data/equity_portfolio_tracking/daily/2026-06-26/tracking_summary.json",
+      "stage": "tracking",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/long_virtual_portfolio.json",
+      "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
+      "stage": "portfolios",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/mid_virtual_portfolio.json",
+      "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
+      "stage": "portfolios",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/portfolio_manifest.json",
+      "path": "data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json",
+      "stage": "portfolios",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/short_virtual_portfolio.json",
+      "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
+      "stage": "portfolios",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/score_config.json",
+      "path": "data/equity_scores/daily/2026-06-26/score_config.json",
+      "stage": "scores",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/score_manifest.json",
+      "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
+      "stage": "scores",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/scoring_summary.json",
+      "path": "data/equity_scores/daily/2026-06-26/scoring_summary.json",
+      "stage": "scores",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/candidate_generation_summary.json",
+      "path": "data/equity_selection/daily/2026-06-26/candidate_generation_summary.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/candidate_manifest.json",
+      "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/excluded_universe.json",
+      "path": "data/equity_selection/daily/2026-06-26/excluded_universe.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/extended_watch_pool.json",
+      "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/filter_config.json",
+      "path": "data/equity_selection/daily/2026-06-26/filter_config.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/long_candidates.json",
+      "path": "data/equity_selection/daily/2026-06-26/long_candidates.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/mid_candidates.json",
+      "path": "data/equity_selection/daily/2026-06-26/mid_candidates.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/multi_horizon_candidates.json",
+      "path": "data/equity_selection/daily/2026-06-26/multi_horizon_candidates.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/risk_downgraded_candidates.json",
+      "path": "data/equity_selection/daily/2026-06-26/risk_downgraded_candidates.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/short_candidates.json",
+      "path": "data/equity_selection/daily/2026-06-26/short_candidates.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/strict_tradable_universe.json",
+      "path": "data/equity_selection/daily/2026-06-26/strict_tradable_universe.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/tradable_universe.json",
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/tradable_universe_manifest.json",
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json",
+      "stage": "selection",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_workflows/daily/{as_of_date}/workflow_preflight.json",
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_preflight.json",
+      "stage": "workflow",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_workflows/daily/{as_of_date}/workflow_run_manifest.json",
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json",
+      "stage": "workflow",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_workflows/daily/{as_of_date}/workflow_source_trace.json",
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_source_trace.json",
+      "stage": "workflow",
+      "category": "timestamp_only_drift"
+    },
+    {
+      "artifact_id": "data/equity_workflows/daily/{as_of_date}/workflow_stage_manifest.json",
+      "path": "data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json",
+      "stage": "workflow",
+      "category": "timestamp_only_drift"
+    }
+  ],
+  "metadata_hash_drift": [
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/fundamental_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/fundamental_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/industry_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/industry_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/liquidity_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/liquidity_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/long_horizon_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/long_horizon_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/mid_horizon_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/mid_horizon_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/risk_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/risk_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_features/daily/{as_of_date}/short_horizon_features.parquet",
+      "path": "data/equity_features/daily/2026-06-26/short_horizon_features.parquet",
+      "stage": "features",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/long_virtual_portfolio.parquet",
+      "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.parquet",
+      "stage": "portfolios",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/mid_virtual_portfolio.parquet",
+      "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.parquet",
+      "stage": "portfolios",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_portfolios/daily/{as_of_date}/short_virtual_portfolio.parquet",
+      "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.parquet",
+      "stage": "portfolios",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/composite_scores.parquet",
+      "path": "data/equity_scores/daily/2026-06-26/composite_scores.parquet",
+      "stage": "scores",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/horizon_scores.parquet",
+      "path": "data/equity_scores/daily/2026-06-26/horizon_scores.parquet",
+      "stage": "scores",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/risk_liquidity_industry_fundamental_scores.parquet",
+      "path": "data/equity_scores/daily/2026-06-26/risk_liquidity_industry_fundamental_scores.parquet",
+      "stage": "scores",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_scores/daily/{as_of_date}/score_component_breakdown.parquet",
+      "path": "data/equity_scores/daily/2026-06-26/score_component_breakdown.parquet",
+      "stage": "scores",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/extended_watch_pool.parquet",
+      "path": "data/equity_selection/daily/2026-06-26/extended_watch_pool.parquet",
+      "stage": "selection",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/long_candidates.parquet",
+      "path": "data/equity_selection/daily/2026-06-26/long_candidates.parquet",
+      "stage": "selection",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/mid_candidates.parquet",
+      "path": "data/equity_selection/daily/2026-06-26/mid_candidates.parquet",
+      "stage": "selection",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/short_candidates.parquet",
+      "path": "data/equity_selection/daily/2026-06-26/short_candidates.parquet",
+      "stage": "selection",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "data/equity_selection/daily/{as_of_date}/tradable_universe.parquet",
+      "path": "data/equity_selection/daily/2026-06-26/tradable_universe.parquet",
+      "stage": "selection",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "outputs/equity_briefings/daily/{as_of_date}/DAILY_STOCK_SELECTION_BRIEFING.md",
+      "path": "outputs/equity_briefings/daily/2026-06-26/DAILY_STOCK_SELECTION_BRIEFING.md",
+      "stage": "briefing_reports",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "outputs/equity_current_day_runs/daily/{as_of_date}/CURRENT_DAY_SOURCE_TRACE.md",
+      "path": "outputs/equity_current_day_runs/daily/2026-06-26/CURRENT_DAY_SOURCE_TRACE.md",
+      "stage": "current_day_reports",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "outputs/equity_workflows/daily/{as_of_date}/A_SHARE_DAILY_WORKFLOW_SOURCE_TRACE.md",
+      "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_SOURCE_TRACE.md",
+      "stage": "workflow_reports",
+      "category": "metadata_hash_drift"
+    },
+    {
+      "artifact_id": "outputs/equity_workflows/daily/{as_of_date}/A_SHARE_DAILY_WORKFLOW_STAGE_REPORT.md",
+      "path": "outputs/equity_workflows/daily/2026-06-26/A_SHARE_DAILY_WORKFLOW_STAGE_REPORT.md",
+      "stage": "workflow_reports",
+      "category": "metadata_hash_drift"
+    }
+  ],
+  "business_output_drift": [],
+  "boundary_drift": false,
+  "protected_path_drift": false,
+  "source_trace_drift": false,
+  "timestamp_only_drift_count": 41,
+  "metadata_hash_drift_count": 23,
+  "business_output_drift_count": 0,
+  "missing_required_artifact_count": 0,
+  "drift_categories_found": [
+    "metadata_hash_drift",
+    "timestamp_only_drift"
+  ],
+  "blocking_reasons": [],
+  "warnings": []
+}

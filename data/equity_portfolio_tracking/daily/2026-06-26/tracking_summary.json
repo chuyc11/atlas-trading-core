@@ -3,7 +3,7 @@
   "target_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T18:41:37.205878Z",
+  "generated_at": "2026-06-29T19:30:46.345675Z",
   "ledger_start_date": "2026-06-26",
   "initial_virtual_capital": {
     "long": 1000000.0,

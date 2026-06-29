@@ -3,7 +3,7 @@
   "target_version": "v0.8.1-a-share-current-day-research-workflow-runner",
   "as_of_date": "2026-06-26",
   "resolved_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T18:38:59.614443Z",
+  "generated_at": "2026-06-29T19:28:29.002124Z",
   "mode": "run_research_from_existing_refresh",
   "workflow_mode": "build_from_existing_data",
   "data_refresh_audit_passed": true,

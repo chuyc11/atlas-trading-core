@@ -1,0 +1,22 @@
+{
+  "check_id": "A-SHARE-PROTECTED-PATH-MODIFICATION-CHECK",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "preexisting_protected_paths_allowed": true,
+  "protected_path_modifications_allowed": false,
+  "preexisting_protected_paths": [
+    "data/orders",
+    "data/trades"
+  ],
+  "new_protected_paths_created": [],
+  "protected_files_modified": [],
+  "protected_files_created": [],
+  "protected_files_deleted": [],
+  "protected_path_modifications_detected": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "preexisting_protected_path:data/orders",
+    "preexisting_protected_path:data/trades"
+  ]
+}

@@ -4,7 +4,7 @@
   "score_version": "v0.7.4-a-share-long-mid-short-scoring-system",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "created_at": "2026-06-29T18:41:16.169640Z",
+  "created_at": "2026-06-29T19:30:25.815936Z",
   "input_feature_manifest_path": "data/equity_features/daily/2026-06-26/feature_manifest.json",
   "strict_tradable_universe_path": "data/equity_selection/daily/2026-06-26/strict_tradable_universe.json",
   "strict_tradable_count": 3676,
@@ -13,25 +13,25 @@
       "path": "data/equity_scores/daily/2026-06-26/risk_liquidity_industry_fundamental_scores.parquet",
       "exists": true,
       "rows": 3676,
-      "sha256": "7bd139b3710c94f009534636dacf5ddf8af55fcdb5aedd539959056ac0ff6cc7"
+      "sha256": "39ea5970ad6b75d9532fffee70a253d6755ed5960749026ff7fa19bea05bf73c"
     },
     "horizon_scores": {
       "path": "data/equity_scores/daily/2026-06-26/horizon_scores.parquet",
       "exists": true,
       "rows": 3676,
-      "sha256": "e50aa3c459e86528f84aaa99a9457c7e44ba3870cbecb8a0e40532b6711ecc81"
+      "sha256": "44f1952fac973b621546f531256a5ff90dcc5b30073bbed94f59475818b739f2"
     },
     "composite_scores": {
       "path": "data/equity_scores/daily/2026-06-26/composite_scores.parquet",
       "exists": true,
       "rows": 3676,
-      "sha256": "1c2d65d550d5dbf811077fc073536f94f14a10d61d9b3d079822a62fc86be5c1"
+      "sha256": "7a008f35220308cfdf8edc6bb159116af0d746f7b518c28d17e22c937cbbbfc4"
     },
     "score_component_breakdown": {
       "path": "data/equity_scores/daily/2026-06-26/score_component_breakdown.parquet",
       "exists": true,
       "rows": 169096,
-      "sha256": "278793c86eae12cada3679f2028030230a8e2c5f2a073c6651af7db76d0ea583"
+      "sha256": "1b28bfa9202d51e53f52f1ffb0a8b7bd82f11e404a891b9a71030e6bab385550"
     },
     "score_distribution": {
       "path": "data/equity_scores/daily/2026-06-26/score_distribution.json",

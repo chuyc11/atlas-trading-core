@@ -1,0 +1,224 @@
+{
+  "trace_id": "A-SHARE-BUILD-REPEATABILITY-SOURCE-TRACE",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "entries": [
+    {
+      "artifact_id": "gated_build_audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_gated_build_from_existing_data_audit.json",
+      "exists": true,
+      "sha256": "d2afee7c8fb5aaa4498eba72064c41054221acf2194c78ef043b64f0bcbff5cf"
+    },
+    {
+      "artifact_id": "gated_build_manifest",
+      "required": true,
+      "path": "data/equity_current_day_builds/daily/2026-06-26/gated_build_manifest.json",
+      "exists": true,
+      "sha256": "13a773ba964e4a5cb0a1b212ae52c4a10353a1f338b8cfe2a6db0fbb9373eb67"
+    },
+    {
+      "artifact_id": "gated_build_execution_record",
+      "required": true,
+      "path": "data/equity_current_day_builds/daily/2026-06-26/gated_build_execution_record.json",
+      "exists": true,
+      "sha256": "400be64392040d255e4d1e42095f6b0df2e4929ed3ee4127aa6ea2f7012770de"
+    },
+    {
+      "artifact_id": "gated_build_workflow_result",
+      "required": true,
+      "path": "data/equity_current_day_builds/daily/2026-06-26/build_from_existing_data_workflow_result.json",
+      "exists": true,
+      "sha256": "79bb4c02b55490ebb49b82b1723fc6780372322b0f8ea61661f2eee5ae7780f6"
+    },
+    {
+      "artifact_id": "gated_build_artifact_drift",
+      "required": true,
+      "path": "data/equity_current_day_builds/daily/2026-06-26/artifact_drift_summary.json",
+      "exists": true,
+      "sha256": "81b88624b8f681c2840ec1b72ec5476d2de35a592204ffbf7468bf55c30b938c"
+    },
+    {
+      "artifact_id": "gated_build_boundary_check",
+      "required": true,
+      "path": "data/equity_current_day_builds/daily/2026-06-26/gated_build_boundary_check.json",
+      "exists": true,
+      "sha256": "de058394a643f2ddeeba4af45e2b89770f1722626db08c62cdf2b583cefc3db0"
+    },
+    {
+      "artifact_id": "ops_history_audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_ops_history_baseline_audit.json",
+      "exists": true,
+      "sha256": "9ed5dfa86065295d9d9392a5d6473b80935659ea07de9a32167ba25861899e74"
+    },
+    {
+      "artifact_id": "ops_center_audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_daily_ops_center_audit.json",
+      "exists": true,
+      "sha256": "81d23f29fd50ca36df65396918b318e1f8aa3384c98c8d340384a8aad875bb2a"
+    },
+    {
+      "artifact_id": "data_refresh_audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "exists": true,
+      "sha256": "2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592"
+    },
+    {
+      "artifact_id": "current_day_audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+      "exists": true,
+      "sha256": "baa45dd958aa7de25456a32417275339f77054b173d769485b122fd7c7ac4377"
+    },
+    {
+      "artifact_id": "repeatability_config",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_config.json",
+      "exists": true,
+      "sha256": "e19965acd3f72d6ba1dffe111b03bff8ae450c5fa671d5c3fab804693b843818"
+    },
+    {
+      "artifact_id": "repeatability_input_availability",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_input_availability.json",
+      "exists": true,
+      "sha256": "1454ab07bdebfa97d83a05eccc2787a83f4b016613d7411fb1d47185b96177e0"
+    },
+    {
+      "artifact_id": "repeatability_date_alignment",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_date_alignment.json",
+      "exists": true,
+      "sha256": "2b781e09c3a3f9fa4a5fb2bc1dba84226059753bf2d677972a9f66b7e61ea751"
+    },
+    {
+      "artifact_id": "protected_path_pre_run_snapshot",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/protected_path_pre_run_snapshot.json",
+      "exists": true,
+      "sha256": "c030c556e12ece751c761f6f856d8e4ed4fddc66634006eceb449dacd662e116"
+    },
+    {
+      "artifact_id": "repeat_build_execution_plan",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeat_build_execution_plan.json",
+      "exists": true,
+      "sha256": "adb0e717fb6fc5448702d7f25d59c5ead7da7e39d2ce3b513e6a72a18fc74cbd"
+    },
+    {
+      "artifact_id": "repeat_build_execution_record",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeat_build_execution_record.json",
+      "exists": true,
+      "sha256": "df366fae9867323405207e512fe6be1c888b81abe79c2ec771b56845e97eb064"
+    },
+    {
+      "artifact_id": "repeat_build_workflow_result",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeat_build_workflow_result.json",
+      "exists": true,
+      "sha256": "8f46ca8e3eeaaf7b4d94f5842276a7656dc385182cff1c305b61d3edfb391337"
+    },
+    {
+      "artifact_id": "protected_path_post_run_snapshot",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/protected_path_post_run_snapshot.json",
+      "exists": true,
+      "sha256": "3c0cf38a4b8451ac5365894d1ed7fbf1950803fa5027c3cf39a1e3ea0cd1d955"
+    },
+    {
+      "artifact_id": "protected_path_modification_check",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/protected_path_modification_check.json",
+      "exists": true,
+      "sha256": "e97274c3dc39c884b3494ffbeb677de9e34789beeeab75bfc2e1db44c34645ea"
+    },
+    {
+      "artifact_id": "first_build_artifact_snapshot",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/first_build_artifact_snapshot.json",
+      "exists": true,
+      "sha256": "00a04f533739c31270d0b2b0b3c57526d3f2cefa6b0514ecbde2d3d5b1fb27b6"
+    },
+    {
+      "artifact_id": "second_build_artifact_snapshot",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/second_build_artifact_snapshot.json",
+      "exists": true,
+      "sha256": "863ae45e0db7ca1d0fe781d1aa8445af5d7dc671be4b1fa4bdb152b1436319e7"
+    },
+    {
+      "artifact_id": "build_vs_build_comparison",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/build_vs_build_comparison.json",
+      "exists": true,
+      "sha256": "3aa9bec934a4fe1fb5e6efbfd28dd538e0dfd592c7815bf2e9bf2b6a1d32acf7"
+    },
+    {
+      "artifact_id": "repeatability_drift_summary",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_drift_summary.json",
+      "exists": true,
+      "sha256": "a95f04d160506508b22b3711e4ea7ba8ba99419dfe789ad5e16edfd035308b5f"
+    },
+    {
+      "artifact_id": "deterministic_field_normalization",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/deterministic_field_normalization.json",
+      "exists": true,
+      "sha256": "bacdc0740699df932a27957f432bab5e11615ccc0595dc0dc1538d8e7bda7772"
+    },
+    {
+      "artifact_id": "repeatability_warning_comparison",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_warning_comparison.json",
+      "exists": true,
+      "sha256": "5122df629ef28777529c2307037f0a93ac07f56701029bb2ead977278ca24181"
+    },
+    {
+      "artifact_id": "repeatability_source_trace",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_source_trace.json",
+      "exists": true,
+      "sha256": "201c1bdfcdb22c49487bfa23601c27ef613afe9a3d44788bc6b418fe8d0f6b88"
+    },
+    {
+      "artifact_id": "repeatability_boundary_check",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_boundary_check.json",
+      "exists": true,
+      "sha256": "a566f085482eef0cd8c1ee65d32d7c78647f91f5ac0621d728575c09a2009ca5"
+    },
+    {
+      "artifact_id": "repeatability_manifest",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_manifest.json",
+      "exists": true,
+      "sha256": "3098eb76cc3f1f59ab7904def00d2042f3d9971b804ca6b764cf47672602a2bb"
+    },
+    {
+      "artifact_id": "repeatability_summary",
+      "required": false,
+      "path": "data/equity_build_repeatability/daily/2026-06-26/repeatability_summary.json",
+      "exists": true,
+      "sha256": "816e03b1423406f050235d3b8bcffa59b890a2878911308a5a63553d491cc857"
+    }
+  ],
+  "source_trace_complete": true,
+  "forbidden_generated_sources": [],
+  "boundary_assumptions": [
+    "repeatability_only=True",
+    "research_only=True",
+    "virtual_only=True",
+    "preexisting protected paths are allowed only if unchanged",
+    "no broker connection",
+    "no real orders",
+    "no order preview",
+    "no buy/sell signals",
+    "no old run-daily call",
+    "no official forward dry-run day2"
+  ]
+}

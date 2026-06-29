@@ -84,6 +84,13 @@ from trading_core.equity_current_day_builds.gated_build_audit import audit_a_sha
 from trading_core.equity_current_day_builds.gated_build_builder import build_a_share_gated_build, validate_a_share_gated_build_inputs
 from trading_core.equity_current_day_builds.gated_build_config import ALLOWED_MODES as A_SHARE_GATED_BUILD_MODES
 from trading_core.equity_current_day_builds.gated_build_config import DEFAULT_AS_OF_DATE as DEFAULT_GATED_BUILD_AS_OF_DATE
+from trading_core.equity_build_repeatability.repeatability_audit import audit_a_share_build_repeatability
+from trading_core.equity_build_repeatability.repeatability_builder import (
+    build_a_share_build_repeatability,
+    validate_a_share_build_repeatability_inputs,
+)
+from trading_core.equity_build_repeatability.repeatability_config import ALLOWED_MODES as A_SHARE_BUILD_REPEATABILITY_MODES
+from trading_core.equity_build_repeatability.repeatability_config import DEFAULT_AS_OF_DATE as DEFAULT_BUILD_REPEATABILITY_AS_OF_DATE
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1028,6 +1035,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_gated_build_arguments(gated_build_audit, include_mode=False)
     gated_build_all = subparsers.add_parser("build-and-audit-a-share-gated-build-from-existing-data")
     _add_a_share_gated_build_arguments(gated_build_all)
+    repeatability_validate = subparsers.add_parser("validate-a-share-build-repeatability-inputs")
+    _add_a_share_build_repeatability_arguments(repeatability_validate, include_mode=False)
+    repeatability_build = subparsers.add_parser("build-a-share-build-repeatability")
+    _add_a_share_build_repeatability_arguments(repeatability_build)
+    repeatability_audit = subparsers.add_parser("audit-a-share-build-repeatability")
+    _add_a_share_build_repeatability_arguments(repeatability_audit, include_mode=False)
+    repeatability_all = subparsers.add_parser("build-and-audit-a-share-build-repeatability")
+    _add_a_share_build_repeatability_arguments(repeatability_all)
 
     return parser
 
@@ -1227,6 +1242,16 @@ def _add_a_share_gated_build_arguments(parser: argparse.ArgumentParser, *, inclu
     parser.add_argument("--allow-real-orders", action="store_true")
     parser.add_argument("--allow-order-preview", action="store_true")
     parser.add_argument("--allow-buy-sell-signals", action="store_true")
+
+
+def _add_a_share_build_repeatability_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_BUILD_REPEATABILITY_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_BUILD_REPEATABILITY_MODES, default="run_repeat_build_from_existing_data")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_BUILD_REPEATABILITY_MODES, default="validate_repeatability_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--allow-business-output-drift", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3844,6 +3869,88 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "preflight_checks": audit_result["preflight_checks"],
                 "execution_checks": audit_result["execution_checks"],
                 "comparison_checks": audit_result["comparison_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-build-repeatability-inputs":
+        result = validate_a_share_build_repeatability_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "gated_build_audit_passed": result["gated_build_audit_passed"],
+                "gated_build_workflow_mode": result["gated_build_workflow_mode"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-build-repeatability":
+        result = build_a_share_build_repeatability(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_business_output_drift=args.allow_business_output_drift,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "workflow_mode": result["workflow_mode"],
+                "repeat_build_execution_performed": result["repeat_build_execution_performed"],
+                "repeat_build_audit_passed": result["repeat_build_audit_passed"],
+                "comparison_completed": result["comparison_completed"],
+                "business_output_drift_count": result["business_output_drift_count"],
+                "timestamp_only_drift_count": result["timestamp_only_drift_count"],
+                "metadata_hash_drift_count": result["metadata_hash_drift_count"],
+                "missing_required_artifact_count": result["missing_required_artifact_count"],
+                "protected_path_modifications_detected": result["protected_path_modifications_detected"],
+                "recommended_next_version": result["recommended_next_version"],
+                "repeatability_report": result["repeatability_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-build-repeatability":
+        result = audit_a_share_build_repeatability(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "execution_checks": result["execution_checks"],
+                "comparison_checks": result["comparison_checks"],
+                "protected_path_checks": result["protected_path_checks"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-build-repeatability":
+        build_result = build_a_share_build_repeatability(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_business_output_drift=args.allow_business_output_drift,
+            paths=paths,
+        )
+        audit_result = audit_a_share_build_repeatability(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "execution_checks": audit_result["execution_checks"],
+                "comparison_checks": audit_result["comparison_checks"],
+                "protected_path_checks": audit_result["protected_path_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

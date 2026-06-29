@@ -3,7 +3,7 @@
   "target_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
   "as_of_date": "2026-06-26",
   "requested_as_of_date": "2026-06-26",
-  "generated_at": "2026-06-29T18:41:37.205878Z",
+  "generated_at": "2026-06-29T19:30:46.345675Z",
   "virtual_portfolio_source_paths": {
     "long": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
     "mid": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
@@ -46,32 +46,32 @@
     {
       "path": "data/equity_portfolios/daily/2026-06-26/long_virtual_portfolio.json",
       "exists": true,
-      "sha256": "a4d33d76ee5980b88bb64c91f6876613857a0fff4f52d04dfb1a4251ad61ec17"
+      "sha256": "093e62918669c8bf822e2b3379db9866cb58db411bcbd9d934f13dd54adbfc4d"
     },
     {
       "path": "data/equity_portfolios/daily/2026-06-26/mid_virtual_portfolio.json",
       "exists": true,
-      "sha256": "da2e4ddabb0cdadfcf99f86618dce9a5d95b6902ff6d8b2568cb623dee2fcc17"
+      "sha256": "e0164810046a086aaf85ab8aa2d6d85b8fa9d98e9584bc2215e5ee9e08303287"
     },
     {
       "path": "data/equity_portfolios/daily/2026-06-26/short_virtual_portfolio.json",
       "exists": true,
-      "sha256": "230e799f9d2466faa8df85be1baa8892655a151dad6c8e1fef3e93541c9cab86"
+      "sha256": "6978888bcd794f344bf4afcbe0ea797878c1756a5feb5ab2c23cac670859f3d6"
     },
     {
       "path": "data/equity_selection/daily/2026-06-26/candidate_manifest.json",
       "exists": true,
-      "sha256": "0d55632badcf3214198cc2a1c273b1ba24e5b68b3032d3017c1c2b7635f27101"
+      "sha256": "35a89c7bd98a28d816df50cd4450791e99d320355e0c06257d75fdf013d2c2bc"
     },
     {
       "path": "data/equity_scores/daily/2026-06-26/score_manifest.json",
       "exists": true,
-      "sha256": "cdf143c5a86302051894a81e486e30ee8631e4f706a2e5ea6fa843749b3f9d07"
+      "sha256": "7415cefd63a7841e7448835b8ef220d3552ac4b3c64fdb79cb171404d872fd83"
     },
     {
       "path": "data/equity_briefings/daily/2026-06-26/briefing_manifest.json",
       "exists": true,
-      "sha256": "f75faac6002feb2bce6236d180e5f4c091f14d8b524e5e038325b26451667c2a"
+      "sha256": "8bbad188fd65afccca118c6b48f029cfa8f99611ff6b78f24c29c974cacd3421"
     },
     {
       "path": "data/equity_market/history/daily_price_history_panel.parquet",

@@ -97,5 +97,17 @@ def seed_gated_build_outputs(paths, as_of_date: str = AS_OF_DATE) -> None:
     )
     write_json(artifacts["gated_build_manifest"], {**base, "manifest_id": "A-SHARE-GATED-BUILD-FROM-EXISTING-DATA-MANIFEST", "research_only": True, "recommended_next_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability"})
     write_json(artifacts["gated_build_summary"], {**base, "overall_passed": True})
+    write_json(
+        paths.data_dir / "equity_data_quality" / "a_share_gated_build_from_existing_data_audit.json",
+        {
+            **base,
+            "overall_passed": True,
+            "blocking_reasons": [],
+            "warnings": [],
+            "recommended_next_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+            "execution_checks": {"workflow_mode": "build_from_existing_data", "gated_build_execution_performed": True, "workflow_audit_passed": True, "old_run_daily_called": False},
+            "comparison_checks": {"comparison_completed": True, "missing_required_artifacts": [], "boundary_drift": False, "source_trace_missing": False, "source_trace_hashes_match": True},
+        },
+    )
     for key in GATED_BUILD_REPORTS:
         write_text(artifacts[key], "report")

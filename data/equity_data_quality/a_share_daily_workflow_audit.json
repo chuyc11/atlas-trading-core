@@ -39,10 +39,10 @@
   "version_checks": {
     "version_file": "VERSION",
     "version_file_readable": true,
-    "version_file_content": "v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines",
-    "version_file_semver": "0.8.6",
-    "root_import_version": "0.8.6",
-    "src_import_version": "0.8.6",
+    "version_file_content": "v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run",
+    "version_file_semver": "0.8.7",
+    "root_import_version": "0.8.7",
+    "src_import_version": "0.8.7",
     "root_import_file_readable": true,
     "src_import_file_readable": true,
     "version_consistent": true

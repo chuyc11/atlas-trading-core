@@ -19,3 +19,10 @@ Release result:
 
 This is research-only and virtual-only. It is not live trading, not an order workflow, and not a trade instruction.
 
+## v0.8.8 repeatability handoff
+
+v0.8.8 consumes the v0.8.7 gated build evidence and repeats the same `build_from_existing_data` workflow for the same `as_of_date`. It adds build-vs-build comparison, deterministic field normalization, warning comparison, source trace stability, boundary stability, and protected path pre/post snapshots.
+
+v0.8.8 distinguishes pre-existing protected paths from modified protected paths. Existing `data/orders` or `data/trades` are informational if unchanged; new, modified, or deleted protected files are blocking.
+
+v0.8.8 remains research-only and virtual-only. It does not refresh public network data, does not run `full_research_run`, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat repeatability as a trade instruction.

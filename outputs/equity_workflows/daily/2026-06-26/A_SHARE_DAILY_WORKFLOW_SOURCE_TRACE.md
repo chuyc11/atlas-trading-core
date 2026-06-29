@@ -9,14 +9,14 @@
 | path | exists | sha256 |
 |---|---:|---|
 | data/equity_market/history | true |  |
-| data/equity_selection/daily/2026-06-26/tradable_universe.json | true | f680cae08302fd5d45147ef3cf4a5ee18fe9f07d6a5217dd289b3b4406be407f |
-| data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json | true | 7f9439bbe7f234aba9fc71e3a540547c6639040b246b16618d649c4c8f1e1a2d |
-| data/equity_features/daily/2026-06-26/feature_manifest.json | true | df11e3c9ac0bed0a3f10151daafc59ee866e40b5b855e0ee6f0382fdcd6cf8c2 |
-| data/equity_scores/daily/2026-06-26/score_manifest.json | true | cdf143c5a86302051894a81e486e30ee8631e4f706a2e5ea6fa843749b3f9d07 |
-| data/equity_selection/daily/2026-06-26/candidate_manifest.json | true | 0d55632badcf3214198cc2a1c273b1ba24e5b68b3032d3017c1c2b7635f27101 |
-| data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json | true | 9f031f287ea0e863d80b3261a73b80f7a168a60f4e9f3dc89cda58f6b6aa3d90 |
-| data/equity_briefings/daily/2026-06-26/briefing_manifest.json | true | f75faac6002feb2bce6236d180e5f4c091f14d8b524e5e038325b26451667c2a |
-| data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json | true | 522d5b7a5a2b050827afaf0e69dccb3632423fe26eae1c4ed9ea3f12f1a646d5 |
+| data/equity_selection/daily/2026-06-26/tradable_universe.json | true | ff8b4ebae6f7918a2d4a6f2f50118ce02e5b51ea05cf62cb4c67ebfb7f1c259a |
+| data/equity_selection/daily/2026-06-26/tradable_universe_manifest.json | true | b11dee928585d223754da4dff60d7580ce7df6a557f5fc81a20d9f002a3f29c7 |
+| data/equity_features/daily/2026-06-26/feature_manifest.json | true | debef12dc2361e696cbcc93c900020028da97fbae68cbf5c71a39b308b452589 |
+| data/equity_scores/daily/2026-06-26/score_manifest.json | true | 7415cefd63a7841e7448835b8ef220d3552ac4b3c64fdb79cb171404d872fd83 |
+| data/equity_selection/daily/2026-06-26/candidate_manifest.json | true | 35a89c7bd98a28d816df50cd4450791e99d320355e0c06257d75fdf013d2c2bc |
+| data/equity_portfolios/daily/2026-06-26/portfolio_manifest.json | true | 62610caa98885be73e7d16ce62d190927dabb8895b306fe28a91677b44a6735b |
+| data/equity_briefings/daily/2026-06-26/briefing_manifest.json | true | 8bbad188fd65afccca118c6b48f029cfa8f99611ff6b78f24c29c974cacd3421 |
+| data/equity_portfolio_tracking/daily/2026-06-26/tracking_manifest.json | true | 4aee40da0f618adcacd82302e89a47480c14717d99b85b4090a8ca1f4a884f5f |
 | data/equity_data_quality/a_share_tradable_universe_audit.json | true | c52ffce712fd97943e633141b78b98831e6678cda35156fde2509bebe78cadda |
 | data/equity_data_quality/a_share_multi_horizon_feature_audit.json | true | 3aa6477294afc46f7f9d7a18bdf66a2c3091ea8d6bef6eafd6c7350c2a255d0a |
 | data/equity_data_quality/a_share_scoring_audit.json | true | 37196a6aef1d6cca52931f2a3e304ec50af2e351c73221ed3ed3214d77a2c593 |
@@ -25,9 +25,9 @@
 | data/equity_data_quality/a_share_daily_stock_selection_briefing_audit.json | true | c7f210cfb8eddbde09d482aa78697d25b88186b9c61c5a5275ee6a3f85255b19 |
 | data/equity_data_quality/a_share_virtual_portfolio_tracking_audit.json | true | d49e5df8ca380c617b5768f2df001151093ffdd72a1decf268756d0558884dd3 |
 | data/equity_workflows/daily/2026-06-26/workflow_config.json | true | 5de510a2b17c7db3354d919013095b3796510484a70ee4a402e622e42d1d151e |
-| data/equity_workflows/daily/2026-06-26/workflow_preflight.json | true | 412e6e6870fd70aad81e9cd1c00fb0b448ce05b61eed58280af912f4392d0e25 |
-| data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json | true | 006b642ff1c4bf287c5e7433b593eeadb6ae24779b3f45c10f8ec422452aee65 |
-| data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json | true | b1a3ef4eb087f422888708678307da064ed3894b0198a3d83668054fdccdb71a |
+| data/equity_workflows/daily/2026-06-26/workflow_preflight.json | true | fd4c0a3550fbee9e3790b7b01d7147761b1e87ca579f57840007e0999061ffb7 |
+| data/equity_workflows/daily/2026-06-26/workflow_stage_manifest.json | true | 8a4a3ee4df43093ee510cb853e8508b13dbcb67d477638ef518552b9a6cb9b17 |
+| data/equity_workflows/daily/2026-06-26/workflow_run_manifest.json | true | fad9142c2f15dc55c21fe3bc068538b835c229bfd9eb7b2a6a54a747da165905 |
 | data/equity_workflows/daily/2026-06-26/workflow_boundary_check.json | true | 2c6b3b7ec5b4442b9541c99e0dbe811bb76ebf87c3a81552c5503acefab55dbe |
 
 ## Stage Commands

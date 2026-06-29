@@ -21,3 +21,10 @@ The audit checks:
 - no old `run-daily`, day2, broker, real orders, buy/sell signals, or order preview occurred
 - build output is not treated as a trade instruction
 
+v0.8.8 adds a downstream repeatability audit:
+
+```bash
+python -m trading_core.cli audit-a-share-build-repeatability --as-of-date 2026-06-26
+```
+
+The repeatability audit requires the v0.8.7 gated build audit to have passed, then verifies the repeated `build_from_existing_data` run, build-vs-build comparison, protected path modification check, source trace stability, and boundary stability. It does not refresh public network data or authorize trading.

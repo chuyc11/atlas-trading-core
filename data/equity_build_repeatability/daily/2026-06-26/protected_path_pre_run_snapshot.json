@@ -1,0 +1,201 @@
+{
+  "snapshot_id": "A-SHARE-PROTECTED-PATH-PRE_RUN-SNAPSHOT",
+  "target_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
+  "as_of_date": "2026-06-26",
+  "snapshot_phase": "pre_run",
+  "generated_at": "2026-06-29T19:28:24.921430Z",
+  "entries": [
+    {
+      "path": "data/orders",
+      "exists": true,
+      "file_count": 8,
+      "dir_count": 0,
+      "sha256_tree_hash": "28f1871cf0ee41e6a2ed8aecd2655980ff72a7a297e7f1b82842ce3f80dbbaf3",
+      "latest_modified_at": "2026-06-24T05:47:23.193543Z",
+      "sample_files": [
+        "data/orders/orders-2026-06-15.jsonl",
+        "data/orders/orders-2026-06-16.jsonl",
+        "data/orders/orders-2026-06-17.jsonl",
+        "data/orders/orders-2026-06-18.jsonl",
+        "data/orders/orders-2026-06-19.jsonl",
+        "data/orders/orders-2026-06-22.jsonl",
+        "data/orders/orders-2026-06-23.jsonl",
+        "data/orders/orders-2026-06-24.jsonl"
+      ],
+      "files": [
+        {
+          "path": "data/orders/orders-2026-06-15.jsonl",
+          "relative_to_protected_root": "orders-2026-06-15.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:22.679679Z",
+          "sha256": "692039b741c4438ed8d7547636aeaf38e0c2b625feec70e8c6ae796f7ce32f95"
+        },
+        {
+          "path": "data/orders/orders-2026-06-16.jsonl",
+          "relative_to_protected_root": "orders-2026-06-16.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:22.790057Z",
+          "sha256": "4d533c77b04a5f87f6c84965c7b5b590d7d3cf25571e6ef40d5e49104497c572"
+        },
+        {
+          "path": "data/orders/orders-2026-06-17.jsonl",
+          "relative_to_protected_root": "orders-2026-06-17.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:22.896398Z",
+          "sha256": "aa67deea66725b300817895c00b4751efc6982395abd9a62e6827eda808cd84e"
+        },
+        {
+          "path": "data/orders/orders-2026-06-18.jsonl",
+          "relative_to_protected_root": "orders-2026-06-18.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:23.000654Z",
+          "sha256": "b76bb27e1903bcc7af3f82b459fe9f1a4cef7e0b23b4cd39ce6c719c8f9bd8b7"
+        },
+        {
+          "path": "data/orders/orders-2026-06-19.jsonl",
+          "relative_to_protected_root": "orders-2026-06-19.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:23.097102Z",
+          "sha256": "e32dae911f602e1c0476e3efa90b1654d5b7ef9f2c3a7cfecc1f6ec6465bd41a"
+        },
+        {
+          "path": "data/orders/orders-2026-06-22.jsonl",
+          "relative_to_protected_root": "orders-2026-06-22.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-24T05:47:23.193543Z",
+          "sha256": "3d8249999473b46d5a51495266d819b5ff2b495acd32118f33aa638bcfde53b5"
+        },
+        {
+          "path": "data/orders/orders-2026-06-23.jsonl",
+          "relative_to_protected_root": "orders-2026-06-23.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-23T07:46:52.353555Z",
+          "sha256": "55db2709e0f610d60c8322c7b9db116c85c20b89554f47f0d4ebabee24e4b961"
+        },
+        {
+          "path": "data/orders/orders-2026-06-24.jsonl",
+          "relative_to_protected_root": "orders-2026-06-24.jsonl",
+          "size_bytes": 305,
+          "modified_at": "2026-06-23T07:08:20.888414Z",
+          "sha256": "65e5541e20bd48b338ea76fe94bcb3f8588c099aaa1e8935fb9f693cc10b3c6c"
+        }
+      ]
+    },
+    {
+      "path": "data/trades",
+      "exists": true,
+      "file_count": 8,
+      "dir_count": 0,
+      "sha256_tree_hash": "91c0f9306451a49d98179e7a955e7eb379a2d92742e1d60a10eeec4bd99b60de",
+      "latest_modified_at": "2026-06-24T05:47:23.194979Z",
+      "sample_files": [
+        "data/trades/trades-2026-06-15.jsonl",
+        "data/trades/trades-2026-06-16.jsonl",
+        "data/trades/trades-2026-06-17.jsonl",
+        "data/trades/trades-2026-06-18.jsonl",
+        "data/trades/trades-2026-06-19.jsonl",
+        "data/trades/trades-2026-06-22.jsonl",
+        "data/trades/trades-2026-06-23.jsonl",
+        "data/trades/trades-2026-06-24.jsonl"
+      ],
+      "files": [
+        {
+          "path": "data/trades/trades-2026-06-15.jsonl",
+          "relative_to_protected_root": "trades-2026-06-15.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:22.681689Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-16.jsonl",
+          "relative_to_protected_root": "trades-2026-06-16.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:22.790057Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-17.jsonl",
+          "relative_to_protected_root": "trades-2026-06-17.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:22.896398Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-18.jsonl",
+          "relative_to_protected_root": "trades-2026-06-18.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:23.002817Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-19.jsonl",
+          "relative_to_protected_root": "trades-2026-06-19.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:23.097102Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-22.jsonl",
+          "relative_to_protected_root": "trades-2026-06-22.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-24T05:47:23.194979Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-23.jsonl",
+          "relative_to_protected_root": "trades-2026-06-23.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-23T07:46:52.354936Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "data/trades/trades-2026-06-24.jsonl",
+          "relative_to_protected_root": "trades-2026-06-24.jsonl",
+          "size_bytes": 0,
+          "modified_at": "2026-06-23T07:08:20.889456Z",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    {
+      "path": "data/accounts",
+      "exists": false,
+      "file_count": 0,
+      "dir_count": 0,
+      "sha256_tree_hash": null,
+      "latest_modified_at": null,
+      "sample_files": [],
+      "files": []
+    },
+    {
+      "path": "outputs/orders",
+      "exists": false,
+      "file_count": 0,
+      "dir_count": 0,
+      "sha256_tree_hash": null,
+      "latest_modified_at": null,
+      "sample_files": [],
+      "files": []
+    },
+    {
+      "path": "outputs/trades",
+      "exists": false,
+      "file_count": 0,
+      "dir_count": 0,
+      "sha256_tree_hash": null,
+      "latest_modified_at": null,
+      "sample_files": [],
+      "files": []
+    },
+    {
+      "path": "outputs/accounts",
+      "exists": false,
+      "file_count": 0,
+      "dir_count": 0,
+      "sha256_tree_hash": null,
+      "latest_modified_at": null,
+      "sample_files": [],
+      "files": []
+    }
+  ]
+}

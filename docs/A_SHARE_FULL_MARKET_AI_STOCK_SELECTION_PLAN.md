@@ -188,3 +188,10 @@ v0.8.5 adds the A-share daily ops command center as an owner-facing operations c
 - v0.8.5 does not execute official forward dry-run day2.
 - v0.8.5 does not treat ops output as trade instruction.
 - v0.8.6 should deepen run history and trend baselines.
+# v0.8.8 Build Repeatability Addendum
+
+v0.8.8 adds A-share `build_from_existing_data` repeatability and diff stability. It repeats the gated v0.8.7 build for the same `as_of_date`, compares first-build and second-build artifacts, classifies timestamp-only drift, metadata/hash drift, business output drift, missing required artifacts, boundary drift, protected path drift, and source trace drift.
+
+The stage distinguishes pre-existing protected paths from modified protected paths. Pre-existing `data/orders` or `data/trades` are not automatically blocking; new, modified, or deleted files under protected order/trade/account paths are blocking.
+
+This stage does not refresh public network data, does not run `full_research_run`, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat repeatability as a trade instruction. v0.8.9 should refresh owner dashboard outputs from `build_from_existing_data` artifacts.
