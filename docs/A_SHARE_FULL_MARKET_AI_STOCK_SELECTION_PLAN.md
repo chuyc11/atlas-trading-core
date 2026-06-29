@@ -139,4 +139,10 @@ v0.8.1 does not generate buy/sell signals, does not generate order previews, doe
 
 v0.8.2 adds an owner-facing dashboard and monitoring package for the existing current-day run. It materializes executive status, data freshness, provider health, workflow status, research output, candidates, virtual portfolios, benchmarks, performance, attribution, warnings/blockers, navigation, source trace, boundary, manifest, summary, reports, and audit artifacts.
 
-v0.8.2 does not refresh data, rerun the research workflow, generate buy/sell signals, generate order previews, place orders, connect broker, read real account data, call old `run-daily`, execute official forward dry-run day2, or treat dashboard content as trade instruction. v0.8.3 should add owner alerting and run-history monitoring.
+v0.8.2 does not refresh data, rerun the research workflow, generate buy/sell signals, generate order previews, place orders, connect broker, read real account data, call old `run-daily`, execute official forward dry-run day2, or treat dashboard content as trade instruction.
+
+## v0.8.3 Owner Monitoring Update
+
+v0.8.3 adds owner alerting and run history monitoring. It materializes monitoring config, input availability, append-only run history, warning/blocking/provider/workflow/dashboard trend snapshots, local alert rules, local alert evaluation, alert event log, monitoring cards, source trace, boundary, manifest, summary, reports, and audit artifacts.
+
+v0.8.3 generates local alert artifacts only. It does not send external notifications by default, refresh data, rerun the research workflow, generate buy/sell signals, generate order previews, place orders, connect broker, read real account data, call old `run-daily`, execute official forward dry-run day2, or treat alerts as trade instructions. v0.8.4 should add owner remediation runbooks and safe action checklists.

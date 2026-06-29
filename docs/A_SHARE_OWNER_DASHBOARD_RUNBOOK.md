@@ -27,3 +27,13 @@ Options:
 - `--compact-only`: write only the compact report when building a non-release local view
 
 Do not run this command to refresh data or rerun research. Use v0.8.0/v0.8.1 commands for those stages.
+
+## Downstream v0.8.3 Monitoring
+
+After the dashboard audit passes, run:
+
+```powershell
+python -m trading_core.cli build-and-audit-a-share-owner-monitoring --as-of-date 2026-06-26 --mode build_monitoring_dashboard
+```
+
+This creates local alert and run-history monitoring artifacts only. It does not send external notifications by default and does not turn dashboard output into trading instructions.

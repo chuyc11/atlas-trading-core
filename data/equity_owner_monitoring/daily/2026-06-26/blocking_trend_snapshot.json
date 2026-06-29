@@ -1,0 +1,16 @@
+{
+  "snapshot_id": "A-SHARE-OWNER-MONITORING-BLOCKING-TREND-SNAPSHOT",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "history_observation_count": 1,
+  "minimum_history_observations": 3,
+  "trend_analysis_available": false,
+  "insufficient_history_for_trends": true,
+  "trend_status": "insufficient_history",
+  "blocking_count_current": 0,
+  "blocking_count_previous": null,
+  "blocking_count_change": null,
+  "new_blocking_codes": [],
+  "resolved_blocking_codes": [],
+  "current_blocking_codes": []
+}

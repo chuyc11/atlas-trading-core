@@ -1,0 +1,46 @@
+{
+  "index_id": "A-SHARE-OWNER-MONITORING-RUN-HISTORY-INDEX",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "history_window_days": 30,
+  "minimum_history_observations": 3,
+  "append_only_history": true,
+  "records": [
+    {
+      "run_id": "A-SHARE-OWNER-MONITORING-RUN-2026-06-26",
+      "as_of_date": "2026-06-26",
+      "resolved_as_of_date": "2026-06-26",
+      "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+      "source_dashboard_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+      "source_current_day_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+      "source_dashboard_hash": "e8995fee74bf5e66059f2d20fa58226658d680792dc736105ea3750402eefe01",
+      "generated_at": "2026-06-29T06:41:18.582655+00:00",
+      "overall_status": "passed_with_warnings",
+      "data_refresh_status": "passed",
+      "current_day_run_status": "passed",
+      "workflow_status": "passed",
+      "dashboard_status": "passed",
+      "blocking_count": 0,
+      "warning_count": 11,
+      "critical_alert_count": 0,
+      "warning_alert_count": 0,
+      "known_non_blocking_count": 0,
+      "audit_paths": {
+        "owner_dashboard_audit": "data/equity_data_quality/a_share_owner_dashboard_audit.json",
+        "current_day_run_audit": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+        "data_refresh_audit": "data/equity_data_quality/a_share_daily_data_refresh_audit.json"
+      },
+      "dashboard_paths": {
+        "manifest": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_manifest.json",
+        "summary": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_summary.json"
+      },
+      "source_trace_paths": {
+        "dashboard_source_trace": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_source_trace.json"
+      },
+      "boundary_status": true,
+      "recommended_next_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "dashboard_source_trace_complete": true
+    }
+  ],
+  "record_count": 1,
+  "warnings": []
+}

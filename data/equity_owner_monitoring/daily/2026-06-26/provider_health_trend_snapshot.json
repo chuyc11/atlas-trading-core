@@ -1,0 +1,16 @@
+{
+  "snapshot_id": "A-SHARE-OWNER-MONITORING-PROVIDER-HEALTH-TREND",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "current_status": "available",
+  "previous_status": null,
+  "trend_status": "insufficient_history",
+  "history_observation_count": 1,
+  "minimum_history_observations": 3,
+  "degraded": false,
+  "improved": false,
+  "unchanged": false,
+  "insufficient_history": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -84,6 +84,11 @@ from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_ow
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
 from trading_core.equity_owner_dashboard.dashboard_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_DASHBOARD_AS_OF_DATE
+from trading_core.equity_owner_monitoring.monitoring_audit import audit_a_share_owner_monitoring
+from trading_core.equity_owner_monitoring.monitoring_builder import build_a_share_owner_monitoring, validate_a_share_owner_monitoring_inputs
+from trading_core.equity_owner_monitoring.monitoring_config import ALLOWED_MODES as A_SHARE_OWNER_MONITORING_MODES
+from trading_core.equity_owner_monitoring.monitoring_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_MONITORING_AS_OF_DATE
+from trading_core.equity_owner_monitoring.monitoring_config import DEFAULT_HISTORY_WINDOW_DAYS, DEFAULT_MINIMUM_HISTORY_OBSERVATIONS
 from trading_core.equity_workflows.workflow_audit import audit_a_share_daily_research_workflow
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
@@ -964,6 +969,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_dashboard_arguments(owner_dashboard_audit, include_mode=False)
     owner_dashboard_all = subparsers.add_parser("build-and-audit-a-share-owner-dashboard")
     _add_a_share_owner_dashboard_arguments(owner_dashboard_all)
+    owner_monitoring_validate = subparsers.add_parser("validate-a-share-owner-monitoring-inputs")
+    _add_a_share_owner_monitoring_arguments(owner_monitoring_validate, include_mode=False)
+    owner_monitoring_build = subparsers.add_parser("build-a-share-owner-monitoring")
+    _add_a_share_owner_monitoring_arguments(owner_monitoring_build)
+    owner_monitoring_audit = subparsers.add_parser("audit-a-share-owner-monitoring")
+    _add_a_share_owner_monitoring_arguments(owner_monitoring_audit, include_mode=False)
+    owner_monitoring_all = subparsers.add_parser("build-and-audit-a-share-owner-monitoring")
+    _add_a_share_owner_monitoring_arguments(owner_monitoring_all)
 
     return parser
 
@@ -1097,6 +1110,18 @@ def _add_a_share_owner_dashboard_arguments(parser: argparse.ArgumentParser, *, i
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--fail-on-missing-optional-card", action="store_true")
     parser.add_argument("--compact-only", action="store_true")
+
+
+def _add_a_share_owner_monitoring_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_MONITORING_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_MONITORING_MODES, default="build_monitoring_dashboard")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_MONITORING_MODES, default="validate_monitoring_inputs")
+    parser.add_argument("--history-window-days", type=int, default=DEFAULT_HISTORY_WINDOW_DAYS)
+    parser.add_argument("--minimum-history-observations", type=int, default=DEFAULT_MINIMUM_HISTORY_OBSERVATIONS)
+    parser.add_argument("--allow-rebuild-history", action="store_true")
+    parser.add_argument("--send-external-notifications", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -3317,6 +3342,80 @@ def main(argv: Sequence[str] | None = None) -> int:
             paths=paths,
         )
         audit_result = audit_a_share_owner_dashboard(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": len(audit_result["warnings"]),
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-monitoring-inputs":
+        result = validate_a_share_owner_monitoring_inputs(
+            as_of_date=args.as_of_date,
+            history_window_days=args.history_window_days,
+            minimum_history_observations=args.minimum_history_observations,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "monitoring_input_availability_path": result["monitoring_input_availability_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-monitoring":
+        result = build_a_share_owner_monitoring(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            history_window_days=args.history_window_days,
+            minimum_history_observations=args.minimum_history_observations,
+            allow_rebuild_history=args.allow_rebuild_history,
+            send_external_notifications=args.send_external_notifications,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "overall_monitoring_status": result["overall_monitoring_status"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "owner_monitoring_summary_report": result["owner_monitoring_summary_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-monitoring":
+        result = audit_a_share_owner_monitoring(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-monitoring":
+        build_result = build_a_share_owner_monitoring(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            history_window_days=args.history_window_days,
+            minimum_history_observations=args.minimum_history_observations,
+            allow_rebuild_history=args.allow_rebuild_history,
+            send_external_notifications=args.send_external_notifications,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_monitoring(as_of_date=args.as_of_date, paths=paths)
         print(
             {
                 "builder_id": build_result["builder_id"],

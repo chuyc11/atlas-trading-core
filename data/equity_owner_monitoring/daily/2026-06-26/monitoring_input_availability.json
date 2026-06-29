@@ -1,0 +1,231 @@
+{
+  "availability_id": "A-SHARE-OWNER-MONITORING-INPUT-AVAILABILITY",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "input_artifacts": [
+    {
+      "artifact_id": "owner_dashboard_audit",
+      "category": "audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_owner_dashboard_audit.json",
+      "exists": true,
+      "sha256": "3c9ca016fd6cbf7c9177d4abe5f3ba885c7ad5b3de293dc605fe21c2bcd0d202"
+    },
+    {
+      "artifact_id": "current_day_run_audit",
+      "category": "audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_current_day_research_run_audit.json",
+      "exists": true,
+      "sha256": "fffab67fe6dd03edd98c30429c777d2a78c4c5f6ed5bdaf8f3af73a8a1df7960"
+    },
+    {
+      "artifact_id": "data_refresh_audit",
+      "category": "audit",
+      "required": true,
+      "path": "data/equity_data_quality/a_share_daily_data_refresh_audit.json",
+      "exists": true,
+      "sha256": "2a2b3670b75b4e64e870cd8d468a6bb1f54aa8475747b55d1f796fda172e7592"
+    },
+    {
+      "artifact_id": "dashboard_config",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_config.json",
+      "exists": true,
+      "sha256": "4dbf5eaad3da6b7f6141f292e9e3b69e06e06ba1fe994cc4baff1d9fd4bc08de"
+    },
+    {
+      "artifact_id": "dashboard_input_availability",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_input_availability.json",
+      "exists": true,
+      "sha256": "62ce1f4599c2fe06f65468791bb2c086defba367c1b2a10d3db84a3d5a3d85ee"
+    },
+    {
+      "artifact_id": "executive_status_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/executive_status_card.json",
+      "exists": true,
+      "sha256": "458b1e538db8b59a6e94c9d324c23798c6486a34064ceac1f043754ad471c622"
+    },
+    {
+      "artifact_id": "data_freshness_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/data_freshness_card.json",
+      "exists": true,
+      "sha256": "d629b9387042a70e4be09cdf096e1f67f76a9cbeb0174446b19706bd353aa5c4"
+    },
+    {
+      "artifact_id": "provider_health_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/provider_health_card.json",
+      "exists": true,
+      "sha256": "ccd8bb79087c18ab4c9b09f7a4c5b375d30dac8b660be6b412f7beef8b0e028e"
+    },
+    {
+      "artifact_id": "workflow_status_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/workflow_status_card.json",
+      "exists": true,
+      "sha256": "b8c0a2ae4ea4dea05362ae5752c1f6705cec273405c093444d879806b17f168a"
+    },
+    {
+      "artifact_id": "research_output_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/research_output_card.json",
+      "exists": true,
+      "sha256": "d5b64b394a0c962dad50d680f795066811f30b456fa6a871c5af408de72e3941"
+    },
+    {
+      "artifact_id": "warning_and_blocker_card",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/warning_and_blocker_card.json",
+      "exists": true,
+      "sha256": "c41a0358181e72ac8687dc6e3a112ad06e17dc68ced537999691b6da891a8ad8"
+    },
+    {
+      "artifact_id": "artifact_navigation_index",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/artifact_navigation_index.json",
+      "exists": true,
+      "sha256": "ed149c662a6833f94dcf18c4041684090d39ff2721c6303fcd52fb03b6ed9f84"
+    },
+    {
+      "artifact_id": "dashboard_source_trace",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_source_trace.json",
+      "exists": true,
+      "sha256": "c01eea124131a00e31cd4e06efbfc3416bb88dc5a523a80f5541af35e2f1210f"
+    },
+    {
+      "artifact_id": "dashboard_boundary_check",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_boundary_check.json",
+      "exists": true,
+      "sha256": "e70e61c89992e397c0010af2d268a538043e95e1443398798aaf5ca6236f23f2"
+    },
+    {
+      "artifact_id": "dashboard_manifest",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_manifest.json",
+      "exists": true,
+      "sha256": "e8995fee74bf5e66059f2d20fa58226658d680792dc736105ea3750402eefe01"
+    },
+    {
+      "artifact_id": "dashboard_summary",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_owner_dashboard/daily/2026-06-26/dashboard_summary.json",
+      "exists": true,
+      "sha256": "1f999ac51e02fa446988ada4a4bef7f674ff2c0b5f9002163e3235271ce25918"
+    },
+    {
+      "artifact_id": "owner_dashboard_report",
+      "category": "source",
+      "required": true,
+      "path": "outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD.md",
+      "exists": true,
+      "sha256": "18094ab094ec50e8125fd160f6fa848a5e58f3994882bc3ce9b976de2aa2ed23"
+    },
+    {
+      "artifact_id": "owner_dashboard_compact_report",
+      "category": "source",
+      "required": true,
+      "path": "outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_DASHBOARD_COMPACT.md",
+      "exists": true,
+      "sha256": "3a187cc123c32d3625eb1d6b6e9380713b110ac2061c54433b924b3e2a49448d"
+    },
+    {
+      "artifact_id": "owner_warning_blocker_report",
+      "category": "source",
+      "required": true,
+      "path": "outputs/equity_owner_dashboard/daily/2026-06-26/A_SHARE_OWNER_WARNING_AND_BLOCKER_SUMMARY.md",
+      "exists": true,
+      "sha256": "9b5016a8a9765ddbe13216d05000589d1eee115c23aab32a2b91e961912f61a3"
+    },
+    {
+      "artifact_id": "current_day_run_manifest",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_run_manifest.json",
+      "exists": true,
+      "sha256": "e8b9973031413eba430d9d835f2391465d70f278e04054d664d20a205ae2222b"
+    },
+    {
+      "artifact_id": "current_day_warning_summary",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_warning_summary.json",
+      "exists": true,
+      "sha256": "2a3e5e87a976c60df99cab0161b2ae00c76b56b47ab08de7c1f0aa5b8bbe75c3"
+    },
+    {
+      "artifact_id": "current_day_boundary_check",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_current_day_runs/daily/2026-06-26/current_day_boundary_check.json",
+      "exists": true,
+      "sha256": "f2042c7e917d8d07795128985674cd60f5bde628205101c82b38e7826036da84"
+    },
+    {
+      "artifact_id": "provider_health_check",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_data_refresh/daily/2026-06-26/provider_health_check.json",
+      "exists": true,
+      "sha256": "5710280f832b1ed74519c3daa3957e0f5e84dd7a6e4d0ebea49232ef1c043c5d"
+    },
+    {
+      "artifact_id": "dataset_freshness_validation",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_freshness_validation.json",
+      "exists": true,
+      "sha256": "6326a4280a539e15db133ece547ce73e63997122a64f73ed81ce1faa1bd619b4"
+    },
+    {
+      "artifact_id": "dataset_coverage_summary",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_data_refresh/daily/2026-06-26/dataset_coverage_summary.json",
+      "exists": true,
+      "sha256": "2c4c1179c7fb4cc4280cefd9ced30ceda62baff2c7e91b5b90270bfca8b3645a"
+    },
+    {
+      "artifact_id": "data_gap_report",
+      "category": "source",
+      "required": true,
+      "path": "data/equity_data_refresh/daily/2026-06-26/data_gap_report.json",
+      "exists": true,
+      "sha256": "c274fa33e1fc9340491df2577003ce62edb29c469322ec9c13a453833b60650a"
+    },
+    {
+      "artifact_id": "run_history_directory",
+      "category": "history",
+      "required": false,
+      "path": "data/equity_owner_monitoring/history",
+      "exists": true,
+      "sha256": null
+    }
+  ],
+  "input_audit_checks": {
+    "owner_dashboard_audit_passed": true,
+    "current_day_run_audit_passed": true,
+    "data_refresh_audit_passed": true
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

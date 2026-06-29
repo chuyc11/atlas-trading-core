@@ -1,0 +1,29 @@
+{
+  "snapshot_id": "A-SHARE-OWNER-MONITORING-WARNING-TREND-SNAPSHOT",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "history_observation_count": 1,
+  "minimum_history_observations": 3,
+  "trend_analysis_available": false,
+  "insufficient_history_for_trends": true,
+  "trend_status": "insufficient_history",
+  "warning_count_current": 11,
+  "warning_count_previous": null,
+  "warning_count_change": null,
+  "repeated_warning_codes": [],
+  "new_warning_codes": [],
+  "resolved_warning_codes": [],
+  "current_warning_codes": [
+    "daily_basic:required_field_all_null",
+    "fundamental score confidence is partial",
+    "index benchmark data unavailable for CSI300/CSI500/CSI1000 placeholders",
+    "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "market cap used daily_basic_panel fallback because historical daily_basic market cap is unavailable",
+    "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "portfolio observation history is below the minimum required window",
+    "portfolio relative metrics limited by first-day initialization",
+    "raw industry_level_1 contains Unclassified; briefing disclosed fallback industry bucket usage",
+    "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+    "trading_calendar:exchange_level_calendar_collapsed_to_trade_date"
+  ]
+}

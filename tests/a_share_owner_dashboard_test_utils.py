@@ -49,6 +49,21 @@ def seed_current_day(paths: ProjectPaths, as_of_date: str) -> None:
         },
     )
     write_json(artifacts["current_day_summary"], {"overall_passed": True, "warnings": []})
+    write_json(artifacts["current_day_warning_summary"], {"blocking_reasons": [], "warnings": ["current_day_warning"]})
+    write_json(
+        artifacts["current_day_boundary_check"],
+        {
+            "overall_passed": True,
+            "blocking_reasons": [],
+            "warnings": [],
+            "old_run_daily_called": False,
+            "day2_executed": False,
+            "broker_connected": False,
+            "real_orders_placed": False,
+            "buy_sell_signals_generated": False,
+            "order_preview_generated": False,
+        },
+    )
     write_json(artifacts["current_day_workflow_execution"], {"workflow_mode": "validate_existing_artifacts", "command": "run-a-share-daily-research-workflow"})
     write_json(
         artifacts["current_day_audit_json"],

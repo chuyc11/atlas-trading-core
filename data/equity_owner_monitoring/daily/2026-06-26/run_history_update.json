@@ -1,0 +1,12 @@
+{
+  "update_id": "A-SHARE-OWNER-MONITORING-RUN-HISTORY-UPDATE",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "appended": false,
+  "duplicate_skipped": true,
+  "allow_rebuild_history": false,
+  "run_history_observation_count": 1,
+  "trend_analysis_available": false,
+  "insufficient_history_for_trends": true,
+  "warnings": []
+}

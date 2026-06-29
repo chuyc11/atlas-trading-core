@@ -28,3 +28,9 @@ v0.8.2 consumes the v0.8.1 current-day run package and builds an owner-facing mo
 It reads the current-day audit, data refresh audit, workflow audit, briefing, tracking, benchmark, performance, and attribution outputs, then writes dashboard cards, reports, source trace, boundary, manifest, summary, and an owner dashboard audit.
 
 The dashboard does not refresh data, rerun workflow, call old `run-daily`, execute official forward dry-run day2, connect broker, read real account data, place orders, generate buy/sell signals, generate order previews, or turn research output into trade instructions.
+
+## v0.8.3 Owner Monitoring Consumer
+
+v0.8.3 consumes the v0.8.2 owner dashboard and v0.8.1 current-day run audit trail to build local alert and run-history monitoring. It does not invoke the current-day runner, does not rerun workflow, does not refresh data, and does not send external notifications by default.
+
+Alerts are system-health prompts only. They are not trading instructions, broker status, real-account state, or order plans.

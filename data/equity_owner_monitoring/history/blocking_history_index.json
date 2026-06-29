@@ -1,0 +1,13 @@
+{
+  "index_id": "A-SHARE-OWNER-MONITORING-BLOCKING-HISTORY-INDEX",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "source_dashboard_hash": "e8995fee74bf5e66059f2d20fa58226658d680792dc736105ea3750402eefe01",
+      "blocking_codes": [],
+      "blocking_count": 0
+    }
+  ],
+  "record_count": 1
+}

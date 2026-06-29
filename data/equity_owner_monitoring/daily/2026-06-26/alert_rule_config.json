@@ -1,0 +1,238 @@
+{
+  "rule_config_id": "A-SHARE-OWNER-MONITORING-ALERT-RULE-CONFIG",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "severity_enum": [
+    "critical",
+    "warning",
+    "informational",
+    "known_non_blocking"
+  ],
+  "rules": [
+    {
+      "rule_id": "BLOCKING_AUDIT_FAILURE",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Any input or monitoring audit has blocking reasons.",
+      "owner_message_template": "BLOCKING_AUDIT_FAILURE: Any input or monitoring audit has blocking reasons.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "DATA_REFRESH_FAILURE",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "The v0.8.0 data refresh audit failed.",
+      "owner_message_template": "DATA_REFRESH_FAILURE: The v0.8.0 data refresh audit failed.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "CURRENT_DAY_RUN_FAILURE",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "The v0.8.1 current-day run audit failed.",
+      "owner_message_template": "CURRENT_DAY_RUN_FAILURE: The v0.8.1 current-day run audit failed.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "OWNER_DASHBOARD_FAILURE",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "The v0.8.2 owner dashboard audit failed.",
+      "owner_message_template": "OWNER_DASHBOARD_FAILURE: The v0.8.2 owner dashboard audit failed.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "BOUNDARY_VIOLATION",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Monitoring or source boundary check failed.",
+      "owner_message_template": "BOUNDARY_VIOLATION: Monitoring or source boundary check failed.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "BROKER_OR_ORDER_SURFACE_DETECTED",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Broker, order, trade, or account surface detected.",
+      "owner_message_template": "BROKER_OR_ORDER_SURFACE_DETECTED: Broker, order, trade, or account surface detected.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "OLD_RUN_DAILY_DETECTED",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Old run-daily invocation detected.",
+      "owner_message_template": "OLD_RUN_DAILY_DETECTED: Old run-daily invocation detected.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "DAY2_EXECUTED_DETECTED",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Official forward dry-run day2 execution detected.",
+      "owner_message_template": "DAY2_EXECUTED_DETECTED: Official forward dry-run day2 execution detected.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "FORBIDDEN_WORDING_DETECTED",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Forbidden positive wording detected in monitoring artifacts.",
+      "owner_message_template": "FORBIDDEN_WORDING_DETECTED: Forbidden positive wording detected in monitoring artifacts.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "WARNING_COUNT_INCREASE",
+      "severity": "warning",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Warning count increased versus the previous observation.",
+      "owner_message_template": "WARNING_COUNT_INCREASE: Warning count increased versus the previous observation.",
+      "blocking": false,
+      "requires_minimum_history": true
+    },
+    {
+      "rule_id": "REPEATED_KNOWN_WARNING",
+      "severity": "known_non_blocking",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Known warning repeated across enough observations.",
+      "owner_message_template": "REPEATED_KNOWN_WARNING: Known warning repeated across enough observations.",
+      "blocking": false,
+      "requires_minimum_history": true
+    },
+    {
+      "rule_id": "PROVIDER_HEALTH_DEGRADED",
+      "severity": "warning",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Provider health degraded versus prior observations.",
+      "owner_message_template": "PROVIDER_HEALTH_DEGRADED: Provider health degraded versus prior observations.",
+      "blocking": false,
+      "requires_minimum_history": true
+    },
+    {
+      "rule_id": "DATA_FRESHNESS_DEGRADED",
+      "severity": "warning",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Data freshness degraded versus prior observations.",
+      "owner_message_template": "DATA_FRESHNESS_DEGRADED: Data freshness degraded versus prior observations.",
+      "blocking": false,
+      "requires_minimum_history": true
+    },
+    {
+      "rule_id": "MISSING_REQUIRED_ARTIFACT",
+      "severity": "critical",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Required monitoring input or output artifact is missing.",
+      "owner_message_template": "MISSING_REQUIRED_ARTIFACT: Required monitoring input or output artifact is missing.",
+      "blocking": true,
+      "requires_minimum_history": false
+    },
+    {
+      "rule_id": "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "severity": "informational",
+      "enabled": true,
+      "source_artifacts": [
+        "monitoring_input_availability",
+        "run_history_snapshot",
+        "warning_trend_snapshot",
+        "monitoring_boundary_check"
+      ],
+      "condition_description": "Trend analysis is unavailable until enough observations exist.",
+      "owner_message_template": "TREND_ANALYSIS_INSUFFICIENT_HISTORY: Trend analysis is unavailable until enough observations exist.",
+      "blocking": false,
+      "requires_minimum_history": true
+    }
+  ]
+}

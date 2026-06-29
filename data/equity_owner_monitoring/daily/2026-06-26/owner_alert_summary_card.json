@@ -1,0 +1,90 @@
+{
+  "card_id": "OWNER_ALERT_SUMMARY",
+  "target_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+  "as_of_date": "2026-06-26",
+  "critical_alerts": [],
+  "warning_alerts": [],
+  "known_non_blocking_alerts": [],
+  "informational_alerts": [],
+  "insufficient_history_events": [
+    {
+      "alert_id": "A-SHARE-OWNER-MONITORING-2026-06-26-WARNING_COUNT_INCREASE",
+      "rule_id": "WARNING_COUNT_INCREASE",
+      "as_of_date": "2026-06-26",
+      "severity": "warning",
+      "status": "insufficient_history",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "message": "trend analysis requires more run observations",
+      "owner_action": "monitor",
+      "blocking": false,
+      "known_non_blocking": false,
+      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "external_notification_sent": false
+    },
+    {
+      "alert_id": "A-SHARE-OWNER-MONITORING-2026-06-26-REPEATED_KNOWN_WARNING",
+      "rule_id": "REPEATED_KNOWN_WARNING",
+      "as_of_date": "2026-06-26",
+      "severity": "known_non_blocking",
+      "status": "insufficient_history",
+      "source_stage": "warning_trend",
+      "source_artifact": "warning_trend_snapshot",
+      "message": "trend analysis requires more run observations",
+      "owner_action": "monitor",
+      "blocking": false,
+      "known_non_blocking": true,
+      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "external_notification_sent": false
+    },
+    {
+      "alert_id": "A-SHARE-OWNER-MONITORING-2026-06-26-PROVIDER_HEALTH_DEGRADED",
+      "rule_id": "PROVIDER_HEALTH_DEGRADED",
+      "as_of_date": "2026-06-26",
+      "severity": "warning",
+      "status": "insufficient_history",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "message": "provider trend requires more run observations",
+      "owner_action": "monitor",
+      "blocking": false,
+      "known_non_blocking": false,
+      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "external_notification_sent": false
+    },
+    {
+      "alert_id": "A-SHARE-OWNER-MONITORING-2026-06-26-DATA_FRESHNESS_DEGRADED",
+      "rule_id": "DATA_FRESHNESS_DEGRADED",
+      "as_of_date": "2026-06-26",
+      "severity": "warning",
+      "status": "insufficient_history",
+      "source_stage": "provider_health",
+      "source_artifact": "provider_health_trend_snapshot",
+      "message": "data freshness trend requires more run observations",
+      "owner_action": "monitor",
+      "blocking": false,
+      "known_non_blocking": false,
+      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "external_notification_sent": false
+    },
+    {
+      "alert_id": "A-SHARE-OWNER-MONITORING-2026-06-26-TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "rule_id": "TREND_ANALYSIS_INSUFFICIENT_HISTORY",
+      "as_of_date": "2026-06-26",
+      "severity": "informational",
+      "status": "insufficient_history",
+      "source_stage": "run_history",
+      "source_artifact": "run_history_snapshot",
+      "message": "trend analysis intentionally disabled until enough observations exist",
+      "owner_action": "monitor",
+      "blocking": false,
+      "known_non_blocking": false,
+      "created_at": "2026-06-29T06:46:52.335051+00:00",
+      "external_notification_sent": false
+    }
+  ],
+  "owner_action_notes": [
+    "monitor local alert artifacts"
+  ],
+  "external_notifications_sent": false
+}

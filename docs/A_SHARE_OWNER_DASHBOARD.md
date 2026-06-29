@@ -46,3 +46,9 @@ Boundary:
 - no dashboard-as-trade-instruction
 
 The next planned layer is `v0.8.3-a-share-owner-alerting-and-run-history-monitoring`.
+
+## v0.8.3 Monitoring Consumer
+
+v0.8.3 reads the owner dashboard audit, dashboard cards, warning/blocker card, source trace, boundary, manifest, summary, and owner reports as monitoring inputs.
+
+The monitoring layer adds local alert evaluation and append-only run history. It does not rebuild the dashboard, refresh data, rerun workflow, send external notifications by default, connect broker, place orders, or treat alerts as trade instructions.
