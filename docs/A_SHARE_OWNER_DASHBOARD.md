@@ -52,3 +52,8 @@ The next planned layer is `v0.8.3-a-share-owner-alerting-and-run-history-monitor
 v0.8.3 reads the owner dashboard audit, dashboard cards, warning/blocker card, source trace, boundary, manifest, summary, and owner reports as monitoring inputs.
 
 The monitoring layer adds local alert evaluation and append-only run history. It does not rebuild the dashboard, refresh data, rerun workflow, send external notifications by default, connect broker, place orders, or treat alerts as trade instructions.
+# v0.8.5 follow-up
+
+v0.8.5 carries owner dashboard executive status, data freshness, workflow status, research output, warning/blocker, artifact navigation, manifest, and boundary state into the daily ops command center.
+
+The ops center is owner-facing operations material. It does not generate buy/sell signals, place orders, connect broker, or treat dashboard/ops output as trade instruction.

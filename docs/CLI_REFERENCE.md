@@ -4,6 +4,10 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 
 | Category | Command | Purpose | Writes to | Does not write to | Safety notes |
 |---|---|---|---|---|---|
+| A-share daily ops | `validate-a-share-daily-ops-inputs` | Validate existing ops inputs | stdout | ops center artifacts, broker, orders, trades, accounts | read-only input validation |
+| A-share daily ops | `build-a-share-daily-ops-center` | Build owner-facing ops command center | `data/equity_ops_center`, `outputs/equity_ops_center` | broker, orders, trades, accounts | aggregates existing artifacts by default |
+| A-share daily ops | `audit-a-share-daily-ops-center` | Audit existing ops center artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
+| A-share daily ops | `build-and-audit-a-share-daily-ops-center` | Build and audit ops center | ops center data, ops center outputs, audit outputs | broker, orders, trades, accounts | does not run upstream build commands by default |
 | A-share owner remediation | `validate-a-share-owner-remediation-inputs` | Validate existing remediation inputs | stdout | remediation artifacts, broker, orders, trades, accounts | read-only input validation |
 | A-share owner remediation | `build-a-share-owner-remediation` | Build owner remediation runbook and safe checklist | `data/equity_owner_remediation`, `outputs/equity_owner_remediation` | broker, orders, trades, accounts | generates plans and checklists only |
 | A-share owner remediation | `audit-a-share-owner-remediation` | Audit existing remediation artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |

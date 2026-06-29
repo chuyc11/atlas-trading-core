@@ -17,3 +17,10 @@ Boundary:
 - v0.8.4 does not execute official forward dry-run day2
 - v0.8.4 does not treat remediation as trade instruction
 - v0.8.5 should add daily ops command center
+# v0.8.5 follow-up
+
+v0.8.5 consumes owner remediation artifacts and includes remediation status, issue counts, safe action counts, and non-actionable history waits in the daily ops command center.
+
+v0.8.5 aggregates existing ops artifacts by default. It does not refresh data, rerun current-day research, execute remediation actions, generate buy/sell signals, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat ops output as trade instruction.
+
+Recommended next version after v0.8.5 is `v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines`.

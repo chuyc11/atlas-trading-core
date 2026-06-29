@@ -168,3 +168,36 @@ Markdown artifacts:
 - `outputs/audit/A_SHARE_OWNER_REMEDIATION_AUDIT.md`
 
 v0.8.4 artifacts are runbook/checklist artifacts only and are not broker, order, refresh execution, or research workflow execution artifacts.
+# v0.8.5 A-share daily ops command center artifacts
+
+Data artifacts:
+
+- `data/equity_ops_center/daily/2026-06-26/ops_center_config.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_input_availability.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_date_alignment.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_plan.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_execution_record.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_health_score_card.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_module_status_matrix.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_issue_summary.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_action_summary.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_artifact_navigation.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_command_reference.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_owner_next_steps.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_source_trace.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_boundary_check.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_manifest.json`
+- `data/equity_ops_center/daily/2026-06-26/ops_summary.json`
+- `data/equity_data_quality/a_share_daily_ops_center_audit.json`
+
+Markdown artifacts:
+
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_DAILY_OPS_COMMAND_CENTER.md`
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_DAILY_OPS_COMPACT.md`
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_OPS_MODULE_STATUS.md`
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_OPS_ACTION_SUMMARY.md`
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_OPS_ARTIFACT_NAVIGATION.md`
+- `outputs/equity_ops_center/daily/2026-06-26/A_SHARE_OPS_SOURCE_TRACE.md`
+- `outputs/audit/A_SHARE_DAILY_OPS_CENTER_AUDIT.md`
+
+v0.8.5 artifacts aggregate existing operations artifacts and are not broker, order, refresh execution, research workflow execution, or remediation execution artifacts.

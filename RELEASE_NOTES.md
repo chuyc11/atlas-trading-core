@@ -1,5 +1,70 @@
 # Release Notes
 
+## v0.8.5-a-share-daily-ops-command-center
+
+v0.8.5 A-share daily ops command center.
+
+Adds:
+
+- ops center config
+- ops input availability
+- ops date alignment
+- ops plan
+- ops execution record
+- ops health score card
+- ops module status matrix
+- ops issue summary
+- ops action summary
+- ops artifact navigation
+- ops command reference
+- ops owner next steps
+- ops source trace
+- ops boundary check
+- ops manifest
+- owner-facing ops command center report
+- compact ops report
+- ops audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- ops audit overall_passed=true
+- blocking reasons: none
+- warnings: none
+- ops health score: 65
+- ops health grade: C
+- overall_status=passed_with_warnings
+- required_modules_available=true
+- dates_aligned=true
+- input data refresh/current-day/dashboard/monitoring/remediation audits passed
+- blocking_issue_count=0
+- warning_issue_count=10
+- known_non_blocking_issue_count=5
+- safe_action_count=8
+- automatic_action_count=0
+- commands_executed=[]
+- aggregate_existing_artifacts_only=true
+- external_notifications_sent=false
+- source trace complete
+- boundary clean
+- recommended next version: `v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines`
+- validation: 1281 passed, 1 skipped
+
+Boundary:
+
+- aggregates existing ops artifacts by default
+- does not refresh data by default
+- does not rerun current-day research by default
+- does not execute remediation actions
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat ops output as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.4-a-share-owner-remediation-runbook-and-action-checklist
 
 v0.8.4 A-share owner remediation runbook and action checklist.

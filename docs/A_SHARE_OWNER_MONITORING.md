@@ -49,3 +49,8 @@ v0.8.4 consumes owner monitoring artifacts and turns warnings, blockers, alerts,
 The v0.8.4 layer does not execute remediation actions, does not refresh data, does not rerun research workflow, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat remediation as trade instruction.
 
 Recommended next version after v0.8.4 is `v0.8.5-a-share-daily-ops-command-center`.
+# v0.8.5 follow-up
+
+v0.8.5 carries owner monitoring status cards, alert summaries, run-history summaries, and monitoring boundary state into the daily ops command center.
+
+The ops center is not a trading system. It aggregates existing artifacts by default and does not execute old run-daily, broker operations, order operations, research workflow reruns, or remediation actions.

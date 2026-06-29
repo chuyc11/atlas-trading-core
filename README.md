@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.4-a-share-owner-remediation-runbook-and-action-checklist
+v0.8.5-a-share-daily-ops-command-center
 
 ## Completed milestones
 
@@ -66,6 +66,22 @@ v0.8.4-a-share-owner-remediation-runbook-and-action-checklist
 - v0.8.2 A-share owner briefing and monitoring dashboard
 - v0.8.3 A-share owner alerting and run history monitoring
 - v0.8.4 A-share owner remediation runbook and safe action checklist
+- v0.8.5 A-share daily ops command center
+
+## v0.8.5 daily ops boundary
+
+- adds daily ops command center
+- aggregates existing ops artifacts by default
+- does not refresh data by default
+- does not rerun current-day research by default
+- does not execute remediation actions
+- does not generate buy/sell signals
+- does not place orders
+- does not connect broker
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat ops output as trade instruction
+- recommended next version: v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
 
 ## v0.8.4 owner remediation boundary
 

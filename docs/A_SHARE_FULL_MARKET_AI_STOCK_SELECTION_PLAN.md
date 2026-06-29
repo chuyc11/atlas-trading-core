@@ -161,3 +161,18 @@ v0.8.4 adds owner remediation runbook and safe action checklist material on top 
 - It does not execute official forward dry-run day2.
 - It does not treat remediation as trade instruction.
 - v0.8.5 should add daily ops command center.
+# v0.8.5 Daily Ops Command Center Alignment
+
+v0.8.5 adds the A-share daily ops command center as an owner-facing operations control plane.
+
+- v0.8.5 aggregates existing ops artifacts by default.
+- v0.8.5 does not refresh data by default.
+- v0.8.5 does not rerun current-day research by default.
+- v0.8.5 does not execute remediation actions.
+- v0.8.5 does not generate buy/sell signals.
+- v0.8.5 does not place orders.
+- v0.8.5 does not connect broker.
+- v0.8.5 does not call old run-daily.
+- v0.8.5 does not execute official forward dry-run day2.
+- v0.8.5 does not treat ops output as trade instruction.
+- v0.8.6 should deepen run history and trend baselines.

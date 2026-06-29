@@ -653,3 +653,30 @@ python -m trading_core.cli build-and-audit-a-share-owner-remediation --as-of-dat
 ```
 
 These commands generate plans and checklists only. They do not execute remediation actions, refresh data, rerun research workflow, generate buy/sell signals, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat remediation as trade instruction.
+# v0.8.5 A-share daily ops command center
+
+Validate inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-daily-ops-inputs --as-of-date 2026-06-26
+```
+
+Build the ops command center from existing artifacts:
+
+```bash
+python -m trading_core.cli build-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts
+```
+
+Audit existing ops center artifacts:
+
+```bash
+python -m trading_core.cli audit-a-share-daily-ops-center --as-of-date 2026-06-26
+```
+
+Build and audit:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date 2026-06-26 --mode aggregate_existing_ops_artifacts
+```
+
+These commands aggregate existing ops artifacts by default. They do not refresh data, rerun current-day research, execute remediation actions, generate buy/sell signals, generate order preview, connect broker, place real orders, call old run-daily, execute official forward dry-run day2, or treat ops output as trade instruction.
