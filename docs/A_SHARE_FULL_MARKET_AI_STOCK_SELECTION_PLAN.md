@@ -146,3 +146,18 @@ v0.8.2 does not refresh data, rerun the research workflow, generate buy/sell sig
 v0.8.3 adds owner alerting and run history monitoring. It materializes monitoring config, input availability, append-only run history, warning/blocking/provider/workflow/dashboard trend snapshots, local alert rules, local alert evaluation, alert event log, monitoring cards, source trace, boundary, manifest, summary, reports, and audit artifacts.
 
 v0.8.3 generates local alert artifacts only. It does not send external notifications by default, refresh data, rerun the research workflow, generate buy/sell signals, generate order previews, place orders, connect broker, read real account data, call old `run-daily`, execute official forward dry-run day2, or treat alerts as trade instructions. v0.8.4 should add owner remediation runbooks and safe action checklists.
+# v0.8.4 Owner Remediation Runbook Alignment
+
+v0.8.4 adds owner remediation runbook and safe action checklist material on top of the v0.8.3 monitoring layer.
+
+- It generates plans and checklists only.
+- It does not execute remediation actions.
+- It does not refresh data.
+- It does not rerun research workflow.
+- It does not generate buy/sell signals.
+- It does not place orders.
+- It does not connect broker.
+- It does not call old run-daily.
+- It does not execute official forward dry-run day2.
+- It does not treat remediation as trade instruction.
+- v0.8.5 should add daily ops command center.

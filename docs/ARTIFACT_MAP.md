@@ -143,3 +143,28 @@ The v0.7.1 A-share data foundation layer writes `equity_master.parquet`, `tradin
 The v0.7.1.1 historical backfill layer writes history panels and readiness audits only. It does not generate scores, candidates, watchlists, portfolios, orders, or day2 artifacts. If the public historical providers cannot satisfy minimum coverage, it must publish blocking audits rather than a success release tag.
 
 The v0.7.1.2 historical provider expansion layer adds `a_share_historical_backfill_root_cause.json`, `a_share_historical_backfill_symbol_queue.json`, `a_share_historical_backfill_checkpoint.json`, `a_share_historical_backfill_symbol_manifest.json`, and `data/equity_data_quality/backfill_batches/`. It expands price, adjusted-price, daily-basic, and financial history coverage enough for the next tradable-universe filter stage. These artifacts are still data and audit artifacts only; they do not generate scores, candidates, watchlists, virtual portfolios, orders, or day2 artifacts.
+# v0.8.4 A-share owner remediation artifacts
+
+Data artifacts:
+
+- `data/equity_owner_remediation/daily/2026-06-26/remediation_config.json`
+- `data/equity_owner_remediation/daily/2026-06-26/remediation_input_availability.json`
+- `data/equity_owner_remediation/daily/2026-06-26/issue_catalog.json`
+- `data/equity_owner_remediation/daily/2026-06-26/warning_remediation_map.json`
+- `data/equity_owner_remediation/daily/2026-06-26/blocking_remediation_map.json`
+- `data/equity_owner_remediation/daily/2026-06-26/alert_remediation_map.json`
+- `data/equity_owner_remediation/daily/2026-06-26/safe_owner_action_checklist.json`
+- `data/equity_owner_remediation/daily/2026-06-26/dry_run_remediation_plan.json`
+- `data/equity_owner_remediation/daily/2026-06-26/remediation_manifest.json`
+- `data/equity_data_quality/a_share_owner_remediation_audit.json`
+
+Markdown artifacts:
+
+- `outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_OWNER_REMEDIATION_RUNBOOK.md`
+- `outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_SAFE_ACTION_CHECKLIST.md`
+- `outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_DATA_REMEDIATION_GUIDE.md`
+- `outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_WORKFLOW_REMEDIATION_GUIDE.md`
+- `outputs/equity_owner_remediation/daily/2026-06-26/A_SHARE_REMEDIATION_SOURCE_TRACE.md`
+- `outputs/audit/A_SHARE_OWNER_REMEDIATION_AUDIT.md`
+
+v0.8.4 artifacts are runbook/checklist artifacts only and are not broker, order, refresh execution, or research workflow execution artifacts.

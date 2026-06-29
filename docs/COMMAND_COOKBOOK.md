@@ -626,3 +626,30 @@ Modes:
 * `build_monitoring_dashboard`
 
 Release E2E uses `build_monitoring_dashboard` with external notifications disabled. v0.8.4 should add owner remediation runbooks and safe action checklists.
+# v0.8.4 A-share owner remediation
+
+Validate inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-owner-remediation-inputs --as-of-date 2026-06-26
+```
+
+Build runbook and checklist:
+
+```bash
+python -m trading_core.cli build-a-share-owner-remediation --as-of-date 2026-06-26 --mode build_remediation_runbook
+```
+
+Audit existing remediation artifacts:
+
+```bash
+python -m trading_core.cli audit-a-share-owner-remediation --as-of-date 2026-06-26
+```
+
+Build and audit:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-remediation --as-of-date 2026-06-26 --mode build_remediation_runbook
+```
+
+These commands generate plans and checklists only. They do not execute remediation actions, refresh data, rerun research workflow, generate buy/sell signals, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat remediation as trade instruction.

@@ -42,3 +42,10 @@ Boundary:
 - no alert-as-trade-instruction
 
 The next planned layer is `v0.8.4-a-share-owner-remediation-runbook-and-action-checklist`.
+# v0.8.4 follow-up
+
+v0.8.4 consumes owner monitoring artifacts and turns warnings, blockers, alerts, and insufficient-history states into owner remediation runbooks and safe action checklists.
+
+The v0.8.4 layer does not execute remediation actions, does not refresh data, does not rerun research workflow, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat remediation as trade instruction.
+
+Recommended next version after v0.8.4 is `v0.8.5-a-share-daily-ops-command-center`.

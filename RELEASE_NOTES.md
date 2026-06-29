@@ -1,5 +1,73 @@
 # Release Notes
 
+## v0.8.4-a-share-owner-remediation-runbook-and-action-checklist
+
+v0.8.4 A-share owner remediation runbook and action checklist.
+
+Adds:
+
+- remediation config
+- remediation input availability
+- issue catalog
+- warning remediation map
+- blocking remediation map
+- alert remediation map
+- provider remediation guide
+- data freshness remediation guide
+- schema coverage remediation guide
+- workflow remediation guide
+- dashboard remediation guide
+- monitoring remediation guide
+- safe owner action checklist
+- manual verification checklist
+- non-actionable issue list
+- dry-run remediation plan
+- remediation priority summary
+- remediation source trace
+- remediation boundary check
+- remediation manifest
+- owner remediation reports
+- owner remediation audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- remediation audit overall_passed=true
+- blocking reasons: none
+- warnings: none
+- issue_count=17
+- blocking_issue_count=0
+- warning_issue_count=10
+- known_non_blocking_issue_count=5
+- safe_action_count=8
+- automatic_action_count=0
+- commands_executed=[]
+- execute_remediation_actions=false
+- external_notifications_sent=false
+- input owner monitoring audit passed
+- input owner dashboard audit passed
+- input current-day run audit passed
+- input data refresh audit passed
+- source trace complete
+- boundary clean
+- recommended next version: `v0.8.5-a-share-daily-ops-command-center`
+- validation: 1259 passed, 1 skipped
+
+Boundary:
+
+- generates runbooks and checklists only
+- does not execute remediation actions
+- does not refresh data
+- does not rerun research workflow
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat remediation as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.3-a-share-owner-alerting-and-run-history-monitoring
 
 This release adds local owner alerting and run history monitoring for the A-share research system.

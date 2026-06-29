@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.3-a-share-owner-alerting-and-run-history-monitoring
+v0.8.4-a-share-owner-remediation-runbook-and-action-checklist
 
 ## Completed milestones
 
@@ -65,6 +65,22 @@ v0.8.3-a-share-owner-alerting-and-run-history-monitoring
 - v0.8.1 A-share current-day research workflow runner
 - v0.8.2 A-share owner briefing and monitoring dashboard
 - v0.8.3 A-share owner alerting and run history monitoring
+- v0.8.4 A-share owner remediation runbook and safe action checklist
+
+## v0.8.4 owner remediation boundary
+
+- adds owner remediation runbook and safe action checklist
+- generates plans and checklists only
+- does not execute remediation actions
+- does not refresh data
+- does not rerun research workflow
+- does not generate buy/sell signals
+- does not place orders
+- does not connect broker
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat remediation as trade instruction
+- recommended next version: v0.8.5-a-share-daily-ops-command-center
 
 ## Known limitations
 

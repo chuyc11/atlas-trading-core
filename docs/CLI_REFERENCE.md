@@ -4,6 +4,10 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 
 | Category | Command | Purpose | Writes to | Does not write to | Safety notes |
 |---|---|---|---|---|---|
+| A-share owner remediation | `validate-a-share-owner-remediation-inputs` | Validate existing remediation inputs | stdout | remediation artifacts, broker, orders, trades, accounts | read-only input validation |
+| A-share owner remediation | `build-a-share-owner-remediation` | Build owner remediation runbook and safe checklist | `data/equity_owner_remediation`, `outputs/equity_owner_remediation` | broker, orders, trades, accounts | generates plans and checklists only |
+| A-share owner remediation | `audit-a-share-owner-remediation` | Audit existing remediation artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
+| A-share owner remediation | `build-and-audit-a-share-owner-remediation` | Build and audit remediation artifacts | remediation data, remediation outputs, audit outputs | broker, orders, trades, accounts | does not execute remediation actions |
 | Core / daily | `init` | Create project directories | data directories, outputs directories | broker, live orders | setup only |
 | Core / daily | `load-macro` | Load macro signal rows | stdout | orders/trades/portfolio/accounts | read-only |
 | Core / daily | `run-daily` | Run virtual daily workflow | data signals/orders/trades/portfolios, outputs/daily | broker, live orders | virtual only |
