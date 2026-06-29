@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
+v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
 
 ## Completed milestones
 
@@ -68,6 +68,30 @@ v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
 - v0.8.4 A-share owner remediation runbook and safe action checklist
 - v0.8.5 A-share daily ops command center
 - v0.8.6 A-share ops run history deepening and trend baselines
+- v0.8.7 A-share gated current-day build-from-existing-data dry-run
+
+## v0.8.7 gated build-from-existing-data boundary
+
+- adds gated current-day build-from-existing-data dry-run adapter
+- validates v0.8.6 ops history, v0.8.5 ops center, v0.8.1 current-day, and v0.8.0 data refresh evidence before execution
+- executes the current-day workflow only in `build_from_existing_data` mode
+- preflight gate passed for `as_of_date=2026-06-26`
+- workflow audit passed after execution
+- validate-vs-build comparison completed with no missing required artifacts
+- source trace is complete and input-source hashes match
+- does not run public network refresh
+- does not run `full_research_run`
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not send external notifications
+- does not treat build output as a trade instruction
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability
 
 ## v0.8.6 ops history boundary
 
@@ -86,7 +110,7 @@ v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
 - does not call old run-daily
 - does not execute official forward dry-run day2
 - does not treat trend baselines as trade instructions
-- recommended next version: v0.8.7-a-share-current-day-build-from-existing-data-promotion-gate
+- recommended next version: v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
 
 ## v0.8.5 daily ops boundary
 

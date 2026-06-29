@@ -1,5 +1,58 @@
 # Release Notes
 
+## v0.8.7-a-share-gated-current-day-build-from-existing-data-dry-run
+
+v0.8.7 A-share gated current-day build-from-existing-data dry-run.
+
+Adds:
+
+- gated build-from-existing-data config, preflight gate, execution plan, execution record, workflow result, audit link, artifact index, validate-vs-build comparison, artifact drift summary, warning summary, source trace, boundary check, manifest, summary, and owner-facing reports
+- CLI commands:
+  - `validate-a-share-gated-build-inputs`
+  - `build-a-share-gated-build-from-existing-data`
+  - `audit-a-share-gated-build-from-existing-data`
+  - `build-and-audit-a-share-gated-build-from-existing-data`
+- audit docs and schema/runbook docs for the gated build evidence package
+- workflow audit compatibility for `build_from_existing_data` when existing downstream artifacts are present
+
+Audited result for `as_of_date=2026-06-26`:
+
+- gated build audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- preflight_gate_passed=true
+- ops_history_audit_passed=true
+- ops_center_audit_passed=true
+- current_day_audit_passed=true
+- data_refresh_audit_passed=true
+- gated_build_execution_performed=true
+- workflow_mode=`build_from_existing_data`
+- workflow_audit_passed=true
+- comparison_completed=true
+- missing_required_artifacts=[]
+- boundary_drift=false
+- source_trace_missing=false
+- source_trace_hashes_match=true
+- recommended next version: `v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability`
+- validation: 1324 passed, 1 skipped
+
+Boundary:
+
+- executes only the gated current-day `build_from_existing_data` dry-run
+- does not run public network refresh
+- does not run `full_research_run`
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not send external notifications
+- does not treat build output as a trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines
 
 v0.8.6 A-share ops run history deepening and trend baselines.
