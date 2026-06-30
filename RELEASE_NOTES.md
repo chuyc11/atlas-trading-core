@@ -1,5 +1,83 @@
 # Release Notes
 
+## v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
+
+v0.8.11 A-share build-output daily runbook and owner operations decision pack.
+
+Adds:
+
+- daily pack config
+- daily pack input availability
+- daily pack source resolution
+- daily pack date alignment
+- owner daily status brief
+- owner daily runbook
+- owner operations decision pack
+- owner next step checklist
+- research output digest
+- candidate tracking digest
+- virtual portfolio digest
+- warning issue digest
+- safe action digest
+- monitoring/remediation/ops digest
+- protected path digest
+- source trace digest
+- boundary digest
+- daily pack artifact navigation
+- daily pack source trace
+- daily pack boundary check
+- daily pack manifest and summary
+- owner-facing daily pack reports
+- owner daily pack audit
+- CLI commands:
+  - `validate-a-share-owner-daily-pack-inputs`
+  - `build-a-share-owner-daily-pack`
+  - `audit-a-share-owner-daily-pack`
+  - `build-and-audit-a-share-owner-daily-pack`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner daily pack audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- source_workflow_mode=`build_from_existing_data`
+- not_investment_decision_pack=true
+- build_output_ops_refresh_audit_passed=true
+- build_output_dashboard_audit_passed=true
+- repeatability_audit_passed=true
+- gated_build_audit_passed=true
+- business_output_drift_count=0
+- protected_path_modifications_detected=false
+- automatic_action_count=0
+- execute_remediation_actions=false
+- external_notifications_sent=false
+- no forbidden decision categories
+- no forbidden safe action types
+- source trace complete and hashes match
+- boundary clean
+- recommended next version: `v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends`
+- validation: 1423 passed, 1 skipped
+
+Boundary:
+
+- uses build-output ops refresh as primary source
+- is not an investment decision pack
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not read real account data
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat daily pack as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
 
 v0.8.10 A-share build-output monitoring remediation and ops refresh.

@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
+v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
 
 ## Completed milestones
 
@@ -72,6 +72,34 @@ v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
 - v0.8.8 A-share build_from_existing_data repeatability and diff stability
 - v0.8.9 A-share current-day build output owner dashboard refresh
 - v0.8.10 A-share build-output monitoring remediation and ops refresh
+- v0.8.11 A-share owner daily runbook and owner operations decision pack
+
+## v0.8.11 owner daily pack boundary
+
+- adds owner daily runbook and owner operations decision pack
+- uses v0.8.10 build-output ops refresh as the primary source
+- reads supporting v0.8.9 dashboard, v0.8.8 repeatability, v0.8.7 gated build, and v0.8.0 data-refresh evidence
+- release audit passed for `as_of_date=2026-06-26`
+- source workflow mode is `build_from_existing_data`
+- not an investment decision pack
+- not a trade instruction
+- keeps `business_output_drift_count=0`
+- keeps `protected_path_modifications_detected=false`
+- keeps `automatic_action_count=0`
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
 
 ## v0.8.10 build-output ops refresh boundary
 
@@ -771,3 +799,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.7.12 writes attribution and risk diagnostics only under `data/equity_attribution/`, `outputs/equity_attribution/`, and audit paths; it does not fabricate performance, connect a broker, place real orders, generate buy/sell signals, generate order previews, call old `run-daily`, or execute official forward dry-run day2
 - v0.8.0 writes daily data refresh and provider hardening artifacts only under `data/equity_data_refresh/`, `outputs/equity_data_refresh/`, and audit paths; it does not trigger the full research workflow by default, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, and does not execute official forward dry-run day2
 - v0.8.1 writes current-day research run artifacts only under `data/equity_current_day_runs/`, `outputs/equity_current_day_runs/`, and audit paths; it requires the data refresh audit first, does not connect a broker, does not read real account data, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction
+- v0.8.11 writes owner daily pack artifacts only under `data/equity_owner_daily_pack/`, `outputs/equity_owner_daily_pack/`, and audit paths; it uses build-output ops refresh as primary source, does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat the pack as a trade instruction

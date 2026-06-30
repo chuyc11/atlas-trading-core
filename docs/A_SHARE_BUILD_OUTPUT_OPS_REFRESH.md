@@ -26,3 +26,8 @@ Boundary:
 
 Recommended next: `v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack`.
 
+## v0.8.11 downstream consumer
+
+v0.8.11 consumes this build-output ops refresh as the primary source for the owner daily runbook and owner operations decision pack.
+
+The downstream daily pack reads the v0.8.10 monitoring/remediation/ops/history refresh artifacts and supporting v0.8.9-v0.8.0 evidence. It does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect broker, does not place orders, does not generate buy/sell signals or order previews, and does not treat the owner decision pack as an investment or trading decision.

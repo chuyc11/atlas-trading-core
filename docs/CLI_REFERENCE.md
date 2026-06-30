@@ -28,6 +28,10 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share build-output ops refresh | `build-a-share-build-output-ops-refresh` | Refresh monitoring, remediation, ops center, and ops history from build-output dashboard | `data/equity_build_output_ops_refresh`, `outputs/equity_build_output_ops_refresh` | broker, orders, trades, accounts | does not rerun build, refresh data, execute remediation, or send notifications |
 | A-share build-output ops refresh | `audit-a-share-build-output-ops-refresh` | Audit existing build-output ops refresh artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
 | A-share build-output ops refresh | `build-and-audit-a-share-build-output-ops-refresh` | Build and audit build-output ops refresh | ops refresh data, reports, audit outputs | broker, orders, trades, accounts | ops refresh is not a trade instruction |
+| A-share owner daily pack | `validate-a-share-owner-daily-pack-inputs` | Validate owner daily pack inputs from v0.8.10 build-output ops refresh and supporting build-output artifacts | stdout | daily pack artifacts, broker, orders, trades, accounts | read-only input validation |
+| A-share owner daily pack | `build-a-share-owner-daily-pack` | Build owner daily runbook and owner operations decision pack from existing build-output ops refresh artifacts | `data/equity_owner_daily_pack`, `outputs/equity_owner_daily_pack` | broker, orders, trades, accounts | does not rerun build, refresh data, execute remediation, send notifications, or create trade instructions |
+| A-share owner daily pack | `audit-a-share-owner-daily-pack` | Audit existing owner daily pack artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
+| A-share owner daily pack | `build-and-audit-a-share-owner-daily-pack` | Build and audit owner daily pack | daily pack data, reports, audit outputs | broker, orders, trades, accounts | owner operations decision pack is not an investment decision pack |
 | A-share owner remediation | `validate-a-share-owner-remediation-inputs` | Validate existing remediation inputs | stdout | remediation artifacts, broker, orders, trades, accounts | read-only input validation |
 | A-share owner remediation | `build-a-share-owner-remediation` | Build owner remediation runbook and safe checklist | `data/equity_owner_remediation`, `outputs/equity_owner_remediation` | broker, orders, trades, accounts | generates plans and checklists only |
 | A-share owner remediation | `audit-a-share-owner-remediation` | Audit existing remediation artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
@@ -293,6 +297,15 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share data refresh | `build-a-share-daily-data-refresh` | Build daily data refresh and provider hardening artifacts | `data/equity_data_refresh/daily/YYYY-MM-DD`, `outputs/equity_data_refresh/daily/YYYY-MM-DD` | data refresh only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
 | A-share data refresh | `audit-a-share-daily-data-refresh` | Audit provider health, schema, freshness, coverage, source trace, and boundaries | `data/equity_data_quality/a_share_daily_data_refresh_audit.json`, `outputs/audit/A_SHARE_DAILY_DATA_REFRESH_AUDIT.md` | audit only |
 | A-share data refresh | `build-and-audit-a-share-daily-data-refresh` | Build and audit v0.8.0 daily data refresh package | data refresh outputs plus audit outputs | fail-closed |
+
+## v0.8.11 A-Share Owner Daily Pack Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share owner daily pack | `validate-a-share-owner-daily-pack-inputs` | Validate v0.8.10 build-output ops refresh, v0.8.9 dashboard, v0.8.8 repeatability, v0.8.7 gated build, and v0.8.0 data-refresh inputs | stdout | validation only |
+| A-share owner daily pack | `build-a-share-owner-daily-pack` | Generate owner daily status brief, daily runbook, owner operations decision pack, digests, source trace, boundary, manifest, summary, and reports | `data/equity_owner_daily_pack/daily/YYYY-MM-DD`, `outputs/equity_owner_daily_pack/daily/YYYY-MM-DD` | research-only, virtual-only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
+| A-share owner daily pack | `audit-a-share-owner-daily-pack` | Audit owner daily pack completeness, source trace, forbidden wording/artifacts, and non-trading boundaries | `data/equity_data_quality/a_share_owner_daily_pack_audit.json`, `outputs/audit/A_SHARE_OWNER_DAILY_PACK_AUDIT.md` | audit only |
+| A-share owner daily pack | `build-and-audit-a-share-owner-daily-pack` | Build and audit v0.8.11 owner daily pack | daily pack outputs plus audit outputs | fail-closed |
 
 ## v0.8.1 A-Share Current-Day Research Commands
 

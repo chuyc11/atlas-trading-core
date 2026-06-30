@@ -119,6 +119,22 @@ python -m trading_core.cli build-and-audit-a-share-build-output-ops-refresh --as
 
 This path refreshes monitoring, remediation, ops center, and ops history artifacts from the v0.8.9 build-output dashboard. It uses `build_from_existing_data` as source workflow mode, requires zero business output drift, and keeps automatic action count at zero. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat ops refresh as a trade instruction.
 
+## Run v0.8.11 A-share owner daily pack
+
+```bash
+python -m trading_core.cli validate-a-share-owner-daily-pack-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-daily-pack --as-of-date 2026-06-26 --mode build_owner_operations_decision_pack
+python -m trading_core.cli audit-a-share-owner-daily-pack --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-daily-pack --as-of-date 2026-06-26 --mode build_owner_operations_decision_pack
+```
+
+This path creates an owner-facing daily runbook and owner operations decision pack from the v0.8.10 build-output ops refresh. It uses `build_from_existing_data` only as recorded source mode. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, place orders, connect broker, call old run-daily, execute official forward dry-run day2, treat the daily pack as a trade instruction, or claim profit/live readiness.
+
 ## Run v0.7 external project intake
 
 ```bash

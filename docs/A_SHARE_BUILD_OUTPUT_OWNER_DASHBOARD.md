@@ -30,3 +30,9 @@ Recommended next: `v0.8.10-a-share-build-output-monitoring-remediation-and-ops-r
 v0.8.10 consumes this build-output dashboard as the primary owner-facing source for monitoring, remediation, ops center, and ops history refreshes.
 
 It does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect broker, does not place orders, and does not treat ops refresh as trade instruction.
+
+## v0.8.11 downstream consumer
+
+v0.8.11 uses the v0.8.10 ops refresh, which itself consumes this dashboard, to generate an owner daily runbook and owner operations decision pack.
+
+The daily pack remains operations-only and research-only. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, connect broker, place orders, call old run-daily, execute official forward dry-run day2, or treat the pack as a trade instruction.
