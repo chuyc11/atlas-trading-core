@@ -2,7 +2,7 @@
   "trace_id": "A-SHARE-OWNER-CONTROLLED-GATE-REEVALUATION-SOURCE-TRACE",
   "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-06-30T17:52:28.523257Z",
+  "generated_at": "2026-06-30T17:55:26.525922Z",
   "source_workflow_mode": "controlled_gate_reevaluation_from_existing_recovery_execution",
   "source_trace_complete": true,
   "missing_required_sources": [],
@@ -343,7 +343,7 @@
       "relative_path": "data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_reevaluation_source_trace.json",
       "required": true,
       "exists": true,
-      "sha256": "28d449aeee6a25f4a2f30f2df0ca4e4e8eba0a022aab14f0c1059092bbfd47f7"
+      "sha256": "510eab5258908408a75ec2f284eb01501dfd3985d606ad18d9c80eb6a0c8861a"
     },
     {
       "artifact_key": "controlled_reevaluation_boundary_check",
@@ -359,7 +359,7 @@
       "relative_path": "data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_reevaluation_manifest.json",
       "required": true,
       "exists": true,
-      "sha256": "cf0bbd32765d7eb5d7e94d0063ba75218c2e7c66fd144dd08de6fe2852f32bf8"
+      "sha256": "56e852e126eddcd40693e2d17da480fda0eb82d9ba2fb87617890da6c46aee7a"
     },
     {
       "artifact_key": "controlled_reevaluation_summary",

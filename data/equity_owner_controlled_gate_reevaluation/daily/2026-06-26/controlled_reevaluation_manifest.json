@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-OWNER-CONTROLLED-GATE-REEVALUATION-MANIFEST",
   "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-06-30T17:52:28.389161Z",
+  "generated_at": "2026-06-30T17:55:26.283970Z",
   "source_workflow_mode": "controlled_gate_reevaluation_from_existing_recovery_execution",
   "source_gate_decision": "blocked",
   "blocked_gate_decision_preserved": true,

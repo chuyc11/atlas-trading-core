@@ -245,3 +245,18 @@ v0.8.15 adds a recovery plan and quality improvement loop for the owner-readines
 This stage preserves blocked gate state, does not lower readiness thresholds, does not auto-waive quality gates, does not mark recovery tasks complete by default, and does not rerun upstream A-share build, gate, or daily pack workflows.
 
 v0.8.16 should track recovery task evidence and prepare a controlled gate reevaluation without weakening thresholds.
+
+## v0.8.17 Owner-Readiness Controlled Gate Reevaluation
+
+v0.8.17 consumes the v0.8.16 recovery execution package and evaluates whether a gate reevaluation is allowed. The audited 2026-06-26 state is `skipped_not_ready` because recovery evidence remains insufficient.
+
+This stage records a controlled skip decision, preserves the v0.8.13 blocked gate decision, keeps the owner-readiness threshold unchanged, and keeps waiver approval absent. It does not rerun owner readiness gate, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, create order previews, connect broker, place orders, call old `run-daily`, execute official forward dry-run day2, or treat controlled reevaluation as trade instruction.
+
+Primary outputs:
+
+- `data/equity_owner_controlled_gate_reevaluation/daily/2026-06-26/`
+- `outputs/equity_owner_controlled_gate_reevaluation/daily/2026-06-26/`
+- `data/equity_data_quality/a_share_owner_controlled_gate_reevaluation_audit.json`
+- `outputs/audit/A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_AUDIT.md`
+
+Recommended next version: `v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts`.

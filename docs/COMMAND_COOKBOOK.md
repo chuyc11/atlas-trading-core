@@ -814,6 +814,34 @@ python -m trading_core.cli build-and-audit-a-share-owner-quality-exceptions --as
 ```
 
 This workflow preserves the v0.8.13 blocked gate decision, explains audit-passed-but-gate-blocked states, and creates waiver/escalation artifacts without auto waiver or gate release.
+## v0.8.17 Owner Readiness Controlled Gate Reevaluation
+
+Validate source inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-owner-controlled-gate-reevaluation-inputs --as-of-date 2026-06-26
+```
+
+Record the controlled skip decision:
+
+```bash
+python -m trading_core.cli build-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26 --mode record_reevaluation_skip_decision
+```
+
+Audit the controlled reevaluation package:
+
+```bash
+python -m trading_core.cli audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26 --mode record_reevaluation_skip_decision
+```
+
+This stage records that reevaluation is skipped because source recovery evidence remains insufficient. It does not rerun owner readiness gate, generate a new gate score, generate a new gate decision, lower thresholds, approve waivers, connect broker, generate orders, or treat controlled reevaluation as a trade instruction.
+
 ## v0.8.16 Owner Readiness Recovery Execution
 
 Validate source inputs:

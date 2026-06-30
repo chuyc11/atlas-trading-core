@@ -354,6 +354,19 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share owner monitoring | `build-a-share-owner-monitoring` | Build local alert artifacts, run history, trend snapshots, monitoring cards, and reports | `data/equity_owner_monitoring/daily/YYYY-MM-DD`, `data/equity_owner_monitoring/history`, `outputs/equity_owner_monitoring/daily/YYYY-MM-DD` | local monitoring only; no external notifications by default |
 | A-share owner monitoring | `audit-a-share-owner-monitoring` | Audit monitoring completeness, alert counts, source trace, trend insufficiency, and boundaries | `data/equity_data_quality/a_share_owner_monitoring_audit.json`, `outputs/audit/A_SHARE_OWNER_MONITORING_AUDIT.md` | audit only |
 | A-share owner monitoring | `build-and-audit-a-share-owner-monitoring` | Build and audit v0.8.3 owner monitoring in one command | owner monitoring outputs plus audit outputs | fail-closed |
+## v0.8.17 Owner Readiness Controlled Gate Reevaluation
+
+```bash
+python -m trading_core.cli validate-a-share-owner-controlled-gate-reevaluation-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26 --mode record_reevaluation_skip_decision
+python -m trading_core.cli audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26 --mode record_reevaluation_skip_decision
+```
+
+Modes: `validate_controlled_reevaluation_inputs`, `evaluate_reevaluation_readiness_guard`, `build_controlled_reevaluation_plan`, `record_reevaluation_skip_decision`, `build_controlled_reevaluation_report`, `audit_existing_controlled_reevaluation`.
+
+The command set records `skipped_not_ready` when recovery evidence is insufficient. It does not rerun owner readiness gate, `build_from_existing_data`, owner daily pack, public network refresh, `full_research_run`, remediation actions, external notifications, broker actions, real orders, order preview, old `run-daily`, or official forward dry-run day2.
+
 ## v0.8.16 Owner Readiness Recovery Execution
 
 ```bash

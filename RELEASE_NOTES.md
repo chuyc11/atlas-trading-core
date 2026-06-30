@@ -1,5 +1,74 @@
 # Release Notes
 
+## v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation
+
+v0.8.17 A-share owner-readiness controlled gate reevaluation.
+
+Adds:
+
+- controlled reevaluation config
+- controlled reevaluation input availability
+- controlled reevaluation source resolution
+- controlled reevaluation date alignment
+- reevaluation readiness guard
+- reevaluation prerequisite validation
+- reevaluation execution plan
+- reevaluation skip decision
+- not-ready reason summary
+- source gate preservation check
+- threshold preservation check
+- waiver preservation check
+- evidence sufficiency check
+- controlled reevaluation decision
+- controlled reevaluation source trace
+- controlled reevaluation boundary check
+- controlled reevaluation manifest
+- controlled reevaluation summary
+- owner-facing controlled reevaluation reports
+- controlled gate reevaluation audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- controlled gate reevaluation audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- blocked gate decision preserved=true
+- readiness_guard_passed=false
+- reevaluation_allowed=false
+- reevaluation_skipped=true
+- reevaluation_skip_reason=not_ready
+- controlled_reevaluation_decision=skipped_not_ready
+- evidence_sufficient_for_gate_reevaluation=false
+- gate_reevaluation_executed=false
+- new_gate_score_generated=false
+- new_gate_decision_generated=false
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- recommended next version: `v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts`
+
+Boundary:
+
+- records a controlled skip decision when recovery evidence is still insufficient
+- does not rerun owner readiness gate
+- does not change blocked gate decision
+- does not generate a new gate score or new gate decision
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat controlled reevaluation as trade instruction
+
 ## v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep
 
 v0.8.16 A-share owner-readiness recovery execution tracker and gate reevaluation prep.

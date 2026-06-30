@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep
+v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation
 
 ## Completed milestones
 
@@ -78,6 +78,22 @@ v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation
 - v0.8.14 A-share owner daily pack quality exceptions and escalation workflow
 - v0.8.15 A-share owner-readiness recovery plan and quality improvement loop
 - v0.8.16 A-share owner-readiness recovery execution tracker and gate reevaluation prep
+- v0.8.17 A-share owner-readiness controlled gate reevaluation
+
+## v0.8.17 owner-readiness controlled gate reevaluation boundary
+
+- adds a controlled reevaluation adapter that evaluates whether gate reevaluation may run
+- default audited state for 2026-06-26 is `skipped_not_ready`
+- preserves the v0.8.13 blocked owner-readiness gate decision
+- records `readiness_guard_passed=false`, `reevaluation_allowed=false`, and `reevaluation_skipped=true`
+- does not generate a new gate score or a new gate decision
+- does not rerun owner readiness gate, `build_from_existing_data`, or owner daily pack
+- does not lower readiness thresholds or record auto/manual waiver approval
+- does not refresh public network data or run `full_research_run`
+- does not execute remediation actions or send external notifications
+- does not generate buy/sell signals, order preview, broker connection, real account read, or real orders
+- does not call old `run-daily` or execute official forward dry-run day2
+- recommended next version: `v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts`
 
 ## v0.8.16 owner-readiness recovery execution boundary
 
