@@ -1,0 +1,18 @@
+{
+  "refresh_id": "A-SHARE-BUILD-OUTPUT-OPS-HISTORY-REFRESH",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "ops_history_refresh_performed": true,
+  "synthetic_history_used": false,
+  "future_dates_used": false,
+  "observations_added": 1,
+  "observation_dates": [
+    "2026-06-26"
+  ],
+  "ops_history_audit_available": true,
+  "ops_history_audit_passed": true,
+  "health_score": 65,
+  "health_grade": "C",
+  "overall_status": "passed_with_warnings"
+}

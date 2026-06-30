@@ -33,3 +33,9 @@ Boundary:
 - v0.8.5 does not execute official forward dry-run day2
 - v0.8.5 does not treat ops output as trade instruction
 - v0.8.6 should deepen run history and trend baselines
+
+## v0.8.10 build-output ops refresh
+
+v0.8.10 refreshes ops center and ops history outputs from the v0.8.9 build-output dashboard. It carries build-output monitoring, remediation, health score, module status, issue summary, action summary, owner next steps, and source trace into a separate refresh package under `data/equity_build_output_ops_refresh/` and `outputs/equity_build_output_ops_refresh/`.
+
+The refresh uses `build_from_existing_data` as source workflow mode and does not rerun the build workflow, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat ops refresh as trade instruction. v0.8.11 should build a daily owner decision pack and runbook from this refreshed build-output ops layer.

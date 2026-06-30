@@ -24,3 +24,9 @@ v0.8.5 consumes owner remediation artifacts and includes remediation status, iss
 v0.8.5 aggregates existing ops artifacts by default. It does not refresh data, rerun current-day research, execute remediation actions, generate buy/sell signals, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat ops output as trade instruction.
 
 Recommended next version after v0.8.5 is `v0.8.6-a-share-ops-run-history-deepening-and-trend-baselines`.
+
+# v0.8.10 build-output remediation refresh
+
+v0.8.10 refreshes remediation summaries and safe owner action material from the v0.8.9 build-output dashboard and repeatability evidence. The original v0.8.4 remediation artifacts remain comparison/context inputs.
+
+The refresh does not execute remediation actions, does not send external notifications, does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not connect broker, does not place orders, and does not treat remediation refresh as trade instruction.

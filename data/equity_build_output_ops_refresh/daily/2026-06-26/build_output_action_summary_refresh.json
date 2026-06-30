@@ -1,0 +1,20 @@
+{
+  "summary_id": "A-SHARE-BUILD-OUTPUT-ACTION-SUMMARY-REFRESH",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "action_summary_refresh_performed": true,
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "manual_review_count": 8,
+  "top_owner_actions": [
+    "检查 audit 是否通过",
+    "检查 warning 是否为已知非阻塞",
+    "检查 source trace 是否完整",
+    "检查 boundary 是否干净",
+    "检查是否需要安全重跑数据验证"
+  ],
+  "forbidden_action_hits": [],
+  "execute_remediation_actions": false,
+  "external_notifications_sent": false
+}

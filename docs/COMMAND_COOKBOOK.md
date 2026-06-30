@@ -103,6 +103,22 @@ python -m trading_core.cli build-and-audit-a-share-build-output-owner-dashboard 
 
 This path refreshes owner-facing dashboard artifacts from stable `build_from_existing_data` outputs. It prefers build output over validate-source artifacts, requires repeatability audit success, requires `business_output_drift_count=0`, and carries protected path status forward. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, call old `run-daily`, connect broker, create order previews, place orders, or treat dashboard output as a trade instruction.
 
+## Run v0.8.10 A-share build-output ops refresh
+
+```bash
+python -m trading_core.cli validate-a-share-build-output-ops-refresh-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-build-output-ops-refresh --as-of-date 2026-06-26 --mode build_build_output_monitoring_remediation_ops_refresh
+python -m trading_core.cli audit-a-share-build-output-ops-refresh --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-build-output-ops-refresh --as-of-date 2026-06-26 --mode build_build_output_monitoring_remediation_ops_refresh
+```
+
+This path refreshes monitoring, remediation, ops center, and ops history artifacts from the v0.8.9 build-output dashboard. It uses `build_from_existing_data` as source workflow mode, requires zero business output drift, and keeps automatic action count at zero. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat ops refresh as a trade instruction.
+
 ## Run v0.7 external project intake
 
 ```bash

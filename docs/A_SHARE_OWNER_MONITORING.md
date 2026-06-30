@@ -54,3 +54,9 @@ Recommended next version after v0.8.4 is `v0.8.5-a-share-daily-ops-command-cente
 v0.8.5 carries owner monitoring status cards, alert summaries, run-history summaries, and monitoring boundary state into the daily ops command center.
 
 The ops center is not a trading system. It aggregates existing artifacts by default and does not execute old run-daily, broker operations, order operations, research workflow reruns, or remediation actions.
+
+# v0.8.10 build-output monitoring refresh
+
+v0.8.10 refreshes monitoring context from the v0.8.9 build-output dashboard and keeps original v0.8.3 monitoring artifacts as comparison inputs only.
+
+It uses `build_from_existing_data` as source workflow mode and does not rerun monitoring, send external notifications, refresh data, execute remediation actions, connect broker, place orders, call old run-daily, execute official forward dry-run day2, or treat monitoring refresh as trade instruction.

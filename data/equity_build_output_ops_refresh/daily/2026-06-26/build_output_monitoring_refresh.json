@@ -1,0 +1,20 @@
+{
+  "refresh_id": "A-SHARE-BUILD-OUTPUT-MONITORING-REFRESH",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "monitoring_refresh_performed": true,
+  "original_monitoring_status": "passed_with_warnings",
+  "build_output_dashboard_status": "passed",
+  "critical_alert_count": 0,
+  "warning_alert_count": 0,
+  "known_non_blocking_alert_count": 0,
+  "build_output_warning_count": 2,
+  "build_output_blocking_count": 0,
+  "external_notifications_sent": false,
+  "non_trading_interpretation": true,
+  "warnings": [
+    "metadata_hash_drift_non_blocking",
+    "timestamp_only_drift_non_blocking"
+  ]
+}

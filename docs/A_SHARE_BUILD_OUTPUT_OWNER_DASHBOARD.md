@@ -25,3 +25,8 @@ Boundary:
 
 Recommended next: `v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh`.
 
+## v0.8.10 downstream consumer
+
+v0.8.10 consumes this build-output dashboard as the primary owner-facing source for monitoring, remediation, ops center, and ops history refreshes.
+
+It does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect broker, does not place orders, and does not treat ops refresh as trade instruction.

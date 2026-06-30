@@ -1,0 +1,75 @@
+{
+  "matrix_id": "A-SHARE-BUILD-OUTPUT-MODULE-STATUS-MATRIX-REFRESH",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "rows": [
+    {
+      "module_id": "data_refresh",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 2,
+      "boundary_clean": true,
+      "source_trace_available": false,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.1-a-share-current-day-research-workflow-runner",
+      "status": "passed_with_warnings"
+    },
+    {
+      "module_id": "current_day_research_run",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 9,
+      "boundary_clean": true,
+      "source_trace_available": false,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.2-a-share-current-day-owner-briefing-and-monitoring-dashboard",
+      "status": "passed_with_warnings"
+    },
+    {
+      "module_id": "owner_dashboard",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 11,
+      "boundary_clean": true,
+      "source_trace_available": true,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.3-a-share-owner-alerting-and-run-history-monitoring",
+      "status": "passed_with_warnings"
+    },
+    {
+      "module_id": "owner_monitoring",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 0,
+      "boundary_clean": true,
+      "source_trace_available": true,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.4-a-share-owner-remediation-runbook-and-action-checklist",
+      "status": "passed"
+    },
+    {
+      "module_id": "owner_remediation",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 0,
+      "boundary_clean": true,
+      "source_trace_available": true,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.5-a-share-daily-ops-command-center",
+      "status": "passed"
+    },
+    {
+      "module_id": "build_output_dashboard",
+      "audit_passed": true,
+      "blocking_count": 0,
+      "warning_count": 0,
+      "boundary_clean": true,
+      "source_trace_available": true,
+      "summary_available": true,
+      "recommended_next_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+      "status": "passed"
+    }
+  ],
+  "module_status_matrix_refresh_performed": true
+}

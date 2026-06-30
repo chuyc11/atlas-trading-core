@@ -98,6 +98,13 @@ from trading_core.equity_build_output_dashboard.build_output_dashboard_builder i
 )
 from trading_core.equity_build_output_dashboard.build_output_dashboard_config import ALLOWED_MODES as A_SHARE_BUILD_OUTPUT_DASHBOARD_MODES
 from trading_core.equity_build_output_dashboard.build_output_dashboard_config import DEFAULT_AS_OF_DATE as DEFAULT_BUILD_OUTPUT_DASHBOARD_AS_OF_DATE
+from trading_core.equity_build_output_ops_refresh.build_output_ops_audit import audit_a_share_build_output_ops_refresh
+from trading_core.equity_build_output_ops_refresh.build_output_ops_builder import (
+    build_a_share_build_output_ops_refresh,
+    validate_a_share_build_output_ops_refresh_inputs,
+)
+from trading_core.equity_build_output_ops_refresh.build_output_ops_config import ALLOWED_MODES as A_SHARE_BUILD_OUTPUT_OPS_MODES
+from trading_core.equity_build_output_ops_refresh.build_output_ops_config import DEFAULT_AS_OF_DATE as DEFAULT_BUILD_OUTPUT_OPS_AS_OF_DATE
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1058,6 +1065,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_build_output_dashboard_arguments(build_output_dashboard_audit, include_mode=False)
     build_output_dashboard_all = subparsers.add_parser("build-and-audit-a-share-build-output-owner-dashboard")
     _add_a_share_build_output_dashboard_arguments(build_output_dashboard_all)
+    build_output_ops_validate = subparsers.add_parser("validate-a-share-build-output-ops-refresh-inputs")
+    _add_a_share_build_output_ops_arguments(build_output_ops_validate, include_mode=False)
+    build_output_ops_build = subparsers.add_parser("build-a-share-build-output-ops-refresh")
+    _add_a_share_build_output_ops_arguments(build_output_ops_build)
+    build_output_ops_audit = subparsers.add_parser("audit-a-share-build-output-ops-refresh")
+    _add_a_share_build_output_ops_arguments(build_output_ops_audit, include_mode=False)
+    build_output_ops_all = subparsers.add_parser("build-and-audit-a-share-build-output-ops-refresh")
+    _add_a_share_build_output_ops_arguments(build_output_ops_all)
 
     return parser
 
@@ -1277,6 +1292,16 @@ def _add_a_share_build_output_dashboard_arguments(parser: argparse.ArgumentParse
         parser.add_argument("--mode", choices=A_SHARE_BUILD_OUTPUT_DASHBOARD_MODES, default="validate_build_output_dashboard_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--allow-required-validate-fallback", action="store_true")
+    parser.add_argument("--allow-business-output-drift", action="store_true")
+
+
+def _add_a_share_build_output_ops_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_BUILD_OUTPUT_OPS_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_BUILD_OUTPUT_OPS_MODES, default="build_build_output_monitoring_remediation_ops_refresh")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_BUILD_OUTPUT_OPS_MODES, default="validate_build_output_ops_refresh_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--allow-business-output-drift", action="store_true")
 
 
@@ -4062,6 +4087,102 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "dashboard_checks": audit_result["dashboard_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-build-output-ops-refresh-inputs":
+        result = validate_a_share_build_output_ops_refresh_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "build_output_dashboard_audit_passed": result["build_output_dashboard_audit_passed"],
+                "repeatability_audit_passed": result["repeatability_audit_passed"],
+                "gated_build_audit_passed": result["gated_build_audit_passed"],
+                "original_monitoring_audit_passed": result["original_monitoring_audit_passed"],
+                "original_remediation_audit_passed": result["original_remediation_audit_passed"],
+                "original_ops_center_audit_passed": result["original_ops_center_audit_passed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-build-output-ops-refresh":
+        result = build_a_share_build_output_ops_refresh(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_business_output_drift=args.allow_business_output_drift,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_workflow_mode": result["source_workflow_mode"],
+                "build_output_dashboard_audit_passed": result["build_output_dashboard_audit_passed"],
+                "repeatability_audit_passed": result["repeatability_audit_passed"],
+                "gated_build_audit_passed": result["gated_build_audit_passed"],
+                "original_monitoring_audit_passed": result["original_monitoring_audit_passed"],
+                "original_remediation_audit_passed": result["original_remediation_audit_passed"],
+                "original_ops_center_audit_passed": result["original_ops_center_audit_passed"],
+                "monitoring_refresh_performed": result["monitoring_refresh_performed"],
+                "remediation_refresh_performed": result["remediation_refresh_performed"],
+                "ops_center_refresh_performed": result["ops_center_refresh_performed"],
+                "ops_history_refresh_performed": result["ops_history_refresh_performed"],
+                "build_from_existing_data_rerun": result["build_from_existing_data_rerun"],
+                "business_output_drift_count": result["business_output_drift_count"],
+                "protected_path_modifications_detected": result["protected_path_modifications_detected"],
+                "execute_remediation_actions": result["execute_remediation_actions"],
+                "external_notifications_sent": result["external_notifications_sent"],
+                "automatic_action_count": result["automatic_action_count"],
+                "comparison_completed": result["comparison_completed"],
+                "ops_health_score": result["ops_health_score"],
+                "ops_health_grade": result["ops_health_grade"],
+                "overall_status": result["overall_status"],
+                "recommended_next_version": result["recommended_next_version"],
+                "ops_refresh_report": result["ops_refresh_report"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-build-output-ops-refresh":
+        result = audit_a_share_build_output_ops_refresh(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "refresh_checks": result["refresh_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-build-output-ops-refresh":
+        build_result = build_a_share_build_output_ops_refresh(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_business_output_drift=args.allow_business_output_drift,
+            paths=paths,
+        )
+        audit_result = audit_a_share_build_output_ops_refresh(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "refresh_checks": audit_result["refresh_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

@@ -201,3 +201,9 @@ This stage does not refresh public network data, does not run `full_research_run
 v0.8.9 refreshes the owner dashboard from `build_from_existing_data` output. It prefers build output over validate-source artifacts, requires repeatability audit success, requires `business_output_drift_count=0`, and distinguishes pre-existing protected paths from modified protected paths.
 
 This stage does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat the dashboard as a trade instruction. v0.8.10 should refresh monitoring, remediation, ops center, and ops history from build output.
+
+## v0.8.10 Build-Output Ops Refresh Addendum
+
+v0.8.10 propagates v0.8.9 build-output dashboard state into monitoring, remediation, ops center, and ops history refresh artifacts. It keeps original monitoring/remediation/ops artifacts as comparison sources and uses `build_from_existing_data` as the source workflow mode.
+
+This stage does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old run-daily, does not execute official forward dry-run day2, and does not treat ops refresh as trade instruction. v0.8.11 should build the daily owner decision pack and runbook from the build-output ops refresh.

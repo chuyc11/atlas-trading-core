@@ -1,0 +1,181 @@
+{
+  "navigation_id": "A-SHARE-BUILD-OUTPUT-OPS-ARTIFACT-NAVIGATION",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "entries": [
+    {
+      "artifact_id": "build_output_ops_refresh_config",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_refresh_config.json",
+      "exists": true,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_input_availability",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_input_availability.json",
+      "exists": true,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_source_resolution",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_source_resolution.json",
+      "exists": true,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_date_alignment",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_date_alignment.json",
+      "exists": true,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_monitoring_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_monitoring_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_alert_summary_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_alert_summary_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_remediation_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_remediation_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_safe_action_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_safe_action_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_center_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_center_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_history_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_history_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_health_score_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_health_score_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_module_status_matrix_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_module_status_matrix_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_issue_summary_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_issue_summary_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_action_summary_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_action_summary_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_owner_next_steps_refresh",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_owner_next_steps_refresh.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "original_ops_vs_build_output_ops_comparison",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/original_ops_vs_build_output_ops_comparison.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_artifact_navigation",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_artifact_navigation.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_source_trace",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_source_trace.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_boundary_check",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_boundary_check.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_manifest",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_manifest.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_summary",
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_summary.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_refresh_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_OPS_REFRESH.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "build_output_monitoring_refresh_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_MONITORING_REFRESH.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "build_output_remediation_refresh_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_REMEDIATION_REFRESH.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "build_output_ops_center_refresh_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_OPS_CENTER_REFRESH.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "original_ops_vs_build_output_ops_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_ORIGINAL_OPS_VS_BUILD_OUTPUT_OPS.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "build_output_ops_source_trace_report",
+      "path": "outputs/equity_build_output_ops_refresh/daily/2026-06-26/A_SHARE_BUILD_OUTPUT_OPS_SOURCE_TRACE.md",
+      "exists": false,
+      "artifact_type": "report"
+    },
+    {
+      "artifact_id": "build_output_ops_audit_json",
+      "path": "data/equity_data_quality/a_share_build_output_ops_refresh_audit.json",
+      "exists": false,
+      "artifact_type": "json"
+    },
+    {
+      "artifact_id": "build_output_ops_audit_report",
+      "path": "outputs/audit/A_SHARE_BUILD_OUTPUT_OPS_REFRESH_AUDIT.md",
+      "exists": false,
+      "artifact_type": "report"
+    }
+  ]
+}

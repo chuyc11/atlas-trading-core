@@ -1,0 +1,10 @@
+{
+  "alignment_id": "A-SHARE-BUILD-OUTPUT-OPS-DATE-ALIGNMENT",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "mismatches": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

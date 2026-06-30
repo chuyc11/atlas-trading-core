@@ -1,0 +1,20 @@
+{
+  "comparison_id": "A-SHARE-ORIGINAL-OPS-VS-BUILD-OUTPUT-OPS",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "comparison_completed": true,
+  "original_source_workflow_mode": "validate_existing_artifacts",
+  "build_output_source_workflow_mode": "build_from_existing_data",
+  "original_health_score": 65,
+  "build_output_health_score": 65,
+  "original_warning_issue_count": 12,
+  "build_output_warning_issue_count": 12,
+  "original_automatic_action_count": 0,
+  "build_output_automatic_action_count": 0,
+  "expected_source_mode_differences": [
+    "source_workflow_mode:original_validate_to_build_output"
+  ],
+  "unexpected_business_output_or_boundary_differences": [],
+  "overall_passed": true,
+  "blocking_reasons": []
+}

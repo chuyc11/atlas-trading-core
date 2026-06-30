@@ -1,0 +1,18 @@
+{
+  "card_id": "A-SHARE-BUILD-OUTPUT-HEALTH-SCORE-REFRESH",
+  "target_version": "v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "score": 65,
+  "grade": "C",
+  "overall_status": "passed_with_warnings",
+  "build_output_dashboard_overall_passed": true,
+  "business_output_drift_count": 0,
+  "protected_path_modifications_detected": false,
+  "score_explanation": [
+    "base score=100",
+    "minus 30 for warning issues",
+    "minus 5 for known non-blocking issues"
+  ],
+  "deterministic": true
+}

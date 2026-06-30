@@ -1,0 +1,39 @@
+# A 股 Build Output Ops Source Trace
+
+- source_trace_complete: True
+- source_trace_hashes_match: True
+
+- build_output_dashboard_audit: exists=True sha256=9c63c1985a40
+- build_output_dashboard_summary: exists=True sha256=1dabb1312148
+- build_output_dashboard_source_trace: exists=True sha256=8ba8805b257e
+- repeatability_audit: exists=True sha256=f3e4d642aeab
+- repeatability_summary: exists=True sha256=7b019648ee91
+- protected_path_modification_check: exists=True sha256=db44c34645ea
+- gated_build_audit: exists=True sha256=64f0bcbff5cf
+- gated_build_summary: exists=True sha256=63fa383e32ff
+- monitoring_audit: exists=True sha256=56b79e5e19ba
+- remediation_audit: exists=True sha256=436d0ce25a87
+- ops_center_audit: exists=True sha256=a8aad875bb2a
+- ops_health_score_card: exists=True sha256=1fda5c4cc850
+- ops_action_summary: exists=True sha256=3e67d19bdd20
+- build_output_ops_refresh_config: exists=True sha256=ded7d195e102
+- build_output_ops_input_availability: exists=True sha256=fc1ef474710f
+- build_output_ops_source_resolution: exists=True sha256=75f1759334e3
+- build_output_ops_date_alignment: exists=True sha256=25dae66786ac
+- build_output_monitoring_refresh: exists=True sha256=8239e9690a4f
+- build_output_alert_summary_refresh: exists=True sha256=f92cba426241
+- build_output_remediation_refresh: exists=True sha256=ae3e207d20ba
+- build_output_safe_action_refresh: exists=True sha256=00389911f793
+- build_output_ops_center_refresh: exists=True sha256=dec978648e8e
+- build_output_ops_history_refresh: exists=True sha256=fd18ffc52f4b
+- build_output_health_score_refresh: exists=True sha256=3972f1026f8d
+- build_output_module_status_matrix_refresh: exists=True sha256=e985551e61b3
+- build_output_issue_summary_refresh: exists=True sha256=25d7dd9d2ba8
+- build_output_action_summary_refresh: exists=True sha256=d0bd7bbf8e4b
+- build_output_owner_next_steps_refresh: exists=True sha256=beb88c471313
+- original_ops_vs_build_output_ops_comparison: exists=True sha256=145ce347ccfd
+- build_output_ops_artifact_navigation: exists=True sha256=b5331ce0c9d9
+- build_output_ops_source_trace: exists=False sha256=N/A
+- build_output_ops_boundary_check: exists=False sha256=N/A
+- build_output_ops_manifest: exists=False sha256=N/A
+- build_output_ops_summary: exists=False sha256=N/A
