@@ -1,0 +1,19 @@
+{
+  "gate_id": "A-SHARE-OWNER-NEXT-STEP-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "trade_related_next_steps_allowed": false
+  },
+  "actual_value": {
+    "forbidden_next_step_hits": []
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "owner_next_step_trend.json"
+  ],
+  "interpretation_zh": "owner next step 只能指向非交易的查看、审计或开发跟进。"
+}

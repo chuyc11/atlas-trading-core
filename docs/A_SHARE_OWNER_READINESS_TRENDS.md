@@ -17,3 +17,6 @@ For `2026-06-26`, the real owner daily pack has:
 - `readiness_trend_status=insufficient_history`
 
 This is not strategy performance, not a trade signal, not an order instruction, not a profit guarantee, and not live-trading readiness.
+## v0.8.13 Threshold Usage
+
+v0.8.13 uses owner-readiness trend outputs as owner operations evidence only. Insufficient history is allowed only when correctly flagged, and trend sufficiency is never fabricated. A blocked owner-readiness gate is a quality status, not an investment or trading recommendation.

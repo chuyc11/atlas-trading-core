@@ -1,0 +1,20 @@
+{
+  "gate_id": "A-SHARE-SOURCE-TRACE-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "required_source_trace_complete": true
+  },
+  "actual_value": {
+    "source_trace_complete": true,
+    "missing_required_sources": []
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "source_trace_quality_trend.json"
+  ],
+  "interpretation_zh": "source trace 必须完整且可追踪。"
+}

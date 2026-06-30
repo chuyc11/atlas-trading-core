@@ -1,0 +1,22 @@
+{
+  "gate_id": "A-SHARE-TREND-SUFFICIENCY-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "allow_insufficient_history_if_correctly_flagged": true
+  },
+  "actual_value": {
+    "trend_analysis_available": false,
+    "insufficient_history_correctly_flagged": true
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "insufficient_history_correctly_flagged"
+  ],
+  "source_artifacts": [
+    "owner_readiness_trend_sufficiency.json"
+  ],
+  "interpretation_zh": "历史不足可接受的前提是明确标记，不得伪造趋势。"
+}

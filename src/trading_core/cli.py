@@ -122,6 +122,14 @@ from trading_core.equity_owner_daily_pack_history.daily_pack_history_config impo
 from trading_core.equity_owner_daily_pack_history.daily_pack_history_config import DEFAULT_BASELINE_WINDOW_OBSERVATIONS as DEFAULT_OWNER_DAILY_PACK_HISTORY_BASELINE_WINDOW_OBSERVATIONS
 from trading_core.equity_owner_daily_pack_history.daily_pack_history_config import DEFAULT_HISTORY_WINDOW_DAYS as DEFAULT_OWNER_DAILY_PACK_HISTORY_WINDOW_DAYS
 from trading_core.equity_owner_daily_pack_history.daily_pack_history_config import DEFAULT_MINIMUM_REQUIRED_OBSERVATIONS as DEFAULT_OWNER_DAILY_PACK_HISTORY_MINIMUM_REQUIRED_OBSERVATIONS
+from trading_core.equity_owner_readiness_gate.gate_builder import (
+    build_a_share_owner_readiness_gate,
+    validate_a_share_owner_readiness_gate_inputs,
+)
+from trading_core.equity_owner_readiness_gate.gate_config import ALLOWED_MODES as A_SHARE_OWNER_READINESS_GATE_MODES
+from trading_core.equity_owner_readiness_gate.gate_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_READINESS_GATE_AS_OF_DATE
+from trading_core.equity_owner_readiness_gate.gate_config import DEFAULT_MINIMUM_OWNER_READINESS_SCORE
+from trading_core.equity_owner_readiness_gate.owner_readiness_gate_audit import audit_a_share_owner_readiness_gate
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1106,6 +1114,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_daily_pack_history_arguments(owner_daily_pack_history_audit, include_mode=False)
     owner_daily_pack_history_all = subparsers.add_parser("build-and-audit-a-share-owner-daily-pack-history")
     _add_a_share_owner_daily_pack_history_arguments(owner_daily_pack_history_all)
+    owner_readiness_gate_validate = subparsers.add_parser("validate-a-share-owner-readiness-gate-inputs")
+    _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_validate, include_mode=False)
+    owner_readiness_gate_build = subparsers.add_parser("build-a-share-owner-readiness-gate")
+    _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_build)
+    owner_readiness_gate_audit = subparsers.add_parser("audit-a-share-owner-readiness-gate")
+    _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_audit, include_mode=False)
+    owner_readiness_gate_all = subparsers.add_parser("build-and-audit-a-share-owner-readiness-gate")
+    _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_all)
 
     return parser
 
@@ -1359,6 +1375,18 @@ def _add_a_share_owner_daily_pack_history_arguments(parser: argparse.ArgumentPar
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--allow-rebuild-history", action="store_true")
     parser.add_argument("--allow-synthetic-history", action="store_true")
+
+
+def _add_a_share_owner_readiness_gate_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_READINESS_GATE_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_GATE_MODES, default="evaluate_owner_readiness_gate")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_GATE_MODES, default="validate_owner_readiness_gate_inputs")
+    parser.add_argument("--minimum-owner-readiness-score", type=int, default=DEFAULT_MINIMUM_OWNER_READINESS_SCORE)
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--allow-known-non-blocking-warnings", nargs="?", const=True, default=True, type=parse_bool)
+    parser.add_argument("--allow-insufficient-history-if-correctly-flagged", nargs="?", const=True, default=True, type=parse_bool)
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -4419,6 +4447,94 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "input_checks": audit_result["input_checks"],
                 "history_checks": audit_result["history_checks"],
                 "readiness_checks": audit_result["readiness_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-readiness-gate-inputs":
+        result = validate_a_share_owner_readiness_gate_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "owner_daily_pack_history_audit_passed": result["owner_daily_pack_history_audit_passed"],
+                "owner_daily_pack_audit_passed": result["owner_daily_pack_audit_passed"],
+                "source_workflow_mode": result["source_workflow_mode"],
+                "boundary_clean": result["boundary_clean"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-readiness-gate":
+        result = build_a_share_owner_readiness_gate(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            minimum_owner_readiness_score=args.minimum_owner_readiness_score,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_known_non_blocking_warnings=args.allow_known_non_blocking_warnings,
+            allow_insufficient_history_if_correctly_flagged=args.allow_insufficient_history_if_correctly_flagged,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_workflow_mode": result.get("source_workflow_mode"),
+                "decision": result.get("decision"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "required_gates_passed": result.get("required_gates_passed"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "actual_owner_readiness_score": result.get("actual_owner_readiness_score"),
+                "actual_owner_readiness_grade": result.get("actual_owner_readiness_grade"),
+                "quality_exception_candidate_count": result.get("quality_exception_candidate_count"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "owner_readiness_gate_report": result.get("owner_readiness_gate_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-readiness-gate":
+        result = audit_a_share_owner_readiness_gate(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "gate_checks": result["gate_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-readiness-gate":
+        build_result = build_a_share_owner_readiness_gate(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            minimum_owner_readiness_score=args.minimum_owner_readiness_score,
+            allow_date_mismatch=args.allow_date_mismatch,
+            allow_known_non_blocking_warnings=args.allow_known_non_blocking_warnings,
+            allow_insufficient_history_if_correctly_flagged=args.allow_insufficient_history_if_correctly_flagged,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_readiness_gate(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "decision": audit_result["gate_checks"]["decision"],
+                "owner_operationally_acceptable": audit_result["gate_checks"]["owner_operationally_acceptable"],
+                "required_gates_passed": audit_result["gate_checks"]["required_gates_passed"],
+                "input_checks": audit_result["input_checks"],
+                "gate_checks": audit_result["gate_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

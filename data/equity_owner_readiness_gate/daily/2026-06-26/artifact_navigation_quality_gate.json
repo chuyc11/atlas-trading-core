@@ -1,0 +1,21 @@
+{
+  "gate_id": "A-SHARE-ARTIFACT-NAVIGATION-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "required_output_and_source_navigation": true
+  },
+  "actual_value": {
+    "output_artifact_count": 35,
+    "source_artifact_count": 30
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "daily_pack_history_manifest.json",
+    "daily_pack_history_source_trace.json"
+  ],
+  "interpretation_zh": "manifest 和 source trace 必须能帮助 owner 定位 artifacts。"
+}

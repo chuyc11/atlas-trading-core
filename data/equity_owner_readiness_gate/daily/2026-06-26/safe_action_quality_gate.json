@@ -1,0 +1,20 @@
+{
+  "gate_id": "A-SHARE-SAFE-ACTION-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "automatic_action_count_allowed": 0
+  },
+  "actual_value": {
+    "automatic_action_count": 0,
+    "forbidden_safe_action_hits": []
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "safe_action_trend_baseline.json"
+  ],
+  "interpretation_zh": "safe action 只能是人工检查与非交易动作。"
+}

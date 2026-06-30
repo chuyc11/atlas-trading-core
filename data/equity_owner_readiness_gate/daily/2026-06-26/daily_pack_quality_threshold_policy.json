@@ -1,0 +1,22 @@
+{
+  "policy_id": "A-SHARE-DAILY-PACK-QUALITY-THRESHOLD-POLICY",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "minimum_owner_readiness_score": 75,
+  "minimum_required_artifact_completeness": 1.0,
+  "minimum_markdown_report_completeness": 1.0,
+  "required_source_trace_complete": true,
+  "required_boundary_clean": true,
+  "allow_insufficient_history_if_correctly_flagged": true,
+  "allow_known_non_blocking_warnings": true,
+  "allow_timestamp_hash_metadata_drift": true,
+  "allow_business_output_drift": false,
+  "allow_protected_path_modifications": false,
+  "allow_automatic_actions": false,
+  "allow_external_notifications": false,
+  "allow_remediation_execution": false,
+  "allow_forbidden_wording": false,
+  "not_investment_decision_pack_required": true,
+  "owner_readiness_used_as_trade_instruction_required": false
+}

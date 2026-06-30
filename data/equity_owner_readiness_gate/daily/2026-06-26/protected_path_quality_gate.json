@@ -1,0 +1,19 @@
+{
+  "gate_id": "A-SHARE-PROTECTED-PATH-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "allow_protected_path_modifications": false
+  },
+  "actual_value": {
+    "protected_path_modifications_detected": false
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "protected_path_trend_baseline.json"
+  ],
+  "interpretation_zh": "受保护路径不得被本阶段修改。"
+}

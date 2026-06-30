@@ -793,3 +793,13 @@ python -m trading_core.cli build-and-audit-a-share-daily-ops-center --as-of-date
 ```
 
 These commands aggregate existing ops artifacts by default. They do not refresh data, rerun current-day research, execute remediation actions, generate buy/sell signals, generate order preview, connect broker, place real orders, call old run-daily, execute official forward dry-run day2, or treat ops output as trade instruction.
+## v0.8.13 Owner Readiness Gate
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-readiness-gate-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-readiness-gate --as-of-date 2026-06-26 --mode evaluate_owner_readiness_gate
+python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-readiness-gate --as-of-date 2026-06-26 --mode evaluate_owner_readiness_gate
+```
+
+This workflow reads existing v0.8.12/v0.8.11 owner artifacts only. It does not rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, place orders, connect broker, call old `run-daily`, or execute official forward dry-run day2.

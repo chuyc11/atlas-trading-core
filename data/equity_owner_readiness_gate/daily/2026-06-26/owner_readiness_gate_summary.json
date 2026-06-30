@@ -1,0 +1,20 @@
+{
+  "summary_id": "A-SHARE-OWNER-READINESS-GATE-SUMMARY",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "decision": "blocked",
+  "owner_operationally_acceptable": false,
+  "blocking_reasons": [
+    "owner_readiness_score_below_threshold"
+  ],
+  "warnings": [
+    "insufficient_history_correctly_flagged",
+    "warning_issue_items_present"
+  ],
+  "owner_release_recommendation": "block_daily_pack",
+  "audit_ready": true,
+  "not_investment_decision": true,
+  "not_trade_instruction": true,
+  "recommended_next_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow"
+}

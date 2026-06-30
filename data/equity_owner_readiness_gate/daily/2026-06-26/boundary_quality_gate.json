@@ -1,0 +1,19 @@
+{
+  "gate_id": "A-SHARE-BOUNDARY-QUALITY-GATE",
+  "target_version": "v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "threshold": {
+    "required_boundary_clean": true
+  },
+  "actual_value": {
+    "boundary_clean": true
+  },
+  "passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "source_artifacts": [
+    "boundary_trend_baseline.json"
+  ],
+  "interpretation_zh": "research-only / virtual-only 边界必须干净。"
+}

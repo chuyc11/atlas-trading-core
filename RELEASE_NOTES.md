@@ -1,5 +1,58 @@
 # Release Notes
 
+## v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds
+
+v0.8.13 adds an owner-readiness gate and daily pack quality threshold layer on top of v0.8.12 owner daily pack history artifacts.
+
+Adds:
+
+- owner readiness gate config, input availability, source resolution, and date alignment
+- owner readiness and daily pack quality threshold policies
+- score, completeness, warning/issue, safe action, protected path, boundary, source trace, trend sufficiency, markdown report, artifact navigation, and owner next-step gates
+- owner readiness gate decision
+- quality threshold evaluation
+- quality exception candidate list without automatic waiver
+- owner operations release recommendation
+- owner readiness gate source trace, boundary check, manifest, summary, reports, and audit
+- CLI commands:
+  - `validate-a-share-owner-readiness-gate-inputs`
+  - `build-a-share-owner-readiness-gate`
+  - `audit-a-share-owner-readiness-gate`
+  - `build-and-audit-a-share-owner-readiness-gate`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner readiness gate audit overall_passed=true
+- audit blocking reasons: none
+- gate decision: `blocked`
+- owner_operationally_acceptable=false
+- required_gates_passed=false
+- minimum_owner_readiness_score=75
+- actual_owner_readiness_score=54
+- actual_owner_readiness_grade=`D`
+- blocked state represented correctly because the score gate is below threshold
+- source_workflow_mode=`build_from_existing_data`
+- owner daily pack history audit passed
+- owner daily pack audit passed
+- no automatic waiver
+- boundary clean
+- recommended next version: `v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow`
+
+Boundary:
+
+- evaluates owner operations acceptability only
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals or order previews
+- does not place orders or connect broker
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat owner-readiness gate as trade instruction
+
 ## v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
 
 v0.8.12 A-share build-output daily pack history and owner-readiness trends.

@@ -21,3 +21,6 @@ History rules:
 - no fabricated trends
 
 The release observation count is 1, below the default minimum of 5, so trend analysis is marked `insufficient_history`.
+## v0.8.13 Follow-On Gate
+
+v0.8.13 consumes the v0.8.12 owner daily pack history artifacts to evaluate owner-readiness gate and daily pack quality thresholds. It does not rebuild history, does not rerun owner daily pack, and does not treat owner readiness as a trade instruction.

@@ -320,6 +320,15 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share owner daily pack history | `audit-a-share-owner-daily-pack-history` | Audit append-only history, insufficient-history flags, readiness score validity, source trace, boundary, and forbidden wording/artifacts | `data/equity_data_quality/a_share_owner_daily_pack_history_audit.json`, `outputs/audit/A_SHARE_OWNER_DAILY_PACK_HISTORY_AUDIT.md` | audit only |
 | A-share owner daily pack history | `build-and-audit-a-share-owner-daily-pack-history` | Build and audit v0.8.12 owner daily pack history | history outputs plus audit outputs | fail-closed |
 
+## v0.8.13 A-Share Owner Readiness Gate Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share owner readiness gate | `validate-a-share-owner-readiness-gate-inputs` | Validate v0.8.12 owner daily pack history artifacts and v0.8.11 owner daily pack audit inputs | stdout | validation only |
+| A-share owner readiness gate | `build-a-share-owner-readiness-gate` | Evaluate owner-readiness score gate, daily pack quality thresholds, exception candidates, release recommendation, source trace, boundary, manifest, summary, and reports | `data/equity_owner_readiness_gate/daily/YYYY-MM-DD`, `outputs/equity_owner_readiness_gate/daily/YYYY-MM-DD` | owner operations gate only, no broker, no real orders, no buy/sell signals, no order preview |
+| A-share owner readiness gate | `audit-a-share-owner-readiness-gate` | Audit gate artifacts, blocked-state consistency, source trace, forbidden wording/artifacts, and non-trading boundaries | `data/equity_data_quality/a_share_owner_readiness_gate_audit.json`, `outputs/audit/A_SHARE_OWNER_READINESS_GATE_AUDIT.md` | audit only |
+| A-share owner readiness gate | `build-and-audit-a-share-owner-readiness-gate` | Build and audit v0.8.13 owner readiness gate | gate outputs plus audit outputs | fail-closed |
+
 ## v0.8.1 A-Share Current-Day Research Commands
 
 | Domain | Command | Description | Writes | Boundary |
