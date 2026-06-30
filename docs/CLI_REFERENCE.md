@@ -32,6 +32,10 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share owner daily pack | `build-a-share-owner-daily-pack` | Build owner daily runbook and owner operations decision pack from existing build-output ops refresh artifacts | `data/equity_owner_daily_pack`, `outputs/equity_owner_daily_pack` | broker, orders, trades, accounts | does not rerun build, refresh data, execute remediation, send notifications, or create trade instructions |
 | A-share owner daily pack | `audit-a-share-owner-daily-pack` | Audit existing owner daily pack artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
 | A-share owner daily pack | `build-and-audit-a-share-owner-daily-pack` | Build and audit owner daily pack | daily pack data, reports, audit outputs | broker, orders, trades, accounts | owner operations decision pack is not an investment decision pack |
+| A-share owner daily pack history | `validate-a-share-owner-daily-pack-history-inputs` | Validate v0.8.11 owner daily pack inputs for history and readiness trends | stdout | history artifacts, broker, orders, trades, accounts | read-only input validation |
+| A-share owner daily pack history | `build-a-share-owner-daily-pack-history` | Append current owner daily pack to history and build owner-readiness trend artifacts | `data/equity_owner_daily_pack_history`, `outputs/equity_owner_daily_pack_history` | broker, orders, trades, accounts | append-only, no synthetic history, no upstream rerun |
+| A-share owner daily pack history | `audit-a-share-owner-daily-pack-history` | Audit existing owner daily pack history artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
+| A-share owner daily pack history | `build-and-audit-a-share-owner-daily-pack-history` | Build and audit owner daily pack history | history data, trend reports, audit outputs | broker, orders, trades, accounts | owner readiness is not a trade instruction |
 | A-share owner remediation | `validate-a-share-owner-remediation-inputs` | Validate existing remediation inputs | stdout | remediation artifacts, broker, orders, trades, accounts | read-only input validation |
 | A-share owner remediation | `build-a-share-owner-remediation` | Build owner remediation runbook and safe checklist | `data/equity_owner_remediation`, `outputs/equity_owner_remediation` | broker, orders, trades, accounts | generates plans and checklists only |
 | A-share owner remediation | `audit-a-share-owner-remediation` | Audit existing remediation artifacts | `data/equity_data_quality`, `outputs/audit` | broker, orders, trades, accounts | fail-close audit only |
@@ -306,6 +310,15 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share owner daily pack | `build-a-share-owner-daily-pack` | Generate owner daily status brief, daily runbook, owner operations decision pack, digests, source trace, boundary, manifest, summary, and reports | `data/equity_owner_daily_pack/daily/YYYY-MM-DD`, `outputs/equity_owner_daily_pack/daily/YYYY-MM-DD` | research-only, virtual-only, no broker, no real orders, no buy/sell signals, no order preview, no old run-daily |
 | A-share owner daily pack | `audit-a-share-owner-daily-pack` | Audit owner daily pack completeness, source trace, forbidden wording/artifacts, and non-trading boundaries | `data/equity_data_quality/a_share_owner_daily_pack_audit.json`, `outputs/audit/A_SHARE_OWNER_DAILY_PACK_AUDIT.md` | audit only |
 | A-share owner daily pack | `build-and-audit-a-share-owner-daily-pack` | Build and audit v0.8.11 owner daily pack | daily pack outputs plus audit outputs | fail-closed |
+
+## v0.8.12 A-Share Owner Daily Pack History Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share owner daily pack history | `validate-a-share-owner-daily-pack-history-inputs` | Validate v0.8.11 owner daily pack audit, manifest, digests, boundary, and supporting build-output evidence | stdout | validation only |
+| A-share owner daily pack history | `build-a-share-owner-daily-pack-history` | Append the current daily pack to history, compute owner readiness score, trend sufficiency, quality baseline, warning/safe-action/protected-path/boundary/source/completeness trends, and reports | `data/equity_owner_daily_pack_history/daily/YYYY-MM-DD`, `data/equity_owner_daily_pack_history/history`, `outputs/equity_owner_daily_pack_history/daily/YYYY-MM-DD` | append-only, no synthetic history, no broker, no real orders, no buy/sell signals, no order preview |
+| A-share owner daily pack history | `audit-a-share-owner-daily-pack-history` | Audit append-only history, insufficient-history flags, readiness score validity, source trace, boundary, and forbidden wording/artifacts | `data/equity_data_quality/a_share_owner_daily_pack_history_audit.json`, `outputs/audit/A_SHARE_OWNER_DAILY_PACK_HISTORY_AUDIT.md` | audit only |
+| A-share owner daily pack history | `build-and-audit-a-share-owner-daily-pack-history` | Build and audit v0.8.12 owner daily pack history | history outputs plus audit outputs | fail-closed |
 
 ## v0.8.1 A-Share Current-Day Research Commands
 

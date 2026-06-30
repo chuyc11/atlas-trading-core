@@ -135,6 +135,22 @@ python -m trading_core.cli build-and-audit-a-share-owner-daily-pack --as-of-date
 
 This path creates an owner-facing daily runbook and owner operations decision pack from the v0.8.10 build-output ops refresh. It uses `build_from_existing_data` only as recorded source mode. It does not rerun `build_from_existing_data`, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, place orders, connect broker, call old run-daily, execute official forward dry-run day2, treat the daily pack as a trade instruction, or claim profit/live readiness.
 
+## Run v0.8.12 A-share owner daily pack history
+
+```bash
+python -m trading_core.cli validate-a-share-owner-daily-pack-history-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-daily-pack-history --as-of-date 2026-06-26 --mode build_owner_readiness_trends
+python -m trading_core.cli audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26 --mode build_owner_readiness_trends
+```
+
+This path appends the current owner daily pack to append-only history and computes owner-readiness trend artifacts from real observations only. With one release observation, `trend_analysis_available=false` and `readiness_trend_status=insufficient_history`; this is expected and non-blocking. It does not fabricate historical daily packs, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order previews, place orders, connect broker, call old run-daily, execute official forward dry-run day2, or treat owner readiness as a trade instruction.
+
 ## Run v0.7 external project intake
 
 ```bash

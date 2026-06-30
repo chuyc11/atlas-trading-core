@@ -1,5 +1,89 @@
 # Release Notes
 
+## v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
+
+v0.8.12 A-share build-output daily pack history and owner-readiness trends.
+
+Adds:
+
+- daily pack history config
+- daily pack history input availability
+- daily pack history source resolution
+- daily pack history date alignment
+- daily pack run record
+- append-only daily pack history update
+- daily pack history snapshot
+- owner readiness score
+- owner readiness history
+- owner readiness trend sufficiency
+- daily pack quality baseline
+- warning issue trend baseline
+- safe action trend baseline
+- protected path trend baseline
+- boundary trend baseline
+- source trace quality trend
+- daily pack completeness trend
+- owner next step trend
+- daily pack history source trace
+- daily pack history boundary check
+- daily pack history manifest and summary
+- owner-facing daily pack history and readiness reports
+- owner daily pack history audit
+- CLI commands:
+  - `validate-a-share-owner-daily-pack-history-inputs`
+  - `build-a-share-owner-daily-pack-history`
+  - `audit-a-share-owner-daily-pack-history`
+  - `build-and-audit-a-share-owner-daily-pack-history`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner daily pack history audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- source_workflow_mode=`build_from_existing_data`
+- owner_daily_pack_audit_passed=true
+- daily_pack_history_observation_count=1
+- minimum_required_observations=5
+- trend_analysis_available=false
+- readiness_trend_status=`insufficient_history`
+- insufficient_history_correctly_flagged=true
+- owner_readiness_score=54
+- owner_readiness_grade=`D`
+- append_only_history=true
+- idempotent_append=true
+- duplicate_detected=true
+- same_date_changed_content_warning=false
+- synthetic_history_used=false
+- future_dates_used=false
+- protected_path_modifications_detected=false
+- automatic_action_count=0
+- boundary clean
+- recommended next version: `v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds`
+- validation: 1460 passed, 1 skipped
+
+Boundary:
+
+- uses append-only history by default
+- does not fabricate historical daily packs
+- does not fabricate trends
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not rerun ops refresh
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not read real account data
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat owner readiness as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
 
 v0.8.11 A-share build-output daily runbook and owner operations decision pack.

@@ -39,3 +39,9 @@ Boundary:
 - does not claim profit or live trading readiness
 
 Recommended next: `v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends`.
+
+## v0.8.12 downstream consumer
+
+v0.8.12 consumes the v0.8.11 owner daily pack as the primary source for append-only history and owner-readiness trends.
+
+The history layer does not rebuild the daily pack, does not rerun `build_from_existing_data`, does not rerun ops refresh, does not refresh public network data, does not execute remediation actions, and does not treat owner readiness as a trade instruction. It records insufficient history explicitly when fewer than five real observations exist.

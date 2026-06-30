@@ -40,3 +40,7 @@ Forbidden categories:
 - `enable_live_trading`
 
 This pack is not an investment decision pack. It is not a broker instruction, not an order instruction, not a buy/sell signal, not an order preview, not a real-account rebalance instruction, not a profit guarantee, and not live-trading readiness.
+
+## v0.8.12 history usage
+
+v0.8.12 reads this operations decision pack as one input to owner daily pack history and readiness trends. The trend layer records operational readiness only. It does not convert the operations decision into investment advice, a trade signal, a broker instruction, an order preview, or live readiness.

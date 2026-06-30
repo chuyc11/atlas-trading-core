@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
+v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
 
 ## Completed milestones
 
@@ -73,6 +73,38 @@ v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
 - v0.8.9 A-share current-day build output owner dashboard refresh
 - v0.8.10 A-share build-output monitoring remediation and ops refresh
 - v0.8.11 A-share owner daily runbook and owner operations decision pack
+- v0.8.12 A-share owner daily pack history and owner-readiness trends
+
+## v0.8.12 owner daily pack history boundary
+
+- adds append-only owner daily pack history and owner-readiness trend artifacts
+- uses v0.8.11 owner daily pack artifacts as the primary source
+- release audit passed for `as_of_date=2026-06-26`
+- source workflow mode is `build_from_existing_data`
+- daily pack history observation count is 1
+- minimum required observations is 5
+- trend analysis is unavailable and correctly marked `insufficient_history`
+- owner readiness score is 54 with grade D for the real 2026-06-26 pack
+- uses append-only history by default
+- does not fabricate historical daily packs
+- does not fabricate trends
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not rerun ops refresh
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not treat owner readiness as trade instruction
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds
 
 ## v0.8.11 owner daily pack boundary
 
@@ -800,3 +832,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.8.0 writes daily data refresh and provider hardening artifacts only under `data/equity_data_refresh/`, `outputs/equity_data_refresh/`, and audit paths; it does not trigger the full research workflow by default, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, and does not execute official forward dry-run day2
 - v0.8.1 writes current-day research run artifacts only under `data/equity_current_day_runs/`, `outputs/equity_current_day_runs/`, and audit paths; it requires the data refresh audit first, does not connect a broker, does not read real account data, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat research output as trade instruction
 - v0.8.11 writes owner daily pack artifacts only under `data/equity_owner_daily_pack/`, `outputs/equity_owner_daily_pack/`, and audit paths; it uses build-output ops refresh as primary source, does not rerun `build_from_existing_data`, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect a broker, does not place real orders, does not generate buy/sell signals, does not generate order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat the pack as a trade instruction
+- v0.8.12 writes owner daily pack history and readiness trend artifacts only under `data/equity_owner_daily_pack_history/`, `outputs/equity_owner_daily_pack_history/`, and audit paths; it uses append-only history, does not fabricate daily pack history, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not connect broker, does not place real orders, does not generate buy/sell signals or order previews, and does not treat owner readiness as a trade instruction
