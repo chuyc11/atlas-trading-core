@@ -1,5 +1,83 @@
 # Release Notes
 
+## v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
+
+v0.8.10 A-share build-output monitoring remediation and ops refresh.
+
+Adds:
+
+- build output ops refresh config
+- build output ops input availability
+- build output ops source resolution
+- build output ops date alignment
+- build output monitoring refresh
+- build output alert summary refresh
+- build output remediation refresh
+- build output safe action refresh
+- build output ops center refresh
+- build output ops history refresh
+- build output health score refresh
+- build output module status matrix refresh
+- build output issue summary refresh
+- build output action summary refresh
+- build output owner next steps refresh
+- original-ops-vs-build-output-ops comparison
+- build output ops artifact navigation
+- build output ops source trace
+- build output ops boundary check
+- build output ops manifest and summary
+- owner-facing build output ops refresh reports
+- build output ops refresh audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- build-output ops refresh audit overall_passed=true
+- blocking reasons: none
+- audit warnings: none
+- source_workflow_mode=`build_from_existing_data`
+- build_output_dashboard_audit_passed=true
+- repeatability_audit_passed=true
+- gated_build_audit_passed=true
+- original_monitoring_audit_passed=true
+- original_remediation_audit_passed=true
+- original_ops_center_audit_passed=true
+- monitoring_refresh_performed=true
+- remediation_refresh_performed=true
+- ops_center_refresh_performed=true
+- ops_history_refresh_performed=true
+- build_from_existing_data_rerun=false
+- business_output_drift_count=0
+- protected_path_modifications_detected=false
+- execute_remediation_actions=false
+- external_notifications_sent=false
+- automatic_action_count=0
+- comparison_completed=true
+- ops_health_score=65
+- ops_health_grade=`C`
+- overall_status=`passed_with_warnings`
+- boundary clean
+- recommended next version: `v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack`
+- validation: 1393 passed, 1 skipped
+
+Boundary:
+
+- uses build-output dashboard and `build_from_existing_data` as source workflow mode
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not read real account data
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not treat ops refresh as trade instruction
+- does not claim model profit guarantee
+- does not claim live trading readiness
+
 ## v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
 
 v0.8.9 A-share current-day build output owner dashboard refresh.

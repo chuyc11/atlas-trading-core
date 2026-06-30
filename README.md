@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
+v0.8.10-a-share-build-output-monitoring-remediation-and-ops-refresh
 
 ## Completed milestones
 
@@ -71,6 +71,32 @@ v0.8.9-a-share-current-day-build-output-owner-dashboard-refresh
 - v0.8.7 A-share gated current-day build-from-existing-data dry-run
 - v0.8.8 A-share build_from_existing_data repeatability and diff stability
 - v0.8.9 A-share current-day build output owner dashboard refresh
+- v0.8.10 A-share build-output monitoring remediation and ops refresh
+
+## v0.8.10 build-output ops refresh boundary
+
+- refreshes monitoring, remediation, ops center, and ops history from the v0.8.9 build-output dashboard
+- uses `build_from_existing_data` as source workflow mode
+- requires build-output dashboard, repeatability, gated build, original monitoring, original remediation, and original ops center audits to pass
+- requires `business_output_drift_count=0`
+- requires `protected_path_modifications_detected=false`
+- release audit passed for `as_of_date=2026-06-26`
+- keeps `automatic_action_count=0`
+- does not rerun `build_from_existing_data`
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not call old run-daily
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate order preview
+- does not generate buy/sell signals
+- does not execute official forward dry-run day2
+- does not treat ops refresh as trade instruction
+- does not claim profit guarantee or live trading readiness
+- recommended next version: v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack
 
 ## v0.8.9 build output owner dashboard boundary
 
