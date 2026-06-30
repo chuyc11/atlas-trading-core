@@ -329,6 +329,15 @@ Each command is virtual, file-backed, or research-only. Commands must not be tre
 | A-share owner readiness gate | `audit-a-share-owner-readiness-gate` | Audit gate artifacts, blocked-state consistency, source trace, forbidden wording/artifacts, and non-trading boundaries | `data/equity_data_quality/a_share_owner_readiness_gate_audit.json`, `outputs/audit/A_SHARE_OWNER_READINESS_GATE_AUDIT.md` | audit only |
 | A-share owner readiness gate | `build-and-audit-a-share-owner-readiness-gate` | Build and audit v0.8.13 owner readiness gate | gate outputs plus audit outputs | fail-closed |
 
+## v0.8.14 A-Share Owner Quality Exception Commands
+
+| Domain | Command | Description | Writes | Boundary |
+|---|---|---|---|---|
+| A-share owner quality exceptions | `validate-a-share-owner-quality-exceptions-inputs` | Validate v0.8.13 owner readiness gate artifacts and supporting v0.8.12/v0.8.11 owner artifacts | stdout | validation only |
+| A-share owner quality exceptions | `build-a-share-owner-quality-exceptions` | Build blocked gate intake, quality exception registry/classification, waiver schema, escalation workflow, owner notice, source trace, boundary, manifest, summary, and reports | `data/equity_owner_quality_exceptions/daily/YYYY-MM-DD`, `outputs/equity_owner_quality_exceptions/daily/YYYY-MM-DD` | exception workflow only, no auto waiver, no broker, no real orders, no buy/sell signals, no order preview |
+| A-share owner quality exceptions | `audit-a-share-owner-quality-exceptions` | Audit exception workflow artifacts, blocked-decision preservation, waiver controls, escalation routes, follow-up commands, source trace, forbidden wording/artifacts, and boundaries | `data/equity_data_quality/a_share_owner_quality_exception_workflow_audit.json`, `outputs/audit/A_SHARE_OWNER_QUALITY_EXCEPTION_WORKFLOW_AUDIT.md` | audit only |
+| A-share owner quality exceptions | `build-and-audit-a-share-owner-quality-exceptions` | Build and audit v0.8.14 owner quality exception workflow | exception outputs plus audit outputs | fail-closed |
+
 ## v0.8.1 A-Share Current-Day Research Commands
 
 | Domain | Command | Description | Writes | Boundary |

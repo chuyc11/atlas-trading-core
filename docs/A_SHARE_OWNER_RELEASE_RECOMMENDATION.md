@@ -12,3 +12,5 @@ Allowed categories include:
 - `wait_for_more_history`
 
 The recommendation is not an investment recommendation, not a trading recommendation, and not an order instruction.
+
+v0.8.14 adds an exception workflow for blocked recommendations. It does not change the v0.8.13 gate decision, does not auto-waive quality gates, and does not authorize trading.

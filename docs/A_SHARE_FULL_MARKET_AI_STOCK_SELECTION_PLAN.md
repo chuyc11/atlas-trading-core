@@ -224,3 +224,9 @@ This stage uses only real available daily pack records. It does not fabricate hi
 v0.8.13 adds owner-readiness gate and daily pack quality thresholds after owner daily pack history. The stage evaluates owner operations acceptability only. It does not rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, place orders, connect broker, call old `run-daily`, execute official forward dry-run day2, or treat the owner-readiness gate as a trade instruction.
 
 v0.8.14 should add quality exception records, escalation workflow, and owner follow-up tracking.
+
+## v0.8.14 Owner Quality Exception Workflow
+
+v0.8.14 adds daily pack quality exception and escalation workflow after the owner-readiness gate. It preserves blocked gate decisions, explains audit-passed-but-gate-blocked states, does not auto-waive quality gates, does not change the v0.8.13 gate decision, and does not treat quality exceptions as trade instructions.
+
+v0.8.15 should add an owner readiness recovery plan and measurable quality improvement loop.

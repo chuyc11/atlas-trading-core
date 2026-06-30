@@ -803,3 +803,14 @@ python -m trading_core.cli build-and-audit-a-share-owner-readiness-gate --as-of-
 ```
 
 This workflow reads existing v0.8.12/v0.8.11 owner artifacts only. It does not rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, place orders, connect broker, call old `run-daily`, or execute official forward dry-run day2.
+
+## v0.8.14 Owner Quality Exceptions
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-quality-exceptions-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-quality-exceptions --as-of-date 2026-06-26 --mode build_escalation_workflow
+python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26 --mode build_escalation_workflow
+```
+
+This workflow preserves the v0.8.13 blocked gate decision, explains audit-passed-but-gate-blocked states, and creates waiver/escalation artifacts without auto waiver or gate release.

@@ -17,3 +17,7 @@ Default policy:
 For `2026-06-26`, the actual owner readiness score is 54, so the gate decision is `blocked`. The audit still passes because the blocked state is represented correctly and no unsafe action occurred.
 
 v0.8.14 should add quality exception and escalation workflow.
+
+## v0.8.14 Exception Workflow
+
+v0.8.14 consumes this gate result and preserves the blocked decision. It explains why audit can pass while the owner-readiness gate remains blocked, generates quality exception classification, and routes developer/owner follow-up without auto waiver or trade authorization.

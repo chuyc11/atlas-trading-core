@@ -1,5 +1,73 @@
 # Release Notes
 
+## v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow
+
+v0.8.14 A-share owner daily pack quality exceptions and escalation workflow.
+
+Adds:
+
+- quality exception workflow config
+- quality exception input availability, source resolution, and date alignment
+- blocked gate intake
+- quality exception registry and classification
+- owner readiness gap analysis
+- threshold failure explanation
+- waiver candidate evaluation
+- manual waiver policy, request template, and decision record
+- escalation workflow
+- developer follow-up tracker
+- owner follow-up checklist
+- blocked daily pack owner notice
+- exception severity matrix, routing matrix, and SLA policy
+- exception audit trail
+- quality exception source trace, boundary check, manifest, and summary
+- owner-facing quality exception reports
+- quality exception workflow audit
+- CLI commands:
+  - `validate-a-share-owner-quality-exceptions-inputs`
+  - `build-a-share-owner-quality-exceptions`
+  - `audit-a-share-owner-quality-exceptions`
+  - `build-and-audit-a-share-owner-quality-exceptions`
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner quality exception workflow audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- blocked gate decision preserved=true
+- owner_operationally_acceptable=false
+- minimum_owner_readiness_score=75
+- actual_owner_readiness_score=54
+- readiness_score_gap=21
+- quality exceptions classified=true
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- waiver_changes_gate_decision=false
+- no forbidden escalation routes
+- no forbidden follow-up commands
+- boundary clean
+- recommended next version: `v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop`
+
+Boundary:
+
+- preserves blocked gate decisions
+- explains audit-passed-but-gate-blocked states
+- does not auto-waive quality gates
+- does not change the v0.8.13 gate decision
+- does not rerun `build_from_existing_data`
+- does not rerun owner readiness gate
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals or order previews
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat quality exceptions as trade instruction
+
 ## v0.8.13-a-share-owner-readiness-gate-and-daily-pack-quality-thresholds
 
 v0.8.13 adds an owner-readiness gate and daily pack quality threshold layer on top of v0.8.12 owner daily pack history artifacts.
