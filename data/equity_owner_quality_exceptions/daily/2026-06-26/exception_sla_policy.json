@@ -1,0 +1,14 @@
+{
+  "policy_id": "A-SHARE-EXCEPTION-SLA-POLICY",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "sla_hours": {
+    "blocking": 24,
+    "developer_follow_up_required": 48,
+    "owner_review_required": 72,
+    "warning": 120,
+    "info": 168
+  },
+  "external_notifications_sent": false,
+  "auto_escalation_enabled": false
+}

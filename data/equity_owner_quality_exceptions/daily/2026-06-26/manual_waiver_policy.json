@@ -1,0 +1,16 @@
+{
+  "policy_id": "A-SHARE-MANUAL-WAIVER-POLICY",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "auto_waiver_allowed": false,
+  "manual_waiver_supported": true,
+  "manual_waiver_approval_recorded": false,
+  "waiver_changes_gate_decision": false,
+  "waiver_scope": "owner_review_only",
+  "cannot_override": [
+    "broker/order/boundary violations",
+    "protected path modifications",
+    "investment or trading outputs"
+  ],
+  "cannot_authorize_trading": true
+}

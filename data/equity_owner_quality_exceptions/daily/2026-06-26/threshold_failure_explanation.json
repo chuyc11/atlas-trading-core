@@ -1,0 +1,34 @@
+{
+  "explanation_id": "A-SHARE-THRESHOLD-FAILURE-EXPLANATION",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "blocked_gate_decision_preserved": true,
+  "failed_threshold_count": 1,
+  "failed_thresholds": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+      "as_of_date": "2026-06-26",
+      "category": "readiness_score_below_threshold",
+      "severity": "blocking",
+      "source_gate": "owner_readiness_score_gate",
+      "actual_value": 54,
+      "threshold_value": 75,
+      "readiness_score_impact": 21,
+      "owner_visibility": true,
+      "developer_follow_up_required": true,
+      "owner_follow_up_required": true,
+      "waiver_candidate": false,
+      "waiver_allowed": false,
+      "auto_waiver_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "classified"
+    }
+  ],
+  "plain_language_summary_zh": "当前 daily pack 被阻塞，因为 owner readiness score 低于最低运维查看阈值；audit 通过只表示阻塞状态被正确记录。",
+  "not_investment_exception": true,
+  "not_trade_instruction": true
+}

@@ -1,0 +1,44 @@
+{
+  "workflow_id": "A-SHARE-ESCALATION-WORKFLOW",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "steps": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "category": "readiness_score_below_threshold",
+      "severity": "blocking",
+      "route": "developer_follow_up",
+      "sla_hours": 24,
+      "owner_visible": true,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "warning_issue_threshold_issue",
+      "severity": "owner_review_required",
+      "route": "owner_review",
+      "sla_hours": 72,
+      "owner_visible": true,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "severity": "owner_review_required",
+      "route": "wait_for_more_history",
+      "sla_hours": 72,
+      "owner_visible": true,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    }
+  ],
+  "step_count": 3,
+  "no_forbidden_escalation_routes": true,
+  "external_notifications_sent": false,
+  "execute_remediation_actions": false
+}

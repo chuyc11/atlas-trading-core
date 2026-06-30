@@ -1,0 +1,18 @@
+{
+  "template_id": "A-SHARE-MANUAL-WAIVER-REQUEST-TEMPLATE",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "request_status": "not_requested",
+  "eligible_exception_ids": [
+    "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+    "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged"
+  ],
+  "required_reason_fields": [
+    "exception_id",
+    "owner_review_reason",
+    "risk_acknowledgement",
+    "expiration"
+  ],
+  "auto_submission_enabled": false,
+  "approved_for_trading": false
+}

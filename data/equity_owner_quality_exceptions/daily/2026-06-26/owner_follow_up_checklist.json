@@ -1,0 +1,37 @@
+{
+  "checklist_id": "A-SHARE-OWNER-FOLLOW-UP-CHECKLIST",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "owner_follow_up_count": 3,
+  "items": [
+    {
+      "item_id": "OWNER-REVIEW:2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "source_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "owner_action": "Review exception details and wait for developer follow-up where required.",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    },
+    {
+      "item_id": "OWNER-REVIEW:2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "source_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "owner_action": "Review exception details and wait for developer follow-up where required.",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    },
+    {
+      "item_id": "OWNER-REVIEW:2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "source_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "owner_action": "Review exception details and wait for developer follow-up where required.",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    }
+  ],
+  "not_investment_advice": true,
+  "not_order_instruction": true
+}

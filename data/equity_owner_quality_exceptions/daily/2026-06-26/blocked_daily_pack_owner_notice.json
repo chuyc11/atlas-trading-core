@@ -1,0 +1,15 @@
+{
+  "notice_id": "A-SHARE-BLOCKED-DAILY-PACK-OWNER-NOTICE",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "daily_pack_owner_operationally_acceptable": false,
+  "source_gate_decision": "blocked",
+  "message_zh": "当前 daily pack 未达到 owner-operationally-acceptable。audit passed 代表阻塞状态被正确表达，不代表 gate 放行。",
+  "score_statement": "score 54 is below threshold 75",
+  "blocked_does_not_mean_trading_issue": true,
+  "blocked_does_not_mean_broker_or_order_activity_occurred": true,
+  "owner_should_review_exception_workflow": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_live_trading_ready": true
+}

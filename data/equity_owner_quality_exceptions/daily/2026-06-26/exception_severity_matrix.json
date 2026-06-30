@@ -1,0 +1,14 @@
+{
+  "matrix_id": "A-SHARE-EXCEPTION-SEVERITY-MATRIX",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "severity_levels": [
+    "info",
+    "warning",
+    "owner_review_required",
+    "developer_follow_up_required",
+    "blocking"
+  ],
+  "blocking_requires_developer_follow_up": true,
+  "trade_related_severity_allowed": false
+}

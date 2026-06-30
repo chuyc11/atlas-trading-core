@@ -1,0 +1,16 @@
+{
+  "waiver_record_id": "A-SHARE-MANUAL-WAIVER-DECISION-RECORD",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "manual_waiver_decision_status": "not_requested",
+  "manual_waiver_approval_recorded": false,
+  "approved_for_owner_review_only": false,
+  "approved_for_trading": false,
+  "waiver_changes_gate_decision": false,
+  "auto_waiver_allowed": false,
+  "waiver_reason": "",
+  "waiver_scope": [],
+  "waiver_expiration": null,
+  "blocking_reasons": [],
+  "warnings": []
+}

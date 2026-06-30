@@ -1,0 +1,51 @@
+{
+  "registry_id": "A-SHARE-QUALITY-EXCEPTION-REGISTRY",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "exception_count": 3,
+  "records": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "source_gate": "owner_readiness_score_gate",
+      "description": "owner_readiness_score_below_threshold",
+      "raw_severity": "blocking",
+      "owner_visibility": true,
+      "developer_follow_up_required": true,
+      "waiver_allowed": false,
+      "auto_waiver_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "source_gate": "warning_issue_quality_gate",
+      "description": "warning_issue_items_present",
+      "raw_severity": "warning",
+      "owner_visibility": true,
+      "developer_follow_up_required": false,
+      "waiver_allowed": true,
+      "auto_waiver_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "source_gate": "trend_sufficiency_quality_gate",
+      "description": "insufficient_history_correctly_flagged",
+      "raw_severity": "warning",
+      "owner_visibility": true,
+      "developer_follow_up_required": false,
+      "waiver_allowed": true,
+      "auto_waiver_allowed": false,
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false,
+      "status": "open"
+    }
+  ],
+  "blocked_gate_decision_preserved": true
+}

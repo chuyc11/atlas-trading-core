@@ -130,6 +130,13 @@ from trading_core.equity_owner_readiness_gate.gate_config import ALLOWED_MODES a
 from trading_core.equity_owner_readiness_gate.gate_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_READINESS_GATE_AS_OF_DATE
 from trading_core.equity_owner_readiness_gate.gate_config import DEFAULT_MINIMUM_OWNER_READINESS_SCORE
 from trading_core.equity_owner_readiness_gate.owner_readiness_gate_audit import audit_a_share_owner_readiness_gate
+from trading_core.equity_owner_quality_exceptions.exception_workflow_config import ALLOWED_MODES as A_SHARE_OWNER_QUALITY_EXCEPTION_MODES
+from trading_core.equity_owner_quality_exceptions.exception_workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_QUALITY_EXCEPTION_AS_OF_DATE
+from trading_core.equity_owner_quality_exceptions.quality_exception_audit import audit_a_share_owner_quality_exceptions
+from trading_core.equity_owner_quality_exceptions.quality_exception_builder import (
+    build_a_share_owner_quality_exceptions,
+    validate_a_share_owner_quality_exception_inputs,
+)
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1122,6 +1129,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_audit, include_mode=False)
     owner_readiness_gate_all = subparsers.add_parser("build-and-audit-a-share-owner-readiness-gate")
     _add_a_share_owner_readiness_gate_arguments(owner_readiness_gate_all)
+    owner_quality_exception_validate = subparsers.add_parser("validate-a-share-owner-quality-exceptions-inputs")
+    _add_a_share_owner_quality_exception_arguments(owner_quality_exception_validate, include_mode=False)
+    owner_quality_exception_build = subparsers.add_parser("build-a-share-owner-quality-exceptions")
+    _add_a_share_owner_quality_exception_arguments(owner_quality_exception_build)
+    owner_quality_exception_audit = subparsers.add_parser("audit-a-share-owner-quality-exceptions")
+    _add_a_share_owner_quality_exception_arguments(owner_quality_exception_audit, include_mode=False)
+    owner_quality_exception_all = subparsers.add_parser("build-and-audit-a-share-owner-quality-exceptions")
+    _add_a_share_owner_quality_exception_arguments(owner_quality_exception_all)
 
     return parser
 
@@ -1387,6 +1402,15 @@ def _add_a_share_owner_readiness_gate_arguments(parser: argparse.ArgumentParser,
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--allow-known-non-blocking-warnings", nargs="?", const=True, default=True, type=parse_bool)
     parser.add_argument("--allow-insufficient-history-if-correctly-flagged", nargs="?", const=True, default=True, type=parse_bool)
+
+
+def _add_a_share_owner_quality_exception_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_QUALITY_EXCEPTION_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_QUALITY_EXCEPTION_MODES, default="build_escalation_workflow")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_QUALITY_EXCEPTION_MODES, default="validate_quality_exception_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -4535,6 +4559,90 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "required_gates_passed": audit_result["gate_checks"]["required_gates_passed"],
                 "input_checks": audit_result["input_checks"],
                 "gate_checks": audit_result["gate_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-quality-exceptions-inputs":
+        result = validate_a_share_owner_quality_exception_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "owner_readiness_gate_audit_passed": result["owner_readiness_gate_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "blocked_state_represented_correctly": result["blocked_state_represented_correctly"],
+                "no_automatic_waiver": result["no_automatic_waiver"],
+                "boundary_clean": result["boundary_clean"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-quality-exceptions":
+        result = build_a_share_owner_quality_exceptions(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "blocked_gate_decision_preserved": result.get("blocked_gate_decision_preserved"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "actual_owner_readiness_score": result.get("actual_owner_readiness_score"),
+                "readiness_score_gap": result.get("readiness_score_gap"),
+                "quality_exception_count": result.get("quality_exception_count"),
+                "developer_follow_up_count": result.get("developer_follow_up_count"),
+                "manual_waiver_decision_status": result.get("manual_waiver_decision_status"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "waiver_changes_gate_decision": result.get("waiver_changes_gate_decision"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "quality_exception_workflow_report": result.get("quality_exception_workflow_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-quality-exceptions":
+        result = audit_a_share_owner_quality_exceptions(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "exception_checks": result["exception_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-quality-exceptions":
+        build_result = build_a_share_owner_quality_exceptions(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_quality_exceptions(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "exception_checks": audit_result["exception_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

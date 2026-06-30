@@ -1,0 +1,48 @@
+{
+  "analysis_id": "A-SHARE-OWNER-READINESS-GAP-ANALYSIS",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "minimum_owner_readiness_score": 75,
+  "actual_owner_readiness_score": 54,
+  "score_gap": 21,
+  "grade": "D",
+  "score_drivers": [
+    "base_score=100",
+    "minus_30_warnings",
+    "minus_16_manual_safe_actions"
+  ],
+  "largest_score_penalties": [
+    "minus_30_warnings",
+    "minus_16_manual_safe_actions"
+  ],
+  "quality_gates_failed": [
+    "owner_readiness_score_gate"
+  ],
+  "quality_gates_passed": [
+    "daily_pack_completeness_gate",
+    "warning_issue_quality_gate",
+    "safe_action_quality_gate",
+    "protected_path_quality_gate",
+    "boundary_quality_gate",
+    "source_trace_quality_gate",
+    "trend_sufficiency_quality_gate",
+    "markdown_report_quality_gate",
+    "artifact_navigation_quality_gate",
+    "owner_next_step_quality_gate"
+  ],
+  "what_would_need_to_improve": [
+    "Reduce warning load and manual safe-action burden enough to raise owner readiness above threshold."
+  ],
+  "what_cannot_be_waived": [
+    "broker/order/boundary violations",
+    "protected path modifications",
+    "trading instructions"
+  ],
+  "what_can_be_reviewed_manually": [
+    "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+    "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged"
+  ],
+  "owner_readiness_is_operations_readiness_only": true,
+  "not_strategy_performance": true,
+  "not_trading_signal": true
+}

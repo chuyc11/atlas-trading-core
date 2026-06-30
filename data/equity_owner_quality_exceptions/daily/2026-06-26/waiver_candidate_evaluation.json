@@ -1,0 +1,44 @@
+{
+  "evaluation_id": "A-SHARE-WAIVER-CANDIDATE-EVALUATION",
+  "target_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow",
+  "as_of_date": "2026-06-26",
+  "candidate_count": 3,
+  "waiver_candidates": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "category": "readiness_score_below_threshold",
+      "waiver_candidate": false,
+      "waiver_allowed": false,
+      "auto_waiver_allowed": false,
+      "waiver_scope": "not_allowed",
+      "waiver_changes_gate_decision": false,
+      "approved_for_trading": false,
+      "reason_required": false
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "warning_issue_threshold_issue",
+      "waiver_candidate": true,
+      "waiver_allowed": true,
+      "auto_waiver_allowed": false,
+      "waiver_scope": "owner_review_only",
+      "waiver_changes_gate_decision": false,
+      "approved_for_trading": false,
+      "reason_required": true
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "waiver_candidate": true,
+      "waiver_allowed": true,
+      "auto_waiver_allowed": false,
+      "waiver_scope": "owner_review_only",
+      "waiver_changes_gate_decision": false,
+      "approved_for_trading": false,
+      "reason_required": true
+    }
+  ],
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "waiver_changes_gate_decision": false
+}
