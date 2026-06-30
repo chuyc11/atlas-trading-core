@@ -1,0 +1,37 @@
+# A 股 Owner Daily Pack Source Trace
+
+- source_trace_complete: True
+- source_trace_hashes_match: True
+
+- build_output_ops_refresh_audit: exists=True sha256=f4d2c7d8a297
+- build_output_ops_summary: exists=True sha256=aecb40ed81eb
+- build_output_ops_source_trace: exists=True sha256=2db4889b3d1a
+- build_output_ops_boundary_check: exists=True sha256=1a10f2f73865
+- build_output_dashboard_audit: exists=True sha256=9c63c1985a40
+- build_output_dashboard_summary: exists=True sha256=1dabb1312148
+- repeatability_audit: exists=True sha256=f3e4d642aeab
+- protected_path_modification_check: exists=True sha256=db44c34645ea
+- gated_build_audit: exists=True sha256=64f0bcbff5cf
+- data_refresh_audit: exists=True sha256=6fda172e7592
+- daily_pack_config: exists=True sha256=c3d9528aa583
+- daily_pack_input_availability: exists=True sha256=14030f8c26b6
+- daily_pack_source_resolution: exists=True sha256=323b7515d6bd
+- daily_pack_date_alignment: exists=True sha256=add674802473
+- owner_daily_status_brief: exists=True sha256=0ec327347609
+- owner_daily_runbook: exists=True sha256=2b18627a24dc
+- owner_operations_decision_pack: exists=True sha256=ebf3b1d0f450
+- owner_next_step_checklist: exists=True sha256=5d61ec718735
+- research_output_digest: exists=True sha256=4b4c70b91943
+- candidate_tracking_digest: exists=True sha256=d5afb972e44f
+- virtual_portfolio_digest: exists=True sha256=bec7816f3011
+- warning_issue_digest: exists=True sha256=1f1dabacc9c3
+- safe_action_digest: exists=True sha256=660c09943b38
+- monitoring_remediation_ops_digest: exists=True sha256=7a558ec2cf2a
+- protected_path_digest: exists=True sha256=d9e18254c352
+- source_trace_digest: exists=True sha256=b9513456be7a
+- boundary_digest: exists=True sha256=620e2b3b266a
+- daily_pack_artifact_navigation: exists=True sha256=ce33967f942f
+- daily_pack_source_trace: exists=True sha256=a6744cd89876
+- daily_pack_boundary_check: exists=True sha256=b03753867850
+- daily_pack_manifest: exists=True sha256=9fbf764476bc
+- daily_pack_summary: exists=True sha256=9cad5203ef52

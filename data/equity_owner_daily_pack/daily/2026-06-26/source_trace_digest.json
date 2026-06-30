@@ -1,0 +1,10 @@
+{
+  "digest_id": "A-SHARE-SOURCE-TRACE-DIGEST",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "ops_source_trace_complete": true,
+  "dashboard_source_trace_complete": true,
+  "ops_source_entry_count": 34,
+  "dashboard_source_entry_count": 34
+}

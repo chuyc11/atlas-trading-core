@@ -1,0 +1,15 @@
+{
+  "digest_id": "A-SHARE-MONITORING-REMEDIATION-OPS-DIGEST",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "monitoring_refresh_performed": true,
+  "remediation_refresh_performed": true,
+  "ops_center_refresh_performed": true,
+  "ops_history_refresh_performed": true,
+  "ops_health_score": 65,
+  "ops_health_grade": "C",
+  "overall_status": "passed_with_warnings",
+  "execute_remediation_actions": false,
+  "external_notifications_sent": false
+}

@@ -1,0 +1,10 @@
+{
+  "alignment_id": "A-SHARE-OWNER-DAILY-PACK-DATE-ALIGNMENT",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "mismatches": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

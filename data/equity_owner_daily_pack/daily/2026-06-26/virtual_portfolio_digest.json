@@ -1,0 +1,11 @@
+{
+  "digest_id": "A-SHARE-VIRTUAL-PORTFOLIO-DIGEST",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "virtual_portfolio_available": true,
+  "portfolio_count": null,
+  "paper_ledger_only": true,
+  "not_real_portfolio": true,
+  "not_trade_instruction": true
+}

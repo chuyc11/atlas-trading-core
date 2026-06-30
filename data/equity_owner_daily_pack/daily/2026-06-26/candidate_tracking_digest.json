@@ -1,0 +1,11 @@
+{
+  "digest_id": "A-SHARE-CANDIDATE-TRACKING-DIGEST",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "candidate_tracking_available": true,
+  "candidate_count": null,
+  "preferred_wording": "研究候选 / 候选跟踪",
+  "not_recommendation": true,
+  "not_trade_instruction": true
+}

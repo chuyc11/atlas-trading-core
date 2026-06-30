@@ -1,0 +1,26 @@
+{
+  "checklist_id": "A-SHARE-OWNER-NEXT-STEP-CHECKLIST",
+  "target_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "do_now": [],
+  "review_today": [
+    "检查 audit 是否通过",
+    "检查 warning 是否为已知非阻塞",
+    "检查 source trace 是否完整",
+    "检查 boundary 是否干净",
+    "检查是否需要安全重跑数据验证"
+  ],
+  "wait_for_more_history": [
+    "等待更多 monitoring/run-history 样本后再解释趋势。"
+  ],
+  "developer_follow_up": [],
+  "no_action_required": [
+    "当前无需自动操作；继续观察并按 checklist 人工复核。"
+  ],
+  "excluded_trade_action_steps": [],
+  "automatic_action_count": 0,
+  "not_trade_instruction": true,
+  "overall_passed": true,
+  "blocking_reasons": []
+}
