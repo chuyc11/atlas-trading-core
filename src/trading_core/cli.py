@@ -151,6 +151,13 @@ from trading_core.equity_owner_readiness_recovery_execution.execution_builder im
 from trading_core.equity_owner_readiness_recovery_execution.execution_config import ALLOWED_MODES as A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES
 from trading_core.equity_owner_readiness_recovery_execution.execution_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_READINESS_RECOVERY_EXECUTION_AS_OF_DATE
 from trading_core.equity_owner_readiness_recovery_execution.recovery_execution_audit import audit_a_share_owner_readiness_recovery_execution
+from trading_core.equity_owner_controlled_gate_reevaluation.controlled_builder import (
+    build_a_share_owner_controlled_gate_reevaluation,
+    validate_a_share_owner_controlled_gate_reevaluation_inputs,
+)
+from trading_core.equity_owner_controlled_gate_reevaluation.controlled_config import ALLOWED_MODES as A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES
+from trading_core.equity_owner_controlled_gate_reevaluation.controlled_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_CONTROLLED_GATE_REEVALUATION_AS_OF_DATE
+from trading_core.equity_owner_controlled_gate_reevaluation.controlled_reevaluation_audit import audit_a_share_owner_controlled_gate_reevaluation
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1167,6 +1174,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_audit, include_mode=False)
     owner_readiness_recovery_execution_all = subparsers.add_parser("build-and-audit-a-share-owner-readiness-recovery-execution")
     _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_all)
+    owner_controlled_gate_reevaluation_validate = subparsers.add_parser("validate-a-share-owner-controlled-gate-reevaluation-inputs")
+    _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_validate, include_mode=False)
+    owner_controlled_gate_reevaluation_build = subparsers.add_parser("build-a-share-owner-controlled-gate-reevaluation")
+    _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_build)
+    owner_controlled_gate_reevaluation_audit = subparsers.add_parser("audit-a-share-owner-controlled-gate-reevaluation")
+    _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_audit, include_mode=False)
+    owner_controlled_gate_reevaluation_all = subparsers.add_parser("build-and-audit-a-share-owner-controlled-gate-reevaluation")
+    _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_all)
 
     return parser
 
@@ -1458,6 +1473,15 @@ def _add_a_share_owner_readiness_recovery_execution_arguments(parser: argparse.A
         parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES, default="prepare_gate_reevaluation")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES, default="validate_recovery_execution_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_controlled_gate_reevaluation_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_CONTROLLED_GATE_REEVALUATION_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES, default="record_reevaluation_skip_decision")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES, default="validate_controlled_reevaluation_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -4865,6 +4889,94 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "execution_checks": audit_result["execution_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-controlled-gate-reevaluation-inputs":
+        result = validate_a_share_owner_controlled_gate_reevaluation_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "recovery_execution_audit_passed": result["recovery_execution_audit_passed"],
+                "owner_readiness_gate_audit_passed": result["owner_readiness_gate_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "blocked_gate_decision_preserved": result["blocked_gate_decision_preserved"],
+                "source_ready_for_future_gate_reevaluation": result["source_ready_for_future_gate_reevaluation"],
+                "source_gate_reevaluation_executed": result["source_gate_reevaluation_executed"],
+                "threshold_lowered": result["threshold_lowered"],
+                "auto_waiver_allowed": result["auto_waiver_allowed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-controlled-gate-reevaluation":
+        result = build_a_share_owner_controlled_gate_reevaluation(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "blocked_gate_decision_preserved": result.get("blocked_gate_decision_preserved"),
+                "readiness_guard_passed": result.get("readiness_guard_passed"),
+                "reevaluation_allowed": result.get("reevaluation_allowed"),
+                "reevaluation_skipped": result.get("reevaluation_skipped"),
+                "reevaluation_skip_reason": result.get("reevaluation_skip_reason"),
+                "controlled_reevaluation_decision": result.get("controlled_reevaluation_decision"),
+                "gate_reevaluation_executed": result.get("gate_reevaluation_executed"),
+                "new_gate_score_generated": result.get("new_gate_score_generated"),
+                "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+                "threshold_lowered": result.get("threshold_lowered"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "controlled_reevaluation_report": result.get("controlled_reevaluation_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-controlled-gate-reevaluation":
+        result = audit_a_share_owner_controlled_gate_reevaluation(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "reevaluation_checks": result["reevaluation_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-controlled-gate-reevaluation":
+        build_result = build_a_share_owner_controlled_gate_reevaluation(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_controlled_gate_reevaluation(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "reevaluation_checks": audit_result["reevaluation_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

@@ -1,0 +1,17 @@
+{
+  "summary_id": "A-SHARE-OWNER-REEVALUATION-NOT-READY-REASON-SUMMARY",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "not_ready": true,
+  "reason_count": 4,
+  "reasons": [
+    "source_readiness_not_ready",
+    "no_recovery_evidence_available",
+    "no_recovery_tasks_completed",
+    "no_tasks_verified_by_audit_only"
+  ],
+  "evidence_available_count": 0,
+  "verified_by_audit_only_count": 0,
+  "completed_count": 0,
+  "recommended_follow_up": "collect_real_recovery_evidence_before_any_future_gate_reevaluation"
+}

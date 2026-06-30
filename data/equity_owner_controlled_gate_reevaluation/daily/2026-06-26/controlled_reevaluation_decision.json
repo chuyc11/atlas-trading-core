@@ -1,0 +1,15 @@
+{
+  "decision_id": "A-SHARE-OWNER-CONTROLLED-GATE-REEVALUATION-DECISION",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "decision": "skipped_not_ready",
+  "reevaluation_skipped": true,
+  "reevaluation_skip_reason": "not_ready",
+  "owner_operationally_acceptable": false,
+  "source_gate_decision_preserved": true,
+  "gate_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "not_investment_advice": true,
+  "not_order_instruction": true
+}

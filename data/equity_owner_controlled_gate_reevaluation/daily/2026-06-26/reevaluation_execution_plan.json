@@ -1,0 +1,20 @@
+{
+  "plan_id": "A-SHARE-OWNER-CONTROLLED-REEVALUATION-EXECUTION-PLAN",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "execution_status": "not_executed",
+  "reevaluation_allowed": false,
+  "gate_reevaluation_executed": false,
+  "rerun_owner_readiness_gate": false,
+  "rerun_build_from_existing_data": false,
+  "rerun_daily_pack": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "future_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "blocking_reasons": [
+    "source_readiness_not_ready",
+    "no_recovery_evidence_available",
+    "no_recovery_tasks_completed",
+    "no_tasks_verified_by_audit_only"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "decision_id": "A-SHARE-OWNER-REEVALUATION-SKIP-DECISION",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "reevaluation_skipped": true,
+  "reevaluation_skip_reason": "not_ready",
+  "skip_reason_details": [
+    "source_readiness_not_ready",
+    "no_recovery_evidence_available",
+    "no_recovery_tasks_completed",
+    "no_tasks_verified_by_audit_only"
+  ],
+  "owner_operationally_acceptable": false,
+  "source_gate_decision_preserved": true,
+  "gate_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "execution_status": "not_executed",
+  "overall_passed": true,
+  "blocking_reasons": []
+}

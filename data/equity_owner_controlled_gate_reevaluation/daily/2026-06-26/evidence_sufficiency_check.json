@@ -1,0 +1,12 @@
+{
+  "check_id": "A-SHARE-OWNER-CONTROLLED-REEVALUATION-EVIDENCE-SUFFICIENCY-CHECK",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "evidence_sufficient_for_gate_reevaluation": false,
+  "evidence_available_count": 0,
+  "verified_by_audit_only_count": 0,
+  "completed_count": 0,
+  "forbidden_evidence_types_detected": [],
+  "overall_passed": true,
+  "blocking_reasons": []
+}

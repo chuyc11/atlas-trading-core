@@ -1,0 +1,11 @@
+{
+  "alignment_id": "A-SHARE-OWNER-CONTROLLED-GATE-REEVALUATION-DATE-ALIGNMENT",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "resolved_as_of_date": "2026-06-26",
+  "mismatches": {},
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

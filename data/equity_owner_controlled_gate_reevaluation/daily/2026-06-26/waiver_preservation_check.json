@@ -1,0 +1,10 @@
+{
+  "check_id": "A-SHARE-OWNER-CONTROLLED-REEVALUATION-WAIVER-PRESERVATION-CHECK",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "waiver_changes_gate_decision": false,
+  "overall_passed": true,
+  "blocking_reasons": []
+}

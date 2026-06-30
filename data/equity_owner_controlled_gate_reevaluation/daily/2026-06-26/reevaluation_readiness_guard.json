@@ -1,0 +1,27 @@
+{
+  "guard_id": "A-SHARE-OWNER-REEVALUATION-READINESS-GUARD",
+  "target_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "as_of_date": "2026-06-26",
+  "readiness_guard_passed": false,
+  "reevaluation_allowed": false,
+  "reevaluation_block_reason": "evidence_not_ready",
+  "block_reasons": [
+    "source_readiness_not_ready",
+    "no_recovery_evidence_available",
+    "no_recovery_tasks_completed",
+    "no_tasks_verified_by_audit_only"
+  ],
+  "source_gate_decision": "blocked",
+  "blocked_gate_decision_preserved": true,
+  "ready_for_future_gate_reevaluation": false,
+  "gate_reevaluation_executed": false,
+  "task_count": 3,
+  "evidence_available_count": 0,
+  "verified_by_audit_only_count": 0,
+  "completed_count": 0,
+  "threshold_lowered": false,
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "overall_passed": true,
+  "blocking_reasons": []
+}
