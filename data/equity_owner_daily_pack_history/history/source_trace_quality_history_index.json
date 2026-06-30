@@ -1,0 +1,10 @@
+{
+  "index_id": "A-SHARE-SOURCE-TRACE-QUALITY-HISTORY-INDEX",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "daily_pack_manifest_sha256": "869d696a7dc7d4914586d3a8bbe1e93450ddadd347d37b6289e3ad3f07e145a5"
+    }
+  ]
+}

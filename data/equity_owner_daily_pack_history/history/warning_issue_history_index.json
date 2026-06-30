@@ -1,0 +1,11 @@
+{
+  "index_id": "A-SHARE-WARNING-ISSUE-HISTORY-INDEX",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "warning_count": 12,
+      "blocking_count": 0
+    }
+  ]
+}

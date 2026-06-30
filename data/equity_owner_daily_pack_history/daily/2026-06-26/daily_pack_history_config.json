@@ -1,0 +1,42 @@
+{
+  "config_id": "A-SHARE-OWNER-DAILY-PACK-HISTORY-CONFIG",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "mode": "build_owner_readiness_trends",
+  "allowed_modes": [
+    "validate_daily_pack_history_inputs",
+    "append_current_daily_pack_to_history",
+    "build_owner_readiness_trends",
+    "build_daily_pack_history_report",
+    "audit_existing_daily_pack_history"
+  ],
+  "source_workflow_mode": "build_from_existing_data",
+  "history_window_days": 90,
+  "minimum_required_observations": 5,
+  "baseline_window_observations": 20,
+  "append_only_history": true,
+  "allow_rebuild_history": false,
+  "allow_synthetic_history": false,
+  "allow_future_dates": false,
+  "owner_facing": true,
+  "machine_readable": true,
+  "generate_markdown": true,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_profit_guarantee": true,
+  "not_live_trading_ready": true,
+  "broker_enabled": false,
+  "real_order_enabled": false,
+  "raw_config": {
+    "as_of_date": "2026-06-26",
+    "mode": "build_owner_readiness_trends",
+    "history_window_days": 90,
+    "minimum_required_observations": 5,
+    "baseline_window_observations": 20,
+    "allow_date_mismatch": false,
+    "allow_rebuild_history": false,
+    "allow_synthetic_history": false
+  }
+}

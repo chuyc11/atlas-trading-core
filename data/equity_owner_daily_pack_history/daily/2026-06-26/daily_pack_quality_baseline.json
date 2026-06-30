@@ -1,0 +1,15 @@
+{
+  "baseline_id": "A-SHARE-DAILY-PACK-QUALITY-BASELINE",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "required_artifacts_complete": true,
+  "markdown_reports_complete": true,
+  "source_trace_complete": true,
+  "boundary_clean": true,
+  "not_investment_decision_pack_compliant": true,
+  "forbidden_wording_clean": true,
+  "observation_count": 1,
+  "trend_analysis_available": false,
+  "baseline_status": "insufficient_history",
+  "no_fabricated_trends": true
+}

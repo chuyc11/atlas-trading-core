@@ -1,0 +1,13 @@
+{
+  "append_result_id": "A-SHARE-OWNER-DAILY-PACK-HISTORY-APPEND-RESULT",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "append_attempted": true,
+  "append_completed": true,
+  "idempotent_append": true,
+  "duplicate_detected": true,
+  "same_date_changed_content_warning": false,
+  "records_before": 1,
+  "records_after": 1,
+  "blocking_reasons": [],
+  "warnings": []
+}

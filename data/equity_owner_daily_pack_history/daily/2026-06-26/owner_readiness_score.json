@@ -1,0 +1,25 @@
+{
+  "score_id": "A-SHARE-OWNER-READINESS-SCORE",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "daily_pack_manifest_sha256": "869d696a7dc7d4914586d3a8bbe1e93450ddadd347d37b6289e3ad3f07e145a5",
+  "score": 54,
+  "grade": "D",
+  "overall_status": "passed_with_warnings",
+  "blocking_count": 0,
+  "warning_count": 12,
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "business_output_drift_count": 0,
+  "protected_path_modifications_detected": false,
+  "boundary_clean": true,
+  "source_trace_complete": true,
+  "score_explanation": [
+    "base_score=100",
+    "minus_30_warnings",
+    "minus_16_manual_safe_actions"
+  ],
+  "not_trade_instruction": true,
+  "owner_readiness_used_as_trade_instruction": false
+}

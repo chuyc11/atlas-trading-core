@@ -1,0 +1,196 @@
+{
+  "resolution_id": "A-SHARE-OWNER-DAILY-PACK-HISTORY-SOURCE-RESOLUTION",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "source_workflow_mode": "build_from_existing_data",
+  "owner_daily_pack_available": true,
+  "primary_sources": {
+    "owner_daily_pack_audit": {
+      "path": "data/equity_data_quality/a_share_owner_daily_pack_audit.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_config": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_config.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_input_availability": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_input_availability.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_source_resolution": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_source_resolution.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_date_alignment": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_date_alignment.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "owner_daily_status_brief": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/owner_daily_status_brief.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "owner_daily_runbook": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/owner_daily_runbook.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "owner_operations_decision_pack": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/owner_operations_decision_pack.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "owner_next_step_checklist": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/owner_next_step_checklist.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "research_output_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/research_output_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "candidate_tracking_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/candidate_tracking_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "virtual_portfolio_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/virtual_portfolio_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "warning_issue_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/warning_issue_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "safe_action_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/safe_action_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "monitoring_remediation_ops_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/monitoring_remediation_ops_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "protected_path_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/protected_path_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "source_trace_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/source_trace_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "boundary_digest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/boundary_digest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_artifact_navigation": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_artifact_navigation.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_source_trace": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_source_trace.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_boundary_check": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_boundary_check.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_manifest": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_manifest.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    },
+    "daily_pack_summary": {
+      "path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_summary.json",
+      "exists": true,
+      "source_role": "primary_owner_daily_pack",
+      "fallback_used": false
+    }
+  },
+  "supporting_sources": {
+    "build_output_ops_summary": {
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_summary.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_ops_manifest": {
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_manifest.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_ops_boundary_check": {
+      "path": "data/equity_build_output_ops_refresh/daily/2026-06-26/build_output_ops_boundary_check.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_ops_audit": {
+      "path": "data/equity_data_quality/a_share_build_output_ops_refresh_audit.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_dashboard_summary": {
+      "path": "data/equity_build_output_dashboard/daily/2026-06-26/build_output_dashboard_summary.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_dashboard_manifest": {
+      "path": "data/equity_build_output_dashboard/daily/2026-06-26/build_output_dashboard_manifest.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    },
+    "build_output_owner_dashboard_audit": {
+      "path": "data/equity_data_quality/a_share_build_output_owner_dashboard_audit.json",
+      "exists": true,
+      "source_role": "supporting_build_output_evidence",
+      "fallback_used": false
+    }
+  },
+  "fallback_used": false,
+  "fallback_reasons": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -1,0 +1,9 @@
+{
+  "trend_id": "A-SHARE-SOURCE-TRACE-QUALITY-TREND",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "source_trace_complete": true,
+  "required_source_count": 30,
+  "missing_required_sources": []
+}

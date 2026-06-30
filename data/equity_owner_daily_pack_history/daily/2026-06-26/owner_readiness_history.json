@@ -1,0 +1,17 @@
+{
+  "history_id": "A-SHARE-OWNER-READINESS-HISTORY",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "records": [
+    {
+      "as_of_date": "2026-06-26",
+      "history_record_id": "A-SHARE-OWNER-DAILY-PACK-2026-06-26-001",
+      "owner_readiness_score": 54,
+      "owner_readiness_grade": "D",
+      "overall_status": "passed_with_warnings",
+      "boundary_clean": true
+    }
+  ],
+  "observation_count": 1,
+  "owner_readiness_used_as_trade_instruction": false
+}

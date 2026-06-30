@@ -1,0 +1,40 @@
+{
+  "snapshot_id": "A-SHARE-OWNER-DAILY-PACK-HISTORY-SNAPSHOT",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "daily_pack_history_observation_count": 1,
+  "minimum_required_observations": 5,
+  "first_observation_date": "2026-06-26",
+  "latest_observation_date": "2026-06-26",
+  "records": [
+    {
+      "run_record_id": "A-SHARE-OWNER-DAILY-PACK-2026-06-26",
+      "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+      "as_of_date": "2026-06-26",
+      "source_version": "v0.8.11-a-share-build-output-daily-runbook-and-owner-decision-pack",
+      "source_workflow_mode": "build_from_existing_data",
+      "daily_pack_audit_passed": true,
+      "daily_pack_audit_path": "data/equity_data_quality/a_share_owner_daily_pack_audit.json",
+      "daily_pack_manifest_path": "data/equity_owner_daily_pack/daily/2026-06-26/daily_pack_manifest.json",
+      "daily_pack_manifest_sha256": "869d696a7dc7d4914586d3a8bbe1e93450ddadd347d37b6289e3ad3f07e145a5",
+      "overall_status": "passed_with_warnings",
+      "owner_readiness_score": 54,
+      "owner_readiness_grade": "D",
+      "blocking_count": 0,
+      "warning_count": 12,
+      "safe_action_count": 8,
+      "automatic_action_count": 0,
+      "business_output_drift_count": 0,
+      "protected_path_modifications_detected": false,
+      "boundary_clean": true,
+      "not_investment_decision_pack": true,
+      "daily_pack_used_as_trade_instruction": false,
+      "created_at": "2026-06-30T05:26:59.418524Z",
+      "run_sequence": 1,
+      "history_record_id": "A-SHARE-OWNER-DAILY-PACK-2026-06-26-001"
+    }
+  ],
+  "trend_analysis_available": false,
+  "synthetic_history_used": false,
+  "future_dates_used": false
+}

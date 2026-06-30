@@ -1,0 +1,10 @@
+{
+  "trend_id": "A-SHARE-OWNER-NEXT-STEP-TREND",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "current_step_count": 7,
+  "blocked_trade_like_steps": [],
+  "owner_next_steps_trade_instruction_free": true,
+  "no_fabricated_trends": true
+}

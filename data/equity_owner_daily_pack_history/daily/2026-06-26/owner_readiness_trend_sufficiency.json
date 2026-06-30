@@ -1,0 +1,15 @@
+{
+  "sufficiency_id": "A-SHARE-OWNER-READINESS-TREND-SUFFICIENCY",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "daily_pack_history_observation_count": 1,
+  "minimum_required_observations": 5,
+  "baseline_window_observations": 20,
+  "trend_analysis_available": false,
+  "readiness_trend_status": "insufficient_history",
+  "insufficient_history_correctly_flagged": true,
+  "synthetic_history_used": false,
+  "future_dates_used": false,
+  "no_fabricated_trends": true,
+  "explanation": "Only real owner daily pack records are used; more observations are required for trend analysis."
+}

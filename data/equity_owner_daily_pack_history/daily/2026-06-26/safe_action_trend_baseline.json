@@ -1,0 +1,13 @@
+{
+  "baseline_id": "A-SHARE-SAFE-ACTION-TREND-BASELINE",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "trend_analysis_available": false,
+  "safe_action_count": 8,
+  "automatic_action_count": 0,
+  "forbidden_safe_action_hits": [],
+  "safe_actions_not_trade_related": true,
+  "repeated_items": [],
+  "no_fabricated_trends": true
+}

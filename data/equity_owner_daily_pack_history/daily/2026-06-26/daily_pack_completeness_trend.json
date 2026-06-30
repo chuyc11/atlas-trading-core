@@ -1,0 +1,10 @@
+{
+  "trend_id": "A-SHARE-DAILY-PACK-COMPLETENESS-TREND",
+  "target_version": "v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends",
+  "as_of_date": "2026-06-26",
+  "observation_count": 1,
+  "required_json_complete": true,
+  "markdown_reports_complete": true,
+  "missing_json_artifacts": [],
+  "missing_markdown_reports": []
+}
