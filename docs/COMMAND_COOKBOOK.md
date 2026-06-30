@@ -814,6 +814,28 @@ python -m trading_core.cli build-and-audit-a-share-owner-quality-exceptions --as
 ```
 
 This workflow preserves the v0.8.13 blocked gate decision, explains audit-passed-but-gate-blocked states, and creates waiver/escalation artifacts without auto waiver or gate release.
+## v0.8.16 Owner Readiness Recovery Execution
+
+Validate source inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-owner-readiness-recovery-execution-inputs --as-of-date 2026-06-26
+```
+
+Build the recovery execution tracker and gate reevaluation prep:
+
+```bash
+python -m trading_core.cli build-a-share-owner-readiness-recovery-execution --as-of-date 2026-06-26 --mode prepare_gate_reevaluation
+```
+
+Audit the execution package:
+
+```bash
+python -m trading_core.cli audit-a-share-owner-readiness-recovery-execution --as-of-date 2026-06-26
+```
+
+This stage tracks evidence and keeps gate reevaluation unexecuted.
+
 ## v0.8.15 Owner Readiness Recovery
 
 Validate source inputs:

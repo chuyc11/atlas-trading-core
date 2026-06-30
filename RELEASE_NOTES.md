@@ -1,5 +1,76 @@
 # Release Notes
 
+## v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep
+
+v0.8.16 A-share owner-readiness recovery execution tracker and gate reevaluation prep.
+
+Adds:
+
+- recovery execution config
+- recovery execution input availability
+- recovery execution source resolution
+- recovery execution date alignment
+- recovery task evidence registry
+- recovery task status tracker
+- developer follow-up evidence tracker
+- owner follow-up evidence tracker
+- audit-only verification evidence
+- recovery task completion evaluation
+- recovery evidence quality assessment
+- score impact evidence assessment
+- readiness improvement evidence summary
+- gate reevaluation prerequisite checklist
+- gate reevaluation readiness decision
+- controlled reevaluation plan
+- blocked state preservation check
+- threshold preservation check
+- waiver preservation check
+- recovery execution source trace
+- recovery execution boundary check
+- recovery execution manifest
+- owner-facing recovery execution reports
+- recovery execution audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- recovery execution audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- blocked gate decision preserved=true
+- task_count=3
+- evidence_available_count=0
+- verified_by_audit_only_count=0
+- completed_count=0
+- tasks_marked_complete_by_default=false
+- ready_for_future_gate_reevaluation=false
+- gate_reevaluation_readiness_decision=not_ready
+- gate_reevaluation_executed=false
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- recommended next version: `v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation`
+
+Boundary:
+
+- tracks evidence but does not fabricate completion
+- does not rerun owner readiness gate
+- does not change blocked gate decision
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat recovery execution as trade instruction
+
 ## v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop
 
 v0.8.15 A-share owner-readiness recovery plan and quality improvement loop.

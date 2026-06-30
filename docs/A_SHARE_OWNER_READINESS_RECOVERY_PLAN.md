@@ -34,3 +34,7 @@ v0.8.15 adds an owner-readiness recovery plan and quality improvement loop on to
 - `outputs/equity_owner_readiness_recovery/daily/2026-06-26/A_SHARE_OWNER_READINESS_RECOVERY_PLAN.md`
 
 Recommended next version: `v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep`.
+
+## v0.8.16 Follow-On
+
+v0.8.16 consumes these recovery plan artifacts and tracks whether planned tasks have evidence. It does not fabricate completion, does not rerun owner readiness gate, and does not change the blocked gate decision.
