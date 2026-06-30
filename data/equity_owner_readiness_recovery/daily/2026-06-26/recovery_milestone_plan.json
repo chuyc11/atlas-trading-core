@@ -1,0 +1,77 @@
+{
+  "plan_id": "A-SHARE-RECOVERY-MILESTONE-PLAN",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "milestones": [
+    {
+      "milestone_id": "M1_exception_understanding_complete",
+      "title_zh": "M1_exception_understanding_complete",
+      "entry_criteria": [
+        "prior milestone evidence exists"
+      ],
+      "exit_criteria": [
+        "required evidence reviewed"
+      ],
+      "required_evidence": [
+        "audit-only evidence"
+      ],
+      "status": "planned"
+    },
+    {
+      "milestone_id": "M2_developer_follow_up_defined",
+      "title_zh": "M2_developer_follow_up_defined",
+      "entry_criteria": [
+        "prior milestone evidence exists"
+      ],
+      "exit_criteria": [
+        "required evidence reviewed"
+      ],
+      "required_evidence": [
+        "audit-only evidence"
+      ],
+      "status": "planned"
+    },
+    {
+      "milestone_id": "M3_quality_fix_candidate_defined",
+      "title_zh": "M3_quality_fix_candidate_defined",
+      "entry_criteria": [
+        "prior milestone evidence exists"
+      ],
+      "exit_criteria": [
+        "required evidence reviewed"
+      ],
+      "required_evidence": [
+        "audit-only evidence"
+      ],
+      "status": "planned"
+    },
+    {
+      "milestone_id": "M4_audit_only_verification_ready",
+      "title_zh": "M4_audit_only_verification_ready",
+      "entry_criteria": [
+        "prior milestone evidence exists"
+      ],
+      "exit_criteria": [
+        "required evidence reviewed"
+      ],
+      "required_evidence": [
+        "audit-only evidence"
+      ],
+      "status": "planned"
+    },
+    {
+      "milestone_id": "M5_gate_reevaluation_ready",
+      "title_zh": "M5_gate_reevaluation_ready",
+      "entry_criteria": [
+        "prior milestone evidence exists"
+      ],
+      "exit_criteria": [
+        "required evidence reviewed"
+      ],
+      "required_evidence": [
+        "audit-only evidence"
+      ],
+      "status": "planned"
+    }
+  ]
+}

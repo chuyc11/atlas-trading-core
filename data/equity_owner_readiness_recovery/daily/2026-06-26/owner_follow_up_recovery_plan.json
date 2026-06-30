@@ -1,0 +1,58 @@
+{
+  "plan_id": "A-SHARE-OWNER-FOLLOW-UP-RECOVERY-PLAN",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "owner_follow_up_count": 7,
+  "items": [
+    {
+      "action": "review_blocked_daily_pack_notice",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "review_readiness_gap_summary",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "review_quality_exception_report",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "review_developer_follow_up_tracker",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "confirm_no_trade_action",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "wait_for_more_history",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "action": "rerun_audit_only_after_fix",
+      "status": "planned",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    }
+  ],
+  "source_owner_follow_up_count": 3
+}

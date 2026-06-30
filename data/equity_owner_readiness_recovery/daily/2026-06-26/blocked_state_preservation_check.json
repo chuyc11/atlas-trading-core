@@ -1,0 +1,16 @@
+{
+  "check_id": "A-SHARE-BLOCKED-STATE-PRESERVATION-CHECK",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "blocked_gate_decision_preserved": true,
+  "owner_operationally_acceptable": false,
+  "recovery_plan_changes_gate_decision": false,
+  "recovery_plan_marks_acceptable": false,
+  "threshold_lowered": false,
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

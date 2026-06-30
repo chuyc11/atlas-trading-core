@@ -1,0 +1,80 @@
+{
+  "map_id": "A-SHARE-QUALITY-EXCEPTION-ROOT-CAUSE-MAP",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "items": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "category": "readiness_score_below_threshold",
+      "severity": "blocking",
+      "source_gate": "owner_readiness_score_gate",
+      "source_artifact": "quality_exception_classification.json",
+      "root_cause_hypothesis": "warning load and manual safe-action burden keep readiness below threshold",
+      "evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "confidence": "high",
+      "recoverable": true,
+      "requires_developer_follow_up": true,
+      "requires_owner_review": true,
+      "requires_more_history": false,
+      "waiver_candidate": false,
+      "non_waivable_reason": "score threshold failure cannot be waived",
+      "proposed_recovery_task_ids": [
+        "RECOVERY-TASK-001"
+      ]
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "category": "warning_issue_threshold_issue",
+      "severity": "owner_review_required",
+      "source_gate": "warning_issue_quality_gate",
+      "source_artifact": "quality_exception_classification.json",
+      "root_cause_hypothesis": "warnings require mapping or source clarification before score can improve",
+      "evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "confidence": "high",
+      "recoverable": true,
+      "requires_developer_follow_up": false,
+      "requires_owner_review": true,
+      "requires_more_history": false,
+      "waiver_candidate": true,
+      "non_waivable_reason": "",
+      "proposed_recovery_task_ids": [
+        "RECOVERY-TASK-002"
+      ]
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "category": "insufficient_history",
+      "severity": "owner_review_required",
+      "source_gate": "trend_sufficiency_quality_gate",
+      "source_artifact": "quality_exception_classification.json",
+      "root_cause_hypothesis": "trend evidence needs more real observations before readiness trend can be interpreted",
+      "evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "confidence": "high",
+      "recoverable": false,
+      "requires_developer_follow_up": false,
+      "requires_owner_review": true,
+      "requires_more_history": true,
+      "waiver_candidate": true,
+      "non_waivable_reason": "",
+      "proposed_recovery_task_ids": [
+        "RECOVERY-TASK-003"
+      ]
+    }
+  ],
+  "mapped_count": 3
+}

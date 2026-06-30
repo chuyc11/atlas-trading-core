@@ -1,0 +1,34 @@
+{
+  "model_id": "A-SHARE-RECOVERY-SCORE-IMPACT-MODEL",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "current_score": 54,
+  "target_score": 75,
+  "score_gap": 21,
+  "task_level_expected_score_impact": [
+    {
+      "task_id": "RECOVERY-TASK-001",
+      "expected_score_impact": 21,
+      "estimate": true,
+      "confidence": "medium"
+    },
+    {
+      "task_id": "RECOVERY-TASK-002",
+      "expected_score_impact": 10,
+      "estimate": true,
+      "confidence": "medium"
+    },
+    {
+      "task_id": "RECOVERY-TASK-003",
+      "expected_score_impact": 0,
+      "estimate": true,
+      "confidence": "medium"
+    }
+  ],
+  "max_potential_recoverable_score": 31,
+  "non_recoverable_until_more_history_score": 0,
+  "score_projection_after_planned_tasks": 85,
+  "projection_confidence": "medium_estimate",
+  "does_not_rewrite_source_score": true,
+  "does_not_claim_recovery_succeeded": true
+}

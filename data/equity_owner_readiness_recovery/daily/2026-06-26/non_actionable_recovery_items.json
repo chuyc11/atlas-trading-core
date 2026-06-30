@@ -1,0 +1,14 @@
+{
+  "list_id": "A-SHARE-NON-ACTIONABLE-RECOVERY-ITEMS",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "item_count": 1,
+  "items": [
+    {
+      "item_id": "NON-ACTIONABLE:2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "source_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "reason": "requires more real history before trend interpretation",
+      "status": "waiting_for_more_history"
+    }
+  ]
+}

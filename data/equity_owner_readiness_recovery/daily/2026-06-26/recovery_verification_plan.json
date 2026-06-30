@@ -1,0 +1,60 @@
+{
+  "plan_id": "A-SHARE-RECOVERY-VERIFICATION-PLAN",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "audit_only_commands": [
+    "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-daily-pack --as-of-date 2026-06-26"
+  ],
+  "forbidden_command_fragments": [
+    "run-daily",
+    "broker",
+    "order",
+    "trade",
+    "easytrader",
+    "THSTrader",
+    "buy",
+    "sell"
+  ],
+  "forbidden_verification_commands_detected": [],
+  "required_evidence_per_task": {
+    "RECOVERY-TASK-001": [
+      "quality_exception_classification.json",
+      "owner_readiness_gap_analysis.json"
+    ],
+    "RECOVERY-TASK-002": [
+      "quality_exception_classification.json",
+      "owner_readiness_gap_analysis.json"
+    ],
+    "RECOVERY-TASK-003": [
+      "quality_exception_classification.json",
+      "owner_readiness_gap_analysis.json"
+    ]
+  },
+  "expected_audit_artifacts": [
+    "a_share_owner_quality_exception_workflow_audit.json",
+    "a_share_owner_readiness_gate_audit.json",
+    "a_share_owner_daily_pack_history_audit.json",
+    "a_share_owner_daily_pack_audit.json"
+  ],
+  "expected_quality_improvements": [
+    "warnings mapped",
+    "developer follow-up evidence captured",
+    "source explanations clarified"
+  ],
+  "criteria_for_reevaluation_readiness": [
+    "tasks have completion evidence",
+    "audit-only verification passes",
+    "no threshold lowering",
+    "no auto waiver"
+  ],
+  "criteria_for_not_ready": [
+    "tasks remain planned",
+    "developer follow-up unresolved",
+    "insufficient evidence"
+  ],
+  "no_waiver_constraint": true,
+  "no_threshold_lowering_constraint": true
+}

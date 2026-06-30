@@ -1,0 +1,17 @@
+{
+  "loop_id": "A-SHARE-QUALITY-IMPROVEMENT-LOOP-DEFINITION",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "steps": [
+    "inspect blocked gate",
+    "classify exceptions",
+    "map root causes",
+    "define recovery tasks",
+    "collect evidence",
+    "run audit-only verification",
+    "prepare gate reevaluation",
+    "rerun gate only in future controlled version"
+  ],
+  "executes_audit_only_verification_now": false,
+  "executes_gate_reevaluation_now": false
+}

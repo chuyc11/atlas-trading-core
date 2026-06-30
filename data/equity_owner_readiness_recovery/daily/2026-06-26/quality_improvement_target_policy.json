@@ -1,0 +1,18 @@
+{
+  "policy_id": "A-SHARE-QUALITY-IMPROVEMENT-TARGET-POLICY",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "target_owner_readiness_score": 75,
+  "target_owner_readiness_grade": "B",
+  "target_business_output_drift_count": 0,
+  "target_protected_path_modifications_detected": false,
+  "target_automatic_action_count": 0,
+  "target_source_trace_complete": true,
+  "target_boundary_clean": true,
+  "target_forbidden_wording_hits": 0,
+  "target_required_artifact_completeness": 1.0,
+  "target_required_markdown_completeness": 1.0,
+  "does_not_lower_v0813_gates": true,
+  "requires_trading_actions": false,
+  "requires_broker_connection": false
+}

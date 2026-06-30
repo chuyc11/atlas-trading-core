@@ -1,0 +1,100 @@
+{
+  "analysis_id": "A-SHARE-SCORE-DRIVER-ANALYSIS",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "source_score": 54,
+  "threshold_score": 75,
+  "score_gap": 21,
+  "score_penalty_components": [
+    {
+      "driver": "minus_30_warnings",
+      "evidence_source": "v0.8.14 owner_readiness_gap_analysis",
+      "confidence": "high"
+    },
+    {
+      "driver": "minus_16_manual_safe_actions",
+      "evidence_source": "v0.8.14 owner_readiness_gap_analysis",
+      "confidence": "high"
+    }
+  ],
+  "exception_drivers": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "category": "readiness_score_below_threshold",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "warning_issue_threshold_issue",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    }
+  ],
+  "warning_drivers": [
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "warning_issue_threshold_issue",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    }
+  ],
+  "history_drivers": [
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    }
+  ],
+  "completeness_drivers": [],
+  "source_trace_drivers": [],
+  "boundary_drivers": [],
+  "manual_review_drivers": [
+    {
+      "exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "category": "readiness_score_below_threshold",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    },
+    {
+      "exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "warning_issue_threshold_issue",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    },
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    }
+  ],
+  "largest_recoverable_penalties": [
+    {
+      "driver": "minus_30_warnings",
+      "evidence_source": "v0.8.14 owner_readiness_gap_analysis",
+      "confidence": "high"
+    },
+    {
+      "driver": "minus_16_manual_safe_actions",
+      "evidence_source": "v0.8.14 owner_readiness_gap_analysis",
+      "confidence": "high"
+    }
+  ],
+  "non_recoverable_or_wait_for_history_penalties": [
+    {
+      "exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "insufficient_history",
+      "evidence_source": "v0.8.14 quality_exception_classification",
+      "confidence": "high"
+    }
+  ],
+  "does_not_recalculate_source_score": true
+}

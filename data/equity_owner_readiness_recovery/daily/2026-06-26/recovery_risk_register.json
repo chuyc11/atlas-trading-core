@@ -1,0 +1,63 @@
+{
+  "register_id": "A-SHARE-RECOVERY-RISK-REGISTER",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "risks": [
+    {
+      "risk_id": "threshold_weakening_risk",
+      "severity": "high",
+      "description": "threshold_weakening_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "waiver_misuse_risk",
+      "severity": "medium",
+      "description": "waiver_misuse_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "history_insufficiency_misinterpretation_risk",
+      "severity": "medium",
+      "description": "history_insufficiency_misinterpretation_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "owner_confusion_between_ops_and_trading_risk",
+      "severity": "medium",
+      "description": "owner_confusion_between_ops_and_trading_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "source_trace_regression_risk",
+      "severity": "medium",
+      "description": "source_trace_regression_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "protected_path_regression_risk",
+      "severity": "medium",
+      "description": "protected_path_regression_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    },
+    {
+      "risk_id": "boundary_regression_risk",
+      "severity": "high",
+      "description": "boundary_regression_risk",
+      "mitigation": "keep recovery as non-trading planned workflow with audit-only verification",
+      "owner_visible": true,
+      "blocking_if_triggered": true
+    }
+  ]
+}

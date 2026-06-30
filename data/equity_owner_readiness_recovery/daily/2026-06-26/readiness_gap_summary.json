@@ -1,0 +1,17 @@
+{
+  "summary_id": "A-SHARE-OWNER-READINESS-GAP-SUMMARY",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "minimum_owner_readiness_score": 75,
+  "actual_owner_readiness_score": 54,
+  "actual_owner_readiness_grade": "D",
+  "readiness_score_gap": 21,
+  "quality_exception_count": 3,
+  "developer_follow_up_count": 1,
+  "owner_operationally_acceptable": false,
+  "blocked_state_preserved": true,
+  "recovery_target_score": 75,
+  "minimum_score_improvement_needed": 21,
+  "not_trade_instruction": true
+}

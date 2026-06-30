@@ -1,0 +1,106 @@
+{
+  "backlog_id": "A-SHARE-RECOVERY-TASK-BACKLOG",
+  "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+  "as_of_date": "2026-06-26",
+  "task_count": 3,
+  "tasks": [
+    {
+      "task_id": "RECOVERY-TASK-001",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "title_zh": "定位 readiness score 未达标的可恢复质量短板",
+      "category": "developer_follow_up",
+      "source_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "priority": "P1",
+      "owner_visible": true,
+      "developer_action_required": true,
+      "owner_action_required": true,
+      "requires_more_history": false,
+      "expected_score_impact": 21,
+      "evidence_required": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "verification_method": "audit_only_verification",
+      "safe_audit_only_commands": [
+        "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack --as-of-date 2026-06-26"
+      ],
+      "forbidden_actions": [
+        "do not connect broker",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not call run-daily"
+      ],
+      "status": "planned"
+    },
+    {
+      "task_id": "RECOVERY-TASK-002",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "title_zh": "梳理 warning issue 并补充安全解释",
+      "category": "resolve_warning_source",
+      "source_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "priority": "P2",
+      "owner_visible": true,
+      "developer_action_required": false,
+      "owner_action_required": true,
+      "requires_more_history": false,
+      "expected_score_impact": 10,
+      "evidence_required": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "verification_method": "audit_only_verification",
+      "safe_audit_only_commands": [
+        "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack --as-of-date 2026-06-26"
+      ],
+      "forbidden_actions": [
+        "do not connect broker",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not call run-daily"
+      ],
+      "status": "planned"
+    },
+    {
+      "task_id": "RECOVERY-TASK-003",
+      "target_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop",
+      "as_of_date": "2026-06-26",
+      "title_zh": "等待更多真实历史样本后再解释趋势",
+      "category": "wait_for_more_history",
+      "source_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "priority": "P2",
+      "owner_visible": true,
+      "developer_action_required": false,
+      "owner_action_required": true,
+      "requires_more_history": true,
+      "expected_score_impact": 0,
+      "evidence_required": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "verification_method": "audit_only_verification",
+      "safe_audit_only_commands": [
+        "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack-history --as-of-date 2026-06-26",
+        "python -m trading_core.cli audit-a-share-owner-daily-pack --as-of-date 2026-06-26"
+      ],
+      "forbidden_actions": [
+        "do not connect broker",
+        "do not place orders",
+        "do not generate buy or sell signals",
+        "do not call run-daily"
+      ],
+      "status": "planned"
+    }
+  ],
+  "tasks_marked_complete_by_default": false,
+  "forbidden_recovery_task_categories_detected": []
+}
