@@ -223,3 +223,10 @@ Markdown artifacts:
 - `outputs/audit/A_SHARE_DAILY_OPS_CENTER_AUDIT.md`
 
 v0.8.5 artifacts aggregate existing operations artifacts and are not broker, order, refresh execution, research workflow execution, or remediation execution artifacts.
+## v0.8.15 A-share owner-readiness recovery
+
+- data: `data/equity_owner_readiness_recovery/daily/2026-06-26/`
+- reports: `outputs/equity_owner_readiness_recovery/daily/2026-06-26/`
+- audit JSON: `data/equity_data_quality/a_share_owner_readiness_recovery_audit.json`
+- audit report: `outputs/audit/A_SHARE_OWNER_READINESS_RECOVERY_AUDIT.md`
+- preserves blocked gate decision, does not lower thresholds, does not auto-waive, and keeps recovery tasks planned by default

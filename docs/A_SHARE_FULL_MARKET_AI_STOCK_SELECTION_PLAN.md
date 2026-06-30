@@ -230,3 +230,10 @@ v0.8.14 should add quality exception records, escalation workflow, and owner fol
 v0.8.14 adds daily pack quality exception and escalation workflow after the owner-readiness gate. It preserves blocked gate decisions, explains audit-passed-but-gate-blocked states, does not auto-waive quality gates, does not change the v0.8.13 gate decision, and does not treat quality exceptions as trade instructions.
 
 v0.8.15 should add an owner readiness recovery plan and measurable quality improvement loop.
+## v0.8.15 Owner-Readiness Recovery Plan
+
+v0.8.15 adds a recovery plan and quality improvement loop for the owner-readiness blocked state produced by the v0.8.13 gate and v0.8.14 quality exception workflow.
+
+This stage preserves blocked gate state, does not lower readiness thresholds, does not auto-waive quality gates, does not mark recovery tasks complete by default, and does not rerun upstream A-share build, gate, or daily pack workflows.
+
+v0.8.16 should track recovery task evidence and prepare a controlled gate reevaluation without weakening thresholds.

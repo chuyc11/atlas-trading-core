@@ -1,5 +1,78 @@
 # Release Notes
 
+## v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop
+
+v0.8.15 A-share owner-readiness recovery plan and quality improvement loop.
+
+Adds:
+
+- recovery plan config
+- recovery input availability
+- recovery source resolution
+- recovery date alignment
+- readiness gap summary
+- score driver analysis
+- quality exception root cause map
+- quality improvement target policy
+- recovery task backlog
+- developer follow-up recovery plan
+- owner follow-up recovery plan
+- non-actionable recovery items
+- recovery score impact model
+- recovery milestone plan
+- quality improvement loop definition
+- recovery verification plan
+- gate reevaluation readiness checklist
+- blocked state preservation check
+- recovery risk register
+- recovery source trace
+- recovery boundary check
+- recovery manifest
+- owner-facing recovery reports
+- owner readiness recovery audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- owner readiness recovery audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- blocked gate decision preserved=true
+- minimum_owner_readiness_score=75
+- actual_owner_readiness_score=54
+- actual_owner_readiness_grade=D
+- readiness_score_gap=21
+- recovery_task_count=3
+- developer_follow_up_task_count=1
+- owner_follow_up_task_count=7
+- ready_for_future_gate_reevaluation=false
+- recovery_plan_changes_gate_decision=false
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- execute_recovery_tasks=false
+- recommended next version: `v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep`
+
+Boundary:
+
+- preserves blocked gate decision
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not mark recovery tasks complete by default
+- does not rerun `build_from_existing_data`
+- does not rerun owner readiness gate
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat recovery plan as trade instruction
+
 ## v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow
 
 v0.8.14 A-share owner daily pack quality exceptions and escalation workflow.

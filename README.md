@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
+v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop
 
 ## Completed milestones
 
@@ -74,6 +74,24 @@ v0.8.12-a-share-build-output-daily-pack-history-and-owner-readiness-trends
 - v0.8.10 A-share build-output monitoring remediation and ops refresh
 - v0.8.11 A-share owner daily runbook and owner operations decision pack
 - v0.8.12 A-share owner daily pack history and owner-readiness trends
+- v0.8.13 A-share owner-readiness gate and daily pack quality thresholds
+- v0.8.14 A-share owner daily pack quality exceptions and escalation workflow
+- v0.8.15 A-share owner-readiness recovery plan and quality improvement loop
+
+## v0.8.15 owner-readiness recovery boundary
+
+- adds owner-readiness recovery plan and quality improvement loop artifacts
+- preserves the v0.8.13 blocked gate decision
+- does not lower owner-readiness thresholds
+- does not auto-waive quality gates
+- does not mark recovery tasks complete by default
+- does not rerun `build_from_existing_data`, owner readiness gate, or owner daily pack
+- does not refresh public network data or run `full_research_run`
+- does not execute remediation actions or send external notifications
+- does not generate buy/sell signals, order preview, broker connection, real account read, or real orders
+- does not call old `run-daily` or execute official forward dry-run day2
+- does not treat the recovery plan as trade instruction
+- recommended next version: `v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep`
 
 ## v0.8.12 owner daily pack history boundary
 

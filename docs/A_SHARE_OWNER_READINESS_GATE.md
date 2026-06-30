@@ -21,3 +21,8 @@ v0.8.14 should add quality exception and escalation workflow.
 ## v0.8.14 Exception Workflow
 
 v0.8.14 consumes this gate result and preserves the blocked decision. It explains why audit can pass while the owner-readiness gate remains blocked, generates quality exception classification, and routes developer/owner follow-up without auto waiver or trade authorization.
+## v0.8.15 Follow-On
+
+v0.8.15 does not change the v0.8.13 owner-readiness gate decision. It builds a recovery plan from the blocked gate evidence and v0.8.14 quality exceptions.
+
+The recovery layer prepares future evidence collection and gate reevaluation readiness while preserving the existing threshold and blocked decision.
