@@ -1,0 +1,12 @@
+{
+  "decision_id": "A-SHARE-GATE-REEVALUATION-READINESS-DECISION",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "gate_reevaluation_readiness_decision": "not_ready",
+  "ready_for_future_gate_reevaluation": false,
+  "gate_reevaluation_executed": false,
+  "reason": "recovery evidence remains insufficient",
+  "blocking_reasons": [
+    "recovery_evidence_not_sufficient_for_gate_reevaluation"
+  ]
+}

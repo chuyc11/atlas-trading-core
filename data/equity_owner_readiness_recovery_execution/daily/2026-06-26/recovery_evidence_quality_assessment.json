@@ -1,0 +1,32 @@
+{
+  "assessment_id": "A-SHARE-RECOVERY-EVIDENCE-QUALITY-ASSESSMENT",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "evidence_record_count": 3,
+  "evidence_available_count": 0,
+  "missing_evidence_count": 3,
+  "evidence_quality_grade": "insufficient",
+  "evidence_sufficient_for_completion": false,
+  "evidence_sufficient_for_gate_reevaluation": false,
+  "does_not_fabricate_evidence": true,
+  "records": [
+    {
+      "evidence_id": "EVIDENCE:RECOVERY-TASK-001:completion",
+      "evidence_available": false,
+      "evidence_confidence": "none",
+      "quality_issue": "missing_completion_evidence"
+    },
+    {
+      "evidence_id": "EVIDENCE:RECOVERY-TASK-002:completion",
+      "evidence_available": false,
+      "evidence_confidence": "none",
+      "quality_issue": "missing_completion_evidence"
+    },
+    {
+      "evidence_id": "EVIDENCE:RECOVERY-TASK-003:completion",
+      "evidence_available": false,
+      "evidence_confidence": "none",
+      "quality_issue": "missing_completion_evidence"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "check_id": "A-SHARE-RECOVERY-EXECUTION-THRESHOLD-PRESERVATION-CHECK",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "minimum_owner_readiness_score": 75,
+  "actual_owner_readiness_score": 54,
+  "threshold_lowered": false,
+  "threshold_preserved": true,
+  "overall_passed": true,
+  "blocking_reasons": []
+}

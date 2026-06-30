@@ -1,0 +1,18 @@
+{
+  "plan_id": "A-SHARE-CONTROLLED-REEVALUATION-PLAN",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "gate_reevaluation_executed": false,
+  "rerun_owner_readiness_gate": false,
+  "rerun_build_from_existing_data": false,
+  "rerun_daily_pack": false,
+  "entry_condition": "future version only when readiness decision is ready",
+  "current_readiness_decision": "not_ready",
+  "future_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation",
+  "required_controls": [
+    "preserve threshold",
+    "no automatic waiver",
+    "audit source evidence",
+    "keep execution boundaries"
+  ]
+}

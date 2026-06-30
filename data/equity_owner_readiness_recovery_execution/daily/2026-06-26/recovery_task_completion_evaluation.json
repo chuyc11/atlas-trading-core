@@ -1,0 +1,39 @@
+{
+  "evaluation_id": "A-SHARE-RECOVERY-TASK-COMPLETION-EVALUATION",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "task_count": 3,
+  "completed_count": 0,
+  "tasks_marked_complete_by_default": false,
+  "task_completion_not_fabricated": true,
+  "evidence_record_count": 3,
+  "items": [
+    {
+      "task_id": "RECOVERY-TASK-001",
+      "status": "planned",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_reason": "no completion evidence and no audit-only verification evidence",
+      "task_existence_alone_not_completion": true
+    },
+    {
+      "task_id": "RECOVERY-TASK-002",
+      "status": "planned",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_reason": "no completion evidence and no audit-only verification evidence",
+      "task_existence_alone_not_completion": true
+    },
+    {
+      "task_id": "RECOVERY-TASK-003",
+      "status": "waiting_for_more_history",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_reason": "no completion evidence and no audit-only verification evidence",
+      "task_existence_alone_not_completion": true
+    }
+  ]
+}

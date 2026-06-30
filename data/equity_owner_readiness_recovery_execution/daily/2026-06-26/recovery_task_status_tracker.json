@@ -1,0 +1,60 @@
+{
+  "tracker_id": "A-SHARE-RECOVERY-TASK-STATUS-TRACKER",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "task_count": 3,
+  "planned_count": 2,
+  "in_progress_count": 0,
+  "evidence_available_count": 0,
+  "verified_by_audit_only_count": 0,
+  "blocked_count": 0,
+  "not_actionable_count": 0,
+  "waiting_for_more_history_count": 1,
+  "completed_count": 0,
+  "tasks_marked_complete_by_default": false,
+  "allowed_statuses": [
+    "blocked",
+    "evidence_available",
+    "in_progress",
+    "not_actionable",
+    "planned",
+    "verified_by_audit_only",
+    "waiting_for_more_history"
+  ],
+  "items": [
+    {
+      "task_id": "RECOVERY-TASK-001",
+      "source_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "category": "developer_follow_up",
+      "source_status": "planned",
+      "status": "planned",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_not_inferred_from_task_existence": true
+    },
+    {
+      "task_id": "RECOVERY-TASK-002",
+      "source_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "category": "resolve_warning_source",
+      "source_status": "planned",
+      "status": "planned",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_not_inferred_from_task_existence": true
+    },
+    {
+      "task_id": "RECOVERY-TASK-003",
+      "source_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "category": "wait_for_more_history",
+      "source_status": "planned",
+      "status": "waiting_for_more_history",
+      "evidence_available": false,
+      "verified_by_audit_only": false,
+      "completed": false,
+      "completion_not_inferred_from_task_existence": true
+    }
+  ]
+}

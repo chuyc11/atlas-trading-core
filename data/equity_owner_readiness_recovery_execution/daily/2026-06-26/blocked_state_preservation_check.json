@@ -1,0 +1,11 @@
+{
+  "check_id": "A-SHARE-RECOVERY-EXECUTION-BLOCKED-STATE-PRESERVATION-CHECK",
+  "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "blocked_gate_decision_preserved": true,
+  "recovery_execution_changes_gate_decision": false,
+  "gate_reevaluation_executed": false,
+  "overall_passed": true,
+  "blocking_reasons": []
+}

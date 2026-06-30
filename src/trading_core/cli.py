@@ -144,6 +144,13 @@ from trading_core.equity_owner_readiness_recovery.recovery_builder import (
 )
 from trading_core.equity_owner_readiness_recovery.recovery_config import ALLOWED_MODES as A_SHARE_OWNER_READINESS_RECOVERY_MODES
 from trading_core.equity_owner_readiness_recovery.recovery_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_READINESS_RECOVERY_AS_OF_DATE
+from trading_core.equity_owner_readiness_recovery_execution.execution_builder import (
+    build_a_share_owner_readiness_recovery_execution,
+    validate_a_share_owner_readiness_recovery_execution_inputs,
+)
+from trading_core.equity_owner_readiness_recovery_execution.execution_config import ALLOWED_MODES as A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES
+from trading_core.equity_owner_readiness_recovery_execution.execution_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_READINESS_RECOVERY_EXECUTION_AS_OF_DATE
+from trading_core.equity_owner_readiness_recovery_execution.recovery_execution_audit import audit_a_share_owner_readiness_recovery_execution
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1152,6 +1159,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_readiness_recovery_arguments(owner_readiness_recovery_audit, include_mode=False)
     owner_readiness_recovery_all = subparsers.add_parser("build-and-audit-a-share-owner-readiness-recovery")
     _add_a_share_owner_readiness_recovery_arguments(owner_readiness_recovery_all)
+    owner_readiness_recovery_execution_validate = subparsers.add_parser("validate-a-share-owner-readiness-recovery-execution-inputs")
+    _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_validate, include_mode=False)
+    owner_readiness_recovery_execution_build = subparsers.add_parser("build-a-share-owner-readiness-recovery-execution")
+    _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_build)
+    owner_readiness_recovery_execution_audit = subparsers.add_parser("audit-a-share-owner-readiness-recovery-execution")
+    _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_audit, include_mode=False)
+    owner_readiness_recovery_execution_all = subparsers.add_parser("build-and-audit-a-share-owner-readiness-recovery-execution")
+    _add_a_share_owner_readiness_recovery_execution_arguments(owner_readiness_recovery_execution_all)
 
     return parser
 
@@ -1434,6 +1449,15 @@ def _add_a_share_owner_readiness_recovery_arguments(parser: argparse.ArgumentPar
         parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_MODES, default="build_quality_improvement_plan")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_MODES, default="validate_recovery_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_readiness_recovery_execution_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_READINESS_RECOVERY_EXECUTION_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES, default="prepare_gate_reevaluation")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_READINESS_RECOVERY_EXECUTION_MODES, default="validate_recovery_execution_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -4755,6 +4779,92 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "recovery_checks": audit_result["recovery_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-readiness-recovery-execution-inputs":
+        result = validate_a_share_owner_readiness_recovery_execution_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "recovery_audit_passed": result["recovery_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "blocked_gate_decision_preserved": result["blocked_gate_decision_preserved"],
+                "recovery_plan_changes_gate_decision": result["recovery_plan_changes_gate_decision"],
+                "threshold_lowered": result["threshold_lowered"],
+                "auto_waiver_allowed": result["auto_waiver_allowed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-readiness-recovery-execution":
+        result = build_a_share_owner_readiness_recovery_execution(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "blocked_gate_decision_preserved": result.get("blocked_gate_decision_preserved"),
+                "task_count": result.get("task_count"),
+                "evidence_available_count": result.get("evidence_available_count"),
+                "verified_by_audit_only_count": result.get("verified_by_audit_only_count"),
+                "completed_count": result.get("completed_count"),
+                "tasks_marked_complete_by_default": result.get("tasks_marked_complete_by_default"),
+                "ready_for_future_gate_reevaluation": result.get("ready_for_future_gate_reevaluation"),
+                "gate_reevaluation_readiness_decision": result.get("gate_reevaluation_readiness_decision"),
+                "gate_reevaluation_executed": result.get("gate_reevaluation_executed"),
+                "threshold_lowered": result.get("threshold_lowered"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "recovery_execution_tracker_report": result.get("recovery_execution_tracker_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-readiness-recovery-execution":
+        result = audit_a_share_owner_readiness_recovery_execution(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "execution_checks": result["execution_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-readiness-recovery-execution":
+        build_result = build_a_share_owner_readiness_recovery_execution(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_readiness_recovery_execution(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "execution_checks": audit_result["execution_checks"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )
