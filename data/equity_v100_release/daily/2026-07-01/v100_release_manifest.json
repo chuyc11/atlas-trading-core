@@ -1,0 +1,34 @@
+{
+  "manifest_id": "A-SHARE-V100-RELEASE-MANIFEST",
+  "target_version": "v1.0.0-a-share-autonomous-simulation-platform-release",
+  "source_version": "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T18:22:37.968560Z",
+  "json_artifact_count": 7,
+  "markdown_report_count": 2,
+  "artifacts": {
+    "v100_release_request": "data/equity_v100_release/daily/2026-07-01/v100_release_request.json",
+    "v100_prep_verification": "data/equity_v100_release/daily/2026-07-01/v100_prep_verification.json",
+    "v100_final_release_decision": "data/equity_v100_release/daily/2026-07-01/v100_final_release_decision.json",
+    "v100_release_scope_statement": "data/equity_v100_release/daily/2026-07-01/v100_release_scope_statement.json",
+    "v100_safety_boundary_statement": "data/equity_v100_release/daily/2026-07-01/v100_safety_boundary_statement.json",
+    "v100_known_limitations_register": "data/equity_v100_release/daily/2026-07-01/v100_known_limitations_register.json",
+    "v100_release_manifest": "data/equity_v100_release/daily/2026-07-01/v100_release_manifest.json",
+    "release_summary": "outputs/equity_v100_release/daily/2026-07-01/A_SHARE_V100_RELEASE_SUMMARY.md",
+    "safety_report": "outputs/equity_v100_release/daily/2026-07-01/A_SHARE_V100_SAFETY_AND_LIMITATIONS.md"
+  },
+  "artifact_hashes": {
+    "v100_release_request": "820f98550b8cadab9587733a5d47f56a8fa023fbd3a86f9e9e883c5d5ec82707",
+    "v100_prep_verification": "1e3b77e90195db157be5d4a3d32ead25a4890719cfdff1c17041d982a73b5432",
+    "v100_final_release_decision": "c9cf27b3d30986fbf48aac7ba528ac2fd269ee96f38fe631b7697b950106b09d",
+    "v100_release_scope_statement": "eafe79f582da111fd94b5aa13f9097eb452ee08af284621bcbfdf3fd0b0d9353",
+    "v100_safety_boundary_statement": "1904d9859c751401c9b2743e6b83978ef4363163fcadb105d299c0dbb37d4af4",
+    "v100_known_limitations_register": "f258b7881059ea5dca6a78dc55b9d344be4f20339c9bdf6c16955c382c20cb5a",
+    "v100_release_manifest": "f03c308cf688010690364190d9f675b2244182f20416aac56c9e3f6c20b9f15d",
+    "release_summary": "bfbf75c831700ab9908f0ac1938b3136344eb856b25aefac82afa377c2b90543",
+    "safety_report": "4af6b480baf8620b1cc8365d8fd1762d30f3e8f1842d83e975700fa47c4b1bcf"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening"
+}

@@ -1,0 +1,66 @@
+{
+  "register_id": "A-SHARE-V100-KNOWN-LIMITATIONS-REGISTER",
+  "target_version": "v1.0.0-a-share-autonomous-simulation-platform-release",
+  "as_of_date": "2026-07-01",
+  "limitations": [
+    {
+      "limitation_id": "V100-LIMIT-01",
+      "description": "owner-readiness remains blocked: 54 / 75 / gap 21",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-02",
+      "description": "not live trading ready",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-03",
+      "description": "no real broker / real account / real order support",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-04",
+      "description": "benchmark/index attribution source missing or incomplete",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-05",
+      "description": "benchmark warning blocks real performance claims",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-06",
+      "description": "autonomous LLM/RL functions are simulation-only",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-07",
+      "description": "simulated orders/fills are not real orders/fills",
+      "must_not_hide": true
+    },
+    {
+      "limitation_id": "V100-LIMIT-08",
+      "description": "owner must not copy simulated actions into real account",
+      "must_not_hide": true
+    }
+  ],
+  "known_limitations_count": 8,
+  "benchmark_warning_blocks_real_performance_claims": true,
+  "owner_must_not_copy_simulated_actions_into_real_account": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
