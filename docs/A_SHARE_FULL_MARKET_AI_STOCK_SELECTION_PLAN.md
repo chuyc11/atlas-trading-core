@@ -260,3 +260,21 @@ Primary outputs:
 - `outputs/audit/A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_AUDIT.md`
 
 Recommended next version: `v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts`.
+
+## v0.8.18 Recovery Evidence Collection
+
+v0.8.18 adds recovery evidence collection and readiness improvement artifacts on top of the v0.8.17 controlled skip state.
+
+This stage reads existing local artifacts and audits only. It records recovery task evidence, developer follow-up evidence, owner follow-up evidence, quality issue evidence, warning mapping evidence, evidence quality grades, evidence gaps, remaining blockers, score-impact estimates, and next reevaluation prep status. It does not rerun owner readiness gate, generate a new gate score, generate a new gate decision, lower thresholds, auto-waive quality gates, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send notifications, generate buy/sell signals, place orders, connect broker, call old `run-daily`, execute official forward dry-run day2, or treat recovery evidence as trade instruction.
+
+Audited release truth for `2026-06-26`:
+
+- source gate decision remains `blocked`
+- source readiness score remains 54
+- evidence quality remains `none`
+- evidence_ready_for_next_reevaluation_prep=false
+- actual_audited_score_changed=false
+- new_gate_score_generated=false
+- new_gate_decision_generated=false
+
+Recommended next version: `v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep`.

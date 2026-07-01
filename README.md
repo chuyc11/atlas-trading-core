@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation
+v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts
 
 ## Completed milestones
 
@@ -79,6 +79,22 @@ v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation
 - v0.8.15 A-share owner-readiness recovery plan and quality improvement loop
 - v0.8.16 A-share owner-readiness recovery execution tracker and gate reevaluation prep
 - v0.8.17 A-share owner-readiness controlled gate reevaluation
+- v0.8.18 A-share recovery evidence collection and readiness improvement artifacts
+
+## v0.8.18 owner-readiness recovery evidence boundary
+
+- adds recovery evidence collection and readiness improvement artifacts
+- records recovery task, developer follow-up, owner follow-up, quality issue, warning mapping, completeness, gap, blocker, score-impact estimate, and next reevaluation prep artifacts
+- preserves the source blocked gate decision and source readiness score
+- does not fabricate evidence or task completion
+- does not rerun owner readiness gate, `build_from_existing_data`, or owner daily pack
+- does not generate a new gate score or a new gate decision
+- does not lower readiness thresholds or auto-waive quality gates
+- does not refresh public network data, run `full_research_run`, execute remediation actions, or send external notifications
+- does not generate buy/sell signals, order previews, broker connection, real account reads, or real orders
+- does not call old `run-daily` or execute official forward dry-run day2
+- uses targeted pytest only for this small version; full pytest is deferred to v0.9.0 or big-version closeout
+- recommended next version: `v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep`
 
 ## v0.8.17 owner-readiness controlled gate reevaluation boundary
 

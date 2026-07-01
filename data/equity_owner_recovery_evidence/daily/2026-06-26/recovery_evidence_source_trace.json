@@ -2,7 +2,7 @@
   "trace_id": "A-SHARE-OWNER-RECOVERY-EVIDENCE-SOURCE-TRACE",
   "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-07-01T03:24:18.927659Z",
+  "generated_at": "2026-07-01T03:26:36.856464Z",
   "source_workflow_mode": "build_from_existing_data",
   "source_trace_complete": true,
   "missing_required_sources": [],
@@ -511,7 +511,7 @@
       "relative_path": "data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_source_trace.json",
       "required": true,
       "exists": true,
-      "sha256": "a16009e7cef0f4265088311ec3c4e3ca5c289d885c45279a557b9d748909017c"
+      "sha256": "60098b178b78b5f193677742be7fed403f7f0860bf75df2ba6378f494e4f28b1"
     },
     {
       "artifact_key": "recovery_evidence_boundary_check",
@@ -527,7 +527,7 @@
       "relative_path": "data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_manifest.json",
       "required": true,
       "exists": true,
-      "sha256": "5c07c20c1d9dad05bbafb3c952bcc228fd7e3ef18f8cd10c9bd3841eb115b7b8"
+      "sha256": "9ca8420db72996fc7c5dfb3fc3f1631be5da14da1132ef241f84ca1a8c9484ff"
     },
     {
       "artifact_key": "recovery_evidence_summary",

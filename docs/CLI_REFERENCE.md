@@ -367,6 +367,19 @@ Modes: `validate_controlled_reevaluation_inputs`, `evaluate_reevaluation_readine
 
 The command set records `skipped_not_ready` when recovery evidence is insufficient. It does not rerun owner readiness gate, `build_from_existing_data`, owner daily pack, public network refresh, `full_research_run`, remediation actions, external notifications, broker actions, real orders, order preview, old `run-daily`, or official forward dry-run day2.
 
+## v0.8.18 Owner Recovery Evidence
+
+```bash
+python -m trading_core.cli validate-a-share-owner-recovery-evidence-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-recovery-evidence --as-of-date 2026-06-26 --mode collect_recovery_evidence
+python -m trading_core.cli audit-a-share-owner-recovery-evidence --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-recovery-evidence --as-of-date 2026-06-26 --mode collect_recovery_evidence
+```
+
+Modes: `validate_recovery_evidence_inputs`, `collect_recovery_evidence`, `grade_recovery_evidence_quality`, `build_readiness_improvement_artifacts`, `build_recovery_evidence_report`, `audit_existing_recovery_evidence`.
+
+The command set collects local evidence, grades evidence quality, records gaps/blockers, and builds next reevaluation prep artifacts. It does not rerun owner readiness gate, generate a new gate score or decision, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, call old `run-daily`, connect broker, generate order preview, or place orders.
+
 ## v0.8.16 Owner Readiness Recovery Execution
 
 ```bash

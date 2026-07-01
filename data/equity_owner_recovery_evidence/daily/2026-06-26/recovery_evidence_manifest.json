@@ -2,7 +2,7 @@
   "manifest_id": "A-SHARE-OWNER-RECOVERY-EVIDENCE-MANIFEST",
   "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
   "as_of_date": "2026-06-26",
-  "generated_at": "2026-07-01T03:24:18.642272Z",
+  "generated_at": "2026-07-01T03:26:36.661329Z",
   "source_workflow_mode": "build_from_existing_data",
   "source_gate_decision": "blocked",
   "source_readiness_score": 54,

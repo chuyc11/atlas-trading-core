@@ -19,3 +19,6 @@ Default not-ready reasons for `2026-06-26`:
 
 This skip is the correct controlled behavior for the current evidence state. It is not a failed audit, not a gate release, and not a trade instruction.
 
+## v0.8.18 Follow-On
+
+v0.8.18 starts organizing the missing evidence into explicit collection, quality grading, gap, blocker, and next prep artifacts. It still does not rerun the owner-readiness gate and still does not generate a new gate score or gate decision.

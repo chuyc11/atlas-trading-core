@@ -1,5 +1,85 @@
 # Release Notes
 
+## v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts
+
+v0.8.18 A-share recovery evidence collection and readiness improvement artifacts.
+
+Adds:
+
+- recovery evidence config
+- recovery evidence input availability
+- recovery evidence source resolution
+- recovery evidence date alignment
+- recovery task evidence collection
+- developer follow-up evidence package
+- owner follow-up evidence package
+- quality issue evidence package
+- warning mapping evidence package
+- source trace improvement evidence
+- markdown quality improvement evidence
+- artifact completeness evidence
+- readiness improvement evidence ledger
+- evidence-backed score impact estimate
+- evidence quality grading
+- evidence gap register
+- remaining blocker register
+- next reevaluation prep checklist
+- recovery evidence source trace
+- recovery evidence boundary check
+- recovery evidence manifest
+- owner-facing recovery evidence reports
+- recovery evidence audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- recovery evidence audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- source readiness score=54
+- minimum owner readiness score=75
+- score gap=21
+- evidence_record_count=11
+- strong_evidence_count=0
+- audit_verified_evidence_count=0
+- missing_evidence_count=11
+- overall_evidence_quality=none
+- evidence_ready_for_next_reevaluation_prep=false
+- actual_audited_score_changed=false
+- new_audited_score=null
+- new_gate_score_generated=false
+- new_gate_decision_generated=false
+- source_gate_decision_preserved=true
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- recommended next version: `v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep`
+
+Boundary:
+
+- does not fabricate evidence
+- does not fabricate task completion
+- does not rerun owner readiness gate
+- does not generate a new gate score
+- does not generate a new gate decision
+- preserves source blocked decision
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat recovery evidence as trade instruction
+- uses targeted pytest only for small version validation
+- defers full pytest to v0.9.0 or big-version closeout
+
 ## v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation
 
 v0.8.17 A-share owner-readiness controlled gate reevaluation.

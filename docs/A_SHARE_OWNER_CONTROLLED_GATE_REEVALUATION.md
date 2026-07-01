@@ -34,3 +34,13 @@ Boundary:
 - no old `run-daily`
 - no official forward dry-run day2 execution
 
+## v0.8.18 Follow-On
+
+v0.8.18 consumes the controlled skip state and collects recovery evidence without running a new gate reevaluation.
+
+Follow-on artifacts:
+
+- `data/equity_owner_recovery_evidence/daily/2026-06-26/recovery_task_evidence_collection.json`
+- `data/equity_owner_recovery_evidence/daily/2026-06-26/evidence_quality_grading.json`
+- `data/equity_owner_recovery_evidence/daily/2026-06-26/next_reevaluation_prep_checklist.json`
+- `outputs/audit/A_SHARE_OWNER_RECOVERY_EVIDENCE_AUDIT.md`
