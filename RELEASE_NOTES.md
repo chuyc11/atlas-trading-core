@@ -1,5 +1,28 @@
 # Release Notes
 
+## v1.0.0-prep-a-share-autonomous-simulation-platform-closeout
+
+v1.0.0-prep closes out the A-share autonomous research and simulation platform for v1.0 release readiness without adding new product features.
+
+- verifies the v0.9.8 autonomous simulation platform baseline and required artifacts
+- classifies both v0.9.8 benchmark/attribution warnings as non-blocking for v1.0.0 release readiness
+- runs full regression with `1807 passed, 1 skipped, 0 failed`
+- verifies CLI surface, artifact integrity, and safety boundaries
+- records `release_readiness_decision=ready_for_v100_release`
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- keeps `owner_operationally_acceptable=false`
+- does not execute owner-readiness gate
+- does not execute controlled gate reevaluation
+- does not generate a new owner-readiness score or gate decision
+- does not connect broker
+- does not read real account data
+- does not place real orders
+- does not generate real order previews or buy/sell signals
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not claim live trading readiness
+- recommended next version: `v1.0.0-a-share-autonomous-simulation-platform-release`
+
 ## v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion
 
 v0.9.8 completes the A-share v0.9 product as a research-only and simulation-only autonomous research platform.
