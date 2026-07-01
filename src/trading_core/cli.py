@@ -193,6 +193,13 @@ from trading_core.equity_owner_v090_rc.builder import (
 from trading_core.equity_owner_v090_rc.v090_config import ALLOWED_MODES as A_SHARE_OWNER_V090_RC_MODES
 from trading_core.equity_owner_v090_rc.v090_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_V090_RC_AS_OF_DATE
 from trading_core.equity_owner_v090_rc.v090_rc_audit import audit_a_share_owner_v090_rc
+from trading_core.equity_owner_operator_experience.builder import (
+    build_a_share_owner_operator_experience,
+    validate_a_share_owner_operator_experience_inputs,
+)
+from trading_core.equity_owner_operator_experience.operator_config import ALLOWED_MODES as A_SHARE_OWNER_OPERATOR_EXPERIENCE_MODES
+from trading_core.equity_owner_operator_experience.operator_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_OPERATOR_EXPERIENCE_AS_OF_DATE
+from trading_core.equity_owner_operator_experience.operator_experience_audit import audit_a_share_owner_operator_experience
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1257,6 +1264,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_v090_rc_arguments(owner_v090_rc_audit, include_mode=False)
     owner_v090_rc_all = subparsers.add_parser("build-and-audit-a-share-owner-v090-rc")
     _add_a_share_owner_v090_rc_arguments(owner_v090_rc_all)
+    owner_operator_validate = subparsers.add_parser("validate-a-share-owner-operator-experience-inputs")
+    _add_a_share_owner_operator_experience_arguments(owner_operator_validate, include_mode=False)
+    owner_operator_build = subparsers.add_parser("build-a-share-owner-operator-experience")
+    _add_a_share_owner_operator_experience_arguments(owner_operator_build)
+    owner_operator_audit = subparsers.add_parser("audit-a-share-owner-operator-experience")
+    _add_a_share_owner_operator_experience_arguments(owner_operator_audit, include_mode=False)
+    owner_operator_all = subparsers.add_parser("build-and-audit-a-share-owner-operator-experience")
+    _add_a_share_owner_operator_experience_arguments(owner_operator_all)
 
     return parser
 
@@ -1604,6 +1619,15 @@ def _add_a_share_owner_v090_rc_arguments(parser: argparse.ArgumentParser, *, inc
         parser.add_argument("--mode", choices=A_SHARE_OWNER_V090_RC_MODES, default="validate_v090_rc_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
     parser.add_argument("--skip-full-pytest", action="store_true")
+
+
+def _add_a_share_owner_operator_experience_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_OPERATOR_EXPERIENCE_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_OPERATOR_EXPERIENCE_MODES, default="build_owner_daily_status")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_OPERATOR_EXPERIENCE_MODES, default="validate_operator_experience_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -5567,6 +5591,94 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "regression_checks": audit_result["regression_checks"],
                 "known_blocked_state_checks": audit_result["known_blocked_state_checks"],
                 "release_candidate_decision": audit_result["release_candidate_decision"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-operator-experience-inputs":
+        result = validate_a_share_owner_operator_experience_inputs(as_of_date=args.as_of_date, allow_date_mismatch=args.allow_date_mismatch, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_release_candidate": result["source_release_candidate"],
+                "known_owner_readiness_state": result["known_owner_readiness_state"],
+                "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+                "v090_full_pytest_passed": result["v090_full_pytest_passed"],
+                "v090_audit_sweep_passed": result["v090_audit_sweep_passed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-operator-experience":
+        result = build_a_share_owner_operator_experience(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_release_candidate": result.get("source_release_candidate"),
+                "known_owner_readiness_state": result.get("known_owner_readiness_state"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "readiness_score": result.get("readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "score_gap": result.get("score_gap"),
+                "owner_daily_status_generated": result.get("owner_daily_status_generated"),
+                "known_blocked_state_banner_generated": result.get("known_blocked_state_banner_generated"),
+                "operator_action_menu_generated": result.get("operator_action_menu_generated"),
+                "artifact_navigation_index_generated": result.get("artifact_navigation_index_generated"),
+                "forbidden_operator_actions_present": result.get("forbidden_operator_actions_present"),
+                "v090_full_pytest_passed": result.get("v090_full_pytest_passed"),
+                "v090_audit_sweep_passed": result.get("v090_audit_sweep_passed"),
+                "run_full_pytest": result.get("run_full_pytest"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "owner_daily_status_report": result.get("owner_daily_status_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-operator-experience":
+        result = audit_a_share_owner_operator_experience(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "operator_experience_checks": result["operator_experience_checks"],
+                "boundary": result["boundary"],
+                "test_policy": result["test_policy"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-operator-experience":
+        build_result = build_a_share_owner_operator_experience(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_operator_experience(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "operator_experience_checks": audit_result["operator_experience_checks"],
+                "test_policy": audit_result["test_policy"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

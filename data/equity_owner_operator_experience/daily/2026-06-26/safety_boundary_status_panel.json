@@ -1,0 +1,20 @@
+{
+  "panel_id": "A-SHARE-SAFETY-BOUNDARY-STATUS-PANEL",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "run_daily_called": false,
+  "day2_executed": false,
+  "model_profit_guaranteed": false,
+  "live_trading_ready": false,
+  "operator_status_used_as_trade_instruction": false,
+  "overall_boundary_clean": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

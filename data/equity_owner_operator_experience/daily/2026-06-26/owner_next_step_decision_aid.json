@@ -1,0 +1,73 @@
+{
+  "decision_aid_id": "A-SHARE-OWNER-NEXT-STEP-DECISION-AID",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "recommended_next_step": "review_known_blocked_state",
+  "allowed_next_steps": [
+    {
+      "step_id": "review_known_blocked_state",
+      "allowed": true,
+      "owner_visible": true
+    },
+    {
+      "step_id": "review_unresolved_blockers",
+      "allowed": true,
+      "owner_visible": true
+    },
+    {
+      "step_id": "prepare_future_evidence_collection",
+      "allowed": true,
+      "owner_visible": true
+    },
+    {
+      "step_id": "improve_operator_report_usability",
+      "allowed": true,
+      "owner_visible": true
+    },
+    {
+      "step_id": "prepare_next_research_day_simulation_without_broker",
+      "allowed": true,
+      "owner_visible": true
+    }
+  ],
+  "forbidden_next_steps": [
+    {
+      "step_id": "place_order",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "connect_broker",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "enable_live_trading",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "generate_buy_sell_signals",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "override_owner_readiness_gate",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "lower_threshold",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    },
+    {
+      "step_id": "approve_auto_waiver",
+      "allowed": false,
+      "reason": "Outside current research-only boundary"
+    }
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

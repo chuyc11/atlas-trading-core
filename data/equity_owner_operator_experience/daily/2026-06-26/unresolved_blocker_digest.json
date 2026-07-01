@@ -1,0 +1,76 @@
+{
+  "digest_id": "A-SHARE-UNRESOLVED-BLOCKER-DIGEST",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "unresolved_blocker_count": 7,
+  "blockers_that_block_owner_readiness_acceptance": 6,
+  "blockers_that_block_v090_rc": 0,
+  "blockers": [
+    {
+      "blocker_id": "B001",
+      "category": "readiness_score_gap",
+      "short_summary": "Owner-readiness score remains 54 against threshold 75.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Improve audited readiness inputs before a future gate reevaluation."
+    },
+    {
+      "blocker_id": "B002",
+      "category": "missing_recovery_evidence",
+      "short_summary": "Recovery evidence is not sufficient to justify a new gate evaluation.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Collect real evidence and rerun the evidence-backed prep in a later version."
+    },
+    {
+      "blocker_id": "B003",
+      "category": "missing_audit_verified_evidence",
+      "short_summary": "Audit-verified evidence did not support controlled reevaluation.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Add audit-verifiable evidence before reopening the gate."
+    },
+    {
+      "blocker_id": "B004",
+      "category": "remaining_evidence_gaps",
+      "short_summary": "Remaining gap count is 5.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Resolve remaining blockers with source-backed artifacts."
+    },
+    {
+      "blocker_id": "B005",
+      "category": "owner_readiness_not_acceptable",
+      "short_summary": "Owner operational acceptability is false.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Do not describe the state as owner-ready until a future gate passes."
+    },
+    {
+      "blocker_id": "B006",
+      "category": "insufficient_history_if_present",
+      "short_summary": "Historical sufficiency remains a review item if upstream audits expose it.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Keep the v0.9.0 audit sweep checking history and trace coverage."
+    },
+    {
+      "blocker_id": "B007",
+      "category": "v090_rc_known_blocked_state",
+      "short_summary": "v0.9.0 RC may proceed only as a documented research closeout RC with known blocked owner-readiness state.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": false,
+      "blocks_current_rc": false,
+      "recommended_future_resolution": "Keep the blocked state explicit in RC scope, docs, audit, and owner-facing reports."
+    }
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

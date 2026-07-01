@@ -1,0 +1,461 @@
+{
+  "trace_id": "A-SHARE-OWNER-OPERATOR-EXPERIENCE-SOURCE-TRACE",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "generated_at": "2026-07-01T09:31:27.080978Z",
+  "source_workflow_mode": "build_from_existing_data",
+  "source_release_candidate": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "source_trace_complete": true,
+  "missing_required_artifacts": [],
+  "source_artifacts": [
+    {
+      "artifact_key": "v090_rc_config",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_rc_config.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_rc_config.json",
+      "required": true,
+      "exists": true,
+      "sha256": "4bac99f874bcab9e79f029d887a03b02f05fea2190cc1f2004243fb9dc584f28"
+    },
+    {
+      "artifact_key": "v090_input_availability",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_input_availability.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_input_availability.json",
+      "required": true,
+      "exists": true,
+      "sha256": "567838fc12d112de1ddc8a6c38f8c1f9c78313d4eaa30ea03a9f776c7c7f64b9"
+    },
+    {
+      "artifact_key": "v090_source_resolution",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_resolution.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_resolution.json",
+      "required": true,
+      "exists": true,
+      "sha256": "f9005a27e0a4cb3a5482c99b6458a3643c10bf5828074fbc58003cd5e2af516f"
+    },
+    {
+      "artifact_key": "v090_date_alignment",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_date_alignment.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_date_alignment.json",
+      "required": true,
+      "exists": true,
+      "sha256": "ea66b510a8f324ba8f1fe27e94a2e262f6856b2f0412c881695432d5ff390d8b"
+    },
+    {
+      "artifact_key": "v090_full_pytest_result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_full_pytest_result.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_full_pytest_result.json",
+      "required": true,
+      "exists": true,
+      "sha256": "e90a977b03b883c1613f88fa6aa1642990f415fcbf5b550936d1f0f8d3430e94"
+    },
+    {
+      "artifact_key": "v090_audit_sweep_result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_audit_sweep_result.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_audit_sweep_result.json",
+      "required": true,
+      "exists": true,
+      "sha256": "1cfec5a2608ce4ac2a2b26e6e54e206e85b4c4c2a0cb49b591a2c8d5bd6b86b0"
+    },
+    {
+      "artifact_key": "v090_boundary_sweep_result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_boundary_sweep_result.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_boundary_sweep_result.json",
+      "required": true,
+      "exists": true,
+      "sha256": "1ac2054dd3fdac686236e58823f4ea1ae03115b638597e9a7cca4f864e33bceb"
+    },
+    {
+      "artifact_key": "v090_source_trace_sweep_result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_trace_sweep_result.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_trace_sweep_result.json",
+      "required": true,
+      "exists": true,
+      "sha256": "8c02407ccccd0a006181c26c0b2d07709cbcc7e9a01cd96a3296a94c0a912c40"
+    },
+    {
+      "artifact_key": "v090_documentation_freeze_result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_documentation_freeze_result.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_documentation_freeze_result.json",
+      "required": true,
+      "exists": true,
+      "sha256": "4f2eb1603b4166d44d79dab50c90c1e1bec9782c000332d2b7e9db794f4f1582"
+    },
+    {
+      "artifact_key": "v090_known_blocked_state_disclosure",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_known_blocked_state_disclosure.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_known_blocked_state_disclosure.json",
+      "required": true,
+      "exists": true,
+      "sha256": "6560865f9730b309801e81920b01e6c4c333722ccaecd1a12378f0b73bf73ebb"
+    },
+    {
+      "artifact_key": "v090_release_candidate_decision",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_release_candidate_decision.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_release_candidate_decision.json",
+      "required": true,
+      "exists": true,
+      "sha256": "928e40e56773f3e17a3ac0b1b2c9f63976e2c21819fd8ed920a179b1d3e8030a"
+    },
+    {
+      "artifact_key": "v090_owner_release_summary",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_owner_release_summary.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_owner_release_summary.json",
+      "required": true,
+      "exists": true,
+      "sha256": "39bb16d04e6d7fe0798f991b2122e1cd5415f306479f8e37a970a571c598c717"
+    },
+    {
+      "artifact_key": "v090_source_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_trace.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_source_trace.json",
+      "required": true,
+      "exists": true,
+      "sha256": "01dc8bbd454b428bd869b35d0eea5eaf55c9a2cacd52b9da636843c1a7eb5932"
+    },
+    {
+      "artifact_key": "v090_boundary_check",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_boundary_check.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_boundary_check.json",
+      "required": true,
+      "exists": true,
+      "sha256": "ae3811aefd1cadcd0481fda4e57e67c64e5ff52dbe1364920d36a77a1bfd0fe3"
+    },
+    {
+      "artifact_key": "v090_manifest",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_manifest.json",
+      "relative_path": "data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_manifest.json",
+      "required": true,
+      "exists": true,
+      "sha256": "4dcf36dc12c90c7b7f0f4bc6bdb430c8cec4b9e9d73478de7b0f56b8986a247c"
+    },
+    {
+      "artifact_key": "v090_rc_audit",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_v090_rc_audit.json",
+      "relative_path": "data\\equity_data_quality\\a_share_owner_v090_rc_audit.json",
+      "required": true,
+      "exists": true,
+      "sha256": "b255e3edae4eaf6d892208d790e22da35d03c425d088e26a4205fa27255776b9"
+    },
+    {
+      "artifact_key": "v0821_closeout_review_audit",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_closeout_review_audit.json",
+      "relative_path": "data\\equity_data_quality\\a_share_owner_closeout_review_audit.json",
+      "required": true,
+      "exists": true,
+      "sha256": "72e8b3a927f2afcef40f4ce4aee6327735897694c15d79cdb88e088924a09652"
+    },
+    {
+      "artifact_key": "v0820_gate_outcome_audit",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_v0820_gate_outcome_audit.json",
+      "relative_path": "data\\equity_data_quality\\a_share_owner_v0820_gate_outcome_audit.json",
+      "required": true,
+      "exists": true,
+      "sha256": "f7e3597be181f645906ee04b16ec3baa0a6abe6faaf2413674ce29b59d470094"
+    },
+    {
+      "artifact_key": "v0821_unresolved_blocker_register",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_closeout_review\\daily\\2026-06-26\\unresolved_blocker_register.json",
+      "relative_path": "data\\equity_owner_closeout_review\\daily\\2026-06-26\\unresolved_blocker_register.json",
+      "required": true,
+      "exists": true,
+      "sha256": "c087dcdf3fe82d1153fb41cbf731a572c8206023f0877df1bbb776c91f0cac3e"
+    },
+    {
+      "artifact_key": "v0821_closeout_review_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_closeout_review\\daily\\2026-06-26\\A_SHARE_OWNER_READINESS_CLOSEOUT_REVIEW.md",
+      "relative_path": "outputs\\equity_owner_closeout_review\\daily\\2026-06-26\\A_SHARE_OWNER_READINESS_CLOSEOUT_REVIEW.md",
+      "required": true,
+      "exists": true,
+      "sha256": "dfed5419a22c9a5eaeb0f89ff324a58d1231521bf001829ff78dddcc2f277586"
+    }
+  ],
+  "output_artifacts": [
+    {
+      "artifact_key": "operator_experience_config",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_experience_config.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_experience_config.json",
+      "required": true,
+      "exists": true,
+      "sha256": "0439393d3d69cb29ddca76d3cd025ddd17fc7e1802497d6e52f777e012a4a201"
+    },
+    {
+      "artifact_key": "operator_input_availability",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_input_availability.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_input_availability.json",
+      "required": true,
+      "exists": true,
+      "sha256": "dbccbefb726c4abc18c016ec47bee48ab4d887e6b3aa91d48a586c9884d4bdd8"
+    },
+    {
+      "artifact_key": "operator_source_resolution",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_source_resolution.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_source_resolution.json",
+      "required": true,
+      "exists": true,
+      "sha256": "0658d238119f0f6a9644826360f74268d588eaeb4ab4990c8259fa1b4b23c346"
+    },
+    {
+      "artifact_key": "operator_date_alignment",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_date_alignment.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_date_alignment.json",
+      "required": true,
+      "exists": true,
+      "sha256": "733d90b93cf4d53316138beea0a4bd7a9da4b8f1d5696137b3eb69ef4a475f15"
+    },
+    {
+      "artifact_key": "owner_daily_status_card",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\owner_daily_status_card.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\owner_daily_status_card.json",
+      "required": true,
+      "exists": true,
+      "sha256": "76c0ee31d6b178df7efe6a04040e29a9fc37907a660a967fe1310f066859b94e"
+    },
+    {
+      "artifact_key": "known_blocked_state_banner",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\known_blocked_state_banner.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\known_blocked_state_banner.json",
+      "required": true,
+      "exists": true,
+      "sha256": "a928ab078eb2b531b7914fb0ef036196c3a462e06bc64aa3de4d934092e17754"
+    },
+    {
+      "artifact_key": "known_blocked_state_explanation",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\known_blocked_state_explanation.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\known_blocked_state_explanation.json",
+      "required": true,
+      "exists": true,
+      "sha256": "b2da0f26edd29a8f437946aa6da389d5cb6d07a31c14c060a014bd3d8136ca7f"
+    },
+    {
+      "artifact_key": "operator_capability_matrix",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_capability_matrix.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_capability_matrix.json",
+      "required": true,
+      "exists": true,
+      "sha256": "1c2f42b0d02dc71d3fc80b932d574acdc5ce696f5c89067ce5a4a431306c2a83"
+    },
+    {
+      "artifact_key": "operator_action_menu",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_action_menu.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_action_menu.json",
+      "required": true,
+      "exists": true,
+      "sha256": "c2d9af04ba93bffab9ab3f89a835a56f9a94a997100d9187edd1d764178ddc0e"
+    },
+    {
+      "artifact_key": "artifact_navigation_index",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\artifact_navigation_index.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\artifact_navigation_index.json",
+      "required": true,
+      "exists": true,
+      "sha256": "fab5216c54ffbaba1ff7e079a9b4e8972737bc3c2cf0761c3c82f34623f7b0d0"
+    },
+    {
+      "artifact_key": "owner_next_step_decision_aid",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\owner_next_step_decision_aid.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\owner_next_step_decision_aid.json",
+      "required": true,
+      "exists": true,
+      "sha256": "752b5f7cb1ebe369ed7e18247714239255866ebe1e4f40e161d6a9ecba55e200"
+    },
+    {
+      "artifact_key": "rc_status_summary",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\rc_status_summary.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\rc_status_summary.json",
+      "required": true,
+      "exists": true,
+      "sha256": "82516e8decbb8035553feb4db64e1685fab3c6244c10358648954434de98778e"
+    },
+    {
+      "artifact_key": "audit_and_test_status_summary",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\audit_and_test_status_summary.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\audit_and_test_status_summary.json",
+      "required": true,
+      "exists": true,
+      "sha256": "3f881eb903b16365956648a96eb48c4c755a5ce45063563cb0487d2e9f769345"
+    },
+    {
+      "artifact_key": "safety_boundary_status_panel",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\safety_boundary_status_panel.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\safety_boundary_status_panel.json",
+      "required": true,
+      "exists": true,
+      "sha256": "2793ca1419d84534d66caf0a50b4156ddde4c7738ef6c0060cf77a8ffc514451"
+    },
+    {
+      "artifact_key": "unresolved_blocker_digest",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\unresolved_blocker_digest.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\unresolved_blocker_digest.json",
+      "required": true,
+      "exists": true,
+      "sha256": "e5fdc4ed9bfa51835a5ddaee8b6e7c941531f7d3c2ad4b700dad25f1a041a3f7"
+    },
+    {
+      "artifact_key": "operator_source_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_source_trace.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_source_trace.json",
+      "required": true,
+      "exists": true,
+      "sha256": ""
+    },
+    {
+      "artifact_key": "operator_boundary_check",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_boundary_check.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_boundary_check.json",
+      "required": true,
+      "exists": true,
+      "sha256": "1b0d227162f470cee9266c68b9bc3be12cf06025802a387980b9168ade7652bb"
+    },
+    {
+      "artifact_key": "operator_manifest",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_manifest.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_manifest.json",
+      "required": true,
+      "exists": true,
+      "sha256": "501583cc7db4d00207cafa833d44343d2586641e4f5f684ac8f304ab308b6bfc"
+    },
+    {
+      "artifact_key": "operator_summary",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_summary.json",
+      "relative_path": "data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_summary.json",
+      "required": true,
+      "exists": true,
+      "sha256": "9e774317f381c0e0f3313420687b8eedfd90832d979ae724b0951f4695cb4b8d"
+    },
+    {
+      "artifact_key": "owner_daily_status_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OWNER_DAILY_OPERATOR_STATUS.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OWNER_DAILY_OPERATOR_STATUS.md",
+      "required": true,
+      "exists": true,
+      "sha256": "842f53ba4a622306a52805d379865428e0fd3ccd2577f85e1e368d99dc144a79"
+    },
+    {
+      "artifact_key": "known_blocked_state_guide",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_KNOWN_BLOCKED_STATE_GUIDE.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_KNOWN_BLOCKED_STATE_GUIDE.md",
+      "required": true,
+      "exists": true,
+      "sha256": "b12d1becdea0748997ac351fbf443a54670d28d4c70e63f56893f008fdb823d3"
+    },
+    {
+      "artifact_key": "operator_action_menu_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_ACTION_MENU.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_ACTION_MENU.md",
+      "required": true,
+      "exists": true,
+      "sha256": "f806ae237e1a8e65ac9b3fd2b416ac3f90037ffc5603f20eaeb19b4bc7f6fef3"
+    },
+    {
+      "artifact_key": "artifact_navigation_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_ARTIFACT_NAVIGATION_INDEX.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_ARTIFACT_NAVIGATION_INDEX.md",
+      "required": true,
+      "exists": true,
+      "sha256": "cf536759c5ff23fa743be5fbf0036730cb404295ad0ea21afa035fead9b8e54e"
+    },
+    {
+      "artifact_key": "operator_quickstart",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_QUICKSTART.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_QUICKSTART.md",
+      "required": true,
+      "exists": true,
+      "sha256": "c6034584391eeab71a280c2c2a137bc08bd4d08ba837b4a92c0f2e8695a94111"
+    },
+    {
+      "artifact_key": "operator_source_trace_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_SOURCE_TRACE.md",
+      "relative_path": "outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_SOURCE_TRACE.md",
+      "required": true,
+      "exists": true,
+      "sha256": "3eb72b1e18ee8580ad7f556dfdc03b32d0e34af698844f8502387ba6de05dccf"
+    },
+    {
+      "artifact_key": "operator_experience_audit_json",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_operator_experience_audit.json",
+      "relative_path": "data\\equity_data_quality\\a_share_owner_operator_experience_audit.json",
+      "required": true,
+      "exists": true,
+      "sha256": "08eccdc50ea1abb1684ee36ea20987073dc3d84355dd1423081444b306522a9d"
+    },
+    {
+      "artifact_key": "operator_experience_audit_report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\audit\\A_SHARE_OWNER_OPERATOR_EXPERIENCE_AUDIT.md",
+      "relative_path": "outputs\\audit\\A_SHARE_OWNER_OPERATOR_EXPERIENCE_AUDIT.md",
+      "required": true,
+      "exists": true,
+      "sha256": "98d1b8bdebd820c02a7b83549d5de2f424be6ba637f75e5675500d603cef3fa4"
+    }
+  ],
+  "boundary_assumptions": {
+    "boundary_id": "A-SHARE-OWNER-OPERATOR-EXPERIENCE-BOUNDARY-CHECK",
+    "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+    "as_of_date": "2026-06-26",
+    "operator_experience_only": true,
+    "known_blocked_state_hardening_only": true,
+    "source_workflow_mode": "build_from_existing_data",
+    "source_release_candidate": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+    "known_owner_readiness_state": "blocked",
+    "owner_operationally_acceptable": false,
+    "rerun_owner_readiness_gate": false,
+    "rerun_build_from_existing_data": false,
+    "rerun_daily_pack": false,
+    "new_gate_score_generated": false,
+    "new_gate_decision_generated": false,
+    "run_full_pytest": false,
+    "threshold_lowered": false,
+    "auto_waiver_allowed": false,
+    "manual_waiver_approval_recorded": false,
+    "public_network_refresh_run": false,
+    "full_research_run": false,
+    "old_run_daily_called": false,
+    "run_daily_called": false,
+    "day2_executed": false,
+    "external_notifications_sent": false,
+    "execute_remediation_actions": false,
+    "research_only": true,
+    "virtual_only": true,
+    "real_portfolio_generated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false,
+    "real_account_data_read": false,
+    "operator_experience_used_as_trade_instruction": false,
+    "protected_path_modifications_detected": false,
+    "forbidden_artifacts_present": [],
+    "forbidden_wording_positive_hits": [],
+    "overall_passed": true,
+    "blocking_reasons": [],
+    "warnings": []
+  },
+  "source_resolution_decisions": [
+    {
+      "source_key": "v090_rc_audit",
+      "role": "primary_release_evidence",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_v090_rc_audit.json"
+    },
+    {
+      "source_key": "v090_owner_release_summary",
+      "role": "owner_readiness_truth",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_owner_release_summary.json"
+    },
+    {
+      "source_key": "v090_known_blocked_state_disclosure",
+      "role": "blocked_state_truth",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_known_blocked_state_disclosure.json"
+    },
+    {
+      "source_key": "v0821_unresolved_blocker_register",
+      "role": "blocker_digest_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_closeout_review\\daily\\2026-06-26\\unresolved_blocker_register.json"
+    },
+    {
+      "source_key": "v0820_gate_outcome_audit",
+      "role": "final_blocked_closeout_source",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_v0820_gate_outcome_audit.json"
+    }
+  ]
+}

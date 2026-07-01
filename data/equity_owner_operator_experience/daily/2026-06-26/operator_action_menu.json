@@ -1,0 +1,121 @@
+{
+  "menu_id": "A-SHARE-OPERATOR-ACTION-MENU",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "actions": [
+    {
+      "action_id": "view_status",
+      "label": "View owner daily status",
+      "description": "Open the current owner/operator status card.",
+      "action_type": "view_status",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_OWNER_DAILY_OPERATOR_STATUS.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_rc_report",
+      "label": "View v0.9.0 RC report",
+      "description": "Open release-candidate evidence.",
+      "action_type": "view_rc_report",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_V090_RC_REPORT.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_known_blocked_state",
+      "label": "View known blocked state",
+      "description": "Open blocked-state guide.",
+      "action_type": "view_known_blocked_state",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_KNOWN_BLOCKED_STATE_GUIDE.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_full_regression_result",
+      "label": "View full regression result",
+      "description": "Open v0.9.0 full pytest result.",
+      "action_type": "view_full_regression_result",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_V090_FULL_REGRESSION_RESULT.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_audit_sweep_result",
+      "label": "View audit sweep result",
+      "description": "Open v0.9.0 audit sweep result.",
+      "action_type": "view_audit_sweep_result",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_V090_AUDIT_SWEEP_RESULT.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_closeout_review",
+      "label": "View closeout review",
+      "description": "Open v0.8.21 closeout review.",
+      "action_type": "view_closeout_review",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_OWNER_READINESS_CLOSEOUT_REVIEW.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_final_blocked_closeout",
+      "label": "View final blocked closeout",
+      "description": "Open v0.8.20 final blocked closeout audit.",
+      "action_type": "view_final_blocked_closeout",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "a_share_owner_v0820_gate_outcome_audit.json",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_unresolved_blockers",
+      "label": "View unresolved blockers",
+      "description": "Open unresolved blocker digest.",
+      "action_type": "view_unresolved_blockers",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "unresolved_blocker_digest.json",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    },
+    {
+      "action_id": "view_artifact_navigation_index",
+      "label": "View artifact index",
+      "description": "Open artifact navigation index.",
+      "action_type": "view_artifact_navigation_index",
+      "allowed": true,
+      "safe_command_if_any": "",
+      "source_artifact": "A_SHARE_ARTIFACT_NAVIGATION_INDEX.md",
+      "expected_output": "read-only artifact view",
+      "owner_visible": true,
+      "forbidden_reason_if_not_allowed": ""
+    }
+  ],
+  "forbidden_operator_actions_present": false,
+  "forbidden_action_types_present": [],
+  "upstream_workflow_actions_present": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -1,0 +1,10 @@
+{
+  "alignment_id": "A-SHARE-OWNER-OPERATOR-EXPERIENCE-DATE-ALIGNMENT",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "mismatches": [],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

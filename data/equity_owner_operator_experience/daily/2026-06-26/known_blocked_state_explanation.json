@@ -1,0 +1,35 @@
+{
+  "explanation_id": "A-SHARE-KNOWN-BLOCKED-STATE-EXPLANATION",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "what_blocked_means": "The research system RC passed, but owner operational acceptability did not pass.",
+  "why_blocked_is_not_system_failure": "The blocked state is expected because score and evidence thresholds are not met.",
+  "what_is_safe_to_view": [
+    "status card",
+    "RC report",
+    "full regression result",
+    "audit sweep result",
+    "known blocked state disclosure",
+    "unresolved blockers"
+  ],
+  "what_is_not_allowed": [
+    "broker connection",
+    "real account read",
+    "real orders",
+    "order preview",
+    "trading signals",
+    "old run-daily",
+    "official day2"
+  ],
+  "what_needs_future_work": "Future evidence collection and operator usability work before any controlled reevaluation can be considered.",
+  "owner_misunderstanding_prevention": [
+    "Do not describe blocked as acceptable.",
+    "Do not describe the RC as live-ready.",
+    "Do not treat operator status as an order instruction."
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

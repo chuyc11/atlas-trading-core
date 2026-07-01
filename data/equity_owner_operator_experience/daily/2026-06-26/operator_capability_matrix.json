@@ -1,0 +1,173 @@
+{
+  "matrix_id": "A-SHARE-OPERATOR-CAPABILITY-MATRIX",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "capabilities": [
+    {
+      "capability_id": "view_rc_report",
+      "label": "view rc report",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_full_regression_result",
+      "label": "view full regression result",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_audit_sweep_result",
+      "label": "view audit sweep result",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_known_blocked_state",
+      "label": "view known blocked state",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_unresolved_blockers",
+      "label": "view unresolved blockers",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_artifact_index",
+      "label": "view artifact index",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "view_owner_daily_status",
+      "label": "view owner daily status",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "prepare_future_evidence_review",
+      "label": "prepare future evidence review",
+      "allowed": true,
+      "reason": "Safe read-only operator experience capability.",
+      "source_artifact": "v0.9.0 RC and v0.8.21 closeout artifacts",
+      "owner_visible": true,
+      "risk_level": "low"
+    },
+    {
+      "capability_id": "connect_broker",
+      "label": "connect broker",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "read_real_account",
+      "label": "read real account",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "place_real_order",
+      "label": "place real order",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "generate_order_preview",
+      "label": "generate order preview",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "generate_buy_signal",
+      "label": "generate buy signal",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "generate_sell_signal",
+      "label": "generate sell signal",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "execute_old_run_daily",
+      "label": "execute old run daily",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "execute_forward_dry_run_day2",
+      "label": "execute forward dry run day2",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "claim_live_trading_ready",
+      "label": "claim live trading ready",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    },
+    {
+      "capability_id": "claim_owner_readiness_acceptable",
+      "label": "claim owner readiness acceptable",
+      "allowed": false,
+      "reason": "Outside v0.9.1 research-only operator experience boundary.",
+      "source_artifact": "operator_boundary_check.json",
+      "owner_visible": true,
+      "risk_level": "blocked"
+    }
+  ],
+  "forbidden_capabilities_disallowed": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

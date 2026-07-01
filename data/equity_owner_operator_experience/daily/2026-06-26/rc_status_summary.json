@@ -1,0 +1,15 @@
+{
+  "summary_id": "A-SHARE-RC-STATUS-SUMMARY",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "source_release": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "v090_rc_audit_passed": true,
+  "release_candidate_decision": "v090_rc_passed_with_known_blocked_owner_readiness",
+  "v090_full_pytest_passed": true,
+  "v090_audit_sweep_passed": true,
+  "known_owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

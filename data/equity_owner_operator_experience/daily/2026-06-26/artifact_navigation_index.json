@@ -1,0 +1,155 @@
+{
+  "index_id": "A-SHARE-ARTIFACT-NAVIGATION-INDEX",
+  "target_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "as_of_date": "2026-06-26",
+  "navigation_groups": [
+    "audit_sweep",
+    "boundary_checks",
+    "closeout_review",
+    "current_status",
+    "docs",
+    "evidence_history",
+    "final_blocked_closeout",
+    "full_regression",
+    "gate_history",
+    "known_blocked_state",
+    "recovery_history",
+    "source_traces",
+    "v0.9.0_rc"
+  ],
+  "items": [
+    {
+      "group": "current_status",
+      "title": "Owner daily status",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OWNER_DAILY_OPERATOR_STATUS.md",
+      "artifact_type": "report",
+      "why_it_matters": "Start here for the current operator state.",
+      "owner_visible": true,
+      "priority": 1,
+      "exists": true
+    },
+    {
+      "group": "v0.9.0_rc",
+      "title": "v0.9.0 RC report",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_v090_rc\\daily\\2026-06-26\\A_SHARE_V090_RC_REPORT.md",
+      "artifact_type": "report",
+      "why_it_matters": "Shows RC decision and full regression evidence.",
+      "owner_visible": true,
+      "priority": 2,
+      "exists": true
+    },
+    {
+      "group": "known_blocked_state",
+      "title": "Known blocked guide",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_KNOWN_BLOCKED_STATE_GUIDE.md",
+      "artifact_type": "report",
+      "why_it_matters": "Explains why blocked is expected.",
+      "owner_visible": true,
+      "priority": 3,
+      "exists": true
+    },
+    {
+      "group": "full_regression",
+      "title": "Full regression result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_full_pytest_result.json",
+      "artifact_type": "json",
+      "why_it_matters": "Records v0.9.0 full pytest evidence.",
+      "owner_visible": true,
+      "priority": 4,
+      "exists": true
+    },
+    {
+      "group": "audit_sweep",
+      "title": "Audit sweep result",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v090_rc\\daily\\2026-06-26\\v090_audit_sweep_result.json",
+      "artifact_type": "json",
+      "why_it_matters": "Records v0.8.13-v0.8.21 audit sweep.",
+      "owner_visible": true,
+      "priority": 5,
+      "exists": true
+    },
+    {
+      "group": "closeout_review",
+      "title": "v0.8.21 closeout review",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_closeout_review\\daily\\2026-06-26\\closeout_summary.json",
+      "artifact_type": "json",
+      "why_it_matters": "Closeout context before RC.",
+      "owner_visible": true,
+      "priority": 6,
+      "exists": true
+    },
+    {
+      "group": "final_blocked_closeout",
+      "title": "v0.8.20 final blocked closeout",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_v0820_gate_outcome_audit.json",
+      "artifact_type": "json",
+      "why_it_matters": "Explains final blocked branch.",
+      "owner_visible": true,
+      "priority": 7,
+      "exists": true
+    },
+    {
+      "group": "evidence_history",
+      "title": "Unresolved blocker register",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_closeout_review\\daily\\2026-06-26\\unresolved_blocker_register.json",
+      "artifact_type": "json",
+      "why_it_matters": "Lists unresolved blocker history.",
+      "owner_visible": true,
+      "priority": 8,
+      "exists": true
+    },
+    {
+      "group": "recovery_history",
+      "title": "Recovery evidence audit",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_recovery_evidence_audit.json",
+      "artifact_type": "json",
+      "why_it_matters": "Evidence collection history.",
+      "owner_visible": true,
+      "priority": 9,
+      "exists": true
+    },
+    {
+      "group": "gate_history",
+      "title": "Owner readiness gate audit",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_readiness_gate_audit.json",
+      "artifact_type": "json",
+      "why_it_matters": "Original blocked gate result.",
+      "owner_visible": true,
+      "priority": 10,
+      "exists": true
+    },
+    {
+      "group": "boundary_checks",
+      "title": "Operator boundary check",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_boundary_check.json",
+      "artifact_type": "json",
+      "why_it_matters": "Confirms no trading boundary was touched.",
+      "owner_visible": true,
+      "priority": 11,
+      "exists": true
+    },
+    {
+      "group": "source_traces",
+      "title": "Operator source trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_operator_experience\\daily\\2026-06-26\\operator_source_trace.json",
+      "artifact_type": "json",
+      "why_it_matters": "Maps source and output artifacts.",
+      "owner_visible": true,
+      "priority": 12,
+      "exists": true
+    },
+    {
+      "group": "docs",
+      "title": "Operator quickstart",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_operator_experience\\daily\\2026-06-26\\A_SHARE_OPERATOR_QUICKSTART.md",
+      "artifact_type": "report",
+      "why_it_matters": "Short operator starting point.",
+      "owner_visible": true,
+      "priority": 13,
+      "exists": true
+    }
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}
