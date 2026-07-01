@@ -1,0 +1,76 @@
+{
+  "lineage_id": "A-SHARE-BLOCKED-DECISION-LINEAGE",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "stages": [
+    {
+      "version": "v0.8.13",
+      "stage": "owner readiness gate",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.14-a-share-owner-daily-pack-quality-exceptions-and-escalation-workflow"
+    },
+    {
+      "version": "v0.8.14",
+      "stage": "quality exceptions",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.15-a-share-owner-readiness-recovery-plan-and-quality-improvement-loop"
+    },
+    {
+      "version": "v0.8.15",
+      "stage": "recovery plan",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep"
+    },
+    {
+      "version": "v0.8.16",
+      "stage": "recovery execution tracker",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation"
+    },
+    {
+      "version": "v0.8.17",
+      "stage": "controlled reevaluation guard",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts"
+    },
+    {
+      "version": "v0.8.18",
+      "stage": "recovery evidence collection",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep"
+    },
+    {
+      "version": "v0.8.19",
+      "stage": "evidence-backed reevaluation prep",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout"
+    },
+    {
+      "version": "v0.8.20",
+      "stage": "final blocked closeout",
+      "source_gate_decision": "blocked",
+      "audit_overall_passed": true,
+      "blocked_state_visible": true,
+      "recommended_next_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep"
+    }
+  ],
+  "source_gate_decision": "blocked",
+  "blocked_decision_preserved": true
+}

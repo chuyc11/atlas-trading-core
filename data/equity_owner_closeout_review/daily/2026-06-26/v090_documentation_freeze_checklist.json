@@ -1,0 +1,75 @@
+{
+  "checklist_id": "A-SHARE-V090-DOCUMENTATION-FREEZE-CHECKLIST",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "items": [
+    {
+      "item": "README updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "RELEASE_NOTES updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "VERSION updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "CLI_REFERENCE updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "COMMAND_COOKBOOK updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "ARTIFACT_MAP updated",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "testing policy documented",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "owner-readiness blocked state documented",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "final blocked closeout documented",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "no live trading claims",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "no profit guarantees",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "no broker/order/signal claims",
+      "required_for_v090": true,
+      "status": "planned"
+    },
+    {
+      "item": "v0.9.0 RC scope documented",
+      "required_for_v090": true,
+      "status": "planned"
+    }
+  ]
+}

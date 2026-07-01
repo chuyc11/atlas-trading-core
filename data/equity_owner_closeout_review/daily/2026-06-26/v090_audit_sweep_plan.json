@@ -1,0 +1,101 @@
+{
+  "plan_id": "A-SHARE-V090-AUDIT-SWEEP-PLAN",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "audit_count": 9,
+  "audits": [
+    {
+      "audit_id": "v0813_owner_readiness_gate",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_readiness_gate_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0814_quality_exception_workflow",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_quality_exception_workflow_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0815_recovery_plan",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-readiness-recovery --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_readiness_recovery_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0816_recovery_execution",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-readiness-recovery-execution --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_readiness_recovery_execution_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0817_controlled_reevaluation",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_controlled_gate_reevaluation_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0818_recovery_evidence",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-recovery-evidence --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_recovery_evidence_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0819_evidence_backed_prep",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_evidence_backed_reevaluation_prep_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0820_gate_outcome",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_v0820_gate_outcome_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    },
+    {
+      "audit_id": "v0821_closeout_review",
+      "audit_command": "python -m trading_core.cli audit-a-share-owner-closeout-review --as-of-date 2026-06-26",
+      "required_artifact": "data/equity_data_quality/a_share_owner_closeout_review_audit.json",
+      "expected_overall_passed": true,
+      "expected_blocking_reasons": [],
+      "expected_safety_boundary": "research_only_virtual_only_no_broker_no_orders_no_signals",
+      "owner_visible": true,
+      "blocks_v090_rc_if_failed": true
+    }
+  ]
+}

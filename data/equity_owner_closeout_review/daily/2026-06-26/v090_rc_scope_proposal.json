@@ -1,0 +1,64 @@
+{
+  "proposal_id": "A-SHARE-V090-RC-SCOPE-PROPOSAL",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "proposed_rc_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "included_capabilities": [
+    "A-share research artifact chain",
+    "build_from_existing_data gated workflow lineage",
+    "owner daily pack lineage",
+    "owner-readiness gate lineage",
+    "quality exception workflow",
+    "recovery plan and evidence framework",
+    "controlled reevaluation guard",
+    "final blocked closeout",
+    "testing policy",
+    "audit sweep plan",
+    "boundary protection",
+    "documentation freeze"
+  ],
+  "excluded_capabilities": [
+    "broker integration",
+    "real account reading",
+    "real order placement",
+    "trading signals",
+    "order previews",
+    "live trading readiness",
+    "public network refresh automation",
+    "automatic daily scheduler",
+    "full recovery of owner-readiness score",
+    "forced gate acceptance"
+  ],
+  "known_blocked_states": [
+    "owner_readiness_remains_blocked"
+  ],
+  "release_candidate_acceptance_criteria": [
+    "full pytest passes in v0.9.0",
+    "full audit sweep passes or fails closed with documented blockers",
+    "blocked owner-readiness state remains explicit",
+    "no unsafe boundary regression exists",
+    "documentation freeze is complete"
+  ],
+  "release_candidate_rejection_criteria": [
+    "blocked state is hidden or described as acceptable",
+    "threshold is lowered",
+    "waiver is auto-approved",
+    "new gate score or decision is generated without explicit v0.9.0 scope",
+    "protected paths are modified",
+    "full regression fails without a closeout decision"
+  ],
+  "owner_facing_limitations": [
+    "v0.9.0 can be a research-system closeout RC only.",
+    "Owner-readiness remains a known blocked state.",
+    "v0.9.0 does not represent operational trading approval."
+  ],
+  "future_work_after_v090": [
+    "collect audit-verified recovery evidence",
+    "prepare a future controlled gate reevaluation only when prerequisites pass",
+    "keep owner-facing documentation aligned with blocked state"
+  ],
+  "blocked_owner_readiness_state_acceptable_for_rc": true
+}

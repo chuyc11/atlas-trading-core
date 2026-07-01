@@ -1,0 +1,40 @@
+{
+  "plan_id": "A-SHARE-V090-FULL-REGRESSION-PLAN",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "full_pytest_command": "python -m pytest",
+  "full_pytest_run": false,
+  "full_pytest_required_in_v090": true,
+  "audit_sweep_commands": [
+    "python -m trading_core.cli audit-a-share-owner-readiness-gate --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-quality-exceptions --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-readiness-recovery --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-readiness-recovery-execution --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-controlled-gate-reevaluation --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-recovery-evidence --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26",
+    "python -m trading_core.cli audit-a-share-owner-closeout-review --as-of-date 2026-06-26"
+  ],
+  "boundary_scan_commands": [
+    "rg \"BROKER_ORDER|REAL_ORDER|ORDER_PREVIEW|BUY_LIST|SELL_LIST\" data outputs",
+    "rg \"run-daily|easytrader|THSTrader\" src tests docs"
+  ],
+  "forbidden_artifact_scan": "scan data/orders data/trades data/accounts outputs/orders outputs/trades outputs/accounts and v0.8.21 output dirs",
+  "forbidden_wording_scan": "scan owner-facing markdown for positive trading wording outside negative disclaimer context",
+  "source_trace_consistency_checks": [
+    "verify source trace completeness",
+    "verify SHA256 hashes where available"
+  ],
+  "docs_freeze_checks": [
+    "README",
+    "RELEASE_NOTES",
+    "CLI_REFERENCE",
+    "COMMAND_COOKBOOK",
+    "ARTIFACT_MAP",
+    "TESTING_POLICY"
+  ]
+}

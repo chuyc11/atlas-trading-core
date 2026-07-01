@@ -1,0 +1,101 @@
+{
+  "register_id": "A-SHARE-V090-RELEASE-RISK-REGISTER",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "risk_count": 10,
+  "risks": [
+    {
+      "risk_id": "R001",
+      "category": "blocked_state_misinterpretation",
+      "severity": "high",
+      "description": "Known blocked owner-readiness state could be mistaken for acceptance.",
+      "mitigation": "Keep blocked state in scope, reports, docs, and audit.",
+      "blocks_v090_rc": false,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R002",
+      "category": "owner_confusion",
+      "severity": "medium",
+      "description": "Owner may confuse research-system RC with operational approval.",
+      "mitigation": "Use owner-facing disclaimers and boundary checks.",
+      "blocks_v090_rc": false,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R003",
+      "category": "readiness_score_gap",
+      "severity": "high",
+      "description": "Score remains 21 points below threshold.",
+      "mitigation": "Treat as owner-readiness blocker, not RC blocker.",
+      "blocks_v090_rc": false,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R004",
+      "category": "evidence_gap",
+      "severity": "high",
+      "description": "Recovery evidence remains insufficient.",
+      "mitigation": "Keep future evidence collection outside v0.8.21.",
+      "blocks_v090_rc": false,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R005",
+      "category": "test_runtime_cost",
+      "severity": "medium",
+      "description": "Full regression can be slower than small-version tests.",
+      "mitigation": "Run it only in v0.9.0 closeout.",
+      "blocks_v090_rc": false,
+      "owner_visible": false
+    },
+    {
+      "risk_id": "R006",
+      "category": "documentation_drift",
+      "severity": "medium",
+      "description": "Docs may lag release truth.",
+      "mitigation": "Use documentation freeze checklist.",
+      "blocks_v090_rc": true,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R007",
+      "category": "forbidden_wording_regression",
+      "severity": "high",
+      "description": "Positive trading wording could appear in reports.",
+      "mitigation": "Audit markdown wording.",
+      "blocks_v090_rc": true,
+      "owner_visible": true
+    },
+    {
+      "risk_id": "R008",
+      "category": "protected_path_regression",
+      "severity": "high",
+      "description": "Protected paths could be modified accidentally.",
+      "mitigation": "Audit protected artifact paths.",
+      "blocks_v090_rc": true,
+      "owner_visible": false
+    },
+    {
+      "risk_id": "R009",
+      "category": "source_trace_hash_drift",
+      "severity": "medium",
+      "description": "Artifact hashes could drift after trace generation.",
+      "mitigation": "Verify hashes in audit sweep.",
+      "blocks_v090_rc": true,
+      "owner_visible": false
+    },
+    {
+      "risk_id": "R010",
+      "category": "version_tag_mismatch",
+      "severity": "medium",
+      "description": "Release metadata could diverge from tag.",
+      "mitigation": "Check VERSION, CLI, tag in v0.9.0.",
+      "blocks_v090_rc": true,
+      "owner_visible": false
+    }
+  ]
+}

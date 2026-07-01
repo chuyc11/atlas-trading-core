@@ -1,0 +1,97 @@
+{
+  "register_id": "A-SHARE-OWNER-CLOSEOUT-UNRESOLVED-BLOCKER-REGISTER",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [],
+  "unresolved_blocker_count": 7,
+  "blockers_that_block_owner_readiness_acceptance": 6,
+  "blockers_that_block_v090_rc": 0,
+  "blockers": [
+    {
+      "blocker_id": "B001",
+      "category": "readiness_score_gap",
+      "source_version": "v0.8.13",
+      "source_artifact": "a_share_owner_readiness_gate_audit.json",
+      "description": "Owner-readiness score remains 54 against threshold 75.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Improve audited readiness inputs before a future gate reevaluation."
+    },
+    {
+      "blocker_id": "B002",
+      "category": "missing_recovery_evidence",
+      "source_version": "v0.8.18",
+      "source_artifact": "a_share_owner_recovery_evidence_audit.json",
+      "description": "Recovery evidence is not sufficient to justify a new gate evaluation.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Collect real evidence and rerun the evidence-backed prep in a later version."
+    },
+    {
+      "blocker_id": "B003",
+      "category": "missing_audit_verified_evidence",
+      "source_version": "v0.8.19",
+      "source_artifact": "a_share_owner_evidence_backed_reevaluation_prep_audit.json",
+      "description": "Audit-verified evidence did not support controlled reevaluation.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Add audit-verifiable evidence before reopening the gate."
+    },
+    {
+      "blocker_id": "B004",
+      "category": "remaining_evidence_gaps",
+      "source_version": "v0.8.20",
+      "source_artifact": "final_blocked_closeout.json",
+      "description": "Remaining gap count is 5.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Resolve remaining blockers with source-backed artifacts."
+    },
+    {
+      "blocker_id": "B005",
+      "category": "owner_readiness_not_acceptable",
+      "source_version": "v0.8.20",
+      "source_artifact": "v0820_owner_outcome_summary.json",
+      "description": "Owner operational acceptability is false.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Do not describe the state as owner-ready until a future gate passes."
+    },
+    {
+      "blocker_id": "B006",
+      "category": "insufficient_history_if_present",
+      "source_version": "v0.8.20",
+      "source_artifact": "v0820_input_availability.json",
+      "description": "Historical sufficiency remains a review item if upstream audits expose it.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": true,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Keep the v0.9.0 audit sweep checking history and trace coverage."
+    },
+    {
+      "blocker_id": "B007",
+      "category": "v090_rc_known_blocked_state",
+      "source_version": "v0.8.21",
+      "source_artifact": "v090_release_candidate_readiness_decision.json",
+      "description": "v0.9.0 RC may proceed only as a documented research closeout RC with known blocked owner-readiness state.",
+      "owner_visible": true,
+      "blocks_owner_readiness_acceptance": false,
+      "blocks_v090_rc": false,
+      "requires_resolution_before_v090": false,
+      "recommended_resolution": "Keep the blocked state explicit in RC scope, docs, audit, and owner-facing reports."
+    }
+  ]
+}

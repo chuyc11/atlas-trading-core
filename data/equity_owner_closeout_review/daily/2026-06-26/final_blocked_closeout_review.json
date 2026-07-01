@@ -1,0 +1,20 @@
+{
+  "review_id": "A-SHARE-FINAL-BLOCKED-CLOSEOUT-REVIEW",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "selected_v0820_branch": "final_blocked_closeout",
+  "source_gate_decision": "blocked",
+  "owner_operationally_acceptable": false,
+  "previous_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "blocked_state_intentional": true,
+  "blocked_state_audited": true,
+  "blocked_state_misrepresented_as_acceptable": false,
+  "closeout_review_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

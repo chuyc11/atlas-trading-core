@@ -1,0 +1,22 @@
+{
+  "decision_id": "A-SHARE-V090-RELEASE-CANDIDATE-READINESS-DECISION",
+  "target_version": "v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep",
+  "as_of_date": "2026-06-26",
+  "recommended_next_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "allowed_decisions": [
+    "ready_for_v090_rc_full_regression",
+    "not_ready_for_v090_rc",
+    "ready_with_known_blocked_owner_readiness_state"
+  ],
+  "decision": "ready_with_known_blocked_owner_readiness_state",
+  "owner_readiness_remains_blocked": true,
+  "owner_operationally_acceptable": false,
+  "blocked_state_intentional": true,
+  "blocked_state_audited": true,
+  "blocked_state_misrepresented_as_acceptable": false,
+  "v090_full_regression_plan_generated": true,
+  "v090_audit_sweep_plan_generated": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

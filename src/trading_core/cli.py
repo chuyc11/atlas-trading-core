@@ -179,6 +179,13 @@ from trading_core.equity_owner_v0820_gate_outcome.outcome_builder import (
 from trading_core.equity_owner_v0820_gate_outcome.outcome_config import ALLOWED_MODES as A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES
 from trading_core.equity_owner_v0820_gate_outcome.outcome_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_V0820_GATE_OUTCOME_AS_OF_DATE
 from trading_core.equity_owner_v0820_gate_outcome.v0820_outcome_audit import audit_a_share_owner_v0820_gate_outcome
+from trading_core.equity_owner_closeout_review.builder import (
+    build_a_share_owner_closeout_review,
+    validate_a_share_owner_closeout_review_inputs,
+)
+from trading_core.equity_owner_closeout_review.closeout_config import ALLOWED_MODES as A_SHARE_OWNER_CLOSEOUT_REVIEW_MODES
+from trading_core.equity_owner_closeout_review.closeout_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_CLOSEOUT_REVIEW_AS_OF_DATE
+from trading_core.equity_owner_closeout_review.closeout_review_audit import audit_a_share_owner_closeout_review
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1227,6 +1234,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_audit, include_mode=False)
     owner_v0820_gate_outcome_all = subparsers.add_parser("build-and-audit-a-share-owner-v0820-gate-outcome")
     _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_all)
+    owner_closeout_review_validate = subparsers.add_parser("validate-a-share-owner-closeout-review-inputs")
+    _add_a_share_owner_closeout_review_arguments(owner_closeout_review_validate, include_mode=False)
+    owner_closeout_review_build = subparsers.add_parser("build-a-share-owner-closeout-review")
+    _add_a_share_owner_closeout_review_arguments(owner_closeout_review_build)
+    owner_closeout_review_audit = subparsers.add_parser("audit-a-share-owner-closeout-review")
+    _add_a_share_owner_closeout_review_arguments(owner_closeout_review_audit, include_mode=False)
+    owner_closeout_review_all = subparsers.add_parser("build-and-audit-a-share-owner-closeout-review")
+    _add_a_share_owner_closeout_review_arguments(owner_closeout_review_all)
 
     return parser
 
@@ -1554,6 +1569,15 @@ def _add_a_share_owner_v0820_gate_outcome_arguments(parser: argparse.ArgumentPar
         parser.add_argument("--mode", choices=A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES, default="build_and_audit_v0820_outcome")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES, default="validate_v0820_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_closeout_review_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_CLOSEOUT_REVIEW_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_CLOSEOUT_REVIEW_MODES, default="build_v090_rc_scope")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_CLOSEOUT_REVIEW_MODES, default="validate_closeout_review_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -5335,6 +5359,97 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "outcome_checks": audit_result["outcome_checks"],
+                "test_policy": audit_result["test_policy"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-closeout-review-inputs":
+        result = validate_a_share_owner_closeout_review_inputs(as_of_date=args.as_of_date, allow_date_mismatch=args.allow_date_mismatch, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "v0820_outcome_audit_passed": result["v0820_outcome_audit_passed"],
+                "selected_v0820_branch": result["selected_v0820_branch"],
+                "source_gate_decision": result["source_gate_decision"],
+                "controlled_reevaluation_executed": result["controlled_reevaluation_executed"],
+                "final_blocked_closeout_generated": result["final_blocked_closeout_generated"],
+                "threshold_lowered": result["threshold_lowered"],
+                "auto_waiver_allowed": result["auto_waiver_allowed"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-closeout-review":
+        result = build_a_share_owner_closeout_review(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "selected_v0820_branch": result.get("selected_v0820_branch"),
+                "source_gate_decision": result.get("source_gate_decision"),
+                "previous_readiness_score": result.get("previous_readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "score_gap": result.get("score_gap"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "blocked_state_intentional": result.get("blocked_state_intentional"),
+                "blocked_state_audited": result.get("blocked_state_audited"),
+                "new_gate_score_generated": result.get("new_gate_score_generated"),
+                "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+                "execute_full_pytest": result.get("execute_full_pytest"),
+                "v090_release_candidate_readiness_decision": result.get("v090_release_candidate_readiness_decision"),
+                "v090_full_regression_plan_generated": result.get("v090_full_regression_plan_generated"),
+                "v090_audit_sweep_plan_generated": result.get("v090_audit_sweep_plan_generated"),
+                "full_pytest_run": result.get("full_pytest_run"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "closeout_review_report": result.get("closeout_review_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-closeout-review":
+        result = audit_a_share_owner_closeout_review(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "closeout_checks": result["closeout_checks"],
+                "boundary": result["boundary"],
+                "test_policy": result["test_policy"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-closeout-review":
+        build_result = build_a_share_owner_closeout_review(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_closeout_review(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "closeout_checks": audit_result["closeout_checks"],
                 "test_policy": audit_result["test_policy"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
