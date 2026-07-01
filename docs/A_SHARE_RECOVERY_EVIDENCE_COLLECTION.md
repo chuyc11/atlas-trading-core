@@ -19,4 +19,7 @@ Audited state for `2026-06-26`:
 - source blocked gate decision is preserved
 
 This package does not rerun owner readiness gate, does not generate a new gate score, does not generate a new gate decision, and does not treat recovery evidence as trade instruction.
+## v0.8.19 Follow-On
+
+v0.8.19 consumes this recovery evidence package and builds evidence-backed gate reevaluation prep artifacts. The follow-on prep preserves the v0.8.18 evidence truth: evidence quality remains `none`, audit-verified evidence remains 0, missing evidence remains 11, and remaining blockers remain 5. It generates a reevaluation input package but does not execute gate reevaluation or generate a new formal gate score/decision.
 

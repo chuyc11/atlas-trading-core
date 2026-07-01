@@ -278,3 +278,18 @@ Audited release truth for `2026-06-26`:
 - new_gate_decision_generated=false
 
 Recommended next version: `v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep`.
+
+## v0.8.19 Evidence-Backed Gate Reevaluation Prep
+
+v0.8.19 reads the v0.8.18 recovery evidence package and prepares a controlled gate reevaluation input package without executing the gate. The audited `2026-06-26` result is `ready_for_controlled_gate_reevaluation=false` and `eligibility_decision=not_eligible` because evidence quality is `none`, strong evidence is 0, audit-verified evidence is 0, missing evidence is 11, and blocking gaps remain 5.
+
+This stage preserves the source blocked decision, preserves threshold 75, excludes waiver, and does not generate a new formal gate score or formal gate decision. It does not rerun owner readiness gate, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, create order previews, connect broker, place orders, call old `run-daily`, execute official forward dry-run day2, or treat evidence-backed prep as trade instruction.
+
+Primary outputs:
+
+- `data/equity_owner_evidence_backed_reevaluation_prep/daily/2026-06-26/`
+- `outputs/equity_owner_evidence_backed_reevaluation_prep/daily/2026-06-26/`
+- `data/equity_data_quality/a_share_owner_evidence_backed_reevaluation_prep_audit.json`
+- `outputs/audit/A_SHARE_OWNER_EVIDENCE_BACKED_REEVALUATION_PREP_AUDIT.md`
+
+Recommended next version: `v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout`.

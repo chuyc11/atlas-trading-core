@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts
+v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep
 
 ## Completed milestones
 
@@ -78,6 +78,9 @@ v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts
 - v0.8.14 A-share owner daily pack quality exceptions and escalation workflow
 - v0.8.15 A-share owner-readiness recovery plan and quality improvement loop
 - v0.8.16 A-share owner-readiness recovery execution tracker and gate reevaluation prep
+- v0.8.17 A-share owner-readiness controlled gate reevaluation skipped-not-ready
+- v0.8.18 A-share recovery evidence collection and readiness improvement artifacts
+- v0.8.19 A-share owner-readiness evidence-backed gate reevaluation prep
 - v0.8.17 A-share owner-readiness controlled gate reevaluation
 - v0.8.18 A-share recovery evidence collection and readiness improvement artifacts
 
@@ -903,3 +906,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.8.12 writes owner daily pack history and readiness trend artifacts only under `data/equity_owner_daily_pack_history/`, `outputs/equity_owner_daily_pack_history/`, and audit paths; it uses append-only history, does not fabricate daily pack history, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not connect broker, does not place real orders, does not generate buy/sell signals or order previews, and does not treat owner readiness as a trade instruction
 - v0.8.13 writes owner-readiness gate and daily pack quality threshold artifacts only under `data/equity_owner_readiness_gate/`, `outputs/equity_owner_readiness_gate/`, and audit paths; it evaluates owner operations acceptability only, may correctly block a pack whose readiness score is below threshold, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not connect broker, does not place real orders, does not generate buy/sell signals or order previews, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat the owner-readiness gate as a trade instruction
 - v0.8.14 writes owner daily pack quality exception and escalation workflow artifacts only under `data/equity_owner_quality_exceptions/`, `outputs/equity_owner_quality_exceptions/`, and audit paths; it preserves blocked gate decisions, explains audit-passed-but-gate-blocked states, does not auto-waive quality gates, does not change the v0.8.13 gate decision, does not rerun `build_from_existing_data`, does not rerun owner readiness gate, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat quality exceptions as trade instruction
+- v0.8.19 writes evidence-backed reevaluation prep artifacts only under `data/equity_owner_evidence_backed_reevaluation_prep/`, `outputs/equity_owner_evidence_backed_reevaluation_prep/`, and audit paths; it generates a reevaluation input package but does not execute owner-readiness gate reevaluation, does not generate a new formal gate score or decision, preserves the source blocked decision, does not lower thresholds, does not auto-waive quality gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat evidence-backed prep as trade instruction

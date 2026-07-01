@@ -1,5 +1,85 @@
 # Release Notes
 
+## v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep
+
+v0.8.19 A-share owner-readiness evidence-backed gate reevaluation prep.
+
+Adds:
+
+- evidence-backed prep config
+- evidence-backed prep input availability
+- evidence-backed prep source resolution
+- evidence-backed prep date alignment
+- evidence sufficiency for reevaluation decision
+- evidence-to-gate mapping
+- reevaluation input package
+- score impact readiness summary
+- gate threshold preservation package
+- waiver exclusion package
+- boundary preservation package
+- evidence-backed readiness checklist
+- remaining evidence gap decision
+- controlled reevaluation eligibility decision
+- next gate reevaluation execution plan
+- evidence-backed prep source trace
+- evidence-backed prep boundary check
+- evidence-backed prep manifest
+- owner-facing evidence-backed prep reports
+- evidence-backed prep audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- evidence-backed prep audit overall_passed=true
+- audit blocking reasons: none
+- source gate decision: `blocked`
+- source readiness score=54
+- minimum owner readiness score=75
+- score gap=21
+- evidence_record_count=11
+- strong_evidence_count=0
+- audit_verified_evidence_count=0
+- missing_evidence_count=11
+- overall_evidence_quality=none
+- remaining_gap_count=5
+- blocking_gap_count=5
+- evidence_ready_for_next_reevaluation_prep=false
+- ready_for_controlled_gate_reevaluation=false
+- eligibility_decision=not_eligible
+- reevaluation_input_package_generated=true
+- reevaluation_executed=false
+- new_gate_score_generated=false
+- new_gate_decision_generated=false
+- source_gate_decision_preserved=true
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- score_impact_readiness_is_not_official_score=true
+- recommended next version: `v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout`
+
+Boundary:
+
+- generates reevaluation input package but does not execute gate reevaluation
+- does not generate a new formal gate score
+- does not generate a new formal gate decision
+- preserves source blocked decision
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat evidence-backed prep as trade instruction
+- uses targeted pytest only for small version validation
+- defers full pytest to `v0.9.0-or-big-version-closeout`
+
 ## v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts
 
 v0.8.18 A-share recovery evidence collection and readiness improvement artifacts.

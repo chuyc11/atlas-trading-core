@@ -21,4 +21,7 @@ Current audited score state:
 - `evidence_supported_score_delta_estimate=0`
 
 Any score impact in this stage is an evidence-backed estimate, not a formal gate score.
+## v0.8.19 Follow-On
+
+v0.8.19 treats score impact readiness as prep-only evidence. It does not rewrite the audited owner-readiness score, does not generate a new formal gate score, does not generate a new formal gate decision, does not lower the minimum owner readiness score, and does not approve waiver.
 

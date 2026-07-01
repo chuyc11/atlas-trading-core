@@ -41,3 +41,23 @@ The v0.8.18 release report must include:
 - `targeted_pytest_passed=true`
 - `targeted_pytest_count=<actual>`
 - `full_pytest_deferred_until=v0.9.0-or-big-version-closeout`
+
+## v0.8.19 Targeted Test Policy
+
+For `v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep`, use targeted pytest only:
+
+```powershell
+$patterns = @('test_a_share_evidence_backed_prep*.py','test_a_share_evidence_sufficiency_for_reevaluation_decision.py','test_a_share_evidence_to_gate_mapping.py','test_a_share_reevaluation_input_package.py','test_a_share_score_impact_readiness_summary.py','test_a_share_gate_threshold_preservation_package.py','test_a_share_waiver_exclusion_package.py','test_a_share_boundary_preservation_package.py','test_a_share_evidence_backed_readiness_checklist.py','test_a_share_remaining_evidence_gap_decision.py','test_a_share_controlled_reevaluation_eligibility_decision.py','test_a_share_next_gate_reevaluation_execution_plan.py')
+$tests = foreach ($pattern in $patterns) { Get-ChildItem tests -Filter $pattern }
+$tests = $tests | Sort-Object FullName -Unique
+python -m pytest @($tests.FullName)
+```
+
+The v0.8.19 release report must include:
+
+- `full_pytest_run=false`
+- `targeted_pytest_passed=true`
+- `targeted_pytest_count=<actual>`
+- `full_pytest_deferred_until=v0.9.0-or-big-version-closeout`
+
+Full pytest remains deferred until `v0.9.0` or a big-version closeout unless explicitly requested.

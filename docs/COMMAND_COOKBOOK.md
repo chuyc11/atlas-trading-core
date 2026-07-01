@@ -842,6 +842,34 @@ python -m trading_core.cli build-and-audit-a-share-owner-recovery-evidence --as-
 
 This stage collects and grades local recovery evidence. It does not rerun owner readiness gate, generate a new gate score, generate a new gate decision, lower thresholds, approve waivers, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, connect broker, generate orders, or treat recovery evidence as a trade instruction.
 
+## v0.8.19 Owner Evidence-Backed Reevaluation Prep
+
+Validate source inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-owner-evidence-backed-reevaluation-prep-inputs --as-of-date 2026-06-26
+```
+
+Build evidence-backed prep artifacts:
+
+```bash
+python -m trading_core.cli build-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26 --mode evaluate_evidence_sufficiency_for_reevaluation
+```
+
+Audit the prep package:
+
+```bash
+python -m trading_core.cli audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26 --mode evaluate_evidence_sufficiency_for_reevaluation
+```
+
+This stage creates a reevaluation input package but does not execute owner-readiness gate reevaluation. The audited 2026-06-26 decision is `not_eligible`, with no new gate score, no new gate decision, no threshold lowering, no waiver, no broker, no real orders, no buy/sell signals, and no old `run-daily`.
+
 ## v0.8.17 Owner Readiness Controlled Gate Reevaluation
 
 Validate source inputs:

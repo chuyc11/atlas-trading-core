@@ -380,6 +380,19 @@ Modes: `validate_recovery_evidence_inputs`, `collect_recovery_evidence`, `grade_
 
 The command set collects local evidence, grades evidence quality, records gaps/blockers, and builds next reevaluation prep artifacts. It does not rerun owner readiness gate, generate a new gate score or decision, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, call old `run-daily`, connect broker, generate order preview, or place orders.
 
+## v0.8.19 Owner Evidence-Backed Reevaluation Prep
+
+```bash
+python -m trading_core.cli validate-a-share-owner-evidence-backed-reevaluation-prep-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26 --mode evaluate_evidence_sufficiency_for_reevaluation
+python -m trading_core.cli audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-evidence-backed-reevaluation-prep --as-of-date 2026-06-26 --mode evaluate_evidence_sufficiency_for_reevaluation
+```
+
+Modes: `validate_evidence_backed_prep_inputs`, `evaluate_evidence_sufficiency_for_reevaluation`, `build_reevaluation_input_package`, `build_next_controlled_reevaluation_plan`, `build_evidence_backed_prep_report`, `audit_existing_evidence_backed_prep`.
+
+The command set reads v0.8.18 recovery evidence, generates a reevaluation input package, and decides controlled reevaluation eligibility. It does not execute owner-readiness gate reevaluation, generate a new formal gate score or decision, lower thresholds, auto-waive gates, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order preview, connect broker, place real orders, call old `run-daily`, execute official forward dry-run day2, or treat evidence-backed prep as trade instruction.
+
 ## v0.8.16 Owner Readiness Recovery Execution
 
 ```bash
