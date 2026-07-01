@@ -1,5 +1,30 @@
 # Release Notes
 
+## v0.9.2-a-share-owner-daily-runbook-cli-entry-and-staleness-awareness
+
+v0.9.2 is a scoped stop-bleed release that adds a read-only owner-facing daily status CLI:
+
+```powershell
+python -m trading_core.cli owner-daily-status --as-of-date 2026-06-26
+```
+
+- prints an owner-readable daily status summary
+- supports `--format text` and `--format json`
+- shows known blocked owner-readiness state
+- shows readiness score 54 / threshold 75 / gap 21
+- shows v0.9.0 full pytest and audit sweep status
+- shows data staleness without refreshing data
+- does not generate data or output artifacts
+- does not add docs
+- does not rerun owner-readiness gate
+- does not generate a new gate score or decision
+- does not refresh data
+- does not connect broker
+- does not place orders
+- does not generate order previews or buy/sell signals
+- does not run full pytest
+- recommended next version: `v0.9.3-a-share-data-freshness-refresh`
+
 ## v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening
 
 v0.9.1 adds an owner/operator status usability layer around the v0.9.0 known blocked owner-readiness state.
