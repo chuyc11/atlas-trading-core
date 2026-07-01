@@ -1,5 +1,17 @@
 # Testing Policy
 
+## v0.9.1 Targeted Test Policy
+
+For `v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening`, use targeted pytest only:
+
+```powershell
+$tests = @(Get-ChildItem tests -Filter 'test_a_share_operator*.py') + @(Get-Item tests\test_a_share_owner_daily_status_card.py) + @(Get-ChildItem tests -Filter 'test_a_share_known_blocked_state*.py') + @(Get-Item tests\test_a_share_artifact_navigation_index.py) + @(Get-Item tests\test_a_share_owner_next_step_decision_aid.py) + @(Get-Item tests\test_a_share_rc_status_summary.py) + @(Get-Item tests\test_a_share_audit_and_test_status_summary.py) + @(Get-Item tests\test_a_share_safety_boundary_status_panel.py) + @(Get-Item tests\test_a_share_unresolved_blocker_digest.py)
+$tests = $tests | Sort-Object FullName -Unique
+python -m pytest @($tests.FullName)
+```
+
+The released run recorded `21 passed`. Full pytest is deferred to the next major closeout or explicit request.
+
 ## v0.9.0 Full Regression Policy
 
 For `v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression`, full pytest is mandatory:

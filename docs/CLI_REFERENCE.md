@@ -2,6 +2,19 @@
 
 Each command is virtual, file-backed, or research-only. Commands must not be treated as a broker interface.
 
+## A-share owner operator experience
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-operator-experience-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-operator-experience --as-of-date 2026-06-26 --mode build_owner_daily_status
+python -m trading_core.cli audit-a-share-owner-operator-experience --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-operator-experience --as-of-date 2026-06-26 --mode build_owner_daily_status
+```
+
+Modes: `validate_operator_experience_inputs`, `build_owner_daily_status`, `build_known_blocked_state_hardening`, `build_operator_navigation_and_actions`, `build_operator_experience_report`, `audit_existing_operator_experience`.
+
+The v0.9.1 commands read v0.9.0 RC evidence and generate owner/operator status, known-blocked-state explanation, safe action menu, and artifact navigation. They do not rerun owner readiness gate, generate a new gate score or decision, run full pytest by default, rerun `build_from_existing_data`, rerun owner daily pack, refresh public data, run `full_research_run`, connect broker, place orders, generate order previews, call old `run-daily`, or execute official forward dry-run day2.
+
 ## A-share owner v0.9.0 RC closeout
 
 ```powershell

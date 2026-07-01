@@ -2,6 +2,17 @@
 
 This cookbook is for resuming the research-only workbench. It does not authorize live trading.
 
+## v0.9.1 Owner Operator Experience
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-operator-experience-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-operator-experience --as-of-date 2026-06-26 --mode build_owner_daily_status
+python -m trading_core.cli audit-a-share-owner-operator-experience --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-operator-experience --as-of-date 2026-06-26 --mode build_owner_daily_status
+```
+
+This layer is read-only operator experience hardening. It preserves the v0.9.0 known blocked owner-readiness state and uses targeted pytest only.
+
 ## v0.9.0 Owner RC Closeout
 
 ```powershell

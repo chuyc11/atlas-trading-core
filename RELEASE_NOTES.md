@@ -1,5 +1,54 @@
 # Release Notes
 
+## v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening
+
+v0.9.1 adds an owner/operator status usability layer around the v0.9.0 known blocked owner-readiness state.
+
+Adds:
+
+- operator experience config, input availability, source resolution, and date alignment
+- owner daily status card
+- known blocked state banner and explanation
+- operator capability matrix and safe action menu
+- artifact navigation index
+- owner next-step decision aid
+- RC status summary
+- audit and test status summary
+- safety boundary status panel
+- unresolved blocker digest
+- operator source trace, boundary check, manifest, summary, reports, and audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- operator experience audit overall_passed=true
+- blocking_reasons=[]
+- source_release_candidate=`v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression`
+- known_owner_readiness_state=blocked
+- owner_operationally_acceptable=false
+- readiness_score=54
+- minimum_owner_readiness_score=75
+- score_gap=21
+- v090_full_pytest_passed=true
+- v090_audit_sweep_passed=true
+- targeted_pytest_passed=true
+- targeted_pytest_count=21
+- full_pytest_run=false
+- full_pytest_deferred_until=next-major-closeout-or-explicit-request
+
+Boundary:
+
+- preserves blocked owner-readiness state and does not claim owner-readiness passed
+- does not generate a new gate score or decision
+- does not rerun owner readiness gate, `build_from_existing_data`, or owner daily pack
+- does not execute full pytest by default
+- does not lower readiness thresholds or auto-waive quality gates
+- does not refresh public network data or run `full_research_run`
+- does not execute remediation actions or send external notifications
+- does not generate buy/sell signals or order previews
+- does not connect broker, read real accounts, place real orders, call old `run-daily`, or execute official forward dry-run day2
+- does not treat operator status as trade instruction
+- recommended next version: `v0.9.2-a-share-owner-daily-status-artifact-navigation-and-report-usability`
+
 ## v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression
 
 v0.9.0 executes the A-share owner-readiness closeout release candidate and full regression for `as_of_date=2026-06-26`.

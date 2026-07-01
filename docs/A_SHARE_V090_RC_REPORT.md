@@ -1,5 +1,9 @@
 # A 股 v0.9.0 RC Report
 
+## v0.9.1 Operator Follow-Up
+
+v0.9.1 adds an owner/operator status layer over this RC. It preserves the known blocked owner-readiness state and does not rerun owner readiness gate, generate a new gate score, generate a new gate decision, or run full pytest by default.
+
 ## 1. v0.9.0 RC 总览
 - v0.9.0 is a research-system release candidate.
 - v090_release_candidate_decision: v090_rc_passed_with_known_blocked_owner_readiness

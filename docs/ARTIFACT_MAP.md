@@ -2,6 +2,15 @@
 
 Artifacts are file-backed research outputs. They are not broker instructions and are not permission to trade.
 
+## v0.9.1 A-share owner operator experience
+
+- data: `data/equity_owner_operator_experience/daily/2026-06-26/`
+- reports: `outputs/equity_owner_operator_experience/daily/2026-06-26/`
+- audit JSON: `data/equity_data_quality/a_share_owner_operator_experience_audit.json`
+- audit report: `outputs/audit/A_SHARE_OWNER_OPERATOR_EXPERIENCE_AUDIT.md`
+- scope: operator config, input/source/date checks, status card, known blocked guide, capability matrix, safe action menu, navigation index, next-step aid, RC/test/boundary/blocker summaries, source trace, manifest, and audit
+- boundary: read-only owner/operator experience over v0.9.0 RC evidence; no owner-readiness gate rerun, no new gate score/decision, no full pytest by default, no broker, no real account, no orders, no order preview, no old run-daily, and no official day2
+
 ## v0.9.0 A-share owner-readiness RC closeout
 
 - data: `data/equity_owner_v090_rc/daily/2026-06-26/`

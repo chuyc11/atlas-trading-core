@@ -1,5 +1,11 @@
 # A Share Full Market AI Stock Selection Plan
 
+## v0.9.1 owner/operator experience hardening
+
+v0.9.1 adds a read-only owner/operator status layer over the v0.9.0 RC. It makes the known blocked owner-readiness state easier to inspect without changing source truth: score 54 remains below threshold 75, owner operational acceptability remains false, and the state remains not live-ready.
+
+This stage does not rerun owner readiness gate, does not generate a new gate score or decision, does not execute full pytest by default, does not lower thresholds, does not auto-waive gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public data, does not run `full_research_run`, does not execute remediation, does not send notifications, does not connect broker, does not place orders, does not generate order previews, does not call old `run-daily`, and does not execute official forward dry-run day2.
+
 ## v0.9.0 owner-readiness RC closeout
 
 v0.9.0 executes the release-candidate closeout prepared by v0.8.21. It runs full pytest, sweeps v0.8.13-v0.8.21 owner-readiness audits, verifies boundary/source-trace/documentation freeze evidence, and records `v090_rc_passed_with_known_blocked_owner_readiness` for `as_of_date=2026-06-26`.
