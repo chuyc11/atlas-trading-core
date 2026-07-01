@@ -1,0 +1,33 @@
+{
+  "boundary_id": "A-SHARE-DATA-FRESHNESS-BOUNDARY-CHECK",
+  "target_version": "v0.9.3-a-share-data-freshness-refresh",
+  "resolved_actual_data_date": "2026-07-01",
+  "public_market_data_refresh_only": true,
+  "data_refresh_executed": true,
+  "public_network_refresh_run": true,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "research_pipeline_rerun": false,
+  "build_from_existing_data_run": false,
+  "owner_daily_pack_run": false,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "model_profit_guaranteed": false,
+  "data_freshness_used_as_trade_instruction": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "missing_quote_symbol_count=355"
+  ]
+}

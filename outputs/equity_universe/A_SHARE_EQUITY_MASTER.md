@@ -1,7 +1,7 @@
 # A-Share Equity Master
 
-- source: qstock_reference_public_http
-- symbols: 5867
+- source: qstock_reference_public_http_fast
+- symbols: 5868
 - exchanges: BSE, SSE, SZSE
 
 ## Boundary

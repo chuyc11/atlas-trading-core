@@ -1,0 +1,31 @@
+{
+  "manifest_id": "A-SHARE-DATA-FRESHNESS-MANIFEST",
+  "target_version": "v0.9.3-a-share-data-freshness-refresh",
+  "requested_target_as_of_date": "2026-07-01",
+  "resolved_actual_data_date": "2026-07-01",
+  "generated_at": "2026-07-01T13:43:27.994397Z",
+  "source_version": "v0.9.2-a-share-owner-daily-runbook-cli-entry-and-staleness-awareness",
+  "refresh_result_path": "data/equity_data_freshness/daily/2026-07-01/data_freshness_refresh_result.json",
+  "provider_status_path": "data/equity_data_freshness/daily/2026-07-01/data_freshness_provider_status.json",
+  "coverage_summary_path": "data/equity_data_freshness/daily/2026-07-01/data_freshness_coverage_summary.json",
+  "boundary_check_path": "data/equity_data_freshness/daily/2026-07-01/data_freshness_boundary_check.json",
+  "markdown_report_path": "outputs/equity_data_freshness/daily/2026-07-01/A_SHARE_DATA_FRESHNESS_REFRESH_RESULT.md",
+  "updated_data_paths": [
+    "data/equity_data_quality/a_share_public_snapshot_cache.json",
+    "data/equity_market/adjusted_price_panel.parquet",
+    "data/equity_market/adjusted_price_panel_manifest.json",
+    "data/equity_market/daily_basic_panel.parquet",
+    "data/equity_market/daily_basic_panel_manifest.json",
+    "data/equity_market/daily_price_panel.parquet",
+    "data/equity_market/daily_price_panel_manifest.json",
+    "data/equity_universe/equity_master.json",
+    "data/equity_universe/equity_master.parquet",
+    "data/equity_universe/trading_calendar.json",
+    "data/equity_universe/trading_calendar.parquet",
+    "outputs/equity_universe/A_SHARE_EQUITY_MASTER.md",
+    "outputs/equity_universe/A_SHARE_TRADING_CALENDAR.md"
+  ],
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data"
+}

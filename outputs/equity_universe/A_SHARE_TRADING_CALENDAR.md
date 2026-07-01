@@ -2,9 +2,9 @@
 
 - source: weekday_calendar_v1
 - exchanges: BSE, SSE, SZSE
-- trading_days: 282
-- min_date: 2025-06-26
-- max_date: 2026-07-24
+- trading_days: 284
+- min_date: 2025-07-01
+- max_date: 2026-07-31
 
 ## Boundary
 - Data ingestion only.

@@ -1,0 +1,19 @@
+{
+  "coverage_id": "A-SHARE-DATA-FRESHNESS-COVERAGE-SUMMARY",
+  "requested_target_as_of_date": "2026-07-01",
+  "resolved_actual_data_date": "2026-07-01",
+  "universe_symbol_count": 5868,
+  "refreshed_symbol_count": 5868,
+  "missing_symbol_count": 0,
+  "missing_symbols_sample": [],
+  "missing_quote_symbol_count": 355,
+  "coverage_ratio": 1.0,
+  "minimum_required_coverage_ratio": 0.95,
+  "coverage_passed": true,
+  "partial_data_detected": false,
+  "stale_data_remaining": false,
+  "coverage_warnings": [
+    "missing_quote_symbol_count=355"
+  ],
+  "coverage_blocking_reasons": []
+}

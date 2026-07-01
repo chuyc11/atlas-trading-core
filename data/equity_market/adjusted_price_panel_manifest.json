@@ -1,8 +1,8 @@
 {
   "manifest_id": "A-SHARE-ADJUSTED-PRICE-PANEL-MANIFEST",
   "target_version": "v0.7.1-a-share-full-market-data-ingestion",
-  "rows": 5513,
-  "symbol_count": 5513,
+  "rows": 5511,
+  "symbol_count": 5511,
   "adjustment_types": [
     "raw"
   ],

@@ -18,8 +18,11 @@ def build_owner_daily_status_payload(
 ) -> dict[str, Any]:
     paths = paths or project_paths()
     current_date = current_date or date.today()
-    op_dir = paths.data_dir / "equity_owner_operator_experience" / "daily" / as_of_date
+    op_dir = _operator_daily_dir(paths, as_of_date)
+    freshness = _load_optional(paths.data_dir / "equity_data_freshness" / "daily" / as_of_date / "data_freshness_refresh_result.json")
     rc_dir = paths.data_dir / "equity_owner_v090_rc" / "daily" / as_of_date
+    if not rc_dir.exists():
+        rc_dir = paths.data_dir / "equity_owner_v090_rc" / "daily" / "2026-06-26"
     status = _load_required(op_dir / "owner_daily_status_card.json")
     actions = _load_required(op_dir / "operator_action_menu.json")
     nav = _load_required(op_dir / "artifact_navigation_index.json")
@@ -28,7 +31,14 @@ def build_owner_daily_status_payload(
     v090_audit = _load_required(paths.data_dir / "equity_data_quality" / "a_share_owner_v090_rc_audit.json")
     full_pytest = _load_required(rc_dir / "v090_full_pytest_result.json")
     audit_sweep = _load_required(rc_dir / "v090_audit_sweep_result.json")
-    source_date = status.get("as_of_date") or as_of_date
+    source_date = (
+        freshness.get("staleness_after_refresh", {}).get("source_data_date")
+        or status.get("as_of_date")
+        or as_of_date
+    )
+    days_since = freshness.get("staleness_after_refresh", {}).get("calendar_days_stale")
+    if days_since is None:
+        days_since = _days_since(source_date, current_date)
     return {
         "command": "owner-daily-status",
         "as_of_date": as_of_date,
@@ -44,10 +54,10 @@ def build_owner_daily_status_payload(
         "v091_operator_audit_passed": bool(v091_audit.get("overall_passed")),
         "data_staleness": {
             "source_data_date": source_date,
-            "days_since_source_data": _days_since(source_date, current_date),
-            "trading_days_since_source_data": None,
-            "data_refresh_executed": False,
-            "data_refresh_deferred_until": RECOMMENDED_NEXT_VERSION,
+            "days_since_source_data": days_since,
+            "trading_days_since_source_data": freshness.get("staleness_after_refresh", {}).get("trading_days_stale"),
+            "data_refresh_executed": bool(freshness.get("data_refresh_executed", False)),
+            "data_refresh_deferred_until": freshness.get("recommended_next_version", RECOMMENDED_NEXT_VERSION),
         },
         "safe_actions": [item["label"] for item in actions.get("actions", []) if item.get("allowed") and item.get("owner_visible")][:8],
         "forbidden_actions": _forbidden_actions(boundary),
@@ -103,7 +113,7 @@ def render_owner_daily_status_text(payload: dict[str, Any]) -> str:
         "  data staleness",
         f"     source data date: {stale['source_data_date']}",
         f"     days since source data: {stale['days_since_source_data']} calendar days / unknown trading days",
-        f"     this version does not refresh data; data refresh is deferred to {stale['data_refresh_deferred_until']}",
+        f"     {_staleness_note(stale)}",
         "-" * 59,
         "  safe actions",
     ]
@@ -129,6 +139,12 @@ def render_owner_daily_status_json(payload: dict[str, Any]) -> str:
     return json.dumps(payload, ensure_ascii=False, indent=2)
 
 
+def _staleness_note(stale: dict[str, Any]) -> str:
+    if stale.get("data_refresh_executed"):
+        return f"v0.9.3 public data refresh executed; research rerun is deferred to {stale['data_refresh_deferred_until']}"
+    return f"this version does not refresh data; data refresh is deferred to {stale['data_refresh_deferred_until']}"
+
+
 def owner_daily_status_output(*, as_of_date: str, output_format: str, paths: ProjectPaths | None = None) -> str:
     payload = build_owner_daily_status_payload(as_of_date=as_of_date, paths=paths)
     if output_format == "json":
@@ -142,6 +158,23 @@ def _load_required(path: Path) -> dict[str, Any]:
     if not path.exists():
         raise FileNotFoundError(f"required owner daily status artifact is missing: {path}")
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _load_optional(path: Path) -> dict[str, Any]:
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _operator_daily_dir(paths: ProjectPaths, as_of_date: str) -> Path:
+    exact = paths.data_dir / "equity_owner_operator_experience" / "daily" / as_of_date
+    if exact.exists():
+        return exact
+    root = paths.data_dir / "equity_owner_operator_experience" / "daily"
+    candidates = sorted(path for path in root.glob("*") if path.is_dir()) if root.exists() else []
+    if candidates:
+        return candidates[-1]
+    return exact
 
 
 def _pytest_summary(payload: dict[str, Any]) -> str:

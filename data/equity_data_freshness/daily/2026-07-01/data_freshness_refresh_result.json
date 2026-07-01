@@ -1,0 +1,46 @@
+{
+  "result_id": "A-SHARE-DATA-FRESHNESS-REFRESH-RESULT",
+  "target_version": "v0.9.3-a-share-data-freshness-refresh",
+  "requested_target_as_of_date": "2026-07-01",
+  "resolved_actual_data_date": "2026-07-01",
+  "refresh_started_at": "2026-07-01T13:41:38.635182Z",
+  "refresh_completed_at": "2026-07-01T13:43:27.994397Z",
+  "refresh_duration_seconds": 109.357,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "missing_quote_symbol_count=355"
+  ],
+  "dry_run": false,
+  "data_refresh_executed": true,
+  "public_network_refresh_run": true,
+  "public_market_data_only": true,
+  "provider_status_passed": true,
+  "coverage_passed": true,
+  "staleness_before_refresh": {
+    "source_data_date": "2026-06-26",
+    "calendar_days_stale": 5,
+    "trading_days_stale": null
+  },
+  "staleness_after_refresh": {
+    "source_data_date": "2026-07-01",
+    "calendar_days_stale": 0,
+    "trading_days_stale": 0
+  },
+  "research_pipeline_rerun": false,
+  "build_from_existing_data_run": false,
+  "owner_daily_pack_run": false,
+  "owner_readiness_gate_rerun": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "not_investment_advice": true,
+  "recommended_next_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data"
+}

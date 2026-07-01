@@ -75,6 +75,8 @@ from trading_core.equity_data_refresh.data_refresh_audit import audit_a_share_da
 from trading_core.equity_data_refresh.data_refresh_builder import build_a_share_daily_data_refresh
 from trading_core.equity_data_refresh.data_refresh_config import ALLOWED_MODES as A_SHARE_DATA_REFRESH_MODES
 from trading_core.equity_data_refresh.data_refresh_config import DEFAULT_AS_OF_DATE as DEFAULT_DATA_REFRESH_AS_OF_DATE
+from trading_core.equity_data_freshness import DEFAULT_TARGET_AS_OF_DATE as DEFAULT_DATA_FRESHNESS_TARGET_AS_OF_DATE
+from trading_core.equity_data_freshness import refresh_a_share_data_freshness
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1089,6 +1091,9 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_daily_data_refresh_arguments(data_refresh_audit)
     data_refresh_all = subparsers.add_parser("build-and-audit-a-share-daily-data-refresh")
     _add_a_share_daily_data_refresh_arguments(data_refresh_all)
+    data_freshness = subparsers.add_parser("refresh-a-share-data-freshness")
+    data_freshness.add_argument("--target-as-of-date", default=DEFAULT_DATA_FRESHNESS_TARGET_AS_OF_DATE)
+    data_freshness.add_argument("--dry-run", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -3613,6 +3618,26 @@ def main(argv: Sequence[str] | None = None) -> int:
             }
         )
         return 0 if audit_result["overall_passed"] else 1
+    if args.command == "refresh-a-share-data-freshness":
+        result = refresh_a_share_data_freshness(target_as_of_date=args.target_as_of_date, dry_run=args.dry_run, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "requested_target_as_of_date": result["requested_target_as_of_date"],
+                "resolved_actual_data_date": result["resolved_actual_data_date"],
+                "date_resolution_reason": result["date_resolution_reason"],
+                "dry_run": result["dry_run"],
+                "provider_status": result["provider_status"],
+                "coverage_ratio": result["coverage_ratio"],
+                "coverage_passed": result["coverage_passed"],
+                "data_refresh_executed": result["data_refresh_executed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
             as_of_date=args.as_of_date,

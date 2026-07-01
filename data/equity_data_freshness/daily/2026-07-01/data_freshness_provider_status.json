@@ -1,0 +1,21 @@
+{
+  "status_id": "A-SHARE-DATA-FRESHNESS-PROVIDER-STATUS",
+  "target_version": "v0.9.3-a-share-data-freshness-refresh",
+  "requested_target_as_of_date": "2026-07-01",
+  "resolved_actual_data_date": "2026-07-01",
+  "providers_attempted": [
+    "qstock_reference_public_http_fast"
+  ],
+  "providers_succeeded": [
+    "qstock_reference_public_http_fast"
+  ],
+  "providers_failed": [],
+  "provider_call_count": 1,
+  "network_refresh_executed": true,
+  "public_network_refresh_only": true,
+  "broker_network_access": false,
+  "real_account_access": false,
+  "provider_errors": [],
+  "partial_provider_failures": [],
+  "overall_provider_status": "passed"
+}

@@ -1,0 +1,33 @@
+{
+  "request_id": "A-SHARE-DATA-FRESHNESS-REFRESH-REQUEST",
+  "target_version": "v0.9.3-a-share-data-freshness-refresh",
+  "requested_target_as_of_date": "2026-07-01",
+  "resolved_actual_data_date": "2026-07-01",
+  "date_resolution_reason": "target_date_available_in_local_trading_calendar",
+  "dry_run": false,
+  "refresh_scope": [
+    "trading_calendar",
+    "equity_master",
+    "a_share_universe",
+    "daily_price",
+    "daily_volume",
+    "adjustment_factors"
+  ],
+  "excluded_scope": [
+    "research_pipeline_rerun",
+    "build_from_existing_data",
+    "candidate_generation",
+    "scoring",
+    "virtual_portfolio",
+    "owner_readiness_gate",
+    "broker",
+    "orders",
+    "signals"
+  ],
+  "public_market_data_only": true,
+  "broker_connection_allowed": false,
+  "real_account_read_allowed": false,
+  "real_order_allowed": false,
+  "order_preview_allowed": false,
+  "buy_sell_signal_allowed": false
+}
