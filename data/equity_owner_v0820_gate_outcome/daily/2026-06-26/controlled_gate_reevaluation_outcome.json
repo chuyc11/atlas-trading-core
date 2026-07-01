@@ -1,0 +1,20 @@
+{
+  "outcome_id": "A-SHARE-CONTROLLED-GATE-REEVALUATION-OUTCOME",
+  "target_version": "v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout",
+  "as_of_date": "2026-06-26",
+  "branch_not_selected": true,
+  "controlled_reevaluation_executed": false,
+  "reevaluation_refused_reason": "branch_not_selected_or_not_eligible",
+  "previous_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "new_controlled_readiness_score_generated": false,
+  "new_controlled_readiness_score": null,
+  "new_controlled_readiness_grade": null,
+  "new_controlled_gate_decision_generated": false,
+  "new_controlled_gate_decision": null,
+  "owner_operationally_acceptable": false,
+  "threshold_lowered": false,
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "waiver_used_for_outcome": false
+}

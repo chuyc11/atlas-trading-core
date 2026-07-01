@@ -1,0 +1,8 @@
+{
+  "check_id": "A-SHARE-V0820-THRESHOLD-PRESERVATION-CHECK",
+  "target_version": "v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout",
+  "as_of_date": "2026-06-26",
+  "minimum_owner_readiness_score": 75,
+  "threshold_lowered": false,
+  "threshold_preserved": true
+}

@@ -172,6 +172,13 @@ from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_builder im
 )
 from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_config import ALLOWED_MODES as A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES
 from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_EVIDENCE_BACKED_PREP_AS_OF_DATE
+from trading_core.equity_owner_v0820_gate_outcome.outcome_builder import (
+    build_a_share_owner_v0820_gate_outcome,
+    validate_a_share_owner_v0820_gate_outcome_inputs,
+)
+from trading_core.equity_owner_v0820_gate_outcome.outcome_config import ALLOWED_MODES as A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES
+from trading_core.equity_owner_v0820_gate_outcome.outcome_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_V0820_GATE_OUTCOME_AS_OF_DATE
+from trading_core.equity_owner_v0820_gate_outcome.v0820_outcome_audit import audit_a_share_owner_v0820_gate_outcome
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1212,6 +1219,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_audit, include_mode=False)
     owner_evidence_backed_prep_all = subparsers.add_parser("build-and-audit-a-share-owner-evidence-backed-reevaluation-prep")
     _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_all)
+    owner_v0820_gate_outcome_validate = subparsers.add_parser("validate-a-share-owner-v0820-gate-outcome-inputs")
+    _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_validate, include_mode=False)
+    owner_v0820_gate_outcome_build = subparsers.add_parser("build-a-share-owner-v0820-gate-outcome")
+    _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_build)
+    owner_v0820_gate_outcome_audit = subparsers.add_parser("audit-a-share-owner-v0820-gate-outcome")
+    _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_audit, include_mode=False)
+    owner_v0820_gate_outcome_all = subparsers.add_parser("build-and-audit-a-share-owner-v0820-gate-outcome")
+    _add_a_share_owner_v0820_gate_outcome_arguments(owner_v0820_gate_outcome_all)
 
     return parser
 
@@ -1530,6 +1545,15 @@ def _add_a_share_owner_evidence_backed_prep_arguments(parser: argparse.ArgumentP
         parser.add_argument("--mode", choices=A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES, default="evaluate_evidence_sufficiency_for_reevaluation")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES, default="validate_evidence_backed_prep_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_v0820_gate_outcome_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_V0820_GATE_OUTCOME_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES, default="build_and_audit_v0820_outcome")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_V0820_GATE_OUTCOME_MODES, default="validate_v0820_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -5218,6 +5242,99 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "prep_checks": audit_result["prep_checks"],
+                "test_policy": audit_result["test_policy"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-v0820-gate-outcome-inputs":
+        result = validate_a_share_owner_v0820_gate_outcome_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "evidence_backed_prep_audit_passed": result["evidence_backed_prep_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "source_gate_decision_preserved": result["source_gate_decision_preserved"],
+                "v0819_eligibility_decision": result["v0819_eligibility_decision"],
+                "v0819_ready_for_controlled_gate_reevaluation": result["v0819_ready_for_controlled_gate_reevaluation"],
+                "reevaluation_input_package_generated": result["reevaluation_input_package_generated"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-v0820-gate-outcome":
+        result = build_a_share_owner_v0820_gate_outcome(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "selected_branch": result.get("selected_branch"),
+                "branch_decision_consistent": result.get("branch_decision_consistent"),
+                "controlled_reevaluation_allowed": result.get("controlled_reevaluation_allowed"),
+                "controlled_reevaluation_executed": result.get("controlled_reevaluation_executed"),
+                "final_blocked_closeout_generated": result.get("final_blocked_closeout_generated"),
+                "source_gate_decision": result.get("source_gate_decision"),
+                "previous_readiness_score": result.get("previous_readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "new_controlled_readiness_score_generated": result.get("new_controlled_readiness_score_generated"),
+                "new_controlled_readiness_score": result.get("new_controlled_readiness_score"),
+                "new_controlled_readiness_grade": result.get("new_controlled_readiness_grade"),
+                "new_controlled_gate_decision_generated": result.get("new_controlled_gate_decision_generated"),
+                "new_controlled_gate_decision": result.get("new_controlled_gate_decision"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "threshold_lowered": result.get("threshold_lowered"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "waiver_used_for_outcome": result.get("waiver_used_for_outcome"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "v0820_owner_outcome_report": result.get("v0820_owner_outcome_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-v0820-gate-outcome":
+        result = audit_a_share_owner_v0820_gate_outcome(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "outcome_checks": result["outcome_checks"],
+                "boundary": result["boundary"],
+                "test_policy": result["test_policy"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-v0820-gate-outcome":
+        build_result = build_a_share_owner_v0820_gate_outcome(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_v0820_gate_outcome(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "outcome_checks": audit_result["outcome_checks"],
                 "test_policy": audit_result["test_policy"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }

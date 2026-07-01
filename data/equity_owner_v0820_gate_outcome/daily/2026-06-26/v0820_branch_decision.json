@@ -1,0 +1,37 @@
+{
+  "decision_id": "A-SHARE-V0820-BRANCH-DECISION",
+  "target_version": "v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "v0819_eligibility_decision": "not_eligible",
+  "v0819_ready_for_controlled_gate_reevaluation": false,
+  "remaining_gap_count": 5,
+  "blocking_gap_count": 5,
+  "selected_branch": "final_blocked_closeout",
+  "controlled_reevaluation_allowed": false,
+  "final_blocked_closeout_required": true,
+  "branch_reasons": [
+    "ready_for_controlled_gate_reevaluation",
+    "eligibility_decision_ready",
+    "no_remaining_gaps",
+    "no_blocking_gaps"
+  ],
+  "branch_checks": {
+    "source_gate_decision_blocked": true,
+    "source_gate_decision_preserved": true,
+    "ready_for_controlled_gate_reevaluation": false,
+    "eligibility_decision_ready": false,
+    "reevaluation_input_package_generated": true,
+    "no_remaining_gaps": false,
+    "no_blocking_gaps": false,
+    "threshold_not_lowered": true,
+    "waiver_not_used": true,
+    "v0819_no_gate_outputs": true,
+    "boundary_clean": true
+  },
+  "threshold_lowered": false,
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "blocking_reasons": [],
+  "warnings": []
+}
