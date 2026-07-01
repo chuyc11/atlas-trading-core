@@ -1,0 +1,11 @@
+{
+  "alignment_id": "A-SHARE-OWNER-EVIDENCE-BACKED-REEVALUATION-PREP-DATE-ALIGNMENT",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "allow_date_mismatch": false,
+  "resolved_as_of_date": "2026-06-26",
+  "mismatches": {},
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

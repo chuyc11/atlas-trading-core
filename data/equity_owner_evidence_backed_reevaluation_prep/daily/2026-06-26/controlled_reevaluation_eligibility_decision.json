@@ -1,0 +1,20 @@
+{
+  "decision_id": "A-SHARE-CONTROLLED-REEVALUATION-ELIGIBILITY-DECISION",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "ready_for_controlled_gate_reevaluation": false,
+  "eligibility_decision": "not_eligible",
+  "reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "blocking_reasons": [
+    "evidence_quality_too_low",
+    "evidence_ready_flag_true",
+    "no_missing_evidence",
+    "no_remaining_blockers",
+    "quality_is_strong_or_audit_verified",
+    "remaining_blockers_present",
+    "remaining_gap_decision_blocks_reevaluation",
+    "strong_or_audit_verified_evidence_present"
+  ]
+}

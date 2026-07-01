@@ -1,0 +1,46 @@
+{
+  "mapping_id": "A-SHARE-EVIDENCE-TO-GATE-MAPPING",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "mapping_count": 5,
+  "items": [
+    {
+      "gap_id": "GAP:RECOVERY-TASK-001",
+      "related_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "gate_prerequisite": "owner_readiness_evidence",
+      "blocks_controlled_reevaluation": true,
+      "required_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:RECOVERY-TASK-002",
+      "related_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "gate_prerequisite": "owner_readiness_evidence",
+      "blocks_controlled_reevaluation": true,
+      "required_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:RECOVERY-TASK-003",
+      "related_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "gate_prerequisite": "owner_readiness_evidence",
+      "blocks_controlled_reevaluation": true,
+      "required_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:FOLLOW-UP:2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "related_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "gate_prerequisite": "owner_readiness_evidence",
+      "blocks_controlled_reevaluation": true,
+      "required_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:OWNER-FOLLOW-UP-EVIDENCE",
+      "related_exception_id": "",
+      "gate_prerequisite": "owner_readiness_evidence",
+      "blocks_controlled_reevaluation": true,
+      "required_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    }
+  ],
+  "ready_for_controlled_gate_reevaluation": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false
+}

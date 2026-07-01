@@ -1,0 +1,16 @@
+{
+  "summary_id": "A-SHARE-SCORE-IMPACT-READINESS-SUMMARY",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "evidence_supported_score_delta_estimate": 0,
+  "projected_score_if_evidence_accepted": 54,
+  "score_impact_readiness_is_not_official_score": true,
+  "actual_audited_score_changed": false,
+  "new_audited_score": null,
+  "ready_for_controlled_gate_reevaluation": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false
+}

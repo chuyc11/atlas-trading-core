@@ -165,6 +165,13 @@ from trading_core.equity_owner_recovery_evidence.evidence_builder import (
 from trading_core.equity_owner_recovery_evidence.evidence_config import ALLOWED_MODES as A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES
 from trading_core.equity_owner_recovery_evidence.evidence_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_RECOVERY_EVIDENCE_AS_OF_DATE
 from trading_core.equity_owner_recovery_evidence.recovery_evidence_audit import audit_a_share_owner_recovery_evidence
+from trading_core.equity_owner_evidence_backed_reevaluation_prep.evidence_backed_prep_audit import audit_a_share_owner_evidence_backed_reevaluation_prep
+from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_builder import (
+    build_a_share_owner_evidence_backed_reevaluation_prep,
+    validate_a_share_owner_evidence_backed_reevaluation_prep_inputs,
+)
+from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_config import ALLOWED_MODES as A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES
+from trading_core.equity_owner_evidence_backed_reevaluation_prep.prep_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_EVIDENCE_BACKED_PREP_AS_OF_DATE
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1197,6 +1204,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_audit, include_mode=False)
     owner_recovery_evidence_all = subparsers.add_parser("build-and-audit-a-share-owner-recovery-evidence")
     _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_all)
+    owner_evidence_backed_prep_validate = subparsers.add_parser("validate-a-share-owner-evidence-backed-reevaluation-prep-inputs")
+    _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_validate, include_mode=False)
+    owner_evidence_backed_prep_build = subparsers.add_parser("build-a-share-owner-evidence-backed-reevaluation-prep")
+    _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_build)
+    owner_evidence_backed_prep_audit = subparsers.add_parser("audit-a-share-owner-evidence-backed-reevaluation-prep")
+    _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_audit, include_mode=False)
+    owner_evidence_backed_prep_all = subparsers.add_parser("build-and-audit-a-share-owner-evidence-backed-reevaluation-prep")
+    _add_a_share_owner_evidence_backed_prep_arguments(owner_evidence_backed_prep_all)
 
     return parser
 
@@ -1506,6 +1521,15 @@ def _add_a_share_owner_recovery_evidence_arguments(parser: argparse.ArgumentPars
         parser.add_argument("--mode", choices=A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES, default="collect_recovery_evidence")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES, default="validate_recovery_evidence_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_evidence_backed_prep_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_EVIDENCE_BACKED_PREP_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES, default="evaluate_evidence_sufficiency_for_reevaluation")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_EVIDENCE_BACKED_PREP_MODES, default="validate_evidence_backed_prep_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -5096,6 +5120,104 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "evidence_checks": audit_result["evidence_checks"],
+                "test_policy": audit_result["test_policy"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-evidence-backed-reevaluation-prep-inputs":
+        result = validate_a_share_owner_evidence_backed_reevaluation_prep_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "recovery_evidence_audit_passed": result["recovery_evidence_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "source_gate_decision_preserved": result["source_gate_decision_preserved"],
+                "evidence_ready_for_next_reevaluation_prep": result["evidence_ready_for_next_reevaluation_prep"],
+                "new_gate_score_generated": result["new_gate_score_generated"],
+                "new_gate_decision_generated": result["new_gate_decision_generated"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-evidence-backed-reevaluation-prep":
+        result = build_a_share_owner_evidence_backed_reevaluation_prep(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "source_readiness_score": result.get("source_readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "score_gap": result.get("score_gap"),
+                "evidence_record_count": result.get("evidence_record_count"),
+                "strong_evidence_count": result.get("strong_evidence_count"),
+                "audit_verified_evidence_count": result.get("audit_verified_evidence_count"),
+                "missing_evidence_count": result.get("missing_evidence_count"),
+                "overall_evidence_quality": result.get("overall_evidence_quality"),
+                "remaining_gap_count": result.get("remaining_gap_count"),
+                "blocking_gap_count": result.get("blocking_gap_count"),
+                "evidence_ready_for_next_reevaluation_prep": result.get("evidence_ready_for_next_reevaluation_prep"),
+                "ready_for_controlled_gate_reevaluation": result.get("ready_for_controlled_gate_reevaluation"),
+                "eligibility_decision": result.get("eligibility_decision"),
+                "reevaluation_input_package_generated": result.get("reevaluation_input_package_generated"),
+                "reevaluation_executed": result.get("reevaluation_executed"),
+                "new_gate_score_generated": result.get("new_gate_score_generated"),
+                "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+                "source_gate_decision_preserved": result.get("source_gate_decision_preserved"),
+                "threshold_lowered": result.get("threshold_lowered"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "score_impact_readiness_is_not_official_score": result.get("score_impact_readiness_is_not_official_score"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "evidence_backed_prep_report": result.get("evidence_backed_prep_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-evidence-backed-reevaluation-prep":
+        result = audit_a_share_owner_evidence_backed_reevaluation_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "prep_checks": result["prep_checks"],
+                "boundary": result["boundary"],
+                "test_policy": result["test_policy"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-evidence-backed-reevaluation-prep":
+        build_result = build_a_share_owner_evidence_backed_reevaluation_prep(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_evidence_backed_reevaluation_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "prep_checks": audit_result["prep_checks"],
                 "test_policy": audit_result["test_policy"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }

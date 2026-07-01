@@ -1,0 +1,67 @@
+{
+  "package_id": "A-SHARE-REEVALUATION-INPUT-PACKAGE",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "reevaluation_input_package_generated": true,
+  "ready_for_controlled_gate_reevaluation": false,
+  "eligibility_decision": "not_eligible",
+  "source_gate_truth": {
+    "source_gate_decision": "blocked",
+    "source_readiness_score": 54,
+    "minimum_owner_readiness_score": 75,
+    "score_gap": 21
+  },
+  "evidence_summary": {
+    "evidence_record_count": 11,
+    "strong_evidence_count": 0,
+    "audit_verified_evidence_count": 0,
+    "missing_evidence_count": 11,
+    "overall_evidence_quality": "none"
+  },
+  "threshold_policy": {
+    "minimum_owner_readiness_score": 75,
+    "threshold_lowered": false
+  },
+  "waiver_policy": {
+    "auto_waiver_allowed": false,
+    "manual_waiver_approval_recorded": false
+  },
+  "mapping_id": "A-SHARE-EVIDENCE-TO-GATE-MAPPING",
+  "source_artifacts": {
+    "recovery_evidence_config": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_config.json",
+    "recovery_evidence_input_availability": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_input_availability.json",
+    "recovery_evidence_source_resolution": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_source_resolution.json",
+    "recovery_evidence_date_alignment": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_date_alignment.json",
+    "recovery_task_evidence_collection": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_task_evidence_collection.json",
+    "developer_follow_up_evidence_package": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\developer_follow_up_evidence_package.json",
+    "owner_follow_up_evidence_package": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\owner_follow_up_evidence_package.json",
+    "quality_issue_evidence_package": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\quality_issue_evidence_package.json",
+    "warning_mapping_evidence_package": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\warning_mapping_evidence_package.json",
+    "source_trace_improvement_evidence": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\source_trace_improvement_evidence.json",
+    "markdown_quality_improvement_evidence": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\markdown_quality_improvement_evidence.json",
+    "artifact_completeness_evidence": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\artifact_completeness_evidence.json",
+    "readiness_improvement_evidence_ledger": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\readiness_improvement_evidence_ledger.json",
+    "evidence_backed_score_impact_estimate": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\evidence_backed_score_impact_estimate.json",
+    "evidence_quality_grading": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\evidence_quality_grading.json",
+    "evidence_gap_register": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\evidence_gap_register.json",
+    "remaining_blocker_register": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\remaining_blocker_register.json",
+    "next_reevaluation_prep_checklist": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\next_reevaluation_prep_checklist.json",
+    "recovery_evidence_source_trace": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_source_trace.json",
+    "recovery_evidence_boundary_check": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_boundary_check.json",
+    "recovery_evidence_manifest": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_manifest.json",
+    "recovery_evidence_summary": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_summary.json",
+    "controlled_reevaluation_decision": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_reevaluation_decision.json",
+    "controlled_evidence_sufficiency_check": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\evidence_sufficiency_check.json",
+    "controlled_reevaluation_boundary_check": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_reevaluation_boundary_check.json",
+    "owner_readiness_gate_decision": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_gate\\daily\\2026-06-26\\owner_readiness_gate_decision.json",
+    "owner_readiness_score_gate": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_gate\\daily\\2026-06-26\\owner_readiness_score_gate.json",
+    "quality_threshold_evaluation": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_gate\\daily\\2026-06-26\\quality_threshold_evaluation.json",
+    "recovery_evidence_audit": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_recovery_evidence_audit.json",
+    "controlled_reevaluation_audit": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_controlled_gate_reevaluation_audit.json",
+    "owner_readiness_gate_audit": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_data_quality\\a_share_owner_readiness_gate_audit.json"
+  },
+  "reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "not_order_instruction": true
+}

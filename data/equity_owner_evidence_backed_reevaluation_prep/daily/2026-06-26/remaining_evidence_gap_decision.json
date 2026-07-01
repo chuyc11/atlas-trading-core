@@ -1,0 +1,77 @@
+{
+  "decision_id": "A-SHARE-REMAINING-EVIDENCE-GAP-DECISION",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "remaining_gap_count": 5,
+  "blocking_gap_count": 5,
+  "has_remaining_evidence_gaps": true,
+  "blocks_controlled_gate_reevaluation": true,
+  "decision": "blocked_by_remaining_evidence_gaps",
+  "items": [
+    {
+      "gap_id": "GAP:RECOVERY-TASK-001",
+      "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+      "as_of_date": "2026-06-26",
+      "related_task_id": "RECOVERY-TASK-001",
+      "related_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "missing_evidence": "completion evidence still required",
+      "why_it_matters": "required before evidence-backed gate reevaluation prep",
+      "owner_visible": true,
+      "developer_follow_up_required": true,
+      "blocks_next_reevaluation_prep": true,
+      "recommended_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:RECOVERY-TASK-002",
+      "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+      "as_of_date": "2026-06-26",
+      "related_task_id": "RECOVERY-TASK-002",
+      "related_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "missing_evidence": "completion evidence still required",
+      "why_it_matters": "required before evidence-backed gate reevaluation prep",
+      "owner_visible": true,
+      "developer_follow_up_required": true,
+      "blocks_next_reevaluation_prep": true,
+      "recommended_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:RECOVERY-TASK-003",
+      "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+      "as_of_date": "2026-06-26",
+      "related_task_id": "RECOVERY-TASK-003",
+      "related_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "missing_evidence": "completion evidence still required",
+      "why_it_matters": "required before evidence-backed gate reevaluation prep",
+      "owner_visible": true,
+      "developer_follow_up_required": true,
+      "blocks_next_reevaluation_prep": true,
+      "recommended_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:FOLLOW-UP:2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+      "as_of_date": "2026-06-26",
+      "related_task_id": "",
+      "related_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "missing_evidence": "updated quality explanation and audit-only verification evidence required",
+      "why_it_matters": "required before evidence-backed gate reevaluation prep",
+      "owner_visible": true,
+      "developer_follow_up_required": true,
+      "blocks_next_reevaluation_prep": true,
+      "recommended_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    },
+    {
+      "gap_id": "GAP:OWNER-FOLLOW-UP-EVIDENCE",
+      "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+      "as_of_date": "2026-06-26",
+      "related_task_id": "",
+      "related_exception_id": "",
+      "missing_evidence": "owner follow-up evidence not yet available",
+      "why_it_matters": "required before evidence-backed gate reevaluation prep",
+      "owner_visible": true,
+      "developer_follow_up_required": false,
+      "blocks_next_reevaluation_prep": true,
+      "recommended_next_action": "collect real local recovery evidence and rerun audit-only verification"
+    }
+  ]
+}

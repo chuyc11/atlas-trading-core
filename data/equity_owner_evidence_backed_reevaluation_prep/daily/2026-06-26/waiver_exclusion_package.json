@@ -1,0 +1,8 @@
+{
+  "package_id": "A-SHARE-WAIVER-EXCLUSION-PACKAGE",
+  "target_version": "v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep",
+  "as_of_date": "2026-06-26",
+  "auto_waiver_allowed": false,
+  "manual_waiver_approval_recorded": false,
+  "waiver_used_to_change_gate_status": false
+}
