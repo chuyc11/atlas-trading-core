@@ -1,5 +1,21 @@
 # Release Notes
 
+## v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data
+
+v0.9.4 reruns the A-share research-only pipeline from the v0.9.3 refreshed `2026-07-01` source data and records an auditable control pack.
+
+- adds `rerun-a-share-research-pipeline-from-refreshed-data`
+- generates features, research scores, research candidates, virtual-only portfolios, and research briefing outputs for `2026-07-01`
+- writes the required v0.9.4 JSON control artifacts and owner-facing markdown result
+- preserves v0.9.3 `missing_quote_symbol_count=355` as a non-blocking warning
+- records available-window research rerun warning `research_rerun_available_window_min_effective_trading_days_20d=17`
+- keeps owner-readiness blocked at 54 / 75 / gap 21
+- does not rerun owner-readiness gate or controlled reevaluation
+- does not generate a new gate score or decision
+- does not connect broker, read real account data, place orders, generate order previews, or generate buy/sell signals
+- does not run full pytest
+- recommended next version: `v0.9.5-a-share-multi-day-research-output-evidence-accumulation`
+
 ## v0.9.3-a-share-data-freshness-refresh
 
 v0.9.3 refreshes public A-share research data to the latest resolved available date and records a compact freshness package for `2026-07-01`.
