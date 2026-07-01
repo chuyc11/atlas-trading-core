@@ -1,5 +1,30 @@
 # Release Notes
 
+## v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion
+
+v0.9.8 completes the A-share v0.9 product as a research-only and simulation-only autonomous research platform.
+
+- adds post-close daily platform runner with dry-run and simulation-only modes
+- adds simulated account state, simulated order intents, virtual broker simulated fills, paper ledger, commission/slippage, and turnover summaries
+- adds benchmark/attribution summary with honest warning when benchmark data is missing
+- adds Chinese owner command center with explicit research-only and simulation-only wording
+- adds local monitoring alerts and evidence auto-accumulation records
+- adds experiment registry, strategy registry, deterministic LLM research proposal register, automated experiment result, RL simulated strategy lab, and shadow/canary promotion evaluation
+- keeps all platform artifacts marked research-only, simulation-only, virtual-only, not investment advice, not real order, not order preview, not buy/sell signal, and not live trading ready
+- preserves owner-readiness blocked state
+- does not execute owner-readiness gate
+- does not execute controlled reevaluation
+- does not generate new owner-readiness score or decision
+- does not connect broker
+- does not read real account data
+- does not place orders
+- does not generate real order previews or buy/sell signals
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not silently install scheduler or daemon
+- does not run full pytest
+- recommended next version: `v1.0.0-prep-a-share-autonomous-simulation-platform-closeout`
+
 ## v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning
 
 v0.9.7 extends the A-share evidence window before 2026-06-26, attempts local historical research-only backfill, recomputes evidence readiness, and adds post-close public-data-only refresh planning.
