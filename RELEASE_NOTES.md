@@ -1,5 +1,40 @@
 # Release Notes
 
+## v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep
+
+v0.9.5 adds A-share research evidence accumulation, quality review, and controlled reevaluation prep without executing the gate.
+
+- builds multi-day research output evidence package from existing local artifacts
+- inventories v0.9.3 data freshness and v0.9.4 research pipeline outputs
+- registers evidence-eligible research output days
+- validates output completeness across dates
+- adds candidate overlap and turnover diagnostics with research-only wording
+- adds score distribution diagnostics marked not trade signals and not owner-readiness score
+- adds virtual-only portfolio research diagnostics
+- adds research briefing quality diagnostics
+- adds research-only boundary validation
+- adds readiness evidence gap analysis
+- adds evidence quality scorecard
+- adds blocker evidence mapping
+- adds reevaluation input candidate package without executing gate
+- adds controlled reevaluation precheck without rerunning gate
+- adds go/no-go decision for future reevaluation prep
+- adds not-ready reason register when evidence is insufficient
+- preserves owner-readiness blocked state
+- does not refresh data
+- does not rerun research pipeline
+- does not rerun owner-readiness gate
+- does not execute controlled gate reevaluation
+- does not generate new owner-readiness score or decision
+- does not connect broker
+- does not read real account data
+- does not place orders
+- does not generate order previews or buy/sell signals
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not run full pytest
+- recommended next version: `v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout`
+
 ## v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data
 
 v0.9.4 reruns the A-share research-only pipeline from the v0.9.3 refreshed `2026-07-01` source data and records an auditable control pack.
