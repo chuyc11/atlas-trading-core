@@ -1,0 +1,29 @@
+{
+  "verification_id": "A-SHARE-V100-CLI-SURFACE-VERIFICATION",
+  "target_version": "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout",
+  "as_of_date": "2026-07-01",
+  "commands": [
+    "owner-daily-status",
+    "run-a-share-v09-daily-platform",
+    "audit-a-share-v09-platform",
+    "run-and-audit-a-share-v09-platform",
+    "build-a-share-experiment-registry",
+    "run-a-share-automated-experiments",
+    "run-a-share-rl-simulated-strategy-lab",
+    "evaluate-a-share-simulated-strategy-promotion"
+  ],
+  "command_checks": {
+    "owner-daily-status": true,
+    "run-a-share-v09-daily-platform": true,
+    "audit-a-share-v09-platform": true,
+    "run-and-audit-a-share-v09-platform": true,
+    "build-a-share-experiment-registry": true,
+    "run-a-share-automated-experiments": true,
+    "run-a-share-rl-simulated-strategy-lab": true,
+    "evaluate-a-share-simulated-strategy-promotion": true
+  },
+  "help_smoke_passed": true,
+  "cli_surface_verified": true,
+  "blocking_reasons": [],
+  "note": "Command behavior is verified from existing v0.9.8 execution artifacts; help smoke avoids mutating v0.9.8 release artifacts."
+}

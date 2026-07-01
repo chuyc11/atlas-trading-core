@@ -101,6 +101,8 @@ from trading_core.equity_v09_platform import (
     run_a_share_rl_simulated_strategy_lab,
     run_a_share_v09_daily_platform,
 )
+from trading_core.equity_v100_prep import DEFAULT_AS_OF_DATE as DEFAULT_V100_PREP_AS_OF_DATE
+from trading_core.equity_v100_prep import audit_a_share_v100_prep, build_a_share_v100_prep
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1153,6 +1155,12 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_v09_simulation_arguments(v09_rl)
     v09_promotion = subparsers.add_parser("evaluate-a-share-simulated-strategy-promotion")
     v09_promotion.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
+    v100_prep = subparsers.add_parser("build-a-share-v100-prep")
+    v100_prep.add_argument("--as-of-date", default=DEFAULT_V100_PREP_AS_OF_DATE)
+    v100_prep_audit = subparsers.add_parser("audit-a-share-v100-prep")
+    v100_prep_audit.add_argument("--as-of-date", default=DEFAULT_V100_PREP_AS_OF_DATE)
+    v100_prep_all = subparsers.add_parser("build-and-audit-a-share-v100-prep")
+    v100_prep_all.add_argument("--as-of-date", default=DEFAULT_V100_PREP_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1904,6 +1912,48 @@ def _v09_platform_cli_payload(result: dict) -> dict:
         "live_trading_ready": result.get("live_trading_ready"),
         "protected_paths_untouched": result.get("protected_paths_untouched"),
         "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v100_prep_cli_payload(result: dict) -> dict:
+    return {
+        "builder_id": result["builder_id"],
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "release_readiness_decision": result["release_readiness_decision"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "v098_platform_verified": result["v098_platform_verified"],
+        "v098_warnings_count": result["v098_warnings_count"],
+        "blocking_warning_count": result["blocking_warning_count"],
+        "full_regression_passed": result["full_regression_passed"],
+        "full_pytest_passed_count": result["full_pytest_passed_count"],
+        "full_pytest_skipped_count": result["full_pytest_skipped_count"],
+        "full_pytest_failed_count": result["full_pytest_failed_count"],
+        "full_pytest_duration_seconds": result["full_pytest_duration_seconds"],
+        "cli_surface_verified": result["cli_surface_verified"],
+        "artifact_integrity_passed": result["artifact_integrity_passed"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
     }
 
 
@@ -4053,6 +4103,41 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = evaluate_a_share_simulated_strategy_promotion(as_of_date=args.as_of_date, paths=paths)
         print(result)
         return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v100-prep":
+        result = build_a_share_v100_prep(as_of_date=args.as_of_date, paths=paths)
+        print(_v100_prep_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v100-prep":
+        result = audit_a_share_v100_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "artifact_checks": result["artifact_checks"],
+                "readiness_decision": result["readiness_decision"],
+                "owner_readiness": result["owner_readiness"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v100-prep":
+        build_result = build_a_share_v100_prep(as_of_date=args.as_of_date, paths=paths)
+        audit_result = audit_a_share_v100_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_v100_prep_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
             as_of_date=args.as_of_date,

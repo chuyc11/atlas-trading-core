@@ -1,0 +1,40 @@
+{
+  "manifest_id": "A-SHARE-V100-PREP-MANIFEST",
+  "target_version": "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout",
+  "source_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T18:10:47.715687Z",
+  "json_artifact_count": 9,
+  "markdown_report_count": 3,
+  "artifacts": {
+    "v100_prep_request": "data/equity_v100_prep/daily/2026-07-01/v100_prep_request.json",
+    "v098_platform_verification": "data/equity_v100_prep/daily/2026-07-01/v098_platform_verification.json",
+    "v098_warning_classification": "data/equity_v100_prep/daily/2026-07-01/v098_warning_classification.json",
+    "v100_full_regression_result": "data/equity_v100_prep/daily/2026-07-01/v100_full_regression_result.json",
+    "v100_cli_surface_verification": "data/equity_v100_prep/daily/2026-07-01/v100_cli_surface_verification.json",
+    "v100_artifact_integrity_check": "data/equity_v100_prep/daily/2026-07-01/v100_artifact_integrity_check.json",
+    "v100_safety_boundary_sweep": "data/equity_v100_prep/daily/2026-07-01/v100_safety_boundary_sweep.json",
+    "v100_release_readiness_decision": "data/equity_v100_prep/daily/2026-07-01/v100_release_readiness_decision.json",
+    "v100_prep_manifest": "data/equity_v100_prep/daily/2026-07-01/v100_prep_manifest.json",
+    "readiness_report": "outputs/equity_v100_prep/daily/2026-07-01/A_SHARE_V100_PREP_RELEASE_READINESS_REPORT.md",
+    "regression_report": "outputs/equity_v100_prep/daily/2026-07-01/A_SHARE_V100_PREP_FULL_REGRESSION_RESULT.md",
+    "boundary_report": "outputs/equity_v100_prep/daily/2026-07-01/A_SHARE_V100_PREP_SAFETY_BOUNDARY_SWEEP.md"
+  },
+  "artifact_hashes": {
+    "v100_prep_request": "3d9bea0675abe9de3c8839c688af17f465cd63f8ac1561af0e8a47f22a299bf3",
+    "v098_platform_verification": "69cfbd3f549415e17c338d7de5ac84a54a3869171d4f5145da8c704028d2a293",
+    "v098_warning_classification": "1ccbf68c7b04150ee216dd0f34e5a4972105ce85eeec8252b13b04293a33d731",
+    "v100_full_regression_result": "9d0ed637844d83c9d254abca40b9fb4011b721651f5c813dc092bb2eb00732ad",
+    "v100_cli_surface_verification": "3454cd5dcbbcf385be19502b5575bd72cc146408ad1072ccb0832b03dfb22164",
+    "v100_artifact_integrity_check": "7fc1640cf7d03cc1683f862d66aa89445451d4570d49e5ae2f35b3b3ddaa5ed8",
+    "v100_safety_boundary_sweep": "f0f6134d34878d76cad7898c068e9872dcd949d82b957b21e58ae7d6ed8cba8c",
+    "v100_release_readiness_decision": "41d02b3a2b8833a91033e0fc3b2aff18c2198a0bcb62dc0ffee161d9f3df94d1",
+    "v100_prep_manifest": "fde203b2c27d0e5c7732d8600314eded747ebefc9672c5a80c836dcd5adb61d3",
+    "readiness_report": "1ac3df9c5247d9805da9bba951458970b955c62fbff6a2ecfd60103189e6802b",
+    "regression_report": "24e9ae46dec51630e5313d248fb5b49dd6e3c94fa11146f6701f3c9a6b570f20",
+    "boundary_report": "c5429ca6d3261f7872729d6d1b7deb470bac830ff0991a4e67bb3903d0a5bea4"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v1.0.0-a-share-autonomous-simulation-platform-release"
+}

@@ -1,0 +1,25 @@
+{
+  "verification_id": "A-SHARE-V098-PLATFORM-VERIFICATION",
+  "target_version": "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout",
+  "source_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "v098_tag_exists": true,
+  "version_before_update": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "cli_version_before_update": "trading-core 0.9.8",
+  "v098_audit_passed": true,
+  "v098_audit_warning_count": 2,
+  "v098_required_json_count": 17,
+  "v098_required_markdown_count": 5,
+  "daily_platform_run_passed": true,
+  "automated_experiment_run_passed": true,
+  "rl_simulated_lab_passed": true,
+  "shadow_canary_status_verified": true,
+  "v098_boundary_passed": true,
+  "owner_daily_status_works": true,
+  "v098_platform_verified": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "benchmark_data_missing_recorded_without_fabrication",
+    "attribution_source_missing_using_simulated_summary"
+  ]
+}

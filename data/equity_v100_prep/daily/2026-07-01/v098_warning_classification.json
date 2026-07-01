@@ -1,0 +1,29 @@
+{
+  "classification_id": "A-SHARE-V098-WARNING-CLASSIFICATION",
+  "target_version": "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout",
+  "source_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "warning_count": 2,
+  "blocking_warning_count": 0,
+  "warnings_classified": true,
+  "classifications": [
+    {
+      "warning_id": "benchmark_data_missing_recorded_without_fabrication",
+      "source_artifact": "data/equity_v09_platform/daily/2026-07-01/v09_benchmark_attribution_result.json",
+      "description": "Benchmark index source data was unavailable, so excess return, tracking error, and relative drawdown were left null instead of fabricated.",
+      "severity": "medium",
+      "blocking_for_v100": false,
+      "recommended_resolution": "Backfill benchmark index history and rerun attribution before making benchmark-relative performance claims."
+    },
+    {
+      "warning_id": "attribution_source_missing_using_simulated_summary",
+      "source_artifact": "data/equity_v09_platform/daily/2026-07-01/v09_benchmark_attribution_result.json",
+      "description": "Dedicated attribution source artifacts were unavailable, so the report used the simulation-only account summary and marked attribution status as warning.",
+      "severity": "medium",
+      "blocking_for_v100": false,
+      "recommended_resolution": "Generate a dedicated attribution source package before promoting benchmark attribution from warning to passed."
+    }
+  ],
+  "benchmark_attribution_warning_non_blocking": true,
+  "blocking_reasons": []
+}
