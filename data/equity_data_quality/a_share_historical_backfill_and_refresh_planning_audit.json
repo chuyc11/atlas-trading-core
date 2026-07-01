@@ -1,0 +1,73 @@
+{
+  "audit_id": "A-SHARE-HISTORICAL-BACKFILL-AND-REFRESH-PLANNING-AUDIT",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "candidate_days_with_missing_local_public_data",
+    "historical_backfill_failed:2026-06-25:strict_tradable_universe_empty",
+    "historical_backfill_failed:2026-06-24:strict_tradable_universe_empty",
+    "historical_backfill_failed:2026-06-23:strict_tradable_universe_empty",
+    "historical_backfill_failed:2026-06-22:strict_tradable_universe_empty",
+    "target_total_evidence_days_not_reached_recorded_honestly",
+    "eligible_day_shortfall_recorded_honestly",
+    "some_historical_backfill_days_incomplete",
+    "precheck_not_ready_after_backfill",
+    "additional_evidence_required_after_backfill"
+  ],
+  "artifact_checks": {
+    "v096_baseline_verified": true,
+    "historical_trading_day_discovery_generated": true,
+    "historical_source_data_availability_assessed": true,
+    "historical_backfill_result_generated": true,
+    "recomputed_evidence_result_generated": true,
+    "go_no_go_after_backfill_generated": true,
+    "post_close_refresh_plan_generated": true,
+    "lookback_before_2026_06_26_executed": true,
+    "existing_eligible_days_reused": true,
+    "backfill_days_from_trading_days_only": true,
+    "target_evidence_count_not_fabricated": true
+  },
+  "boundary": {
+    "owner_readiness_gate_rerun": false,
+    "controlled_reevaluation_executed": false,
+    "new_gate_score_generated": false,
+    "new_gate_decision_generated": false,
+    "threshold_lowered": false,
+    "waiver_applied": false,
+    "broker_connected": false,
+    "real_account_data_read": false,
+    "real_orders_placed": false,
+    "order_preview_generated": false,
+    "buy_sell_signals_generated": false,
+    "old_run_daily_called": false,
+    "day2_executed": false,
+    "live_trading_ready": false,
+    "protected_paths_untouched": true
+  },
+  "refresh_checks": {
+    "post_close_plan_public_data_only": true,
+    "post_close_plan_excludes_broker_orders_signals_gate": true,
+    "post_close_plan_does_not_install_scheduler": true,
+    "post_close_plan_recommended_time": true,
+    "post_close_plan_timezone": true
+  },
+  "readiness_checks": {
+    "known_owner_readiness_state": "blocked",
+    "owner_operationally_acceptable": false,
+    "source_readiness_score": 54,
+    "minimum_owner_readiness_score": 75,
+    "score_gap": 21,
+    "not_owner_readiness_gate_decision": true
+  },
+  "eligible_day_count_after_backfill": 2,
+  "target_total_evidence_days_passed": false,
+  "go_no_go_after_backfill_decision": "no_go_additional_evidence_required",
+  "test_policy": {
+    "targeted_pytest_required": true,
+    "full_pytest_run": false
+  },
+  "audit_json_path": "data/equity_data_quality/a_share_historical_backfill_and_refresh_planning_audit.json",
+  "audit_markdown_path": "outputs/audit/A_SHARE_HISTORICAL_BACKFILL_AND_REFRESH_PLANNING_AUDIT.md"
+}

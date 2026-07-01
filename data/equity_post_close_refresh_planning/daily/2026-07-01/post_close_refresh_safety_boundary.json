@@ -1,0 +1,21 @@
+{
+  "boundary_id": "A-SHARE-POST-CLOSE-REFRESH-SAFETY-BOUNDARY",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "public_market_data_only": true,
+  "installs_scheduler": false,
+  "installs_daemon": false,
+  "modifies_startup_tasks": false,
+  "safe_to_schedule_as_automatic_local_job": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "owner_readiness_gate_rerun": false,
+  "controlled_reevaluation_executed": false,
+  "live_trading_ready": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

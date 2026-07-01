@@ -1,0 +1,19 @@
+{
+  "command_plan_id": "A-SHARE-POST-CLOSE-REFRESH-COMMAND-PLAN",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "manual_commands": [
+    "python -m trading_core.cli refresh-a-share-data-freshness --target-as-of-date <YYYY-MM-DD>",
+    "python -m trading_core.cli owner-daily-status --as-of-date <YYYY-MM-DD>"
+  ],
+  "optional_research_pipeline_command_after_data_refresh": [
+    "python -m trading_core.cli rerun-a-share-research-pipeline-from-refreshed-data --as-of-date <YYYY-MM-DD>"
+  ],
+  "forbidden_commands": [
+    "python -m trading_core.cli run-daily",
+    "broker commands",
+    "order preview commands",
+    "owner-readiness gate commands"
+  ],
+  "commands_executed_by_this_version": []
+}

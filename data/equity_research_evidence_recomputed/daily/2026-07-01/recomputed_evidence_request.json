@@ -1,0 +1,21 @@
+{
+  "request_id": "A-SHARE-RECOMPUTED-EVIDENCE-REQUEST",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "historical_lookback_start": "2026-06-19",
+  "target_total_evidence_days": 5,
+  "eligible_days_after_backfill": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "failed_backfill_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23",
+    "2026-06-22"
+  ],
+  "owner_readiness_gate_rerun": false,
+  "controlled_reevaluation_executed": false,
+  "new_owner_readiness_score_generated": false,
+  "new_owner_readiness_decision_generated": false
+}

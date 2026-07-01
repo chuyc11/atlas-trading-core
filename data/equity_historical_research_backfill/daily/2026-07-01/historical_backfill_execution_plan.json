@@ -1,0 +1,36 @@
+{
+  "plan_id": "A-SHARE-HISTORICAL-BACKFILL-EXECUTION-PLAN",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "target_total_evidence_days": 5,
+  "existing_eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "additional_eligible_days_required": 3,
+  "candidate_backfill_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23",
+    "2026-06-22",
+    "2026-06-19"
+  ],
+  "selected_backfill_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23",
+    "2026-06-22"
+  ],
+  "days_skipped_missing_local_data": [
+    "2026-06-19"
+  ],
+  "execution_mode": "research_only_historical_build_from_existing_local_public_data",
+  "public_network_refresh_run": false,
+  "build_from_existing_data_historical_run": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "blocking_reasons": [],
+  "warnings": []
+}

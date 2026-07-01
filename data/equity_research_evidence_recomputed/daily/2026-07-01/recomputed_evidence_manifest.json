@@ -1,0 +1,26 @@
+{
+  "manifest_id": "A-SHARE-RECOMPUTED-EVIDENCE-MANIFEST",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T17:21:01.087052Z",
+  "source_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "output_artifacts": {
+    "recomputed_evidence_request": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_evidence_request.json",
+    "recomputed_evidence_eligible_day_register": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_evidence_eligible_day_register.json",
+    "recomputed_research_output_completeness_matrix": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_research_output_completeness_matrix.json",
+    "recomputed_evidence_quality_scorecard": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_evidence_quality_scorecard.json",
+    "recomputed_blocker_evidence_mapping": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_blocker_evidence_mapping.json",
+    "recomputed_evidence_result": "data/equity_research_evidence_recomputed/daily/2026-07-01/recomputed_evidence_result.json"
+  },
+  "artifact_hashes": {
+    "recomputed_evidence_request": "10a8c75b612ff6c47535ea8bbf63b177c12e38138fe7de82ac252b4a7b51c143",
+    "recomputed_evidence_eligible_day_register": "0aa9adb7e84db9a8dc0fb77488bc6f061a30d6cc29f09bfa8d403224ce2159a4",
+    "recomputed_research_output_completeness_matrix": "ea351f1f77a3a93bfcd8b77f6c629c275f43f809ad1831f67335e05a5308de19",
+    "recomputed_evidence_quality_scorecard": "be7b99c11e077b2e2387aea456522c1a65cc23928e3b202a50fa8857c259f798",
+    "recomputed_blocker_evidence_mapping": "e26fe04cb5b40c27fc91caf956c9cd3417f078be44fda8df253ebf5bc6cf51bd",
+    "recomputed_evidence_result": "059c699f544a5c451d270aedb36eb3ce9d49b9d3445ea568efa5915999090014"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v0.9.8-a-share-reevaluation-readiness-closeout-after-backfill"
+}

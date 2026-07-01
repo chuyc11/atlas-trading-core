@@ -1,0 +1,159 @@
+{
+  "register_id": "A-SHARE-RECOMPUTED-EVIDENCE-ELIGIBLE-DAY-REGISTER",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "target_total_evidence_days": 5,
+  "eligible_day_count": 2,
+  "eligible_days": [
+    {
+      "date": "2026-06-26",
+      "features_present": true,
+      "scores_present": true,
+      "candidates_present": true,
+      "virtual_portfolio_present": true,
+      "briefing_present": true,
+      "source_trace_present": true,
+      "boundary_validation_present": true,
+      "research_only_marking_present": true,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": true,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": []
+    },
+    {
+      "date": "2026-07-01",
+      "features_present": true,
+      "scores_present": true,
+      "candidates_present": true,
+      "virtual_portfolio_present": true,
+      "briefing_present": true,
+      "source_trace_present": true,
+      "boundary_validation_present": true,
+      "research_only_marking_present": true,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": true,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": []
+    }
+  ],
+  "eligible_day_dates": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "ineligible_days": [
+    {
+      "date": "2026-06-22",
+      "features_present": false,
+      "scores_present": false,
+      "candidates_present": false,
+      "virtual_portfolio_present": false,
+      "briefing_present": false,
+      "source_trace_present": false,
+      "boundary_validation_present": false,
+      "research_only_marking_present": false,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": false,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "features_present": false,
+      "scores_present": false,
+      "candidates_present": false,
+      "virtual_portfolio_present": false,
+      "briefing_present": false,
+      "source_trace_present": false,
+      "boundary_validation_present": false,
+      "research_only_marking_present": false,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": false,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "features_present": false,
+      "scores_present": false,
+      "candidates_present": false,
+      "virtual_portfolio_present": false,
+      "briefing_present": false,
+      "source_trace_present": false,
+      "boundary_validation_present": false,
+      "research_only_marking_present": false,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": false,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "features_present": false,
+      "scores_present": false,
+      "candidates_present": false,
+      "virtual_portfolio_present": false,
+      "briefing_present": false,
+      "source_trace_present": false,
+      "boundary_validation_present": false,
+      "research_only_marking_present": false,
+      "candidate_outputs_not_buy_sell_signals": true,
+      "score_outputs_not_trade_signals": true,
+      "virtual_portfolio_outputs_virtual_only": true,
+      "eligible_for_prep": false,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_blocking_reasons": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    }
+  ],
+  "target_total_evidence_days_passed": false,
+  "target_count_not_fabricated": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "eligible_day_shortfall_recorded_honestly"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "request_id": "A-SHARE-HISTORICAL-RESEARCH-BACKFILL-REQUEST",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "source_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "historical_lookback_start": "2026-06-19",
+  "historical_window_end": "2026-07-01",
+  "preferred_existing_anchor_start": "2026-06-26",
+  "target_total_evidence_days": 5,
+  "existing_eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "allow_local_historical_public_data": true,
+  "public_network_refresh_run": false,
+  "research_only_backfill_allowed": true,
+  "owner_readiness_gate_rerun_allowed": false,
+  "controlled_reevaluation_allowed": false,
+  "new_gate_score_allowed": false,
+  "new_gate_decision_allowed": false,
+  "broker_allowed": false,
+  "orders_allowed": false,
+  "signals_allowed": false
+}

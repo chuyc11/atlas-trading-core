@@ -1,0 +1,25 @@
+{
+  "register_id": "A-SHARE-REMAINING-GAP-REGISTER-AFTER-BACKFILL",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "go_no_go_decision": "no_go_additional_evidence_required",
+  "gaps": [
+    {
+      "gap_id": "GAP001",
+      "description": "Eligible evidence day count remains below target.",
+      "blocking": true
+    },
+    {
+      "gap_id": "GAP002",
+      "description": "Blocker coverage remains below controlled reevaluation threshold.",
+      "blocking": true
+    },
+    {
+      "gap_id": "GAP003",
+      "description": "Future controlled reevaluation prep precheck is not ready.",
+      "blocking": true
+    }
+  ],
+  "remaining_gap_count": 3,
+  "blocking_gap_count": 3
+}

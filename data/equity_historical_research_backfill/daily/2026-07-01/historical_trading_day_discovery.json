@@ -1,0 +1,47 @@
+{
+  "discovery_id": "A-SHARE-HISTORICAL-TRADING-DAY-DISCOVERY",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "historical_lookback_start": "2026-06-19",
+  "historical_window_end": "2026-07-01",
+  "target_total_evidence_days": 5,
+  "existing_eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "resolved_trading_days": [
+    "2026-06-19",
+    "2026-06-22",
+    "2026-06-23",
+    "2026-06-24",
+    "2026-06-25",
+    "2026-06-26",
+    "2026-06-29",
+    "2026-06-30",
+    "2026-07-01"
+  ],
+  "candidate_backfill_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23",
+    "2026-06-22",
+    "2026-06-19"
+  ],
+  "selected_backfill_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23"
+  ],
+  "non_trading_days": [
+    "2026-06-20",
+    "2026-06-21",
+    "2026-06-27",
+    "2026-06-28"
+  ],
+  "actual_trading_day_count_in_window": 9,
+  "lookback_before_2026_06_26_executed": true,
+  "target_total_evidence_days_possible": true,
+  "discovery_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

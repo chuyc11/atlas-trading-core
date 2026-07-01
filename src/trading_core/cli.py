@@ -86,6 +86,12 @@ from trading_core.equity_research_evidence_accumulation import (
 )
 from trading_core.equity_readiness_final_closeout import DEFAULT_AS_OF_DATE as DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE
 from trading_core.equity_readiness_final_closeout import audit_a_share_final_not_ready_closeout, build_a_share_final_not_ready_closeout
+from trading_core.equity_historical_evidence_backfill import DEFAULT_AS_OF_DATE as DEFAULT_HISTORICAL_EVIDENCE_BACKFILL_AS_OF_DATE
+from trading_core.equity_historical_evidence_backfill import DEFAULT_LOOKBACK_START, DEFAULT_TARGET_EVIDENCE_DAYS
+from trading_core.equity_historical_evidence_backfill import (
+    audit_a_share_historical_evidence_backfill_and_refresh_plan,
+    build_a_share_historical_evidence_backfill_and_refresh_plan,
+)
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1118,6 +1124,12 @@ def build_parser() -> argparse.ArgumentParser:
     final_closeout_audit.add_argument("--as-of-date", default=DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE)
     final_closeout_all = subparsers.add_parser("build-and-audit-a-share-final-not-ready-closeout")
     final_closeout_all.add_argument("--as-of-date", default=DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE)
+    historical_backfill = subparsers.add_parser("build-a-share-historical-evidence-backfill-and-refresh-plan")
+    _add_a_share_historical_evidence_backfill_arguments(historical_backfill)
+    historical_backfill_audit = subparsers.add_parser("audit-a-share-historical-evidence-backfill-and-refresh-plan")
+    historical_backfill_audit.add_argument("--as-of-date", default=DEFAULT_HISTORICAL_EVIDENCE_BACKFILL_AS_OF_DATE)
+    historical_backfill_all = subparsers.add_parser("build-and-audit-a-share-historical-evidence-backfill-and-refresh-plan")
+    _add_a_share_historical_evidence_backfill_arguments(historical_backfill_all)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1663,6 +1675,12 @@ def _add_a_share_owner_operator_experience_arguments(parser: argparse.ArgumentPa
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
+def _add_a_share_historical_evidence_backfill_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_HISTORICAL_EVIDENCE_BACKFILL_AS_OF_DATE)
+    parser.add_argument("--lookback-start", default=DEFAULT_LOOKBACK_START)
+    parser.add_argument("--target-evidence-days", type=int, default=DEFAULT_TARGET_EVIDENCE_DAYS)
+
+
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_WORKFLOW_AS_OF_DATE)
     if include_mode:
@@ -1756,6 +1774,59 @@ def _final_closeout_cli_payload(result: dict) -> dict:
         "requirements_count": result["requirements_count"],
         "blocking_requirement_count": result["blocking_requirement_count"],
         "minimum_future_research_days_required": result["minimum_future_research_days_required"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _historical_evidence_backfill_cli_payload(result: dict) -> dict:
+    return {
+        "builder_id": result["builder_id"],
+        "target_version": result["target_version"],
+        "as_of_date": result["as_of_date"],
+        "lookback_start": result["lookback_start"],
+        "historical_window_end": result["historical_window_end"],
+        "overall_passed": result["overall_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "v096_baseline_verified": result["v096_baseline_verified"],
+        "resolved_trading_days": result["resolved_trading_days"],
+        "existing_eligible_days": result["existing_eligible_days"],
+        "selected_backfill_days": result["selected_backfill_days"],
+        "backfilled_days": result["backfilled_days"],
+        "failed_backfill_days": result["failed_backfill_days"],
+        "eligible_day_count_after_backfill": result["eligible_day_count_after_backfill"],
+        "target_total_evidence_days": result["target_total_evidence_days"],
+        "target_total_evidence_days_passed": result["target_total_evidence_days_passed"],
+        "research_output_completeness_passed": result["research_output_completeness_passed"],
+        "evidence_quality_overall_status": result["evidence_quality_overall_status"],
+        "blocker_coverage_ratio": result["blocker_coverage_ratio"],
+        "prep_coverage_passed": result["prep_coverage_passed"],
+        "controlled_reevaluation_coverage_passed": result["controlled_reevaluation_coverage_passed"],
+        "ready_for_future_controlled_reevaluation_prep": result["ready_for_future_controlled_reevaluation_prep"],
+        "go_no_go_after_backfill_decision": result["go_no_go_after_backfill_decision"],
+        "post_close_refresh_plan_generated": result["post_close_refresh_plan_generated"],
+        "post_close_refresh_recommended_time": result["post_close_refresh_recommended_time"],
+        "post_close_refresh_timezone": result["post_close_refresh_timezone"],
+        "post_close_refresh_public_data_only": result["post_close_refresh_public_data_only"],
+        "post_close_refresh_installs_scheduler": result["post_close_refresh_installs_scheduler"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_reevaluation_executed": result["controlled_reevaluation_executed"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "known_owner_readiness_state": result["known_owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "public_network_refresh_run": result["public_network_refresh_run"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "order_preview_generated": result["order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
         "recommended_next_version": result["recommended_next_version"],
     }
 
@@ -3805,6 +3876,51 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             {
                 **_final_closeout_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-historical-evidence-backfill-and-refresh-plan":
+        result = build_a_share_historical_evidence_backfill_and_refresh_plan(
+            as_of_date=args.as_of_date,
+            lookback_start=args.lookback_start,
+            target_evidence_days=args.target_evidence_days,
+            paths=paths,
+        )
+        print(_historical_evidence_backfill_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-historical-evidence-backfill-and-refresh-plan":
+        result = audit_a_share_historical_evidence_backfill_and_refresh_plan(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "artifact_checks": result["artifact_checks"],
+                "boundary": result["boundary"],
+                "refresh_checks": result["refresh_checks"],
+                "readiness_checks": result["readiness_checks"],
+                "go_no_go_after_backfill_decision": result["go_no_go_after_backfill_decision"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-historical-evidence-backfill-and-refresh-plan":
+        build_result = build_a_share_historical_evidence_backfill_and_refresh_plan(
+            as_of_date=args.as_of_date,
+            lookback_start=args.lookback_start,
+            target_evidence_days=args.target_evidence_days,
+            paths=paths,
+        )
+        audit_result = audit_a_share_historical_evidence_backfill_and_refresh_plan(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_historical_evidence_backfill_cli_payload(build_result),
                 "audit_id": audit_result["audit_id"],
                 "audit_overall_passed": audit_result["overall_passed"],
                 "audit_blocking_reasons": audit_result["blocking_reasons"],

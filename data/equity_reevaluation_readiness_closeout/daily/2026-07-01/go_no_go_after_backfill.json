@@ -1,0 +1,27 @@
+{
+  "decision_id": "A-SHARE-GO-NO-GO-AFTER-HISTORICAL-BACKFILL",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "decision_type": "future_controlled_reevaluation_prep_decision",
+  "not_owner_readiness_gate_decision": true,
+  "owner_readiness_gate_executed": false,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "decision": "no_go_additional_evidence_required",
+  "rationale": [
+    "eligible_day_count=2",
+    "target_total_evidence_days=5",
+    "blocker_coverage_ratio=0.5",
+    "precheck_status=not_ready"
+  ],
+  "failed_criteria": [
+    "target_evidence_day_count_passed",
+    "controlled_reevaluation_coverage_passed"
+  ],
+  "blocking_reasons": [],
+  "warnings": [
+    "additional_evidence_required_after_backfill"
+  ],
+  "recommended_next_version": "v0.9.8-a-share-reevaluation-readiness-closeout-after-backfill"
+}

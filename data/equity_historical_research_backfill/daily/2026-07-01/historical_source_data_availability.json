@@ -1,0 +1,87 @@
+{
+  "availability_id": "A-SHARE-HISTORICAL-SOURCE-DATA-AVAILABILITY",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "public_network_refresh_run": false,
+  "public_market_data_only": true,
+  "candidate_days": [
+    {
+      "date": "2026-06-25",
+      "is_trading_day": true,
+      "local_public_source_data_available": true,
+      "panel_row_counts": {
+        "daily_price_history": 5509,
+        "adjusted_price_history": 5509,
+        "daily_basic_history": 5509
+      },
+      "missing_panels": [],
+      "public_network_refresh_run": false
+    },
+    {
+      "date": "2026-06-24",
+      "is_trading_day": true,
+      "local_public_source_data_available": true,
+      "panel_row_counts": {
+        "daily_price_history": 5509,
+        "adjusted_price_history": 5509,
+        "daily_basic_history": 5509
+      },
+      "missing_panels": [],
+      "public_network_refresh_run": false
+    },
+    {
+      "date": "2026-06-23",
+      "is_trading_day": true,
+      "local_public_source_data_available": true,
+      "panel_row_counts": {
+        "daily_price_history": 5508,
+        "adjusted_price_history": 5508,
+        "daily_basic_history": 5508
+      },
+      "missing_panels": [],
+      "public_network_refresh_run": false
+    },
+    {
+      "date": "2026-06-22",
+      "is_trading_day": true,
+      "local_public_source_data_available": true,
+      "panel_row_counts": {
+        "daily_price_history": 5500,
+        "adjusted_price_history": 5500,
+        "daily_basic_history": 5500
+      },
+      "missing_panels": [],
+      "public_network_refresh_run": false
+    },
+    {
+      "date": "2026-06-19",
+      "is_trading_day": true,
+      "local_public_source_data_available": false,
+      "panel_row_counts": {
+        "daily_price_history": 0,
+        "adjusted_price_history": 0,
+        "daily_basic_history": 0
+      },
+      "missing_panels": [
+        "daily_price_history",
+        "adjusted_price_history",
+        "daily_basic_history"
+      ],
+      "public_network_refresh_run": false
+    }
+  ],
+  "available_candidate_days": [
+    "2026-06-25",
+    "2026-06-24",
+    "2026-06-23",
+    "2026-06-22"
+  ],
+  "missing_data_candidate_days": [
+    "2026-06-19"
+  ],
+  "availability_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "candidate_days_with_missing_local_public_data"
+  ]
+}

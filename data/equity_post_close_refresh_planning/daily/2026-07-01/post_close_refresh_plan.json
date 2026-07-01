@@ -1,0 +1,29 @@
+{
+  "plan_id": "A-SHARE-POST-CLOSE-REFRESH-PLAN",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "timezone": "Asia/Shanghai",
+  "recommended_run_time": "15:45",
+  "run_days": "A-share trading days only",
+  "refresh_scope": [
+    "trading_calendar_check",
+    "public_market_data_refresh",
+    "data_freshness_result",
+    "owner_daily_status_update"
+  ],
+  "explicitly_excluded_scope": [
+    "broker",
+    "real_account",
+    "orders",
+    "order_preview",
+    "buy_sell_signals",
+    "owner_readiness_gate",
+    "controlled_reevaluation",
+    "live_trading"
+  ],
+  "public_market_data_only": true,
+  "requires_trading_day_check_before_run": true,
+  "safe_to_schedule_as_reminder": true,
+  "safe_to_schedule_as_automatic_local_job": false,
+  "reason_automatic_local_job_not_enabled": "Do not silently install OS scheduler or daemon from this version."
+}

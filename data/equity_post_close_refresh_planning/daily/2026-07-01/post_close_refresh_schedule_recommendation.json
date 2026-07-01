@@ -1,0 +1,15 @@
+{
+  "schedule_id": "A-SHARE-POST-CLOSE-REFRESH-SCHEDULE-RECOMMENDATION",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "timezone": "Asia/Shanghai",
+  "recommended_run_time": "15:45",
+  "run_days": "A-share trading days only",
+  "recommendation_type": "manual_reminder_or_documented_instruction_only",
+  "installs_scheduler": false,
+  "installs_windows_task_scheduler_entry": false,
+  "installs_cron_entry": false,
+  "installs_daemon": false,
+  "safe_to_schedule_as_reminder": true,
+  "safe_to_schedule_as_automatic_local_job": false
+}

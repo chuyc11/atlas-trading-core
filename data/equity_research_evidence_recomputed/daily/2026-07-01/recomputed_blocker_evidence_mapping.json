@@ -1,0 +1,150 @@
+{
+  "mapping_id": "A-SHARE-RECOMPUTED-BLOCKER-EVIDENCE-MAPPING",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "blocker_count": 6,
+  "blockers": [
+    {
+      "blocker_id": "B001",
+      "source_version": "v0.8.13",
+      "description": "Owner-readiness score remains 54 against threshold 75.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "missing",
+      "supporting_evidence_items": [],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "controlled_reevaluation_specific_evidence"
+      ],
+      "can_support_future_prep": false,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "insufficient_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "missing",
+      "closed_by_v097": false
+    },
+    {
+      "blocker_id": "B002",
+      "source_version": "v0.8.18",
+      "description": "Recovery evidence is not sufficient to justify a new gate evaluation.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "moderate",
+      "supporting_evidence_items": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/evidence_eligible_day_register.json"
+      ],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "future_controlled_reevaluation_evidence"
+      ],
+      "can_support_future_prep": true,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "partial_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "moderate",
+      "closed_by_v097": false
+    },
+    {
+      "blocker_id": "B003",
+      "source_version": "v0.8.19",
+      "description": "Audit-verified evidence did not support controlled reevaluation.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "moderate",
+      "supporting_evidence_items": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/evidence_eligible_day_register.json"
+      ],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "future_controlled_reevaluation_evidence"
+      ],
+      "can_support_future_prep": true,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "partial_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "moderate",
+      "closed_by_v097": false
+    },
+    {
+      "blocker_id": "B004",
+      "source_version": "v0.8.20",
+      "description": "Remaining gap count is 5.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "missing",
+      "supporting_evidence_items": [],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "controlled_reevaluation_specific_evidence"
+      ],
+      "can_support_future_prep": false,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "insufficient_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "missing",
+      "closed_by_v097": false
+    },
+    {
+      "blocker_id": "B005",
+      "source_version": "v0.8.20",
+      "description": "Owner operational acceptability is false.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "missing",
+      "supporting_evidence_items": [],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "controlled_reevaluation_specific_evidence"
+      ],
+      "can_support_future_prep": false,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "insufficient_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "missing",
+      "closed_by_v097": false
+    },
+    {
+      "blocker_id": "B006",
+      "source_version": "v0.8.20",
+      "description": "Historical sufficiency remains a review item if upstream audits expose it.",
+      "blocks_owner_readiness": true,
+      "current_status": "open",
+      "evidence_strength": "moderate",
+      "supporting_evidence_items": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/evidence_eligible_day_register.json"
+      ],
+      "missing_evidence": [
+        "five_eligible_research_output_days",
+        "future_controlled_reevaluation_evidence"
+      ],
+      "can_support_future_prep": true,
+      "can_support_controlled_reevaluation": false,
+      "requires_additional_days": true,
+      "requires_manual_review": false,
+      "notes": "Evidence is prep-only and does not execute a gate.",
+      "v096_closeout_status": "partial_evidence_open",
+      "closed_by_v096": false,
+      "post_backfill_evidence_strength": "moderate",
+      "closed_by_v097": false
+    }
+  ],
+  "blockers_with_strong_or_moderate_evidence": 3,
+  "blocker_coverage_ratio": 0.5,
+  "prep_coverage_passed": false,
+  "controlled_reevaluation_coverage_passed": false
+}

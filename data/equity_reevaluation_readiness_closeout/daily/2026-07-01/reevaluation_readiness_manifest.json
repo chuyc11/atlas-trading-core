@@ -1,0 +1,24 @@
+{
+  "manifest_id": "A-SHARE-REEVALUATION-READINESS-MANIFEST",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T17:21:01.203355Z",
+  "source_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "output_artifacts": {
+    "reevaluation_readiness_precheck": "data/equity_reevaluation_readiness_closeout/daily/2026-07-01/reevaluation_readiness_precheck.json",
+    "go_no_go_after_backfill": "data/equity_reevaluation_readiness_closeout/daily/2026-07-01/go_no_go_after_backfill.json",
+    "remaining_gap_register_after_backfill": "data/equity_reevaluation_readiness_closeout/daily/2026-07-01/remaining_gap_register_after_backfill.json",
+    "reevaluation_readiness_closeout_result": "data/equity_reevaluation_readiness_closeout/daily/2026-07-01/reevaluation_readiness_closeout_result.json",
+    "reevaluation_readiness_boundary_check": "data/equity_reevaluation_readiness_closeout/daily/2026-07-01/reevaluation_readiness_boundary_check.json"
+  },
+  "artifact_hashes": {
+    "reevaluation_readiness_precheck": "49358d52427430019c91a69778b7b7cc1234bf631e94e980e8d44f14e0da8526",
+    "go_no_go_after_backfill": "6588a0d63a2ea0584f8d6ab99def386d78fb6b60364f07f61a5bb180e31ec165",
+    "remaining_gap_register_after_backfill": "80d40b456c449f91133a578b8f5b8491ac142777b0222063ce5b542e61253aab",
+    "reevaluation_readiness_closeout_result": "78df3661c4666c2993d3a88c1f3c9cf22c6803978dd23f1e095e4cdbc7656c0e",
+    "reevaluation_readiness_boundary_check": "b10d257f20732d93a92807b3be74058f433a8880d0b890598d41d612042375f0"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v0.9.8-a-share-reevaluation-readiness-closeout-after-backfill"
+}

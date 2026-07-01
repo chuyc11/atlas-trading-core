@@ -1,0 +1,32 @@
+{
+  "result_id": "A-SHARE-RECOMPUTED-EVIDENCE-RESULT",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "eligible_day_count": 2,
+  "eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "target_total_evidence_days": 5,
+  "controlled_reevaluation_day_count_passed": false,
+  "research_output_completeness_passed": true,
+  "evidence_quality_overall_status": "partial",
+  "blocker_count": 6,
+  "blocker_coverage_ratio": 0.5,
+  "prep_coverage_passed": false,
+  "controlled_reevaluation_coverage_passed": false,
+  "ready_for_future_controlled_reevaluation_prep": false,
+  "new_owner_readiness_score_generated": false,
+  "new_owner_readiness_decision_generated": false,
+  "known_owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "eligible_day_shortfall_recorded_honestly",
+    "some_historical_backfill_days_incomplete"
+  ]
+}

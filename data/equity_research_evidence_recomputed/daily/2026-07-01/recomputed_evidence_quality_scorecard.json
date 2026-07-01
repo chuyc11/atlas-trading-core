@@ -1,0 +1,36 @@
+{
+  "scorecard_id": "A-SHARE-RECOMPUTED-EVIDENCE-QUALITY-SCORECARD",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "eligible_day_count": 2,
+  "target_total_evidence_days": 5,
+  "categories": [
+    {
+      "category": "eligible_research_days",
+      "status": "not_ready",
+      "evidence_strength": "weak"
+    },
+    {
+      "category": "research_output_completeness",
+      "status": "passed",
+      "evidence_strength": "moderate"
+    },
+    {
+      "category": "source_trace_and_boundary",
+      "status": "passed",
+      "evidence_strength": "moderate"
+    },
+    {
+      "category": "historical_backfill_success",
+      "status": "not_ready",
+      "evidence_strength": "missing"
+    }
+  ],
+  "strong_evidence_count": 0,
+  "moderate_evidence_count": 2,
+  "weak_evidence_count": 1,
+  "missing_evidence_count": 1,
+  "evidence_quality_overall_status": "partial",
+  "new_owner_readiness_score_generated": false,
+  "new_owner_readiness_decision_generated": false
+}

@@ -1,0 +1,25 @@
+{
+  "result_id": "A-SHARE-REEVALUATION-READINESS-CLOSEOUT-RESULT",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "eligible_day_count": 2,
+  "target_total_evidence_days": 5,
+  "precheck_status": "not_ready",
+  "go_no_go_decision": "no_go_additional_evidence_required",
+  "remaining_gap_count": 3,
+  "owner_readiness_gate_rerun": false,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "known_owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "eligible_day_shortfall_recorded_honestly",
+    "some_historical_backfill_days_incomplete",
+    "precheck_not_ready_after_backfill",
+    "additional_evidence_required_after_backfill"
+  ],
+  "recommended_next_version": "v0.9.8-a-share-reevaluation-readiness-closeout-after-backfill"
+}

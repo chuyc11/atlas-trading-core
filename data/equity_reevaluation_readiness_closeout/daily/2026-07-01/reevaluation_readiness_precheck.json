@@ -1,0 +1,24 @@
+{
+  "precheck_id": "A-SHARE-REEVALUATION-READINESS-PRECHECK-AFTER-BACKFILL",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "precheck_status": "not_ready",
+  "criteria": {
+    "target_evidence_day_count_passed": false,
+    "research_output_completeness_passed": true,
+    "controlled_reevaluation_coverage_passed": false,
+    "owner_readiness_gate_not_run": true,
+    "controlled_reevaluation_not_executed": true,
+    "new_gate_score_not_generated": true,
+    "new_gate_decision_not_generated": true
+  },
+  "ready_for_future_controlled_reevaluation_prep": false,
+  "owner_readiness_gate_executed": false,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "blocking_reasons": [],
+  "warnings": [
+    "precheck_not_ready_after_backfill"
+  ]
+}

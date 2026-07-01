@@ -1,0 +1,137 @@
+{
+  "matrix_id": "A-SHARE-RECOMPUTED-RESEARCH-OUTPUT-COMPLETENESS-MATRIX",
+  "target_version": "v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning",
+  "as_of_date": "2026-07-01",
+  "required_output_classes": [
+    "features",
+    "research_scores",
+    "research_candidates",
+    "virtual_only_portfolio_research",
+    "research_briefing",
+    "source_trace",
+    "boundary_check",
+    "manifest"
+  ],
+  "rows": [
+    {
+      "date": "2026-06-22",
+      "features_present": false,
+      "research_scores_present": false,
+      "research_candidates_present": false,
+      "virtual_only_portfolio_research_present": false,
+      "research_briefing_present": false,
+      "source_trace_present": false,
+      "boundary_check_present": false,
+      "manifest_present": false,
+      "complete_for_evidence": false,
+      "missing_output_classes": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "features_present": false,
+      "research_scores_present": false,
+      "research_candidates_present": false,
+      "virtual_only_portfolio_research_present": false,
+      "research_briefing_present": false,
+      "source_trace_present": false,
+      "boundary_check_present": false,
+      "manifest_present": false,
+      "complete_for_evidence": false,
+      "missing_output_classes": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "features_present": false,
+      "research_scores_present": false,
+      "research_candidates_present": false,
+      "virtual_only_portfolio_research_present": false,
+      "research_briefing_present": false,
+      "source_trace_present": false,
+      "boundary_check_present": false,
+      "manifest_present": false,
+      "complete_for_evidence": false,
+      "missing_output_classes": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-25",
+      "features_present": false,
+      "research_scores_present": false,
+      "research_candidates_present": false,
+      "virtual_only_portfolio_research_present": false,
+      "research_briefing_present": false,
+      "source_trace_present": false,
+      "boundary_check_present": false,
+      "manifest_present": false,
+      "complete_for_evidence": false,
+      "missing_output_classes": [
+        "features",
+        "research_scores",
+        "research_candidates",
+        "virtual_only_portfolio_research",
+        "research_briefing",
+        "source_trace",
+        "boundary_check",
+        "manifest"
+      ]
+    },
+    {
+      "date": "2026-06-26",
+      "features_present": true,
+      "research_scores_present": true,
+      "research_candidates_present": true,
+      "virtual_only_portfolio_research_present": true,
+      "research_briefing_present": true,
+      "source_trace_present": true,
+      "boundary_check_present": true,
+      "manifest_present": true,
+      "complete_for_evidence": true,
+      "missing_output_classes": []
+    },
+    {
+      "date": "2026-07-01",
+      "features_present": true,
+      "research_scores_present": true,
+      "research_candidates_present": true,
+      "virtual_only_portfolio_research_present": true,
+      "research_briefing_present": true,
+      "source_trace_present": true,
+      "boundary_check_present": true,
+      "manifest_present": true,
+      "complete_for_evidence": true,
+      "missing_output_classes": []
+    }
+  ],
+  "research_output_completeness_passed": true,
+  "all_candidate_days_complete": false,
+  "blocking_reasons": [],
+  "warnings": [
+    "some_historical_backfill_days_incomplete"
+  ]
+}
