@@ -1,0 +1,25 @@
+{
+  "diagnostics_id": "A-SHARE-RESEARCH-BRIEFING-QUALITY-DIAGNOSTICS",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "briefing_quality_status": "passed",
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "briefing_boundary_statement": "research briefing is not investment advice",
+  "daily_briefing_checks": [
+    {
+      "date": "2026-06-26",
+      "briefing_present": true,
+      "not_investment_advice_wording_present": false,
+      "forbidden_wording_hits": []
+    },
+    {
+      "date": "2026-07-01",
+      "briefing_present": true,
+      "not_investment_advice_wording_present": false,
+      "forbidden_wording_hits": []
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": []
+}

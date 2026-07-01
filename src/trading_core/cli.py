@@ -79,6 +79,11 @@ from trading_core.equity_data_freshness import DEFAULT_TARGET_AS_OF_DATE as DEFA
 from trading_core.equity_data_freshness import refresh_a_share_data_freshness
 from trading_core.equity_research_pipeline_rerun import DEFAULT_AS_OF_DATE as DEFAULT_RESEARCH_PIPELINE_RERUN_AS_OF_DATE
 from trading_core.equity_research_pipeline_rerun import rerun_a_share_research_pipeline_from_refreshed_data
+from trading_core.equity_research_evidence_accumulation import DEFAULT_AS_OF_DATE as DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE
+from trading_core.equity_research_evidence_accumulation import (
+    audit_a_share_research_evidence_accumulation_and_prep,
+    build_a_share_research_evidence_accumulation_and_prep,
+)
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1099,6 +1104,12 @@ def build_parser() -> argparse.ArgumentParser:
     research_pipeline_rerun = subparsers.add_parser("rerun-a-share-research-pipeline-from-refreshed-data")
     research_pipeline_rerun.add_argument("--as-of-date", default=DEFAULT_RESEARCH_PIPELINE_RERUN_AS_OF_DATE)
     research_pipeline_rerun.add_argument("--dry-run", action="store_true")
+    research_evidence = subparsers.add_parser("build-a-share-research-evidence-accumulation-and-prep")
+    research_evidence.add_argument("--as-of-date", default=DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE)
+    research_evidence_audit = subparsers.add_parser("audit-a-share-research-evidence-accumulation-and-prep")
+    research_evidence_audit.add_argument("--as-of-date", default=DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE)
+    research_evidence_all = subparsers.add_parser("build-and-audit-a-share-research-evidence-accumulation-and-prep")
+    research_evidence_all.add_argument("--as-of-date", default=DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1683,6 +1694,33 @@ def _split_csv_arg(value: str | None) -> list[str] | None:
     if not value:
         return None
     return [part.strip() for part in value.split(",") if part.strip()]
+
+
+def _research_evidence_cli_payload(result: dict) -> dict:
+    return {
+        "builder_id": result["builder_id"],
+        "target_version": result["target_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "eligible_day_count": result["eligible_day_count"],
+        "eligible_days": result["eligible_days"],
+        "ineligible_days": result["ineligible_days"],
+        "evidence_accumulation_status": result["evidence_accumulation_status"],
+        "evidence_quality_overall_status": result["evidence_quality_overall_status"],
+        "blocker_coverage_ratio": result["blocker_coverage_ratio"],
+        "precheck_status": result["precheck_status"],
+        "future_reevaluation_decision": result["future_reevaluation_decision"],
+        "ready_for_future_controlled_reevaluation_prep": result["ready_for_future_controlled_reevaluation_prep"],
+        "controlled_reevaluation_executed": result["controlled_reevaluation_executed"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "known_owner_readiness_state": result["known_owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -3667,6 +3705,41 @@ def main(argv: Sequence[str] | None = None) -> int:
             }
         )
         return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-research-evidence-accumulation-and-prep":
+        result = build_a_share_research_evidence_accumulation_and_prep(as_of_date=args.as_of_date, paths=paths)
+        print(_research_evidence_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-research-evidence-accumulation-and-prep":
+        result = audit_a_share_research_evidence_accumulation_and_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "phase_a_checks": result["phase_a_checks"],
+                "phase_b_checks": result["phase_b_checks"],
+                "gate_safety": result["gate_safety"],
+                "trading_boundary": result["trading_boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-research-evidence-accumulation-and-prep":
+        build_result = build_a_share_research_evidence_accumulation_and_prep(as_of_date=args.as_of_date, paths=paths)
+        audit_result = audit_a_share_research_evidence_accumulation_and_prep(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_research_evidence_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
             as_of_date=args.as_of_date,

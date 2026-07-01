@@ -1,0 +1,37 @@
+{
+  "precheck_id": "A-SHARE-CONTROLLED-REEVALUATION-PRECHECK",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "controlled_reevaluation_executed": false,
+  "owner_readiness_gate_rerun": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "precheck_status": "not_ready",
+  "criteria": [
+    {
+      "criterion": "minimum_evidence_days_for_controlled_reevaluation",
+      "required": 5,
+      "actual": 2,
+      "passed": false,
+      "blocking": true
+    },
+    {
+      "criterion": "blocker_coverage_ratio_for_controlled_reevaluation",
+      "required": 0.85,
+      "actual": 0.5,
+      "passed": false,
+      "blocking": true
+    },
+    {
+      "criterion": "research_only_boundary_validation",
+      "required": true,
+      "actual": true,
+      "passed": true,
+      "blocking": true
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": [
+    "controlled_reevaluation_precheck_not_ready"
+  ]
+}

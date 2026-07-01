@@ -1,0 +1,25 @@
+{
+  "manifest_id": "A-SHARE-REEVALUATION-PREP-MANIFEST",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T16:38:01.523515Z",
+  "phase": "evidence_quality_review_and_reevaluation_prep",
+  "artifact_paths": {
+    "evidence_quality_review_request": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/evidence_quality_review_request.json",
+    "evidence_quality_scorecard": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/evidence_quality_scorecard.json",
+    "blocker_evidence_mapping": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/blocker_evidence_mapping.json",
+    "reevaluation_input_candidate_package": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/reevaluation_input_candidate_package.json",
+    "controlled_reevaluation_precheck": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/controlled_reevaluation_precheck.json",
+    "go_no_go_for_future_reevaluation": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/go_no_go_for_future_reevaluation.json",
+    "not_ready_reason_register": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/not_ready_reason_register.json",
+    "reevaluation_prep_boundary_check": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/reevaluation_prep_boundary_check.json",
+    "reevaluation_prep_result": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/reevaluation_prep_result.json",
+    "reevaluation_prep_manifest": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/reevaluation_prep_manifest.json",
+    "quality_review_report": "outputs/equity_readiness_reevaluation_prep/daily/2026-07-01/A_SHARE_READINESS_EVIDENCE_QUALITY_REVIEW.md",
+    "prep_package_report": "outputs/equity_readiness_reevaluation_prep/daily/2026-07-01/A_SHARE_CONTROLLED_REEVALUATION_PREP_PACKAGE.md",
+    "go_no_go_report": "outputs/equity_readiness_reevaluation_prep/daily/2026-07-01/A_SHARE_GO_NO_GO_FOR_FUTURE_REEVALUATION.md"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout"
+}

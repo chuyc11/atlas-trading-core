@@ -1,0 +1,22 @@
+{
+  "request_id": "A-SHARE-EVIDENCE-QUALITY-REVIEW-REQUEST",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "source_evidence_accumulation_result_path": "data/equity_research_evidence_accumulation/daily/2026-07-01/evidence_accumulation_result.json",
+  "source_readiness_evidence_gap_analysis_path": "data/equity_research_evidence_accumulation/daily/2026-07-01/readiness_evidence_gap_analysis.json",
+  "review_scope": [
+    "evidence_strength_classification",
+    "blocker_evidence_mapping",
+    "reevaluation_input_candidate_package",
+    "controlled_reevaluation_precheck",
+    "go_no_go_for_future_reevaluation",
+    "not_ready_reason_register"
+  ],
+  "allow_controlled_reevaluation_execution": false,
+  "allow_new_gate_score": false,
+  "allow_new_gate_decision": false,
+  "allow_threshold_change": false,
+  "allow_waiver": false,
+  "research_only": true,
+  "not_owner_readiness_decision": true
+}

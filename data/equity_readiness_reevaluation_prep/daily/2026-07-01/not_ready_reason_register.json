@@ -1,0 +1,39 @@
+{
+  "register_id": "A-SHARE-NOT-READY-REASON-REGISTER",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "not_ready": true,
+  "reasons": [
+    {
+      "reason_id": "NR001",
+      "category": "insufficient_evidence_days",
+      "description": "Eligible research evidence days are below future controlled reevaluation threshold.",
+      "blocking": true,
+      "required_to_resolve": "collect at least 5 eligible research evidence days",
+      "evidence_needed": [
+        "additional_daily_research_output_packages",
+        "source_trace_and_boundary_validation_for_each_day"
+      ],
+      "can_be_resolved_without_gate": true,
+      "requires_future_version": true
+    },
+    {
+      "reason_id": "NR002",
+      "category": "insufficient_blocker_coverage",
+      "description": "Blocker evidence coverage is below controlled reevaluation threshold.",
+      "blocking": true,
+      "required_to_resolve": "raise blocker evidence coverage to at least 0.85",
+      "evidence_needed": [
+        "audit_verified_blocker_evidence_mapping",
+        "manual_review_if_needed"
+      ],
+      "can_be_resolved_without_gate": true,
+      "requires_future_version": true
+    }
+  ],
+  "reason_count": 2,
+  "minimum_reasons_expected_if_no_go": 1,
+  "owner_readiness_state_preserved": "blocked",
+  "owner_operationally_acceptable": false,
+  "precheck_status": "not_ready"
+}

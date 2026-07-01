@@ -1,0 +1,34 @@
+{
+  "decision_id": "A-SHARE-GO-NO-GO-FOR-FUTURE-REEVALUATION",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "decision_type": "future_reevaluation_prep_decision",
+  "not_owner_readiness_gate_decision": true,
+  "controlled_reevaluation_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "decision": "no_go_additional_evidence_required",
+  "ready_for_future_controlled_reevaluation_prep": false,
+  "allowed_next_step": "additional_evidence_accumulation_or_not_ready_closeout",
+  "forbidden_next_step": "execute_controlled_reevaluation_now",
+  "go_criteria": [
+    "minimum_5_eligible_days",
+    "blocker_coverage_ratio_at_least_0.85",
+    "research_only_boundary_validation"
+  ],
+  "failed_criteria": [
+    "minimum_evidence_days_for_controlled_reevaluation",
+    "blocker_coverage_ratio_for_controlled_reevaluation"
+  ],
+  "rationale": [
+    "eligible_day_count=2",
+    "blocker_coverage_ratio=0.5",
+    "evidence_quality_overall_status=partial",
+    "This is not an owner-readiness gate decision."
+  ],
+  "blocking_reasons": [],
+  "warnings": [
+    "additional_evidence_required_before_controlled_reevaluation"
+  ],
+  "recommended_next_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout"
+}

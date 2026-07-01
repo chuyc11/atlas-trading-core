@@ -1,0 +1,49 @@
+{
+  "register_id": "A-SHARE-EVIDENCE-ELIGIBLE-DAY-REGISTER",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "minimum_evidence_days_for_prep": 2,
+  "minimum_evidence_days_for_future_controlled_reevaluation": 5,
+  "eligible_day_count": 2,
+  "eligible_days": [
+    {
+      "date": "2026-06-26",
+      "source_data_date": "2026-06-26",
+      "features_present": true,
+      "scores_present": true,
+      "candidates_present": true,
+      "virtual_portfolio_present": true,
+      "briefing_present": true,
+      "source_trace_present": true,
+      "boundary_validation_present": true,
+      "research_only_marking_present": true,
+      "eligible_for_prep": true,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_warnings": [
+        "source_data_freshness_artifact_not_available_for_historical_day"
+      ],
+      "eligibility_blocking_reasons": []
+    },
+    {
+      "date": "2026-07-01",
+      "source_data_date": "2026-07-01",
+      "features_present": true,
+      "scores_present": true,
+      "candidates_present": true,
+      "virtual_portfolio_present": true,
+      "briefing_present": true,
+      "source_trace_present": true,
+      "boundary_validation_present": true,
+      "research_only_marking_present": true,
+      "eligible_for_prep": true,
+      "eligible_for_future_controlled_reevaluation": false,
+      "eligibility_warnings": [],
+      "eligibility_blocking_reasons": []
+    }
+  ],
+  "ineligible_days": [],
+  "planned_but_not_evidence_days": [],
+  "prep_evidence_day_count_passed": true,
+  "controlled_reevaluation_day_count_passed": false,
+  "overall_day_eligibility_status": "sufficient_for_prep"
+}

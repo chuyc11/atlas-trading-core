@@ -1,0 +1,31 @@
+{
+  "request_id": "A-SHARE-EVIDENCE-ACCUMULATION-REQUEST",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "baseline_owner_readiness_date": "2026-06-26",
+  "refreshed_research_output_date": "2026-07-01",
+  "source_versions": {
+    "data_freshness": "v0.9.3-a-share-data-freshness-refresh",
+    "research_pipeline_rerun": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data"
+  },
+  "scope": [
+    "multi_day_research_output_evidence",
+    "research_output_completeness",
+    "candidate_overlap_and_turnover",
+    "score_distribution_diagnostics",
+    "virtual_only_portfolio_diagnostics",
+    "briefing_quality_diagnostics",
+    "readiness_evidence_gap_analysis"
+  ],
+  "allow_data_refresh": false,
+  "allow_research_pipeline_rerun": false,
+  "allow_owner_readiness_gate": false,
+  "allow_controlled_reevaluation_execution": false,
+  "allow_new_gate_score": false,
+  "allow_new_gate_decision": false,
+  "allow_broker": false,
+  "allow_order_preview": false,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true
+}

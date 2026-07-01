@@ -1,0 +1,31 @@
+{
+  "diagnostics_id": "A-SHARE-RESEARCH-OUTPUT-CONSISTENCY-DIAGNOSTICS",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "eligible_day_count": 2,
+  "minimum_evidence_days_for_prep": 2,
+  "minimum_evidence_days_for_future_controlled_reevaluation": 5,
+  "research_output_consistency_status": "sufficient_for_prep_not_for_controlled_reevaluation",
+  "daily_counts": [
+    {
+      "date": "2026-06-26",
+      "strict_tradable_count": 3676,
+      "scored_symbols": 3676,
+      "long_candidate_count": 30,
+      "mid_candidate_count": 30,
+      "short_candidate_count": 30
+    },
+    {
+      "date": "2026-07-01",
+      "strict_tradable_count": 3699,
+      "scored_symbols": 3699,
+      "long_candidate_count": 30,
+      "mid_candidate_count": 30,
+      "short_candidate_count": 30
+    }
+  ],
+  "cross_day_consistency_supported": true,
+  "controlled_reevaluation_consistency_supported": false,
+  "blocking_reasons": [],
+  "warnings": []
+}

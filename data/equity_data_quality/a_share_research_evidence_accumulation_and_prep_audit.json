@@ -1,0 +1,77 @@
+{
+  "audit_id": "A-SHARE-RESEARCH-EVIDENCE-ACCUMULATION-AND-PREP-AUDIT",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "source_data_freshness_available_only_for_refreshed_research_output_date",
+    "blocker_coverage_below_controlled_reevaluation_threshold",
+    "candidate_package_not_ready_for_gate_execution",
+    "controlled_reevaluation_precheck_not_ready",
+    "additional_evidence_required_before_controlled_reevaluation"
+  ],
+  "phase_a_checks": {
+    "evidence_accumulation_result_generated": true,
+    "research_only_boundary_validation_passed": true,
+    "readiness_gap_analysis_generated": true
+  },
+  "phase_b_checks": {
+    "evidence_quality_scorecard_generated": true,
+    "blocker_evidence_mapping_generated": true,
+    "reevaluation_input_candidate_package_generated": true,
+    "controlled_reevaluation_precheck_generated": true,
+    "go_no_go_decision_generated": true,
+    "not_ready_reason_register_generated": true,
+    "reevaluation_prep_boundary_check_passed": true
+  },
+  "gate_safety": {
+    "owner_readiness_gate_rerun": false,
+    "controlled_gate_reevaluation_run": false,
+    "new_gate_score_generated": false,
+    "new_gate_decision_generated": false,
+    "owner_readiness_state": "blocked",
+    "source_readiness_score": 54
+  },
+  "trading_boundary": {
+    "broker_connected": false,
+    "real_account_data_read": false,
+    "real_orders_placed": false,
+    "order_preview_generated": false,
+    "buy_sell_signals_generated": false,
+    "live_trading_ready": false
+  },
+  "text_checks": {
+    "candidate_diagnostics_do_not_use_buy_sell_wording": true,
+    "score_diagnostics_marked_not_trade_signal": true,
+    "score_diagnostics_not_owner_readiness_score": true,
+    "virtual_portfolio_marked_virtual_only": true,
+    "virtual_portfolio_marked_not_real_portfolio": true,
+    "briefing_not_labeled_investment_advice": true,
+    "prep_decision_not_mislabeled_as_gate_decision": true,
+    "evidence_quality_score_not_mislabeled_as_readiness_score": true
+  },
+  "policy_checks": {
+    "no_data_refresh_run": true,
+    "no_research_pipeline_rerun_run": true,
+    "no_owner_daily_pack_run": true,
+    "no_owner_readiness_gate_rerun": true,
+    "no_controlled_gate_reevaluation": true,
+    "no_new_gate_score": true,
+    "no_new_gate_decision": true,
+    "readiness_score_preserved": true,
+    "owner_readiness_remains_blocked": true,
+    "protected_order_trade_account_paths_untouched": true,
+    "no_old_run_daily": true,
+    "no_official_day2": true
+  },
+  "test_policy": {
+    "targeted_pytest_required": true,
+    "full_pytest_run": false,
+    "full_pytest_deferred_until": "next-major-closeout-or-explicit-request"
+  },
+  "recommended_next_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "source_owner_readiness_date": "2026-06-26",
+  "audit_json_path": "data/equity_data_quality/a_share_research_evidence_accumulation_and_prep_audit.json",
+  "audit_markdown_path": "outputs/audit/A_SHARE_RESEARCH_EVIDENCE_ACCUMULATION_AND_PREP_AUDIT.md"
+}

@@ -1,0 +1,28 @@
+{
+  "analysis_id": "A-SHARE-READINESS-EVIDENCE-GAP-ANALYSIS",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "known_owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "source_blocker_count": 7,
+  "evidence_supported_gap_count": 0,
+  "remaining_gap_count": 1,
+  "remaining_gaps": [
+    {
+      "gap_id": "G001",
+      "category": "insufficient_evidence_days",
+      "description": "Eligible research evidence days do not meet future controlled reevaluation threshold.",
+      "required": 5,
+      "actual": 2,
+      "blocking": true
+    }
+  ],
+  "readiness_evidence_gap_analysis_completed": true,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "blocking_reasons": [],
+  "warnings": []
+}

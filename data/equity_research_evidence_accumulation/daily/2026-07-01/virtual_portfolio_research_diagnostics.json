@@ -1,0 +1,64 @@
+{
+  "diagnostics_id": "A-SHARE-VIRTUAL-PORTFOLIO-RESEARCH-DIAGNOSTICS",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "virtual_portfolio_research_status": "partial",
+  "virtual_only": true,
+  "not_real_portfolio": true,
+  "not_order_instruction": true,
+  "boundary_statements": [
+    "virtual portfolio is virtual-only",
+    "not real portfolio",
+    "not order instruction"
+  ],
+  "daily_portfolio_summaries": [
+    {
+      "date": "2026-06-26",
+      "weight_summary": {
+        "long_virtual_portfolio": {
+          "holdings": 30,
+          "weight_sum": 1.0,
+          "max_single_weight": 0.037139,
+          "max_industry_weight": 0.25
+        },
+        "mid_virtual_portfolio": {
+          "holdings": 30,
+          "weight_sum": 1.0,
+          "max_single_weight": 0.036981,
+          "max_industry_weight": 0.25
+        },
+        "short_virtual_portfolio": {
+          "holdings": 20,
+          "weight_sum": 1.0,
+          "max_single_weight": 0.055804,
+          "max_industry_weight": 0.3
+        }
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "weight_summary": {
+        "long_virtual_portfolio": {
+          "holdings": 30,
+          "weight_sum": 1.0,
+          "max_single_weight": 0.036093,
+          "max_industry_weight": 0.25
+        },
+        "mid_virtual_portfolio": {
+          "holdings": 30,
+          "weight_sum": 0.92,
+          "max_single_weight": 0.06,
+          "max_industry_weight": 0.25
+        },
+        "short_virtual_portfolio": {
+          "holdings": 20,
+          "weight_sum": 1.0,
+          "max_single_weight": 0.054327,
+          "max_industry_weight": 0.250336
+        }
+      }
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": []
+}

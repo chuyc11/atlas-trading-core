@@ -1,0 +1,58 @@
+{
+  "matrix_id": "A-SHARE-RESEARCH-OUTPUT-COMPLETENESS-MATRIX",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "required_output_classes": [
+    "source_data_freshness",
+    "features",
+    "research_scores",
+    "research_candidates",
+    "virtual_only_portfolio_research",
+    "research_briefing",
+    "source_trace",
+    "boundary_check",
+    "manifest"
+  ],
+  "rows": [
+    {
+      "date": "2026-06-26",
+      "source_data_date": "2026-06-26",
+      "source_data_freshness_present": false,
+      "features_present": true,
+      "research_scores_present": true,
+      "research_candidates_present": true,
+      "virtual_only_portfolio_research_present": true,
+      "research_briefing_present": true,
+      "source_trace_present": true,
+      "boundary_check_present": true,
+      "manifest_present": true,
+      "complete_for_evidence": true,
+      "complete_for_refreshed_source_evidence": false,
+      "missing_output_classes": [
+        "source_data_freshness"
+      ]
+    },
+    {
+      "date": "2026-07-01",
+      "source_data_date": "2026-07-01",
+      "source_data_freshness_present": true,
+      "features_present": true,
+      "research_scores_present": true,
+      "research_candidates_present": true,
+      "virtual_only_portfolio_research_present": true,
+      "research_briefing_present": true,
+      "source_trace_present": true,
+      "boundary_check_present": true,
+      "manifest_present": true,
+      "complete_for_evidence": true,
+      "complete_for_refreshed_source_evidence": true,
+      "missing_output_classes": []
+    }
+  ],
+  "research_output_completeness_passed": true,
+  "all_candidate_days_complete": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "source_data_freshness_available_only_for_refreshed_research_output_date"
+  ]
+}

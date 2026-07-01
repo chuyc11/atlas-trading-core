@@ -1,0 +1,161 @@
+{
+  "package_id": "A-SHARE-REEVALUATION-INPUT-CANDIDATE-PACKAGE",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "package_status": "not_ready",
+  "not_gate_execution": true,
+  "owner_readiness_gate_executed": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "candidate_input_sections": {
+    "source_versions": {
+      "data_freshness": "v0.9.3-a-share-data-freshness-refresh",
+      "research_pipeline_rerun": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data"
+    },
+    "eligible_days": [
+      {
+        "date": "2026-06-26",
+        "source_data_date": "2026-06-26",
+        "features_present": true,
+        "scores_present": true,
+        "candidates_present": true,
+        "virtual_portfolio_present": true,
+        "briefing_present": true,
+        "source_trace_present": true,
+        "boundary_validation_present": true,
+        "research_only_marking_present": true,
+        "eligible_for_prep": true,
+        "eligible_for_future_controlled_reevaluation": false,
+        "eligibility_warnings": [
+          "source_data_freshness_artifact_not_available_for_historical_day"
+        ],
+        "eligibility_blocking_reasons": []
+      },
+      {
+        "date": "2026-07-01",
+        "source_data_date": "2026-07-01",
+        "features_present": true,
+        "scores_present": true,
+        "candidates_present": true,
+        "virtual_portfolio_present": true,
+        "briefing_present": true,
+        "source_trace_present": true,
+        "boundary_validation_present": true,
+        "research_only_marking_present": true,
+        "eligible_for_prep": true,
+        "eligible_for_future_controlled_reevaluation": false,
+        "eligibility_warnings": [],
+        "eligibility_blocking_reasons": []
+      }
+    ],
+    "evidence_items": [
+      {
+        "category": "multi_day_output_completeness",
+        "status": "passed",
+        "evidence_strength": "moderate",
+        "supporting_artifacts": [
+          "data/equity_research_evidence_accumulation/daily/2026-07-01/research_output_completeness_matrix.json"
+        ],
+        "blocking_gaps": [],
+        "warnings": []
+      },
+      {
+        "category": "research_output_consistency",
+        "status": "partial",
+        "evidence_strength": "moderate",
+        "supporting_artifacts": [
+          "data/equity_research_evidence_accumulation/daily/2026-07-01/research_output_consistency_diagnostics.json"
+        ],
+        "blocking_gaps": [],
+        "warnings": []
+      },
+      {
+        "category": "boundary_integrity",
+        "status": "passed",
+        "evidence_strength": "strong",
+        "supporting_artifacts": [
+          "data/equity_research_evidence_accumulation/daily/2026-07-01/research_only_boundary_validation.json"
+        ],
+        "blocking_gaps": [],
+        "warnings": []
+      },
+      {
+        "category": "source_traceability",
+        "status": "partial",
+        "evidence_strength": "moderate",
+        "supporting_artifacts": [
+          "data/equity_research_evidence_accumulation/daily/2026-07-01/source_artifact_inventory.json"
+        ],
+        "blocking_gaps": [],
+        "warnings": [
+          "source_data_freshness_artifact_only_available_for_refreshed_date"
+        ]
+      },
+      {
+        "category": "operator_usability",
+        "status": "passed",
+        "evidence_strength": "moderate",
+        "supporting_artifacts": [
+          "data/equity_owner_v090_rc/daily/2026-06-26/v090_audit_sweep_result.json"
+        ],
+        "blocking_gaps": [],
+        "warnings": []
+      }
+    ],
+    "blocker_mapping": {
+      "blocker_count": 6,
+      "blocker_coverage_ratio": 0.5
+    },
+    "boundary_validation": {
+      "validation_id": "A-SHARE-RESEARCH-ONLY-BOUNDARY-VALIDATION",
+      "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+      "as_of_date": "2026-07-01",
+      "source_v094_result_passed": true,
+      "research_only_boundary_validation_passed": true,
+      "known_owner_readiness_state": "blocked",
+      "owner_operationally_acceptable": false,
+      "readiness_score": 54,
+      "minimum_owner_readiness_score": 75,
+      "score_gap": 21,
+      "data_refresh_run": false,
+      "research_pipeline_rerun_run": false,
+      "build_from_existing_data_run": false,
+      "owner_daily_pack_run": false,
+      "owner_readiness_gate_rerun": false,
+      "controlled_gate_reevaluation_run": false,
+      "new_gate_score_generated": false,
+      "new_gate_decision_generated": false,
+      "broker_connected": false,
+      "real_account_data_read": false,
+      "real_orders_placed": false,
+      "order_preview_generated": false,
+      "buy_sell_signals_generated": false,
+      "old_run_daily_called": false,
+      "day2_executed": false,
+      "live_trading_ready": false,
+      "research_output_used_as_trade_instruction": false,
+      "protected_order_trade_account_paths_untouched": true,
+      "blocking_reasons": [],
+      "warnings": []
+    },
+    "remaining_gaps": [
+      {
+        "gap_id": "G001",
+        "category": "insufficient_evidence_days",
+        "description": "Eligible research evidence days do not meet future controlled reevaluation threshold.",
+        "required": 5,
+        "actual": 2,
+        "blocking": true
+      }
+    ]
+  },
+  "missing_required_sections": [
+    "minimum_evidence_days_for_future_controlled_reevaluation",
+    "blocker_coverage_ratio_for_controlled_reevaluation",
+    "sufficient_evidence_quality_status"
+  ],
+  "blocking_reasons": [],
+  "warnings": [
+    "candidate_package_not_ready_for_gate_execution"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "diagnostics_id": "A-SHARE-SCORE-DISTRIBUTION-DIAGNOSTICS",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "score_distribution_status": "partial",
+  "not_trade_signal": true,
+  "not_owner_readiness_score": true,
+  "score_boundary_statements": [
+    "research_score != buy/sell signal",
+    "research_score != owner-readiness score"
+  ],
+  "distributions": [
+    {
+      "date": "2026-06-26",
+      "score_count": 3676,
+      "score_columns": [
+        "CompositeOpportunityScore",
+        "FundamentalScore",
+        "IndustryScore",
+        "LiquidityScore",
+        "LongScore",
+        "MidScore",
+        "RiskScore",
+        "ShortScore"
+      ],
+      "long_score_mean": 50.01109448803047,
+      "mid_score_mean": 50.01335237568009,
+      "short_score_mean": 50.01268362513601
+    },
+    {
+      "date": "2026-07-01",
+      "score_count": 3699,
+      "score_columns": [
+        "CompositeOpportunityScore",
+        "FundamentalScore",
+        "IndustryScore",
+        "LiquidityScore",
+        "LongScore",
+        "MidScore",
+        "RiskScore",
+        "ShortScore"
+      ],
+      "long_score_mean": 50.01102551148959,
+      "mid_score_mean": 50.01326935685321,
+      "short_score_mean": 50.01314543957827
+    }
+  ],
+  "blocking_reasons": [],
+  "warnings": []
+}

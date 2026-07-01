@@ -1,0 +1,68 @@
+{
+  "scorecard_id": "A-SHARE-EVIDENCE-QUALITY-SCORECARD",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "not_owner_readiness_score": true,
+  "not_gate_score": true,
+  "evidence_quality_overall_status": "partial",
+  "categories": [
+    {
+      "category": "multi_day_output_completeness",
+      "status": "passed",
+      "evidence_strength": "moderate",
+      "supporting_artifacts": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/research_output_completeness_matrix.json"
+      ],
+      "blocking_gaps": [],
+      "warnings": []
+    },
+    {
+      "category": "research_output_consistency",
+      "status": "partial",
+      "evidence_strength": "moderate",
+      "supporting_artifacts": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/research_output_consistency_diagnostics.json"
+      ],
+      "blocking_gaps": [],
+      "warnings": []
+    },
+    {
+      "category": "boundary_integrity",
+      "status": "passed",
+      "evidence_strength": "strong",
+      "supporting_artifacts": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/research_only_boundary_validation.json"
+      ],
+      "blocking_gaps": [],
+      "warnings": []
+    },
+    {
+      "category": "source_traceability",
+      "status": "partial",
+      "evidence_strength": "moderate",
+      "supporting_artifacts": [
+        "data/equity_research_evidence_accumulation/daily/2026-07-01/source_artifact_inventory.json"
+      ],
+      "blocking_gaps": [],
+      "warnings": [
+        "source_data_freshness_artifact_only_available_for_refreshed_date"
+      ]
+    },
+    {
+      "category": "operator_usability",
+      "status": "passed",
+      "evidence_strength": "moderate",
+      "supporting_artifacts": [
+        "data/equity_owner_v090_rc/daily/2026-06-26/v090_audit_sweep_result.json"
+      ],
+      "blocking_gaps": [],
+      "warnings": []
+    }
+  ],
+  "strong_evidence_count": 1,
+  "moderate_evidence_count": 4,
+  "weak_evidence_count": 0,
+  "missing_evidence_count": 0,
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -1,0 +1,35 @@
+{
+  "result_id": "A-SHARE-EVIDENCE-ACCUMULATION-RESULT",
+  "target_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "source_data_freshness_available_only_for_refreshed_research_output_date"
+  ],
+  "eligible_day_count": 2,
+  "eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "ineligible_days": [],
+  "prep_evidence_day_count_passed": true,
+  "controlled_reevaluation_day_count_passed": false,
+  "research_output_completeness_passed": true,
+  "research_output_consistency_status": "sufficient_for_prep_not_for_controlled_reevaluation",
+  "candidate_stability_status": "partial",
+  "score_distribution_status": "partial",
+  "virtual_portfolio_research_status": "partial",
+  "briefing_quality_status": "passed",
+  "research_only_boundary_validation_passed": true,
+  "readiness_evidence_gap_analysis_completed": true,
+  "evidence_accumulation_status": "sufficient_for_prep",
+  "data_refresh_run": false,
+  "research_pipeline_rerun_run": false,
+  "build_from_existing_data_run": false,
+  "owner_readiness_gate_rerun": false,
+  "controlled_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "recommended_next_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout"
+}
