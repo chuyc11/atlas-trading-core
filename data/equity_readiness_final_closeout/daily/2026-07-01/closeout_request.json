@@ -1,0 +1,20 @@
+{
+  "request_id": "A-SHARE-FINAL-NOT-READY-CLOSEOUT-REQUEST",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "source_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "requested_operation": "controlled_reevaluation_or_final_not_ready_closeout",
+  "branch_selection_required": true,
+  "allow_controlled_reevaluation_if_ready": false,
+  "expected_branch": "final_not_ready_closeout",
+  "allow_owner_readiness_gate_rerun": false,
+  "allow_new_gate_score": false,
+  "allow_new_gate_decision": false,
+  "allow_threshold_change": false,
+  "allow_waiver": false,
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_live_trading_ready": true
+}

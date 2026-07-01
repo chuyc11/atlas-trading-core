@@ -1,0 +1,29 @@
+{
+  "selection_id": "A-SHARE-READINESS-CLOSEOUT-BRANCH-SELECTION",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "allowed_branches": [
+    "controlled_reevaluation",
+    "final_not_ready_closeout",
+    "failed_precondition_closeout"
+  ],
+  "selected_branch": "final_not_ready_closeout",
+  "controlled_reevaluation_allowed": false,
+  "controlled_reevaluation_executed": false,
+  "selection_inputs": {
+    "future_reevaluation_decision": "no_go_additional_evidence_required",
+    "controlled_reevaluation_precheck_status": "not_ready",
+    "ready_for_future_controlled_reevaluation_prep": false,
+    "prep_coverage_passed": false,
+    "controlled_reevaluation_coverage_passed": false,
+    "blocker_coverage_ratio": 0.5,
+    "controlled_reevaluation_day_count_passed": false
+  },
+  "selection_rationale": [
+    "controlled reevaluation is disallowed because v0.9.5 no-go result and precheck not_ready.",
+    "future_reevaluation_decision=no_go_additional_evidence_required",
+    "controlled_reevaluation_precheck_status=not_ready"
+  ],
+  "blocking_reasons": [],
+  "warnings": []
+}

@@ -1,0 +1,40 @@
+{
+  "plan_id": "A-SHARE-NEXT-CYCLE-EVIDENCE-PLAN",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "plan_status": "required",
+  "recommended_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+  "minimum_additional_research_days": 3,
+  "target_total_evidence_days": 5,
+  "current_eligible_days": 2,
+  "target_dates": [
+    "future_research_day_1",
+    "future_research_day_2",
+    "future_research_day_3"
+  ],
+  "required_tasks": [
+    "collect additional research-only daily output packages",
+    "validate source trace and boundary artifacts for every added day",
+    "update blocker evidence mapping after new evidence exists",
+    "rerun evidence accumulation before any future gate prep decision"
+  ],
+  "forbidden_tasks": [
+    "broker_connection",
+    "real_account_read",
+    "real_orders",
+    "order_preview",
+    "buy_sell_signals",
+    "owner_readiness_gate_rerun_without_evidence",
+    "threshold_lowering",
+    "auto_waiver"
+  ],
+  "success_criteria_for_next_cycle": [
+    "eligible_day_count>=5",
+    "blocker_coverage_ratio>=0.85",
+    "controlled_reevaluation_precheck_status=ready",
+    "owner_readiness_gate_rerun=false until explicitly authorized"
+  ],
+  "notes": [
+    "Plan is non-executing and does not schedule automation."
+  ]
+}

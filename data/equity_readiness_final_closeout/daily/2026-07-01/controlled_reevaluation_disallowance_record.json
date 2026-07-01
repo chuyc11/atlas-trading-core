@@ -1,0 +1,23 @@
+{
+  "record_id": "A-SHARE-CONTROLLED-REEVALUATION-DISALLOWANCE-RECORD",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "controlled_reevaluation_disallowed": true,
+  "controlled_reevaluation_executed": false,
+  "owner_readiness_gate_rerun": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "disallowance_reasons": [
+    "future_reevaluation_decision=no_go_additional_evidence_required",
+    "controlled_reevaluation_precheck_status=not_ready",
+    "ready_for_future_controlled_reevaluation_prep=false",
+    "controlled_reevaluation_day_count_passed=false",
+    "controlled_reevaluation_coverage_passed=false"
+  ],
+  "manual_override_allowed": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

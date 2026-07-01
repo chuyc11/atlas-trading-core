@@ -84,6 +84,8 @@ from trading_core.equity_research_evidence_accumulation import (
     audit_a_share_research_evidence_accumulation_and_prep,
     build_a_share_research_evidence_accumulation_and_prep,
 )
+from trading_core.equity_readiness_final_closeout import DEFAULT_AS_OF_DATE as DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE
+from trading_core.equity_readiness_final_closeout import audit_a_share_final_not_ready_closeout, build_a_share_final_not_ready_closeout
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1110,6 +1112,12 @@ def build_parser() -> argparse.ArgumentParser:
     research_evidence_audit.add_argument("--as-of-date", default=DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE)
     research_evidence_all = subparsers.add_parser("build-and-audit-a-share-research-evidence-accumulation-and-prep")
     research_evidence_all.add_argument("--as-of-date", default=DEFAULT_RESEARCH_EVIDENCE_AS_OF_DATE)
+    final_closeout = subparsers.add_parser("build-a-share-final-not-ready-closeout")
+    final_closeout.add_argument("--as-of-date", default=DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE)
+    final_closeout_audit = subparsers.add_parser("audit-a-share-final-not-ready-closeout")
+    final_closeout_audit.add_argument("--as-of-date", default=DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE)
+    final_closeout_all = subparsers.add_parser("build-and-audit-a-share-final-not-ready-closeout")
+    final_closeout_all.add_argument("--as-of-date", default=DEFAULT_FINAL_CLOSEOUT_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1719,6 +1727,35 @@ def _research_evidence_cli_payload(result: dict) -> dict:
         "new_gate_decision_generated": result["new_gate_decision_generated"],
         "known_owner_readiness_state": result["known_owner_readiness_state"],
         "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _final_closeout_cli_payload(result: dict) -> dict:
+    return {
+        "builder_id": result["builder_id"],
+        "target_version": result["target_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "v095_baseline_verified": result["v095_baseline_verified"],
+        "v095_future_reevaluation_decision": result["v095_future_reevaluation_decision"],
+        "v095_ready_for_future_controlled_reevaluation_prep": result["v095_ready_for_future_controlled_reevaluation_prep"],
+        "selected_branch": result["selected_branch"],
+        "controlled_reevaluation_allowed": result["controlled_reevaluation_allowed"],
+        "controlled_reevaluation_executed": result["controlled_reevaluation_executed"],
+        "final_closeout_decision": result["final_closeout_decision"],
+        "additional_evidence_required": result["additional_evidence_required"],
+        "next_cycle_required": result["next_cycle_required"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "known_owner_readiness_state": result["known_owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "requirements_count": result["requirements_count"],
+        "blocking_requirement_count": result["blocking_requirement_count"],
+        "minimum_future_research_days_required": result["minimum_future_research_days_required"],
         "recommended_next_version": result["recommended_next_version"],
     }
 
@@ -3733,6 +3770,41 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             {
                 **_research_evidence_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-final-not-ready-closeout":
+        result = build_a_share_final_not_ready_closeout(as_of_date=args.as_of_date, paths=paths)
+        print(_final_closeout_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-final-not-ready-closeout":
+        result = audit_a_share_final_not_ready_closeout(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "source_checks": result["source_checks"],
+                "branch_checks": result["branch_checks"],
+                "closeout_checks": result["closeout_checks"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-final-not-ready-closeout":
+        build_result = build_a_share_final_not_ready_closeout(as_of_date=args.as_of_date, paths=paths)
+        audit_result = audit_a_share_final_not_ready_closeout(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_final_closeout_cli_payload(build_result),
                 "audit_id": audit_result["audit_id"],
                 "audit_overall_passed": audit_result["overall_passed"],
                 "audit_blocking_reasons": audit_result["blocking_reasons"],

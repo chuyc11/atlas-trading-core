@@ -1,0 +1,58 @@
+{
+  "manifest_id": "A-SHARE-FINAL-NOT-READY-CLOSEOUT-MANIFEST",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T16:53:33.026724Z",
+  "source_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "source_artifacts": {
+    "v095_prep_result": "data/equity_readiness_reevaluation_prep/daily/2026-07-01/reevaluation_prep_result.json",
+    "v095_evidence_result": "data/equity_research_evidence_accumulation/daily/2026-07-01/evidence_accumulation_result.json",
+    "v095_audit": "data/equity_data_quality/a_share_research_evidence_accumulation_and_prep_audit.json"
+  },
+  "output_artifacts": {
+    "closeout_request": "data/equity_readiness_final_closeout/daily/2026-07-01/closeout_request.json",
+    "source_evidence_review": "data/equity_readiness_final_closeout/daily/2026-07-01/source_evidence_review.json",
+    "branch_selection_result": "data/equity_readiness_final_closeout/daily/2026-07-01/branch_selection_result.json",
+    "controlled_reevaluation_disallowance_record": "data/equity_readiness_final_closeout/daily/2026-07-01/controlled_reevaluation_disallowance_record.json",
+    "final_not_ready_closeout_result": "data/equity_readiness_final_closeout/daily/2026-07-01/final_not_ready_closeout_result.json",
+    "additional_evidence_requirement_register": "data/equity_readiness_final_closeout/daily/2026-07-01/additional_evidence_requirement_register.json",
+    "next_cycle_evidence_plan": "data/equity_readiness_final_closeout/daily/2026-07-01/next_cycle_evidence_plan.json",
+    "unresolved_blocker_closeout_summary": "data/equity_readiness_final_closeout/daily/2026-07-01/unresolved_blocker_closeout_summary.json",
+    "owner_not_ready_summary": "data/equity_readiness_final_closeout/daily/2026-07-01/owner_not_ready_summary.json",
+    "developer_follow_up_backlog": "data/equity_readiness_final_closeout/daily/2026-07-01/developer_follow_up_backlog.json",
+    "final_closeout_boundary_check": "data/equity_readiness_final_closeout/daily/2026-07-01/final_closeout_boundary_check.json",
+    "final_closeout_manifest": "data/equity_readiness_final_closeout/daily/2026-07-01/final_closeout_manifest.json",
+    "closeout_report": "outputs/equity_readiness_final_closeout/daily/2026-07-01/A_SHARE_FINAL_NOT_READY_CLOSEOUT.md",
+    "evidence_plan_report": "outputs/equity_readiness_final_closeout/daily/2026-07-01/A_SHARE_ADDITIONAL_EVIDENCE_REQUIREMENT_PLAN.md",
+    "owner_summary_report": "outputs/equity_readiness_final_closeout/daily/2026-07-01/A_SHARE_OWNER_NOT_READY_SUMMARY.md"
+  },
+  "artifact_hashes": {
+    "closeout_request": "14bdbf45bb87fcef0b435c2d9948e9fb6e0090776372f4cd980095dc0265a404",
+    "source_evidence_review": "b26e06d442b2fdd1ad1e86792111bfacfb0c0679422e202198e2512bc37f1dd4",
+    "branch_selection_result": "4d8e1d8fc28e6739a3b7e57b87da8de7c5c67a353d51fe869b2afbb4c5cf9d64",
+    "controlled_reevaluation_disallowance_record": "2b394ceb5431041d860cab5e7b92d6419b709fb3af5d00534c814449f0815b0a",
+    "final_not_ready_closeout_result": "0fd00e6871d01bf919ab641b549f0f6e193645c27f4dc62d37954a0fc3b17733",
+    "additional_evidence_requirement_register": "cae1de4532e02de1044381951ac9b87e550c0a9403fa3f2c79d23785a249f58b",
+    "next_cycle_evidence_plan": "78bf985df2155498c3bc9e92299c835caffa52714cdbc1997bc4974dcba770d8",
+    "unresolved_blocker_closeout_summary": "8c34821f1feb3443fa4f3355e6d92d6bcd86d26b313b90f43dd200298c68ba61",
+    "owner_not_ready_summary": "2632f449d3380e38857fd9a85ebbcc20a34a5925a18dfbcd766511b7b0894c07",
+    "developer_follow_up_backlog": "89dc41f379acc284f486a40392104de8e202c74ba31b5ba0564b93ee620efcfe",
+    "final_closeout_boundary_check": "8479ed23ff020394c9fdb484a26f0879a1c0ebaf500742a5d91db7d5fb635392",
+    "final_closeout_manifest": "adef0e48f7c6522fc4dbc72e295b438643de2bf6c21bac2795d3364a3fd8483c",
+    "closeout_report": "86f327ab63be84c90e53afc63a6aece2af60d47872b52e20c1d079249b656ba7",
+    "evidence_plan_report": "9cc0b376b04786c4c683bb75e8c86e72290112d9d5926b56c5dc3cf01b5b3950",
+    "owner_summary_report": "f65de95991fa8bf818667da8ef0f4a3628e1cc0ccf42c984d678fcfb0113bd1f"
+  },
+  "selected_branch": "final_not_ready_closeout",
+  "final_closeout_decision": "not_ready_additional_evidence_required",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "source_data_freshness_available_only_for_refreshed_research_output_date",
+    "blocker_coverage_below_controlled_reevaluation_threshold",
+    "candidate_package_not_ready_for_gate_execution",
+    "controlled_reevaluation_precheck_not_ready",
+    "additional_evidence_required_before_controlled_reevaluation"
+  ],
+  "recommended_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker"
+}

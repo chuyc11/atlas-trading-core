@@ -1,0 +1,37 @@
+{
+  "summary_id": "A-SHARE-OWNER-NOT-READY-SUMMARY",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "headline": "Owner-readiness remains blocked.",
+  "plain_language_summary": "当前研究系统可以继续用于 research-only / virtual-only 分析，但还不能作为 owner 日常可接受系统，更不能用于实盘或交易指令。",
+  "why_not_ready": [
+    "v0.9.5 evidence prep 给出的 future_reevaluation_decision 是 no_go_additional_evidence_required。",
+    "controlled reevaluation precheck 仍是 not_ready。",
+    "blocker coverage ratio 只有 0.5，未达到 0.85。",
+    "当前 eligible evidence days 为 2，未达到 5 天要求。"
+  ],
+  "what_has_improved": [
+    "已有 2 个 evidence-eligible research output days。",
+    "research-only boundary validation 已通过。",
+    "已形成下一轮 evidence accumulation 的明确要求。"
+  ],
+  "what_is_still_missing": [
+    "至少还需要 3 个额外 research-only evidence days。",
+    "需要更高 blocker evidence coverage。",
+    "需要重新运行 evidence accumulation，而不是直接运行 gate。"
+  ],
+  "what_owner_can_do_next": [
+    "查看 final not-ready closeout report。",
+    "按 additional evidence plan 准备下一轮证据。",
+    "继续将系统限定为 research-only / virtual-only。"
+  ],
+  "what_owner_must_not_do": [
+    "不能把候选股当作买入建议。",
+    "不能把 score 当作买卖信号。",
+    "不能把 virtual portfolio 当作真实账户组合。",
+    "不能据此执行实盘或下单。"
+  ],
+  "not_live_trading_ready": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true
+}

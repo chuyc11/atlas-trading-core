@@ -1,0 +1,39 @@
+{
+  "review_id": "A-SHARE-SOURCE-EVIDENCE-REVIEW",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "source_version": "v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep",
+  "as_of_date": "2026-07-01",
+  "source_artifacts_found": true,
+  "source_audit_passed": true,
+  "source_blocking_reasons": [],
+  "eligible_day_count": 2,
+  "eligible_days": [
+    "2026-06-26",
+    "2026-07-01"
+  ],
+  "prep_evidence_day_count_passed": true,
+  "controlled_reevaluation_day_count_passed": false,
+  "evidence_quality_overall_status": "partial",
+  "blocker_count": 6,
+  "blocker_coverage_ratio": 0.5,
+  "prep_coverage_passed": false,
+  "controlled_reevaluation_coverage_passed": false,
+  "reevaluation_input_candidate_package_status": "not_ready",
+  "controlled_reevaluation_precheck_status": "not_ready",
+  "future_reevaluation_decision": "no_go_additional_evidence_required",
+  "ready_for_future_controlled_reevaluation_prep": false,
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "review_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "source_data_freshness_available_only_for_refreshed_research_output_date",
+    "blocker_coverage_below_controlled_reevaluation_threshold",
+    "candidate_package_not_ready_for_gate_execution",
+    "controlled_reevaluation_precheck_not_ready",
+    "additional_evidence_required_before_controlled_reevaluation"
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "register_id": "A-SHARE-ADDITIONAL-EVIDENCE-REQUIREMENT-REGISTER",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "source_blocker_count": 6,
+  "source_blocker_coverage_ratio": 0.5,
+  "requirements": [
+    {
+      "requirement_id": "REQ001",
+      "category": "additional_research_output_days",
+      "description": "Collect additional eligible research output days with source trace and boundary validation.",
+      "source_gap_or_blocker": "minimum_evidence_days_for_controlled_reevaluation",
+      "blocking": true,
+      "required_evidence_type": "eligible_research_output_day",
+      "minimum_quantity": 3,
+      "current_quantity": 0,
+      "owner_action_required": false,
+      "developer_action_required": true,
+      "data_collection_required": true,
+      "suggested_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "completion_evidence": [
+        "daily feature/score/candidate/portfolio/briefing artifacts",
+        "boundary check",
+        "source trace"
+      ],
+      "notes": "Requirement is for evidence collection only and does not authorize a gate rerun."
+    },
+    {
+      "requirement_id": "REQ002",
+      "category": "blocker_specific_evidence",
+      "description": "Raise blocker evidence coverage before any future reevaluation prep can proceed.",
+      "source_gap_or_blocker": "blocker_coverage_ratio_for_controlled_reevaluation",
+      "blocking": true,
+      "required_evidence_type": "audit_verified_blocker_evidence",
+      "minimum_quantity": 0.85,
+      "current_quantity": 0.5,
+      "owner_action_required": false,
+      "developer_action_required": true,
+      "data_collection_required": false,
+      "suggested_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "completion_evidence": [
+        "blocker mapping with strong or moderate evidence"
+      ],
+      "notes": "Requirement is for evidence collection only and does not authorize a gate rerun."
+    },
+    {
+      "requirement_id": "REQ003",
+      "category": "source_trace_evidence",
+      "description": "Preserve source trace evidence for every additional eligible research day.",
+      "source_gap_or_blocker": "source_traceability",
+      "blocking": true,
+      "required_evidence_type": "source_trace_artifact",
+      "minimum_quantity": 5,
+      "current_quantity": 2,
+      "owner_action_required": false,
+      "developer_action_required": true,
+      "data_collection_required": true,
+      "suggested_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "completion_evidence": [
+        "source trace JSON and markdown references"
+      ],
+      "notes": "Requirement is for evidence collection only and does not authorize a gate rerun."
+    },
+    {
+      "requirement_id": "REQ004",
+      "category": "manual_review_evidence",
+      "description": "Owner/developer review should confirm unresolved blocker interpretation before reopening gate prep.",
+      "source_gap_or_blocker": "manual_review_evidence",
+      "blocking": false,
+      "required_evidence_type": "review_record",
+      "minimum_quantity": 1,
+      "current_quantity": 0,
+      "owner_action_required": true,
+      "developer_action_required": true,
+      "data_collection_required": false,
+      "suggested_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "completion_evidence": [
+        "manual review note linked to blocker register"
+      ],
+      "notes": "Requirement is for evidence collection only and does not authorize a gate rerun."
+    }
+  ],
+  "requirement_count": 4,
+  "blocking_requirement_count": 3,
+  "owner_action_requirement_count": 1,
+  "developer_action_requirement_count": 4,
+  "data_collection_requirement_count": 2,
+  "future_research_days_required": 3,
+  "minimum_future_research_days_required": 3,
+  "overall_requirement_status": "additional_evidence_required",
+  "source_blockers": [
+    {
+      "blocker_id": "B001",
+      "evidence_strength": "missing"
+    },
+    {
+      "blocker_id": "B002",
+      "evidence_strength": "moderate"
+    },
+    {
+      "blocker_id": "B003",
+      "evidence_strength": "moderate"
+    },
+    {
+      "blocker_id": "B004",
+      "evidence_strength": "missing"
+    },
+    {
+      "blocker_id": "B005",
+      "evidence_strength": "missing"
+    },
+    {
+      "blocker_id": "B006",
+      "evidence_strength": "moderate"
+    }
+  ]
+}

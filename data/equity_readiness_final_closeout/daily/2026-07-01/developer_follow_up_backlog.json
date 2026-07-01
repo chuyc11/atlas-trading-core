@@ -1,0 +1,96 @@
+{
+  "backlog_id": "A-SHARE-DEVELOPER-FOLLOW-UP-BACKLOG",
+  "target_version": "v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout",
+  "as_of_date": "2026-07-01",
+  "items": [
+    {
+      "item_id": "DEV-REQ001",
+      "title": "Collect additional eligible research output days with source trace and boundary validation.",
+      "category": "evidence_collection",
+      "description": "Collect additional eligible research output days with source trace and boundary validation.",
+      "source_requirement_id": "REQ001",
+      "priority": "high",
+      "blocking": true,
+      "recommended_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "acceptance_criteria": [
+        "daily feature/score/candidate/portfolio/briefing artifacts",
+        "boundary check",
+        "source trace"
+      ],
+      "forbidden_scope": [
+        "broker",
+        "real_account",
+        "orders",
+        "order_preview",
+        "buy_sell_signals",
+        "owner_readiness_gate_rerun"
+      ]
+    },
+    {
+      "item_id": "DEV-REQ002",
+      "title": "Raise blocker evidence coverage before any future reevaluation prep can proceed.",
+      "category": "multi_day_tracking",
+      "description": "Raise blocker evidence coverage before any future reevaluation prep can proceed.",
+      "source_requirement_id": "REQ002",
+      "priority": "high",
+      "blocking": true,
+      "recommended_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "acceptance_criteria": [
+        "blocker mapping with strong or moderate evidence"
+      ],
+      "forbidden_scope": [
+        "broker",
+        "real_account",
+        "orders",
+        "order_preview",
+        "buy_sell_signals",
+        "owner_readiness_gate_rerun"
+      ]
+    },
+    {
+      "item_id": "DEV-REQ003",
+      "title": "Preserve source trace evidence for every additional eligible research day.",
+      "category": "source_trace_hardening",
+      "description": "Preserve source trace evidence for every additional eligible research day.",
+      "source_requirement_id": "REQ003",
+      "priority": "high",
+      "blocking": true,
+      "recommended_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "acceptance_criteria": [
+        "source trace JSON and markdown references"
+      ],
+      "forbidden_scope": [
+        "broker",
+        "real_account",
+        "orders",
+        "order_preview",
+        "buy_sell_signals",
+        "owner_readiness_gate_rerun"
+      ]
+    },
+    {
+      "item_id": "DEV-REQ004",
+      "title": "Owner/developer review should confirm unresolved blocker interpretation before reopening gate prep.",
+      "category": "operator_usability",
+      "description": "Owner/developer review should confirm unresolved blocker interpretation before reopening gate prep.",
+      "source_requirement_id": "REQ004",
+      "priority": "medium",
+      "blocking": false,
+      "recommended_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker",
+      "acceptance_criteria": [
+        "manual review note linked to blocker register"
+      ],
+      "forbidden_scope": [
+        "broker",
+        "real_account",
+        "orders",
+        "order_preview",
+        "buy_sell_signals",
+        "owner_readiness_gate_rerun"
+      ]
+    }
+  ],
+  "item_count": 4,
+  "blocking_item_count": 3,
+  "recommended_next_version": "v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker"
+}
