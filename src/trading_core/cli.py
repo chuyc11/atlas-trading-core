@@ -200,6 +200,7 @@ from trading_core.equity_owner_operator_experience.builder import (
 from trading_core.equity_owner_operator_experience.operator_config import ALLOWED_MODES as A_SHARE_OWNER_OPERATOR_EXPERIENCE_MODES
 from trading_core.equity_owner_operator_experience.operator_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_OPERATOR_EXPERIENCE_AS_OF_DATE
 from trading_core.equity_owner_operator_experience.operator_experience_audit import audit_a_share_owner_operator_experience
+from trading_core.equity_owner_daily_status import owner_daily_status_output
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1096,6 +1097,9 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_current_day_arguments(current_day_audit)
     current_day_all = subparsers.add_parser("run-and-audit-a-share-current-day-research")
     _add_a_share_current_day_arguments(current_day_all)
+    owner_daily_status = subparsers.add_parser("owner-daily-status")
+    owner_daily_status.add_argument("--as-of-date", required=True)
+    owner_daily_status.add_argument("--format", choices=("text", "json"), default="text")
     owner_dashboard_validate = subparsers.add_parser("validate-a-share-owner-dashboard-inputs")
     _add_a_share_owner_dashboard_arguments(owner_dashboard_validate, include_mode=False)
     owner_dashboard_build = subparsers.add_parser("build-a-share-owner-dashboard")
@@ -5595,6 +5599,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             }
         )
         return 0 if audit_result["overall_passed"] else 1
+    if args.command == "owner-daily-status":
+        print(owner_daily_status_output(as_of_date=args.as_of_date, output_format=args.format, paths=paths))
+        return 0
     if args.command == "validate-a-share-owner-operator-experience-inputs":
         result = validate_a_share_owner_operator_experience_inputs(as_of_date=args.as_of_date, allow_date_mismatch=args.allow_date_mismatch, paths=paths)
         print(
