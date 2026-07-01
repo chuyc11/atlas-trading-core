@@ -1,0 +1,168 @@
+{
+  "execution_id": "A-SHARE-RESEARCH-PIPELINE-EXECUTION-SUMMARY",
+  "target_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data",
+  "as_of_date": "2026-07-01",
+  "workflow_invoked": "build_from_existing_data",
+  "workflow_mode": "research_only_from_refreshed_data",
+  "dry_run": false,
+  "started_at": "2026-07-01T16:08:05.608918Z",
+  "completed_at": "2026-07-01T16:11:53.010509Z",
+  "duration_seconds": 227.405,
+  "steps": [
+    {
+      "step_id": "tradable_universe_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\caution_universe.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\excluded_universe.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\filter_config.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\filter_reason_breakdown.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\strict_tradable_universe.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\tradable_universe.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\tradable_universe.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\tradable_universe_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\unknown_status_universe.json",
+        "data/equity_data_quality/a_share_feature_readiness_audit.json",
+        "data/equity_data_quality/a_share_historical_backfill_symbol_manifest.json",
+        "data/equity_data_quality/a_share_historical_panel_coverage_audit.json",
+        "data/equity_fundamental/history/basic_financials_history_panel.parquet",
+        "data/equity_industry/industry_classification.parquet",
+        "data/equity_market/daily_basic_panel.parquet",
+        "data/equity_market/history/adjusted_price_history_panel.parquet",
+        "data/equity_market/history/daily_basic_history_panel.parquet",
+        "data/equity_market/history/daily_price_history_panel.parquet",
+        "data/equity_selection/daily/2026-07-01/caution_universe.json",
+        "data/equity_selection/daily/2026-07-01/excluded_universe.json",
+        "data/equity_selection/daily/2026-07-01/filter_config.json",
+        "data/equity_selection/daily/2026-07-01/filter_reason_breakdown.json",
+        "data/equity_selection/daily/2026-07-01/strict_tradable_universe.json",
+        "data/equity_selection/daily/2026-07-01/tradable_universe.json",
+        "data/equity_selection/daily/2026-07-01/tradable_universe.parquet",
+        "data/equity_selection/daily/2026-07-01/unknown_status_universe.json",
+        "data/equity_universe/equity_master.parquet",
+        "data/equity_universe/trading_calendar.parquet"
+      ],
+      "warnings": [],
+      "blocking_reasons": []
+    },
+    {
+      "step_id": "feature_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "data/equity_features/daily/2026-07-01/fundamental_features.parquet",
+        "data/equity_features/daily/2026-07-01/industry_features.parquet",
+        "data/equity_features/daily/2026-07-01/liquidity_features.parquet",
+        "data/equity_features/daily/2026-07-01/long_horizon_features.parquet",
+        "data/equity_features/daily/2026-07-01/mid_horizon_features.parquet",
+        "data/equity_features/daily/2026-07-01/risk_features.parquet",
+        "data/equity_features/daily/2026-07-01/short_horizon_features.parquet"
+      ],
+      "warnings": [],
+      "blocking_reasons": []
+    },
+    {
+      "step_id": "research_score_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\composite_scores.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\horizon_scores.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\risk_liquidity_industry_fundamental_scores.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\score_component_breakdown.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\score_distribution.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\score_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\scoring_summary.json"
+      ],
+      "warnings": [
+        "fundamental score confidence is partial"
+      ],
+      "blocking_reasons": []
+    },
+    {
+      "step_id": "research_candidate_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\candidate_generation_summary.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\candidate_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\candidate_reason_breakdown.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\extended_watch_pool.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\extended_watch_pool.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\long_candidates.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\long_candidates.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\mid_candidates.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\mid_candidates.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\multi_horizon_candidates.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\risk_downgraded_candidates.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\short_candidates.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\short_candidates.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\CANDIDATE_GENERATION_SUMMARY.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\LONG_CANDIDATES.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\MID_CANDIDATES.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\MULTI_HORIZON_CANDIDATES.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\RISK_DOWNGRADED_CANDIDATES.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_selection\\daily\\2026-07-01\\SHORT_CANDIDATES.md"
+      ],
+      "warnings": [],
+      "blocking_reasons": []
+    },
+    {
+      "step_id": "virtual_only_portfolio_research_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\long_virtual_portfolio.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\long_virtual_portfolio.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\mid_virtual_portfolio.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\mid_virtual_portfolio.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\portfolio_industry_exposure.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\portfolio_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\portfolio_risk_liquidity_summary.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\portfolio_weight_summary.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\short_virtual_portfolio.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_portfolios\\daily\\2026-07-01\\short_virtual_portfolio.parquet",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_scores\\daily\\2026-07-01\\score_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_selection\\daily\\2026-07-01\\candidate_manifest.json",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_portfolios\\daily\\2026-07-01\\LONG_VIRTUAL_PORTFOLIO.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_portfolios\\daily\\2026-07-01\\MID_VIRTUAL_PORTFOLIO.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_portfolios\\daily\\2026-07-01\\PORTFOLIO_CONSTRUCTION_SUMMARY.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_portfolios\\daily\\2026-07-01\\SHORT_VIRTUAL_PORTFOLIO.md"
+      ],
+      "warnings": [
+        "long_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets",
+        "mid_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets",
+        "short_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets"
+      ],
+      "blocking_reasons": []
+    },
+    {
+      "step_id": "research_briefing_refresh",
+      "executed": true,
+      "passed": true,
+      "output_paths": [
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_briefings\\daily\\2026-07-01\\BRIEFING_SOURCE_TRACE.md",
+        "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_briefings\\daily\\2026-07-01\\DAILY_STOCK_SELECTION_BRIEFING.md",
+        "data/equity_briefings/daily/2026-07-01/briefing_boundary_check.json",
+        "data/equity_briefings/daily/2026-07-01/briefing_manifest.json",
+        "data/equity_briefings/daily/2026-07-01/briefing_source_trace.json",
+        "data/equity_briefings/daily/2026-07-01/daily_stock_selection_briefing.json",
+        "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md",
+        "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md"
+      ],
+      "warnings": [],
+      "blocking_reasons": []
+    }
+  ],
+  "overall_execution_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "missing_quote_symbol_count=355",
+    "research_rerun_available_window_min_effective_trading_days_20d=17",
+    "fundamental score confidence is partial",
+    "long_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets",
+    "mid_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets",
+    "short_virtual_portfolio: raw industry_level_1 includes Unclassified; industry caps use auditable fallback industry buckets"
+  ]
+}

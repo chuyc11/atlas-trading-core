@@ -1,0 +1,128 @@
+{
+  "long_virtual_portfolio": {
+    "industry_weight_by_level_1": {
+      "Unclassified/CHINEXT/300": 0.25,
+      "Unclassified/STAR/688": 0.2059,
+      "Unclassified/SSE_MAIN/601": 0.174056,
+      "Unclassified/SSE_MAIN/600": 0.136568,
+      "Unclassified/SZSE_MAIN/000": 0.132328,
+      "Unclassified/SSE_MAIN/603": 0.067585,
+      "Unclassified/CHINEXT/301": 0.033562
+    },
+    "raw_industry_weight_by_level_1": {
+      "Unclassified": 1.0
+    },
+    "industry_weight_by_level_2": {
+      "SSE_MAIN": 0.37821,
+      "CHINEXT": 0.283562,
+      "STAR": 0.2059,
+      "SZSE_MAIN": 0.132328
+    },
+    "top_industry_exposures": [
+      {
+        "industry": "Unclassified/CHINEXT/300",
+        "weight": 0.25
+      },
+      {
+        "industry": "Unclassified/STAR/688",
+        "weight": 0.2059
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/601",
+        "weight": 0.174056
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/600",
+        "weight": 0.136568
+      },
+      {
+        "industry": "Unclassified/SZSE_MAIN/000",
+        "weight": 0.132328
+      }
+    ],
+    "industry_cap_violations": []
+  },
+  "mid_virtual_portfolio": {
+    "industry_weight_by_level_1": {
+      "Unclassified/STAR/688": 0.25,
+      "Unclassified/CHINEXT/300": 0.25,
+      "Unclassified/CHINEXT/301": 0.12,
+      "Unclassified/SSE_MAIN/600": 0.12,
+      "Unclassified/SSE_MAIN/603": 0.12,
+      "Unclassified/SZSE_MAIN/002": 0.06
+    },
+    "raw_industry_weight_by_level_1": {
+      "Unclassified": 0.92
+    },
+    "industry_weight_by_level_2": {
+      "CHINEXT": 0.37,
+      "STAR": 0.25,
+      "SSE_MAIN": 0.24,
+      "SZSE_MAIN": 0.06
+    },
+    "top_industry_exposures": [
+      {
+        "industry": "Unclassified/STAR/688",
+        "weight": 0.25
+      },
+      {
+        "industry": "Unclassified/CHINEXT/300",
+        "weight": 0.25
+      },
+      {
+        "industry": "Unclassified/CHINEXT/301",
+        "weight": 0.12
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/600",
+        "weight": 0.12
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/603",
+        "weight": 0.12
+      }
+    ],
+    "industry_cap_violations": []
+  },
+  "short_virtual_portfolio": {
+    "industry_weight_by_level_1": {
+      "Unclassified/CHINEXT/300": 0.250336,
+      "Unclassified/SSE_MAIN/603": 0.249734,
+      "Unclassified/SSE_MAIN/601": 0.15238,
+      "Unclassified/SZSE_MAIN/002": 0.139617,
+      "Unclassified/SZSE_MAIN/000": 0.104242,
+      "Unclassified/SSE_MAIN/600": 0.103691
+    },
+    "raw_industry_weight_by_level_1": {
+      "Unclassified": 1.0
+    },
+    "industry_weight_by_level_2": {
+      "SSE_MAIN": 0.505805,
+      "CHINEXT": 0.250336,
+      "SZSE_MAIN": 0.243859
+    },
+    "top_industry_exposures": [
+      {
+        "industry": "Unclassified/CHINEXT/300",
+        "weight": 0.250336
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/603",
+        "weight": 0.249734
+      },
+      {
+        "industry": "Unclassified/SSE_MAIN/601",
+        "weight": 0.15238
+      },
+      {
+        "industry": "Unclassified/SZSE_MAIN/002",
+        "weight": 0.139617
+      },
+      {
+        "industry": "Unclassified/SZSE_MAIN/000",
+        "weight": 0.104242
+      }
+    ],
+    "industry_cap_violations": []
+  }
+}

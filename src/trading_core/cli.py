@@ -77,6 +77,8 @@ from trading_core.equity_data_refresh.data_refresh_config import ALLOWED_MODES a
 from trading_core.equity_data_refresh.data_refresh_config import DEFAULT_AS_OF_DATE as DEFAULT_DATA_REFRESH_AS_OF_DATE
 from trading_core.equity_data_freshness import DEFAULT_TARGET_AS_OF_DATE as DEFAULT_DATA_FRESHNESS_TARGET_AS_OF_DATE
 from trading_core.equity_data_freshness import refresh_a_share_data_freshness
+from trading_core.equity_research_pipeline_rerun import DEFAULT_AS_OF_DATE as DEFAULT_RESEARCH_PIPELINE_RERUN_AS_OF_DATE
+from trading_core.equity_research_pipeline_rerun import rerun_a_share_research_pipeline_from_refreshed_data
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1094,6 +1096,9 @@ def build_parser() -> argparse.ArgumentParser:
     data_freshness = subparsers.add_parser("refresh-a-share-data-freshness")
     data_freshness.add_argument("--target-as-of-date", default=DEFAULT_DATA_FRESHNESS_TARGET_AS_OF_DATE)
     data_freshness.add_argument("--dry-run", action="store_true")
+    research_pipeline_rerun = subparsers.add_parser("rerun-a-share-research-pipeline-from-refreshed-data")
+    research_pipeline_rerun.add_argument("--as-of-date", default=DEFAULT_RESEARCH_PIPELINE_RERUN_AS_OF_DATE)
+    research_pipeline_rerun.add_argument("--dry-run", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -3634,6 +3639,30 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "data_refresh_executed": result["data_refresh_executed"],
                 "blocking_reasons": result["blocking_reasons"],
                 "warnings": len(result["warnings"]),
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "rerun-a-share-research-pipeline-from-refreshed-data":
+        result = rerun_a_share_research_pipeline_from_refreshed_data(as_of_date=args.as_of_date, dry_run=args.dry_run, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "source_data_date": result["source_data_date"],
+                "dry_run": result["dry_run"],
+                "overall_passed": result["overall_passed"],
+                "source_data_freshness_validation_passed": result["source_data_freshness_validation_passed"],
+                "pipeline_execution_passed": result["pipeline_execution_passed"],
+                "research_output_validation_passed": result["research_output_validation_passed"],
+                "candidate_output_generated": result["candidate_output_generated"],
+                "score_output_generated": result["score_output_generated"],
+                "virtual_portfolio_output_generated": result["virtual_portfolio_output_generated"],
+                "research_briefing_generated": result["research_briefing_generated"],
+                "protected_order_trade_account_paths_untouched": result["protected_order_trade_account_paths_untouched"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
                 "recommended_next_version": result["recommended_next_version"],
             }
         )

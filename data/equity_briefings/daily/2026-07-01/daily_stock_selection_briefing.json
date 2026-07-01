@@ -1,0 +1,1788 @@
+{
+  "briefing_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING",
+  "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
+  "as_of_date": "2026-07-01",
+  "requested_as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T16:11:52.856045Z",
+  "input_versions": {
+    "feature_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
+    "score_version": "v0.7.4-a-share-long-mid-short-scoring-system",
+    "candidate_version": "v0.7.5-a-share-candidate-generation-system",
+    "portfolio_version": "v0.7.6-a-share-virtual-portfolio-construction",
+    "strict_tradable_count": 3699,
+    "scored_symbols": 3699,
+    "long_candidates": 30,
+    "mid_candidates": 30,
+    "short_candidates": 30,
+    "multi_horizon_candidates": 50,
+    "risk_downgraded_candidates": 289
+  },
+  "executive_summary": [
+    "strict tradable universe 覆盖 3699 只，评分覆盖 3699 只。",
+    "长期/中期/短期研究候选数量分别为 30 / 30 / 30，本简报各展示前 10 / 10 / 10 只。",
+    "多周期共振候选 50 只，本简报展示前 10 只；这只是多周期相对评分靠前。",
+    "风险降级股票 289 只，说明部分高分股票仍被风险、流动性或置信度约束排除。",
+    "长期/中期/短期虚拟组合持仓数量为 30 / 30 / 20。",
+    "主要集中方向：长期 Unclassified/CHINEXT/300 (25.00%)，中期 Unclassified/STAR/688 (25.00%)，短期 Unclassified/CHINEXT/300 (25.03%)。",
+    "风险与流动性概览：长期均值 71.210887 / 65.780552，中期均值 48.551286 / 62.319024，短期均值 68.59814 / 69.289183。",
+    "本阶段只做每日中文信息简报，不重新生成评分、候选股或虚拟组合。"
+  ],
+  "long_candidates_top10": [
+    {
+      "rank": 1,
+      "symbol": "688002.SH",
+      "name": "睿创微纳",
+      "industry_level_1": "Unclassified",
+      "LongScore": 71.07292,
+      "LongRank": 1.0,
+      "RiskScore": 65.63587,
+      "LiquidityScore": 58.592863,
+      "IndustryScore": 79.867081,
+      "FundamentalScore": 69.553287,
+      "CompositeOpportunityScore": 71.791812,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 2,
+      "symbol": "688127.SH",
+      "name": "蓝特光学",
+      "industry_level_1": "Unclassified",
+      "LongScore": 69.864234,
+      "LongRank": 2.0,
+      "RiskScore": 52.035911,
+      "LiquidityScore": 62.837141,
+      "IndustryScore": 81.676579,
+      "FundamentalScore": 66.438016,
+      "CompositeOpportunityScore": 72.015105,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 3,
+      "symbol": "603259.SH",
+      "name": "药明康德",
+      "industry_level_1": "Unclassified",
+      "LongScore": 69.2387,
+      "LongRank": 3.0,
+      "RiskScore": 79.651257,
+      "LiquidityScore": 77.551365,
+      "IndustryScore": 50.833311,
+      "FundamentalScore": 70.826337,
+      "CompositeOpportunityScore": 75.542604,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 4,
+      "symbol": "600999.SH",
+      "name": "招商证券",
+      "industry_level_1": "Unclassified",
+      "LongScore": 68.595152,
+      "LongRank": 4.0,
+      "RiskScore": 91.510656,
+      "LiquidityScore": 77.597098,
+      "IndustryScore": 51.473123,
+      "FundamentalScore": 68.593825,
+      "CompositeOpportunityScore": 77.055801,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 5,
+      "symbol": "300308.SZ",
+      "name": "中际旭创",
+      "industry_level_1": "Unclassified",
+      "LongScore": 68.428953,
+      "LongRank": 5.0,
+      "RiskScore": 52.811458,
+      "LiquidityScore": 70.994526,
+      "IndustryScore": 71.365009,
+      "FundamentalScore": 67.133171,
+      "CompositeOpportunityScore": 69.243849,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 6,
+      "symbol": "603268.SH",
+      "name": "松发股份",
+      "industry_level_1": "Unclassified",
+      "LongScore": 67.608725,
+      "LongRank": 6.0,
+      "RiskScore": 62.856065,
+      "LiquidityScore": 60.868027,
+      "IndustryScore": 50.283613,
+      "FundamentalScore": 67.145535,
+      "CompositeOpportunityScore": 66.690074,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 7,
+      "symbol": "688059.SH",
+      "name": "华锐精密",
+      "industry_level_1": "Unclassified",
+      "LongScore": 67.509033,
+      "LongRank": 7.0,
+      "RiskScore": 54.081734,
+      "LiquidityScore": 50.262909,
+      "IndustryScore": 83.893395,
+      "FundamentalScore": 66.541054,
+      "CompositeOpportunityScore": 72.42328,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 8,
+      "symbol": "300750.SZ",
+      "name": "宁德时代",
+      "industry_level_1": "Unclassified",
+      "LongScore": 67.338073,
+      "LongRank": 8.0,
+      "RiskScore": 79.43318,
+      "LiquidityScore": 63.437753,
+      "IndustryScore": 64.004461,
+      "FundamentalScore": 66.483787,
+      "CompositeOpportunityScore": 61.355375,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 9,
+      "symbol": "301345.SZ",
+      "name": "涛涛车业",
+      "industry_level_1": "Unclassified",
+      "LongScore": 67.252653,
+      "LongRank": 9.0,
+      "RiskScore": 63.073466,
+      "LiquidityScore": 44.730107,
+      "IndustryScore": 66.895332,
+      "FundamentalScore": 68.957909,
+      "CompositeOpportunityScore": 61.784048,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "low_liquidity_score"
+      ]
+    },
+    {
+      "rank": 10,
+      "symbol": "600909.SH",
+      "name": "华安证券",
+      "industry_level_1": "Unclassified",
+      "LongScore": 67.056812,
+      "LongRank": 10.0,
+      "RiskScore": 72.779805,
+      "LiquidityScore": 80.475128,
+      "IndustryScore": 52.550892,
+      "FundamentalScore": 58.747461,
+      "CompositeOpportunityScore": 72.726574,
+      "primary_inclusion_reasons": [
+        "high_long_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    }
+  ],
+  "mid_candidates_top10": [
+    {
+      "rank": 1,
+      "symbol": "300408.SZ",
+      "name": "三环集团",
+      "industry_level_1": "Unclassified",
+      "MidScore": 85.042274,
+      "MidRank": 2.0,
+      "RiskScore": 42.662657,
+      "LiquidityScore": 76.508741,
+      "IndustryScore": 73.781878,
+      "FundamentalScore": 62.03202,
+      "CompositeOpportunityScore": 73.380774,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 2,
+      "symbol": "300604.SZ",
+      "name": "长川科技",
+      "industry_level_1": "Unclassified",
+      "MidScore": 84.903833,
+      "MidRank": 3.0,
+      "RiskScore": 39.60068,
+      "LiquidityScore": 65.217626,
+      "IndustryScore": 74.050419,
+      "FundamentalScore": 61.317456,
+      "CompositeOpportunityScore": 72.580798,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "low_risk_score"
+      ]
+    },
+    {
+      "rank": 3,
+      "symbol": "688059.SH",
+      "name": "华锐精密",
+      "industry_level_1": "Unclassified",
+      "MidScore": 84.179654,
+      "MidRank": 6.0,
+      "RiskScore": 54.081734,
+      "LiquidityScore": 50.262909,
+      "IndustryScore": 83.893395,
+      "FundamentalScore": 66.541054,
+      "CompositeOpportunityScore": 72.42328,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 4,
+      "symbol": "300308.SZ",
+      "name": "中际旭创",
+      "industry_level_1": "Unclassified",
+      "MidScore": 83.150367,
+      "MidRank": 9.0,
+      "RiskScore": 52.811458,
+      "LiquidityScore": 70.994526,
+      "IndustryScore": 71.365009,
+      "FundamentalScore": 67.133171,
+      "CompositeOpportunityScore": 69.243849,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 5,
+      "symbol": "300201.SZ",
+      "name": "海伦哲",
+      "industry_level_1": "Unclassified",
+      "MidScore": 83.004257,
+      "MidRank": 10.0,
+      "RiskScore": 59.439713,
+      "LiquidityScore": 62.349284,
+      "IndustryScore": 71.903893,
+      "FundamentalScore": 50.300264,
+      "CompositeOpportunityScore": 71.903387,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 6,
+      "symbol": "688127.SH",
+      "name": "蓝特光学",
+      "industry_level_1": "Unclassified",
+      "MidScore": 82.619624,
+      "MidRank": 14.0,
+      "RiskScore": 52.035911,
+      "LiquidityScore": 62.837141,
+      "IndustryScore": 81.676579,
+      "FundamentalScore": 66.438016,
+      "CompositeOpportunityScore": 72.015105,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 7,
+      "symbol": "301536.SZ",
+      "name": "星宸科技",
+      "industry_level_1": "Unclassified",
+      "MidScore": 82.367116,
+      "MidRank": 17.0,
+      "RiskScore": 59.259034,
+      "LiquidityScore": 60.396954,
+      "IndustryScore": 72.967243,
+      "FundamentalScore": 58.64928,
+      "CompositeOpportunityScore": 70.617221,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 8,
+      "symbol": "301200.SZ",
+      "name": "大族数控",
+      "industry_level_1": "Unclassified",
+      "MidScore": 82.358878,
+      "MidRank": 18.0,
+      "RiskScore": 40.069501,
+      "LiquidityScore": 53.561323,
+      "IndustryScore": 73.477291,
+      "FundamentalScore": 58.926122,
+      "CompositeOpportunityScore": 69.062355,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 9,
+      "symbol": "600176.SH",
+      "name": "中国巨石",
+      "industry_level_1": "Unclassified",
+      "MidScore": 82.072794,
+      "MidRank": 20.0,
+      "RiskScore": 40.674732,
+      "LiquidityScore": 76.289763,
+      "IndustryScore": 53.082567,
+      "FundamentalScore": 61.469198,
+      "CompositeOpportunityScore": 70.958526,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 10,
+      "symbol": "300054.SZ",
+      "name": "鼎龙股份",
+      "industry_level_1": "Unclassified",
+      "MidScore": 81.810561,
+      "MidRank": 22.0,
+      "RiskScore": 40.529873,
+      "LiquidityScore": 66.151888,
+      "IndustryScore": 73.453861,
+      "FundamentalScore": 62.365482,
+      "CompositeOpportunityScore": 71.247664,
+      "primary_inclusion_reasons": [
+        "high_mid_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "strong_fundamental_score",
+        "strong_trend_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    }
+  ],
+  "short_candidates_top10": [
+    {
+      "rank": 1,
+      "symbol": "600999.SH",
+      "name": "招商证券",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 82.713029,
+      "ShortRank": 2.0,
+      "RiskScore": 91.510656,
+      "LiquidityScore": 77.597098,
+      "IndustryScore": 51.473123,
+      "FundamentalScore": 68.593825,
+      "CompositeOpportunityScore": 77.055801,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 2,
+      "symbol": "603379.SH",
+      "name": "三美股份",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 82.371569,
+      "ShortRank": 3.0,
+      "RiskScore": 52.146977,
+      "LiquidityScore": 70.603204,
+      "IndustryScore": 51.408241,
+      "FundamentalScore": 68.049179,
+      "CompositeOpportunityScore": 71.271601,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "overheat_risk"
+      ]
+    },
+    {
+      "rank": 3,
+      "symbol": "300759.SZ",
+      "name": "康龙化成",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 82.361303,
+      "ShortRank": 4.0,
+      "RiskScore": 69.081283,
+      "LiquidityScore": 75.809453,
+      "IndustryScore": 68.326349,
+      "FundamentalScore": 63.946234,
+      "CompositeOpportunityScore": 69.761465,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score"
+      ],
+      "main_risk_reasons": [
+        "overheat_risk"
+      ]
+    },
+    {
+      "rank": 4,
+      "symbol": "000783.SZ",
+      "name": "长江证券",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 82.283084,
+      "ShortRank": 5.0,
+      "RiskScore": 73.058146,
+      "LiquidityScore": 83.837298,
+      "IndustryScore": 40.5621,
+      "FundamentalScore": 66.797775,
+      "CompositeOpportunityScore": 73.168657,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "overheat_risk"
+      ]
+    },
+    {
+      "rank": 5,
+      "symbol": "603259.SH",
+      "name": "药明康德",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 81.052783,
+      "ShortRank": 10.0,
+      "RiskScore": 79.651257,
+      "LiquidityScore": 77.551365,
+      "IndustryScore": 50.833311,
+      "FundamentalScore": 70.826337,
+      "CompositeOpportunityScore": 75.542604,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "overheat_risk"
+      ]
+    },
+    {
+      "rank": 6,
+      "symbol": "601108.SH",
+      "name": "财通证券",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 79.143202,
+      "ShortRank": 18.0,
+      "RiskScore": 84.878683,
+      "LiquidityScore": 70.045283,
+      "IndustryScore": 49.51764,
+      "FundamentalScore": 58.835568,
+      "CompositeOpportunityScore": 70.216601,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 7,
+      "symbol": "300873.SZ",
+      "name": "海晨股份",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 78.804159,
+      "ShortRank": 22.0,
+      "RiskScore": 69.549878,
+      "LiquidityScore": 53.144544,
+      "IndustryScore": 70.561188,
+      "FundamentalScore": 47.12944,
+      "CompositeOpportunityScore": 68.326115,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 8,
+      "symbol": "300121.SZ",
+      "name": "阳谷华泰",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 78.780864,
+      "ShortRank": 23.0,
+      "RiskScore": 36.042399,
+      "LiquidityScore": 58.855547,
+      "IndustryScore": 69.692484,
+      "FundamentalScore": 51.974222,
+      "CompositeOpportunityScore": 63.595967,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "low_risk_score",
+        "overheat_risk"
+      ]
+    },
+    {
+      "rank": 9,
+      "symbol": "601162.SH",
+      "name": "天风证券",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 78.445502,
+      "ShortRank": 25.0,
+      "RiskScore": 70.712693,
+      "LiquidityScore": 77.658827,
+      "IndustryScore": 46.570898,
+      "FundamentalScore": 44.163581,
+      "CompositeOpportunityScore": 59.700317,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_liquidity_score",
+        "acceptable_risk_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "rank": 10,
+      "symbol": "300434.SZ",
+      "name": "金石亚药",
+      "industry_level_1": "Unclassified",
+      "ShortScore": 78.178573,
+      "ShortRank": 27.0,
+      "RiskScore": 59.246756,
+      "LiquidityScore": 53.176309,
+      "IndustryScore": 68.535415,
+      "FundamentalScore": 57.40034,
+      "CompositeOpportunityScore": 64.909279,
+      "primary_inclusion_reasons": [
+        "high_short_percentile",
+        "strong_composite_percentile",
+        "strong_industry_score",
+        "acceptable_risk_score",
+        "strong_fundamental_score",
+        "strong_momentum_component"
+      ],
+      "main_risk_reasons": [
+        "overheat_risk"
+      ]
+    }
+  ],
+  "multi_horizon_candidates_top10": [
+    {
+      "symbol": "600999.SH",
+      "name": "招商证券",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Short",
+      "LongScore": 68.595152,
+      "MidScore": 78.1246,
+      "ShortScore": 82.713029,
+      "CompositeOpportunityScore": 77.055801,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "603259.SH",
+      "name": "药明康德",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Long",
+      "LongScore": 69.2387,
+      "MidScore": 76.136191,
+      "ShortScore": 81.052783,
+      "CompositeOpportunityScore": 75.542604,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "300408.SZ",
+      "name": "三环集团",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Mid",
+      "LongScore": 66.071744,
+      "MidScore": 85.042274,
+      "ShortScore": 71.343539,
+      "CompositeOpportunityScore": 73.380774,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "000783.SZ",
+      "name": "长江证券",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Short",
+      "LongScore": 64.513833,
+      "MidScore": 72.568469,
+      "ShortScore": 82.283084,
+      "CompositeOpportunityScore": 73.168657,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "600160.SH",
+      "name": "巨化股份",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Long",
+      "LongScore": 66.753591,
+      "MidScore": 77.039033,
+      "ShortScore": 76.486825,
+      "CompositeOpportunityScore": 73.106134,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "688766.SH",
+      "name": "普冉股份",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Mid",
+      "LongScore": 65.603814,
+      "MidScore": 85.670168,
+      "ShortScore": 74.532757,
+      "CompositeOpportunityScore": 72.893715,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "low_risk_score"
+      ]
+    },
+    {
+      "symbol": "300566.SZ",
+      "name": "激智科技",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Long",
+      "LongScore": 65.188586,
+      "MidScore": 80.339981,
+      "ShortScore": 77.41919,
+      "CompositeOpportunityScore": 72.853506,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "600909.SH",
+      "name": "华安证券",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Long",
+      "LongScore": 67.056812,
+      "MidScore": 78.50319,
+      "ShortScore": 69.88267,
+      "CompositeOpportunityScore": 72.726574,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "no_major_risk_flag_detected"
+      ]
+    },
+    {
+      "symbol": "688432.SH",
+      "name": "有研硅",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Short",
+      "LongScore": 60.632683,
+      "MidScore": 82.383482,
+      "ShortScore": 80.711059,
+      "CompositeOpportunityScore": 72.593308,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "low_risk_score"
+      ]
+    },
+    {
+      "symbol": "300604.SZ",
+      "name": "长川科技",
+      "horizon_overlap_type": "Long+Mid+Short",
+      "best_horizon": "Mid",
+      "LongScore": 64.586796,
+      "MidScore": 84.903833,
+      "ShortScore": 72.990008,
+      "CompositeOpportunityScore": 72.580798,
+      "primary_strengths": [
+        "multi_horizon_overlap",
+        "high_long_percentile",
+        "high_mid_percentile",
+        "high_short_percentile"
+      ],
+      "risk_notes": [
+        "low_risk_score"
+      ]
+    }
+  ],
+  "risk_downgraded_summary": {
+    "count": 289,
+    "top10": [
+      {
+        "symbol": "688766.SH",
+        "name": "普冉股份",
+        "trigger_horizon": "Mid",
+        "trigger_score": 85.670168,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 28.719699,
+        "LiquidityScore": 63.176759,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "688519.SH",
+        "name": "南亚新材",
+        "trigger_horizon": "Mid",
+        "trigger_score": 84.232687,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 21.275795,
+        "LiquidityScore": 62.742633,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "300975.SZ",
+        "name": "商络电子",
+        "trigger_horizon": "Mid",
+        "trigger_score": 83.231819,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 24.171398,
+        "LiquidityScore": 65.028386,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "300666.SZ",
+        "name": "江丰电子",
+        "trigger_horizon": "Mid",
+        "trigger_score": 83.230726,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 34.160922,
+        "LiquidityScore": 66.501307,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "301377.SZ",
+        "name": "鼎泰高科",
+        "trigger_horizon": "Mid",
+        "trigger_score": 82.97978,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 32.646211,
+        "LiquidityScore": 53.497342,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "688545.SH",
+        "name": "兴福电子",
+        "trigger_horizon": "Mid",
+        "trigger_score": 82.850344,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 28.663941,
+        "LiquidityScore": 63.115031,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "688300.SH",
+        "name": "联瑞新材",
+        "trigger_horizon": "Mid",
+        "trigger_score": 82.84161,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 24.688317,
+        "LiquidityScore": 64.752411,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "688008.SH",
+        "name": "澜起科技",
+        "trigger_horizon": "Mid",
+        "trigger_score": 82.415533,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 29.308372,
+        "LiquidityScore": 67.459448,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "301526.SZ",
+        "name": "国际复材",
+        "trigger_horizon": "Mid",
+        "trigger_score": 82.030279,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 24.487249,
+        "LiquidityScore": 66.113139,
+        "confidence": 1.0
+      },
+      {
+        "symbol": "300475.SZ",
+        "name": "香农芯创",
+        "trigger_horizon": "Mid",
+        "trigger_score": 81.757148,
+        "downgrade_reason": "low_risk_score",
+        "RiskScore": 26.397562,
+        "LiquidityScore": 65.351672,
+        "confidence": 1.0
+      }
+    ]
+  },
+  "virtual_portfolios": {
+    "long": {
+      "portfolio_id": "long_virtual_portfolio",
+      "holding_count": 30,
+      "weight_sum": 1.0,
+      "max_single_weight": 0.036093,
+      "max_industry_weight": 0.25,
+      "top10_holdings": [
+        {
+          "weight_rank": 1,
+          "symbol": "600999.SH",
+          "name": "招商证券",
+          "target_weight": 0.036093,
+          "horizon_score": 68.595152,
+          "RiskScore": 91.510656,
+          "LiquidityScore": 77.597098,
+          "industry": "Unclassified/SSE_MAIN/600",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 2,
+          "symbol": "601995.SH",
+          "name": "中金公司",
+          "target_weight": 0.035937,
+          "horizon_score": 66.010918,
+          "RiskScore": 94.293953,
+          "LiquidityScore": 66.058619,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 3,
+          "symbol": "688002.SH",
+          "name": "睿创微纳",
+          "target_weight": 0.035416,
+          "horizon_score": 71.07292,
+          "RiskScore": 65.63587,
+          "LiquidityScore": 58.592863,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 4,
+          "symbol": "601066.SH",
+          "name": "中信建投",
+          "target_weight": 0.035248,
+          "horizon_score": 66.819322,
+          "RiskScore": 83.618996,
+          "LiquidityScore": 73.542399,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 5,
+          "symbol": "603259.SH",
+          "name": "药明康德",
+          "target_weight": 0.03511,
+          "horizon_score": 69.2387,
+          "RiskScore": 79.651257,
+          "LiquidityScore": 77.551365,
+          "industry": "Unclassified/SSE_MAIN/603",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 6,
+          "symbol": "688578.SH",
+          "name": "艾力斯",
+          "target_weight": 0.035031,
+          "horizon_score": 66.764039,
+          "RiskScore": 65.136523,
+          "LiquidityScore": 56.95492,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 7,
+          "symbol": "600030.SH",
+          "name": "中信证券",
+          "target_weight": 0.034997,
+          "horizon_score": 64.954834,
+          "RiskScore": 90.064094,
+          "LiquidityScore": 79.616338,
+          "industry": "Unclassified/SSE_MAIN/600",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 8,
+          "symbol": "601939.SH",
+          "name": "建设银行",
+          "target_weight": 0.03464,
+          "horizon_score": 64.889194,
+          "RiskScore": 95.94102,
+          "LiquidityScore": 61.159097,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 9,
+          "symbol": "000333.SZ",
+          "name": "美的集团",
+          "target_weight": 0.034428,
+          "horizon_score": 64.961129,
+          "RiskScore": 94.385082,
+          "LiquidityScore": 60.494954,
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 10,
+          "symbol": "688131.SH",
+          "name": "皓元医药",
+          "target_weight": 0.034225,
+          "horizon_score": 64.514924,
+          "RiskScore": 66.750924,
+          "LiquidityScore": 62.392426,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        }
+      ],
+      "top_industries": [
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/STAR/688",
+          "weight": 0.2059
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/601",
+          "weight": 0.174056
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/600",
+          "weight": 0.136568
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "weight": 0.132328
+        }
+      ],
+      "risk_notes": [
+        "avg RiskScore=71.210887, avg LiquidityScore=65.780552",
+        "min RiskScore=52.035911, min LiquidityScore=44.730107"
+      ]
+    },
+    "mid": {
+      "portfolio_id": "mid_virtual_portfolio",
+      "holding_count": 30,
+      "weight_sum": 0.92,
+      "max_single_weight": 0.06,
+      "max_industry_weight": 0.25,
+      "top10_holdings": [
+        {
+          "weight_rank": 1,
+          "symbol": "002636.SZ",
+          "name": "金安国纪",
+          "target_weight": 0.06,
+          "horizon_score": 80.400656,
+          "RiskScore": 40.047085,
+          "LiquidityScore": 68.234433,
+          "industry": "Unclassified/SZSE_MAIN/002",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 2,
+          "symbol": "301200.SZ",
+          "name": "大族数控",
+          "target_weight": 0.06,
+          "horizon_score": 82.358878,
+          "RiskScore": 40.069501,
+          "LiquidityScore": 53.561323,
+          "industry": "Unclassified/CHINEXT/301",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 3,
+          "symbol": "301536.SZ",
+          "name": "星宸科技",
+          "target_weight": 0.06,
+          "horizon_score": 82.367116,
+          "RiskScore": 59.259034,
+          "LiquidityScore": 60.396954,
+          "industry": "Unclassified/CHINEXT/301",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 4,
+          "symbol": "600176.SH",
+          "name": "中国巨石",
+          "target_weight": 0.06,
+          "horizon_score": 82.072794,
+          "RiskScore": 40.674732,
+          "LiquidityScore": 76.289763,
+          "industry": "Unclassified/SSE_MAIN/600",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 5,
+          "symbol": "600206.SH",
+          "name": "有研新材",
+          "target_weight": 0.06,
+          "horizon_score": 80.745426,
+          "RiskScore": 48.739412,
+          "LiquidityScore": 72.108227,
+          "industry": "Unclassified/SSE_MAIN/600",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 6,
+          "symbol": "603663.SH",
+          "name": "三祥新材",
+          "target_weight": 0.06,
+          "horizon_score": 78.963088,
+          "RiskScore": 50.070965,
+          "LiquidityScore": 69.430026,
+          "industry": "Unclassified/SSE_MAIN/603",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 7,
+          "symbol": "603823.SH",
+          "name": "百合花",
+          "target_weight": 0.06,
+          "horizon_score": 78.845394,
+          "RiskScore": 54.864152,
+          "LiquidityScore": 62.465306,
+          "industry": "Unclassified/SSE_MAIN/603",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 8,
+          "symbol": "688127.SH",
+          "name": "蓝特光学",
+          "target_weight": 0.025578,
+          "horizon_score": 82.619624,
+          "RiskScore": 52.035911,
+          "LiquidityScore": 62.837141,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 9,
+          "symbol": "688669.SH",
+          "name": "聚石化学",
+          "target_weight": 0.025549,
+          "horizon_score": 79.25829,
+          "RiskScore": 62.626048,
+          "LiquidityScore": 52.603857,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 10,
+          "symbol": "688002.SH",
+          "name": "睿创微纳",
+          "target_weight": 0.025523,
+          "horizon_score": 79.41939,
+          "RiskScore": 65.63587,
+          "LiquidityScore": 58.592863,
+          "industry": "Unclassified/STAR/688",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        }
+      ],
+      "top_industries": [
+        {
+          "industry": "Unclassified/STAR/688",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/CHINEXT/301",
+          "weight": 0.12
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/600",
+          "weight": 0.12
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/603",
+          "weight": 0.12
+        }
+      ],
+      "risk_notes": [
+        "avg RiskScore=48.551286, avg LiquidityScore=62.319024",
+        "min RiskScore=39.60068, min LiquidityScore=49.329323"
+      ]
+    },
+    "short": {
+      "portfolio_id": "short_virtual_portfolio",
+      "holding_count": 20,
+      "weight_sum": 1.0,
+      "max_single_weight": 0.054327,
+      "max_industry_weight": 0.250336,
+      "top10_holdings": [
+        {
+          "weight_rank": 1,
+          "symbol": "600999.SH",
+          "name": "招商证券",
+          "target_weight": 0.054327,
+          "horizon_score": 82.713029,
+          "RiskScore": 91.510656,
+          "LiquidityScore": 77.597098,
+          "industry": "Unclassified/SSE_MAIN/600",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 2,
+          "symbol": "300759.SZ",
+          "name": "康龙化成",
+          "target_weight": 0.053992,
+          "horizon_score": 82.361303,
+          "RiskScore": 69.081283,
+          "LiquidityScore": 75.809453,
+          "industry": "Unclassified/CHINEXT/300",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 3,
+          "symbol": "603259.SH",
+          "name": "药明康德",
+          "target_weight": 0.053209,
+          "horizon_score": 81.052783,
+          "RiskScore": 79.651257,
+          "LiquidityScore": 77.551365,
+          "industry": "Unclassified/SSE_MAIN/603",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 4,
+          "symbol": "000783.SZ",
+          "name": "长江证券",
+          "target_weight": 0.052581,
+          "horizon_score": 82.283084,
+          "RiskScore": 73.058146,
+          "LiquidityScore": 83.837298,
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 5,
+          "symbol": "300024.SZ",
+          "name": "机器人",
+          "target_weight": 0.052454,
+          "horizon_score": 77.190412,
+          "RiskScore": 54.284153,
+          "LiquidityScore": 75.9649,
+          "industry": "Unclassified/CHINEXT/300",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 6,
+          "symbol": "603019.SH",
+          "name": "中科曙光",
+          "target_weight": 0.052207,
+          "horizon_score": 78.105545,
+          "RiskScore": 69.792511,
+          "LiquidityScore": 79.541317,
+          "industry": "Unclassified/SSE_MAIN/603",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 7,
+          "symbol": "000776.SZ",
+          "name": "广发证券",
+          "target_weight": 0.051661,
+          "horizon_score": 76.766784,
+          "RiskScore": 80.933924,
+          "LiquidityScore": 79.465396,
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 8,
+          "symbol": "601108.SH",
+          "name": "财通证券",
+          "target_weight": 0.05116,
+          "horizon_score": 79.143202,
+          "RiskScore": 84.878683,
+          "LiquidityScore": 70.045283,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 9,
+          "symbol": "601995.SH",
+          "name": "中金公司",
+          "target_weight": 0.050709,
+          "horizon_score": 76.624548,
+          "RiskScore": 94.293953,
+          "LiquidityScore": 66.058619,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        },
+        {
+          "weight_rank": 10,
+          "symbol": "601162.SH",
+          "name": "天风证券",
+          "target_weight": 0.050512,
+          "horizon_score": 78.445502,
+          "RiskScore": 70.712693,
+          "LiquidityScore": 77.658827,
+          "industry": "Unclassified/SSE_MAIN/601",
+          "risk_notes": [
+            "no_major_risk_flag_detected"
+          ]
+        }
+      ],
+      "top_industries": [
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.250336
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/603",
+          "weight": 0.249734
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/601",
+          "weight": 0.15238
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/002",
+          "weight": 0.139617
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "weight": 0.104242
+        }
+      ],
+      "risk_notes": [
+        "avg RiskScore=68.59814, avg LiquidityScore=69.289183",
+        "min RiskScore=36.042399, min LiquidityScore=53.144544",
+        "短期组合需要重点观察过热风险、短期波动和流动性变化。"
+      ]
+    }
+  },
+  "industry_exposure_summary": {
+    "long": {
+      "top_industries": [
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/STAR/688",
+          "weight": 0.2059
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/601",
+          "weight": 0.174056
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/600",
+          "weight": 0.136568
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "weight": 0.132328
+        }
+      ],
+      "raw_industry_weight_by_level_1": {
+        "Unclassified": 1.0
+      },
+      "industry_concentration_warning": false,
+      "industry_cap_violations": []
+    },
+    "mid": {
+      "top_industries": [
+        {
+          "industry": "Unclassified/STAR/688",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.25
+        },
+        {
+          "industry": "Unclassified/CHINEXT/301",
+          "weight": 0.12
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/600",
+          "weight": 0.12
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/603",
+          "weight": 0.12
+        }
+      ],
+      "raw_industry_weight_by_level_1": {
+        "Unclassified": 0.92
+      },
+      "industry_concentration_warning": false,
+      "industry_cap_violations": []
+    },
+    "short": {
+      "top_industries": [
+        {
+          "industry": "Unclassified/CHINEXT/300",
+          "weight": 0.250336
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/603",
+          "weight": 0.249734
+        },
+        {
+          "industry": "Unclassified/SSE_MAIN/601",
+          "weight": 0.15238
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/002",
+          "weight": 0.139617
+        },
+        {
+          "industry": "Unclassified/SZSE_MAIN/000",
+          "weight": 0.104242
+        }
+      ],
+      "raw_industry_weight_by_level_1": {
+        "Unclassified": 1.0
+      },
+      "industry_concentration_warning": false,
+      "industry_cap_violations": []
+    },
+    "unclassified_fallback_warning": true
+  },
+  "risk_liquidity_summary": {
+    "long": {
+      "avg_risk_score": 71.210887,
+      "avg_liquidity_score": 65.780552,
+      "min_risk_score": 52.035911,
+      "min_liquidity_score": 44.730107,
+      "low_liquidity_notes": [
+        "301345.SZ 涛涛车业 LiquidityScore=44.730107",
+        "688059.SH 华锐精密 LiquidityScore=50.262909",
+        "601198.SH 东兴证券 LiquidityScore=53.418829"
+      ],
+      "high_risk_notes": [
+        "未触发显著提示。"
+      ],
+      "overheat_risk_notes": []
+    },
+    "mid": {
+      "avg_risk_score": 48.551286,
+      "avg_liquidity_score": 62.319024,
+      "min_risk_score": 39.60068,
+      "min_liquidity_score": 49.329323,
+      "low_liquidity_notes": [
+        "688383.SH 新益昌 LiquidityScore=49.329323",
+        "688059.SH 华锐精密 LiquidityScore=50.262909",
+        "688359.SH 三孚新科 LiquidityScore=51.14986",
+        "688669.SH 聚石化学 LiquidityScore=52.603857",
+        "301200.SZ 大族数控 LiquidityScore=53.561323"
+      ],
+      "high_risk_notes": [
+        "300604.SZ 长川科技 RiskScore=39.60068",
+        "300319.SZ 麦捷科技 RiskScore=39.764463",
+        "002636.SZ 金安国纪 RiskScore=40.047085",
+        "301200.SZ 大族数控 RiskScore=40.069501",
+        "688378.SH 奥来德 RiskScore=40.389632"
+      ],
+      "overheat_risk_notes": []
+    },
+    "short": {
+      "avg_risk_score": 68.59814,
+      "avg_liquidity_score": 69.289183,
+      "min_risk_score": 36.042399,
+      "min_liquidity_score": 53.144544,
+      "low_liquidity_notes": [
+        "300873.SZ 海晨股份 LiquidityScore=53.144544",
+        "300434.SZ 金石亚药 LiquidityScore=53.176309"
+      ],
+      "high_risk_notes": [
+        "300121.SZ 阳谷华泰 RiskScore=36.042399"
+      ],
+      "overheat_risk_notes": [
+        "no_severe_overheat_flag_detected",
+        "overheat_risk"
+      ]
+    }
+  },
+  "audit_status": {
+    "feature": {
+      "audit_id": "A-SHARE-MULTI-HORIZON-FEATURE-AUDIT",
+      "target_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
+      "as_of_date": "2026-06-26",
+      "overall_passed": true,
+      "blocking_reasons": [],
+      "warnings": [],
+      "recommended_next_version": "v0.7.4-a-share-long-mid-short-scoring-system"
+    },
+    "score": {
+      "audit_id": "A-SHARE-SCORING-AUDIT",
+      "target_version": "v0.7.4-a-share-long-mid-short-scoring-system",
+      "as_of_date": "2026-06-26",
+      "overall_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "fundamental score confidence is partial"
+      ],
+      "recommended_next_version": "v0.7.5-a-share-candidate-generation-system"
+    },
+    "candidate": {
+      "audit_id": "A-SHARE-CANDIDATE-GENERATION-AUDIT",
+      "target_version": "v0.7.5-a-share-candidate-generation-system",
+      "as_of_date": "2026-06-26",
+      "overall_passed": true,
+      "blocking_reasons": [],
+      "warnings": [],
+      "recommended_next_version": "v0.7.6-a-share-virtual-portfolio-construction"
+    },
+    "portfolio": {
+      "audit_id": "A-SHARE-VIRTUAL-PORTFOLIO-CONSTRUCTION-AUDIT",
+      "target_version": "v0.7.6-a-share-virtual-portfolio-construction",
+      "as_of_date": "2026-06-26",
+      "overall_passed": true,
+      "blocking_reasons": [],
+      "warnings": [
+        "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+        "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+      ],
+      "recommended_next_version": "v0.7.7-a-share-daily-stock-selection-briefing"
+    },
+    "warnings": [
+      "fundamental score confidence is partial",
+      "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+    ],
+    "blocking_reasons": [],
+    "boundary": {
+      "briefing_only": true,
+      "scores_regenerated": false,
+      "candidates_regenerated": false,
+      "virtual_portfolios_regenerated": false,
+      "buy_sell_signals_generated": false,
+      "order_preview_generated": false,
+      "official_forward_dry_run_status_unchanged": true,
+      "day2_executed": false,
+      "run_daily_called": false,
+      "broker_connected": false,
+      "real_orders_placed": false,
+      "model_profit_guaranteed": false,
+      "live_trading_ready": false
+    }
+  },
+  "do_not_misread": [
+    "候选股不是买入建议。",
+    "虚拟组合不是实盘组合。",
+    "目标权重不是下单指令。",
+    "评分是相对评分，不代表确定盈利。",
+    "当前还没有真实交易验证。",
+    "当前没有 broker 连接。",
+    "当前没有真实订单。"
+  ],
+  "next_tracking_actions": [
+    "下一步应进入虚拟组合跟踪和纸面账本。",
+    "跟踪每日涨跌、组合收益、回撤、行业暴露变化。",
+    "比较长期/中期/短期组合与基准指数。",
+    "持续记录风险降级股票是否改善风险、流动性或置信度状态。"
+  ],
+  "source_trace_complete": true,
+  "boundary": {
+    "briefing_only": true,
+    "scores_regenerated": false,
+    "candidates_regenerated": false,
+    "virtual_portfolios_regenerated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "artifacts": {
+    "daily_stock_selection_briefing": "data/equity_briefings/daily/2026-07-01/daily_stock_selection_briefing.json",
+    "briefing_manifest": "data/equity_briefings/daily/2026-07-01/briefing_manifest.json",
+    "briefing_source_trace": "data/equity_briefings/daily/2026-07-01/briefing_source_trace.json",
+    "briefing_boundary_check": "data/equity_briefings/daily/2026-07-01/briefing_boundary_check.json",
+    "daily_stock_selection_briefing_report": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
+    "briefing_source_trace_report": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md"
+  },
+  "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"
+}

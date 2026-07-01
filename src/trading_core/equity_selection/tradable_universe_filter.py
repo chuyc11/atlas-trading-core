@@ -131,7 +131,7 @@ def _price_stats(price: pd.DataFrame, calendar: pd.DataFrame, as_of_date: str) -
         return {}
     columns = [column for column in ["date", "symbol", "open", "high", "low", "close", "volume", "amount", "pct_change", "source"] if column in price.columns]
     frame = price.loc[:, columns].copy()
-    frame["date"] = frame["date"].astype(str)
+    frame["date"] = frame["date"].astype(str).str[:10]
     frame["symbol"] = frame["symbol"].map(normalize_symbol)
     frame = frame[frame["date"] <= as_of_date].copy()
     if frame.empty:

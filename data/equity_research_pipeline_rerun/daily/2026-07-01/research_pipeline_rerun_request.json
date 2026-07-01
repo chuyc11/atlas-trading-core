@@ -1,0 +1,38 @@
+{
+  "request_id": "A-SHARE-RESEARCH-PIPELINE-RERUN-REQUEST",
+  "target_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data",
+  "as_of_date": "2026-07-01",
+  "source_data_version": "v0.9.3-a-share-data-freshness-refresh",
+  "source_data_date": "2026-07-01",
+  "rerun_scope": [
+    "feature_refresh",
+    "research_score_refresh",
+    "research_candidate_refresh",
+    "virtual_only_portfolio_research_refresh",
+    "research_briefing_refresh",
+    "research_output_validation"
+  ],
+  "allowed_workflow": "build_from_existing_data_research_only",
+  "research_data_window_policy": {
+    "min_effective_trading_days_20d": 17,
+    "reason": "authorized_research_rerun_uses_available_refreshed_local_history_without_network_gap_fill"
+  },
+  "excluded_scope": [
+    "owner_readiness_gate",
+    "controlled_gate_reevaluation",
+    "new_owner_readiness_score",
+    "new_owner_readiness_decision",
+    "broker",
+    "real_account",
+    "real_orders",
+    "order_preview",
+    "buy_sell_signals",
+    "old_run_daily",
+    "official_forward_dry_run_day2"
+  ],
+  "research_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_order_instruction": true,
+  "not_live_trading_ready": true
+}

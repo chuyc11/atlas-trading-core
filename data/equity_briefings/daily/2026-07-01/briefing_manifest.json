@@ -1,0 +1,72 @@
+{
+  "manifest_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING-MANIFEST",
+  "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
+  "as_of_date": "2026-07-01",
+  "requested_as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T16:11:52.856045Z",
+  "input_candidate_manifest_path": "data/equity_selection/daily/2026-07-01/candidate_manifest.json",
+  "input_score_manifest_path": "data/equity_scores/daily/2026-07-01/score_manifest.json",
+  "input_feature_manifest_path": "data/equity_features/daily/2026-07-01/feature_manifest.json",
+  "input_portfolio_manifest_path": "data/equity_portfolios/daily/2026-07-01/portfolio_manifest.json",
+  "briefing_path": "data/equity_briefings/daily/2026-07-01/daily_stock_selection_briefing.json",
+  "briefing_report_path": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
+  "briefing_source_trace_path": "data/equity_briefings/daily/2026-07-01/briefing_source_trace.json",
+  "briefing_source_trace_report_path": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md",
+  "briefing_only": true,
+  "scores_regenerated": false,
+  "candidates_regenerated": false,
+  "virtual_portfolios_regenerated": false,
+  "buy_sell_signals_generated": false,
+  "order_preview_generated": false,
+  "broker_connected": false,
+  "real_orders_placed": false,
+  "model_profit_guaranteed": false,
+  "boundary": {
+    "briefing_only": true,
+    "scores_regenerated": false,
+    "candidates_regenerated": false,
+    "virtual_portfolios_regenerated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  },
+  "artifacts": {
+    "daily_stock_selection_briefing": {
+      "path": "data/equity_briefings/daily/2026-07-01/daily_stock_selection_briefing.json",
+      "exists": true,
+      "sha256": "2399e492b4a87dfbcc77ffb1739038860517c73749c0cbadb007de3fef96bf73"
+    },
+    "briefing_manifest": {
+      "path": "data/equity_briefings/daily/2026-07-01/briefing_manifest.json",
+      "exists": false,
+      "sha256": null
+    },
+    "briefing_source_trace": {
+      "path": "data/equity_briefings/daily/2026-07-01/briefing_source_trace.json",
+      "exists": true,
+      "sha256": "9a18d88d4ad0cd6d6c9c17eff2b754e462d7ad5c3f52d99fb9d0e5632e3a9309"
+    },
+    "briefing_boundary_check": {
+      "path": "data/equity_briefings/daily/2026-07-01/briefing_boundary_check.json",
+      "exists": true,
+      "sha256": "7e174d7ee639e721ed647b1d498300e5555c57156212829529052ca47c3a70b7"
+    },
+    "daily_stock_selection_briefing_report": {
+      "path": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
+      "exists": true,
+      "sha256": "7a5253272c49d04aa586a6b8fd87b18d863e739ed58d0e4a4bc5adb06bf3bf2d"
+    },
+    "briefing_source_trace_report": {
+      "path": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md",
+      "exists": true,
+      "sha256": "ee177533aebcf13bc211894a1829079c213eedcfb9713cf24f2f71607d3d3898"
+    }
+  },
+  "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"
+}

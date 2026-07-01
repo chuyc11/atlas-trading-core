@@ -1,0 +1,23 @@
+{
+  "validation_id": "A-SHARE-SOURCE-DATA-FRESHNESS-VALIDATION",
+  "target_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data",
+  "source_version": "v0.9.3-a-share-data-freshness-refresh",
+  "required_source_data_date": "2026-07-01",
+  "resolved_source_data_date": "2026-07-01",
+  "data_freshness_refresh_result_path": "data/equity_data_freshness/daily/2026-07-01/data_freshness_refresh_result.json",
+  "v093_refresh_passed": true,
+  "v093_provider_status_passed": true,
+  "v093_coverage_passed": true,
+  "v093_coverage_ratio": 1.0,
+  "v093_missing_symbol_count": 0,
+  "v093_warnings": [
+    "missing_quote_symbol_count=355"
+  ],
+  "missing_quote_warning_assessment": "non_blocking_warning_for_pipeline_completeness",
+  "source_data_stale": false,
+  "source_data_validation_passed": true,
+  "blocking_reasons": [],
+  "warnings": [
+    "missing_quote_symbol_count=355"
+  ]
+}

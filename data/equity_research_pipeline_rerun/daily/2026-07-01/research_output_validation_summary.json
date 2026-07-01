@@ -1,0 +1,26 @@
+{
+  "validation_id": "A-SHARE-RESEARCH-OUTPUT-VALIDATION-SUMMARY",
+  "target_version": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data",
+  "as_of_date": "2026-07-01",
+  "required_outputs": [
+    "features",
+    "research_scores",
+    "research_candidates",
+    "virtual_only_portfolio_research",
+    "research_briefing"
+  ],
+  "required_outputs_present": true,
+  "candidate_output_generated": true,
+  "candidate_output_marked_research_only": true,
+  "score_output_generated": true,
+  "score_output_marked_not_trade_signal": true,
+  "virtual_portfolio_output_generated": true,
+  "virtual_portfolio_marked_virtual_only": true,
+  "research_briefing_generated": true,
+  "research_briefing_marked_not_investment_advice": true,
+  "protected_order_trade_account_paths_untouched": true,
+  "output_date_alignment_passed": true,
+  "source_data_date_alignment_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

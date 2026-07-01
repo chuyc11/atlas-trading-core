@@ -1,0 +1,20 @@
+{
+  "long_virtual_portfolio": {
+    "min_liquidity_score": 44.730107,
+    "avg_liquidity_score": 65.780552,
+    "min_risk_score": 52.035911,
+    "avg_risk_score": 71.210887
+  },
+  "mid_virtual_portfolio": {
+    "min_liquidity_score": 49.329323,
+    "avg_liquidity_score": 62.319024,
+    "min_risk_score": 39.60068,
+    "avg_risk_score": 48.551286
+  },
+  "short_virtual_portfolio": {
+    "min_liquidity_score": 53.144544,
+    "avg_liquidity_score": 69.289183,
+    "min_risk_score": 36.042399,
+    "avg_risk_score": 68.59814
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "check_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING-BOUNDARY-CHECK",
+  "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-01T16:11:52.856045Z",
+  "briefing_only": true,
+  "source_artifacts_read_only": true,
+  "boundary": {
+    "briefing_only": true,
+    "scores_regenerated": false,
+    "candidates_regenerated": false,
+    "virtual_portfolios_regenerated": false,
+    "buy_sell_signals_generated": false,
+    "order_preview_generated": false,
+    "official_forward_dry_run_status_unchanged": true,
+    "day2_executed": false,
+    "run_daily_called": false,
+    "broker_connected": false,
+    "real_orders_placed": false,
+    "model_profit_guaranteed": false,
+    "live_trading_ready": false
+  }
+}
