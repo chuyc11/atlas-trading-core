@@ -1,5 +1,25 @@
 # Release Notes
 
+## v0.9.3-a-share-data-freshness-refresh
+
+v0.9.3 refreshes public A-share research data to the latest resolved available date and records a compact freshness package for `2026-07-01`.
+
+- records provider status, coverage summary, refresh result, boundary check, and manifest
+- shows staleness before and after refresh
+- refreshes public market research data only
+- does not rerun research pipeline
+- does not rerun `build_from_existing_data`
+- does not rerun owner-readiness gate
+- does not generate a new gate score or decision
+- does not connect broker
+- does not read real account data
+- does not place orders
+- does not generate order previews or buy/sell signals
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not run full pytest
+- recommended next version: `v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data`
+
 ## v0.9.2-a-share-owner-daily-runbook-cli-entry-and-staleness-awareness
 
 v0.9.2 is a scoped stop-bleed release that adds a read-only owner-facing daily status CLI:
