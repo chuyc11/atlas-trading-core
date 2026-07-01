@@ -1,5 +1,32 @@
 # Release Notes
 
+## v0.9.7-a-share-historical-evidence-backfill-and-post-close-refresh-planning
+
+v0.9.7 extends the A-share evidence window before 2026-06-26, attempts local historical research-only backfill, recomputes evidence readiness, and adds post-close public-data-only refresh planning.
+
+- extends historical evidence window before 2026-06-26
+- discovers actual A-share trading days from local calendar
+- reuses existing eligible evidence days 2026-06-26 and 2026-07-01
+- attempts backfill for missing historical research-only outputs where local data is available
+- records failed historical backfill days honestly without fabricating target evidence count
+- recomputes evidence quality and blocker coverage after backfill
+- generates go/no-go after historical backfill
+- adds post-close public-data-only refresh planning for A-share trading days
+- recommends 15:45 Asia/Shanghai for manual post-close refresh planning
+- does not silently install scheduler or daemon
+- preserves owner-readiness blocked state
+- does not execute owner-readiness gate
+- does not execute controlled reevaluation
+- does not generate new owner-readiness score or decision
+- does not connect broker
+- does not read real account data
+- does not place orders
+- does not generate order previews or buy/sell signals
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not run full pytest
+- recommended next version: `v0.9.8-a-share-reevaluation-readiness-closeout-after-backfill`
+
 ## v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout
 
 v0.9.6 closes out the v0.9.5 no-go state by selecting the final not-ready branch and materializing an owner/developer evidence plan without executing controlled reevaluation.
