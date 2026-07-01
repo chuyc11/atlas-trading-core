@@ -1,0 +1,27 @@
+{
+  "decision_id": "A-SHARE-V090-RELEASE-CANDIDATE-DECISION",
+  "target_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "as_of_date": "2026-06-26",
+  "allowed_decisions": [
+    "v090_rc_passed_with_known_blocked_owner_readiness",
+    "v090_rc_failed",
+    "v090_rc_blocked_by_regression",
+    "v090_rc_blocked_by_audit_sweep",
+    "v090_rc_blocked_by_boundary",
+    "v090_rc_blocked_by_documentation"
+  ],
+  "decision": "v090_rc_passed_with_known_blocked_owner_readiness",
+  "checks": {
+    "full_pytest_passed": true,
+    "audit_sweep_passed": true,
+    "boundary_sweep_passed": true,
+    "source_trace_sweep_passed": true,
+    "documentation_freeze_passed": true,
+    "known_blocked_state_disclosed": true,
+    "blocked_state_not_misrepresented": true
+  },
+  "recommended_next_version": "v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening",
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

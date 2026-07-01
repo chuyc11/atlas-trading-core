@@ -186,6 +186,13 @@ from trading_core.equity_owner_closeout_review.builder import (
 from trading_core.equity_owner_closeout_review.closeout_config import ALLOWED_MODES as A_SHARE_OWNER_CLOSEOUT_REVIEW_MODES
 from trading_core.equity_owner_closeout_review.closeout_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_CLOSEOUT_REVIEW_AS_OF_DATE
 from trading_core.equity_owner_closeout_review.closeout_review_audit import audit_a_share_owner_closeout_review
+from trading_core.equity_owner_v090_rc.builder import (
+    build_a_share_owner_v090_rc,
+    validate_a_share_owner_v090_rc_inputs,
+)
+from trading_core.equity_owner_v090_rc.v090_config import ALLOWED_MODES as A_SHARE_OWNER_V090_RC_MODES
+from trading_core.equity_owner_v090_rc.v090_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_V090_RC_AS_OF_DATE
+from trading_core.equity_owner_v090_rc.v090_rc_audit import audit_a_share_owner_v090_rc
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1242,6 +1249,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_closeout_review_arguments(owner_closeout_review_audit, include_mode=False)
     owner_closeout_review_all = subparsers.add_parser("build-and-audit-a-share-owner-closeout-review")
     _add_a_share_owner_closeout_review_arguments(owner_closeout_review_all)
+    owner_v090_rc_validate = subparsers.add_parser("validate-a-share-owner-v090-rc-inputs")
+    _add_a_share_owner_v090_rc_arguments(owner_v090_rc_validate, include_mode=False)
+    owner_v090_rc_build = subparsers.add_parser("build-a-share-owner-v090-rc")
+    _add_a_share_owner_v090_rc_arguments(owner_v090_rc_build)
+    owner_v090_rc_audit = subparsers.add_parser("audit-a-share-owner-v090-rc")
+    _add_a_share_owner_v090_rc_arguments(owner_v090_rc_audit, include_mode=False)
+    owner_v090_rc_all = subparsers.add_parser("build-and-audit-a-share-owner-v090-rc")
+    _add_a_share_owner_v090_rc_arguments(owner_v090_rc_all)
 
     return parser
 
@@ -1579,6 +1594,16 @@ def _add_a_share_owner_closeout_review_arguments(parser: argparse.ArgumentParser
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_CLOSEOUT_REVIEW_MODES, default="validate_closeout_review_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_v090_rc_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_V090_RC_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_V090_RC_MODES, default="run_v090_full_regression")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_V090_RC_MODES, default="validate_v090_rc_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+    parser.add_argument("--skip-full-pytest", action="store_true")
 
 
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
@@ -5451,6 +5476,97 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "input_checks": audit_result["input_checks"],
                 "closeout_checks": audit_result["closeout_checks"],
                 "test_policy": audit_result["test_policy"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-v090-rc-inputs":
+        result = validate_a_share_owner_v090_rc_inputs(as_of_date=args.as_of_date, allow_date_mismatch=args.allow_date_mismatch, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "v0821_closeout_review_audit_passed": result["v0821_closeout_review_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "v090_rc_readiness_source_decision": result["v090_rc_readiness_source_decision"],
+                "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-v090-rc":
+        result = build_a_share_owner_v090_rc(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            skip_full_pytest=args.skip_full_pytest,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "known_owner_readiness_state": result.get("known_owner_readiness_state"),
+                "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+                "previous_readiness_score": result.get("previous_readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "score_gap": result.get("score_gap"),
+                "full_pytest_run": result.get("full_pytest_run"),
+                "full_pytest_passed": result.get("full_pytest_passed"),
+                "full_pytest_passed_count": result.get("full_pytest_passed_count"),
+                "full_pytest_failed_count": result.get("full_pytest_failed_count"),
+                "audit_sweep_passed": result.get("audit_sweep_passed"),
+                "boundary_sweep_passed": result.get("boundary_sweep_passed"),
+                "source_trace_sweep_passed": result.get("source_trace_sweep_passed"),
+                "documentation_freeze_passed": result.get("documentation_freeze_passed"),
+                "v090_release_candidate_decision": result.get("v090_release_candidate_decision"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "v090_rc_report": result.get("v090_rc_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-v090-rc":
+        result = audit_a_share_owner_v090_rc(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "regression_checks": result["regression_checks"],
+                "known_blocked_state_checks": result["known_blocked_state_checks"],
+                "boundary": result["boundary"],
+                "release_candidate_decision": result["release_candidate_decision"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-v090-rc":
+        build_result = build_a_share_owner_v090_rc(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            skip_full_pytest=args.skip_full_pytest,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_v090_rc(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "regression_checks": audit_result["regression_checks"],
+                "known_blocked_state_checks": audit_result["known_blocked_state_checks"],
+                "release_candidate_decision": audit_result["release_candidate_decision"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

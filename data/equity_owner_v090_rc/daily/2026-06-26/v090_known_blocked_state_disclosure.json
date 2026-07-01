@@ -1,0 +1,20 @@
+{
+  "disclosure_id": "A-SHARE-V090-KNOWN-BLOCKED-OWNER-READINESS-STATE",
+  "target_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "as_of_date": "2026-06-26",
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "previous_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "blocked_state_intentional": true,
+  "blocked_state_audited": true,
+  "blocked_state_misrepresented_as_acceptable": false,
+  "blocks_owner_readiness_acceptance": true,
+  "blocks_v090_rc": false,
+  "not_live_trading_ready": true,
+  "not_trade_instruction": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

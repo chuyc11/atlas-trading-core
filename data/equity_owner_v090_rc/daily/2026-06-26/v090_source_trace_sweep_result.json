@@ -1,0 +1,62 @@
+{
+  "result_id": "A-SHARE-V090-SOURCE-TRACE-SWEEP-RESULT",
+  "target_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "as_of_date": "2026-06-26",
+  "source_trace_sweep_run": true,
+  "source_trace_sweep_passed": true,
+  "source_workflow_mode": "build_from_existing_data",
+  "trace_artifacts": [
+    {
+      "artifact_key": "v0817_controlled_reevaluation_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_source_trace.json",
+      "relative_path": "data\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\controlled_source_trace.json",
+      "required": false,
+      "exists": false,
+      "sha256": "",
+      "hash_matches": null
+    },
+    {
+      "artifact_key": "v0818_recovery_evidence_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_source_trace.json",
+      "relative_path": "data\\equity_owner_recovery_evidence\\daily\\2026-06-26\\recovery_evidence_source_trace.json",
+      "required": false,
+      "exists": true,
+      "sha256": "e04c746ffbc5487ccfac50b77140387da18bf0c70175bbce699265d666a8d3d2",
+      "hash_matches": true
+    },
+    {
+      "artifact_key": "v0819_evidence_backed_prep_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_evidence_backed_reevaluation_prep\\daily\\2026-06-26\\evidence_backed_prep_source_trace.json",
+      "relative_path": "data\\equity_owner_evidence_backed_reevaluation_prep\\daily\\2026-06-26\\evidence_backed_prep_source_trace.json",
+      "required": false,
+      "exists": true,
+      "sha256": "10ae69116590bc991a7aef7f3f4503ea98cfad64433f8c8683184a1e870fb6dd",
+      "hash_matches": true
+    },
+    {
+      "artifact_key": "v0820_gate_outcome_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_v0820_gate_outcome\\daily\\2026-06-26\\v0820_source_trace.json",
+      "relative_path": "data\\equity_owner_v0820_gate_outcome\\daily\\2026-06-26\\v0820_source_trace.json",
+      "required": false,
+      "exists": true,
+      "sha256": "66e9701cfacad2c6eb888eedbd054da62a93555e39723ac767305b7d06caba87",
+      "hash_matches": true
+    },
+    {
+      "artifact_key": "v0821_closeout_review_trace",
+      "path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_closeout_review\\daily\\2026-06-26\\closeout_source_trace.json",
+      "relative_path": "data\\equity_owner_closeout_review\\daily\\2026-06-26\\closeout_source_trace.json",
+      "required": false,
+      "exists": true,
+      "sha256": "cb582c2a6deb5880a2e34cfd63d089f34000636444f7d56b9f8131f43da750ca",
+      "hash_matches": true
+    }
+  ],
+  "missing_required_trace_artifacts": [],
+  "hash_mismatches": [],
+  "missing_hashes_reported": [],
+  "no_undocumented_upstream_rerun": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

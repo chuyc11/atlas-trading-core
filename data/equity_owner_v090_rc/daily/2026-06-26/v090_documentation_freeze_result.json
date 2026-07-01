@@ -1,0 +1,64 @@
+{
+  "result_id": "A-SHARE-V090-DOCUMENTATION-FREEZE-RESULT",
+  "target_version": "v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression",
+  "as_of_date": "2026-06-26",
+  "documentation_freeze_run": true,
+  "documentation_freeze_passed": true,
+  "items": [
+    {
+      "path": "README.md",
+      "exists": true
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "exists": true
+    },
+    {
+      "path": "VERSION",
+      "exists": true
+    },
+    {
+      "path": "docs/CLI_REFERENCE.md",
+      "exists": true
+    },
+    {
+      "path": "docs/COMMAND_COOKBOOK.md",
+      "exists": true
+    },
+    {
+      "path": "docs/ARTIFACT_MAP.md",
+      "exists": true
+    },
+    {
+      "path": "docs/TESTING_POLICY.md",
+      "exists": true
+    },
+    {
+      "path": "docs/A_SHARE_OWNER_READINESS_CLOSEOUT_REVIEW.md",
+      "exists": true
+    },
+    {
+      "path": "docs/A_SHARE_V090_RC_SCOPE_PROPOSAL.md",
+      "exists": true
+    },
+    {
+      "path": "docs/A_SHARE_V090_FULL_REGRESSION_PLAN.md",
+      "exists": true
+    },
+    {
+      "path": "docs/A_SHARE_V090_AUDIT_SWEEP_PLAN.md",
+      "exists": true
+    }
+  ],
+  "missing_required_docs": [],
+  "known_blocked_owner_readiness_state_documented": true,
+  "v090_scope_documented": true,
+  "v090_full_regression_result_documented": true,
+  "v090_audit_sweep_result_documented": true,
+  "no_live_trading_claims": true,
+  "no_profit_guarantees": true,
+  "no_broker_order_signal_claims": true,
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "warnings": []
+}
