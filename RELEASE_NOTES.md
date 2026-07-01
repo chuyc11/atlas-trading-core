@@ -1,5 +1,24 @@
 # Release Notes
 
+## v1.0.0-a-share-autonomous-simulation-platform-release
+
+v1.0.0 officially releases trading-core as an A-share autonomous research and simulation platform.
+
+- releases the platform as research-only and simulation-only
+- verifies v1.0.0-prep readiness decision `ready_for_v100_release`
+- reuses the v1.0.0-prep full regression result: `1807 passed, 1 skipped, 0 failed`
+- generates final release decision `released_as_research_only_simulation_platform`
+- records final scope, safety boundary, known limitations, release summary, and release audit
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- keeps `owner_operationally_acceptable=false`
+- keeps benchmark/index attribution warning visible and blocks real performance claims
+- does not execute owner-readiness gate or controlled gate reevaluation
+- does not generate a new readiness score or gate decision
+- does not connect broker, read real account data, place real orders, generate real order previews, or generate buy/sell signals
+- does not call old run-daily or execute official forward dry-run day2
+- does not claim live trading readiness
+- recommended next version: `v1.0.1-a-share-benchmark-data-and-performance-claim-hardening`
+
 ## v1.0.0-prep-a-share-autonomous-simulation-platform-closeout
 
 v1.0.0-prep closes out the A-share autonomous research and simulation platform for v1.0 release readiness without adding new product features.
