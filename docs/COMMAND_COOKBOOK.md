@@ -2,6 +2,17 @@
 
 This cookbook is for resuming the research-only workbench. It does not authorize live trading.
 
+## v0.8.21 Owner Closeout Review
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-closeout-review-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-closeout-review --as-of-date 2026-06-26 --mode build_v090_rc_scope
+python -m trading_core.cli audit-a-share-owner-closeout-review --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-closeout-review --as-of-date 2026-06-26 --mode build_v090_rc_scope
+```
+
+This stage prepares v0.9.0 full regression and audit sweep, but does not execute full pytest.
+
 ## Resume project
 
 ```bash

@@ -62,6 +62,25 @@ The v0.8.19 release report must include:
 
 Full pytest remains deferred until `v0.9.0` or a big-version closeout unless explicitly requested.
 
+## v0.8.21 Targeted Test Policy
+
+For `v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep`, use targeted pytest only:
+
+```powershell
+$tests = @(Get-ChildItem tests -Filter 'test_a_share_owner_closeout*.py') + @(Get-Item tests\test_a_share_v0813_to_v0820_lineage_review.py) + @(Get-Item tests\test_a_share_blocked_decision_lineage.py) + @(Get-Item tests\test_a_share_readiness_score_lineage.py) + @(Get-Item tests\test_a_share_evidence_insufficiency_lineage.py) + @(Get-Item tests\test_a_share_final_blocked_closeout_review.py) + @(Get-Item tests\test_a_share_unresolved_blocker_register.py) + @(Get-ChildItem tests -Filter 'test_a_share_v090*.py')
+python -m pytest @($tests.FullName)
+```
+
+The v0.8.21 release report must include:
+
+- `full_pytest_run=false`
+- `targeted_pytest_passed=true`
+- `targeted_pytest_count=<actual>`
+- `full_pytest_deferred_until=v0.9.0`
+- `v0.9.0_full_regression_plan_generated=true`
+
+Full pytest is not executed in v0.8.21. v0.9.0 must execute full pytest and the full audit sweep.
+
 ## v0.8.20 Targeted Test Policy
 
 For `v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout`, use targeted pytest only:

@@ -28,3 +28,7 @@ Boundaries:
 - no official forward dry-run day2
 - no trading instruction
 
+v0.8.21 follow-up:
+
+- `v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep` reviews this final blocked closeout and prepares v0.9.0 RC scope.
+- It does not rerun owner readiness gate, does not generate a new gate score or decision, does not lower thresholds, does not auto-waive quality gates, and does not treat the closeout review as trade instruction.

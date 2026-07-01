@@ -2,6 +2,19 @@
 
 Each command is virtual, file-backed, or research-only. Commands must not be treated as a broker interface.
 
+## A-share owner closeout review
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-closeout-review-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-closeout-review --as-of-date 2026-06-26 --mode build_v090_rc_scope
+python -m trading_core.cli audit-a-share-owner-closeout-review --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-closeout-review --as-of-date 2026-06-26 --mode build_v090_rc_scope
+```
+
+Modes: `validate_closeout_review_inputs`, `review_owner_readiness_closeout_lineage`, `build_v090_rc_scope`, `build_v090_full_regression_plan`, `build_closeout_review_report`, `audit_existing_closeout_review`.
+
+The v0.8.21 commands read existing v0.8.13-v0.8.20 owner-readiness artifacts and generate closeout review plus v0.9.0 RC prep artifacts. They do not rerun owner readiness gate, do not generate a new gate score or decision, do not lower thresholds, do not auto-waive gates, do not rerun `build_from_existing_data`, do not rerun owner daily pack, do not refresh public network data, do not run `full_research_run`, do not execute remediation actions, do not send external notifications, do not generate buy/sell signals, do not place orders, do not connect broker, do not call old `run-daily`, do not execute official forward dry-run day2, do not treat closeout review as trade instruction, and do not execute full pytest.
+
 | Category | Command | Purpose | Writes to | Does not write to | Safety notes |
 |---|---|---|---|---|---|
 | A-share daily ops | `validate-a-share-daily-ops-inputs` | Validate existing ops inputs | stdout | ops center artifacts, broker, orders, trades, accounts | read-only input validation |

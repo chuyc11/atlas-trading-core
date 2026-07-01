@@ -1,5 +1,85 @@
 # Release Notes
 
+## v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep
+
+v0.8.21 A-share owner-readiness closeout review and v0.9.0 RC prep.
+
+Adds:
+
+- closeout review config
+- closeout input availability
+- closeout source resolution
+- closeout date alignment
+- v0.8.13-to-v0.8.20 lineage review
+- blocked decision lineage
+- readiness score lineage
+- evidence insufficiency lineage
+- final blocked closeout review
+- unresolved blocker register
+- v0.9.0 RC scope proposal
+- v0.9.0 full regression plan
+- v0.9.0 audit sweep plan
+- v0.9.0 documentation freeze checklist
+- v0.9.0 release risk register
+- v0.9.0 release candidate readiness decision
+- closeout source trace
+- closeout boundary check
+- closeout manifest
+- owner-facing closeout review reports
+- closeout review audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- closeout review audit overall_passed=true
+- audit blocking reasons: none
+- selected_v0820_branch=final_blocked_closeout
+- source_gate_decision=blocked
+- previous_readiness_score=54
+- minimum_owner_readiness_score=75
+- score_gap=21
+- owner_operationally_acceptable=false
+- blocked_state_intentional=true
+- blocked_state_audited=true
+- blocked_state_misrepresented_as_acceptable=false
+- new_gate_score_generated=false
+- new_gate_decision_generated=false
+- execute_full_pytest=false
+- v090_rc_scope_generated=true
+- v090_full_regression_plan_generated=true
+- v090_audit_sweep_plan_generated=true
+- v090_documentation_freeze_checklist_generated=true
+- v090_release_risk_register_generated=true
+- v090_release_candidate_readiness_decision=ready_with_known_blocked_owner_readiness_state
+- unresolved_blocker_count=7
+- blockers_that_block_owner_readiness_acceptance=6
+- blockers_that_block_v090_rc=0
+
+Boundary:
+
+- does not rerun owner readiness gate
+- does not generate a new gate score
+- does not generate a new gate decision
+- preserves final blocked closeout
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat closeout review as trade instruction
+- does not execute full pytest
+- uses targeted pytest only for small version validation
+- prepares v0.9.0 full regression and audit sweep
+- recommended next version: `v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression`
+
 ## v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout
 
 v0.8.20 A-share owner-readiness controlled gate reevaluation or final blocked closeout.

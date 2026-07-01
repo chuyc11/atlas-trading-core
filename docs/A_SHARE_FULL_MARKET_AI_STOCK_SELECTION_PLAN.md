@@ -1,5 +1,11 @@
 # A Share Full Market AI Stock Selection Plan
 
+## v0.8.21 closeout review and v0.9.0 RC prep
+
+v0.8.21 adds owner-readiness closeout review and v0.9.0 release-candidate prep after v0.8.20 selected `final_blocked_closeout`. It reviews v0.8.13-v0.8.20 lineage, records the blocked-state rationale, generates unresolved blocker and risk registers, and prepares v0.9.0 full regression plus audit sweep plans.
+
+This stage does not rerun owner readiness gate, does not generate a new gate score, does not generate a new gate decision, preserves final blocked closeout, does not lower readiness thresholds, does not auto-waive quality gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals, does not place orders, does not connect broker, does not call old `run-daily`, does not execute official forward dry-run day2, does not treat closeout review as trade instruction, and does not execute full pytest. v0.9.0 must execute full pytest and a full audit sweep.
+
 ## v0.8.6 ops history baseline note
 
 v0.8.6 adds an operational run-history layer after the v0.8.5 daily ops command center. It records real ops runs, evaluates whether trend baselines have enough observations, and keeps health/module/warning/issue/action/boundary history indexes.

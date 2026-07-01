@@ -23,3 +23,9 @@ Next step:
 
 - `v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep`
 
+v0.8.21 result:
+
+- closeout review audit overall_passed=true
+- blocked state remains intentional and audited
+- v0.9.0 RC decision is `ready_with_known_blocked_owner_readiness_state`
+- v0.9.0 must execute full pytest and the full audit sweep before RC closeout
