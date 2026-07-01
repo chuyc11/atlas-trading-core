@@ -1,5 +1,26 @@
 # Release Notes
 
+## v0.9.6-a-share-controlled-readiness-reevaluation-or-final-not-ready-closeout
+
+v0.9.6 closes out the v0.9.5 no-go state by selecting the final not-ready branch and materializing an owner/developer evidence plan without executing controlled reevaluation.
+
+- selects `final_not_ready_closeout` from the v0.9.5 `no_go_additional_evidence_required` baseline
+- records controlled reevaluation disallowance and preserves `controlled_reevaluation_allowed=false`
+- generates final not-ready closeout result, source evidence review, branch selection, unresolved blocker summary, owner not-ready summary, and developer follow-up backlog
+- generates additional evidence requirement register and next-cycle evidence plan
+- keeps owner-readiness blocked at 54 / 75 / gap 21
+- keeps blocker coverage at 0.5 and requires at least 3 additional research-only evidence days
+- preserves all unresolved blockers as open
+- does not run controlled reevaluation or owner-readiness gate
+- does not generate a new score or gate decision
+- does not lower thresholds or record a waiver
+- does not refresh data or rerun the research pipeline
+- does not connect broker, read real account data, place orders, generate order previews, or generate buy/sell signals
+- does not call old run-daily
+- does not execute official forward dry-run day2
+- does not run full pytest
+- recommended next version: `v0.9.7-a-share-additional-evidence-collection-plan-execution-tracker`
+
 ## v0.9.5-a-share-research-evidence-accumulation-quality-review-and-reevaluation-prep
 
 v0.9.5 adds A-share research evidence accumulation, quality review, and controlled reevaluation prep without executing the gate.
