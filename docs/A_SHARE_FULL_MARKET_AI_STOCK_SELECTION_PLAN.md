@@ -1,5 +1,11 @@
 # A Share Full Market AI Stock Selection Plan
 
+## v0.9.0 owner-readiness RC closeout
+
+v0.9.0 executes the release-candidate closeout prepared by v0.8.21. It runs full pytest, sweeps v0.8.13-v0.8.21 owner-readiness audits, verifies boundary/source-trace/documentation freeze evidence, and records `v090_rc_passed_with_known_blocked_owner_readiness` for `as_of_date=2026-06-26`.
+
+The owner-readiness state remains blocked: score 54 versus threshold 75, with `owner_operationally_acceptable=false`. The RC is release evidence only and does not authorize trading, broker connectivity, order previews, real orders, account reads, public refreshes, remediation execution, owner-readiness gate reruns, threshold lowering, or waiver approval.
+
 ## v0.8.21 closeout review and v0.9.0 RC prep
 
 v0.8.21 adds owner-readiness closeout review and v0.9.0 release-candidate prep after v0.8.20 selected `final_blocked_closeout`. It reviews v0.8.13-v0.8.20 lineage, records the blocked-state rationale, generates unresolved blocker and risk registers, and prepares v0.9.0 full regression plus audit sweep plans.

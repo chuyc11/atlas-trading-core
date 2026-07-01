@@ -2,6 +2,18 @@
 
 This cookbook is for resuming the research-only workbench. It does not authorize live trading.
 
+## v0.9.0 Owner RC Closeout
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-v090-rc-inputs --as-of-date 2026-06-26
+python -m pytest
+python -m trading_core.cli build-a-share-owner-v090-rc --as-of-date 2026-06-26 --mode run_v090_full_regression
+python -m trading_core.cli audit-a-share-owner-v090-rc --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-v090-rc --as-of-date 2026-06-26 --mode run_v090_full_regression
+```
+
+The released run recorded `1701 passed, 1 skipped in 907.53s`. The owner-readiness state remains intentionally blocked, and the RC must not be used as a trade instruction.
+
 ## v0.8.21 Owner Closeout Review
 
 ```powershell

@@ -21,3 +21,6 @@ Audit sweep:
 - v0.8.21 closeout review audit
 
 Boundary scans must cover forbidden artifacts, protected paths, forbidden positive wording, source trace hashes, version/tag/CLI version consistency, release notes completeness, and docs freeze.
+# v0.9.0 Execution Closeout
+
+The full regression plan was executed with `python -m pytest`: 1701 passed, 1 skipped in 907.53s. The recorded evidence is `data/equity_owner_v090_rc/daily/2026-06-26/v090_full_pytest_result.json`.

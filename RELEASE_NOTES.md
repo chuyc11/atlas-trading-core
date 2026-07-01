@@ -1,5 +1,49 @@
 # Release Notes
 
+## v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression
+
+v0.9.0 executes the A-share owner-readiness closeout release candidate and full regression for `as_of_date=2026-06-26`.
+
+Adds:
+
+- v0.9.0 RC input validation
+- full pytest result capture for `python -m pytest`
+- v0.8.13-v0.8.21 audit sweep
+- boundary and source-trace sweeps
+- documentation freeze check
+- known blocked owner-readiness disclosure
+- release-candidate decision and owner summary
+- v0.9.0 source trace, boundary check, manifest, reports, and audit
+
+Audited result:
+
+- full_pytest_run=true
+- full_pytest_command=`python -m pytest`
+- full_pytest_result=`1701 passed, 1 skipped in 907.53s`
+- audit_sweep_passed=true
+- boundary_sweep_passed=true
+- source_trace_sweep_passed=true
+- documentation_freeze_passed=true
+- source_gate_decision=`blocked`
+- owner_operationally_acceptable=false
+- previous_readiness_score=54
+- minimum_owner_readiness_score=75
+- score_gap=21
+- release_candidate_decision=`v090_rc_passed_with_known_blocked_owner_readiness`
+- recommended next version: `v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening`
+
+Boundary:
+
+- preserves known blocked owner-readiness state
+- does not rerun owner readiness gate
+- does not generate a new gate score or decision
+- does not lower readiness thresholds or auto-waive gates
+- does not rerun `build_from_existing_data`, owner daily pack, public refresh, or `full_research_run`
+- does not execute remediation actions or send external notifications
+- does not generate buy/sell signals, order previews, broker connection, account reads, or real orders
+- does not call old `run-daily` or execute official forward dry-run day2
+- treats v0.9.0 as research-only release evidence, not a trade instruction
+
 ## v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep
 
 v0.8.21 A-share owner-readiness closeout review and v0.9.0 RC prep.

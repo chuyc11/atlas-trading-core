@@ -40,3 +40,7 @@ Boundaries:
 - does not execute full pytest
 
 v0.9.0 must execute full pytest and the full audit sweep.
+
+## v0.9.0 closeout
+
+v0.9.0 executed the planned full regression and audit sweep. The RC audit passed with `1701 passed, 1 skipped` from `python -m pytest`, while preserving the known blocked owner-readiness state. The resulting decision is `v090_rc_passed_with_known_blocked_owner_readiness`; v0.9.1 should harden owner daily-run operator experience and known-blocked-state handling.

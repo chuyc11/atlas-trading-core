@@ -18,7 +18,7 @@
 
 ## Current release
 
-v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout
+v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression
 
 ## Completed milestones
 
@@ -82,8 +82,20 @@ v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-cl
 - v0.8.18 A-share recovery evidence collection and readiness improvement artifacts
 - v0.8.19 A-share owner-readiness evidence-backed gate reevaluation prep
 - v0.8.20 A-share owner-readiness controlled gate reevaluation or final blocked closeout
-- v0.8.17 A-share owner-readiness controlled gate reevaluation
-- v0.8.18 A-share recovery evidence collection and readiness improvement artifacts
+- v0.8.21 A-share owner-readiness closeout review and v0.9.0 RC prep
+- v0.9.0 A-share owner-readiness closeout RC and full regression
+
+## v0.9.0 owner-readiness RC boundary
+
+- executes full regression with `python -m pytest`: 1701 passed, 1 skipped
+- runs the v0.8.13-v0.8.21 owner-readiness audit sweep
+- release candidate decision is `v090_rc_passed_with_known_blocked_owner_readiness`
+- source gate decision remains `blocked`
+- owner operational acceptability remains false
+- readiness score remains 54 against threshold 75
+- writes RC artifacts under `data/equity_owner_v090_rc/`, `outputs/equity_owner_v090_rc/`, and audit outputs
+- does not rerun owner readiness gate, generate a new score or decision, lower thresholds, auto-waive gates, rerun `build_from_existing_data`, rerun owner daily pack, refresh public data, run `full_research_run`, execute remediation actions, send notifications, connect a broker, read real accounts, place real orders, generate order previews, or call old `run-daily`
+- recommended next version: `v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening`
 
 ## v0.8.18 owner-readiness recovery evidence boundary
 
@@ -910,3 +922,4 @@ python -m trading_core.cli audit-day0-readiness
 - v0.8.19 writes evidence-backed reevaluation prep artifacts only under `data/equity_owner_evidence_backed_reevaluation_prep/`, `outputs/equity_owner_evidence_backed_reevaluation_prep/`, and audit paths; it generates a reevaluation input package but does not execute owner-readiness gate reevaluation, does not generate a new formal gate score or decision, preserves the source blocked decision, does not lower thresholds, does not auto-waive quality gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat evidence-backed prep as trade instruction
 - v0.8.20 writes owner-readiness gate outcome branch artifacts only under `data/equity_owner_v0820_gate_outcome/`, `outputs/equity_owner_v0820_gate_outcome/`, and audit paths; it executes controlled reevaluation only if v0.8.19 evidence is eligible, otherwise finalizes blocked closeout, does not lower thresholds, does not auto-waive gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat gate outcome as trade instruction
 - v0.8.21 writes owner-readiness closeout review and v0.9.0 RC prep artifacts only under `data/equity_owner_closeout_review/`, `outputs/equity_owner_closeout_review/`, and audit paths; it does not rerun owner readiness gate, does not generate a new gate score or decision, preserves final blocked closeout, does not lower thresholds, does not auto-waive gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, does not treat closeout review as trade instruction, and does not execute full pytest; v0.9.0 must execute full pytest and the full audit sweep
+- v0.9.0 writes owner-readiness RC closeout artifacts only under `data/equity_owner_v090_rc/`, `outputs/equity_owner_v090_rc/`, and audit paths; it executes full pytest and the audit sweep, preserves the known blocked owner-readiness state, does not rerun owner readiness gate, does not generate a new gate score or decision, does not lower thresholds, does not auto-waive gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals or order previews, does not connect broker, does not read real accounts, does not place real orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat the RC as trade instruction

@@ -2,6 +2,19 @@
 
 Each command is virtual, file-backed, or research-only. Commands must not be treated as a broker interface.
 
+## A-share owner v0.9.0 RC closeout
+
+```powershell
+python -m trading_core.cli validate-a-share-owner-v090-rc-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-v090-rc --as-of-date 2026-06-26 --mode run_v090_full_regression
+python -m trading_core.cli audit-a-share-owner-v090-rc --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-v090-rc --as-of-date 2026-06-26 --mode run_v090_full_regression
+```
+
+Modes: `validate_v090_rc_inputs`, `run_v090_full_regression`, `run_v090_audit_sweep`, `run_v090_boundary_and_trace_sweep`, `verify_v090_documentation_freeze`, `build_v090_rc_report`, `audit_existing_v090_rc`.
+
+The v0.9.0 commands execute or reuse an already executed `python -m pytest` result for the same as-of date, run the v0.8.13-v0.8.21 audit sweep, preserve the known blocked owner-readiness state, and generate RC reports. `--skip-full-pytest` is allowed only for non-release smoke checks and marks the build not releasable.
+
 ## A-share owner closeout review
 
 ```powershell

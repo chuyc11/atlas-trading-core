@@ -30,3 +30,6 @@ Excluded:
 - forced gate acceptance
 
 Acceptance requires full pytest and full audit sweep in v0.9.0.
+# v0.9.0 Execution Closeout
+
+The v0.9.0 RC scope was executed for `as_of_date=2026-06-26`. The release candidate passed with the known blocked owner-readiness state disclosed and preserved.

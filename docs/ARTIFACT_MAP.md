@@ -2,6 +2,15 @@
 
 Artifacts are file-backed research outputs. They are not broker instructions and are not permission to trade.
 
+## v0.9.0 A-share owner-readiness RC closeout
+
+- data: `data/equity_owner_v090_rc/daily/2026-06-26/`
+- reports: `outputs/equity_owner_v090_rc/daily/2026-06-26/`
+- audit JSON: `data/equity_data_quality/a_share_owner_v090_rc_audit.json`
+- audit report: `outputs/audit/A_SHARE_OWNER_V090_RC_AUDIT.md`
+- scope: full pytest result, audit sweep, boundary/source-trace sweep, documentation freeze, known blocked state disclosure, RC decision, owner summary, source trace, boundary, and manifest
+- boundary: executes full regression evidence while preserving known blocked owner-readiness; does not rerun owner readiness gate, generate new gate score/decision, lower thresholds, auto-waive gates, rerun build/daily-pack workflows, connect broker, read real accounts, place real orders, generate order previews, or act as a trade instruction
+
 ## v0.8.21 A-share owner-readiness closeout review
 
 - data: `data/equity_owner_closeout_review/daily/2026-06-26/`

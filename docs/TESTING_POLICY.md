@@ -1,5 +1,24 @@
 # Testing Policy
 
+## v0.9.0 Full Regression Policy
+
+For `v0.9.0-a-share-owner-readiness-closeout-rc-and-full-regression`, full pytest is mandatory:
+
+```powershell
+python -m pytest
+```
+
+The release evidence must include:
+
+- `full_pytest_run=true`
+- `full_pytest_skipped=false`
+- `command=python -m pytest`
+- passed/failed/skipped counts
+- stdout/stderr summaries
+- RC audit overall_passed=true
+
+The released run for `as_of_date=2026-06-26` recorded `1701 passed, 1 skipped in 907.53s`.
+
 ## v0.8.17 Targeted Test Policy
 
 For `v0.8.17-a-share-owner-readiness-controlled-gate-reevaluation`, the required validation is targeted pytest only:
