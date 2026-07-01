@@ -1,0 +1,39 @@
+{
+  "register_id": "A-SHARE-V09-LLM-RESEARCH-PROPOSAL-REGISTER",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "engine": "deterministic_template_mock_no_external_api",
+  "external_llm_api_called": false,
+  "proposals": [
+    {
+      "proposal_id": "LLM-PROP-001",
+      "type": "factor_hypothesis",
+      "title": "Liquidity-adjusted momentum stability",
+      "status": "pending_experiment"
+    },
+    {
+      "proposal_id": "LLM-PROP-002",
+      "type": "risk_rule_proposal",
+      "title": "Turnover cap sensitivity review",
+      "status": "pending_experiment"
+    },
+    {
+      "proposal_id": "LLM-PROP-003",
+      "type": "failure_analysis_proposal",
+      "title": "Benchmark missing warning triage",
+      "status": "pending_experiment"
+    }
+  ],
+  "proposal_count": 3,
+  "llm_research_proposals_generated": true,
+  "auto_strategy_change": false,
+  "trade_instructions_generated": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true
+}

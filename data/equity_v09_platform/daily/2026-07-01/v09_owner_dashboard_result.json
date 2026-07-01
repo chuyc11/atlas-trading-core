@@ -1,0 +1,63 @@
+{
+  "dashboard_id": "A-SHARE-V09-OWNER-COMMAND-CENTER",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "data_freshness_status": "passed",
+  "daily_workflow_status": "passed",
+  "research_output_status": "passed",
+  "candidate_changes": {
+    "status": "simulation_summary_only"
+  },
+  "virtual_portfolio_changes": {
+    "status": "simulation_summary_only"
+  },
+  "simulated_account_nav": 1000000.0,
+  "simulated_pnl": 0.0,
+  "benchmark_comparison": "warning",
+  "alerts": [
+    {
+      "alert_id": "benchmark_missing",
+      "message": "benchmark data missing or partial",
+      "severity": "warning",
+      "local_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "boundary_check",
+      "message": "no forbidden boundary flags detected",
+      "severity": "info",
+      "local_artifact_only": true,
+      "not_buy_sell_signal": true
+    }
+  ],
+  "evidence_day_count": 3,
+  "owner_readiness_status": "blocked",
+  "allowed_actions": [
+    "view research outputs",
+    "view simulation-only account",
+    "run public-data-only refresh plan",
+    "run simulation-only experiments"
+  ],
+  "forbidden_actions": [
+    "copy to real account",
+    "place real orders",
+    "use as buy/sell signal",
+    "run owner-readiness gate",
+    "connect broker"
+  ],
+  "key_artifact_links": [
+    "data/equity_v09_platform/daily/2026-07-01/v09_daily_workflow_result.json",
+    "data/equity_v09_platform/daily/2026-07-01/v09_simulated_account_state.json",
+    "data/equity_v09_platform/daily/2026-07-01/v09_platform_boundary_check.json"
+  ],
+  "owner_dashboard_generated": true,
+  "plain_language_notice": "这是 research-only / simulation-only 系统，不是投资建议，不是真实订单，不是买卖信号，不能复制到真实账户执行。",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true
+}

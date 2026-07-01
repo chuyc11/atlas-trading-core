@@ -1,0 +1,44 @@
+{
+  "result_id": "A-SHARE-V09-SHADOW-CANARY-PROMOTION-RESULT",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "overall_passed": true,
+  "workflow": [
+    "research_candidate",
+    "backtest_passed",
+    "shadow",
+    "simulated_canary",
+    "simulated_active"
+  ],
+  "forbidden_workflow": [
+    "simulated_active",
+    "real trading"
+  ],
+  "criteria": {
+    "out_of_sample_or_walk_forward_result": true,
+    "transaction_cost_adjusted_result": true,
+    "drawdown_limit": true,
+    "turnover_limit": true,
+    "benchmark_relative_result": true,
+    "parameter_sensitivity": true,
+    "boundary_audit": true,
+    "cooldown_satisfied": false
+  },
+  "promotion_status": "simulated_canary_watch",
+  "simulated_promotion": false,
+  "simulated_demotion": false,
+  "simulated_replacement": false,
+  "simulated_rollback": false,
+  "rejection_reason": "cooldown_not_satisfied",
+  "cooldown_period_days": 5,
+  "shadow_canary_promotion_evaluated": true,
+  "real_trading_promotion": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true
+}

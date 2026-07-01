@@ -1,0 +1,44 @@
+{
+  "registry_id": "A-SHARE-V09-STRATEGY-REGISTRY",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "allowed_statuses": [
+    "draft",
+    "research_candidate",
+    "backtest_passed",
+    "shadow",
+    "simulated_canary",
+    "simulated_active",
+    "rejected",
+    "rolled_back",
+    "retired"
+  ],
+  "forbidden_statuses": [
+    "real_trading_active",
+    "live",
+    "approved_for_trading"
+  ],
+  "strategies": [
+    {
+      "strategy_id": "ashare_research_baseline",
+      "status": "shadow",
+      "promotion_status": "simulation_only_watch",
+      "rollback_status": "not_required"
+    },
+    {
+      "strategy_id": "rl_shadow_strategy",
+      "status": "research_candidate",
+      "promotion_status": "pending_experiment",
+      "rollback_status": "not_required"
+    }
+  ],
+  "strategy_count": 2,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true
+}

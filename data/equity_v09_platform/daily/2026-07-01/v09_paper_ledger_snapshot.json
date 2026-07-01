@@ -1,0 +1,21 @@
+{
+  "ledger_id": "A-SHARE-V09-PAPER-LEDGER-SNAPSHOT",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "simulated_account_id": "V09_SIMULATED_ACCOUNT",
+  "simulated_nav": 1000000.0,
+  "simulated_cash": 692339.0,
+  "simulated_position_count": 10,
+  "simulated_fill_count": 10,
+  "ledger_consistency_passed": true,
+  "paper_ledger_updated": true,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "not_real_ledger": true
+}

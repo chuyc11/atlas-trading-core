@@ -1,0 +1,122 @@
+{
+  "state_id": "A-SHARE-V09-SIMULATED-ACCOUNT-STATE",
+  "target_version": "v0.9.8-a-share-v09-autonomous-research-and-simulation-platform-completion",
+  "as_of_date": "2026-07-01",
+  "account_id": "V09_SIMULATED_ACCOUNT",
+  "simulated_cash": 692339.0,
+  "simulated_nav": 1000000.0,
+  "simulated_pnl": 0.0,
+  "positions": [
+    {
+      "symbol": "600999.SH",
+      "target_weight": 0.036093,
+      "quantity": 1500,
+      "available_quantity": 1500,
+      "current_price": 22.94,
+      "market_value": 34410.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "601995.SH",
+      "target_weight": 0.035937,
+      "quantity": 900,
+      "available_quantity": 900,
+      "current_price": 37.51,
+      "market_value": 33759.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "688002.SH",
+      "target_weight": 0.035416,
+      "quantity": 200,
+      "available_quantity": 200,
+      "current_price": 149.0,
+      "market_value": 29800.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "601066.SH",
+      "target_weight": 0.035248,
+      "quantity": 1100,
+      "available_quantity": 1100,
+      "current_price": 30.01,
+      "market_value": 33011.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "603259.SH",
+      "target_weight": 0.03511,
+      "quantity": 200,
+      "available_quantity": 200,
+      "current_price": 125.2,
+      "market_value": 25040.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "688578.SH",
+      "target_weight": 0.035031,
+      "quantity": 200,
+      "available_quantity": 200,
+      "current_price": 125.81,
+      "market_value": 25162.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "600030.SH",
+      "target_weight": 0.034997,
+      "quantity": 1100,
+      "available_quantity": 1100,
+      "current_price": 29.47,
+      "market_value": 32417.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "601939.SH",
+      "target_weight": 0.03464,
+      "quantity": 3600,
+      "available_quantity": 3600,
+      "current_price": 9.57,
+      "market_value": 34452.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "000333.SZ",
+      "target_weight": 0.034428,
+      "quantity": 400,
+      "available_quantity": 400,
+      "current_price": 77.4,
+      "market_value": 30960.0,
+      "simulation_only": true,
+      "not_real_position": true
+    },
+    {
+      "symbol": "688131.SH",
+      "target_weight": 0.034225,
+      "quantity": 300,
+      "available_quantity": 300,
+      "current_price": 95.5,
+      "market_value": 28650.0,
+      "simulation_only": true,
+      "not_real_position": true
+    }
+  ],
+  "position_count": 10,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "simulated_account": true,
+  "real_account_data_read": false
+}

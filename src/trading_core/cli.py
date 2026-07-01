@@ -92,6 +92,15 @@ from trading_core.equity_historical_evidence_backfill import (
     audit_a_share_historical_evidence_backfill_and_refresh_plan,
     build_a_share_historical_evidence_backfill_and_refresh_plan,
 )
+from trading_core.equity_v09_platform import DEFAULT_AS_OF_DATE as DEFAULT_V09_PLATFORM_AS_OF_DATE
+from trading_core.equity_v09_platform import (
+    audit_a_share_v09_platform,
+    build_a_share_experiment_registry,
+    evaluate_a_share_simulated_strategy_promotion,
+    run_a_share_automated_experiments,
+    run_a_share_rl_simulated_strategy_lab,
+    run_a_share_v09_daily_platform,
+)
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1130,6 +1139,20 @@ def build_parser() -> argparse.ArgumentParser:
     historical_backfill_audit.add_argument("--as-of-date", default=DEFAULT_HISTORICAL_EVIDENCE_BACKFILL_AS_OF_DATE)
     historical_backfill_all = subparsers.add_parser("build-and-audit-a-share-historical-evidence-backfill-and-refresh-plan")
     _add_a_share_historical_evidence_backfill_arguments(historical_backfill_all)
+    v09_platform = subparsers.add_parser("run-a-share-v09-daily-platform")
+    _add_a_share_v09_platform_arguments(v09_platform)
+    v09_audit = subparsers.add_parser("audit-a-share-v09-platform")
+    v09_audit.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
+    v09_all = subparsers.add_parser("run-and-audit-a-share-v09-platform")
+    _add_a_share_v09_platform_arguments(v09_all)
+    v09_experiment_registry = subparsers.add_parser("build-a-share-experiment-registry")
+    v09_experiment_registry.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
+    v09_experiments = subparsers.add_parser("run-a-share-automated-experiments")
+    _add_a_share_v09_simulation_arguments(v09_experiments)
+    v09_rl = subparsers.add_parser("run-a-share-rl-simulated-strategy-lab")
+    _add_a_share_v09_simulation_arguments(v09_rl)
+    v09_promotion = subparsers.add_parser("evaluate-a-share-simulated-strategy-promotion")
+    v09_promotion.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1681,6 +1704,17 @@ def _add_a_share_historical_evidence_backfill_arguments(parser: argparse.Argumen
     parser.add_argument("--target-evidence-days", type=int, default=DEFAULT_TARGET_EVIDENCE_DAYS)
 
 
+def _add_a_share_v09_platform_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
+    parser.add_argument("--simulation-only", action="store_true")
+    parser.add_argument("--dry-run", action="store_true")
+
+
+def _add_a_share_v09_simulation_arguments(parser: argparse.ArgumentParser) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
+    parser.add_argument("--simulation-only", action="store_true")
+
+
 def _add_a_share_daily_workflow_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
     parser.add_argument("--as-of-date", default=DEFAULT_WORKFLOW_AS_OF_DATE)
     if include_mode:
@@ -1828,6 +1862,48 @@ def _historical_evidence_backfill_cli_payload(result: dict) -> dict:
         "day2_executed": result["day2_executed"],
         "live_trading_ready": result["live_trading_ready"],
         "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v09_platform_cli_payload(result: dict) -> dict:
+    return {
+        "builder_id": result["builder_id"],
+        "target_version": result["target_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "run_status": result.get("run_status"),
+        "dry_run": result.get("dry_run", False),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "public_data_refresh_status": result.get("public_data_refresh_status"),
+        "research_pipeline_status": result.get("research_pipeline_status"),
+        "simulated_account_updated": result.get("simulated_account_updated"),
+        "virtual_broker_execution_run": result.get("virtual_broker_execution_run"),
+        "paper_ledger_updated": result.get("paper_ledger_updated"),
+        "benchmark_attribution_status": result.get("benchmark_attribution_status"),
+        "owner_dashboard_generated": result.get("owner_dashboard_generated"),
+        "monitoring_alerts_generated": result.get("monitoring_alerts_generated"),
+        "evidence_auto_accumulation_run": result.get("evidence_auto_accumulation_run"),
+        "experiment_registry_generated": result.get("experiment_registry_generated"),
+        "strategy_registry_generated": result.get("strategy_registry_generated"),
+        "llm_research_proposals_generated": result.get("llm_research_proposals_generated"),
+        "automated_experiments_run": result.get("automated_experiments_run"),
+        "rl_simulated_strategy_lab_run": result.get("rl_simulated_strategy_lab_run"),
+        "shadow_canary_promotion_evaluated": result.get("shadow_canary_promotion_evaluated"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "protected_paths_untouched": result.get("protected_paths_untouched"),
+        "recommended_next_version": result.get("recommended_next_version"),
     }
 
 
@@ -3928,6 +4004,55 @@ def main(argv: Sequence[str] | None = None) -> int:
             }
         )
         return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "run-a-share-v09-daily-platform":
+        result = run_a_share_v09_daily_platform(as_of_date=args.as_of_date, simulation_only=args.simulation_only, dry_run=args.dry_run, paths=paths)
+        print(_v09_platform_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v09-platform":
+        result = audit_a_share_v09_platform(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "artifact_checks": result["artifact_checks"],
+                "boundary": result["boundary"],
+                "workflow": result["workflow"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-and-audit-a-share-v09-platform":
+        build_result = run_a_share_v09_daily_platform(as_of_date=args.as_of_date, simulation_only=args.simulation_only, dry_run=args.dry_run, paths=paths)
+        audit_result = audit_a_share_v09_platform(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_v09_platform_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-experiment-registry":
+        result = build_a_share_experiment_registry(as_of_date=args.as_of_date, paths=paths)
+        print(result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-a-share-automated-experiments":
+        result = run_a_share_automated_experiments(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-a-share-rl-simulated-strategy-lab":
+        result = run_a_share_rl_simulated_strategy_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "evaluate-a-share-simulated-strategy-promotion":
+        result = evaluate_a_share_simulated_strategy_promotion(as_of_date=args.as_of_date, paths=paths)
+        print(result)
+        return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
             as_of_date=args.as_of_date,
