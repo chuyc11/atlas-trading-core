@@ -1,5 +1,74 @@
 # Release Notes
 
+## v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout
+
+v0.8.20 A-share owner-readiness controlled gate reevaluation or final blocked closeout.
+
+Adds:
+
+- v0.8.20 outcome config
+- v0.8.20 input availability
+- v0.8.20 source resolution
+- v0.8.20 date alignment
+- branch decision
+- controlled gate reevaluation outcome
+- final blocked closeout
+- threshold preservation check
+- waiver exclusion check
+- boundary preservation check
+- owner outcome summary
+- v0.8.20 source trace
+- v0.8.20 boundary check
+- v0.8.20 manifest
+- owner-facing v0.8.20 outcome reports
+- v0.8.20 outcome audit
+
+Audited result for `as_of_date=2026-06-26`:
+
+- v0.8.20 outcome audit overall_passed=true
+- audit blocking reasons: none
+- selected_branch=final_blocked_closeout
+- branch_decision_consistent=true
+- controlled_reevaluation_allowed=false
+- controlled_reevaluation_executed=false
+- final_blocked_closeout_generated=true
+- source_gate_decision=blocked
+- previous_readiness_score=54
+- minimum_owner_readiness_score=75
+- new_controlled_readiness_score_generated=false
+- new_controlled_readiness_score=null
+- new_controlled_readiness_grade=null
+- new_controlled_gate_decision_generated=false
+- new_controlled_gate_decision=null
+- owner_operationally_acceptable=false
+- threshold_lowered=false
+- auto_waiver_allowed=false
+- manual_waiver_approval_recorded=false
+- waiver_used_for_outcome=false
+- recommended next version: `v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep`
+
+Boundary:
+
+- executes controlled gate reevaluation only if v0.8.19 evidence is eligible
+- otherwise finalizes blocked closeout
+- does not lower readiness thresholds
+- does not auto-waive quality gates
+- does not rerun `build_from_existing_data`
+- does not rerun owner daily pack
+- does not refresh public network data
+- does not run `full_research_run`
+- does not execute remediation actions
+- does not send external notifications
+- does not generate buy/sell signals
+- does not generate order preview
+- does not connect broker
+- does not place real orders
+- does not call old `run-daily`
+- does not execute official forward dry-run day2
+- does not treat gate outcome as trade instruction
+- uses targeted pytest only for small version validation
+- defers full pytest to `v0.9.0-or-big-version-closeout`
+
 ## v0.8.19-a-share-owner-readiness-evidence-backed-gate-reevaluation-prep
 
 v0.8.19 A-share owner-readiness evidence-backed gate reevaluation prep.

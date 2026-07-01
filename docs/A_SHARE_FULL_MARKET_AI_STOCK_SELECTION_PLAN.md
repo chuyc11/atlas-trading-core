@@ -293,3 +293,21 @@ Primary outputs:
 - `outputs/audit/A_SHARE_OWNER_EVIDENCE_BACKED_REEVALUATION_PREP_AUDIT.md`
 
 Recommended next version: `v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout`.
+
+## v0.8.20 Controlled Gate Reevaluation Or Final Blocked Closeout
+
+v0.8.20 consumes the v0.8.19 evidence-backed prep package and selects a branch. The audited `2026-06-26` branch is `final_blocked_closeout` because v0.8.19 evidence is not eligible for controlled gate reevaluation.
+
+Current audited outcome:
+
+- selected_branch=`final_blocked_closeout`
+- controlled_reevaluation_executed=false
+- final_blocked_closeout_generated=true
+- source gate decision remains `blocked`
+- previous readiness score remains 54
+- minimum owner readiness score remains 75
+- no new controlled readiness score or gate decision was generated
+
+This stage does not lower thresholds, does not auto-waive quality gates, does not rerun `build_from_existing_data`, does not rerun owner daily pack, does not refresh public network data, does not run `full_research_run`, does not execute remediation actions, does not send external notifications, does not generate buy/sell signals, does not create order previews, does not connect broker, does not place orders, does not call old `run-daily`, does not execute official forward dry-run day2, and does not treat gate outcome as trade instruction.
+
+Recommended next version: `v0.8.21-a-share-owner-readiness-closeout-review-and-v0.9.0-rc-prep`.

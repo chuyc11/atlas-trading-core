@@ -61,3 +61,21 @@ The v0.8.19 release report must include:
 - `full_pytest_deferred_until=v0.9.0-or-big-version-closeout`
 
 Full pytest remains deferred until `v0.9.0` or a big-version closeout unless explicitly requested.
+
+## v0.8.20 Targeted Test Policy
+
+For `v0.8.20-a-share-owner-readiness-controlled-gate-reevaluation-or-final-blocked-closeout`, use targeted pytest only:
+
+```powershell
+$tests = Get-ChildItem tests -Filter 'test_a_share_v0820*.py' | Sort-Object FullName
+python -m pytest @($tests.FullName)
+```
+
+The v0.8.20 release report must include:
+
+- `full_pytest_run=false`
+- `targeted_pytest_passed=true`
+- `targeted_pytest_count=<actual>`
+- `full_pytest_deferred_until=v0.9.0-or-big-version-closeout`
+
+Full pytest remains deferred until `v0.9.0` or a big-version closeout unless explicitly requested.

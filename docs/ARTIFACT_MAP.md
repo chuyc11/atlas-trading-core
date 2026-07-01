@@ -239,6 +239,14 @@ v0.8.5 artifacts aggregate existing operations artifacts and are not broker, ord
 - audit report: `outputs/audit/A_SHARE_OWNER_EVIDENCE_BACKED_REEVALUATION_PREP_AUDIT.md`
 - reads v0.8.18 recovery evidence, generates a reevaluation input package, decides controlled reevaluation eligibility, and preserves source blocked gate truth without executing reevaluation
 
+## v0.8.20 A-share owner gate outcome branch
+
+- data: `data/equity_owner_v0820_gate_outcome/daily/2026-06-26/`
+- reports: `outputs/equity_owner_v0820_gate_outcome/daily/2026-06-26/`
+- audit JSON: `data/equity_data_quality/a_share_owner_v0820_gate_outcome_audit.json`
+- audit report: `outputs/audit/A_SHARE_OWNER_V0820_GATE_OUTCOME_AUDIT.md`
+- executes controlled gate reevaluation only if v0.8.19 evidence is eligible; for the audited `2026-06-26` run it generates final blocked closeout and does not generate a new gate score or decision
+
 ## v0.8.17 A-share owner-readiness controlled gate reevaluation
 
 - data: `data/equity_owner_controlled_gate_reevaluation/daily/2026-06-26/`

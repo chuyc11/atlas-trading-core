@@ -870,6 +870,34 @@ python -m trading_core.cli build-and-audit-a-share-owner-evidence-backed-reevalu
 
 This stage creates a reevaluation input package but does not execute owner-readiness gate reevaluation. The audited 2026-06-26 decision is `not_eligible`, with no new gate score, no new gate decision, no threshold lowering, no waiver, no broker, no real orders, no buy/sell signals, and no old `run-daily`.
 
+## v0.8.20 Owner Gate Outcome Branch
+
+Validate source inputs:
+
+```bash
+python -m trading_core.cli validate-a-share-owner-v0820-gate-outcome-inputs --as-of-date 2026-06-26
+```
+
+Build v0.8.20 outcome artifacts:
+
+```bash
+python -m trading_core.cli build-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26 --mode build_and_audit_v0820_outcome
+```
+
+Audit the outcome package:
+
+```bash
+python -m trading_core.cli audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26
+```
+
+Combined:
+
+```bash
+python -m trading_core.cli build-and-audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26 --mode build_and_audit_v0820_outcome
+```
+
+The audited 2026-06-26 branch is `final_blocked_closeout`. Controlled reevaluation was not executed, no new score or decision was generated, and the blocked owner-readiness state remains preserved.
+
 ## v0.8.17 Owner Readiness Controlled Gate Reevaluation
 
 Validate source inputs:

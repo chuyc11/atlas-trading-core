@@ -393,6 +393,19 @@ Modes: `validate_evidence_backed_prep_inputs`, `evaluate_evidence_sufficiency_fo
 
 The command set reads v0.8.18 recovery evidence, generates a reevaluation input package, and decides controlled reevaluation eligibility. It does not execute owner-readiness gate reevaluation, generate a new formal gate score or decision, lower thresholds, auto-waive gates, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order preview, connect broker, place real orders, call old `run-daily`, execute official forward dry-run day2, or treat evidence-backed prep as trade instruction.
 
+## v0.8.20 Owner Gate Outcome Branch
+
+```bash
+python -m trading_core.cli validate-a-share-owner-v0820-gate-outcome-inputs --as-of-date 2026-06-26
+python -m trading_core.cli build-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26 --mode build_and_audit_v0820_outcome
+python -m trading_core.cli audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26
+python -m trading_core.cli build-and-audit-a-share-owner-v0820-gate-outcome --as-of-date 2026-06-26 --mode build_and_audit_v0820_outcome
+```
+
+Modes: `validate_v0820_inputs`, `decide_reevaluation_or_closeout_branch`, `execute_controlled_gate_reevaluation`, `generate_final_blocked_closeout`, `build_v0820_owner_outcome_report`, `audit_existing_v0820_outcome`, `build_and_audit_v0820_outcome`.
+
+The command set executes controlled gate reevaluation only if v0.8.19 evidence is eligible. If evidence is not eligible, it finalizes blocked closeout. It does not lower thresholds, auto-waive gates, rerun `build_from_existing_data`, rerun owner daily pack, refresh public network data, run `full_research_run`, execute remediation actions, send external notifications, generate buy/sell signals, generate order preview, connect broker, place real orders, call old `run-daily`, execute official forward dry-run day2, or treat gate outcome as trade instruction.
+
 ## v0.8.16 Owner Readiness Recovery Execution
 
 ```bash

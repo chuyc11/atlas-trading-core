@@ -19,3 +19,6 @@ Current plan:
 
 v0.8.20 should either execute controlled gate reevaluation if later evidence becomes sufficient, or finalize a blocked closeout if evidence remains insufficient.
 
+## v0.8.20 Result
+
+v0.8.20 selected `final_blocked_closeout` for `2026-06-26`. It did not execute controlled gate reevaluation and did not generate a new controlled readiness score or controlled gate decision.

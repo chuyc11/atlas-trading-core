@@ -34,3 +34,6 @@ Boundaries:
 - no public network refresh or `full_research_run`
 - no trading instruction
 
+## v0.8.20 Follow-On
+
+v0.8.20 consumes this prep package. Because `ready_for_controlled_gate_reevaluation=false` and `eligibility_decision=not_eligible`, the audited v0.8.20 branch is `final_blocked_closeout`, not controlled gate reevaluation.
