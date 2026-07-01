@@ -1,0 +1,139 @@
+{
+  "package_id": "A-SHARE-OWNER-FOLLOW-UP-EVIDENCE-PACKAGE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "owner_follow_up_count": 7,
+  "owner_evidence_available": false,
+  "owner_follow_up_status": "waiting_for_owner",
+  "does_not_require_personal_account_data": true,
+  "does_not_require_broker_access": true,
+  "does_not_imply_trading_decision": true,
+  "items": [
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-001",
+      "action": "review_blocked_daily_pack_notice",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-002",
+      "action": "review_readiness_gap_summary",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-003",
+      "action": "review_quality_exception_report",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-004",
+      "action": "review_developer_follow_up_tracker",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-005",
+      "action": "confirm_no_trade_action",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-006",
+      "action": "wait_for_more_history",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    },
+    {
+      "follow_up_id": "OWNER-FOLLOW-UP-007",
+      "action": "rerun_audit_only_after_fix",
+      "allowed_evidence_types": [
+        "owner_review_note",
+        "owner_acknowledgement_note",
+        "owner_no_trade_confirmation",
+        "owner_request_for_developer_follow_up",
+        "owner_wait_for_more_history_confirmation"
+      ],
+      "owner_evidence_available": false,
+      "owner_follow_up_status": "waiting_for_owner",
+      "evidence_artifacts": [],
+      "evidence_quality": "none",
+      "trade_related": false,
+      "broker_related": false,
+      "order_related": false
+    }
+  ]
+}

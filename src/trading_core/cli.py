@@ -158,6 +158,13 @@ from trading_core.equity_owner_controlled_gate_reevaluation.controlled_builder i
 from trading_core.equity_owner_controlled_gate_reevaluation.controlled_config import ALLOWED_MODES as A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES
 from trading_core.equity_owner_controlled_gate_reevaluation.controlled_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_CONTROLLED_GATE_REEVALUATION_AS_OF_DATE
 from trading_core.equity_owner_controlled_gate_reevaluation.controlled_reevaluation_audit import audit_a_share_owner_controlled_gate_reevaluation
+from trading_core.equity_owner_recovery_evidence.evidence_builder import (
+    build_a_share_owner_recovery_evidence,
+    validate_a_share_owner_recovery_evidence_inputs,
+)
+from trading_core.equity_owner_recovery_evidence.evidence_config import ALLOWED_MODES as A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES
+from trading_core.equity_owner_recovery_evidence.evidence_config import DEFAULT_AS_OF_DATE as DEFAULT_OWNER_RECOVERY_EVIDENCE_AS_OF_DATE
+from trading_core.equity_owner_recovery_evidence.recovery_evidence_audit import audit_a_share_owner_recovery_evidence
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard, validate_a_share_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_config import ALLOWED_MODES as A_SHARE_OWNER_DASHBOARD_MODES
@@ -1182,6 +1189,14 @@ def build_parser() -> argparse.ArgumentParser:
     _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_audit, include_mode=False)
     owner_controlled_gate_reevaluation_all = subparsers.add_parser("build-and-audit-a-share-owner-controlled-gate-reevaluation")
     _add_a_share_owner_controlled_gate_reevaluation_arguments(owner_controlled_gate_reevaluation_all)
+    owner_recovery_evidence_validate = subparsers.add_parser("validate-a-share-owner-recovery-evidence-inputs")
+    _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_validate, include_mode=False)
+    owner_recovery_evidence_build = subparsers.add_parser("build-a-share-owner-recovery-evidence")
+    _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_build)
+    owner_recovery_evidence_audit = subparsers.add_parser("audit-a-share-owner-recovery-evidence")
+    _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_audit, include_mode=False)
+    owner_recovery_evidence_all = subparsers.add_parser("build-and-audit-a-share-owner-recovery-evidence")
+    _add_a_share_owner_recovery_evidence_arguments(owner_recovery_evidence_all)
 
     return parser
 
@@ -1482,6 +1497,15 @@ def _add_a_share_owner_controlled_gate_reevaluation_arguments(parser: argparse.A
         parser.add_argument("--mode", choices=A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES, default="record_reevaluation_skip_decision")
     else:
         parser.add_argument("--mode", choices=A_SHARE_OWNER_CONTROLLED_GATE_REEVALUATION_MODES, default="validate_controlled_reevaluation_inputs")
+    parser.add_argument("--allow-date-mismatch", action="store_true")
+
+
+def _add_a_share_owner_recovery_evidence_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
+    parser.add_argument("--as-of-date", default=DEFAULT_OWNER_RECOVERY_EVIDENCE_AS_OF_DATE)
+    if include_mode:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES, default="collect_recovery_evidence")
+    else:
+        parser.add_argument("--mode", choices=A_SHARE_OWNER_RECOVERY_EVIDENCE_MODES, default="validate_recovery_evidence_inputs")
     parser.add_argument("--allow-date-mismatch", action="store_true")
 
 
@@ -4977,6 +5001,102 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "warnings": audit_result["warnings"],
                 "input_checks": audit_result["input_checks"],
                 "reevaluation_checks": audit_result["reevaluation_checks"],
+                "recommended_next_version": audit_result["recommended_next_version"],
+            }
+        )
+        return 0 if audit_result["overall_passed"] else 1
+    if args.command == "validate-a-share-owner-recovery-evidence-inputs":
+        result = validate_a_share_owner_recovery_evidence_inputs(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "controlled_reevaluation_audit_passed": result["controlled_reevaluation_audit_passed"],
+                "source_gate_decision": result["source_gate_decision"],
+                "reevaluation_skipped": result["reevaluation_skipped"],
+                "new_gate_score_generated": result["new_gate_score_generated"],
+                "new_gate_decision_generated": result["new_gate_decision_generated"],
+                "source_readiness_score": result["source_readiness_score"],
+                "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-recovery-evidence":
+        result = build_a_share_owner_recovery_evidence(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        print(
+            {
+                "builder_id": result["builder_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "source_gate_decision": result.get("source_gate_decision"),
+                "source_readiness_score": result.get("source_readiness_score"),
+                "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+                "score_gap": result.get("score_gap"),
+                "evidence_record_count": result.get("evidence_record_count"),
+                "strong_evidence_count": result.get("strong_evidence_count"),
+                "audit_verified_evidence_count": result.get("audit_verified_evidence_count"),
+                "missing_evidence_count": result.get("missing_evidence_count"),
+                "overall_evidence_quality": result.get("overall_evidence_quality"),
+                "evidence_ready_for_next_reevaluation_prep": result.get("evidence_ready_for_next_reevaluation_prep"),
+                "actual_audited_score_changed": result.get("actual_audited_score_changed"),
+                "new_audited_score": result.get("new_audited_score"),
+                "new_gate_score_generated": result.get("new_gate_score_generated"),
+                "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+                "source_gate_decision_preserved": result.get("source_gate_decision_preserved"),
+                "threshold_lowered": result.get("threshold_lowered"),
+                "auto_waiver_allowed": result.get("auto_waiver_allowed"),
+                "manual_waiver_approval_recorded": result.get("manual_waiver_approval_recorded"),
+                "forbidden_evidence_types_detected": result.get("forbidden_evidence_types_detected"),
+                "forbidden_owner_developer_actions_detected": result.get("forbidden_owner_developer_actions_detected"),
+                "recommended_next_version": result.get("recommended_next_version"),
+                "recovery_evidence_report": result.get("recovery_evidence_report"),
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-owner-recovery-evidence":
+        result = audit_a_share_owner_recovery_evidence(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": result["warnings"],
+                "input_checks": result["input_checks"],
+                "evidence_checks": result["evidence_checks"],
+                "boundary": result["boundary"],
+                "test_policy": result["test_policy"],
+                "recommended_next_version": result["recommended_next_version"],
+                "json_path": result["json_path"],
+                "report_path": result["report_path"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-owner-recovery-evidence":
+        build_result = build_a_share_owner_recovery_evidence(
+            as_of_date=args.as_of_date,
+            mode=args.mode,
+            allow_date_mismatch=args.allow_date_mismatch,
+            paths=paths,
+        )
+        audit_result = audit_a_share_owner_recovery_evidence(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "builder_id": build_result["builder_id"],
+                "audit_id": audit_result["audit_id"],
+                "overall_passed": audit_result["overall_passed"],
+                "blocking_reasons": audit_result["blocking_reasons"],
+                "warnings": audit_result["warnings"],
+                "input_checks": audit_result["input_checks"],
+                "evidence_checks": audit_result["evidence_checks"],
+                "test_policy": audit_result["test_policy"],
                 "recommended_next_version": audit_result["recommended_next_version"],
             }
         )

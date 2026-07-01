@@ -1,0 +1,19 @@
+{
+  "evidence_id": "A-SHARE-SOURCE-TRACE-IMPROVEMENT-EVIDENCE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "required_items": [
+    "v0.8.17_controlled_reevaluation",
+    "v0.8.14_quality_exception"
+  ],
+  "present_items": [
+    "v0.8.17_controlled_reevaluation",
+    "v0.8.14_quality_exception"
+  ],
+  "missing_items": [],
+  "completeness_ratio": 1.0,
+  "quality_grade": "audit_verified",
+  "evidence_available": true,
+  "blocking_reasons": [],
+  "warnings": []
+}

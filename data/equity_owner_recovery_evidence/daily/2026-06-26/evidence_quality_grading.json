@@ -1,0 +1,13 @@
+{
+  "grading_id": "A-SHARE-EVIDENCE-QUALITY-GRADING",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "evidence_record_count": 11,
+  "strong_evidence_count": 0,
+  "audit_verified_evidence_count": 0,
+  "partial_evidence_count": 0,
+  "weak_evidence_count": 0,
+  "missing_evidence_count": 11,
+  "overall_evidence_quality": "none",
+  "evidence_ready_for_next_reevaluation_prep": false
+}

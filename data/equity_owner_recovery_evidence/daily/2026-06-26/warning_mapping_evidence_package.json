@@ -1,0 +1,39 @@
+{
+  "package_id": "A-SHARE-WARNING-MAPPING-EVIDENCE-PACKAGE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "warning_count": 2,
+  "known_non_blocking_warning_count": 2,
+  "items": [
+    {
+      "quality_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "warning_or_issue_id": "insufficient_history_correctly_flagged",
+      "source_artifact": "quality_threshold_evaluation.json",
+      "mapped_root_cause": "insufficient_history",
+      "evidence_artifacts": [
+        "quality_threshold_evaluation.json",
+        "quality_exception_classification.json"
+      ],
+      "evidence_quality": "strong",
+      "known_non_blocking": true,
+      "requires_developer_follow_up": false,
+      "requires_more_history": true,
+      "readiness_score_relevance": 0
+    },
+    {
+      "quality_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "warning_or_issue_id": "warning_issue_items_present",
+      "source_artifact": "quality_threshold_evaluation.json",
+      "mapped_root_cause": "warning_issue_threshold_issue",
+      "evidence_artifacts": [
+        "quality_threshold_evaluation.json",
+        "quality_exception_classification.json"
+      ],
+      "evidence_quality": "strong",
+      "known_non_blocking": true,
+      "requires_developer_follow_up": false,
+      "requires_more_history": false,
+      "readiness_score_relevance": 0
+    }
+  ]
+}

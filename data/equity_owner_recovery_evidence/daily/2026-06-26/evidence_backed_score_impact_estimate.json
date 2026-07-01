@@ -1,0 +1,16 @@
+{
+  "estimate_id": "A-SHARE-EVIDENCE-BACKED-SCORE-IMPACT-ESTIMATE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "evidence_supported_score_delta_estimate": 0,
+  "speculative_score_delta_estimate": 0,
+  "projected_score_if_evidence_accepted": 54,
+  "projection_confidence": "low",
+  "actual_audited_score_changed": false,
+  "new_audited_score": null,
+  "not_a_gate_score": true,
+  "not_trade_instruction": true
+}

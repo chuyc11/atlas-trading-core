@@ -1,0 +1,115 @@
+{
+  "ledger_id": "A-SHARE-READINESS-IMPROVEMENT-EVIDENCE-LEDGER",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "evidence_records": [
+    {
+      "task_id": "RECOVERY-TASK-001",
+      "task_title": "定位 readiness score 未达标的可恢复质量短板",
+      "source_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "expected_evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "actual_evidence_records": [
+        {
+          "evidence_id": "EVIDENCE:RECOVERY-TASK-001:completion",
+          "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+          "as_of_date": "2026-06-26",
+          "source_task_id": "RECOVERY-TASK-001",
+          "evidence_type": "artifact_exists",
+          "evidence_artifact_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_recovery_execution\\evidence\\2026-06-26\\RECOVERY-TASK-001_completion_evidence.json",
+          "evidence_sha256": "",
+          "evidence_available": false,
+          "evidence_confidence": "none",
+          "evidence_summary": "no local completion evidence artifact found",
+          "supports_task_status": "planned",
+          "created_at": "2026-06-30T17:17:41.073087Z"
+        }
+      ],
+      "evidence_available": false,
+      "evidence_quality": "none",
+      "evidence_confidence": "none",
+      "supports_status_change": false,
+      "proposed_status": "planned",
+      "completion_claim_allowed": false,
+      "completion_claim_reason": "completion evidence absent or not audit verified",
+      "remaining_gap": "completion evidence still required"
+    },
+    {
+      "task_id": "RECOVERY-TASK-002",
+      "task_title": "梳理 warning issue 并补充安全解释",
+      "source_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "expected_evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "actual_evidence_records": [
+        {
+          "evidence_id": "EVIDENCE:RECOVERY-TASK-002:completion",
+          "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+          "as_of_date": "2026-06-26",
+          "source_task_id": "RECOVERY-TASK-002",
+          "evidence_type": "artifact_exists",
+          "evidence_artifact_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_recovery_execution\\evidence\\2026-06-26\\RECOVERY-TASK-002_completion_evidence.json",
+          "evidence_sha256": "",
+          "evidence_available": false,
+          "evidence_confidence": "none",
+          "evidence_summary": "no local completion evidence artifact found",
+          "supports_task_status": "planned",
+          "created_at": "2026-06-30T17:17:41.073087Z"
+        }
+      ],
+      "evidence_available": false,
+      "evidence_quality": "none",
+      "evidence_confidence": "none",
+      "supports_status_change": false,
+      "proposed_status": "planned",
+      "completion_claim_allowed": false,
+      "completion_claim_reason": "completion evidence absent or not audit verified",
+      "remaining_gap": "completion evidence still required"
+    },
+    {
+      "task_id": "RECOVERY-TASK-003",
+      "task_title": "等待更多真实历史样本后再解释趋势",
+      "source_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "expected_evidence": [
+        "quality_exception_classification.json",
+        "owner_readiness_gap_analysis.json"
+      ],
+      "actual_evidence_records": [
+        {
+          "evidence_id": "EVIDENCE:RECOVERY-TASK-003:completion",
+          "target_version": "v0.8.16-a-share-owner-readiness-recovery-execution-tracker-and-gate-reevaluation-prep",
+          "as_of_date": "2026-06-26",
+          "source_task_id": "RECOVERY-TASK-003",
+          "evidence_type": "artifact_exists",
+          "evidence_artifact_path": "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\data\\equity_owner_readiness_recovery_execution\\evidence\\2026-06-26\\RECOVERY-TASK-003_completion_evidence.json",
+          "evidence_sha256": "",
+          "evidence_available": false,
+          "evidence_confidence": "none",
+          "evidence_summary": "no local completion evidence artifact found",
+          "supports_task_status": "planned",
+          "created_at": "2026-06-30T17:17:41.073087Z"
+        }
+      ],
+      "evidence_available": false,
+      "evidence_quality": "none",
+      "evidence_confidence": "none",
+      "supports_status_change": false,
+      "proposed_status": "waiting_for_more_history",
+      "completion_claim_allowed": false,
+      "completion_claim_reason": "completion evidence absent or not audit verified",
+      "remaining_gap": "completion evidence still required"
+    }
+  ],
+  "evidence_supported_improvement_items": [],
+  "evidence_supported_score_delta_estimate": 0,
+  "speculative_score_delta_estimate": 0,
+  "actual_audited_score_changed": false,
+  "new_audited_score": null,
+  "readiness_improvement_claim_allowed": false
+}

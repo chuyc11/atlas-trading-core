@@ -1,0 +1,54 @@
+{
+  "package_id": "A-SHARE-QUALITY-ISSUE-EVIDENCE-PACKAGE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "source_gate_decision": "blocked",
+  "quality_issue_count": 3,
+  "items": [
+    {
+      "quality_exception_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "warning_or_issue_id": "2026-06-26:owner_readiness_score_gate:owner_readiness_score_below_threshold",
+      "source_artifact": "quality_exception_classification.json",
+      "mapped_root_cause": "readiness_score_below_threshold",
+      "evidence_artifacts": [
+        "quality_exception_classification.json",
+        "blocked_gate_intake.json"
+      ],
+      "evidence_quality": "strong",
+      "known_non_blocking": false,
+      "requires_developer_follow_up": true,
+      "requires_more_history": false,
+      "readiness_score_relevance": 21
+    },
+    {
+      "quality_exception_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "warning_or_issue_id": "2026-06-26:warning_issue_quality_gate:warning_issue_items_present",
+      "source_artifact": "quality_exception_classification.json",
+      "mapped_root_cause": "warning_issue_threshold_issue",
+      "evidence_artifacts": [
+        "quality_exception_classification.json",
+        "blocked_gate_intake.json"
+      ],
+      "evidence_quality": "strong",
+      "known_non_blocking": true,
+      "requires_developer_follow_up": false,
+      "requires_more_history": false,
+      "readiness_score_relevance": 0
+    },
+    {
+      "quality_exception_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "warning_or_issue_id": "2026-06-26:trend_sufficiency_quality_gate:insufficient_history_correctly_flagged",
+      "source_artifact": "quality_exception_classification.json",
+      "mapped_root_cause": "insufficient_history",
+      "evidence_artifacts": [
+        "quality_exception_classification.json",
+        "blocked_gate_intake.json"
+      ],
+      "evidence_quality": "strong",
+      "known_non_blocking": true,
+      "requires_developer_follow_up": false,
+      "requires_more_history": true,
+      "readiness_score_relevance": 0
+    }
+  ]
+}

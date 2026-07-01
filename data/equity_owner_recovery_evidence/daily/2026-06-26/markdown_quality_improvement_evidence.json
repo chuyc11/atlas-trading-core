@@ -1,0 +1,34 @@
+{
+  "evidence_id": "A-SHARE-MARKDOWN-QUALITY-IMPROVEMENT-EVIDENCE",
+  "target_version": "v0.8.18-a-share-recovery-evidence-collection-and-readiness-improvement-artifacts",
+  "as_of_date": "2026-06-26",
+  "required_items": [
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_CONTROLLED_GATE_REEVALUATION.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_CONTROLLED_REEVALUATION_SOURCE_TRACE.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_REEVALUATION_READINESS_GUARD.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_REEVALUATION_SKIPPED_NOT_READY.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_CONTROLLED_REEVALUATION_PLAN.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_GATE_REEVALUATION_PREP.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_EXECUTION_SOURCE_TRACE.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_EXECUTION_TRACKER.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_TASK_EVIDENCE.md"
+  ],
+  "present_items": [
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_CONTROLLED_GATE_REEVALUATION.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_CONTROLLED_REEVALUATION_SOURCE_TRACE.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_REEVALUATION_READINESS_GUARD.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_controlled_gate_reevaluation\\daily\\2026-06-26\\A_SHARE_REEVALUATION_SKIPPED_NOT_READY.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_CONTROLLED_REEVALUATION_PLAN.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_GATE_REEVALUATION_PREP.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_EXECUTION_SOURCE_TRACE.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_EXECUTION_TRACKER.md",
+    "C:\\Users\\26084\\Documents\\Codex\\2026-06-12\\new-chat\\work\\trading-core\\outputs\\equity_owner_readiness_recovery_execution\\daily\\2026-06-26\\A_SHARE_RECOVERY_TASK_EVIDENCE.md"
+  ],
+  "missing_items": [],
+  "completeness_ratio": 1.0,
+  "quality_grade": "audit_verified",
+  "evidence_available": true,
+  "forbidden_wording_positive_hits": [],
+  "blocking_reasons": [],
+  "warnings": []
+}
