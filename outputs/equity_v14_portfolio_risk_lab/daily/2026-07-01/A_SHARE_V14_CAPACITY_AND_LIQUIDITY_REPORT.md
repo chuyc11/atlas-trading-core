@@ -1,0 +1,64 @@
+# A-Share v1.4 Capacity And Liquidity Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Portfolio risk, capacity, allocation, rebalance, stress, and guardrail outputs are simulated local artifacts only.
+- Owner readiness remains blocked; real account use is prohibited.
+
+- result_id: A-SHARE-V14-CAPACITY-LIQUIDITY
+- target_version: v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+- as_of_date: 2026-07-01
+- capacity_liquidity_result_generated: True
+- capacity_evaluation_framework_generated: True
+- liquidity_scorecard_generated: True
+- liquidity_score: 57
+- adv_proxy_status: not_available_without_validated_local_volume_history
+- turnover_value_estimate: 0.0
+- simulated_order_size_vs_liquidity_check: blocked_missing_liquidity_data
+- position_size_vs_liquidity_check: blocked_missing_liquidity_data
+- max_simulated_participation_rate: 0.05
+- capacity_warning: True
+- capacity_blocker: True
+- capacity_estimate_confidence: low
+- missing_liquidity_data_warning: True
+- stale_liquidity_data_warning: True
+- small_cap_liquidity_risk_flag: True
+- illiquid_candidate_exclusion_warning: True
+- capacity_estimate_is_simulated: True
+- liquidity_estimate_is_simulated: True
+- real_tradable_capacity_claimed: False
+- real_execution_ability_claimed: False
+- real_market_impact_accuracy_claimed: False
+- disclaimer: Capacity and liquidity are simulation estimates only and cannot be used as real tradable capacity or execution guidance.
+- real_portfolio_advice_generated: False
+- real_allocation_instruction_generated: False
+- real_rebalance_instruction_generated: False
+- real_trade_instruction_generated: False
+- real_account_advice_generated: False
+- copy_simulated_allocation_to_real_account: False
+- copy_simulated_rebalance_to_real_account: False
+- strategy_real_trading_active_state_present: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

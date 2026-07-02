@@ -113,6 +113,8 @@ from trading_core.equity_v12_continuous_ops import DEFAULT_AS_OF_DATE as DEFAULT
 from trading_core.equity_v12_continuous_ops import audit_a_share_v12_continuous_ops, run_a_share_v12_continuous_ops
 from trading_core.equity_v13_research_quality_lab import DEFAULT_AS_OF_DATE as DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE
 from trading_core.equity_v13_research_quality_lab import audit_a_share_v13_research_quality_lab, run_a_share_v13_research_quality_lab
+from trading_core.equity_v14_portfolio_risk_lab import DEFAULT_AS_OF_DATE as DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE
+from trading_core.equity_v14_portfolio_risk_lab import audit_a_share_v14_portfolio_risk_lab, run_a_share_v14_portfolio_risk_lab
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1247,6 +1249,32 @@ def build_parser() -> argparse.ArgumentParser:
     v13_robustness = subparsers.add_parser("build-a-share-robustness-and-overfit-review")
     v13_robustness.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
     v13_robustness.add_argument("--simulation-only", action="store_true")
+    v14_build = subparsers.add_parser("build-a-share-v14-portfolio-risk-lab")
+    v14_build.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_build.add_argument("--simulation-only", action="store_true")
+    v14_audit = subparsers.add_parser("audit-a-share-v14-portfolio-risk-lab")
+    v14_audit.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_all = subparsers.add_parser("build-and-audit-a-share-v14-portfolio-risk-lab")
+    v14_all.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_all.add_argument("--simulation-only", action="store_true")
+    v14_scorecard = subparsers.add_parser("build-a-share-portfolio-risk-scorecard")
+    v14_scorecard.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_scorecard.add_argument("--simulation-only", action="store_true")
+    v14_capacity = subparsers.add_parser("build-a-share-capacity-liquidity-review")
+    v14_capacity.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_capacity.add_argument("--simulation-only", action="store_true")
+    v14_allocation = subparsers.add_parser("build-a-share-simulated-allocation-plan")
+    v14_allocation.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_allocation.add_argument("--simulation-only", action="store_true")
+    v14_rebalance = subparsers.add_parser("build-a-share-simulated-rebalance-plan")
+    v14_rebalance.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_rebalance.add_argument("--simulation-only", action="store_true")
+    v14_stress = subparsers.add_parser("build-a-share-portfolio-stress-test")
+    v14_stress.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_stress.add_argument("--simulation-only", action="store_true")
+    v14_guardrail = subparsers.add_parser("build-a-share-risk-guardrail-review")
+    v14_guardrail.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
+    v14_guardrail.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2276,6 +2304,60 @@ def _v13_research_quality_lab_cli_payload(result: dict) -> dict:
         "llm_proposals_are_trade_instructions": result["llm_proposals_are_trade_instructions"],
         "rl_actions_are_real_account_actions": result["rl_actions_are_real_account_actions"],
         "rl_actions_are_real_orders": result["rl_actions_are_real_orders"],
+        "strategy_real_trading_active_state_present": result["strategy_real_trading_active_state_present"],
+        "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
+        "protected_path_sweep_passed": result["protected_path_sweep_passed"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v14_portfolio_risk_lab_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "portfolio_risk_scorecard_generated": result["portfolio_risk_scorecard_generated"],
+        "exposure_concentration_result_generated": result["exposure_concentration_result_generated"],
+        "correlation_diversification_result_generated": result["correlation_diversification_result_generated"],
+        "capacity_liquidity_result_generated": result["capacity_liquidity_result_generated"],
+        "turnover_cost_slippage_result_generated": result["turnover_cost_slippage_result_generated"],
+        "simulated_allocation_result_generated": result["simulated_allocation_result_generated"],
+        "simulated_rebalance_plan_generated": result["simulated_rebalance_plan_generated"],
+        "multi_strategy_portfolio_result_generated": result["multi_strategy_portfolio_result_generated"],
+        "stress_scenario_result_generated": result["stress_scenario_result_generated"],
+        "risk_limit_guardrail_result_generated": result["risk_limit_guardrail_result_generated"],
+        "owner_portfolio_risk_dashboard_generated": result["owner_portfolio_risk_dashboard_generated"],
+        "portfolio_risk_monitoring_alerts_generated": result["portfolio_risk_monitoring_alerts_generated"],
+        "capacity_estimate_is_simulated": result["capacity_estimate_is_simulated"],
+        "liquidity_estimate_is_simulated": result["liquidity_estimate_is_simulated"],
+        "allocation_is_simulated": result["allocation_is_simulated"],
+        "rebalance_plan_is_simulated": result["rebalance_plan_is_simulated"],
+        "stress_result_is_simulated": result["stress_result_is_simulated"],
+        "real_portfolio_advice_generated": result["real_portfolio_advice_generated"],
+        "real_allocation_instruction_generated": result["real_allocation_instruction_generated"],
+        "real_rebalance_instruction_generated": result["real_rebalance_instruction_generated"],
+        "real_trade_instruction_generated": result["real_trade_instruction_generated"],
         "strategy_real_trading_active_state_present": result["strategy_real_trading_active_state_present"],
         "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
         "protected_path_sweep_passed": result["protected_path_sweep_passed"],
@@ -4691,6 +4773,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-robustness-and-overfit-review":
         result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "robustness_sensitivity_stress_result_generated": result.get("robustness_sensitivity_stress_result_generated"), "overfitting_false_discovery_result_generated": result.get("overfitting_false_discovery_result_generated"), "overfitting_risk_classified": result.get("overfitting_risk_classified"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v14-portfolio-risk-lab":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v14_portfolio_risk_lab_cli_payload(result) if "portfolio_risk_scorecard_generated" in result else result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v14-portfolio-risk-lab":
+        result = audit_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "owner_readiness": result["owner_readiness"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v14-portfolio-risk-lab":
+        build_result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**(_v14_portfolio_risk_lab_cli_payload(build_result) if "portfolio_risk_scorecard_generated" in build_result else build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-portfolio-risk-scorecard":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "portfolio_risk_scorecard_generated": result.get("portfolio_risk_scorecard_generated"), "exposure_concentration_result_generated": result.get("exposure_concentration_result_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-capacity-liquidity-review":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "capacity_liquidity_result_generated": result.get("capacity_liquidity_result_generated"), "capacity_estimate_is_simulated": result.get("capacity_estimate_is_simulated"), "liquidity_estimate_is_simulated": result.get("liquidity_estimate_is_simulated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-simulated-allocation-plan":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "simulated_allocation_result_generated": result.get("simulated_allocation_result_generated"), "allocation_is_simulated": result.get("allocation_is_simulated"), "real_allocation_instruction_generated": result.get("real_allocation_instruction_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-simulated-rebalance-plan":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "simulated_rebalance_plan_generated": result.get("simulated_rebalance_plan_generated"), "rebalance_plan_is_simulated": result.get("rebalance_plan_is_simulated"), "real_rebalance_instruction_generated": result.get("real_rebalance_instruction_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-portfolio-stress-test":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "stress_scenario_result_generated": result.get("stress_scenario_result_generated"), "stress_result_is_simulated": result.get("stress_result_is_simulated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-risk-guardrail-review":
+        result = run_a_share_v14_portfolio_risk_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "risk_limit_guardrail_result_generated": result.get("risk_limit_guardrail_result_generated"), "protected_path_sweep_passed": result.get("protected_path_sweep_passed"), "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

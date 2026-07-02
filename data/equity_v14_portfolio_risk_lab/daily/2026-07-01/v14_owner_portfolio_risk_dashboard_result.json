@@ -1,0 +1,127 @@
+{
+  "dashboard_id": "A-SHARE-V14-OWNER-PORTFOLIO-RISK-DASHBOARD",
+  "target_version": "v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion",
+  "as_of_date": "2026-07-01",
+  "owner_portfolio_risk_dashboard_generated": true,
+  "owner_command_center_portfolio_risk_score": 64,
+  "capacity_status": "blocked",
+  "liquidity_status": "warning",
+  "allocation_state": "simulated_freeze",
+  "rebalance_state": "blocked",
+  "stress_scenario_summary": [
+    "exposure_limit_stress_failed"
+  ],
+  "guardrail_status": "blocked",
+  "strategy_allocation_rationale": "Simulated allocation remains frozen until capacity, concentration, and stress blockers clear.",
+  "blocked_allocation_reasons": [
+    "capacity_blocker",
+    "single_name_concentration_limit_warning",
+    "insufficient_correlation_history"
+  ],
+  "freeze_risk_off_rollback_recommendations": [
+    "simulated_freeze",
+    "simulated_risk_off",
+    "simulated_rollback_if_blockers_persist"
+  ],
+  "dashboard_is_simulation_only": true,
+  "dashboard_prohibits_real_allocation_advice": true,
+  "dashboard_prohibits_copy_to_real_account": true,
+  "dashboard_prohibits_real_performance_claims": true,
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "not_live_trading_ready": true,
+  "chinese_owner_portfolio_risk_dashboard_generated": true,
+  "chinese_owner_allocation_dashboard_generated": true,
+  "chinese_owner_stress_dashboard_generated": true,
+  "chinese_owner_safety_reminder_generated": true,
+  "plain_language_status": "模拟组合风险、容量、调仓与压力测试仅用于研究；owner readiness 仍为 blocked，不能复制到真实账户。",
+  "guardrail_inputs": [
+    {
+      "guard": "exposure",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_reduce_exposure"
+    },
+    {
+      "guard": "concentration",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_freeze_allocation"
+    },
+    {
+      "guard": "turnover",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_reduce_turnover"
+    },
+    {
+      "guard": "cost",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_defer_rebalance"
+    },
+    {
+      "guard": "liquidity",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_block_rebalance"
+    },
+    {
+      "guard": "drawdown",
+      "status": "armed",
+      "severity": "medium",
+      "action": "simulated_risk_off"
+    },
+    {
+      "guard": "benchmark_claim",
+      "status": "blocked",
+      "severity": "high",
+      "action": "block_performance_claims"
+    },
+    {
+      "guard": "quality_gate",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_block_promotion"
+    }
+  ],
+  "capacity_estimate_is_simulated": true,
+  "liquidity_estimate_is_simulated": true,
+  "allocation_is_simulated": true,
+  "rebalance_plan_is_simulated": true,
+  "stress_result_is_simulated": true,
+  "real_portfolio_advice_generated": false,
+  "real_allocation_instruction_generated": false,
+  "real_rebalance_instruction_generated": false,
+  "real_trade_instruction_generated": false,
+  "real_account_advice_generated": false,
+  "copy_simulated_allocation_to_real_account": false,
+  "copy_simulated_rebalance_to_real_account": false,
+  "strategy_real_trading_active_state_present": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

@@ -1,0 +1,69 @@
+# A股 v1.4 Owner Portfolio Risk Dashboard
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Portfolio risk, capacity, allocation, rebalance, stress, and guardrail outputs are simulated local artifacts only.
+- Owner readiness remains blocked; real account use is prohibited.
+
+- dashboard_id: A-SHARE-V14-OWNER-PORTFOLIO-RISK-DASHBOARD
+- target_version: v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+- as_of_date: 2026-07-01
+- owner_portfolio_risk_dashboard_generated: True
+- owner_command_center_portfolio_risk_score: 64
+- capacity_status: blocked
+- liquidity_status: warning
+- allocation_state: simulated_freeze
+- rebalance_state: blocked
+- guardrail_status: blocked
+- strategy_allocation_rationale: Simulated allocation remains frozen until capacity, concentration, and stress blockers clear.
+- dashboard_is_simulation_only: True
+- dashboard_prohibits_real_allocation_advice: True
+- dashboard_prohibits_copy_to_real_account: True
+- dashboard_prohibits_real_performance_claims: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- not_live_trading_ready: True
+- chinese_owner_portfolio_risk_dashboard_generated: True
+- chinese_owner_allocation_dashboard_generated: True
+- chinese_owner_stress_dashboard_generated: True
+- chinese_owner_safety_reminder_generated: True
+- plain_language_status: 模拟组合风险、容量、调仓与压力测试仅用于研究；owner readiness 仍为 blocked，不能复制到真实账户。
+- capacity_estimate_is_simulated: True
+- liquidity_estimate_is_simulated: True
+- allocation_is_simulated: True
+- rebalance_plan_is_simulated: True
+- stress_result_is_simulated: True
+- real_portfolio_advice_generated: False
+- real_allocation_instruction_generated: False
+- real_rebalance_instruction_generated: False
+- real_trade_instruction_generated: False
+- real_account_advice_generated: False
+- copy_simulated_allocation_to_real_account: False
+- copy_simulated_rebalance_to_real_account: False
+- strategy_real_trading_active_state_present: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

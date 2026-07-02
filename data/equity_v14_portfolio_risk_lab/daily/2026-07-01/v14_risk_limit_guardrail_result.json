@@ -1,0 +1,121 @@
+{
+  "result_id": "A-SHARE-V14-RISK-LIMIT-GUARDRAIL",
+  "target_version": "v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion",
+  "as_of_date": "2026-07-01",
+  "risk_limit_guardrail_result_generated": true,
+  "risk_limit_registry_generated": true,
+  "guards": [
+    {
+      "guard": "exposure",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_reduce_exposure"
+    },
+    {
+      "guard": "concentration",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_freeze_allocation"
+    },
+    {
+      "guard": "turnover",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_reduce_turnover"
+    },
+    {
+      "guard": "cost",
+      "status": "warning",
+      "severity": "medium",
+      "action": "simulated_defer_rebalance"
+    },
+    {
+      "guard": "liquidity",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_block_rebalance"
+    },
+    {
+      "guard": "drawdown",
+      "status": "armed",
+      "severity": "medium",
+      "action": "simulated_risk_off"
+    },
+    {
+      "guard": "benchmark_claim",
+      "status": "blocked",
+      "severity": "high",
+      "action": "block_performance_claims"
+    },
+    {
+      "guard": "quality_gate",
+      "status": "blocked",
+      "severity": "high",
+      "action": "simulated_block_promotion"
+    }
+  ],
+  "exposure_guard_generated": true,
+  "concentration_guard_generated": true,
+  "turnover_guard_generated": true,
+  "cost_guard_generated": true,
+  "liquidity_guard_generated": true,
+  "drawdown_guard_generated": true,
+  "benchmark_claim_guard_integration": true,
+  "quality_gate_integration": true,
+  "simulated_risk_off_guard_generated": true,
+  "simulated_freeze_guard_generated": true,
+  "simulated_rollback_guard_generated": true,
+  "guard_severity_classification_generated": true,
+  "guard_action_recommendation_generated": true,
+  "blocked_allocation_decision": true,
+  "blocked_rebalance_decision": true,
+  "blocked_promotion_decision": true,
+  "owner_facing_guardrail_report_generated": true,
+  "guard_action_is_simulated": true,
+  "guard_action_triggers_real_trading": false,
+  "inputs": {
+    "exposure_limit_check_passed": false,
+    "capacity_blocker": true,
+    "turnover": 0.18,
+    "stress_blockers": [
+      "exposure_limit_stress_failed"
+    ]
+  },
+  "capacity_estimate_is_simulated": true,
+  "liquidity_estimate_is_simulated": true,
+  "allocation_is_simulated": true,
+  "rebalance_plan_is_simulated": true,
+  "stress_result_is_simulated": true,
+  "real_portfolio_advice_generated": false,
+  "real_allocation_instruction_generated": false,
+  "real_rebalance_instruction_generated": false,
+  "real_trade_instruction_generated": false,
+  "real_account_advice_generated": false,
+  "copy_simulated_allocation_to_real_account": false,
+  "copy_simulated_rebalance_to_real_account": false,
+  "strategy_real_trading_active_state_present": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

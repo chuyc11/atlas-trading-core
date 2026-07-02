@@ -1,0 +1,80 @@
+{
+  "result_id": "A-SHARE-V14-TURNOVER-COST-SLIPPAGE",
+  "target_version": "v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion",
+  "as_of_date": "2026-07-01",
+  "turnover_cost_slippage_result_generated": true,
+  "simulated_turnover_analyzer_generated": true,
+  "daily_turnover_estimate": 0.18,
+  "strategy_level_turnover_estimate": {
+    "quality_template": 0.11,
+    "risk_template": 0.05,
+    "canary_template": 0.02
+  },
+  "portfolio_level_turnover_estimate": 0.18,
+  "candidate_driven_turnover_attribution": 0.07,
+  "rebalance_driven_turnover_attribution": 0.11,
+  "transaction_cost_model_registry": {
+    "commission_assumption": "simulated_commission=max(notional*0.0003,5)",
+    "tax_fee_status": "unsupported_warning_recorded"
+  },
+  "slippage_model_registry": {
+    "base_slippage_bps": 5,
+    "liquidity_stress_bps": 20
+  },
+  "market_impact_model_status": "placeholder_only_no_real_impact_claim",
+  "high_turnover_warning": true,
+  "high_cost_warning": true,
+  "cost_adjusted_simulated_return": null,
+  "slippage_adjusted_simulated_return": null,
+  "impact_adjusted_warning": true,
+  "cost_sensitivity_grid": [
+    {
+      "commission_bps": 3,
+      "slippage_bps": 5
+    },
+    {
+      "commission_bps": 3,
+      "slippage_bps": 20
+    }
+  ],
+  "turnover_reduction_recommendation": "Reduce simulated rebalance frequency and cap candidate churn before allocation promotion.",
+  "real_fee_claimed": false,
+  "real_slippage_claimed": false,
+  "capacity_estimate_is_simulated": true,
+  "liquidity_estimate_is_simulated": true,
+  "allocation_is_simulated": true,
+  "rebalance_plan_is_simulated": true,
+  "stress_result_is_simulated": true,
+  "real_portfolio_advice_generated": false,
+  "real_allocation_instruction_generated": false,
+  "real_rebalance_instruction_generated": false,
+  "real_trade_instruction_generated": false,
+  "real_account_advice_generated": false,
+  "copy_simulated_allocation_to_real_account": false,
+  "copy_simulated_rebalance_to_real_account": false,
+  "strategy_real_trading_active_state_present": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

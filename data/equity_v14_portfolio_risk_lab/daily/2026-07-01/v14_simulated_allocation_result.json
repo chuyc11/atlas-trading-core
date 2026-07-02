@@ -1,0 +1,83 @@
+{
+  "result_id": "A-SHARE-V14-SIMULATED-ALLOCATION",
+  "target_version": "v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion",
+  "as_of_date": "2026-07-01",
+  "simulated_allocation_result_generated": true,
+  "simulated_allocation_layer_generated": true,
+  "strategy_allocation_registry": {
+    "quality_template": 0.08,
+    "risk_template": 0.04,
+    "canary_template": 0.02
+  },
+  "sleeve_allocation_registry": {
+    "core": 0.08,
+    "satellite": 0.04,
+    "canary": 0.02,
+    "cash": 0.86
+  },
+  "risk_budget_registry": {
+    "max_strategy_weight": 0.1,
+    "max_sleeve_weight": 0.25,
+    "max_sector_exposure": 0.2,
+    "max_single_name_exposure": 0.1,
+    "min_cash_buffer": 0.2
+  },
+  "allocation_constraint_schema_generated": true,
+  "risk_off_allocation_state": true,
+  "freeze_allocation_state": true,
+  "simulated_active_allocation_state": false,
+  "shadow_allocation_state": true,
+  "canary_allocation_state": true,
+  "allocation_eligibility_check_passed": false,
+  "allocation_blocker_register": [
+    "capacity_blocker",
+    "single_name_concentration_limit_warning",
+    "insufficient_correlation_history"
+  ],
+  "allocation_warning_register": [
+    "diversification_score_low",
+    "portfolio_risk_score_guarded"
+  ],
+  "allocation_is_simulated": true,
+  "allocation_points_to_real_account": false,
+  "blocked_allocation_decision": true,
+  "owner_facing_allocation_report_generated": true,
+  "inputs": {
+    "portfolio_risk_score": 64,
+    "concentration_risk_score": 71,
+    "diversification_score": 58,
+    "capacity_blocker": true
+  },
+  "real_portfolio_advice_generated": false,
+  "real_allocation_instruction_generated": false,
+  "real_rebalance_instruction_generated": false,
+  "real_trade_instruction_generated": false,
+  "real_account_advice_generated": false,
+  "copy_simulated_allocation_to_real_account": false,
+  "copy_simulated_rebalance_to_real_account": false,
+  "strategy_real_trading_active_state_present": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

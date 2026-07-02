@@ -1,0 +1,77 @@
+# A-Share v1.4 Simulated Allocation Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Portfolio risk, capacity, allocation, rebalance, stress, and guardrail outputs are simulated local artifacts only.
+- Owner readiness remains blocked; real account use is prohibited.
+
+- result_id: A-SHARE-V14-MULTI-STRATEGY-PORTFOLIO
+- target_version: v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+- as_of_date: 2026-07-01
+- simulated_allocation_result_generated: True
+- simulated_allocation_layer_generated: True
+- allocation_constraint_schema_generated: True
+- risk_off_allocation_state: True
+- freeze_allocation_state: True
+- simulated_active_allocation_state: False
+- shadow_allocation_state: True
+- canary_allocation_state: True
+- allocation_eligibility_check_passed: False
+- allocation_is_simulated: True
+- allocation_points_to_real_account: False
+- blocked_allocation_decision: True
+- owner_facing_allocation_report_generated: True
+- real_portfolio_advice_generated: False
+- real_allocation_instruction_generated: False
+- real_rebalance_instruction_generated: False
+- real_trade_instruction_generated: False
+- real_account_advice_generated: False
+- copy_simulated_allocation_to_real_account: False
+- copy_simulated_rebalance_to_real_account: False
+- strategy_real_trading_active_state_present: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- multi_strategy_portfolio_result_generated: True
+- strategy_eligibility_inputs_from_v13_quality_gates: True
+- strategy_quality_score_integration: 72
+- overfitting_risk_integration: medium_high
+- robustness_score_integration: 61
+- rl_policy_quality_integration: 55
+- llm_proposal_quality_integration: 58
+- shadow_canary_quality_integration: True
+- strategy_lifecycle_state_integration: quality_blocked
+- strategy_inclusion_decision: blocked_for_simulated_allocation
+- strategy_exclusion_decision: exclude_if_capacity_or_correlation_guard_fails
+- strategy_freeze_decision: freeze_simulated_allocation
+- strategy_demotion_decision: demote_if_quality_or_stress_failure_persists
+- strategy_rollback_decision: rollback_simulated_state_if_drawdown_or_guard_trigger_persists
+- owner_facing_strategy_allocation_rationale: Allocation remains simulated and blocked because risk, capacity, and correlation evidence is not sufficient.
+- simulated_active_is_not_real_active: True
+- copy_to_real_account_allowed: False
+- simulation_only_label_preserved: True
+- capacity_estimate_is_simulated: True
+- liquidity_estimate_is_simulated: True
+- rebalance_plan_is_simulated: True
+- stress_result_is_simulated: True

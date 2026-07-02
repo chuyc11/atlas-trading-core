@@ -1,0 +1,118 @@
+{
+  "result_id": "A-SHARE-V14-EXPOSURE-CONCENTRATION",
+  "target_version": "v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion",
+  "as_of_date": "2026-07-01",
+  "exposure_concentration_result_generated": true,
+  "position_exposure_summary": [
+    {
+      "symbol": "SIM-A",
+      "weight": 0.12,
+      "sector": "industrial",
+      "strategy": "quality_template"
+    },
+    {
+      "symbol": "SIM-B",
+      "weight": 0.1,
+      "sector": "technology",
+      "strategy": "quality_template"
+    },
+    {
+      "symbol": "SIM-C",
+      "weight": 0.08,
+      "sector": "consumer",
+      "strategy": "risk_template"
+    },
+    {
+      "symbol": "SIM-D",
+      "weight": 0.06,
+      "sector": "healthcare",
+      "strategy": "risk_template"
+    },
+    {
+      "symbol": "SIM-E",
+      "weight": 0.05,
+      "sector": "materials",
+      "strategy": "canary_template"
+    }
+  ],
+  "sector_exposure_summary": {
+    "industrial": 0.12,
+    "technology": 0.1,
+    "consumer": 0.08,
+    "healthcare": 0.06,
+    "materials": 0.05
+  },
+  "single_name_concentration_summary": {
+    "max_weight": 0.12,
+    "max_weight_limit": 0.1,
+    "limit_warning": true
+  },
+  "top_5_concentration": 0.41,
+  "top_10_concentration": 0.41,
+  "strategy_exposure_summary": {
+    "quality_template": 0.22,
+    "risk_template": 0.14,
+    "canary_template": 0.05
+  },
+  "horizon_exposure_summary": {
+    "short": 0.08,
+    "mid": 0.14,
+    "long": 0.19
+  },
+  "sleeve_exposure_summary": {
+    "long_sleeve": 0.25,
+    "mid_sleeve": 0.11,
+    "short_sleeve": 0.05
+  },
+  "simulated_cash_exposure": 0.59,
+  "residual_cash_check_passed": true,
+  "gross_exposure": 0.41,
+  "net_exposure": 0.41,
+  "simulated_leverage": 1.0,
+  "simulated_leverage_forbidden": true,
+  "real_leverage_allowed": false,
+  "exposure_limit_check_passed": false,
+  "concentration_risk_score": 71,
+  "herfindahl_concentration": 0.0389,
+  "sector_concentration_warning": true,
+  "strategy_concentration_warning": true,
+  "candidate_concentration_warning": true,
+  "benchmark_concentration_comparison_status": "not_available_without_validated_benchmark_constituents",
+  "capacity_estimate_is_simulated": true,
+  "liquidity_estimate_is_simulated": true,
+  "allocation_is_simulated": true,
+  "rebalance_plan_is_simulated": true,
+  "stress_result_is_simulated": true,
+  "real_portfolio_advice_generated": false,
+  "real_allocation_instruction_generated": false,
+  "real_rebalance_instruction_generated": false,
+  "real_trade_instruction_generated": false,
+  "real_account_advice_generated": false,
+  "copy_simulated_allocation_to_real_account": false,
+  "copy_simulated_rebalance_to_real_account": false,
+  "strategy_real_trading_active_state_present": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

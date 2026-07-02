@@ -1,0 +1,50 @@
+# A-Share v1.4 Safety And Limitations
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Portfolio risk, capacity, allocation, rebalance, stress, and guardrail outputs are simulated local artifacts only.
+- Owner readiness remains blocked; real account use is prohibited.
+
+- result_id: A-SHARE-V14-SAFETY-BOUNDARY-SWEEP
+- target_version: v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+- safety_boundary_sweep_passed: True
+- forbidden_wording_alert: False
+- external_notifications_sent: False
+- silent_scheduler_installation: False
+- daemon_installed: False
+- capacity_estimate_is_simulated: True
+- liquidity_estimate_is_simulated: True
+- allocation_is_simulated: True
+- rebalance_plan_is_simulated: True
+- stress_result_is_simulated: True
+- real_portfolio_advice_generated: False
+- real_allocation_instruction_generated: False
+- real_rebalance_instruction_generated: False
+- real_trade_instruction_generated: False
+- real_account_advice_generated: False
+- copy_simulated_allocation_to_real_account: False
+- copy_simulated_rebalance_to_real_account: False
+- strategy_real_trading_active_state_present: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
