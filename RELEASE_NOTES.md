@@ -1,5 +1,19 @@
 # Release Notes
 
+## v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion
+
+v1.5.0 adds a simulation-only A-share market regime and adaptive research layer on top of the v1.4 portfolio risk platform.
+
+- adds market regime classification with taxonomy, confidence, fallback mode, transition/persistence checks, and explicit missing-data warnings
+- adds trend, volatility, liquidity-regime, market-breadth, and risk-appetite diagnostics without fabricating unavailable data
+- adds regime-aware factor, candidate, and strategy quality overlays plus adaptive research queue prioritization
+- adds regime-aware LLM proposal and RL policy governance with no path to trade instructions, real accounts, or real orders
+- adds regime-aware simulated portfolio overlay, risk-off/freeze/rollback suggestions, local/internal alerts, owner regime dashboard, safety sweep, and v15 audit
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, lower thresholds, apply waivers, install schedulers, send external notifications, fabricate regime data, or claim live trading readiness
+- full pytest: `1895 passed, 1 skipped`
+- recommended next version: `v1.6.0-a-share-autonomous-simulation-ensemble-research-and-meta-strategy-expansion`
+
 ## v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
 
 v1.4.0 adds a simulation-only A-share portfolio risk, capacity, allocation, rebalancing, stress testing, and guardrail layer.
