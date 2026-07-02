@@ -1,0 +1,59 @@
+# A-Share v1.6 Point-In-Time Data Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Point-in-time, replay, market-rule, benchmark, and trust outputs are local simulation research artifacts only.
+
+- registry_id: A-SHARE-V16-DATASET-FEATURE-LABEL-VERSION
+- target_version: v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening
+- as_of_date: 2026-07-01
+- point_in_time_data_registry_generated: True
+- visibility_model: as_of_date_cutoff_plus_publication_lag
+- point_in_time_visibility_fabricated: False
+- missing_publication_timestamp_warning: True
+- future_visibility_blocked: True
+- data_revision_policy: versioned_snapshot_required
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- dataset_feature_label_version_registry_generated: True
+- feature_label_join_policy: features_must_be_visible_before_label_window_starts
+- label_visibility_guard: True
+- version_hash_required: True
+- guard_id: A-SHARE-V16-LEAKAGE-LOOKAHEAD-SURVIVORSHIP-GUARD
+- leakage_lookahead_survivorship_guard_generated: True
+- lookahead_bias_guard_passed: True
+- future_data_usage_detected: False
+- leakage_blocker_count: 0
+- survivorship_bias_warning_recorded: True
+- publication_lag_guard_passed: True
+- feature_label_time_order_guard_passed: True
+- point_in_time_registry_linked: True
+- backtest_results_fabricated: False
+- simulated_fills_fabricated: False
+- benchmark_index_data_fabricated: False
+- transaction_cost_fabricated: False
+- real_performance_claim_allowed: False
+- live_trading_claim_allowed: False
+- investment_advice_claim_allowed: False

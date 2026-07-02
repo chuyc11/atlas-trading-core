@@ -117,6 +117,8 @@ from trading_core.equity_v14_portfolio_risk_lab import DEFAULT_AS_OF_DATE as DEF
 from trading_core.equity_v14_portfolio_risk_lab import audit_a_share_v14_portfolio_risk_lab, run_a_share_v14_portfolio_risk_lab
 from trading_core.equity_v15_market_regime_lab import DEFAULT_AS_OF_DATE as DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE
 from trading_core.equity_v15_market_regime_lab import audit_a_share_v15_market_regime_lab, run_a_share_v15_market_regime_lab
+from trading_core.equity_v16_pit_backtest_market_rules import DEFAULT_AS_OF_DATE as DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE
+from trading_core.equity_v16_pit_backtest_market_rules import audit_a_share_v16_pit_backtest_market_rules, run_a_share_v16_pit_backtest_market_rules
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1303,6 +1305,30 @@ def build_parser() -> argparse.ArgumentParser:
     v15_overlay = subparsers.add_parser("build-a-share-regime-portfolio-overlay")
     v15_overlay.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
     v15_overlay.add_argument("--simulation-only", action="store_true")
+    v16_build = subparsers.add_parser("build-a-share-v16-pit-backtest-market-rules")
+    v16_build.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_build.add_argument("--simulation-only", action="store_true")
+    v16_audit = subparsers.add_parser("audit-a-share-v16-pit-backtest-market-rules")
+    v16_audit.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_all = subparsers.add_parser("build-and-audit-a-share-v16-pit-backtest-market-rules")
+    v16_all.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_all.add_argument("--simulation-only", action="store_true")
+    v16_pit = subparsers.add_parser("build-a-share-point-in-time-data-registry")
+    v16_pit.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_replay = subparsers.add_parser("build-a-share-event-driven-backtest-replay")
+    v16_replay.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_replay.add_argument("--simulation-only", action="store_true")
+    v16_rules = subparsers.add_parser("build-a-share-market-rule-simulation-review")
+    v16_rules.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_rules.add_argument("--simulation-only", action="store_true")
+    v16_broker = subparsers.add_parser("build-a-share-virtual-broker-rule-hardening")
+    v16_broker.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_broker.add_argument("--simulation-only", action="store_true")
+    v16_benchmark = subparsers.add_parser("build-a-share-benchmark-index-source-hardening")
+    v16_benchmark.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_trust = subparsers.add_parser("build-a-share-backtest-trust-scorecard")
+    v16_trust.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
+    v16_trust.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2442,6 +2468,67 @@ def _v15_market_regime_lab_cli_payload(result: dict) -> dict:
         "regime_overlay_generates_real_allocation": result["regime_overlay_generates_real_allocation"],
         "regime_overlay_generates_real_rebalance": result["regime_overlay_generates_real_rebalance"],
         "regime_overlay_generates_buy_sell_signal": result["regime_overlay_generates_buy_sell_signal"],
+        "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
+        "protected_path_sweep_passed": result["protected_path_sweep_passed"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "full_pytest_run": result["full_pytest_run"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v16_pit_backtest_market_rules_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "point_in_time_data_registry_generated": result["point_in_time_data_registry_generated"],
+        "dataset_feature_label_version_registry_generated": result["dataset_feature_label_version_registry_generated"],
+        "leakage_lookahead_survivorship_guard_generated": result["leakage_lookahead_survivorship_guard_generated"],
+        "event_driven_replay_result_generated": result["event_driven_replay_result_generated"],
+        "a_share_market_rule_registry_generated": result["a_share_market_rule_registry_generated"],
+        "virtual_broker_rule_hardening_result_generated": result["virtual_broker_rule_hardening_result_generated"],
+        "transaction_cost_slippage_result_generated": result["transaction_cost_slippage_result_generated"],
+        "benchmark_index_source_result_generated": result["benchmark_index_source_result_generated"],
+        "paper_ledger_replay_consistency_result_generated": result["paper_ledger_replay_consistency_result_generated"],
+        "backtest_trust_scorecard_generated": result["backtest_trust_scorecard_generated"],
+        "owner_trust_dashboard_generated": result["owner_trust_dashboard_generated"],
+        "point_in_time_visibility_fabricated": result["point_in_time_visibility_fabricated"],
+        "backtest_results_fabricated": result["backtest_results_fabricated"],
+        "simulated_fills_fabricated": result["simulated_fills_fabricated"],
+        "benchmark_index_data_fabricated": result["benchmark_index_data_fabricated"],
+        "transaction_cost_fabricated": result["transaction_cost_fabricated"],
+        "lookahead_bias_guard_passed": result["lookahead_bias_guard_passed"],
+        "future_data_usage_detected": result["future_data_usage_detected"],
+        "leakage_blocker_count": result["leakage_blocker_count"],
+        "survivorship_bias_warning_recorded": result["survivorship_bias_warning_recorded"],
+        "a_share_market_rules_covered": result["a_share_market_rules_covered"],
+        "t_plus_one_rule_checked": result["t_plus_one_rule_checked"],
+        "price_limit_rule_checked": result["price_limit_rule_checked"],
+        "suspension_rule_checked": result["suspension_rule_checked"],
+        "lot_size_rule_checked": result["lot_size_rule_checked"],
+        "virtual_broker_rule_audit_passed": result["virtual_broker_rule_audit_passed"],
+        "paper_ledger_replay_passed": result["paper_ledger_replay_passed"],
+        "backtest_trust_decision": result["backtest_trust_decision"],
         "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
         "protected_path_sweep_passed": result["protected_path_sweep_passed"],
         "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
@@ -4931,6 +5018,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-regime-portfolio-overlay":
         result = run_a_share_v15_market_regime_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "regime_portfolio_overlay_generated": result.get("regime_portfolio_overlay_generated"), "regime_overlay_generates_real_allocation": result.get("regime_overlay_generates_real_allocation"), "regime_overlay_generates_real_rebalance": result.get("regime_overlay_generates_real_rebalance"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v16-pit-backtest-market-rules":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v16_pit_backtest_market_rules_cli_payload(result) if "point_in_time_data_registry_generated" in result else result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v16-pit-backtest-market-rules":
+        result = audit_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v16-pit-backtest-market-rules":
+        build_result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**(_v16_pit_backtest_market_rules_cli_payload(build_result) if "point_in_time_data_registry_generated" in build_result else build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-point-in-time-data-registry":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "point_in_time_data_registry_generated": result.get("point_in_time_data_registry_generated"), "dataset_feature_label_version_registry_generated": result.get("dataset_feature_label_version_registry_generated"), "point_in_time_visibility_fabricated": result.get("point_in_time_visibility_fabricated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-event-driven-backtest-replay":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "event_driven_replay_result_generated": result.get("event_driven_replay_result_generated"), "backtest_results_fabricated": result.get("backtest_results_fabricated"), "simulated_fills_fabricated": result.get("simulated_fills_fabricated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-market-rule-simulation-review":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "a_share_market_rule_registry_generated": result.get("a_share_market_rule_registry_generated"), "t_plus_one_rule_checked": result.get("t_plus_one_rule_checked"), "price_limit_rule_checked": result.get("price_limit_rule_checked"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-virtual-broker-rule-hardening":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "virtual_broker_rule_hardening_result_generated": result.get("virtual_broker_rule_hardening_result_generated"), "virtual_broker_rule_audit_passed": result.get("virtual_broker_rule_audit_passed"), "paper_ledger_replay_passed": result.get("paper_ledger_replay_passed"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-benchmark-index-source-hardening":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "benchmark_index_source_result_generated": result.get("benchmark_index_source_result_generated"), "benchmark_index_data_fabricated": result.get("benchmark_index_data_fabricated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-backtest-trust-scorecard":
+        result = run_a_share_v16_pit_backtest_market_rules(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "backtest_trust_scorecard_generated": result.get("backtest_trust_scorecard_generated"), "backtest_trust_decision": result.get("backtest_trust_decision"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

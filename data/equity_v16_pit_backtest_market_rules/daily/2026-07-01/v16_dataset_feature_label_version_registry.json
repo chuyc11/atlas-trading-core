@@ -1,0 +1,23 @@
+{
+  "registry_id": "A-SHARE-V16-DATASET-FEATURE-LABEL-VERSION",
+  "target_version": "v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening",
+  "as_of_date": "2026-07-01",
+  "dataset_feature_label_version_registry_generated": true,
+  "dataset_versions": [
+    {
+      "dataset": "daily_price",
+      "version": "local_snapshot"
+    },
+    {
+      "dataset": "features",
+      "version": "v16_pit_required"
+    },
+    {
+      "dataset": "labels",
+      "version": "v16_forward_return_labels_blocked_for_visibility"
+    }
+  ],
+  "feature_label_join_policy": "features_must_be_visible_before_label_window_starts",
+  "label_visibility_guard": true,
+  "version_hash_required": true
+}

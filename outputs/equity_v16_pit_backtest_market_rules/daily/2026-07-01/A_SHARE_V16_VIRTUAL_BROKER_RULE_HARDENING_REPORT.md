@@ -1,0 +1,55 @@
+# A-Share v1.6 Virtual Broker Rule Hardening Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Point-in-time, replay, market-rule, benchmark, and trust outputs are local simulation research artifacts only.
+
+- result_id: A-SHARE-V16-PAPER-LEDGER-REPLAY-CONSISTENCY
+- target_version: v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening
+- as_of_date: 2026-07-01
+- virtual_broker_rule_hardening_result_generated: True
+- virtual_broker_rule_audit_passed: True
+- market_rule_registry_linked: True
+- t_plus_one_enforced_in_simulation: True
+- lot_size_enforced_in_simulation: True
+- suspension_block_enforced_in_simulation: True
+- price_limit_block_enforced_in_simulation: True
+- real_broker_connection_required: False
+- point_in_time_visibility_fabricated: False
+- backtest_results_fabricated: False
+- simulated_fills_fabricated: False
+- benchmark_index_data_fabricated: False
+- transaction_cost_fabricated: False
+- real_performance_claim_allowed: False
+- live_trading_claim_allowed: False
+- investment_advice_claim_allowed: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- paper_ledger_replay_consistency_result_generated: True
+- paper_ledger_replay_passed: True
+- replay_linked: True
+- cash_position_invariant_checked: True
+- fill_to_ledger_reconciliation_checked: True
+- ledger_is_virtual_only: True

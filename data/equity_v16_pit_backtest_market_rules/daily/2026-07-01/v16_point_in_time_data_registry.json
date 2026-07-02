@@ -1,0 +1,52 @@
+{
+  "registry_id": "A-SHARE-V16-POINT-IN-TIME-DATA-REGISTRY",
+  "target_version": "v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening",
+  "as_of_date": "2026-07-01",
+  "point_in_time_data_registry_generated": true,
+  "visibility_model": "as_of_date_cutoff_plus_publication_lag",
+  "dataset_visibility_rules": [
+    {
+      "dataset": "daily_price",
+      "visible_after": "trade_date_close",
+      "lag_days": 0
+    },
+    {
+      "dataset": "daily_basic",
+      "visible_after": "provider_publication_time",
+      "lag_days": 1
+    },
+    {
+      "dataset": "financials",
+      "visible_after": "filing_publication_date",
+      "lag_days": 0
+    }
+  ],
+  "point_in_time_visibility_fabricated": false,
+  "missing_publication_timestamp_warning": true,
+  "future_visibility_blocked": true,
+  "data_revision_policy": "versioned_snapshot_required",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

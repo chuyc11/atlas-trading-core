@@ -1,0 +1,59 @@
+# A-Share v1.6 Backtest Trust Scorecard
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Point-in-time, replay, market-rule, benchmark, and trust outputs are local simulation research artifacts only.
+
+- scorecard_id: A-SHARE-V16-BACKTEST-TRUST-SCORECARD
+- target_version: v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening
+- as_of_date: 2026-07-01
+- backtest_trust_scorecard_generated: True
+- trust_score: 78
+- backtest_trust_decision: trusted_for_simulation_research_or_usable_with_limitations
+- point_in_time_data_registry_generated: True
+- lookahead_bias_guard_passed: True
+- event_driven_replay_result_generated: True
+- a_share_market_rules_covered: True
+- virtual_broker_rule_audit_passed: True
+- transaction_cost_slippage_result_generated: True
+- benchmark_index_source_result_generated: True
+- paper_ledger_replay_passed: True
+- point_in_time_visibility_fabricated: False
+- backtest_results_fabricated: False
+- simulated_fills_fabricated: False
+- benchmark_index_data_fabricated: False
+- transaction_cost_fabricated: False
+- real_performance_claim_allowed: False
+- live_trading_claim_allowed: False
+- investment_advice_claim_allowed: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- result_id: A-SHARE-V16-TRANSACTION-COST-SLIPPAGE
+- commission_model: simulation=max(notional*0.0003,5)
+- slippage_model: simulation_bps_grid
+- stamp_tax_model: placeholder_warning_not_claimed
+- market_impact_model: unsupported_no_real_impact_claim
+- cost_sensitivity_grid_generated: True
+- real_cost_claimed: False
