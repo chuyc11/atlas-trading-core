@@ -1,5 +1,20 @@
 # Release Notes
 
+## v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
+
+v1.3.0 adds A-share autonomous research quality evaluation and strategy lab quality governance while keeping the platform research-only, simulation-only, and virtual-only.
+
+- adds v13 research quality scorecard, factor diagnostics, candidate diagnostics, and owner research quality dashboard
+- expands the strategy lab registry and strategy card register with lineage, quality gate state, rollback state, and retirement review fields
+- adds walk-forward/OOS, robustness, sensitivity, stress, overfitting, and false-discovery review artifacts without making real performance claims
+- adds LLM proposal and RL policy quality review artifacts while keeping proposals and policy actions unable to create trade instructions, real account actions, or real orders
+- adds shadow/canary quality hard gates for simulated promotion, rejection, and rollback
+- adds research quality monitoring alerts, artifact integrity sweep, protected path sweep, safety boundary sweep, and v13 audit
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, lower thresholds, apply waivers, install schedulers, send external notifications, or claim live trading readiness
+- full pytest: `1870 passed, 1 skipped`
+- recommended next version: `v1.4.0-a-share-autonomous-simulation-portfolio-risk-and-capacity-expansion`
+
 ## v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform
 
 v1.2.0 adds local post-close continuous ops planning and simulation continuity without adding any live trading capability.
