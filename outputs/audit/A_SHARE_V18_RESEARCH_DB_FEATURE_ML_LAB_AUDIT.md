@@ -1,0 +1,60 @@
+# A-Share v1.8 Research DB Feature ML Lab Audit
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 0
+- release_readiness_decision: passed
+
+## Artifact Checks
+- json_count: 20
+- markdown_count: 9
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+
+## Quality Checks
+- research_database_registry_generated: True
+- storage_snapshot_reproducibility_result_generated: True
+- feature_store_result_generated: True
+- label_store_result_generated: True
+- pit_ml_dataset_result_generated: True
+- model_lab_result_generated: True
+- model_training_evaluation_result_generated: True
+- model_leakage_robustness_result_generated: True
+- model_registry_generated: True
+- model_card_register_generated: True
+- prediction_registry_generated: True
+- model_experiment_integration_result_generated: True
+- owner_ml_dashboard_generated: True
+- pit_aware_dataset_used: True
+- feature_store_pit_validated: True
+- label_store_leakage_checked: True
+- model_leakage_guard_passed: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- full_pytest_run: True
+
+## Forbidden Checks
+- future_data_usage_detected: False
+- model_results_fabricated: False
+- prediction_results_fabricated: False
+- oos_results_fabricated: False
+- predictions_are_trade_signals: False
+- model_outputs_generate_real_orders: False
+- model_outputs_generate_order_preview: False
+- model_status_real_trading_active_present: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False

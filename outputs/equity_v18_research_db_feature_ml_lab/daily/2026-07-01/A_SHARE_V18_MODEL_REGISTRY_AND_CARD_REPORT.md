@@ -1,0 +1,57 @@
+# A-Share v1.8 Model Registry And Card Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Deterministic fallback model outputs are research scores, not trade signals.
+
+- registry_id: A-SHARE-V18-MODEL-REGISTRY
+- target_version: v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening
+- as_of_date: 2026-07-01
+- model_registry_generated: True
+- model_status_real_trading_active_present: False
+- model_id: V18_DETERMINISTIC_BASELINE_MODEL
+- model_version: 1.0.0
+- model_family: deterministic_baseline
+- model_purpose: research_score_generation_only
+- model_dataset_dependency: A-SHARE-V18-PIT-ML-DATASET
+- model_feature_dependency: v18_feature_store_result
+- model_label_dependency: v18_label_store_result
+- model_safety_boundary: research_only_simulation_only_no_trade_signals
+- model_status: watch
+- owner_facing_model_card_report_generated: True
+- model_card_displays_simulation_only: True
+- model_quality_score: 52
+- model_leakage_guard_passed: True
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- register_id: A-SHARE-V18-MODEL-CARD-REGISTER
+- model_card_register_generated: True
+- model_card_schema_generated: True

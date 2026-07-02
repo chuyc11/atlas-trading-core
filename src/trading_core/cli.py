@@ -121,6 +121,8 @@ from trading_core.equity_v16_pit_backtest_market_rules import DEFAULT_AS_OF_DATE
 from trading_core.equity_v16_pit_backtest_market_rules import audit_a_share_v16_pit_backtest_market_rules, run_a_share_v16_pit_backtest_market_rules
 from trading_core.equity_v17_strategy_validation_lab import DEFAULT_AS_OF_DATE as DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE
 from trading_core.equity_v17_strategy_validation_lab import audit_a_share_v17_strategy_validation_lab, run_a_share_v17_strategy_validation_lab
+from trading_core.equity_v18_research_db_feature_ml_lab import DEFAULT_AS_OF_DATE as DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE
+from trading_core.equity_v18_research_db_feature_ml_lab import audit_a_share_v18_research_db_feature_ml_lab, run_a_share_v18_research_db_feature_ml_lab
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1357,6 +1359,31 @@ def build_parser() -> argparse.ArgumentParser:
     v17_experiments = subparsers.add_parser("build-a-share-experiment-validation-registry")
     v17_experiments.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
     v17_experiments.add_argument("--simulation-only", action="store_true")
+    v18_build = subparsers.add_parser("build-a-share-v18-research-db-feature-ml-lab")
+    v18_build.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_build.add_argument("--simulation-only", action="store_true")
+    v18_audit = subparsers.add_parser("audit-a-share-v18-research-db-feature-ml-lab")
+    v18_audit.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_all = subparsers.add_parser("build-and-audit-a-share-v18-research-db-feature-ml-lab")
+    v18_all.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_all.add_argument("--simulation-only", action="store_true")
+    v18_research_db = subparsers.add_parser("build-a-share-research-database-index")
+    v18_research_db.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_feature_store = subparsers.add_parser("build-a-share-feature-store")
+    v18_feature_store.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_label_store = subparsers.add_parser("build-a-share-label-store")
+    v18_label_store.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_dataset = subparsers.add_parser("build-a-share-pit-ml-dataset")
+    v18_dataset.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_model_lab = subparsers.add_parser("build-a-share-offline-ml-model-lab")
+    v18_model_lab.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_model_lab.add_argument("--simulation-only", action="store_true")
+    v18_model_registry = subparsers.add_parser("build-a-share-model-registry-and-cards")
+    v18_model_registry.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_model_registry.add_argument("--simulation-only", action="store_true")
+    v18_predictions = subparsers.add_parser("build-a-share-prediction-registry")
+    v18_predictions.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
+    v18_predictions.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2620,6 +2647,64 @@ def _v17_strategy_validation_lab_cli_payload(result: dict) -> dict:
         "strategy_admission_generates_real_trade": result.get("strategy_admission_generates_real_trade"),
         "candidate_validation_generates_buy_sell_signal": result.get("candidate_validation_generates_buy_sell_signal"),
         "llm_rl_validation_generates_trade_instruction": result.get("llm_rl_validation_generates_trade_instruction"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "full_pytest_run": result.get("full_pytest_run"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v18_research_db_feature_ml_lab_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "research_database_registry_generated": result.get("research_database_registry_generated"),
+        "storage_snapshot_reproducibility_result_generated": result.get("storage_snapshot_reproducibility_result_generated"),
+        "feature_store_result_generated": result.get("feature_store_result_generated"),
+        "label_store_result_generated": result.get("label_store_result_generated"),
+        "pit_ml_dataset_result_generated": result.get("pit_ml_dataset_result_generated"),
+        "model_lab_result_generated": result.get("model_lab_result_generated"),
+        "model_training_evaluation_result_generated": result.get("model_training_evaluation_result_generated"),
+        "model_leakage_robustness_result_generated": result.get("model_leakage_robustness_result_generated"),
+        "model_registry_generated": result.get("model_registry_generated"),
+        "model_card_register_generated": result.get("model_card_register_generated"),
+        "prediction_registry_generated": result.get("prediction_registry_generated"),
+        "model_experiment_integration_result_generated": result.get("model_experiment_integration_result_generated"),
+        "owner_ml_dashboard_generated": result.get("owner_ml_dashboard_generated"),
+        "pit_aware_dataset_used": result.get("pit_aware_dataset_used"),
+        "feature_store_pit_validated": result.get("feature_store_pit_validated"),
+        "label_store_leakage_checked": result.get("label_store_leakage_checked"),
+        "model_leakage_guard_passed": result.get("model_leakage_guard_passed"),
+        "future_data_usage_detected": result.get("future_data_usage_detected"),
+        "model_results_fabricated": result.get("model_results_fabricated"),
+        "prediction_results_fabricated": result.get("prediction_results_fabricated"),
+        "oos_results_fabricated": result.get("oos_results_fabricated"),
+        "predictions_are_trade_signals": result.get("predictions_are_trade_signals"),
+        "model_outputs_generate_real_orders": result.get("model_outputs_generate_real_orders"),
+        "model_outputs_generate_order_preview": result.get("model_outputs_generate_order_preview"),
+        "model_status_real_trading_active_present": result.get("model_status_real_trading_active_present"),
         "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
         "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
         "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
@@ -5183,6 +5268,47 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-experiment-validation-registry":
         result = run_a_share_v17_strategy_validation_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "experiment_validation_registry_generated": result.get("experiment_validation_registry_generated"), "llm_rl_validation_result_generated": result.get("llm_rl_validation_result_generated"), "llm_rl_validation_generates_trade_instruction": result.get("llm_rl_validation_generates_trade_instruction"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v18-research-db-feature-ml-lab":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v18_research_db_feature_ml_lab_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v18-research-db-feature-ml-lab":
+        result = audit_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v18-research-db-feature-ml-lab":
+        build_result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v18_research_db_feature_ml_lab_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-research-database-index":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "research_database_registry_generated": result.get("research_database_registry_generated"), "storage_snapshot_reproducibility_result_generated": result.get("storage_snapshot_reproducibility_result_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-feature-store":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "feature_store_result_generated": result.get("feature_store_result_generated"), "feature_store_pit_validated": result.get("feature_store_pit_validated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-label-store":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "label_store_result_generated": result.get("label_store_result_generated"), "label_store_leakage_checked": result.get("label_store_leakage_checked"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-pit-ml-dataset":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "pit_ml_dataset_result_generated": result.get("pit_ml_dataset_result_generated"), "pit_aware_dataset_used": result.get("pit_aware_dataset_used"), "future_data_usage_detected": result.get("future_data_usage_detected"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-offline-ml-model-lab":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "model_lab_result_generated": result.get("model_lab_result_generated"), "model_training_evaluation_result_generated": result.get("model_training_evaluation_result_generated"), "model_results_fabricated": result.get("model_results_fabricated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-model-registry-and-cards":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "model_registry_generated": result.get("model_registry_generated"), "model_card_register_generated": result.get("model_card_register_generated"), "model_status_real_trading_active_present": result.get("model_status_real_trading_active_present"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-prediction-registry":
+        result = run_a_share_v18_research_db_feature_ml_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "prediction_registry_generated": result.get("prediction_registry_generated"), "prediction_results_fabricated": result.get("prediction_results_fabricated"), "predictions_are_trade_signals": result.get("predictions_are_trade_signals"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

@@ -1,0 +1,81 @@
+{
+  "registry_id": "A-SHARE-V18-MODEL-REGISTRY",
+  "target_version": "v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening",
+  "as_of_date": "2026-07-01",
+  "model_registry_generated": true,
+  "models": [
+    {
+      "model_id": "V18_DETERMINISTIC_BASELINE_MODEL",
+      "model_version": "1.0.0",
+      "model_family": "deterministic_baseline",
+      "model_purpose": "research_score_generation_only",
+      "model_status": "watch"
+    }
+  ],
+  "allowed_statuses": [
+    "draft",
+    "trained",
+    "validated",
+    "watch",
+    "rejected",
+    "retired"
+  ],
+  "model_status_real_trading_active_present": false,
+  "model_id": "V18_DETERMINISTIC_BASELINE_MODEL",
+  "model_version": "1.0.0",
+  "model_family": "deterministic_baseline",
+  "model_purpose": "research_score_generation_only",
+  "model_dataset_dependency": "A-SHARE-V18-PIT-ML-DATASET",
+  "model_feature_dependency": "v18_feature_store_result",
+  "model_label_dependency": "v18_label_store_result",
+  "model_training_period": {
+    "start": "2025-01-01",
+    "end": "2025-09-30"
+  },
+  "model_validation_period": {
+    "start": "2025-10-01",
+    "end": "2025-12-31"
+  },
+  "model_test_period": {
+    "start": "2026-01-01",
+    "end": "2026-03-31"
+  },
+  "model_oos_period": {
+    "start": "2026-04-01",
+    "end": "2026-07-01"
+  },
+  "model_limitations": [
+    "deterministic fallback model",
+    "materialized feature/label matrices not claimed as real performance"
+  ],
+  "model_safety_boundary": "research_only_simulation_only_no_trade_signals",
+  "model_status": "watch",
+  "owner_facing_model_card_report_generated": true,
+  "model_card_displays_simulation_only": true,
+  "model_quality_score": 52,
+  "model_leakage_guard_passed": true,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

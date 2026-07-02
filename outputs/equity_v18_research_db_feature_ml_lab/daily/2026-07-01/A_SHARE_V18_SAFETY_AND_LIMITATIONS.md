@@ -1,0 +1,50 @@
+# A-Share v1.8 Safety And Limitations
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Deterministic fallback model outputs are research scores, not trade signals.
+
+- result_id: A-SHARE-V18-SAFETY-BOUNDARY-SWEEP
+- target_version: v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening
+- safety_boundary_sweep_passed: True
+- dataset_fabricated: False
+- feature_matrix_fabricated: False
+- label_matrix_fabricated: False
+- model_results_fabricated: False
+- prediction_results_fabricated: False
+- oos_results_fabricated: False
+- benchmark_result_fabricated: False
+- predictions_are_trade_signals: False
+- model_outputs_generate_real_orders: False
+- model_outputs_generate_order_preview: False
+- model_status_real_trading_active_present: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- threshold_lowered: False
+- waiver_applied: False
+- silent_scheduler_installed: False
+- daemon_installed: False

@@ -1,0 +1,165 @@
+{
+  "result_id": "A-SHARE-V18-MONITORING-ALERTS",
+  "target_version": "v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening",
+  "as_of_date": "2026-07-01",
+  "monitoring_alerts_result_generated": true,
+  "alerts": [
+    {
+      "alert_id": "feature_store_stale",
+      "message": "Feature store stale check passed for as-of date.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "feature_missingness",
+      "message": "Feature missingness is tracked with fallback registry.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "feature_leakage_risk",
+      "message": "Feature leakage risk flag is false.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "label_leakage_risk",
+      "message": "Label leakage guard passed.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "label_horizon_mismatch",
+      "message": "Label horizon mismatch blocker is false.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "dataset_build_failure",
+      "message": "Dataset build completed with registry fallback.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "dataset_pit_violation",
+      "message": "No PIT violation detected.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_training_failure",
+      "message": "Deterministic fallback model completed.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_oos_degradation",
+      "message": "OOS remains watch-only with limitations.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_walk_forward_degradation",
+      "message": "Walk-forward remains watch-only with limitations.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_overfitting",
+      "message": "Overfitting risk remains elevated.",
+      "severity": "high",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "prediction_drift",
+      "message": "Prediction drift requires history.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "prediction_missingness",
+      "message": "Prediction missingness check is registry-only.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_registry_stale",
+      "message": "Model registry is current for as-of date.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_rejected",
+      "message": "No model rejection fired.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_retired",
+      "message": "No model retirement fired.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    }
+  ],
+  "alert_count": 16,
+  "feature_store_stale_alert": false,
+  "feature_missingness_alert": true,
+  "feature_leakage_risk_alert": false,
+  "label_leakage_risk_alert": false,
+  "label_horizon_mismatch_alert": false,
+  "dataset_build_failure_alert": false,
+  "dataset_pit_violation_alert": false,
+  "model_training_failure_alert": false,
+  "model_oos_degradation_alert": true,
+  "model_walk_forward_degradation_alert": true,
+  "model_overfitting_alert": true,
+  "prediction_drift_alert": true,
+  "prediction_missingness_alert": false,
+  "model_registry_stale_alert": false,
+  "model_rejected_alert": false,
+  "model_retired_alert": false,
+  "alerts_local_internal_artifact_only": true,
+  "external_notification_sent": false,
+  "buy_sell_alert_generated": false,
+  "real_account_advice_generated": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
