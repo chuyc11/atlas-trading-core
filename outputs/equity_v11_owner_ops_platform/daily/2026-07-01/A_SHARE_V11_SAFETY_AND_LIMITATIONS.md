@@ -1,0 +1,36 @@
+# A股 v1.1 Safety And Limitations
+
+- Research-only / simulation-only / virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Unsupported benchmark-relative and real performance claims are blocked by the claim guard.
+
+- result_id: A-SHARE-V11-SAFETY-BOUNDARY-SWEEP
+- target_version: v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
+- safety_boundary_sweep_passed: True
+- forbidden_wording_alert_generated: True
+- protected_path_sweep_passed: True
+- external_notifications_sent: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False

@@ -1,0 +1,39 @@
+# A股 v1.1 Owner Command Center
+
+- Research-only / simulation-only / virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Unsupported benchmark-relative and real performance claims are blocked by the claim guard.
+
+- result_id: A-SHARE-V11-OWNER-COMMAND-CENTER
+- target_version: v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
+- as_of_date: 2026-07-01
+- owner_command_center_generated: True
+- dashboard_summary_json_generated: True
+- dashboard_markdown_generated: True
+- daily_workflow_status: integrated_from_existing_daily_artifacts
+- paper_ledger_consistency: True
+- recommended_next_operator_action: review local owner command center and remediation checklist; do not trade from simulated artifacts
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

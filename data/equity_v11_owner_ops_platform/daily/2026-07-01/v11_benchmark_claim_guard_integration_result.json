@@ -1,0 +1,25 @@
+{
+  "result_id": "A-SHARE-V11-BENCHMARK-CLAIM-GUARD-INTEGRATION",
+  "target_version": "v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion",
+  "as_of_date": "2026-07-01",
+  "benchmark_claim_guard_integrated": true,
+  "benchmark_relative_claim_allowed": false,
+  "real_performance_claim_allowed": false,
+  "live_trading_claim_allowed": false,
+  "investment_advice_claim_allowed": false,
+  "unsupported_excess_return_blocked": true,
+  "unsupported_tracking_error_blocked": true,
+  "unsupported_relative_drawdown_blocked": true,
+  "simulation_only_performance_statement_allowed_with_disclaimer": true,
+  "cash_benchmark_assumption": "zero_return_cash_baseline",
+  "equal_weight_universe_coverage": 1.0,
+  "csi_availability": {
+    "CSI300": "warning",
+    "CSI500": "warning",
+    "CSI1000": "warning"
+  },
+  "benchmark_missing_warning_generated": true,
+  "markdown_text_guarded": true,
+  "fabricated_benchmark_data": false,
+  "fabricated_performance_claims": false
+}

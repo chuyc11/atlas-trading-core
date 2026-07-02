@@ -1,0 +1,43 @@
+# A股 v1.1 Strategy Lifecycle
+
+- Research-only / simulation-only / virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Unsupported benchmark-relative and real performance claims are blocked by the claim guard.
+
+- result_id: A-SHARE-V11-STRATEGY-REGISTRY-EXPANSION
+- target_version: v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
+- as_of_date: 2026-07-01
+- strategy_registry_expanded: True
+- strategy_lineage_generated: True
+- dataset_feature_parameter_version_linkage: True
+- experiment_to_strategy_linkage: True
+- status_transition_audit_generated: True
+- rejected_strategy_register_generated: True
+- rollback_register_generated: True
+- cooldown_tracking_generated: True
+- promotion_eligibility_explanation_generated: True
+- real_trading_active_allowed: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

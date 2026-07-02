@@ -1,0 +1,58 @@
+{
+  "result_id": "A-SHARE-V11-SIMULATED-ACCOUNT-RECONCILIATION",
+  "target_version": "v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion",
+  "as_of_date": "2026-07-01",
+  "simulated_account_reconciled": true,
+  "simulated_account_state_schema_version": "v1.1.0",
+  "simulated_account_nav": 1000000.0,
+  "simulated_account_pnl": 0.0,
+  "cash_reconciliation": {
+    "passed": true,
+    "opening_cash": 1000000.0,
+    "ending_cash": 1000000.0,
+    "unexplained_cash_difference": 0.0
+  },
+  "positions_reconciliation": {
+    "passed": true,
+    "position_count": 0,
+    "unexplained_position_count": 0
+  },
+  "commission_slippage_attribution": {
+    "commission": 0.0,
+    "slippage": 0.0,
+    "attribution_generated": true
+  },
+  "turnover": {
+    "daily_turnover": 0.0,
+    "calculation_generated": true
+  },
+  "simulated_execution_anomaly_detection": {
+    "passed": true,
+    "anomalies": []
+  },
+  "daily_reconciliation_report_generated": true,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

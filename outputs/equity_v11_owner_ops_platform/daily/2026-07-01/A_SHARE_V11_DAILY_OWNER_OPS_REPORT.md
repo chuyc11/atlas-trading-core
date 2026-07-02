@@ -1,0 +1,74 @@
+# A股 v1.1 Daily Owner Ops Report
+
+- Research-only / simulation-only / virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Unsupported benchmark-relative and real performance claims are blocked by the claim guard.
+
+- result_id: A-SHARE-V11-DAILY-WORKFLOW-INTEGRATION
+- target_version: v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
+- as_of_date: 2026-07-01
+- daily_workflow_integrated: True
+- workflow_status: integrated_from_existing_daily_artifacts
+- non_trading_day_safe_skip: False
+- dry_run: False
+- dry_run_does_not_pollute_formal_artifacts: False
+- benchmark_coverage_status_updated: True
+- simulated_performance_attribution_updated: True
+- owner_dashboard_updated: True
+- monitoring_checks_run: True
+- evidence_register_updated: True
+- run_manifest_generated: True
+- failure_mode: fail_closed
+- owner_readiness_state: blocked
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- source_version: v1.0.1-a-share-benchmark-data-and-performance-claim-hardening
+- overall_passed: True
+- owner_command_center_generated: True
+- benchmark_claim_guard_integrated: True
+- simulated_account_reconciled: True
+- virtual_broker_lifecycle_checked: True
+- paper_ledger_invariant_passed: True
+- experiment_registry_expanded: True
+- strategy_registry_expanded: True
+- llm_proposal_governance_generated: True
+- rl_simulated_lab_governance_generated: True
+- shadow_canary_lifecycle_generated: True
+- promotion_rejection_rollback_workflow_generated: True
+- monitoring_alerts_generated: True
+- remediation_checklist_generated: True
+- workflow_history_registered: True
+- evidence_auto_accumulation_updated: True
+- artifact_integrity_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- benchmark_relative_claim_allowed: False
+- real_performance_claim_allowed: False
+- live_trading_claim_allowed: False
+- investment_advice_claim_allowed: False
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- recommended_next_version: v1.1.1-a-share-local-post-close-operator-scheduling-and-runbook-hardening

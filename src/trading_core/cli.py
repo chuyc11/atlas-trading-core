@@ -107,6 +107,8 @@ from trading_core.equity_v100_release import DEFAULT_AS_OF_DATE as DEFAULT_V100_
 from trading_core.equity_v100_release import audit_a_share_v100_release, build_a_share_v100_release
 from trading_core.equity_benchmark_claim_hardening import DEFAULT_AS_OF_DATE as DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE
 from trading_core.equity_benchmark_claim_hardening import audit_a_share_benchmark_claim_hardening, build_a_share_benchmark_claim_hardening
+from trading_core.equity_v11_owner_ops_platform import DEFAULT_AS_OF_DATE as DEFAULT_V11_OWNER_OPS_AS_OF_DATE
+from trading_core.equity_v11_owner_ops_platform import audit_a_share_v11_owner_ops_platform, run_a_share_v11_owner_ops_platform
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1179,6 +1181,23 @@ def build_parser() -> argparse.ArgumentParser:
     benchmark_claim_all = subparsers.add_parser("build-and-audit-a-share-benchmark-claim-hardening")
     benchmark_claim_all.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE)
     benchmark_claim_all.add_argument("--allow-public-benchmark-refresh", action="store_true")
+    v11_owner_ops = subparsers.add_parser("run-a-share-v11-owner-ops-platform")
+    v11_owner_ops.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    v11_owner_ops.add_argument("--simulation-only", action="store_true")
+    v11_owner_ops.add_argument("--dry-run", action="store_true")
+    v11_owner_ops_audit = subparsers.add_parser("audit-a-share-v11-owner-ops-platform")
+    v11_owner_ops_audit.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    v11_owner_ops_all = subparsers.add_parser("run-and-audit-a-share-v11-owner-ops-platform")
+    v11_owner_ops_all.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    v11_owner_ops_all.add_argument("--simulation-only", action="store_true")
+    owner_command_center = subparsers.add_parser("build-a-share-owner-command-center")
+    owner_command_center.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    sim_reconciliation = subparsers.add_parser("build-a-share-simulated-account-reconciliation")
+    sim_reconciliation.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    strategy_lifecycle = subparsers.add_parser("build-a-share-strategy-lifecycle-review")
+    strategy_lifecycle.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    monitoring_pack = subparsers.add_parser("build-a-share-monitoring-remediation-pack")
+    monitoring_pack.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2046,6 +2065,57 @@ def _benchmark_claim_hardening_cli_payload(result: dict) -> dict:
         "blocking_reasons": result["blocking_reasons"],
         "warnings": len(result["warnings"]),
         "full_pytest_run": result["full_pytest_run"],
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v11_owner_ops_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "owner_command_center_generated": result["owner_command_center_generated"],
+        "daily_workflow_integrated": result["daily_workflow_integrated"],
+        "benchmark_claim_guard_integrated": result["benchmark_claim_guard_integrated"],
+        "benchmark_relative_claim_allowed": result["benchmark_relative_claim_allowed"],
+        "real_performance_claim_allowed": result["real_performance_claim_allowed"],
+        "live_trading_claim_allowed": result["live_trading_claim_allowed"],
+        "investment_advice_claim_allowed": result["investment_advice_claim_allowed"],
+        "simulated_account_reconciled": result["simulated_account_reconciled"],
+        "virtual_broker_lifecycle_checked": result["virtual_broker_lifecycle_checked"],
+        "paper_ledger_invariant_passed": result["paper_ledger_invariant_passed"],
+        "experiment_registry_expanded": result["experiment_registry_expanded"],
+        "strategy_registry_expanded": result["strategy_registry_expanded"],
+        "llm_proposal_governance_generated": result["llm_proposal_governance_generated"],
+        "rl_simulated_lab_governance_generated": result["rl_simulated_lab_governance_generated"],
+        "shadow_canary_lifecycle_generated": result["shadow_canary_lifecycle_generated"],
+        "promotion_rejection_rollback_workflow_generated": result["promotion_rejection_rollback_workflow_generated"],
+        "monitoring_alerts_generated": result["monitoring_alerts_generated"],
+        "remediation_checklist_generated": result["remediation_checklist_generated"],
+        "workflow_history_registered": result["workflow_history_registered"],
+        "evidence_auto_accumulation_updated": result["evidence_auto_accumulation_updated"],
+        "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
         "owner_readiness_state": result["owner_readiness_state"],
         "owner_operationally_acceptable": result["owner_operationally_acceptable"],
         "source_readiness_score": result["source_readiness_score"],
@@ -4328,6 +4398,60 @@ def main(argv: Sequence[str] | None = None) -> int:
             }
         )
         return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "run-a-share-v11-owner-ops-platform":
+        result = run_a_share_v11_owner_ops_platform(
+            as_of_date=args.as_of_date,
+            simulation_only=args.simulation_only,
+            dry_run=args.dry_run,
+            paths=paths,
+        )
+        print(_v11_owner_ops_cli_payload(result) if result.get("overall_passed") is not False or "owner_command_center_generated" in result else result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v11-owner-ops-platform":
+        result = audit_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "artifact_checks": result["artifact_checks"],
+                "claim_guard": result["claim_guard"],
+                "owner_readiness": result["owner_readiness"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-and-audit-a-share-v11-owner-ops-platform":
+        build_result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print(
+            {
+                **(_v11_owner_ops_cli_payload(build_result) if "owner_command_center_generated" in build_result else build_result),
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-command-center":
+        result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_command_center_generated": result.get("owner_command_center_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-simulated-account-reconciliation":
+        result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "simulated_account_reconciled": result.get("simulated_account_reconciled"), "paper_ledger_invariant_passed": result.get("paper_ledger_invariant_passed"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-strategy-lifecycle-review":
+        result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "strategy_registry_expanded": result.get("strategy_registry_expanded"), "shadow_canary_lifecycle_generated": result.get("shadow_canary_lifecycle_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-monitoring-remediation-pack":
+        result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "monitoring_alerts_generated": result.get("monitoring_alerts_generated"), "remediation_checklist_generated": result.get("remediation_checklist_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
             as_of_date=args.as_of_date,

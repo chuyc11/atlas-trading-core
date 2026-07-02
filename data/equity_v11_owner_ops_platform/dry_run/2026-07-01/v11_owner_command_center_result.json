@@ -1,0 +1,152 @@
+{
+  "result_id": "A-SHARE-V11-OWNER-COMMAND-CENTER",
+  "target_version": "v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion",
+  "as_of_date": "2026-07-01",
+  "owner_command_center_generated": true,
+  "dashboard_summary_json_generated": true,
+  "dashboard_markdown_generated": true,
+  "daily_workflow_status": "integrated_from_existing_daily_artifacts",
+  "data_freshness_status": {
+    "source_data_date": "2026-07-01",
+    "days_since_source_data": 0,
+    "trading_days_since_source_data": 0,
+    "data_refresh_executed": true,
+    "data_refresh_deferred_until": "v0.9.4-a-share-research-pipeline-rerun-from-refreshed-data"
+  },
+  "benchmark_availability_status": {
+    "CSI300": "warning",
+    "CSI500": "warning",
+    "CSI1000": "warning"
+  },
+  "performance_claim_guard_status": {
+    "benchmark_relative_claim_allowed": false,
+    "real_performance_claim_allowed": false,
+    "live_trading_claim_allowed": false,
+    "investment_advice_claim_allowed": false
+  },
+  "simulated_account": {
+    "nav": 1000000.0,
+    "pnl": 0.0
+  },
+  "paper_ledger_consistency": true,
+  "strategy_status": [
+    "research_candidate",
+    "backtest_passed",
+    "shadow",
+    "simulated_canary",
+    "simulated_active"
+  ],
+  "monitoring_alerts": [
+    {
+      "alert_id": "DATA-STALE",
+      "severity": "info",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "BENCHMARK-MISSING",
+      "severity": "warning",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "CLAIM-GUARD-BLOCKED",
+      "severity": "warning",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "PAPER-LEDGER-MISMATCH",
+      "severity": "critical",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SIMULATED-EXECUTION-ANOMALY",
+      "severity": "warning",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "STRATEGY-PROMOTION-BLOCKED",
+      "severity": "info",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "FORBIDDEN-WORDING",
+      "severity": "critical",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "PROTECTED-PATH-MODIFICATION",
+      "severity": "critical",
+      "active": false,
+      "local_internal_only": true
+    }
+  ],
+  "remediation_checklist": [
+    {
+      "item": "Review benchmark coverage warnings",
+      "required": true
+    },
+    {
+      "item": "Keep performance text simulation-only with disclaimer",
+      "required": true
+    },
+    {
+      "item": "Do not connect broker or real account",
+      "required": true
+    },
+    {
+      "item": "Review strategy promotion blockers before simulation-only promotion",
+      "required": true
+    }
+  ],
+  "allowed_actions": [
+    "View owner daily status",
+    "View v0.9.0 RC report",
+    "View known blocked state",
+    "View full regression result",
+    "View audit sweep result",
+    "View closeout review",
+    "View final blocked closeout",
+    "View unresolved blockers"
+  ],
+  "forbidden_actions": [
+    "broker / real account / real orders / order preview",
+    "buy/sell signals / old run-daily / official day2",
+    "live trading ready claim"
+  ],
+  "known_limitations": [
+    "research-only and simulation-only",
+    "owner-readiness remains blocked",
+    "unsupported benchmark-relative claims remain blocked"
+  ],
+  "recommended_next_operator_action": "review local owner command center and remediation checklist; do not trade from simulated artifacts",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
