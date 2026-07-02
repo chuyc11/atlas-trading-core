@@ -1,0 +1,86 @@
+# A-Share v1.5 Market Regime Overview
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Market regime, adaptive research, LLM/RL governance, and portfolio overlays are simulated local artifacts only.
+
+- target_version: v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion
+- source_version: v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+- as_of_date: 2026-07-01
+- overall_passed: True
+- market_regime_classification_generated: True
+- trend_diagnostics_generated: True
+- volatility_diagnostics_generated: True
+- liquidity_regime_result_generated: True
+- market_breadth_diagnostics_generated: True
+- risk_appetite_diagnostics_generated: True
+- regime_factor_quality_overlay_generated: True
+- regime_candidate_quality_overlay_generated: True
+- regime_strategy_quality_result_generated: True
+- adaptive_research_queue_generated: True
+- llm_regime_governance_generated: True
+- rl_regime_governance_generated: True
+- regime_portfolio_overlay_generated: True
+- regime_monitoring_alerts_generated: True
+- owner_regime_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- market_regime_fabricated: False
+- volatility_fabricated: False
+- breadth_fabricated: False
+- liquidity_fabricated: False
+- adaptive_queue_generates_trade_instruction: False
+- regime_overlay_generates_real_allocation: False
+- regime_overlay_generates_real_rebalance: False
+- regime_overlay_generates_buy_sell_signal: False
+- regime_overlay_generates_order_preview: False
+- real_account_advice_generated: False
+- copy_simulated_actions_to_real_account: False
+- copy_regime_aware_allocation_to_real_account: False
+- copy_simulated_risk_off_to_real_account: False
+- profit_guarantee_claimed: False
+- external_notifications_sent: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- full_pytest_run: True
+- recommended_next_version: v1.6.0-a-share-autonomous-simulation-ensemble-research-and-meta-strategy-expansion
+- result_id: A-SHARE-V15-MARKET-REGIME-CLASSIFICATION
+- market_regime_detection_framework_generated: True
+- primary_regime: mixed_or_uncertain
+- regime_confidence_score: 0.52
+- regime_missing_data_warning: True
+- regime_stale_data_warning: False
+- regime_fallback_mode: mixed_or_uncertain_until_validated_history_available
+- regime_unknown_state: False
+- regime_transition_detection: not_available_insufficient_history
+- regime_persistence_check: not_available_insufficient_history
+- regime_instability_warning: True
+- owner_facing_regime_summary: Market regime is mixed or uncertain; simulated overlays should stay conservative.

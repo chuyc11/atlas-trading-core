@@ -1,0 +1,75 @@
+# A-Share v1.5 Factor Candidate Regime Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Market regime, adaptive research, LLM/RL governance, and portfolio overlays are simulated local artifacts only.
+
+- result_id: A-SHARE-V15-REGIME-CANDIDATE-QUALITY-OVERLAY
+- target_version: v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion
+- as_of_date: 2026-07-01
+- regime_factor_quality_overlay_generated: True
+- factor_performance_by_regime_status: not_available
+- factor_stability_by_regime: not_available
+- factor_drift_by_regime: warning
+- factor_redundancy_by_regime: watch
+- factor_regime_sensitivity_score: 62
+- factor_regime_warning: True
+- factor_regime_blocker: False
+- factor_regime_suitability_label: watch_only
+- owner_facing_factor_regime_report_generated: True
+- regime_specific_ic_fabricated: False
+- factor_regime_output_simulation_only: True
+- dashboard_limitation_visible: True
+- primary_regime: mixed_or_uncertain
+- volatility_context: high_volatility_watch
+- market_regime_fabricated: False
+- volatility_fabricated: False
+- breadth_fabricated: False
+- liquidity_fabricated: False
+- adaptive_queue_generates_trade_instruction: False
+- regime_overlay_generates_real_allocation: False
+- regime_overlay_generates_real_rebalance: False
+- regime_overlay_generates_buy_sell_signal: False
+- regime_overlay_generates_order_preview: False
+- real_account_advice_generated: False
+- copy_simulated_actions_to_real_account: False
+- copy_regime_aware_allocation_to_real_account: False
+- copy_simulated_risk_off_to_real_account: False
+- profit_guarantee_claimed: False
+- external_notifications_sent: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- regime_candidate_quality_overlay_generated: True
+- candidate_stability_by_regime: not_available
+- candidate_turnover_by_regime: watch
+- candidate_concentration_by_regime: warning
+- candidate_liquidity_by_regime: blocked_by_liquidity_watch
+- candidate_sector_tilt_by_regime: not_available
+- top_n_regime_suitability: watch_only
+- candidate_downgrade_under_adverse_regime: simulation_only_downgrade_watch
+- owner_facing_candidate_regime_report_generated: True
+- candidate_watchlist_is_not_buy_list: True
+- candidate_downgrade_is_not_sell_signal: True
+- candidate_regime_report_no_real_trade_advice: True

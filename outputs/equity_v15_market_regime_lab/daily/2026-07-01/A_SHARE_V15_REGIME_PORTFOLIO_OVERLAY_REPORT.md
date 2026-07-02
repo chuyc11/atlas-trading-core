@@ -1,0 +1,64 @@
+# A-Share v1.5 Regime Portfolio Overlay Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Market regime, adaptive research, LLM/RL governance, and portfolio overlays are simulated local artifacts only.
+
+- result_id: A-SHARE-V15-REGIME-PORTFOLIO-OVERLAY
+- target_version: v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion
+- as_of_date: 2026-07-01
+- regime_portfolio_overlay_generated: True
+- v14_allocation_guardrails_reused: True
+- regime_aware_simulated_allocation_overlay: simulated_risk_off_freeze
+- regime_aware_cash_buffer_suggestion: simulation_only_increase
+- regime_aware_turnover_cap_adjustment: simulation_only_tighten
+- regime_aware_liquidity_cap_adjustment: simulation_only_tighten
+- regime_aware_exposure_cap_adjustment: simulation_only_tighten
+- regime_aware_concentration_cap_warning: True
+- simulated_risk_off_overlay: True
+- simulated_freeze_overlay: True
+- simulated_rollback_overlay: True
+- regime_aware_rebalance_skip_reason: regime_uncertain_and_liquidity_stress_watch
+- regime_aware_rebalance_blocker: True
+- regime_overlay_generates_real_allocation: False
+- regime_overlay_generates_real_rebalance: False
+- regime_overlay_generates_order_preview: False
+- regime_overlay_generates_buy_sell_signal: False
+- overlay_applies_to_simulated_allocation_only: True
+- dashboard_simulation_only_visible: True
+- dashboard_not_live_trading_ready_visible: True
+- market_regime_fabricated: False
+- volatility_fabricated: False
+- breadth_fabricated: False
+- liquidity_fabricated: False
+- adaptive_queue_generates_trade_instruction: False
+- real_account_advice_generated: False
+- copy_simulated_actions_to_real_account: False
+- copy_regime_aware_allocation_to_real_account: False
+- copy_simulated_risk_off_to_real_account: False
+- profit_guarantee_claimed: False
+- external_notifications_sent: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
