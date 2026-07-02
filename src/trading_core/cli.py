@@ -111,6 +111,8 @@ from trading_core.equity_v11_owner_ops_platform import DEFAULT_AS_OF_DATE as DEF
 from trading_core.equity_v11_owner_ops_platform import audit_a_share_v11_owner_ops_platform, run_a_share_v11_owner_ops_platform
 from trading_core.equity_v12_continuous_ops import DEFAULT_AS_OF_DATE as DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE
 from trading_core.equity_v12_continuous_ops import audit_a_share_v12_continuous_ops, run_a_share_v12_continuous_ops
+from trading_core.equity_v13_research_quality_lab import DEFAULT_AS_OF_DATE as DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE
+from trading_core.equity_v13_research_quality_lab import audit_a_share_v13_research_quality_lab, run_a_share_v13_research_quality_lab
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1221,6 +1223,30 @@ def build_parser() -> argparse.ArgumentParser:
     v12_incident.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
     v12_artifact = subparsers.add_parser("build-a-share-artifact-index-and-health-report")
     v12_artifact.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v13_build = subparsers.add_parser("build-a-share-v13-research-quality-lab")
+    v13_build.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_build.add_argument("--simulation-only", action="store_true")
+    v13_audit = subparsers.add_parser("audit-a-share-v13-research-quality-lab")
+    v13_audit.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_all = subparsers.add_parser("build-and-audit-a-share-v13-research-quality-lab")
+    v13_all.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_all.add_argument("--simulation-only", action="store_true")
+    v13_scorecard = subparsers.add_parser("build-a-share-research-quality-scorecard")
+    v13_scorecard.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_strategy_lab = subparsers.add_parser("build-a-share-strategy-lab-quality-review")
+    v13_strategy_lab.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_strategy_lab.add_argument("--simulation-only", action="store_true")
+    v13_llm = subparsers.add_parser("build-a-share-llm-proposal-quality-review")
+    v13_llm.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_rl = subparsers.add_parser("build-a-share-rl-policy-quality-review")
+    v13_rl.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_rl.add_argument("--simulation-only", action="store_true")
+    v13_lifecycle = subparsers.add_parser("build-a-share-strategy-lifecycle-quality-gates")
+    v13_lifecycle.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_lifecycle.add_argument("--simulation-only", action="store_true")
+    v13_robustness = subparsers.add_parser("build-a-share-robustness-and-overfit-review")
+    v13_robustness.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
+    v13_robustness.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2194,6 +2220,65 @@ def _v12_continuous_ops_cli_payload(result: dict) -> dict:
         "artifact_index_generated": result["artifact_index_generated"],
         "artifact_health_passed": result["artifact_health_passed"],
         "platform_health_report_generated": result["platform_health_report_generated"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v13_research_quality_lab_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "research_quality_scorecard_generated": result["research_quality_scorecard_generated"],
+        "factor_quality_diagnostics_generated": result["factor_quality_diagnostics_generated"],
+        "candidate_quality_diagnostics_generated": result["candidate_quality_diagnostics_generated"],
+        "strategy_lab_registry_expanded": result["strategy_lab_registry_expanded"],
+        "strategy_card_register_generated": result["strategy_card_register_generated"],
+        "backtest_walkforward_oos_result_generated": result["backtest_walkforward_oos_result_generated"],
+        "robustness_sensitivity_stress_result_generated": result["robustness_sensitivity_stress_result_generated"],
+        "overfitting_false_discovery_result_generated": result["overfitting_false_discovery_result_generated"],
+        "llm_proposal_quality_result_generated": result["llm_proposal_quality_result_generated"],
+        "rl_policy_quality_result_generated": result["rl_policy_quality_result_generated"],
+        "shadow_canary_quality_gate_result_generated": result["shadow_canary_quality_gate_result_generated"],
+        "strategy_lifecycle_decision_result_generated": result["strategy_lifecycle_decision_result_generated"],
+        "research_quality_monitoring_alerts_generated": result["research_quality_monitoring_alerts_generated"],
+        "owner_research_quality_dashboard_generated": result["owner_research_quality_dashboard_generated"],
+        "data_leakage_guard_passed": result["data_leakage_guard_passed"],
+        "lookahead_bias_check_passed": result["lookahead_bias_check_passed"],
+        "point_in_time_check_status": result["point_in_time_check_status"],
+        "survivorship_bias_warning_recorded": result["survivorship_bias_warning_recorded"],
+        "overfitting_risk_classified": result["overfitting_risk_classified"],
+        "robustness_score_generated": result["robustness_score_generated"],
+        "strategy_promotion_hard_gate_generated": result["strategy_promotion_hard_gate_generated"],
+        "strategy_rejection_hard_gate_generated": result["strategy_rejection_hard_gate_generated"],
+        "strategy_rollback_gate_generated": result["strategy_rollback_gate_generated"],
+        "llm_proposals_are_trade_instructions": result["llm_proposals_are_trade_instructions"],
+        "rl_actions_are_real_account_actions": result["rl_actions_are_real_account_actions"],
+        "rl_actions_are_real_orders": result["rl_actions_are_real_orders"],
+        "strategy_real_trading_active_state_present": result["strategy_real_trading_active_state_present"],
+        "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
+        "protected_path_sweep_passed": result["protected_path_sweep_passed"],
         "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
         "blocking_reasons": result["blocking_reasons"],
         "warnings": len(result["warnings"]),
@@ -4569,6 +4654,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-artifact-index-and-health-report":
         result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
         print({"overall_passed": result["overall_passed"], "artifact_index_generated": result.get("artifact_index_generated"), "artifact_health_passed": result.get("artifact_health_passed"), "platform_health_report_generated": result.get("platform_health_report_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v13-research-quality-lab":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v13_research_quality_lab_cli_payload(result) if "research_quality_scorecard_generated" in result else result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v13-research-quality-lab":
+        result = audit_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "owner_readiness": result["owner_readiness"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v13-research-quality-lab":
+        build_result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**(_v13_research_quality_lab_cli_payload(build_result) if "research_quality_scorecard_generated" in build_result else build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-research-quality-scorecard":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "research_quality_scorecard_generated": result.get("research_quality_scorecard_generated"), "data_leakage_guard_passed": result.get("data_leakage_guard_passed"), "lookahead_bias_check_passed": result.get("lookahead_bias_check_passed"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-strategy-lab-quality-review":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "strategy_lab_registry_expanded": result.get("strategy_lab_registry_expanded"), "strategy_card_register_generated": result.get("strategy_card_register_generated"), "shadow_canary_quality_gate_result_generated": result.get("shadow_canary_quality_gate_result_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-llm-proposal-quality-review":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "llm_proposal_quality_result_generated": result.get("llm_proposal_quality_result_generated"), "llm_proposals_are_trade_instructions": result.get("llm_proposals_are_trade_instructions"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-rl-policy-quality-review":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "rl_policy_quality_result_generated": result.get("rl_policy_quality_result_generated"), "rl_actions_are_real_account_actions": result.get("rl_actions_are_real_account_actions"), "rl_actions_are_real_orders": result.get("rl_actions_are_real_orders"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-strategy-lifecycle-quality-gates":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "strategy_promotion_hard_gate_generated": result.get("strategy_promotion_hard_gate_generated"), "strategy_rejection_hard_gate_generated": result.get("strategy_rejection_hard_gate_generated"), "strategy_rollback_gate_generated": result.get("strategy_rollback_gate_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-robustness-and-overfit-review":
+        result = run_a_share_v13_research_quality_lab(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "robustness_sensitivity_stress_result_generated": result.get("robustness_sensitivity_stress_result_generated"), "overfitting_false_discovery_result_generated": result.get("overfitting_false_discovery_result_generated"), "overfitting_risk_classified": result.get("overfitting_risk_classified"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

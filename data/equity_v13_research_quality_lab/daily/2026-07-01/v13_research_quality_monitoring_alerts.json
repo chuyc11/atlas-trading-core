@@ -1,0 +1,124 @@
+{
+  "result_id": "A-SHARE-V13-RESEARCH-QUALITY-MONITORING-ALERTS",
+  "target_version": "v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion",
+  "as_of_date": "2026-07-01",
+  "research_quality_monitoring_alerts_generated": true,
+  "alerts": [
+    {
+      "alert_id": "RESEARCH-QUALITY-SCORECARD-STALE",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "FACTOR-DRIFT-WARNING",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "CANDIDATE-CONCENTRATION-WARNING",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "DATA-LEAKAGE-GUARD-BLOCKED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "LOOKAHEAD-BIAS-CHECK-BLOCKED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "POINT-IN-TIME-WARNING",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SURVIVORSHIP-BIAS-WARNING",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "ROBUSTNESS-SCORE-LOW",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "OVERFITTING-RISK-HIGH",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "FALSE-DISCOVERY-WARNING",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "LLM-PROPOSAL-QUALITY-BLOCKED",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "RL-POLICY-QUALITY-BLOCKED",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SHADOW-CANARY-PROMOTION-BLOCKED",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "STRATEGY-ROLLBACK-GATE-OPEN",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "ARTIFACT-INTEGRITY-FAILED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "PROTECTED-PATH-MODIFICATION",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SAFETY-BOUNDARY-FAILED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "OWNER-DASHBOARD-STALE",
+      "active": false,
+      "local_internal_only": true
+    }
+  ],
+  "external_notifications_sent": false,
+  "external_notification_service_connected": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

@@ -1,0 +1,43 @@
+# A-Share v1.3 LLM Proposal Quality Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Quality gates can block, reject, or roll back simulation states only.
+- Benchmark-relative and real performance claims remain blocked until validated evidence exists.
+
+- result_id: A-SHARE-V13-LLM-PROPOSAL-QUALITY
+- target_version: v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
+- as_of_date: 2026-07-01
+- llm_proposal_quality_result_generated: True
+- llm_quality_score: 58
+- falsification_plan_required: True
+- benchmark_reference_required: True
+- proposal_can_modify_simulated_active_directly: False
+- llm_proposals_are_trade_instructions: False
+- llm_proposals_are_research_drafts_only: True
+- external_llm_api_called: False
+- priority: low_until_quality_gates_pass
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

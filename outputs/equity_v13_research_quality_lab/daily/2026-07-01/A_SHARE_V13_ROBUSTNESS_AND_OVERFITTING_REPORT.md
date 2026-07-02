@@ -1,0 +1,66 @@
+# A-Share v1.3 Robustness And Overfitting Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Quality gates can block, reject, or roll back simulation states only.
+- Benchmark-relative and real performance claims remain blocked until validated evidence exists.
+
+- result_id: A-SHARE-V13-OVERFITTING-FALSE-DISCOVERY
+- target_version: v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
+- as_of_date: 2026-07-01
+- backtest_walkforward_oos_result_generated: True
+- research_backtest_record_generated: True
+- walkforward_result_generated: True
+- out_of_sample_result_generated: True
+- transaction_cost_adjusted: True
+- slippage_adjusted: True
+- turnover_adjusted: True
+- benchmark_alignment_status: claim_guard_blocked_or_review_required
+- data_leakage_guard_passed: True
+- lookahead_bias_check_passed: True
+- point_in_time_check_status: passed
+- survivorship_bias_warning_recorded: True
+- real_performance_claim_allowed: False
+- performance_claim_guard_status: blocked_until_validated
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- robustness_sensitivity_stress_result_generated: True
+- robustness_score_generated: True
+- robustness_score: 61
+- robustness_grade: fragile_review_required
+- turnover_penalty_applied: True
+- concentration_penalty_applied: True
+- drawdown_stress_recorded: True
+- walkforward_linked: True
+- overfitting_false_discovery_result_generated: True
+- overfitting_risk_classified: True
+- overfitting_risk_level: medium_high
+- false_discovery_warning_recorded: True
+- parameter_count: 12
+- experiment_count: 24
+- multiple_testing_warning_recorded: True
+- data_snooping_warning_recorded: True
+- deflated_sharpe_status: unsupported_until_validated_return_series
+- probability_of_backtest_overfitting_status: unsupported_until_validated_return_series

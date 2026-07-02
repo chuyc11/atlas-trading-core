@@ -1,0 +1,50 @@
+# A-Share v1.3 RL Policy Quality Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Quality gates can block, reject, or roll back simulation states only.
+- Benchmark-relative and real performance claims remain blocked until validated evidence exists.
+
+- result_id: A-SHARE-V13-RL-POLICY-QUALITY
+- target_version: v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
+- as_of_date: 2026-07-01
+- rl_policy_quality_result_generated: True
+- rl_quality_score: 55
+- state_schema_validated: True
+- action_schema_validated: True
+- reward_penalty_schema_validated: True
+- baseline_policy_comparison_required: True
+- random_policy_comparison_required: True
+- simple_rule_policy_comparison_required: True
+- walkforward_oos_required: True
+- reward_hacking_warning_recorded: True
+- policy_instability_warning_recorded: True
+- rl_actions_are_real_account_actions: False
+- rl_actions_are_real_orders: False
+- rl_action_can_hit_real_account: False
+- rl_action_can_create_real_order: False
+- decision: quality_blocked_for_research_review
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

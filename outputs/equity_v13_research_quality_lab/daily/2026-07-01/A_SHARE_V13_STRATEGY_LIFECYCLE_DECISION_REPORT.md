@@ -1,0 +1,42 @@
+# A-Share v1.3 Strategy Lifecycle Decision Report
+
+- Research-only, simulation-only, virtual-only.
+- Not investment advice, not a real order, not an order preview, not a trading instruction, not live trading ready.
+- Quality gates can block, reject, or roll back simulation states only.
+- Benchmark-relative and real performance claims remain blocked until validated evidence exists.
+
+- result_id: A-SHARE-V13-STRATEGY-LIFECYCLE-DECISION
+- target_version: v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
+- as_of_date: 2026-07-01
+- strategy_lifecycle_decision_result_generated: True
+- strategy_promotion_hard_gate_generated: True
+- strategy_rejection_hard_gate_generated: True
+- strategy_rollback_gate_generated: True
+- lifecycle_decision: quality_blocked
+- owner_review_required: True
+- real_trading_active_allowed: False
+- strategy_real_trading_active_state_present: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
