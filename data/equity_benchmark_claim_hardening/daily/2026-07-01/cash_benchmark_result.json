@@ -1,0 +1,26 @@
+{
+  "result_id": "A-SHARE-CASH-BENCHMARK-RESULT",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "as_of_date": "2026-07-01",
+  "benchmark_id": "CASH",
+  "status": "passed",
+  "cash_return_model": "zero_return_cash_baseline",
+  "simulation_comparison_only": true,
+  "not_deposit_yield": true,
+  "not_money_market_yield": true,
+  "not_real_risk_free_rate": true,
+  "coverage_start": "2026-07-01",
+  "coverage_end": "2026-07-01",
+  "coverage_ratio": 1.0,
+  "records": [
+    {
+      "date": "2026-07-01",
+      "benchmark_id": "CASH",
+      "daily_return": 0.0
+    }
+  ],
+  "warnings": [
+    "cash benchmark is a zero-return simulation baseline, not a real yield source"
+  ],
+  "fabricated_benchmark_data": false
+}

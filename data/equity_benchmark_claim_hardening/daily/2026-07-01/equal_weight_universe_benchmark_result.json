@@ -1,0 +1,2603 @@
+{
+  "result_id": "A-SHARE-EQUAL-WEIGHT-UNIVERSE-BENCHMARK-RESULT",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "as_of_date": "2026-07-01",
+  "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+  "status": "passed",
+  "reason": null,
+  "checks": {
+    "universe_source_exists": true,
+    "price_data_exists": true,
+    "return_data_exists": true,
+    "constituent_count": 3699,
+    "coverage_ratio": 1.0,
+    "missing_symbol_count": 0,
+    "missing_date_count": 0,
+    "rebalance_assumption": "static_as_of_tradable_universe_equal_weight",
+    "survivorship_bias_warning": true
+  },
+  "availability": {
+    "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+    "status": "available",
+    "source_type": "internal_equal_weight_as_of_universe",
+    "source_path": null,
+    "symbol_or_index_code": "as_of_universe_constituents",
+    "first_available_date": "2025-04-25",
+    "last_available_date": "2026-07-01",
+    "as_of_date_available": true,
+    "trading_days_available": 284,
+    "missing_reason": null,
+    "is_placeholder": false
+  },
+  "exclusions": {
+    "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+    "requested_constituent_count": 3699,
+    "constituent_count": 3699,
+    "excluded_constituent_count": 0,
+    "price_missing_count": 0,
+    "exclusion_reasons": {},
+    "excluded_constituents": []
+  },
+  "records": [
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-04-25",
+      "daily_return": 0.0,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-04-28",
+      "daily_return": -0.022207707380796804,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-04-29",
+      "daily_return": 0.028056112224448926,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-04-30",
+      "daily_return": 0.1000649772579596,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-06",
+      "daily_return": 0.007088009450679333,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-07",
+      "daily_return": 0.009970674486803333,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-08",
+      "daily_return": 0.013356562137049943,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-09",
+      "daily_return": -0.015472779369627432,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-12",
+      "daily_return": -0.0029103608847497187,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-13",
+      "daily_return": 0.005253940455341555,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-14",
+      "daily_return": -0.020325203252032353,
+      "component_return_count": 1,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-15",
+      "daily_return": -0.0005927682276229973,
+      "component_return_count": 2,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-16",
+      "daily_return": 0.033494721777264314,
+      "component_return_count": 2,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-19",
+      "daily_return": 0.009555104986763685,
+      "component_return_count": 5,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-20",
+      "daily_return": 0.003939562676925812,
+      "component_return_count": 5,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-21",
+      "daily_return": 0.0041644363257233195,
+      "component_return_count": 5,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-22",
+      "daily_return": 0.0009483963132413212,
+      "component_return_count": 6,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-23",
+      "daily_return": -0.013432203541670906,
+      "component_return_count": 6,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-26",
+      "daily_return": 0.0072854017503264845,
+      "component_return_count": 7,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-27",
+      "daily_return": 0.008320935819171569,
+      "component_return_count": 9,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-28",
+      "daily_return": 0.0004281165266264801,
+      "component_return_count": 9,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-29",
+      "daily_return": 0.023526631320782452,
+      "component_return_count": 9,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-05-30",
+      "daily_return": -0.010760144228442256,
+      "component_return_count": 9,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-03",
+      "daily_return": 0.0007240784657611851,
+      "component_return_count": 61,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-04",
+      "daily_return": 0.008961431409662482,
+      "component_return_count": 74,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-05",
+      "daily_return": 0.006580716318275949,
+      "component_return_count": 78,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-06",
+      "daily_return": -0.0005746052157083185,
+      "component_return_count": 79,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-09",
+      "daily_return": 0.006125178965817763,
+      "component_return_count": 84,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-10",
+      "daily_return": -0.005901950601905486,
+      "component_return_count": 127,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-11",
+      "daily_return": 0.005171484219294394,
+      "component_return_count": 136,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-12",
+      "daily_return": 0.00046642693125136203,
+      "component_return_count": 149,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-13",
+      "daily_return": -0.01521580862290713,
+      "component_return_count": 160,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-16",
+      "daily_return": 0.009608403038756952,
+      "component_return_count": 185,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-17",
+      "daily_return": 2.377136402143339e-05,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-18",
+      "daily_return": -0.0014407132489330512,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-19",
+      "daily_return": -0.016252235056042657,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-20",
+      "daily_return": -0.006898786779853224,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-23",
+      "daily_return": 0.01462494614715664,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-24",
+      "daily_return": 0.019733535081535414,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-25",
+      "daily_return": 0.010887483649510307,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-26",
+      "daily_return": -0.003194353686874747,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-27",
+      "daily_return": 0.004964969725880079,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-06-30",
+      "daily_return": 0.013406325328928987,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-01",
+      "daily_return": 0.0035349086385147205,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-02",
+      "daily_return": -0.006510343914654112,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-03",
+      "daily_return": 0.00640396077618774,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-04",
+      "daily_return": -0.0076487266002036895,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-07",
+      "daily_return": 0.004483724464050303,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-08",
+      "daily_return": 0.012660250014839804,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-09",
+      "daily_return": -0.002018037694024347,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-10",
+      "daily_return": 0.0014180237061999865,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-11",
+      "daily_return": 0.00454619925101676,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-14",
+      "daily_return": 0.004714162736947516,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-15",
+      "daily_return": -0.0060658365053781,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-16",
+      "daily_return": 0.0045725392004598514,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-17",
+      "daily_return": 0.010455833309257671,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-18",
+      "daily_return": 0.0027176052509781754,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-21",
+      "daily_return": 0.012471807676472808,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-22",
+      "daily_return": 0.004137207934695258,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-23",
+      "daily_return": -0.006441716538066645,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-24",
+      "daily_return": 0.012995255921362338,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-25",
+      "daily_return": 0.002151554381188161,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-28",
+      "daily_return": 0.005130672364368091,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-29",
+      "daily_return": 0.003913438382171071,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-30",
+      "daily_return": -0.006057154467554664,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-07-31",
+      "daily_return": -0.009435096485831141,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-01",
+      "daily_return": 0.0032205843636680105,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-04",
+      "daily_return": 0.012349686134059977,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-05",
+      "daily_return": 0.008667930404876302,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-06",
+      "daily_return": 0.009333151777439557,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-07",
+      "daily_return": 1.1042395073144437e-05,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-08",
+      "daily_return": -0.001466706100752682,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-11",
+      "daily_return": 0.015314233929492195,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-12",
+      "daily_return": 0.001200802535660187,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-13",
+      "daily_return": 0.009716081266591892,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-14",
+      "daily_return": -0.016017522333240285,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-15",
+      "daily_return": 0.019874375073793606,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-18",
+      "daily_return": 0.01742800306267306,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-19",
+      "daily_return": 0.003625058480848281,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-20",
+      "daily_return": 0.00821031427625717,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-21",
+      "daily_return": -0.00397850699916538,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-22",
+      "daily_return": 0.01016087045794836,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-25",
+      "daily_return": 0.012988870877620436,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-26",
+      "daily_return": 0.001304902954562077,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-27",
+      "daily_return": -0.02145910242548892,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-28",
+      "daily_return": 0.010147464637689894,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-08-29",
+      "daily_return": -0.0009788683850740312,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-01",
+      "daily_return": 0.009534027155173054,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-02",
+      "daily_return": -0.018500036919497025,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-03",
+      "daily_return": -0.017538301068944974,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-04",
+      "daily_return": -0.013635963954091505,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-05",
+      "daily_return": 0.02667381890134786,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-08",
+      "daily_return": 0.013250262884307303,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-09",
+      "daily_return": -0.01030405809246457,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-10",
+      "daily_return": 0.0014474177560759001,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-11",
+      "daily_return": 0.018770992109216542,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-12",
+      "daily_return": 0.00021610214826474697,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-15",
+      "daily_return": -0.000609609332511679,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-16",
+      "daily_return": 0.010806027202314127,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-17",
+      "daily_return": 0.005718852557910266,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-18",
+      "daily_return": -0.011769489702366454,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-19",
+      "daily_return": -0.004328281229096453,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-22",
+      "daily_return": 0.0044208420617411525,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-23",
+      "daily_return": -0.010840914646562403,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-24",
+      "daily_return": 0.016794023275206783,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-25",
+      "daily_return": -0.003498520228715649,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-26",
+      "daily_return": -0.01084553430108098,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-29",
+      "daily_return": 0.010164831767754064,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-09-30",
+      "daily_return": 0.00616483029167573,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-09",
+      "daily_return": 0.010700301684367402,
+      "component_return_count": 3687,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-10",
+      "daily_return": -0.007024632377529014,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-13",
+      "daily_return": -0.002632940598007513,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-14",
+      "daily_return": -0.014147657284985729,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-15",
+      "daily_return": 0.015090048590147785,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-16",
+      "daily_return": -0.009896575142140871,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-17",
+      "daily_return": -0.025573459257186945,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-20",
+      "daily_return": 0.011683675183273567,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-21",
+      "daily_return": 0.01599228948428451,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-22",
+      "daily_return": -0.003463311754917156,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-23",
+      "daily_return": 0.0005708267284295338,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-24",
+      "daily_return": 0.009422227982209434,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-27",
+      "daily_return": 0.00996436217529516,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-28",
+      "daily_return": 6.981876761591033e-05,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-29",
+      "daily_return": 0.007514779451058548,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-30",
+      "daily_return": -0.011371597630620078,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-10-31",
+      "daily_return": 0.006792548880040252,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-03",
+      "daily_return": 0.006257480662760883,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-04",
+      "daily_return": -0.00972108971175087,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-05",
+      "daily_return": 0.006211584701540992,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-06",
+      "daily_return": 0.007434582055272541,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-07",
+      "daily_return": -0.0016132994174223316,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-10",
+      "daily_return": 0.0065319236957085604,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-11",
+      "daily_return": 0.0010350238608513383,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-12",
+      "daily_return": -0.00581873175062869,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-13",
+      "daily_return": 0.012190545085219448,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-14",
+      "daily_return": -0.006900826413173034,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-17",
+      "daily_return": 0.002707861798538288,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-18",
+      "daily_return": -0.011394069716806699,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-19",
+      "daily_return": -0.010470524727544284,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-20",
+      "daily_return": -0.007316952948120167,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-21",
+      "daily_return": -0.035900537511662056,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-24",
+      "daily_return": 0.014564976743214863,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-25",
+      "daily_return": 0.013805176053863721,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-26",
+      "daily_return": -0.00213082941122494,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-27",
+      "daily_return": 0.002419751341844104,
+      "component_return_count": 3687,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-11-28",
+      "daily_return": 0.01207150170744383,
+      "component_return_count": 3686,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-01",
+      "daily_return": 0.007472056358648159,
+      "component_return_count": 3687,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-02",
+      "daily_return": -0.0061230169579960915,
+      "component_return_count": 3687,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-03",
+      "daily_return": -0.007790604177441459,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-04",
+      "daily_return": -0.004633471579671714,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-05",
+      "daily_return": 0.014546725127528142,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-08",
+      "daily_return": 0.010489986935011741,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-09",
+      "daily_return": -0.0062187168872511155,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-10",
+      "daily_return": 0.002373851431337466,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-11",
+      "daily_return": -0.013432113236029728,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-12",
+      "daily_return": 0.0066829742619009735,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-15",
+      "daily_return": -0.0038897686457354044,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-16",
+      "daily_return": -0.016344207263430426,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-17",
+      "daily_return": 0.01033947449006137,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-18",
+      "daily_return": -6.646557217016915e-05,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-19",
+      "daily_return": 0.01243803420046763,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-22",
+      "daily_return": 0.008330909985136758,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-23",
+      "daily_return": -0.003434229439343,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-24",
+      "daily_return": 0.013970409817337699,
+      "component_return_count": 3689,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-25",
+      "daily_return": 0.010321120687240129,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-26",
+      "daily_return": 0.0013878301650601195,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-29",
+      "daily_return": -0.0009157817277486378,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-30",
+      "daily_return": -0.00025743354956279626,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2025-12-31",
+      "daily_return": 0.0012192870640067674,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-05",
+      "daily_return": 0.01841259987619376,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-06",
+      "daily_return": 0.014599461421920232,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-07",
+      "daily_return": 0.004632189185158651,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-08",
+      "daily_return": 0.009839289083385659,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-09",
+      "daily_return": 0.015375660141944324,
+      "component_return_count": 3691,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-12",
+      "daily_return": 0.023501723879552884,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-13",
+      "daily_return": -0.014169103007282286,
+      "component_return_count": 3686,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-14",
+      "daily_return": 0.00754331385186618,
+      "component_return_count": 3685,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-15",
+      "daily_return": -0.003881509007996695,
+      "component_return_count": 3687,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-16",
+      "daily_return": 0.0011060880563169744,
+      "component_return_count": 3688,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-19",
+      "daily_return": 0.009003481240216044,
+      "component_return_count": 3690,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-20",
+      "daily_return": -0.006126509881966815,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-21",
+      "daily_return": 0.008042299263014262,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-22",
+      "daily_return": 0.008201048514033499,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-23",
+      "daily_return": 0.016970350249348898,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-26",
+      "daily_return": -0.01196118412043491,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-27",
+      "daily_return": 0.0009000356941145801,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-28",
+      "daily_return": -0.003240870382402748,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-29",
+      "daily_return": -0.008015440175247569,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-01-30",
+      "daily_return": -0.004955838758523918,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-02",
+      "daily_return": -0.02554730487305738,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-03",
+      "daily_return": 0.025768108242576162,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-04",
+      "daily_return": 0.004010279372329055,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-05",
+      "daily_return": -0.01106426966645249,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-06",
+      "daily_return": 0.001526959524025627,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-09",
+      "daily_return": 0.019042863403694116,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-10",
+      "daily_return": 0.00041791173876688597,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-11",
+      "daily_return": -0.0013390105419799356,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-12",
+      "daily_return": 0.0035977879787074127,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-13",
+      "daily_return": -0.008160265263937243,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-24",
+      "daily_return": 0.012115057728387455,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-25",
+      "daily_return": 0.011853711038843587,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-26",
+      "daily_return": 0.005443903566477204,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-02-27",
+      "daily_return": 0.007796176241567508,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-02",
+      "daily_return": -0.012663116838310616,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-03",
+      "daily_return": -0.03569790531454258,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-04",
+      "daily_return": -0.004437504517831844,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-05",
+      "daily_return": 0.012922196422487707,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-06",
+      "daily_return": 0.013203001170922683,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-09",
+      "daily_return": -0.0072449916119208015,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-10",
+      "daily_return": 0.01825007255223623,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-11",
+      "daily_return": 0.0005061770828407662,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-12",
+      "daily_return": -0.0065496214389340396,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-13",
+      "daily_return": -0.011140652741682052,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-16",
+      "daily_return": 0.0011511866887385974,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-17",
+      "daily_return": -0.020012984459365907,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-18",
+      "daily_return": 0.011045372162417074,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-19",
+      "daily_return": -0.02365708169786912,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-20",
+      "daily_return": -0.02060810554456423,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-23",
+      "daily_return": -0.04860140943143317,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-24",
+      "daily_return": 0.03129424461926802,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-25",
+      "daily_return": 0.019821824475358348,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-26",
+      "daily_return": -0.01494212897654125,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-27",
+      "daily_return": 0.014376112133220082,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-30",
+      "daily_return": 0.0024527876886178677,
+      "component_return_count": 3692,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-03-31",
+      "daily_return": -0.01532278260955897,
+      "component_return_count": 3693,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-01",
+      "daily_return": 0.019026864689892543,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-02",
+      "daily_return": -0.015886539976894643,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-03",
+      "daily_return": -0.016995909751618295,
+      "component_return_count": 3694,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-07",
+      "daily_return": 0.011155952774371909,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-08",
+      "daily_return": 0.042054532704251794,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-09",
+      "daily_return": -0.008175601099045922,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-10",
+      "daily_return": 0.00897901263908062,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-13",
+      "daily_return": 0.002784813763732229,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-14",
+      "daily_return": 0.012311925943134724,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-15",
+      "daily_return": -0.003244304442199145,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-16",
+      "daily_return": 0.014874020097205712,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-17",
+      "daily_return": 0.00450094106387195,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-20",
+      "daily_return": 0.008328315136487898,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-21",
+      "daily_return": -0.0017516125200016809,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-22",
+      "daily_return": 0.007989751495963572,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-23",
+      "daily_return": -0.011038934402643561,
+      "component_return_count": 3696,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-24",
+      "daily_return": -0.006409356519780708,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-27",
+      "daily_return": 0.007312677064281184,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-28",
+      "daily_return": -0.010388398008211534,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-29",
+      "daily_return": 0.01261927487622511,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-04-30",
+      "daily_return": 0.003777574313233025,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-06",
+      "daily_return": 0.018697196531259962,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-07",
+      "daily_return": 0.014980460283384954,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-08",
+      "daily_return": 0.007921875400538013,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-11",
+      "daily_return": 0.011624711937152858,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-12",
+      "daily_return": -0.007615984773918843,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-13",
+      "daily_return": 0.011426213158990188,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-14",
+      "daily_return": -0.018832246883286552,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-15",
+      "daily_return": -0.006079763913743646,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-18",
+      "daily_return": 0.0005158072086654445,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-19",
+      "daily_return": 0.010154091875684232,
+      "component_return_count": 3695,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-20",
+      "daily_return": -0.004539980072711683,
+      "component_return_count": 3697,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-21",
+      "daily_return": -0.028518242929519978,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-22",
+      "daily_return": 0.017480917954959214,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-25",
+      "daily_return": 0.0038508595489985115,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-26",
+      "daily_return": -0.011874753487622557,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-27",
+      "daily_return": -0.018842792803218916,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-28",
+      "daily_return": 0.006279308104088599,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-05-29",
+      "daily_return": -0.025703336225926833,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-01",
+      "daily_return": 0.0034575057874832622,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-02",
+      "daily_return": -0.006016133901276803,
+      "component_return_count": 3698,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-03",
+      "daily_return": -0.0011142350945861526,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-04",
+      "daily_return": -0.007634091638313582,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-05",
+      "daily_return": -0.00024234250901134072,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-08",
+      "daily_return": -0.02944139032457677,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-09",
+      "daily_return": 0.016374935560244053,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-10",
+      "daily_return": -0.012779171127343397,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-11",
+      "daily_return": -0.00924609032866078,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-12",
+      "daily_return": 0.010373563830191578,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-15",
+      "daily_return": 0.026142574534454264,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-16",
+      "daily_return": 0.008771506663813013,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-17",
+      "daily_return": -0.0005156051803571446,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-18",
+      "daily_return": -0.0015075235828781051,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-22",
+      "daily_return": 0.008151792375682625,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-23",
+      "daily_return": -0.00706574849017511,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-24",
+      "daily_return": -0.004421269413305318,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-25",
+      "daily_return": -0.00888159187009535,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-06-26",
+      "daily_return": -0.026316428891211108,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "date": "2026-07-01",
+      "daily_return": 0.03659683241374411,
+      "component_return_count": 3699,
+      "constituent_count": 3699,
+      "source_type": "internal_equal_weight_as_of_universe",
+      "is_placeholder": false
+    }
+  ],
+  "warnings": [
+    "survivorship_bias_warning: static as-of universe is not a point-in-time constituent history"
+  ],
+  "fabricated_benchmark_data": false
+}

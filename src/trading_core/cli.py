@@ -105,6 +105,8 @@ from trading_core.equity_v100_prep import DEFAULT_AS_OF_DATE as DEFAULT_V100_PRE
 from trading_core.equity_v100_prep import audit_a_share_v100_prep, build_a_share_v100_prep
 from trading_core.equity_v100_release import DEFAULT_AS_OF_DATE as DEFAULT_V100_RELEASE_AS_OF_DATE
 from trading_core.equity_v100_release import audit_a_share_v100_release, build_a_share_v100_release
+from trading_core.equity_benchmark_claim_hardening import DEFAULT_AS_OF_DATE as DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE
+from trading_core.equity_benchmark_claim_hardening import audit_a_share_benchmark_claim_hardening, build_a_share_benchmark_claim_hardening
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1169,6 +1171,14 @@ def build_parser() -> argparse.ArgumentParser:
     v100_release_audit.add_argument("--as-of-date", default=DEFAULT_V100_RELEASE_AS_OF_DATE)
     v100_release_all = subparsers.add_parser("build-and-audit-a-share-v100-release")
     v100_release_all.add_argument("--as-of-date", default=DEFAULT_V100_RELEASE_AS_OF_DATE)
+    benchmark_claim = subparsers.add_parser("build-a-share-benchmark-claim-hardening")
+    benchmark_claim.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE)
+    benchmark_claim.add_argument("--allow-public-benchmark-refresh", action="store_true")
+    benchmark_claim_audit = subparsers.add_parser("audit-a-share-benchmark-claim-hardening")
+    benchmark_claim_audit.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE)
+    benchmark_claim_all = subparsers.add_parser("build-and-audit-a-share-benchmark-claim-hardening")
+    benchmark_claim_all.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE)
+    benchmark_claim_all.add_argument("--allow-public-benchmark-refresh", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -1988,6 +1998,54 @@ def _v100_release_cli_payload(result: dict) -> dict:
         "artifact_integrity_passed": result["artifact_integrity_passed"],
         "cli_surface_verified": result["cli_surface_verified"],
         "known_limitations_count": result["known_limitations_count"],
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _benchmark_claim_hardening_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "benchmark_source_registry_generated": result["benchmark_source_registry_generated"],
+        "benchmark_coverage_matrix_generated": result["benchmark_coverage_matrix_generated"],
+        "cash_benchmark_generated": result["cash_benchmark_generated"],
+        "equal_weight_universe_benchmark_status": result["equal_weight_universe_benchmark_status"],
+        "csi300_benchmark_status": result["csi300_benchmark_status"],
+        "csi500_benchmark_status": result["csi500_benchmark_status"],
+        "csi1000_benchmark_status": result["csi1000_benchmark_status"],
+        "simulated_performance_attribution_generated": result["simulated_performance_attribution_generated"],
+        "performance_claim_guard_generated": result["performance_claim_guard_generated"],
+        "benchmark_relative_claim_allowed": result["benchmark_relative_claim_allowed"],
+        "real_performance_claim_allowed": result["real_performance_claim_allowed"],
+        "live_trading_claim_allowed": result["live_trading_claim_allowed"],
+        "investment_advice_claim_allowed": result["investment_advice_claim_allowed"],
+        "simulated_performance_claim_allowed_with_disclaimer": result["simulated_performance_claim_allowed_with_disclaimer"],
+        "fabricated_benchmark_data": result["fabricated_benchmark_data"],
+        "fabricated_excess_return": result["fabricated_excess_return"],
+        "fabricated_tracking_error": result["fabricated_tracking_error"],
+        "fabricated_relative_drawdown": result["fabricated_relative_drawdown"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "full_pytest_run": result["full_pytest_run"],
         "owner_readiness_state": result["owner_readiness_state"],
         "owner_operationally_acceptable": result["owner_operationally_acceptable"],
         "source_readiness_score": result["source_readiness_score"],
@@ -4219,6 +4277,50 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(
             {
                 **_v100_release_cli_payload(build_result),
+                "audit_id": audit_result["audit_id"],
+                "audit_overall_passed": audit_result["overall_passed"],
+                "audit_blocking_reasons": audit_result["blocking_reasons"],
+                "audit_warnings": len(audit_result["warnings"]),
+            }
+        )
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-benchmark-claim-hardening":
+        result = build_a_share_benchmark_claim_hardening(
+            as_of_date=args.as_of_date,
+            allow_public_benchmark_refresh=args.allow_public_benchmark_refresh,
+            paths=paths,
+        )
+        print(_benchmark_claim_hardening_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-benchmark-claim-hardening":
+        result = audit_a_share_benchmark_claim_hardening(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                "audit_id": result["audit_id"],
+                "target_version": result["target_version"],
+                "as_of_date": result["as_of_date"],
+                "overall_passed": result["overall_passed"],
+                "blocking_reasons": result["blocking_reasons"],
+                "warnings": len(result["warnings"]),
+                "artifact_checks": result["artifact_checks"],
+                "claim_guard": result["claim_guard"],
+                "benchmark_status": result["benchmark_status"],
+                "owner_readiness": result["owner_readiness"],
+                "boundary": result["boundary"],
+                "recommended_next_version": result["recommended_next_version"],
+            }
+        )
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-benchmark-claim-hardening":
+        build_result = build_a_share_benchmark_claim_hardening(
+            as_of_date=args.as_of_date,
+            allow_public_benchmark_refresh=args.allow_public_benchmark_refresh,
+            paths=paths,
+        )
+        audit_result = audit_a_share_benchmark_claim_hardening(as_of_date=args.as_of_date, paths=paths)
+        print(
+            {
+                **_benchmark_claim_hardening_cli_payload(build_result),
                 "audit_id": audit_result["audit_id"],
                 "audit_overall_passed": audit_result["overall_passed"],
                 "audit_blocking_reasons": audit_result["blocking_reasons"],

@@ -1,0 +1,69 @@
+{
+  "matrix_id": "A-SHARE-BENCHMARK-COVERAGE-MATRIX",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "as_of_date": "2026-07-01",
+  "rows": [
+    {
+      "benchmark_id": "CSI300",
+      "available": true,
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 1.0,
+      "missing_date_count": 0,
+      "stale": true,
+      "source_quality_status": "warning",
+      "usable_for_simulated_relative_metrics": false,
+      "usable_for_real_performance_claims": false
+    },
+    {
+      "benchmark_id": "CSI500",
+      "available": true,
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 1.0,
+      "missing_date_count": 0,
+      "stale": true,
+      "source_quality_status": "warning",
+      "usable_for_simulated_relative_metrics": false,
+      "usable_for_real_performance_claims": false
+    },
+    {
+      "benchmark_id": "CSI1000",
+      "available": true,
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 1.0,
+      "missing_date_count": 0,
+      "stale": true,
+      "source_quality_status": "warning",
+      "usable_for_simulated_relative_metrics": false,
+      "usable_for_real_performance_claims": false
+    },
+    {
+      "benchmark_id": "CASH",
+      "available": true,
+      "coverage_start": "2026-07-01",
+      "coverage_end": "2026-07-01",
+      "coverage_ratio": 1.0,
+      "missing_date_count": 0,
+      "stale": false,
+      "source_quality_status": "passed",
+      "usable_for_simulated_relative_metrics": true,
+      "usable_for_real_performance_claims": false
+    },
+    {
+      "benchmark_id": "EQUAL_WEIGHT_TRADABLE_UNIVERSE",
+      "available": true,
+      "coverage_start": "2025-04-25",
+      "coverage_end": "2026-07-01",
+      "coverage_ratio": 1.0,
+      "missing_date_count": 0,
+      "stale": false,
+      "source_quality_status": "passed",
+      "usable_for_simulated_relative_metrics": true,
+      "usable_for_real_performance_claims": false
+    }
+  ],
+  "all_csi_benchmarks_usable": false,
+  "fabricated_benchmark_data": false
+}

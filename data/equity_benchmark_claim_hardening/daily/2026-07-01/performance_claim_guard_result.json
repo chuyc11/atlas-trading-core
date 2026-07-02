@@ -1,0 +1,57 @@
+{
+  "guard_id": "A-SHARE-PERFORMANCE-CLAIM-GUARD",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "source_version": "v1.0.0-a-share-autonomous-simulation-platform-release",
+  "real_performance_claim_allowed": false,
+  "live_trading_claim_allowed": false,
+  "investment_advice_claim_allowed": false,
+  "benchmark_relative_claim_allowed": false,
+  "simulated_performance_claim_allowed": true,
+  "simulated_performance_claim_allowed_with_disclaimer": true,
+  "simulation_only_disclaimer_required": true,
+  "classifications": [
+    {
+      "category": "allowed_simulation_status_statement",
+      "allowed": true
+    },
+    {
+      "category": "allowed_data_quality_statement",
+      "allowed": true
+    },
+    {
+      "category": "allowed_internal_research_metric",
+      "allowed": true
+    },
+    {
+      "category": "allowed_simulated_benchmark_relative_metric",
+      "allowed": false
+    },
+    {
+      "category": "blocked_real_performance_claim",
+      "allowed": false
+    },
+    {
+      "category": "blocked_unverified_benchmark_claim",
+      "allowed": false
+    },
+    {
+      "category": "blocked_live_trading_claim",
+      "allowed": false
+    },
+    {
+      "category": "blocked_investment_advice_claim",
+      "allowed": false
+    }
+  ],
+  "blocked_claim_examples": [
+    "real performance claim",
+    "live trading ready claim",
+    "investment advice claim",
+    "benchmark-relative claim without usable benchmark coverage"
+  ],
+  "allowed_claim_requirements": [
+    "must be simulation-only",
+    "must cite data quality and benchmark coverage",
+    "must avoid investment advice"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "result_id": "A-SHARE-SIMULATED-PERFORMANCE-ATTRIBUTION-RESULT",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "as_of_date": "2026-07-01",
+  "simulated_performance_attribution_generated": true,
+  "simulated_account_return": null,
+  "cash_benchmark_return": 0.0,
+  "equal_weight_universe_benchmark_return": 0.6570730938375664,
+  "csi_benchmark_relative_metrics_available": false,
+  "simulation_only_disclaimer_required": true,
+  "full_pytest_run": false,
+  "full_pytest_deferred_until": "next-major-closeout-or-explicit-request",
+  "fabricated_benchmark_data": false,
+  "fabricated_excess_return": false,
+  "fabricated_tracking_error": false,
+  "fabricated_relative_drawdown": false
+}

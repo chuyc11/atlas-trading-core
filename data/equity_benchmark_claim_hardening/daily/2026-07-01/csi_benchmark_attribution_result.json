@@ -1,0 +1,88 @@
+{
+  "result_id": "A-SHARE-CSI-BENCHMARK-ATTRIBUTION-RESULT",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "as_of_date": "2026-07-01",
+  "benchmark_attribution_status": "warning",
+  "benchmark_relative_metrics_generated": false,
+  "benchmarks": [
+    {
+      "benchmark_id": "CSI300",
+      "status": "warning",
+      "benchmark_attribution_status": "warning",
+      "benchmark_relative_metrics_generated": false,
+      "source_type": "local_index_price_panel",
+      "source_path_or_provider": "data/equity_benchmarks/history/index_price_history_panel.parquet",
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 0.0,
+      "benchmark_return": null,
+      "simulated_account_return": null,
+      "excess_return": null,
+      "relative_drawdown": null,
+      "tracking_error": null,
+      "hit_ratio_vs_benchmark": null,
+      "rolling_relative_return": [],
+      "fabricated_excess_return": false,
+      "fabricated_tracking_error": false,
+      "fabricated_relative_drawdown": false,
+      "blocking_reasons": [],
+      "warnings": [
+        "benchmark source missing or not aligned with simulated account dates"
+      ]
+    },
+    {
+      "benchmark_id": "CSI500",
+      "status": "warning",
+      "benchmark_attribution_status": "warning",
+      "benchmark_relative_metrics_generated": false,
+      "source_type": "local_index_price_panel",
+      "source_path_or_provider": "data/equity_benchmarks/history/index_price_history_panel.parquet",
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 0.0,
+      "benchmark_return": null,
+      "simulated_account_return": null,
+      "excess_return": null,
+      "relative_drawdown": null,
+      "tracking_error": null,
+      "hit_ratio_vs_benchmark": null,
+      "rolling_relative_return": [],
+      "fabricated_excess_return": false,
+      "fabricated_tracking_error": false,
+      "fabricated_relative_drawdown": false,
+      "blocking_reasons": [],
+      "warnings": [
+        "benchmark source missing or not aligned with simulated account dates"
+      ]
+    },
+    {
+      "benchmark_id": "CSI1000",
+      "status": "warning",
+      "benchmark_attribution_status": "warning",
+      "benchmark_relative_metrics_generated": false,
+      "source_type": "local_index_price_panel",
+      "source_path_or_provider": "data/equity_benchmarks/history/index_price_history_panel.parquet",
+      "coverage_start": "2025-06-16",
+      "coverage_end": "2026-06-26",
+      "coverage_ratio": 0.0,
+      "benchmark_return": null,
+      "simulated_account_return": null,
+      "excess_return": null,
+      "relative_drawdown": null,
+      "tracking_error": null,
+      "hit_ratio_vs_benchmark": null,
+      "rolling_relative_return": [],
+      "fabricated_excess_return": false,
+      "fabricated_tracking_error": false,
+      "fabricated_relative_drawdown": false,
+      "blocking_reasons": [],
+      "warnings": [
+        "benchmark source missing or not aligned with simulated account dates"
+      ]
+    }
+  ],
+  "fabricated_benchmark_data": false,
+  "fabricated_excess_return": false,
+  "fabricated_tracking_error": false,
+  "fabricated_relative_drawdown": false
+}

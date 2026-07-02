@@ -1,0 +1,40 @@
+{
+  "manifest_id": "A-SHARE-BENCHMARK-CLAIM-HARDENING-MANIFEST",
+  "target_version": "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening",
+  "source_version": "v1.0.0-a-share-autonomous-simulation-platform-release",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-02T03:26:35.503427Z",
+  "json_artifact_count": 10,
+  "markdown_report_count": 2,
+  "artifacts": {
+    "benchmark_claim_hardening_request": "data/equity_benchmark_claim_hardening/daily/2026-07-01/benchmark_claim_hardening_request.json",
+    "benchmark_source_registry": "data/equity_benchmark_claim_hardening/daily/2026-07-01/benchmark_source_registry.json",
+    "benchmark_coverage_matrix": "data/equity_benchmark_claim_hardening/daily/2026-07-01/benchmark_coverage_matrix.json",
+    "cash_benchmark_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/cash_benchmark_result.json",
+    "equal_weight_universe_benchmark_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/equal_weight_universe_benchmark_result.json",
+    "csi_benchmark_attribution_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/csi_benchmark_attribution_result.json",
+    "simulated_performance_attribution_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/simulated_performance_attribution_result.json",
+    "performance_claim_guard_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/performance_claim_guard_result.json",
+    "benchmark_claim_hardening_result": "data/equity_benchmark_claim_hardening/daily/2026-07-01/benchmark_claim_hardening_result.json",
+    "benchmark_claim_hardening_manifest": "data/equity_benchmark_claim_hardening/daily/2026-07-01/benchmark_claim_hardening_manifest.json",
+    "benchmark_claim_hardening_report": "outputs/equity_benchmark_claim_hardening/daily/2026-07-01/A_SHARE_BENCHMARK_AND_CLAIM_HARDENING_REPORT.md",
+    "performance_claim_guard_report": "outputs/equity_benchmark_claim_hardening/daily/2026-07-01/A_SHARE_PERFORMANCE_CLAIM_GUARD_REPORT.md"
+  },
+  "artifact_hashes": {
+    "benchmark_claim_hardening_request": "06a870f907716b83c2deaa6d6bd41b285de8726fc34cf82251b4e31a56907150",
+    "benchmark_source_registry": "aef80564b30e78ab8900c03931923994a698cf642fe40101a9b43dd1c2309c47",
+    "benchmark_coverage_matrix": "90a5082113839f7de3812f34ab58654fbe3f9938176866e346250d660f4bbcd2",
+    "cash_benchmark_result": "87f30a581306b27103048054014055f6ace7c2099aa46b71b5c34d39093d4bf2",
+    "equal_weight_universe_benchmark_result": "a2e48fa8f71e4dfe6289e70ff290835892c323eab9e051bc30be28184db243c8",
+    "csi_benchmark_attribution_result": "caff69318571bf6e283e05518ee7e355c77c9b08cd4878bd405a66ec194f5bf9",
+    "simulated_performance_attribution_result": "2501287b12814189ff519cd64f3ed3c611e1e3232438a6dd2e717441d85ff10a",
+    "performance_claim_guard_result": "2e4199e32a788da13e5622b7176a3f25d48fb9fd990cac43e1d417c391599a37",
+    "benchmark_claim_hardening_result": "dc7783cadd64af5315d440843fd44d1d3ad14f68527679f6f5560295ef18176c",
+    "benchmark_claim_hardening_manifest": "1a7c2c4a43f110e771cd8c7b38cd4b9caeaf87b44f75623127883da0c527e70e",
+    "benchmark_claim_hardening_report": "e0dfc00314f3ded8ffdf0d4d71282e3566783b6c513176ce82a3c71969c1b038",
+    "performance_claim_guard_report": "a23514d928bd9cb4e43badeb98859b7a1b318ea1a7e4ae69e1a464e91c48ec00"
+  },
+  "overall_passed": true,
+  "blocking_reasons": [],
+  "recommended_next_version": "v1.0.2-a-share-owner-dashboard-benchmark-integration-and-report-polish"
+}
