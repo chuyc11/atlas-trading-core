@@ -1,5 +1,21 @@
 # Release Notes
 
+## v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform
+
+v1.2.0 adds local post-close continuous ops planning and simulation continuity without adding any live trading capability.
+
+- adds local post-close schedule policy with default `15:45 Asia/Shanghai`
+- adds trading-day-aware run planning, non-trading-day safe skip, missed-run and duplicate-run checks, lock/idempotency artifacts, and dry-run schedule simulation
+- generates manual cron and Windows Task Scheduler templates while explicitly prohibiting silent scheduler or daemon installation
+- adds continuous ops run result, stage dependency graph, stage timing summary, retry/recovery plan, and owner-facing daily run summary
+- adds simulated account, NAV, cash, position, PnL, turnover, virtual fill, paper ledger, and continuity artifacts
+- carries benchmark/claim guard continuity forward and keeps unsupported performance claims blocked
+- adds operator runbook, incident registers, remediation checklist, local/internal alerts, artifact index, artifact health, platform health, and safety sweeps
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, or claim live trading readiness
+- full pytest: `1858 passed, 1 skipped`
+- recommended next version: `v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion`
+
 ## v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
 
 v1.1.0 expands the A-share research-only and simulation-only platform into an owner-ops operating layer for daily review, governance, monitoring, and simulated lifecycle management.
