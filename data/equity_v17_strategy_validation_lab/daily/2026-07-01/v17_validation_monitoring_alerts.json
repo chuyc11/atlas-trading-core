@@ -1,0 +1,158 @@
+{
+  "result_id": "A-SHARE-V17-VALIDATION-MONITORING-ALERTS",
+  "target_version": "v1.7.0-a-share-strategy-validation-factor-research-and-sample-out-evaluation-hardening",
+  "as_of_date": "2026-07-01",
+  "validation_monitoring_alerts_generated": true,
+  "alerts": [
+    {
+      "alert_id": "low_factor_quality",
+      "message": "Factor quality is watch-only.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "candidate_instability",
+      "message": "Candidate ranking history is insufficient.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "weak_oos_result",
+      "message": "OOS result is watch-only with limitations.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "walk_forward_degradation",
+      "message": "Walk-forward degradation warning recorded.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "robustness_failure",
+      "message": "Fragility warning recorded.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "overfitting_risk",
+      "message": "Overfitting risk remains elevated.",
+      "severity": "high",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "multiple_testing_risk",
+      "message": "Multiple testing warning recorded.",
+      "severity": "high",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "false_discovery_risk",
+      "message": "False discovery risk score is elevated.",
+      "severity": "high",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "strategy_admission_blocked",
+      "message": "Admission is simulation-only watch.",
+      "severity": "high",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "strategy_rejection",
+      "message": "No rejection fired; rejection rules are present.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "strategy_retire",
+      "message": "No retire fired; retire rules are present.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "experiment_duplication",
+      "message": "Duplication detection passed.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "data_dependency_missing",
+      "message": "Unavailable metrics remain blocked from trust claims.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "benchmark_dependency_missing",
+      "message": "Benchmark claims remain dependency-gated.",
+      "severity": "medium",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "replay_dependency_failure",
+      "message": "Replay dependency passed via v16 linkage.",
+      "severity": "low",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    }
+  ],
+  "alert_count": 15,
+  "low_factor_quality_alert": true,
+  "candidate_instability_alert": true,
+  "weak_oos_result_alert": true,
+  "walk_forward_degradation_alert": true,
+  "robustness_failure_alert": true,
+  "overfitting_risk_alert": true,
+  "multiple_testing_risk_alert": true,
+  "false_discovery_risk_alert": true,
+  "strategy_admission_blocked_alert": true,
+  "strategy_rejection_alert": false,
+  "strategy_retire_alert": false,
+  "experiment_duplication_alert": false,
+  "data_dependency_missing_alert": true,
+  "benchmark_dependency_missing_alert": false,
+  "replay_dependency_failure_alert": false,
+  "alerts_local_internal_artifact_only": true,
+  "external_notification_sent": false,
+  "buy_sell_alert_generated": false,
+  "real_account_advice_generated": false,
+  "live_strategy_claimed": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

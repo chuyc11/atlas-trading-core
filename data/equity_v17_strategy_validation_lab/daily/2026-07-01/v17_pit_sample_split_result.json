@@ -1,0 +1,87 @@
+{
+  "result_id": "A-SHARE-V17-PIT-SAMPLE-SPLIT",
+  "target_version": "v1.7.0-a-share-strategy-validation-factor-research-and-sample-out-evaluation-hardening",
+  "as_of_date": "2026-07-01",
+  "pit_sample_split_result_generated": true,
+  "pit_registry_dependency_passed": true,
+  "event_driven_replay_dependency_passed": true,
+  "a_share_market_rule_dependency_passed": true,
+  "virtual_broker_rule_dependency_passed": true,
+  "benchmark_source_dependency_passed": true,
+  "train_period": {
+    "start": "2025-01-01",
+    "end": "2025-09-30",
+    "visibility_cutoff": "2025-09-30"
+  },
+  "validation_period": {
+    "start": "2025-10-01",
+    "end": "2025-12-31",
+    "visibility_cutoff": "2025-12-31"
+  },
+  "test_period": {
+    "start": "2026-01-01",
+    "end": "2026-03-31",
+    "visibility_cutoff": "2026-03-31"
+  },
+  "out_of_sample_period": {
+    "start": "2026-04-01",
+    "end": "2026-07-01",
+    "visibility_cutoff": "2026-07-01"
+  },
+  "walk_forward_windows": [
+    {
+      "window_id": "WF-EXPANDING-001",
+      "mode": "expanding",
+      "train_end": "2025-12-31",
+      "test_start": "2026-01-01",
+      "test_end": "2026-03-31"
+    },
+    {
+      "window_id": "WF-ROLLING-001",
+      "mode": "rolling",
+      "train_start": "2025-07-01",
+      "train_end": "2026-03-31",
+      "test_start": "2026-04-01",
+      "test_end": "2026-07-01"
+    }
+  ],
+  "rolling_window_split_generated": true,
+  "expanding_window_split_generated": true,
+  "date_coverage_matrix_generated": true,
+  "minimum_sample_size_check": "passed_with_limitations",
+  "minimum_trading_day_count_check": "passed_with_limitations",
+  "missing_period_warning": false,
+  "overlapping_sample_warning": false,
+  "data_visibility_cutoff_per_split": true,
+  "label_horizon_cutoff_per_split": true,
+  "benchmark_alignment_per_split": true,
+  "simulated_account_alignment_per_split": true,
+  "no_future_data_split_check": true,
+  "future_data_usage_detected": false,
+  "split_reproducibility_hash": "35149a020652bef5",
+  "owner_facing_sample_split_report_generated": true,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

@@ -1,0 +1,77 @@
+{
+  "registry_id": "A-SHARE-V17-EXPERIMENT-VALIDATION-REGISTRY",
+  "target_version": "v1.7.0-a-share-strategy-validation-factor-research-and-sample-out-evaluation-hardening",
+  "as_of_date": "2026-07-01",
+  "experiment_validation_registry_generated": true,
+  "experiment_reproducibility_hash": "3ff33394dfdf4c3e",
+  "experiment_data_dependency_linkage": "v16_pit_registry",
+  "experiment_feature_dependency_linkage": "local_feature_artifacts_if_present",
+  "experiment_label_dependency_linkage": "forward_label_panel_if_present",
+  "experiment_benchmark_dependency_linkage": "v16_benchmark_index_source_result",
+  "experiment_replay_dependency_linkage": "v16_event_driven_replay_result",
+  "experiment_result_classification": "watch_with_limitations",
+  "experiments": [
+    {
+      "experiment_id": "EXP-V17-FACTOR-QUALITY",
+      "classification": "watch",
+      "reject_reason": null,
+      "watch_reason": "insufficient_local_factor_and_forward_label_panel_for_ic_rank_ic_claims"
+    },
+    {
+      "experiment_id": "EXP-V17-CANDIDATE-RANKING",
+      "classification": "watch",
+      "reject_reason": null,
+      "watch_reason": "candidate_history_limited"
+    },
+    {
+      "experiment_id": "EXP-V17-ROBUSTNESS-STATS",
+      "classification": "watch",
+      "reject_reason": null,
+      "watch_reason": "multiple_testing_and_unavailable_real_significance_metrics"
+    }
+  ],
+  "experiment_count": 3,
+  "experiment_reject_reason": null,
+  "experiment_watch_reason": "sample_and_statistical_evidence_limitations",
+  "experiment_retire_reason": null,
+  "experiment_duplication_detection": "passed",
+  "experiment_family_grouping": [
+    "factor_validation",
+    "candidate_validation",
+    "robustness_statistics"
+  ],
+  "experiment_lineage_graph_generated": true,
+  "experiment_multiple_testing_contribution": {
+    "status": "estimated_policy_only",
+    "effective_trials": 12
+  },
+  "experiment_owner_summary_generated": true,
+  "experiment_auto_changes_simulated_active": false,
+  "experiment_generates_trade_instruction": false,
+  "experiment_enters_real_account": false,
+  "candidate_dependency_decision": "watch_with_limitations",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
