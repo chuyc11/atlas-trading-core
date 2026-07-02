@@ -1,5 +1,20 @@
 # Release Notes
 
+## v1.9.0-a-share-ml-validation-model-risk-and-research-portfolio-integration-hardening
+
+v1.9.0 adds the A-share ML validation and model risk governance layer on top of v1.8.0 research database, feature store, label store, PIT ML dataset, offline model lab, model cards, and prediction registry.
+
+- adds ML validation scorecard with v1.8 model registry, model card, prediction registry, PIT dataset, feature store, and label store dependency checks
+- adds model risk taxonomy, risk tiering, blocker/warning/mitigation registers, and research-only owner summaries
+- adds performance validation, prediction quality validation, model monitoring/drift review, robustness checks, overfitting/false-discovery review, and explainability limitations
+- adds model decision workflow with approval blocked, watch allowed, reject/retire rules, and no `real_trading_active` status
+- adds research portfolio model integration and candidate/strategy integration for research explanation only
+- preserves predictions and research portfolio outputs as not orders, not order previews, not buy/sell signals, not investment advice, and not live-trading ready
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, generate a new gate score/decision, fabricate model validation/risk/monitoring/prediction/explainability results, or create a real portfolio allocation
+- full pytest: `1944 passed, 1 skipped`
+- recommended next version: `v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout`
+
 ## v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening
 
 v1.8.0 adds the A-share research infrastructure layer on top of v1.7.0 strategy validation: research database registry, snapshot reproducibility, feature store, label store, PIT-aware ML dataset builder, offline ML model lab, model registry/cards, prediction registry, experiment integration, and owner ML dashboard.
