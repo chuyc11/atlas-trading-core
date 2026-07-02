@@ -1,0 +1,11 @@
+{
+  "result_id": "A-SHARE-V12-SCHEDULE-DRY-RUN",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "schedule_dry_run_passed": true,
+  "simulated_run_date": "2026-07-01",
+  "would_run": true,
+  "would_skip": false,
+  "skip_reason": null,
+  "next_eligible_run_date": "2026-07-01"
+}

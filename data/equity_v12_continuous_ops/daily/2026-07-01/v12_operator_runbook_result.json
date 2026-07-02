@@ -1,0 +1,48 @@
+{
+  "result_id": "A-SHARE-V12-OPERATOR-RUNBOOK",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "operator_runbook_generated": true,
+  "daily_run_checklist": [
+    "Confirm trading day",
+    "Run continuous ops",
+    "Review audit",
+    "Review owner dashboard"
+  ],
+  "pre_run_checklist": [
+    "Check schedule policy",
+    "Check lock artifact",
+    "Check data freshness"
+  ],
+  "post_run_checklist": [
+    "Review alerts",
+    "Review incidents",
+    "Review artifact health"
+  ],
+  "failure_remediation_checklist": [
+    "Fail closed",
+    "Classify retry",
+    "Open incident",
+    "Do not waive gates"
+  ],
+  "command_cheat_sheet_generated": true,
+  "forbidden_action_reminder": true,
+  "manual_scheduler_setup_instructions": [
+    "45 15 * * 1-5 cd <project> && python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only",
+    "schtasks /Create /SC WEEKLY /D MON,TUE,WED,THU,FRI /ST 15:45 /TN \"trading-core-v12-post-close\" /TR \"python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only\""
+  ],
+  "scheduler_removal_instructions": "Use crontab -e or schtasks /Delete manually after owner review.",
+  "stale_data_remediation_steps": [
+    "Refresh public/local data manually",
+    "Re-run audit"
+  ],
+  "benchmark_missing_remediation_steps": [
+    "Inspect benchmark source registry",
+    "Keep claim guard blocked"
+  ],
+  "simulated_ledger_mismatch_remediation_steps": [
+    "Stop promotion",
+    "Reconcile paper ledger",
+    "Record incident"
+  ]
+}

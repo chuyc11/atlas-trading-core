@@ -1,0 +1,14 @@
+{
+  "result_id": "A-SHARE-V12-PLATFORM-HEALTH",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "platform_health_report_generated": true,
+  "release_health_report_generated": true,
+  "version_lineage_report_generated": true,
+  "cli_surface_report_generated": true,
+  "owner_facing_platform_health_report_generated": true,
+  "artifact_health_passed": true,
+  "owner_readiness_state": "blocked",
+  "benchmark_relative_claim_allowed": false,
+  "active_alert_count": 5
+}

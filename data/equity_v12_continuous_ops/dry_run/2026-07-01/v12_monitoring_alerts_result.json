@@ -1,0 +1,100 @@
+{
+  "result_id": "A-SHARE-V12-MONITORING-ALERTS",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "monitoring_alerts_generated": true,
+  "alerts": [
+    {
+      "alert_id": "MISSED-SCHEDULED-RUN",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "DUPLICATE-RUN",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "STALE-LOCK",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "DATA-REFRESH-FAILED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "RESEARCH-PIPELINE-FAILED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "BENCHMARK-MISSING",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "CLAIM-GUARD-BLOCKED",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SIMULATED-EXECUTION-FAILED",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "PAPER-LEDGER-MISMATCH",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "SIMULATED-NAV-ANOMALY",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "STRATEGY-PROMOTION-BLOCKED",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "LLM-PROPOSAL-PENDING-TOO-LONG",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "RL-LAB-EVALUATION-STALE",
+      "active": true,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "ARTIFACT-BUDGET-WARNING",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "PROTECTED-PATH-MODIFICATION",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "FORBIDDEN-WORDING",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "OWNER-DASHBOARD-STALE",
+      "active": false,
+      "local_internal_only": true
+    },
+    {
+      "alert_id": "UNRESOLVED-INCIDENT",
+      "active": false,
+      "local_internal_only": true
+    }
+  ],
+  "external_notifications_sent": false,
+  "external_notification_service_connected": false
+}

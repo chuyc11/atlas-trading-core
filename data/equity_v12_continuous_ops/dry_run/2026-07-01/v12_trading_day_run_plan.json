@@ -1,0 +1,17 @@
+{
+  "plan_id": "A-SHARE-V12-TRADING-DAY-RUN-PLAN",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "trading_day_run_plan_generated": true,
+  "calendar_available": true,
+  "is_trading_day": true,
+  "safe_skip": false,
+  "safe_skip_reason": null,
+  "planned_run_time": "15:45",
+  "timezone": "Asia/Shanghai",
+  "next_eligible_run_date": "2026-07-01",
+  "missed_run_detected": false,
+  "duplicate_run_detected": false,
+  "daily_workflow_status": "passed",
+  "recommended_next_action": "run post-close simulation workflow"
+}

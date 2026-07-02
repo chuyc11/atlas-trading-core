@@ -1,0 +1,45 @@
+{
+  "result_id": "A-SHARE-V12-SIMULATED-ACCOUNT-HISTORY",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "simulated_account_history_generated": true,
+  "nav_history": [
+    {
+      "date": "2026-07-01",
+      "nav": 1000000.0
+    }
+  ],
+  "cash_history": [
+    {
+      "date": "2026-07-01",
+      "cash": 1000000.0
+    }
+  ],
+  "position_history": [
+    {
+      "date": "2026-07-01",
+      "position_count": 0
+    }
+  ],
+  "pnl_history": [
+    {
+      "date": "2026-07-01",
+      "pnl": 0.0
+    }
+  ],
+  "turnover_history": [
+    {
+      "date": "2026-07-01",
+      "turnover": 0.0
+    }
+  ],
+  "virtual_broker_fill_history": [],
+  "paper_ledger_daily_snapshot": {
+    "date": "2026-07-01",
+    "entry_count": 0
+  },
+  "commission_slippage_continuity_summary": {
+    "commission": 0.0,
+    "slippage": 0.0
+  }
+}

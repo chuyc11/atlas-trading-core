@@ -1,0 +1,21 @@
+{
+  "register_id": "A-SHARE-V12-INCIDENT-REGISTER",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "incident_register_generated": true,
+  "incident_record_schema_generated": true,
+  "incident_severity_classification_generated": true,
+  "incident_owner_action_list_generated": true,
+  "unresolved_incident_register": [
+    {
+      "incident_id": "V12-BENCHMARK-CLAIM-GUARD-BLOCKED",
+      "severity": "warning",
+      "status": "open",
+      "owner_actions": [
+        "Review benchmark coverage",
+        "Do not make benchmark-relative claims"
+      ]
+    }
+  ],
+  "resolved_incident_register": []
+}

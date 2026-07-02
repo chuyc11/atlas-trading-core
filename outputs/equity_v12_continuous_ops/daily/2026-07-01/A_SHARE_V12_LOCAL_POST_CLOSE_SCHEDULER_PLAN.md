@@ -1,0 +1,62 @@
+# A股 v1.2 本地收盘后调度计划
+
+- Research-only / simulation-only / virtual-only.
+- Not investment advice, not a real order, not an order preview, not a buy/sell signal, not live trading ready.
+- Scheduler templates are manual instructions only; no cron, Windows Task Scheduler, or daemon is silently installed.
+- Unsupported benchmark-relative and real performance claims remain blocked by the claim guard.
+
+- policy_id: A-SHARE-V12-LOCAL-POST-CLOSE-SCHEDULE-POLICY
+- target_version: v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform
+- as_of_date: 2026-07-01
+- local_schedule_policy_generated: True
+- default_run_time: 15:45
+- timezone: Asia/Shanghai
+- post_close_only: True
+- trading_calendar_aware: True
+- holiday_safe_skip_supported: True
+- calendar_unavailable_behavior: fail_closed
+- silent_cron_installation: False
+- silent_windows_task_scheduler_installation: False
+- silent_scheduler_installation: False
+- daemon_installed: False
+- manual_unlock_guidance: Inspect lock artifact, confirm no run is active, then archive stale lock before rerun.
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- plan_id: A-SHARE-V12-SCHEDULER-TEMPLATE-PLAN
+- trading_day_run_plan_generated: True
+- calendar_available: True
+- is_trading_day: True
+- safe_skip: False
+- safe_skip_reason: None
+- planned_run_time: 15:45
+- next_eligible_run_date: 2026-07-01
+- missed_run_detected: False
+- duplicate_run_detected: False
+- daily_workflow_status: passed
+- recommended_next_action: run post-close simulation workflow
+- scheduler_template_plan_generated: True
+- manual_cron_template: 45 15 * * 1-5 cd <project> && python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only
+- manual_windows_task_scheduler_template: schtasks /Create /SC WEEKLY /D MON,TUE,WED,THU,FRI /ST 15:45 /TN "trading-core-v12-post-close" /TR "python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only"
+- manual_install_instructions_only: True
+- manual_removal_instructions: Use crontab -e or schtasks /Delete manually after owner review.

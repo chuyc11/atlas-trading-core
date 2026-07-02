@@ -1,0 +1,46 @@
+{
+  "summary_id": "A-SHARE-V12-STAGE-TIMING-SUMMARY",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "stage_timing_summary_generated": true,
+  "stage_timings": [
+    {
+      "stage": "schedule_plan",
+      "status": "passed",
+      "duration_seconds": 1
+    },
+    {
+      "stage": "v11_owner_ops",
+      "status": "passed",
+      "duration_seconds": 2
+    },
+    {
+      "stage": "benchmark_claim_guard",
+      "status": "passed",
+      "duration_seconds": 3
+    },
+    {
+      "stage": "simulated_account_history",
+      "status": "passed",
+      "duration_seconds": 4
+    },
+    {
+      "stage": "incident_retry_recovery",
+      "status": "passed",
+      "duration_seconds": 5
+    },
+    {
+      "stage": "artifact_health",
+      "status": "passed",
+      "duration_seconds": 6
+    },
+    {
+      "stage": "safety_boundary",
+      "status": "passed",
+      "duration_seconds": 7
+    }
+  ],
+  "run_duration_seconds": 28,
+  "partial_failure_recording_supported": true,
+  "failure_mode": "fail_closed"
+}

@@ -1,0 +1,15 @@
+{
+  "result_id": "A-SHARE-V12-RUN-LOCK-IDEMPOTENCY",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "run_lock_and_idempotency_checked": true,
+  "idempotency_key": "a-share-v12-2026-07-01-formal",
+  "lock_artifact_path": "data/equity_v12_continuous_ops/locks/a-share-v12-2026-07-01-formal.json",
+  "duplicate_run_prevention": true,
+  "duplicate_run_detected": false,
+  "stale_lock_detection": true,
+  "stale_lock_detected": false,
+  "manual_unlock_guidance": "Do not delete blindly; verify no active run, archive stale lock, rerun with same idempotency key.",
+  "missed_run_detection": true,
+  "missed_run_detected": false
+}

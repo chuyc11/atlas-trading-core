@@ -1,0 +1,15 @@
+{
+  "plan_id": "A-SHARE-V12-SCHEDULER-TEMPLATE-PLAN",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "scheduler_template_plan_generated": true,
+  "manual_cron_template": "45 15 * * 1-5 cd <project> && python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only",
+  "manual_windows_task_scheduler_template": "schtasks /Create /SC WEEKLY /D MON,TUE,WED,THU,FRI /ST 15:45 /TN \"trading-core-v12-post-close\" /TR \"python -m trading_core.cli run-and-audit-a-share-v12-continuous-ops --as-of-date 2026-07-01 --simulation-only\"",
+  "manual_install_instructions_only": true,
+  "manual_removal_instructions": "Use crontab -e or schtasks /Delete manually after owner review.",
+  "silent_cron_installation": false,
+  "silent_windows_task_scheduler_installation": false,
+  "silent_scheduler_installation": false,
+  "daemon_installed": false,
+  "timezone": "Asia/Shanghai"
+}

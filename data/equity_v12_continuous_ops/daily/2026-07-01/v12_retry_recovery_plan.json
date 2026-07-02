@@ -1,0 +1,17 @@
+{
+  "plan_id": "A-SHARE-V12-RETRY-RECOVERY-PLAN",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "retry_recovery_plan_generated": true,
+  "retry_eligibility_classification": [
+    {
+      "incident_id": "V12-BENCHMARK-CLAIM-GUARD-BLOCKED",
+      "retry_eligible": true
+    }
+  ],
+  "no_retry_terminal_failure_classification": [],
+  "operator_override_plan_generated": true,
+  "automatic_waiver_allowed": false,
+  "recovery_verification_artifact_generated": true,
+  "recommended_next_action": "Review unresolved incidents locally; no external notification is sent."
+}

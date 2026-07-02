@@ -1,0 +1,69 @@
+{
+  "graph_id": "A-SHARE-V12-STAGE-DEPENDENCY-GRAPH",
+  "target_version": "v1.2.0-a-share-local-autonomous-ops-scheduling-and-continuous-simulation-platform",
+  "as_of_date": "2026-07-01",
+  "stage_dependency_graph_generated": true,
+  "stages": [
+    {
+      "stage": "schedule_plan",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "v11_owner_ops",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "benchmark_claim_guard",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "simulated_account_history",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "incident_retry_recovery",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "artifact_health",
+      "status": "passed",
+      "skipped_reason": null
+    },
+    {
+      "stage": "safety_boundary",
+      "status": "passed",
+      "skipped_reason": null
+    }
+  ],
+  "edges": [
+    [
+      "schedule_plan",
+      "v11_owner_ops"
+    ],
+    [
+      "v11_owner_ops",
+      "benchmark_claim_guard"
+    ],
+    [
+      "benchmark_claim_guard",
+      "simulated_account_history"
+    ],
+    [
+      "simulated_account_history",
+      "incident_retry_recovery"
+    ],
+    [
+      "incident_retry_recovery",
+      "artifact_health"
+    ],
+    [
+      "artifact_health",
+      "safety_boundary"
+    ]
+  ]
+}

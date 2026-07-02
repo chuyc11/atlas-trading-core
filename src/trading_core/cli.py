@@ -109,6 +109,8 @@ from trading_core.equity_benchmark_claim_hardening import DEFAULT_AS_OF_DATE as 
 from trading_core.equity_benchmark_claim_hardening import audit_a_share_benchmark_claim_hardening, build_a_share_benchmark_claim_hardening
 from trading_core.equity_v11_owner_ops_platform import DEFAULT_AS_OF_DATE as DEFAULT_V11_OWNER_OPS_AS_OF_DATE
 from trading_core.equity_v11_owner_ops_platform import audit_a_share_v11_owner_ops_platform, run_a_share_v11_owner_ops_platform
+from trading_core.equity_v12_continuous_ops import DEFAULT_AS_OF_DATE as DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE
+from trading_core.equity_v12_continuous_ops import audit_a_share_v12_continuous_ops, run_a_share_v12_continuous_ops
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1198,6 +1200,27 @@ def build_parser() -> argparse.ArgumentParser:
     strategy_lifecycle.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
     monitoring_pack = subparsers.add_parser("build-a-share-monitoring-remediation-pack")
     monitoring_pack.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
+    v12_plan = subparsers.add_parser("plan-a-share-local-post-close-schedule")
+    v12_plan.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_run = subparsers.add_parser("run-a-share-v12-continuous-ops")
+    v12_run.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_run.add_argument("--simulation-only", action="store_true")
+    v12_run.add_argument("--dry-run", action="store_true")
+    v12_audit = subparsers.add_parser("audit-a-share-v12-continuous-ops")
+    v12_audit.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_all = subparsers.add_parser("run-and-audit-a-share-v12-continuous-ops")
+    v12_all.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_all.add_argument("--simulation-only", action="store_true")
+    v12_scheduler = subparsers.add_parser("build-a-share-local-scheduler-plan")
+    v12_scheduler.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_runbook = subparsers.add_parser("build-a-share-operator-runbook")
+    v12_runbook.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_history = subparsers.add_parser("build-a-share-continuous-simulation-history")
+    v12_history.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_incident = subparsers.add_parser("build-a-share-incident-remediation-pack")
+    v12_incident.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
+    v12_artifact = subparsers.add_parser("build-a-share-artifact-index-and-health-report")
+    v12_artifact.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2113,6 +2136,64 @@ def _v11_owner_ops_cli_payload(result: dict) -> dict:
         "workflow_history_registered": result["workflow_history_registered"],
         "evidence_auto_accumulation_updated": result["evidence_auto_accumulation_updated"],
         "artifact_integrity_sweep_passed": result["artifact_integrity_sweep_passed"],
+        "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result["owner_readiness_state"],
+        "owner_operationally_acceptable": result["owner_operationally_acceptable"],
+        "source_readiness_score": result["source_readiness_score"],
+        "minimum_owner_readiness_score": result["minimum_owner_readiness_score"],
+        "score_gap": result["score_gap"],
+        "owner_readiness_gate_rerun": result["owner_readiness_gate_rerun"],
+        "controlled_gate_reevaluation_run": result["controlled_gate_reevaluation_run"],
+        "new_gate_score_generated": result["new_gate_score_generated"],
+        "new_gate_decision_generated": result["new_gate_decision_generated"],
+        "broker_connected": result["broker_connected"],
+        "real_account_data_read": result["real_account_data_read"],
+        "real_orders_placed": result["real_orders_placed"],
+        "real_order_preview_generated": result["real_order_preview_generated"],
+        "buy_sell_signals_generated": result["buy_sell_signals_generated"],
+        "old_run_daily_called": result["old_run_daily_called"],
+        "day2_executed": result["day2_executed"],
+        "live_trading_ready": result["live_trading_ready"],
+        "recommended_next_version": result["recommended_next_version"],
+    }
+
+
+def _v12_continuous_ops_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "local_schedule_policy_generated": result["local_schedule_policy_generated"],
+        "trading_day_run_plan_generated": result["trading_day_run_plan_generated"],
+        "scheduler_template_plan_generated": result["scheduler_template_plan_generated"],
+        "silent_scheduler_installation": result["silent_scheduler_installation"],
+        "schedule_dry_run_passed": result["schedule_dry_run_passed"],
+        "run_lock_and_idempotency_checked": result["run_lock_and_idempotency_checked"],
+        "continuous_ops_run": result["continuous_ops_run"],
+        "daily_workflow_status": result["daily_workflow_status"],
+        "stage_dependency_graph_generated": result["stage_dependency_graph_generated"],
+        "stage_timing_summary_generated": result["stage_timing_summary_generated"],
+        "retry_recovery_plan_generated": result["retry_recovery_plan_generated"],
+        "simulated_account_history_generated": result["simulated_account_history_generated"],
+        "simulated_account_continuity_passed": result["simulated_account_continuity_passed"],
+        "paper_ledger_continuity_passed": result["paper_ledger_continuity_passed"],
+        "virtual_broker_reconciliation_passed": result["virtual_broker_reconciliation_passed"],
+        "benchmark_claim_guard_continuity_generated": result["benchmark_claim_guard_continuity_generated"],
+        "benchmark_relative_claim_allowed": result["benchmark_relative_claim_allowed"],
+        "real_performance_claim_allowed": result["real_performance_claim_allowed"],
+        "live_trading_claim_allowed": result["live_trading_claim_allowed"],
+        "investment_advice_claim_allowed": result["investment_advice_claim_allowed"],
+        "operator_runbook_generated": result["operator_runbook_generated"],
+        "incident_register_generated": result["incident_register_generated"],
+        "monitoring_alerts_generated": result["monitoring_alerts_generated"],
+        "strategy_governance_continuity_generated": result["strategy_governance_continuity_generated"],
+        "llm_rl_continuous_governance_generated": result["llm_rl_continuous_governance_generated"],
+        "artifact_index_generated": result["artifact_index_generated"],
+        "artifact_health_passed": result["artifact_health_passed"],
+        "platform_health_report_generated": result["platform_health_report_generated"],
         "safety_boundary_sweep_passed": result["safety_boundary_sweep_passed"],
         "blocking_reasons": result["blocking_reasons"],
         "warnings": len(result["warnings"]),
@@ -4451,6 +4532,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-monitoring-remediation-pack":
         result = run_a_share_v11_owner_ops_platform(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
         print({"overall_passed": result["overall_passed"], "monitoring_alerts_generated": result.get("monitoring_alerts_generated"), "remediation_checklist_generated": result.get("remediation_checklist_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "plan-a-share-local-post-close-schedule":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, dry_run=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "local_schedule_policy_generated": result.get("local_schedule_policy_generated"), "trading_day_run_plan_generated": result.get("trading_day_run_plan_generated"), "scheduler_template_plan_generated": result.get("scheduler_template_plan_generated"), "silent_scheduler_installation": result.get("silent_scheduler_installation"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-a-share-v12-continuous-ops":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=args.simulation_only, dry_run=args.dry_run, paths=paths)
+        print(_v12_continuous_ops_cli_payload(result) if "local_schedule_policy_generated" in result else result)
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v12-continuous-ops":
+        result = audit_a_share_v12_continuous_ops(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "schedule": result["schedule"], "claim_guard": result["claim_guard"], "owner_readiness": result["owner_readiness"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "run-and-audit-a-share-v12-continuous-ops":
+        build_result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v12_continuous_ops(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**(_v12_continuous_ops_cli_payload(build_result) if "local_schedule_policy_generated" in build_result else build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-local-scheduler-plan":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "local_schedule_policy_generated": result.get("local_schedule_policy_generated"), "scheduler_template_plan_generated": result.get("scheduler_template_plan_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-operator-runbook":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "operator_runbook_generated": result.get("operator_runbook_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-continuous-simulation-history":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "simulated_account_history_generated": result.get("simulated_account_history_generated"), "simulated_account_continuity_passed": result.get("simulated_account_continuity_passed"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-incident-remediation-pack":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "incident_register_generated": result.get("incident_register_generated"), "retry_recovery_plan_generated": result.get("retry_recovery_plan_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-artifact-index-and-health-report":
+        result = run_a_share_v12_continuous_ops(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "artifact_index_generated": result.get("artifact_index_generated"), "artifact_health_passed": result.get("artifact_health_passed"), "platform_health_report_generated": result.get("platform_health_report_generated"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
