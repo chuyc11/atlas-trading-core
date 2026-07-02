@@ -1,5 +1,20 @@
 # Release Notes
 
+## v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening
+
+v1.8.0 adds the A-share research infrastructure layer on top of v1.7.0 strategy validation: research database registry, snapshot reproducibility, feature store, label store, PIT-aware ML dataset builder, offline ML model lab, model registry/cards, prediction registry, experiment integration, and owner ML dashboard.
+
+- adds local file-backed research database and table registries with schema, primary-key, index, hash, partition, and storage-format declarations
+- adds snapshot ids, source/build hashes, lineage pointers, schema compatibility, stale/missing/corruption checks, and owner snapshot reporting
+- adds feature store and label store registries with PIT availability, visible dates, leakage guards, horizon policy, missingness/coverage/drift/stability tracking, and owner reports
+- adds PIT-aware ML dataset builder with train/validation/test/OOS/walk-forward split manifests and no-future feature/label/benchmark validation
+- adds offline deterministic fallback model lab, training/evaluation manifests, leakage/robustness guards, model registry, model cards, and prediction registry
+- preserves model outputs as research scores only: not orders, not order previews, not buy/sell signals, not investment advice, and not live-trading ready
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, generate a new gate score/decision, fabricate datasets/features/labels/model results/predictions/OOS results, or add `real_trading_active`
+- full pytest: `1932 passed, 1 skipped`
+- recommended next version: `v1.9.0-a-share-ml-validation-model-risk-and-research-portfolio-integration-hardening`
+
 ## v1.7.0-a-share-strategy-validation-factor-research-and-sample-out-evaluation-hardening
 
 v1.7.0 adds the P1 A-share trusted strategy validation lab on top of the v1.6.0 point-in-time data, event-driven replay, market-rule, virtual-broker, cost, slippage, benchmark, ledger, and backtest trust hardening baseline.
