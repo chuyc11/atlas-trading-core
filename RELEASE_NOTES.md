@@ -1,5 +1,20 @@
 # Release Notes
 
+## v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening
+
+v1.6.0 adds the A-share trusted-research foundation for point-in-time data, event-driven replay, market-rule simulation, virtual broker consistency, benchmark source hardening, and backtest trust scoring.
+
+- adds v16 point-in-time data registry and dataset/feature/label version registry
+- adds leakage, lookahead, publication-lag, label-visibility, and survivorship-bias guard artifacts
+- adds event-driven simulation replay with no fabricated backtest results or simulated fills
+- adds A-share market rule registry covering T+1, price limits, suspensions, and lot size constraints
+- hardens virtual broker rules, transaction cost/slippage assumptions, benchmark index source attribution, paper ledger replay consistency, owner trust dashboard, and safety audit
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not add market regime, ensemble, meta-strategy, or RL expansion in this version
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, fabricate PIT visibility, fabricate backtest results, fabricate benchmark data, or claim live trading readiness
+- full pytest: `1907 passed, 1 skipped`
+- recommended next version: `v1.7.0-a-share-autonomous-simulation-ensemble-research-and-meta-strategy-expansion`
+
 ## v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion
 
 v1.5.0 adds a simulation-only A-share market regime and adaptive research layer on top of the v1.4 portfolio risk platform.
