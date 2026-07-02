@@ -1,0 +1,61 @@
+# A-Share v1.9 Model Explainability Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Model validation outputs are research evidence only and cannot be copied to a real account.
+
+- result_id: A-SHARE-V19-MODEL-EXPLAINABILITY
+- target_version: v1.9.0-a-share-ml-validation-model-risk-and-research-portfolio-integration-hardening
+- as_of_date: 2026-07-01
+- model_explainability_result_generated: True
+- model_explainability_review_generated: True
+- feature_importance_registry_generated: True
+- actual_feature_importance_generated: False
+- feature_importance_unavailable_warning: deterministic_fallback_model_without_materialized_importance
+- top_feature_contribution_summary: not_available_without_supported_model_importance
+- feature_group_contribution_summary: not_available_without_supported_model_importance
+- factor_family_contribution_summary: not_available_without_supported_model_importance
+- unstable_feature_importance_warning: True
+- high_leakage_risk_feature_warning: False
+- stale_feature_importance_warning: True
+- feature_redundancy_warning: True
+- feature_dependency_owner_summary_generated: True
+- feature_attribution_confidence: low
+- explainability_score: 42
+- explainability_limitation_statement: Feature attribution is not available for the deterministic fallback model and is not a trade rationale.
+- feature_attribution_fabricated: False
+- model_explanation_fabricated: False
+- explanation_becomes_trade_reason: False
+- explanation_generates_buy_sell_advice: False
+- owner_report_displays_limitation: True
+- model_explainability_fabricated: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

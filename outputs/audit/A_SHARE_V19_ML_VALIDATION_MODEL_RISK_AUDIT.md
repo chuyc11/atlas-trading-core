@@ -1,0 +1,65 @@
+# A-Share v1.9 ML Validation Model Risk Audit
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 0
+- release_readiness_decision: passed
+
+## Artifact Checks
+- json_count: 19
+- markdown_count: 9
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+
+## Quality Checks
+- model_validation_scorecard_generated: True
+- model_risk_review_result_generated: True
+- model_performance_validation_result_generated: True
+- prediction_quality_validation_result_generated: True
+- model_monitoring_drift_result_generated: True
+- model_robustness_validation_result_generated: True
+- model_overfitting_false_discovery_result_generated: True
+- model_explainability_result_generated: True
+- model_decision_workflow_result_generated: True
+- research_portfolio_model_integration_result_generated: True
+- candidate_strategy_model_integration_result_generated: True
+- owner_model_risk_dashboard_generated: True
+- model_validation_used_pit_dataset: True
+- model_validation_used_feature_store: True
+- model_validation_used_label_store: True
+- model_validation_used_prediction_registry: True
+- model_validation_used_oos: True
+- model_validation_used_walkforward: True
+- model_leakage_guard_passed: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- full_pytest_run: True
+
+## Forbidden Checks
+- model_validation_results_fabricated: False
+- model_risk_results_fabricated: False
+- prediction_quality_results_fabricated: False
+- model_monitoring_results_fabricated: False
+- model_explainability_fabricated: False
+- future_data_usage_detected: False
+- model_status_real_trading_active_present: False
+- predictions_are_trade_signals: False
+- research_portfolio_is_real_portfolio: False
+- research_portfolio_generates_real_allocation: False
+- model_integration_generates_real_trade: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
