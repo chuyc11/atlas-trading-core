@@ -1,5 +1,22 @@
 # Release Notes
 
+## v1.1.0-a-share-owner-ops-autonomous-simulation-platform-expansion
+
+v1.1.0 expands the A-share research-only and simulation-only platform into an owner-ops operating layer for daily review, governance, monitoring, and simulated lifecycle management.
+
+- adds v1.1 owner command center JSON and Chinese owner reports
+- integrates v1.0.1 benchmark coverage and performance claim guard into owner-facing ops artifacts
+- adds daily workflow integration, history, evidence accumulation, artifact integrity, and safety boundary sweeps
+- adds simulated account reconciliation, virtual broker lifecycle checks, paper ledger invariant checks, commission/slippage attribution, turnover, and anomaly monitoring
+- expands experiment and strategy registry governance with lineage, status transition audit, rejected/rollback registers, cooldown tracking, and promotion eligibility explanation
+- adds LLM proposal governance and RL simulated lab governance, both simulation-only and unable to create trade instructions or real orders
+- adds shadow/canary/simulated-active lifecycle governance plus simulated promotion, demotion, replacement, rejection, cooldown, and rollback workflows
+- adds local/internal monitoring alerts and remediation checklist generation
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, or claim live trading readiness
+- full pytest: `1843 passed, 1 skipped`
+- recommended next version: `v1.1.1-a-share-local-post-close-operator-scheduling-and-runbook-hardening`
+
 ## v1.0.1-a-share-benchmark-data-and-performance-claim-hardening
 
 v1.0.1 hardens A-share benchmark data attribution and performance claim safety without adding trading functionality.
