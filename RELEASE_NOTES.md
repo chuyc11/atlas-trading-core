@@ -1,5 +1,19 @@
 # Release Notes
 
+## v1.4.0-a-share-autonomous-simulation-portfolio-risk-capacity-and-allocation-expansion
+
+v1.4.0 adds a simulation-only A-share portfolio risk, capacity, allocation, rebalancing, stress testing, and guardrail layer.
+
+- adds v14 portfolio risk scorecard, exposure and concentration diagnostics, correlation/diversification diagnostics, and owner portfolio risk dashboard
+- adds simulated capacity, liquidity, turnover, transaction cost, slippage, and market-impact review artifacts with explicit simulation-only disclaimers
+- adds simulated allocation and rebalance planning with blockers, freeze/risk-off/rollback states, and no real order or order preview output
+- integrates v13 quality, robustness, overfitting, LLM, RL, shadow/canary, and lifecycle signals into multi-strategy simulated allocation review
+- adds stress scenarios, risk limit guardrails, local/internal risk alerts, artifact integrity sweep, protected path sweep, safety boundary sweep, and v14 audit
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, lower thresholds, apply waivers, install schedulers, send external notifications, or claim live trading readiness
+- full pytest: `1883 passed, 1 skipped`
+- recommended next version: `v1.5.0-a-share-autonomous-simulation-market-regime-and-adaptive-research-expansion`
+
 ## v1.3.0-a-share-autonomous-research-quality-evaluation-and-strategy-lab-expansion
 
 v1.3.0 adds A-share autonomous research quality evaluation and strategy lab quality governance while keeping the platform research-only, simulation-only, and virtual-only.
