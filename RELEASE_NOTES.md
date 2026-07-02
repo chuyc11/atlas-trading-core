@@ -1,5 +1,21 @@
 # Release Notes
 
+## v1.0.1-a-share-benchmark-data-and-performance-claim-hardening
+
+v1.0.1 hardens A-share benchmark data attribution and performance claim safety without adding trading functionality.
+
+- adds benchmark source registry and coverage matrix for CSI300, CSI500, CSI1000, cash, and equal-weight tradable-universe benchmarks
+- generates zero-return cash baseline with explicit simulation-only assumptions
+- builds equal-weight universe benchmark from local data when supported, otherwise fails safely
+- records missing CSI benchmark data without fabricating excess return, tracking error, or relative drawdown
+- adds performance claim guard blocking real performance, live trading, investment advice, and unverified benchmark-relative claims
+- generates owner-facing Chinese benchmark limitation and claim guard reports
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not execute owner-readiness gate or controlled gate reevaluation
+- does not connect broker, read real accounts, place real orders, generate order previews, or generate buy/sell signals
+- full pytest run remains deferred until next major closeout or explicit request
+- recommended next version: `v1.0.2-a-share-owner-dashboard-benchmark-integration-and-report-polish`
+
 ## v1.0.0-a-share-autonomous-simulation-platform-release
 
 v1.0.0 officially releases trading-core as an A-share autonomous research and simulation platform.
