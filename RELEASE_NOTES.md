@@ -1,5 +1,19 @@
 # Release Notes
 
+## v1.7.0-a-share-strategy-validation-factor-research-and-sample-out-evaluation-hardening
+
+v1.7.0 adds the P1 A-share trusted strategy validation lab on top of the v1.6.0 point-in-time data, event-driven replay, market-rule, virtual-broker, cost, slippage, benchmark, ledger, and backtest trust hardening baseline.
+
+- adds strategy validation request, run id, manifest, source linkage, owner summary, warning/blocker classification, and trust decision artifacts
+- adds PIT-aware train/validation/test/OOS and walk-forward sample split reports with no-future-data and reproducibility checks
+- adds factor validation, candidate ranking validation, strategy backtest validation, walk-forward/OOS evaluation, robustness/sensitivity review, statistical significance and false-discovery review, strategy admission/watch/reject lifecycle, experiment validation registry, and LLM/RL validation
+- adds owner-facing Chinese strategy validation dashboard plus local/internal monitoring alerts
+- records unsupported IC, rank IC, OOS, and statistical metrics honestly as unavailable or watch-only limitations and blocks them from trust claims
+- preserves owner-readiness as blocked at 54 / 75 / gap 21
+- does not connect broker, read real accounts, place real orders, generate order previews, generate buy/sell signals, run owner-readiness gate, generate a new gate score/decision, fabricate factor/IC/backtest/OOS/statistical results, or claim live trading readiness
+- full pytest: required before tag
+- recommended next version: `v1.8.0-a-share-research-database-feature-store-and-ml-model-lab-hardening`
+
 ## v1.6.0-a-share-point-in-time-data-event-driven-backtest-and-market-rules-hardening
 
 v1.6.0 adds the A-share trusted-research foundation for point-in-time data, event-driven replay, market-rule simulation, virtual broker consistency, benchmark source hardening, and backtest trust scoring.
