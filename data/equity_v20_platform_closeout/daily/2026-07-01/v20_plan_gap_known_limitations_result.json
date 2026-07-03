@@ -1,0 +1,114 @@
+{
+  "result_id": "A-SHARE-V20-PLAN-GAP-KNOWN-LIMITATIONS",
+  "target_version": "v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout",
+  "as_of_date": "2026-07-01",
+  "plan_gap_known_limitations_generated": true,
+  "plan_gap_register": [
+    "research-only, simulation-only, virtual-only boundary remains permanent for this release",
+    "owner-readiness remains blocked at 54 / 75 / gap 21",
+    "advanced IC/rank IC/statistical metrics can be unavailable when materialized samples are insufficient",
+    "public data source freshness, benchmark depth, and provider schema drift remain known limitations",
+    "research portfolio and simulated portfolio are not real portfolios",
+    "model outputs and predictions are not buy/sell signals"
+  ],
+  "known_limitations_register": [
+    "research-only, simulation-only, virtual-only boundary remains permanent for this release",
+    "owner-readiness remains blocked at 54 / 75 / gap 21",
+    "advanced IC/rank IC/statistical metrics can be unavailable when materialized samples are insufficient",
+    "public data source freshness, benchmark depth, and provider schema drift remain known limitations",
+    "research portfolio and simulated portfolio are not real portfolios",
+    "model outputs and predictions are not buy/sell signals"
+  ],
+  "unsupported_metrics_register": [
+    "IC",
+    "rank IC",
+    "statistical significance",
+    "provider-specific PIT fields"
+  ],
+  "unsupported_benchmark_claims_register": [
+    "live alpha claim",
+    "profit guarantee",
+    "real-world execution claim"
+  ],
+  "unsupported_real_world_trading_claims_register": [
+    "real broker connection",
+    "real brokerage account read",
+    "real orders",
+    "real order preview",
+    "real buy/sell signals",
+    "copy research output to real account",
+    "owner-readiness gate execution",
+    "controlled gate reevaluation",
+    "threshold lowering",
+    "waiver",
+    "live trading ready claim"
+  ],
+  "data_source_limitation_register": [
+    "public data availability",
+    "benchmark source depth",
+    "source timestamp gaps"
+  ],
+  "model_limitation_register": [
+    "offline deterministic fallback",
+    "limited explainability",
+    "watch-only drift diagnostics"
+  ],
+  "strategy_validation_limitation_register": [
+    "sample size",
+    "OOS materialization",
+    "false discovery risk"
+  ],
+  "portfolio_risk_limitation_register": [
+    "virtual-only accounting",
+    "simulated liquidity and cost assumptions"
+  ],
+  "owner_ops_limitation_register": [
+    "readiness blocked",
+    "no external notification",
+    "no scheduler installation"
+  ],
+  "explicit_non_goals_list": [
+    "real broker connection",
+    "real brokerage account read",
+    "real orders",
+    "real order preview",
+    "real buy/sell signals",
+    "copy research output to real account",
+    "owner-readiness gate execution",
+    "controlled gate reevaluation",
+    "threshold lowering",
+    "waiver",
+    "live trading ready claim"
+  ],
+  "next_phase_options": [
+    "v2.1 data source depth / benchmark production hardening",
+    "v2.1 ensemble/meta-strategy research-only expansion",
+    "v2.1 reporting/usability/operator UX hardening",
+    "v2.1 external data provider adapter hardening, public-data-only"
+  ],
+  "recommended_next_version": "v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

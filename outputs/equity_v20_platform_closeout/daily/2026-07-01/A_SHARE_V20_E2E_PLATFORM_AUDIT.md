@@ -1,0 +1,42 @@
+# A-Share v2.0 E2E Platform Audit
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- This closeout is evidence for a research platform only and cannot be copied to a real account.
+
+- audit_id: A-SHARE-V20-E2E-PLATFORM-AUDIT
+- target_version: v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+- as_of_date: 2026-07-01
+- e2e_platform_audit_generated: True
+- owner_facing_e2e_audit_report_generated: True
+- plan_book_capability_count: 6
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

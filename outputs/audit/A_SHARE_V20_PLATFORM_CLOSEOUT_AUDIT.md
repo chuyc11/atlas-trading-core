@@ -1,0 +1,60 @@
+# A-Share v2.0 Platform Closeout Audit
+
+- overall_passed: True
+- release_decision: released_as_research_only_simulation_platform
+- blocking_reasons: []
+- warnings_count: 0
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+
+## Artifact Checks
+- json_count: 19
+- markdown_count: 9
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v19_baseline_verified: True
+- release_lineage_registry_generated: True
+- plan_book_capability_map_generated: True
+- e2e_platform_audit_generated: True
+- safety_boundary_final_sweep_generated: True
+- data_backtest_trust_closeout_generated: True
+- strategy_validation_closeout_generated: True
+- research_db_ml_lab_closeout_generated: True
+- ml_model_risk_closeout_generated: True
+- owner_dashboard_closeout_generated: True
+- artifact_cli_repository_hygiene_generated: True
+- plan_gap_known_limitations_generated: True
+- release_candidate_result_generated: True
+- release_health_report_generated: True
+- owner_release_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- full_pytest_run: True
+- full_pytest_passed: True
+
+## Forbidden Checks
+- live_trading_ready: False
+- owner_operationally_acceptable: False
+- fabricated_release_evidence: False
+- fabricated_test_result: False
+- fabricated_audit_result: False
+- fabricated_performance_claim: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False

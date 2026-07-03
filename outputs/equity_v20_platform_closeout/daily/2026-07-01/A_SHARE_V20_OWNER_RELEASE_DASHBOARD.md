@@ -1,0 +1,59 @@
+# A 股 v2.0 Owner Release Dashboard
+
+- 结论：阶段性计划书收口通过，但仅限 research-only / simulation-only / virtual-only。
+- OWNER-READINESS: BLOCKED
+- score: 54 / threshold: 75 / gap: 21
+- owner_operationally_acceptable: false
+- live_trading_ready: false
+- not_investment_advice: true
+- not_buy_sell_signal: true
+- not_real_order: true
+- not_order_preview: true
+- recommended_next_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+
+- dashboard_id: A-SHARE-V20-OWNER-RELEASE-DASHBOARD
+- target_version: v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+- as_of_date: 2026-07-01
+- owner_dashboard_closeout_generated: True
+- owner_release_dashboard_generated: True
+- owner_daily_status_summarized: True
+- owner_command_center_summarized: True
+- owner_trust_dashboard_summarized: True
+- owner_strategy_validation_dashboard_summarized: True
+- owner_ml_dashboard_summarized: True
+- owner_model_risk_dashboard_summarized: True
+- dashboard_language: zh-CN
+- owner_readiness_state: blocked
+- owner_readiness_blocked_displayed: True
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- known_limitations_displayed: True
+- next_phase_recommendation_displayed: True
+- buy_sell_advice_output: False
+- real_portfolio_recommendation_output: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- silent_scheduler_installed: False
+- daemon_installed: False

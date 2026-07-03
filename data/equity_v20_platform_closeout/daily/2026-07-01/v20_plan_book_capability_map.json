@@ -1,0 +1,192 @@
+{
+  "map_id": "A-SHARE-V20-PLAN-BOOK-CAPABILITY-MAP",
+  "target_version": "v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout",
+  "as_of_date": "2026-07-01",
+  "plan_book_capability_map_generated": true,
+  "plan_book_capabilities": [
+    {
+      "phase": "P0",
+      "capability": "trusted_research_loop",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v0.7.x/v0.9.0/v1.0.0 evidence",
+      "limitation": "public-data and stale-source limitations remain"
+    },
+    {
+      "phase": "P1",
+      "capability": "strategy_validation_loop",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v1.3.0/v1.7.0 evidence",
+      "limitation": "IC/rank IC/significance metrics are limited or watch-only"
+    },
+    {
+      "phase": "P2",
+      "capability": "portfolio_and_risk_loop",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v1.4.0/v1.6.0 evidence",
+      "limitation": "virtual portfolio only; no real allocation"
+    },
+    {
+      "phase": "P3",
+      "capability": "ml_research_infrastructure",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v1.8.0/v1.9.0 evidence",
+      "limitation": "offline deterministic fallback and sparse materialized panel limitations"
+    },
+    {
+      "phase": "P4",
+      "capability": "llm_research_reporting_governance",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v1.3.0/v1.5.0 evidence",
+      "limitation": "LLM output is proposal/report governance only"
+    },
+    {
+      "phase": "P5",
+      "capability": "rl_autonomous_simulation_governance",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "v0.9.0/v1.5.0 evidence",
+      "limitation": "RL remains simulation-only and not an autonomous real execution layer"
+    }
+  ],
+  "capability_details": [
+    {
+      "capability": "data_ingestion",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "tradable_universe_filtering",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "feature_engineering",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "factor_scoring",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "candidate_generation",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "virtual_portfolio",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "paper_ledger",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "chinese_daily_report",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "daily_workflow_orchestration",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "benchmark_claim_guard",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "owner_command_center",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "continuous_ops",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "strategy_validation",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "pit_data",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "event_driven_replay",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "a_share_market_rule_simulation",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "feature_store_label_store",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "offline_ml_lab",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    },
+    {
+      "capability": "model_risk_validation",
+      "capability_status": "complete_or_partial_with_limitations",
+      "evidence_artifact": "historical release lineage",
+      "limitation": "not live trading ready"
+    }
+  ],
+  "lineage_entry_count": 13,
+  "owner_facing_plan_book_closeout_report_generated": true,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

@@ -1,0 +1,52 @@
+# A-Share v2.0 Safety And Limitations
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- This closeout is evidence for a research platform only and cannot be copied to a real account.
+
+- result_id: A-SHARE-V20-SAFETY-BOUNDARY-SWEEP
+- target_version: v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+- safety_boundary_sweep_passed: True
+- fabricated_release_evidence: False
+- fabricated_test_result: False
+- fabricated_audit_result: False
+- fabricated_performance_claim: False
+- model_validation_results_fabricated: False
+- model_risk_results_fabricated: False
+- prediction_quality_results_fabricated: False
+- model_monitoring_results_fabricated: False
+- model_explainability_fabricated: False
+- future_data_usage_detected: False
+- point_in_time_visibility_fabricated: False
+- benchmark_index_data_fabricated: False
+- simulated_fills_fabricated: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

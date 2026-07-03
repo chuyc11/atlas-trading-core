@@ -1,0 +1,160 @@
+{
+  "audit_id": "A-SHARE-V20-E2E-PLATFORM-AUDIT",
+  "target_version": "v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout",
+  "as_of_date": "2026-07-01",
+  "e2e_platform_audit_generated": true,
+  "pass_warning_fail_matrix": [
+    {
+      "layer": "data_refresh",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "tradable_universe",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "feature",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "factor_scoring",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "candidate_ranking",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "virtual_portfolio",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "virtual_broker",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "paper_ledger",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "benchmark",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "claim_guard",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "owner_dashboard",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "continuous_ops",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "strategy_lab",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "research_quality",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "portfolio_risk",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "market_regime",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "pit_backtest_rules",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "feature_store_ml_lab",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    },
+    {
+      "layer": "model_risk",
+      "status": "pass_with_limitations",
+      "limitation": "research-only and simulation-only boundary preserved"
+    }
+  ],
+  "dependency_graph": {
+    "data": [
+      "features",
+      "pit_backtest_rules"
+    ],
+    "features": [
+      "strategy_validation",
+      "ml_lab"
+    ],
+    "strategy_validation": [
+      "model_risk",
+      "owner_dashboard"
+    ],
+    "owner_dashboard": [
+      "release_closeout"
+    ]
+  },
+  "blocker_register": [],
+  "limitation_register": [
+    "legacy schema differences",
+    "public-data limitations",
+    "simulation-only portfolios",
+    "unsupported advanced metrics"
+  ],
+  "owner_facing_e2e_audit_report_generated": true,
+  "plan_book_capability_count": 6,
+  "source_versions_seen": [
+    "v16",
+    "v17",
+    "v18",
+    "v19",
+    "audits"
+  ],
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

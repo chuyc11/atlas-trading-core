@@ -125,6 +125,8 @@ from trading_core.equity_v18_research_db_feature_ml_lab import DEFAULT_AS_OF_DAT
 from trading_core.equity_v18_research_db_feature_ml_lab import audit_a_share_v18_research_db_feature_ml_lab, run_a_share_v18_research_db_feature_ml_lab
 from trading_core.equity_v19_ml_validation_model_risk import DEFAULT_AS_OF_DATE as DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE
 from trading_core.equity_v19_ml_validation_model_risk import audit_a_share_v19_ml_validation_model_risk, run_a_share_v19_ml_validation_model_risk
+from trading_core.equity_v20_platform_closeout import DEFAULT_AS_OF_DATE as DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE
+from trading_core.equity_v20_platform_closeout import audit_a_share_v20_platform_closeout, run_a_share_v20_platform_closeout
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1412,6 +1414,30 @@ def build_parser() -> argparse.ArgumentParser:
     v19_research_portfolio = subparsers.add_parser("build-a-share-research-portfolio-model-integration")
     v19_research_portfolio.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
     v19_research_portfolio.add_argument("--simulation-only", action="store_true")
+    v20_build = subparsers.add_parser("build-a-share-v20-platform-closeout")
+    v20_build.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_build.add_argument("--simulation-only", action="store_true")
+    v20_audit = subparsers.add_parser("audit-a-share-v20-platform-closeout")
+    v20_audit.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_all = subparsers.add_parser("build-and-audit-a-share-v20-platform-closeout")
+    v20_all.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_all.add_argument("--simulation-only", action="store_true")
+    v20_plan = subparsers.add_parser("build-a-share-v20-plan-book-capability-map")
+    v20_plan.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_plan.add_argument("--simulation-only", action="store_true")
+    v20_lineage = subparsers.add_parser("build-a-share-v20-release-lineage")
+    v20_lineage.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_safety = subparsers.add_parser("build-a-share-v20-safety-boundary-sweep")
+    v20_safety.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_health = subparsers.add_parser("build-a-share-v20-platform-health-report")
+    v20_health.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_health.add_argument("--simulation-only", action="store_true")
+    v20_dashboard = subparsers.add_parser("build-a-share-v20-owner-release-dashboard")
+    v20_dashboard.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_dashboard.add_argument("--simulation-only", action="store_true")
+    v20_limitations = subparsers.add_parser("build-a-share-v20-known-limitations-and-next-phase")
+    v20_limitations.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
+    v20_limitations.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2819,6 +2845,67 @@ def _v19_ml_validation_model_risk_cli_payload(result: dict) -> dict:
         "day2_executed": result.get("day2_executed"),
         "live_trading_ready": result.get("live_trading_ready"),
         "full_pytest_run": result.get("full_pytest_run"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v20_platform_closeout_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "v19_baseline_verified": result.get("v19_baseline_verified"),
+        "release_lineage_registry_generated": result.get("release_lineage_registry_generated"),
+        "plan_book_capability_map_generated": result.get("plan_book_capability_map_generated"),
+        "e2e_platform_audit_generated": result.get("e2e_platform_audit_generated"),
+        "safety_boundary_final_sweep_generated": result.get("safety_boundary_final_sweep_generated"),
+        "data_backtest_trust_closeout_generated": result.get("data_backtest_trust_closeout_generated"),
+        "strategy_validation_closeout_generated": result.get("strategy_validation_closeout_generated"),
+        "research_db_ml_lab_closeout_generated": result.get("research_db_ml_lab_closeout_generated"),
+        "ml_model_risk_closeout_generated": result.get("ml_model_risk_closeout_generated"),
+        "owner_dashboard_closeout_generated": result.get("owner_dashboard_closeout_generated"),
+        "artifact_cli_repository_hygiene_generated": result.get("artifact_cli_repository_hygiene_generated"),
+        "plan_gap_known_limitations_generated": result.get("plan_gap_known_limitations_generated"),
+        "release_candidate_result_generated": result.get("release_candidate_result_generated"),
+        "release_health_report_generated": result.get("release_health_report_generated"),
+        "owner_release_dashboard_generated": result.get("owner_release_dashboard_generated"),
+        "plan_book_p0_trusted_research_status": result.get("plan_book_p0_trusted_research_status"),
+        "plan_book_p1_strategy_validation_status": result.get("plan_book_p1_strategy_validation_status"),
+        "plan_book_p2_portfolio_risk_status": result.get("plan_book_p2_portfolio_risk_status"),
+        "plan_book_p3_ml_research_status": result.get("plan_book_p3_ml_research_status"),
+        "plan_book_p4_llm_governance_status": result.get("plan_book_p4_llm_governance_status"),
+        "plan_book_p5_rl_autonomous_simulation_status": result.get("plan_book_p5_rl_autonomous_simulation_status"),
+        "release_decision": result.get("release_decision"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "fabricated_release_evidence": result.get("fabricated_release_evidence"),
+        "fabricated_test_result": result.get("fabricated_test_result"),
+        "fabricated_audit_result": result.get("fabricated_audit_result"),
+        "fabricated_performance_claim": result.get("fabricated_performance_claim"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "full_pytest_run": result.get("full_pytest_run"),
+        "full_pytest_passed": result.get("full_pytest_passed"),
+        "known_limitations_count": result.get("known_limitations_count"),
         "recommended_next_version": result.get("recommended_next_version"),
     }
 
@@ -5437,6 +5524,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-research-portfolio-model-integration":
         result = run_a_share_v19_ml_validation_model_risk(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "research_portfolio_model_integration_result_generated": result.get("research_portfolio_model_integration_result_generated"), "research_portfolio_is_real_portfolio": result.get("research_portfolio_is_real_portfolio"), "model_integration_generates_real_trade": result.get("model_integration_generates_real_trade"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-platform-closeout":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v20_platform_closeout_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v20-platform-closeout":
+        result = audit_a_share_v20_platform_closeout(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v20-platform-closeout":
+        build_result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v20_platform_closeout(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v20_platform_closeout_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-plan-book-capability-map":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "plan_book_capability_map_generated": result.get("plan_book_capability_map_generated"), "plan_book_p0_trusted_research_status": result.get("plan_book_p0_trusted_research_status"), "plan_book_p5_rl_autonomous_simulation_status": result.get("plan_book_p5_rl_autonomous_simulation_status"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-release-lineage":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "release_lineage_registry_generated": result.get("release_lineage_registry_generated"), "v19_baseline_verified": result.get("v19_baseline_verified"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-safety-boundary-sweep":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "safety_boundary_final_sweep_generated": result.get("safety_boundary_final_sweep_generated"), "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"), "live_trading_ready": result.get("live_trading_ready"), "buy_sell_signals_generated": result.get("buy_sell_signals_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-platform-health-report":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "release_health_report_generated": result.get("release_health_report_generated"), "release_decision": result.get("release_decision"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-owner-release-dashboard":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_release_dashboard_generated": result.get("owner_release_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v20-known-limitations-and-next-phase":
+        result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "plan_gap_known_limitations_generated": result.get("plan_gap_known_limitations_generated"), "known_limitations_count": result.get("known_limitations_count"), "recommended_next_version": result.get("recommended_next_version"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

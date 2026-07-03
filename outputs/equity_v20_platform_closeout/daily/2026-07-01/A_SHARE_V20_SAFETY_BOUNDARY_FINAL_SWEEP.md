@@ -1,0 +1,44 @@
+# A-Share v2.0 Safety Boundary Final Sweep
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- This closeout is evidence for a research platform only and cannot be copied to a real account.
+
+- sweep_id: A-SHARE-V20-SAFETY-BOUNDARY-FINAL-SWEEP
+- target_version: v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+- as_of_date: 2026-07-01
+- safety_boundary_final_sweep_generated: True
+- safety_final_owner_summary: 研究-only / simulation-only / virtual-only；不是投资建议、不是买卖信号、不是订单预览、不是实盘准备完成。
+- safety_boundary_sweep_passed: True
+- protected_real_paths_pollution_detected: False
+- external_notification_sent: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

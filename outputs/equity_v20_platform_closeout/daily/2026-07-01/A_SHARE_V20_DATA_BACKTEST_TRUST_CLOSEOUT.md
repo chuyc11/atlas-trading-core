@@ -1,0 +1,57 @@
+# A-Share v2.0 Data Backtest Trust Closeout
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- This closeout is evidence for a research platform only and cannot be copied to a real account.
+
+- closeout_id: A-SHARE-V20-DATA-BACKTEST-TRUST-CLOSEOUT
+- target_version: v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+- as_of_date: 2026-07-01
+- data_backtest_trust_closeout_generated: True
+- v16_pit_registry_summarized: True
+- dataset_feature_label_version_registry_summarized: True
+- leakage_lookahead_survivorship_guard_summarized: True
+- event_driven_replay_result_summarized: True
+- a_share_market_rule_registry_summarized: True
+- virtual_broker_hardening_result_summarized: True
+- transaction_cost_slippage_result_summarized: True
+- benchmark_source_hardening_result_summarized: True
+- paper_ledger_replay_consistency_summarized: True
+- backtest_trust_scorecard_summarized: True
+- point_in_time_visibility_fabricated: False
+- future_data_usage_detected: False
+- lookahead_bias_guard_passed: True
+- leakage_blocker_count: 0
+- benchmark_index_data_fabricated: False
+- simulated_fills_fabricated: False
+- source_overall_passed: True
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

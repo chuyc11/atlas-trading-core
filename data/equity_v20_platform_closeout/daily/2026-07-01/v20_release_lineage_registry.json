@@ -1,0 +1,164 @@
+{
+  "registry_id": "A-SHARE-V20-RELEASE-LINEAGE-REGISTRY",
+  "target_version": "v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout",
+  "source_version": "v1.9.0-a-share-ml-validation-model-risk-and-research-portfolio-integration-hardening",
+  "as_of_date": "2026-07-01",
+  "release_lineage_registry_generated": true,
+  "v19_baseline_verified": true,
+  "lineage_entries": [
+    {
+      "version": "v0.7.x",
+      "capability": "A-share data ingestion, data quality, feature, scoring, candidates, virtual portfolio, daily research loop",
+      "tag_observed": true,
+      "release_notes_observed": false,
+      "audit_artifact_observed": true,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v0.8.x",
+      "capability": "owner readiness, owner packs, blocked-state governance, recovery, controlled reevaluation skipped-not-ready chain",
+      "tag_observed": true,
+      "release_notes_observed": false,
+      "audit_artifact_observed": true,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v0.9.0",
+      "capability": "research system release candidate and owner dashboard closeout",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.0.0",
+      "capability": "A-share simulation platform closeout",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": true,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.1.0",
+      "capability": "owner operations platform",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.2.0",
+      "capability": "continuous local simulation operations",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.3.0",
+      "capability": "research quality lab",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.4.0",
+      "capability": "portfolio risk lab",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.5.0",
+      "capability": "market regime lab",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.6.0",
+      "capability": "point-in-time data, event replay, market rules, backtest trust",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "complete",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.7.0",
+      "capability": "strategy validation and sample-out evaluation",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "partial_with_limitations",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.8.0",
+      "capability": "research database, feature store, label store, offline ML lab",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "complete",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    },
+    {
+      "version": "v1.9.0",
+      "capability": "ML validation, model risk, and research portfolio integration",
+      "tag_observed": true,
+      "release_notes_observed": true,
+      "audit_artifact_observed": false,
+      "lineage_status": "complete",
+      "limitation": "legacy releases may not share the v20 closeout schema"
+    }
+  ],
+  "missing_lineage_warnings": [
+    "v0.9.0",
+    "v1.1.0",
+    "v1.2.0",
+    "v1.3.0",
+    "v1.4.0",
+    "v1.5.0",
+    "v1.6.0",
+    "v1.7.0",
+    "v1.8.0",
+    "v1.9.0"
+  ],
+  "owner_facing_release_lineage_summary": "v0.7.x through v1.9.0 evidence was aggregated for a research-only, simulation-only v2.0.0 closeout.",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
