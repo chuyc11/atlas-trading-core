@@ -1,0 +1,65 @@
+# A-Share v2.1 Benchmark Source Depth Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Unsupported public-data fields are warnings and claim blockers, not fabricated values.
+
+- result_id: A-SHARE-V21-BENCHMARK-CLAIM-GUARD-REHARDENING
+- target_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+- as_of_date: 2026-07-01
+- benchmark_source_depth_result_generated: True
+- benchmark_reliability_score: 35
+- excess_return_enabled: False
+- tracking_error_enabled: False
+- relative_drawdown_enabled: False
+- benchmark_relative_claim_allowed: False
+- owner_facing_benchmark_reliability_report_generated: True
+- fabricated_benchmark_data: False
+- fabricated_benchmark_relative_metrics: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- benchmark_claim_guard_rehardening_result_generated: True
+- benchmark_reliability_integrated: True
+- unsupported_benchmark_relative_metrics_blocked: True
+- benchmark_relative_simulation_metrics_allowed_when_source_passes: False
+- real_performance_claim_allowed: False
+- live_trading_claim_allowed: False
+- investment_advice_claim_allowed: False
+- claim_guard_audit_generated: True
+- forbidden_benchmark_phrase_scan: passed
+- owner_facing_claim_limitation: Benchmark-relative outputs remain simulation evidence only and cannot become trading instructions.
+- simulation_result_converted_to_real_performance: False
+- dashboard_text_guarded: True
+- markdown_reports_guarded: True
+- json_result_guarded: True
+- owner_dashboard_explicit: True
+- safety_final_sweep_kept: True
+- data_quality_sla_score: 56.0

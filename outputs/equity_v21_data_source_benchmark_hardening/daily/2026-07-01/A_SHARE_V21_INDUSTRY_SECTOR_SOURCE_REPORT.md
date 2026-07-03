@@ -1,0 +1,56 @@
+# A-Share v2.1 Industry Sector Source Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Unsupported public-data fields are warnings and claim blockers, not fabricated values.
+
+- result_id: A-SHARE-V21-INDUSTRY-SECTOR-SOURCE
+- target_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+- as_of_date: 2026-07-01
+- industry_sector_source_result_generated: True
+- industry_source_coverage_validated: True
+- industry_effective_date_validated: True
+- industry_visible_as_of_available: False
+- pit_warning_when_missing: True
+- missing_industry_symbol_warning: False
+- stale_industry_classification_warning: False
+- industry_taxonomy_version: local_public_artifact_v1
+- sector_taxonomy_version: local_public_artifact_v1
+- industry_change_history_available: False
+- sector_exposure_reliability_score: 70
+- sector_concentration_limitation: True
+- owner_facing_industry_sector_data_report_generated: True
+- industry_claims_allowed: True
+- fabricated_industry_classification: False
+- classification_backfilled_silently: False
+- future_industry_membership_used: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

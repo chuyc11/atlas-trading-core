@@ -1,0 +1,110 @@
+{
+  "result_id": "A-SHARE-V21-SUSPENSION-DELISTING-ST-STATUS",
+  "target_version": "v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening",
+  "as_of_date": "2026-07-01",
+  "suspension_delisting_st_status_result_generated": true,
+  "suspension_source_registry": {
+    "source_id": "suspension",
+    "source_status": "available",
+    "file_count": 3,
+    "sample_files": [
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/system/ashare_price_status_contract.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_owner_operator_experience/daily/2026-06-26/audit_and_test_status_summary.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_suspension_delisting_st_status_result.json"
+    ],
+    "source_hash": "d8c443ff41851ee8c1445c64dec3afa790bb3ca1ee578a8086694542d7cc28e8",
+    "fabricated": false
+  },
+  "resumption_source_registry": {
+    "source_id": "resumption",
+    "source_status": "available",
+    "file_count": 3,
+    "sample_files": [
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/system/ashare_price_status_contract.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_owner_operator_experience/daily/2026-06-26/audit_and_test_status_summary.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_suspension_delisting_st_status_result.json"
+    ],
+    "source_hash": "d8c443ff41851ee8c1445c64dec3afa790bb3ca1ee578a8086694542d7cc28e8",
+    "fabricated": false
+  },
+  "delisting_source_registry": {
+    "source_id": "delisting",
+    "source_status": "available",
+    "file_count": 3,
+    "sample_files": [
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/system/ashare_price_status_contract.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_owner_operator_experience/daily/2026-06-26/audit_and_test_status_summary.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_suspension_delisting_st_status_result.json"
+    ],
+    "source_hash": "d8c443ff41851ee8c1445c64dec3afa790bb3ca1ee578a8086694542d7cc28e8",
+    "fabricated": false
+  },
+  "st_status_source_registry": {
+    "source_id": "st_status",
+    "source_status": "available",
+    "file_count": 3,
+    "sample_files": [
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/system/ashare_price_status_contract.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_owner_operator_experience/daily/2026-06-26/audit_and_test_status_summary.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_suspension_delisting_st_status_result.json"
+    ],
+    "source_hash": "d8c443ff41851ee8c1445c64dec3afa790bb3ca1ee578a8086694542d7cc28e8",
+    "fabricated": false
+  },
+  "board_classification_source_registry": {
+    "source_id": "board_classification",
+    "source_status": "available",
+    "file_count": 78,
+    "sample_files": [
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_data_quality/a_share_build_output_owner_dashboard_audit.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_data_quality/a_share_owner_dashboard_audit.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/adjusted_price_panel.parquet",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/adjusted_price_panel_manifest.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/daily_basic_panel.parquet",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/daily_basic_panel_manifest.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/daily_price_panel.parquet",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_market/daily_price_panel_manifest.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_universe/equity_master.json",
+      "C:/Users/26084/Documents/Codex/2026-06-12/new-chat/work/trading-core/data/equity_universe/equity_master.parquet"
+    ],
+    "source_hash": "216c1114f536fd673fde8b491cc5fd9b9e226c15304db4ed601b9c63c1985a40",
+    "fabricated": false
+  },
+  "suspension_date_coverage_validated": true,
+  "delisting_date_coverage_validated": true,
+  "st_effective_date_coverage_validated": true,
+  "board_specific_rule_coverage_validated": true,
+  "missing_status_warning": false,
+  "stale_status_warning": false,
+  "pit_status_warning": true,
+  "replay_rule_dependency_check": "validated_or_blocked_when_missing",
+  "virtual_broker_rule_dependency_check": "validated_or_blocked_when_missing",
+  "universe_filtering_dependency_check": "validated_or_blocked_when_missing",
+  "owner_facing_status_data_report_generated": true,
+  "rule_claims_allowed": true,
+  "fabricated_suspension_delisting_st_status": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

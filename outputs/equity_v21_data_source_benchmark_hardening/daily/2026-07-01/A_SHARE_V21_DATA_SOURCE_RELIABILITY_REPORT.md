@@ -1,0 +1,65 @@
+# A-Share v2.1 Data Source Reliability Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Unsupported public-data fields are warnings and claim blockers, not fabricated values.
+
+- registry_id: A-SHARE-V21-PUBLIC-DATA-SOURCE-ADAPTER-REGISTRY
+- target_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+- as_of_date: 2026-07-01
+- public_data_source_adapter_registry_generated: True
+- owner_facing_data_source_summary: 仅登记 public-data/local-file 数据源；未添加 broker 或 private account adapter。
+- broker_adapter_added: False
+- private_account_adapter_added: False
+- fabricated_source_availability: False
+- fabricated_data_source: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- result_id: A-SHARE-V21-DATA-QUALITY-SLA
+- data_quality_sla_result_generated: True
+- sla_framework_generated: True
+- coverage_score: 62
+- freshness_score: 60
+- completeness_score: 58
+- pit_quality_score: 48
+- benchmark_reliability_score: 35
+- feature_store_reliability_score: 64
+- label_store_reliability_score: 64
+- model_data_dependency_reliability_score: 55
+- strategy_data_dependency_reliability_score: 58
+- overall_data_quality_score: 56.0
+- data_quality_severity_classification: warning_with_claim_blocks
+- reliability_trend: history_not_available
+- data_quality_dashboard_result_generated: True
+- owner_facing_data_reliability_report_generated: True
+- data_quality_score_is_owner_readiness_score: False
+- data_quality_pass_means_live_trading_ready: False
+- unsupported_data_fabricated: False

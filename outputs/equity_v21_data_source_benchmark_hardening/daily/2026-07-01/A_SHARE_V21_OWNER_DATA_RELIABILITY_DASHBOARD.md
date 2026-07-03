@@ -1,0 +1,71 @@
+# A 股 v2.1 Owner Data Reliability Dashboard
+
+- 结论：数据源与 benchmark 可靠性已审计；不支持的数据保持 warning/not_available，并阻断相关 claim。
+- OWNER-READINESS: BLOCKED
+- score: 54 / threshold: 75 / gap: 21
+- owner_operationally_acceptable: false
+- live_trading_ready: false
+- not_investment_advice: true
+- not_buy_sell_signal: true
+- not_real_order: true
+
+- dashboard_id: A-SHARE-V21-OWNER-DATA-RELIABILITY-DASHBOARD
+- target_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+- as_of_date: 2026-07-01
+- owner_data_reliability_dashboard_generated: True
+- dashboard_language: zh-CN
+- source_availability_shown: True
+- benchmark_status_shown: True
+- constituent_status_shown: True
+- industry_sector_status_shown: True
+- corporate_action_status_shown: True
+- suspension_delisting_st_status_shown: True
+- financial_pit_status_shown: True
+- data_quality_sla_shown: True
+- critical_blockers_shown: True
+- non_critical_warnings_shown: True
+- benchmark_claim_guard_status_shown: True
+- unsupported_metrics_shown: True
+- known_data_limitations_shown: True
+- recommended_remediation_shown: True
+- owner_readiness_state: blocked
+- owner_readiness_blocked_displayed: True
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- live_trading_ready: False
+- source_reliability_summary: 仅登记 public-data/local-file 数据源；未添加 broker 或 private account adapter。
+- benchmark_reliability_score: 35
+- constituent_reliability_score: 65
+- industry_reliability_score: 70
+- adjusted_return_reliability_score: 70
+- financial_feature_coverage_score: 65
+- overall_data_quality_score: 56.0
+- benchmark_relative_claim_allowed: False
+- not_investment_advice_displayed: True
+- not_buy_sell_signal_displayed: True
+- not_real_order_displayed: True
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- silent_scheduler_installed: False
+- daemon_installed: False

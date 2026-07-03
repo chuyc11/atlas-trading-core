@@ -127,6 +127,8 @@ from trading_core.equity_v19_ml_validation_model_risk import DEFAULT_AS_OF_DATE 
 from trading_core.equity_v19_ml_validation_model_risk import audit_a_share_v19_ml_validation_model_risk, run_a_share_v19_ml_validation_model_risk
 from trading_core.equity_v20_platform_closeout import DEFAULT_AS_OF_DATE as DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE
 from trading_core.equity_v20_platform_closeout import audit_a_share_v20_platform_closeout, run_a_share_v20_platform_closeout
+from trading_core.equity_v21_data_source_benchmark_hardening import DEFAULT_AS_OF_DATE as DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE
+from trading_core.equity_v21_data_source_benchmark_hardening import audit_a_share_v21_data_source_benchmark_hardening, run_a_share_v21_data_source_benchmark_hardening
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1438,6 +1440,29 @@ def build_parser() -> argparse.ArgumentParser:
     v20_limitations = subparsers.add_parser("build-a-share-v20-known-limitations-and-next-phase")
     v20_limitations.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
     v20_limitations.add_argument("--simulation-only", action="store_true")
+    v21_build = subparsers.add_parser("build-a-share-v21-data-source-benchmark-hardening")
+    v21_build.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_build.add_argument("--simulation-only", action="store_true")
+    v21_audit = subparsers.add_parser("audit-a-share-v21-data-source-benchmark-hardening")
+    v21_audit.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_all = subparsers.add_parser("build-and-audit-a-share-v21-data-source-benchmark-hardening")
+    v21_all.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_all.add_argument("--simulation-only", action="store_true")
+    v21_source = subparsers.add_parser("build-a-share-data-source-reliability-review")
+    v21_source.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_benchmark = subparsers.add_parser("build-a-share-benchmark-source-depth-review")
+    v21_benchmark.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_constituent = subparsers.add_parser("build-a-share-index-constituent-source-review")
+    v21_constituent.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_industry = subparsers.add_parser("build-a-share-industry-sector-source-review")
+    v21_industry.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_corporate = subparsers.add_parser("build-a-share-corporate-action-status-review")
+    v21_corporate.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_financial = subparsers.add_parser("build-a-share-financial-pit-source-review")
+    v21_financial.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_dashboard = subparsers.add_parser("build-a-share-owner-data-reliability-dashboard")
+    v21_dashboard.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
+    v21_dashboard.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2906,6 +2931,65 @@ def _v20_platform_closeout_cli_payload(result: dict) -> dict:
         "full_pytest_run": result.get("full_pytest_run"),
         "full_pytest_passed": result.get("full_pytest_passed"),
         "known_limitations_count": result.get("known_limitations_count"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v21_data_source_benchmark_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "v20_baseline_verified": result.get("v20_baseline_verified"),
+        "public_data_source_adapter_registry_generated": result.get("public_data_source_adapter_registry_generated"),
+        "benchmark_source_depth_result_generated": result.get("benchmark_source_depth_result_generated"),
+        "index_constituent_source_result_generated": result.get("index_constituent_source_result_generated"),
+        "industry_sector_source_result_generated": result.get("industry_sector_source_result_generated"),
+        "corporate_action_adjusted_price_result_generated": result.get("corporate_action_adjusted_price_result_generated"),
+        "suspension_delisting_st_status_result_generated": result.get("suspension_delisting_st_status_result_generated"),
+        "financial_statement_pit_result_generated": result.get("financial_statement_pit_result_generated"),
+        "data_quality_sla_result_generated": result.get("data_quality_sla_result_generated"),
+        "benchmark_claim_guard_rehardening_result_generated": result.get("benchmark_claim_guard_rehardening_result_generated"),
+        "owner_data_reliability_dashboard_generated": result.get("owner_data_reliability_dashboard_generated"),
+        "broker_adapter_added": result.get("broker_adapter_added"),
+        "private_account_adapter_added": result.get("private_account_adapter_added"),
+        "fabricated_data_source": result.get("fabricated_data_source"),
+        "fabricated_benchmark_data": result.get("fabricated_benchmark_data"),
+        "fabricated_index_constituents": result.get("fabricated_index_constituents"),
+        "fabricated_industry_classification": result.get("fabricated_industry_classification"),
+        "fabricated_corporate_action": result.get("fabricated_corporate_action"),
+        "fabricated_suspension_delisting_st_status": result.get("fabricated_suspension_delisting_st_status"),
+        "fabricated_financial_pit_visibility": result.get("fabricated_financial_pit_visibility"),
+        "fabricated_benchmark_relative_metrics": result.get("fabricated_benchmark_relative_metrics"),
+        "benchmark_relative_claim_allowed": result.get("benchmark_relative_claim_allowed"),
+        "real_performance_claim_allowed": result.get("real_performance_claim_allowed"),
+        "live_trading_claim_allowed": result.get("live_trading_claim_allowed"),
+        "investment_advice_claim_allowed": result.get("investment_advice_claim_allowed"),
+        "data_quality_score_is_owner_readiness_score": result.get("data_quality_score_is_owner_readiness_score"),
+        "data_quality_pass_means_live_trading_ready": result.get("data_quality_pass_means_live_trading_ready"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
         "recommended_next_version": result.get("recommended_next_version"),
     }
 
@@ -5561,6 +5645,47 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-v20-known-limitations-and-next-phase":
         result = run_a_share_v20_platform_closeout(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "plan_gap_known_limitations_generated": result.get("plan_gap_known_limitations_generated"), "known_limitations_count": result.get("known_limitations_count"), "recommended_next_version": result.get("recommended_next_version"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v21-data-source-benchmark-hardening":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v21_data_source_benchmark_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v21-data-source-benchmark-hardening":
+        result = audit_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v21-data-source-benchmark-hardening":
+        build_result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v21_data_source_benchmark_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-data-source-reliability-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "public_data_source_adapter_registry_generated": result.get("public_data_source_adapter_registry_generated"), "broker_adapter_added": result.get("broker_adapter_added"), "private_account_adapter_added": result.get("private_account_adapter_added"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-benchmark-source-depth-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "benchmark_source_depth_result_generated": result.get("benchmark_source_depth_result_generated"), "fabricated_benchmark_data": result.get("fabricated_benchmark_data"), "benchmark_relative_claim_allowed": result.get("benchmark_relative_claim_allowed"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-index-constituent-source-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "index_constituent_source_result_generated": result.get("index_constituent_source_result_generated"), "fabricated_index_constituents": result.get("fabricated_index_constituents"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-industry-sector-source-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "industry_sector_source_result_generated": result.get("industry_sector_source_result_generated"), "fabricated_industry_classification": result.get("fabricated_industry_classification"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-corporate-action-status-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "corporate_action_adjusted_price_result_generated": result.get("corporate_action_adjusted_price_result_generated"), "suspension_delisting_st_status_result_generated": result.get("suspension_delisting_st_status_result_generated"), "fabricated_corporate_action": result.get("fabricated_corporate_action"), "fabricated_suspension_delisting_st_status": result.get("fabricated_suspension_delisting_st_status"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-financial-pit-source-review":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "financial_statement_pit_result_generated": result.get("financial_statement_pit_result_generated"), "fabricated_financial_pit_visibility": result.get("fabricated_financial_pit_visibility"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-data-reliability-dashboard":
+        result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_data_reliability_dashboard_generated": result.get("owner_data_reliability_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

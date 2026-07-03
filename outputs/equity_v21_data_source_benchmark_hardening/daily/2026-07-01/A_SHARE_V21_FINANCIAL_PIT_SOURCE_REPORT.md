@@ -1,0 +1,57 @@
+# A-Share v2.1 Financial PIT Source Report
+
+- research_only: true
+- simulation_only: true
+- virtual_only: true
+- not_investment_advice: true
+- not_real_order: true
+- not_order_preview: true
+- not_buy_sell_signal: true
+- not_live_trading_ready: true
+- Unsupported public-data fields are warnings and claim blockers, not fabricated values.
+
+- result_id: A-SHARE-V21-FINANCIAL-STATEMENT-PIT
+- target_version: v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+- as_of_date: 2026-07-01
+- financial_statement_pit_result_generated: True
+- report_period_field: required
+- announcement_date_field: required_for_trusted_pit
+- vendor_ingested_date_field: optional_if_available
+- strategy_visible_date_field: required_for_model_trust
+- restatement_flag_available: False
+- statement_version_field: required_when_available
+- missing_announcement_date_warning: True
+- future_financial_data_blocker: False
+- financial_feature_pit_validation: warning_without_visible_date
+- financial_label_leakage_validation: guarded
+- financial_feature_coverage_score: 65
+- financial_feature_staleness_score: 65
+- owner_facing_financial_pit_report_generated: True
+- report_period_treated_as_visible_date: False
+- future_financial_features_used: False
+- trusted_model_claims_allowed: False
+- fabricated_financial_pit_visibility: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
