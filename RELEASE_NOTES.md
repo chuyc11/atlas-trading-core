@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
+
+v2.1.0 adds post-2.0 public-data-only source depth and benchmark reliability hardening for the A-share research platform.
+
+- adds public-data-only adapter registry, benchmark source depth review, index constituent review, industry/sector review, corporate action and adjusted price review, suspension/delisting/ST status review, financial statement PIT visibility review, data quality SLA, benchmark claim guard re-hardening, and Chinese owner data reliability dashboard
+- records unsupported benchmark, constituent, corporate-action, status, and financial PIT data honestly as warnings/limitations while blocking unsupported benchmark-relative claims
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- does not add broker/private-account adapters, real account reads, real orders, order previews, buy/sell signals, owner-readiness gate execution, new gate score/decision, investment advice, or live-trading readiness
+- full pytest: `1967 passed, 1 skipped`
+- recommended next version: `v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion`
+
 ## v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
 
 v2.0.0 closes the A-share plan-book phase as a research-only, simulation-only, virtual-only platform release candidate and final closeout.
