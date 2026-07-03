@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion
+
+v2.2.0 adds a research-only ensemble, meta-strategy, strategy blending, and adaptive model selection layer for the A-share simulation platform.
+
+- adds ensemble research framework, model/factor/candidate-rank/strategy ensemble reviews, meta-strategy research review, adaptive model selection review, ensemble validation, diversity/redundancy diagnostics, research portfolio ensemble integration, monitoring alerts, and Chinese owner ensemble dashboard
+- records unsupported OOS, walk-forward, benchmark-relative, correlation, covariance, and marginal-value metrics as warning/not_available instead of fabricating results
+- preserves ensemble outputs as research scores/watch signals only: not orders, not order previews, not buy/sell signals, not investment advice, and not live-trading ready
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- full pytest: `1979 passed, 1 skipped`
+- recommended next version: `v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening`
+
 ## v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening
 
 v2.1.0 adds post-2.0 public-data-only source depth and benchmark reliability hardening for the A-share research platform.
