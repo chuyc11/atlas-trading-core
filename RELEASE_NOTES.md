@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.0.0-a-share-simulation-research-platform-release-candidate-and-full-plan-closeout
+
+v2.0.0 closes the A-share plan-book phase as a research-only, simulation-only, virtual-only platform release candidate and final closeout.
+
+- adds v2.0.0 release lineage, plan-book capability map, E2E platform audit, safety boundary final sweep, data/backtest trust closeout, strategy/model validation closeout, owner release dashboard, artifact/CLI hygiene review, known limitations register, release candidate result, and release health report
+- aggregates v0.7.x through v1.9.0 evidence without adding ensemble, meta-strategy, broker access, real account reads, real orders, order previews, buy/sell signals, or owner-readiness gate execution
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- release decision: `released_as_research_only_simulation_platform`
+- full pytest: `1955 passed, 1 skipped`
+- recommended next version: `v2.1.0-a-share-production-quality-data-source-depth-and-benchmark-hardening`
+
 ## v1.9.0-a-share-ml-validation-model-risk-and-research-portfolio-integration-hardening
 
 v1.9.0 adds the A-share ML validation and model risk governance layer on top of v1.8.0 research database, feature store, label store, PIT ML dataset, offline model lab, model cards, and prediction registry.
