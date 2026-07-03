@@ -1,0 +1,62 @@
+# A-Share v2.2 Ensemble Meta Strategy Audit
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 0
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- release_readiness_decision: passed
+
+## Artifact Checks
+- json_count: 18
+- markdown_count: 9
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v21_baseline_verified: True
+- ensemble_research_framework_generated: True
+- model_ensemble_result_generated: True
+- factor_ensemble_result_generated: True
+- candidate_rank_ensemble_result_generated: True
+- strategy_ensemble_result_generated: True
+- meta_strategy_research_result_generated: True
+- adaptive_model_selection_result_generated: True
+- ensemble_validation_result_generated: True
+- diversity_redundancy_diagnostics_generated: True
+- research_portfolio_ensemble_integration_generated: True
+- owner_ensemble_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+
+## Forbidden Checks
+- ensemble_results_fabricated: False
+- meta_strategy_results_fabricated: False
+- adaptive_model_selection_results_fabricated: False
+- ensemble_oos_results_fabricated: False
+- ensemble_walkforward_results_fabricated: False
+- ensemble_correlation_fabricated: False
+- ensemble_outputs_are_trade_signals: False
+- candidate_ensemble_generates_buy_sell_signal: False
+- strategy_ensemble_generates_real_trade: False
+- meta_strategy_generates_real_trade: False
+- adaptive_selection_changes_real_account: False
+- research_portfolio_is_real_portfolio: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False

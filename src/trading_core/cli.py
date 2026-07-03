@@ -129,6 +129,8 @@ from trading_core.equity_v20_platform_closeout import DEFAULT_AS_OF_DATE as DEFA
 from trading_core.equity_v20_platform_closeout import audit_a_share_v20_platform_closeout, run_a_share_v20_platform_closeout
 from trading_core.equity_v21_data_source_benchmark_hardening import DEFAULT_AS_OF_DATE as DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE
 from trading_core.equity_v21_data_source_benchmark_hardening import audit_a_share_v21_data_source_benchmark_hardening, run_a_share_v21_data_source_benchmark_hardening
+from trading_core.equity_v22_ensemble_meta_strategy import DEFAULT_AS_OF_DATE as DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE
+from trading_core.equity_v22_ensemble_meta_strategy import audit_a_share_v22_ensemble_meta_strategy, run_a_share_v22_ensemble_meta_strategy
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1463,6 +1465,35 @@ def build_parser() -> argparse.ArgumentParser:
     v21_dashboard = subparsers.add_parser("build-a-share-owner-data-reliability-dashboard")
     v21_dashboard.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
     v21_dashboard.add_argument("--simulation-only", action="store_true")
+    v22_build = subparsers.add_parser("build-a-share-v22-ensemble-meta-strategy")
+    v22_build.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_build.add_argument("--simulation-only", action="store_true")
+    v22_audit = subparsers.add_parser("audit-a-share-v22-ensemble-meta-strategy")
+    v22_audit.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_all = subparsers.add_parser("build-and-audit-a-share-v22-ensemble-meta-strategy")
+    v22_all.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_all.add_argument("--simulation-only", action="store_true")
+    v22_model = subparsers.add_parser("build-a-share-model-ensemble-review")
+    v22_model.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_model.add_argument("--simulation-only", action="store_true")
+    v22_factor = subparsers.add_parser("build-a-share-factor-ensemble-review")
+    v22_factor.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_factor.add_argument("--simulation-only", action="store_true")
+    v22_candidate = subparsers.add_parser("build-a-share-candidate-rank-ensemble")
+    v22_candidate.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_candidate.add_argument("--simulation-only", action="store_true")
+    v22_strategy = subparsers.add_parser("build-a-share-strategy-ensemble-review")
+    v22_strategy.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_strategy.add_argument("--simulation-only", action="store_true")
+    v22_meta = subparsers.add_parser("build-a-share-meta-strategy-research-review")
+    v22_meta.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_meta.add_argument("--simulation-only", action="store_true")
+    v22_adaptive = subparsers.add_parser("build-a-share-adaptive-model-selection-review")
+    v22_adaptive.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_adaptive.add_argument("--simulation-only", action="store_true")
+    v22_dashboard = subparsers.add_parser("build-a-share-owner-ensemble-dashboard")
+    v22_dashboard.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
+    v22_dashboard.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -2968,6 +2999,62 @@ def _v21_data_source_benchmark_cli_payload(result: dict) -> dict:
         "investment_advice_claim_allowed": result.get("investment_advice_claim_allowed"),
         "data_quality_score_is_owner_readiness_score": result.get("data_quality_score_is_owner_readiness_score"),
         "data_quality_pass_means_live_trading_ready": result.get("data_quality_pass_means_live_trading_ready"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v22_ensemble_meta_strategy_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "v21_baseline_verified": result.get("v21_baseline_verified"),
+        "ensemble_research_framework_generated": result.get("ensemble_research_framework_generated"),
+        "model_ensemble_result_generated": result.get("model_ensemble_result_generated"),
+        "factor_ensemble_result_generated": result.get("factor_ensemble_result_generated"),
+        "candidate_rank_ensemble_result_generated": result.get("candidate_rank_ensemble_result_generated"),
+        "strategy_ensemble_result_generated": result.get("strategy_ensemble_result_generated"),
+        "meta_strategy_research_result_generated": result.get("meta_strategy_research_result_generated"),
+        "adaptive_model_selection_result_generated": result.get("adaptive_model_selection_result_generated"),
+        "ensemble_validation_result_generated": result.get("ensemble_validation_result_generated"),
+        "diversity_redundancy_diagnostics_generated": result.get("diversity_redundancy_diagnostics_generated"),
+        "research_portfolio_ensemble_integration_generated": result.get("research_portfolio_ensemble_integration_generated"),
+        "owner_ensemble_dashboard_generated": result.get("owner_ensemble_dashboard_generated"),
+        "ensemble_results_fabricated": result.get("ensemble_results_fabricated"),
+        "meta_strategy_results_fabricated": result.get("meta_strategy_results_fabricated"),
+        "adaptive_model_selection_results_fabricated": result.get("adaptive_model_selection_results_fabricated"),
+        "ensemble_oos_results_fabricated": result.get("ensemble_oos_results_fabricated"),
+        "ensemble_walkforward_results_fabricated": result.get("ensemble_walkforward_results_fabricated"),
+        "ensemble_correlation_fabricated": result.get("ensemble_correlation_fabricated"),
+        "ensemble_outputs_are_trade_signals": result.get("ensemble_outputs_are_trade_signals"),
+        "candidate_ensemble_generates_buy_sell_signal": result.get("candidate_ensemble_generates_buy_sell_signal"),
+        "strategy_ensemble_generates_real_trade": result.get("strategy_ensemble_generates_real_trade"),
+        "meta_strategy_generates_real_trade": result.get("meta_strategy_generates_real_trade"),
+        "adaptive_selection_changes_real_account": result.get("adaptive_selection_changes_real_account"),
+        "research_portfolio_is_real_portfolio": result.get("research_portfolio_is_real_portfolio"),
         "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
         "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
         "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
@@ -5686,6 +5773,47 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-owner-data-reliability-dashboard":
         result = run_a_share_v21_data_source_benchmark_hardening(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "owner_data_reliability_dashboard_generated": result.get("owner_data_reliability_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v22-ensemble-meta-strategy":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v22_ensemble_meta_strategy_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v22-ensemble-meta-strategy":
+        result = audit_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v22-ensemble-meta-strategy":
+        build_result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v22_ensemble_meta_strategy_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-model-ensemble-review":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "model_ensemble_result_generated": result.get("model_ensemble_result_generated"), "ensemble_outputs_are_trade_signals": result.get("ensemble_outputs_are_trade_signals"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-factor-ensemble-review":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "factor_ensemble_result_generated": result.get("factor_ensemble_result_generated"), "ensemble_outputs_are_trade_signals": result.get("ensemble_outputs_are_trade_signals"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-candidate-rank-ensemble":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "candidate_rank_ensemble_result_generated": result.get("candidate_rank_ensemble_result_generated"), "candidate_ensemble_generates_buy_sell_signal": result.get("candidate_ensemble_generates_buy_sell_signal"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-strategy-ensemble-review":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "strategy_ensemble_result_generated": result.get("strategy_ensemble_result_generated"), "strategy_ensemble_generates_real_trade": result.get("strategy_ensemble_generates_real_trade"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-meta-strategy-research-review":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "meta_strategy_research_result_generated": result.get("meta_strategy_research_result_generated"), "meta_strategy_generates_real_trade": result.get("meta_strategy_generates_real_trade"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-adaptive-model-selection-review":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "adaptive_model_selection_result_generated": result.get("adaptive_model_selection_result_generated"), "adaptive_selection_changes_real_account": result.get("adaptive_selection_changes_real_account"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-ensemble-dashboard":
+        result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_ensemble_dashboard_generated": result.get("owner_ensemble_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

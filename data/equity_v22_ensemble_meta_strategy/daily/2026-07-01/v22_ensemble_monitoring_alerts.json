@@ -1,0 +1,105 @@
+{
+  "result_id": "A-SHARE-V22-ENSEMBLE-MONITORING-ALERTS",
+  "target_version": "v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion",
+  "as_of_date": "2026-07-01",
+  "ensemble_monitoring_alerts_generated": true,
+  "alerts": [
+    {
+      "alert_id": "ensemble_degradation_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "ensemble_drift_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "ensemble_overfitting_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "ensemble_redundancy_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "model_selection_instability_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "meta_strategy_weak_oos_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "component_dominance_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "benchmark_dependency_missing_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "data_quality_dependency_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "unsupported_metric_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    },
+    {
+      "alert_id": "ensemble_watch_alert",
+      "local_internal_artifact_only": true,
+      "not_buy_sell_signal": true
+    }
+  ],
+  "external_notification_sent": false,
+  "buy_sell_alert_generated": false,
+  "real_account_advice_generated": false,
+  "ensemble_live_trading_claimed": false,
+  "meta_strategy_live_trading_claimed": false,
+  "model_selection_market_prediction_claimed": false,
+  "ensemble_results_fabricated": false,
+  "meta_strategy_results_fabricated": false,
+  "adaptive_model_selection_results_fabricated": false,
+  "ensemble_oos_results_fabricated": false,
+  "ensemble_walkforward_results_fabricated": false,
+  "ensemble_correlation_fabricated": false,
+  "ensemble_outputs_are_trade_signals": false,
+  "candidate_ensemble_generates_buy_sell_signal": false,
+  "strategy_ensemble_generates_real_trade": false,
+  "meta_strategy_generates_real_trade": false,
+  "adaptive_selection_changes_real_account": false,
+  "research_portfolio_is_real_portfolio": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
