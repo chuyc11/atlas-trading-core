@@ -1,0 +1,59 @@
+# A 股 v2.3 Decision Journal
+
+- 边界：仅研究用途 / 仅模拟用途 / 仅虚拟用途。
+- 不构成投资建议；不是买卖信号；不是订单预览；不是实盘交易准备完成声明。
+- OWNER-READINESS: BLOCKED；score 54 / threshold 75 / gap 21；live_trading_ready=false。
+
+- journal_id: A-SHARE-V23-DECISION-JOURNAL
+- target_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- source_version: v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion
+- as_of_date: 2026-07-01
+- decision_journal_generated: True
+- decision_journal_json_generated: True
+- decision_journal_markdown_generated: True
+- allowed_journal_entry_types: 12 item(s)
+- entries: 5 item(s)
+- journal_entry_count: 5
+- journal_source_artifact_linkage_generated: True
+- journal_source_version_linkage_generated: True
+- journal_evidence_hash_generated: True
+- journal_unresolved_register: 3 item(s)
+- journal_resolved_register: 2 item(s)
+- unresolved_decision_journal_count: 3
+- resolved_decision_journal_count: 2
+- journal_generates_trade_instruction: False
+- journal_enters_orders_path: False
+- decision_journal_fabricated: False
+- report_evidence_fabricated: False
+- run_result_fabricated: False
+- audit_result_fabricated: False
+- test_result_fabricated: False
+- performance_claim_fabricated: False
+- decision_journal_generates_trade_instruction: False
+- owner_reports_generate_buy_sell_signal: False
+- owner_reports_generate_real_allocation: False
+- operator_checklist_triggers_real_action: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

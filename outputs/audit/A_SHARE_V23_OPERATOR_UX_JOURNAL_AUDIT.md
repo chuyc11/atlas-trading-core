@@ -1,0 +1,60 @@
+# A-Share v2.3 Operator UX Journal Audit
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 2
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- release_readiness_decision: passed
+- full_pytest_run: False
+- full_pytest_deferred_until: next-major-closeout-or-explicit-request
+
+## Artifact Checks
+- json_count: 16
+- markdown_count: 8
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v22_baseline_verified: True
+- decision_journal_generated: True
+- daily_research_review_generated: True
+- periodic_research_review_generated: True
+- report_artifact_index_generated: True
+- warning_blocker_explanation_generated: True
+- operator_checklist_generated: True
+- chinese_report_polish_generated: True
+- owner_status_digest_generated: True
+- owner_operator_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+
+## Forbidden Checks
+- decision_journal_fabricated: False
+- report_evidence_fabricated: False
+- run_result_fabricated: False
+- audit_result_fabricated: False
+- test_result_fabricated: False
+- performance_claim_fabricated: False
+- decision_journal_generates_trade_instruction: False
+- owner_reports_generate_buy_sell_signal: False
+- owner_reports_generate_real_allocation: False
+- operator_checklist_triggers_real_action: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False

@@ -1,0 +1,82 @@
+# A 股 v2.3 Safety And Limitations
+
+- 边界：仅研究用途 / 仅模拟用途 / 仅虚拟用途。
+- 不构成投资建议；不是买卖信号；不是订单预览；不是实盘交易准备完成声明。
+- OWNER-READINESS: BLOCKED；score 54 / threshold 75 / gap 21；live_trading_ready=false。
+
+- target_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- source_version: v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion
+- as_of_date: 2026-07-01
+- overall_passed: True
+- v22_baseline_verified: True
+- decision_journal_generated: True
+- daily_research_review_generated: True
+- periodic_research_review_generated: True
+- report_artifact_index_generated: True
+- warning_blocker_explanation_generated: True
+- operator_checklist_generated: True
+- chinese_report_polish_generated: True
+- owner_status_digest_generated: True
+- owner_operator_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- decision_journal_fabricated: False
+- report_evidence_fabricated: False
+- run_result_fabricated: False
+- audit_result_fabricated: False
+- test_result_fabricated: False
+- performance_claim_fabricated: False
+- decision_journal_generates_trade_instruction: False
+- owner_reports_generate_buy_sell_signal: False
+- owner_reports_generate_real_allocation: False
+- operator_checklist_triggers_real_action: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- full_pytest_run: False
+- targeted_pytest_required: True
+- full_pytest_deferred_until: next-major-closeout-or-explicit-request
+- blocking_reasons: 0 item(s)
+- warnings: 2 item(s)
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- recommended_next_version: v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction
+- result_id: A-SHARE-V23-UX-SAFETY-BOUNDARY-SWEEP
+- ux_safety_boundary_sweep_generated: True
+- scanned_surfaces: 9 item(s)
+- hard_boundary_wording_hits: 0 item(s)
+- hard_boundary_wording_fail_closed: False
+- polish_id: A-SHARE-V23-CHINESE-REPORT-POLISH
+- chinese_report_style_guide_generated: True
+- terminology_consistency_map: 14 key(s)
+- forbidden_chinese_wording_scan_generated: True
+- forbidden_phrases: 12 item(s)
+- allowed_phrases: 3 item(s)
+- owner_reports_include_boundary_notice: True
+- report_polish_changes_underlying_result: False
+- report_polish_fabricates_evidence: False

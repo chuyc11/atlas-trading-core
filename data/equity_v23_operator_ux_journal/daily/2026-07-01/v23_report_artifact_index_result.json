@@ -1,0 +1,221 @@
+{
+  "index_id": "A-SHARE-V23-REPORT-ARTIFACT-INDEX",
+  "target_version": "v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening",
+  "as_of_date": "2026-07-01",
+  "report_index_generated": true,
+  "artifact_index_generated": true,
+  "latest_report_pointer": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_DAILY_RESEARCH_REVIEW.md",
+  "latest_dashboard_pointer": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_OWNER_OPERATOR_DASHBOARD.md",
+  "latest_audit_pointer": "outputs/audit/A_SHARE_V23_OPERATOR_UX_JOURNAL_AUDIT.md",
+  "latest_result_pointer": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_ux_journal_result.json",
+  "prior_report_pointer": "outputs/equity_v22_ensemble_meta_strategy/daily/2026-07-01/A_SHARE_V22_OWNER_ENSEMBLE_DASHBOARD.md",
+  "report_category_taxonomy": [
+    "owner_status",
+    "data_reliability",
+    "benchmark",
+    "strategy_validation",
+    "model_risk",
+    "ensemble",
+    "portfolio_risk",
+    "safety",
+    "audit",
+    "release"
+  ],
+  "report_reading_order": [
+    "owner_status_digest",
+    "daily_research_review",
+    "decision_journal",
+    "periodic_research_review",
+    "warning_blocker_explanations",
+    "report_artifact_index",
+    "safety_and_limitations"
+  ],
+  "reports": [
+    {
+      "name": "A_SHARE_V23_DECISION_JOURNAL.md",
+      "category": "owner_status",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_DECISION_JOURNAL.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_DAILY_RESEARCH_REVIEW.md",
+      "category": "data_reliability",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_DAILY_RESEARCH_REVIEW.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_PERIODIC_RESEARCH_REVIEW.md",
+      "category": "benchmark",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_PERIODIC_RESEARCH_REVIEW.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_REPORT_ARTIFACT_INDEX.md",
+      "category": "strategy_validation",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_REPORT_ARTIFACT_INDEX.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_WARNING_BLOCKER_EXPLANATIONS.md",
+      "category": "model_risk",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_WARNING_BLOCKER_EXPLANATIONS.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_OPERATOR_CHECKLIST.md",
+      "category": "ensemble",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_OPERATOR_CHECKLIST.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_OWNER_OPERATOR_DASHBOARD.md",
+      "category": "portfolio_risk",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_OWNER_OPERATOR_DASHBOARD.md",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "A_SHARE_V23_SAFETY_AND_LIMITATIONS.md",
+      "category": "safety",
+      "path": "outputs/equity_v23_operator_ux_journal/daily/2026-07-01/A_SHARE_V23_SAFETY_AND_LIMITATIONS.md",
+      "exists": true,
+      "freshness_status": "current"
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "v23_operator_ux_request",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_ux_request.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_decision_journal_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_decision_journal_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_daily_research_review_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_daily_research_review_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_periodic_research_review_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_periodic_research_review_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_report_artifact_index_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_report_artifact_index_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_warning_blocker_explanation_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_warning_blocker_explanation_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_operator_checklist_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_checklist_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_chinese_report_polish_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_chinese_report_polish_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_owner_status_digest_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_owner_status_digest_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_ux_safety_boundary_sweep",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_ux_safety_boundary_sweep.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_owner_operator_dashboard_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_owner_operator_dashboard_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_artifact_integrity_sweep",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_artifact_integrity_sweep.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_protected_path_sweep",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_protected_path_sweep.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_safety_boundary_sweep",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_safety_boundary_sweep.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_operator_ux_journal_result",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_ux_journal_result.json",
+      "exists": true,
+      "freshness_status": "current"
+    },
+    {
+      "name": "v23_operator_ux_journal_manifest",
+      "path": "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_ux_journal_manifest.json",
+      "exists": true,
+      "freshness_status": "current"
+    }
+  ],
+  "missing_artifact_warning": [],
+  "stale_artifact_warning": [],
+  "orphan_artifact_warning": [],
+  "duplicate_artifact_warning": [],
+  "report_to_result_linkage_generated": true,
+  "result_to_audit_linkage_generated": true,
+  "audit_to_release_linkage_generated": true,
+  "files_fabricated": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

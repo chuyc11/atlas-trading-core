@@ -1,0 +1,87 @@
+{
+  "checklist_id": "A-SHARE-V23-OWNER-OPERATOR-CHECKLIST",
+  "target_version": "v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening",
+  "as_of_date": "2026-07-01",
+  "owner_operator_checklist_generated": true,
+  "checklists": {
+    "pre_run": [
+      "确认 as_of_date",
+      "确认 simulation-only",
+      "确认不连接 broker"
+    ],
+    "post_run": [
+      "查看 result/audit",
+      "查看 warning/blocker explanation",
+      "记录 unresolved journal item"
+    ],
+    "weekly_review": [
+      "检查 repeated warnings",
+      "检查 unresolved journal count"
+    ],
+    "monthly_review": [
+      "检查 20-run history availability",
+      "检查 stale report warning"
+    ],
+    "data_issue": [
+      "定位 source artifact",
+      "记录 data_limitation journal entry"
+    ],
+    "benchmark_issue": [
+      "查看 claim guard",
+      "避免相对收益承诺"
+    ],
+    "strategy_validation_issue": [
+      "只做 watch/reject/retire 研究记录"
+    ],
+    "model_risk_issue": [
+      "检查 OOS、drift、explainability limitation"
+    ],
+    "ensemble_issue": [
+      "检查 redundancy and unsupported metrics"
+    ],
+    "safety_boundary": [
+      "不要连接 broker",
+      "不要复制到真实账户",
+      "不要把候选当作交易清单"
+    ],
+    "release": [
+      "targeted tests passed",
+      "recent smoke passed",
+      "git clean before release commit"
+    ],
+    "what_not_to_do": [
+      "不要连接 broker",
+      "不要复制到真实账户",
+      "不要把候选观察当交易动作",
+      "不要把 downgrade 当交易信号",
+      "不要把 research score 当实盘信号"
+    ]
+  },
+  "local_internal_only": true,
+  "operator_checklist_triggers_real_action": false,
+  "automatic_operation_triggered": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

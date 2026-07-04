@@ -1,0 +1,69 @@
+# A 股 v2.3 Owner Operator Dashboard
+
+- 边界：仅研究用途 / 仅模拟用途 / 仅虚拟用途。
+- 不构成投资建议；不是买卖信号；不是订单预览；不是实盘交易准备完成声明。
+- OWNER-READINESS: BLOCKED；score 54 / threshold 75 / gap 21；live_trading_ready=false。
+
+- dashboard_id: A-SHARE-V23-OWNER-OPERATOR-DASHBOARD
+- target_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- as_of_date: 2026-07-01
+- language: zh-CN
+- owner_operator_dashboard_generated: True
+- decision_journal_summary_integrated: True
+- daily_review_summary_integrated: True
+- weekly_monthly_review_summary_integrated: True
+- report_index_integrated: True
+- artifact_navigation_integrated: True
+- warning_explanation_integrated: True
+- blocker_explanation_integrated: True
+- operator_checklist_integrated: True
+- owner_status_digest_integrated: True
+- report_polish_status_integrated: True
+- owner_readiness_state: blocked
+- owner_readiness_blocked_displayed: True
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- not_live_trading_ready_displayed: True
+- not_investment_advice_displayed: True
+- not_buy_sell_signal_displayed: True
+- copy_to_real_account_blocked: True
+- real_portfolio_recommendation_output: False
+- owner_ux_closeout_summary_generated: True
+- upstream_result_fabricated: False
+- upstream_limitation_hidden: False
+- decision_journal_fabricated: False
+- report_evidence_fabricated: False
+- run_result_fabricated: False
+- audit_result_fabricated: False
+- test_result_fabricated: False
+- performance_claim_fabricated: False
+- decision_journal_generates_trade_instruction: False
+- owner_reports_generate_buy_sell_signal: False
+- owner_reports_generate_real_allocation: False
+- operator_checklist_triggers_real_action: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

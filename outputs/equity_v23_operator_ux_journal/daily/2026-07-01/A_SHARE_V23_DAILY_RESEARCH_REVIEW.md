@@ -1,0 +1,68 @@
+# A 股 v2.3 Daily Research Review
+
+- 边界：仅研究用途 / 仅模拟用途 / 仅虚拟用途。
+- 不构成投资建议；不是买卖信号；不是订单预览；不是实盘交易准备完成声明。
+- OWNER-READINESS: BLOCKED；score 54 / threshold 75 / gap 21；live_trading_ready=false。
+
+- review_id: A-SHARE-V23-DAILY-RESEARCH-REVIEW
+- target_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- as_of_date: 2026-07-01
+- language: zh-CN
+- daily_research_review_generated: True
+- daily_platform_status_summary: 平台研究产物可读、可索引、可复盘；owner-readiness 仍为 blocked。
+- daily_data_reliability_summary: passed
+- daily_benchmark_claim_guard_summary: benchmark claim guard active; 不输出真实业绩或相对收益承诺。
+- daily_strategy_validation_summary: strategy ensemble watch-only; validation limitation visible.
+- daily_model_risk_summary: model risk remains watch/high-research-risk due to limited OOS evidence.
+- daily_ensemble_summary: v22 ensemble/meta-strategy result passed, used as research evidence only.
+- daily_portfolio_risk_summary: 仅研究/模拟组合风险摘要；不输出真实组合建议。
+- daily_owner_action_summary: 按阅读顺序检查 digest、daily review、journal、warning/blocker explanation。
+- daily_warning_summary: 3 item(s)
+- daily_blocker_summary: 0 item(s)
+- daily_limitation_summary: 2 item(s)
+- daily_latest_artifacts_list: 10 item(s)
+- daily_recommended_reading_order: 5 item(s)
+- not_signal_not_advice_section_generated: True
+- owner_readiness_state: blocked
+- owner_readiness_blocked_displayed: True
+- owner_operationally_acceptable: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75
+- score_gap: 21
+- warning_count: 3
+- blocker_count: 0
+- unresolved_decision_journal_count: 3
+- owner_reports_generate_buy_sell_signal: False
+- owner_reports_generate_real_allocation: False
+- decision_journal_fabricated: False
+- report_evidence_fabricated: False
+- run_result_fabricated: False
+- audit_result_fabricated: False
+- test_result_fabricated: False
+- performance_claim_fabricated: False
+- decision_journal_generates_trade_instruction: False
+- operator_checklist_triggers_real_action: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

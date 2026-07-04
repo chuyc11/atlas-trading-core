@@ -131,6 +131,8 @@ from trading_core.equity_v21_data_source_benchmark_hardening import DEFAULT_AS_O
 from trading_core.equity_v21_data_source_benchmark_hardening import audit_a_share_v21_data_source_benchmark_hardening, run_a_share_v21_data_source_benchmark_hardening
 from trading_core.equity_v22_ensemble_meta_strategy import DEFAULT_AS_OF_DATE as DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE
 from trading_core.equity_v22_ensemble_meta_strategy import audit_a_share_v22_ensemble_meta_strategy, run_a_share_v22_ensemble_meta_strategy
+from trading_core.equity_v23_operator_ux_journal import DEFAULT_AS_OF_DATE as DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE
+from trading_core.equity_v23_operator_ux_journal import audit_a_share_v23_operator_ux_journal, run_a_share_v23_operator_ux_journal
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1494,6 +1496,31 @@ def build_parser() -> argparse.ArgumentParser:
     v22_dashboard = subparsers.add_parser("build-a-share-owner-ensemble-dashboard")
     v22_dashboard.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
     v22_dashboard.add_argument("--simulation-only", action="store_true")
+    v23_build = subparsers.add_parser("build-a-share-v23-operator-ux-journal")
+    v23_build.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_build.add_argument("--simulation-only", action="store_true")
+    v23_audit = subparsers.add_parser("audit-a-share-v23-operator-ux-journal")
+    v23_audit.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_all = subparsers.add_parser("build-and-audit-a-share-v23-operator-ux-journal")
+    v23_all.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_all.add_argument("--simulation-only", action="store_true")
+    v23_journal = subparsers.add_parser("build-a-share-decision-journal")
+    v23_journal.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_journal.add_argument("--simulation-only", action="store_true")
+    v23_daily = subparsers.add_parser("build-a-share-daily-research-review")
+    v23_daily.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_daily.add_argument("--simulation-only", action="store_true")
+    v23_periodic = subparsers.add_parser("build-a-share-periodic-research-review")
+    v23_periodic.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_periodic.add_argument("--simulation-only", action="store_true")
+    v23_index = subparsers.add_parser("build-a-share-report-artifact-index")
+    v23_index.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_explanations = subparsers.add_parser("build-a-share-warning-blocker-explanations")
+    v23_explanations.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_explanations.add_argument("--simulation-only", action="store_true")
+    v23_operator_dashboard = subparsers.add_parser("build-a-share-owner-operator-dashboard")
+    v23_operator_dashboard.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
+    v23_operator_dashboard.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -3077,6 +3104,60 @@ def _v22_ensemble_meta_strategy_cli_payload(result: dict) -> dict:
         "old_run_daily_called": result.get("old_run_daily_called"),
         "day2_executed": result.get("day2_executed"),
         "live_trading_ready": result.get("live_trading_ready"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v23_operator_ux_journal_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "v22_baseline_verified": result.get("v22_baseline_verified"),
+        "decision_journal_generated": result.get("decision_journal_generated"),
+        "daily_research_review_generated": result.get("daily_research_review_generated"),
+        "periodic_research_review_generated": result.get("periodic_research_review_generated"),
+        "report_artifact_index_generated": result.get("report_artifact_index_generated"),
+        "warning_blocker_explanation_generated": result.get("warning_blocker_explanation_generated"),
+        "operator_checklist_generated": result.get("operator_checklist_generated"),
+        "chinese_report_polish_generated": result.get("chinese_report_polish_generated"),
+        "owner_status_digest_generated": result.get("owner_status_digest_generated"),
+        "owner_operator_dashboard_generated": result.get("owner_operator_dashboard_generated"),
+        "decision_journal_fabricated": result.get("decision_journal_fabricated"),
+        "report_evidence_fabricated": result.get("report_evidence_fabricated"),
+        "run_result_fabricated": result.get("run_result_fabricated"),
+        "audit_result_fabricated": result.get("audit_result_fabricated"),
+        "test_result_fabricated": result.get("test_result_fabricated"),
+        "performance_claim_fabricated": result.get("performance_claim_fabricated"),
+        "decision_journal_generates_trade_instruction": result.get("decision_journal_generates_trade_instruction"),
+        "owner_reports_generate_buy_sell_signal": result.get("owner_reports_generate_buy_sell_signal"),
+        "owner_reports_generate_real_allocation": result.get("owner_reports_generate_real_allocation"),
+        "operator_checklist_triggers_real_action": result.get("operator_checklist_triggers_real_action"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "full_pytest_run": result.get("full_pytest_run"),
+        "full_pytest_deferred_until": result.get("full_pytest_deferred_until"),
         "recommended_next_version": result.get("recommended_next_version"),
     }
 
@@ -5814,6 +5895,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-owner-ensemble-dashboard":
         result = run_a_share_v22_ensemble_meta_strategy(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "owner_ensemble_dashboard_generated": result.get("owner_ensemble_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v23-operator-ux-journal":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v23_operator_ux_journal_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v23-operator-ux-journal":
+        result = audit_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v23-operator-ux-journal":
+        build_result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v23_operator_ux_journal_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-decision-journal":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "decision_journal_generated": result.get("decision_journal_generated"), "decision_journal_generates_trade_instruction": result.get("decision_journal_generates_trade_instruction"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-daily-research-review":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "daily_research_review_generated": result.get("daily_research_review_generated"), "owner_reports_generate_buy_sell_signal": result.get("owner_reports_generate_buy_sell_signal"), "owner_reports_generate_real_allocation": result.get("owner_reports_generate_real_allocation"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-periodic-research-review":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "periodic_research_review_generated": result.get("periodic_research_review_generated"), "warnings": len(result["warnings"]), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-report-artifact-index":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=True, paths=paths)
+        print({"overall_passed": result["overall_passed"], "report_artifact_index_generated": result.get("report_artifact_index_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-warning-blocker-explanations":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "warning_blocker_explanation_generated": result.get("warning_blocker_explanation_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-operator-dashboard":
+        result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_operator_dashboard_generated": result.get("owner_operator_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(

@@ -1,0 +1,38 @@
+# A 股 v2.3 Operator Checklist
+
+- 边界：仅研究用途 / 仅模拟用途 / 仅虚拟用途。
+- 不构成投资建议；不是买卖信号；不是订单预览；不是实盘交易准备完成声明。
+- OWNER-READINESS: BLOCKED；score 54 / threshold 75 / gap 21；live_trading_ready=false。
+
+- checklist_id: A-SHARE-V23-OWNER-OPERATOR-CHECKLIST
+- target_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- as_of_date: 2026-07-01
+- owner_operator_checklist_generated: True
+- checklists: 12 key(s)
+- local_internal_only: True
+- operator_checklist_triggers_real_action: False
+- automatic_operation_triggered: False
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_investment_advice: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_live_trading_ready: True
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
