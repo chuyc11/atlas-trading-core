@@ -1,0 +1,188 @@
+{
+  "manifest_id": "A-SHARE-V24-MAINTENANCE-QUALITY-MANIFEST",
+  "target_version": "v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction",
+  "source_version": "v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-04T17:13:17.542039Z",
+  "overall_passed": true,
+  "json_count": 17,
+  "markdown_count": 8,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V24_ARTIFACT_BLOAT_REVIEW.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_ARTIFACT_BLOAT_REVIEW.md",
+      "sha256": "8ed72986990fd505540a78734a191c9e840ec33ba49934117ad5163d12fd674a",
+      "size_bytes": 737
+    },
+    {
+      "name": "md:A_SHARE_V24_ARTIFACT_CLEANUP_PLAN.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_ARTIFACT_CLEANUP_PLAN.md",
+      "sha256": "2c6ca2fa6cccd607c81f1b3e8b1e9dab0b013ffb8d3f42318c2dd2d68bc24776",
+      "size_bytes": 784
+    },
+    {
+      "name": "md:A_SHARE_V24_CLI_HYGIENE_REVIEW.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_CLI_HYGIENE_REVIEW.md",
+      "sha256": "412ff6aea6ab2837bf568ec48e8ca1bb0b4a97074e884ef225bbbcfca8bf6137",
+      "size_bytes": 621
+    },
+    {
+      "name": "md:A_SHARE_V24_OWNER_MAINTENANCE_DASHBOARD.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_OWNER_MAINTENANCE_DASHBOARD.md",
+      "sha256": "51a3d96a22b9cc2dde193a52e0114eb96cb21595baae7af2923c6b13550affe6",
+      "size_bytes": 875
+    },
+    {
+      "name": "md:A_SHARE_V24_REPORT_DEDUPLICATION_REVIEW.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_REPORT_DEDUPLICATION_REVIEW.md",
+      "sha256": "678f42c1b3630f0f73b0dae7205371ecafc450ab63e3947d5df001024c919ce7",
+      "size_bytes": 743
+    },
+    {
+      "name": "md:A_SHARE_V24_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "6b2396b7e0f067b873a03ab349895f2ddf2c9427a623c814a768983769da7249",
+      "size_bytes": 1678
+    },
+    {
+      "name": "md:A_SHARE_V24_SHARED_CONTRACT_REVIEW.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_SHARED_CONTRACT_REVIEW.md",
+      "sha256": "0bcc39c433c316f029a09f5e75c6a77e448b48343059cb2d5d544d407f14b93d",
+      "size_bytes": 636
+    },
+    {
+      "name": "md:A_SHARE_V24_TEST_AND_CODE_MAINTENANCE_REVIEW.md",
+      "path": "outputs/equity_v24_maintenance_quality/daily/2026-07-01/A_SHARE_V24_TEST_AND_CODE_MAINTENANCE_REVIEW.md",
+      "sha256": "69f9f0a38ee6dc278cf89fff770bae3fbacd6c6917bb464320b0f8d8ff38717d",
+      "size_bytes": 640
+    },
+    {
+      "name": "v24_artifact_cleanup_plan_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_artifact_cleanup_plan_result.json",
+      "sha256": "144bfc6f876d45a9f0edf1faa9500b14c3b71b45e2d0eb772a467e189e91ce24",
+      "size_bytes": 1761
+    },
+    {
+      "name": "v24_artifact_integrity_sweep",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_artifact_integrity_sweep.json",
+      "sha256": "1ae7d44ba3c9c0ffdd95361622f710c76ad67f9b5140fc452386cf7688030117",
+      "size_bytes": 6792
+    },
+    {
+      "name": "v24_artifact_inventory_bloat_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_artifact_inventory_bloat_result.json",
+      "sha256": "ab83bc8c921f9af8e1c2800d71501e25ee795b28c859e69a3ce21e3391e3ee9f",
+      "size_bytes": 15168
+    },
+    {
+      "name": "v24_audit_contract_consolidation_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_audit_contract_consolidation_result.json",
+      "sha256": "d3344a4a453c6ee5b0e69db8c89e732da189c9e1cc4bc36c6c070abd3638c0fd",
+      "size_bytes": 1507
+    },
+    {
+      "name": "v24_cli_hygiene_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_cli_hygiene_result.json",
+      "sha256": "83c71ab3a693ada7999292ba342b1ea0966886b4b5cb089b1fabd8e599f753dc",
+      "size_bytes": 2071
+    },
+    {
+      "name": "v24_code_organization_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_code_organization_result.json",
+      "sha256": "9ef1a595aeda0f2a0e1af1f2c769847d59bbe10defa992f97da768bf3823d5e3",
+      "size_bytes": 2336
+    },
+    {
+      "name": "v24_maintenance_quality_manifest",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_maintenance_quality_manifest.json",
+      "sha256": "412b5fe387991103adfabf2bb62fcc0561cc58ef2598c8eb4b717fb618d32020",
+      "size_bytes": 8529
+    },
+    {
+      "name": "v24_maintenance_quality_request",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_maintenance_quality_request.json",
+      "sha256": "d5ad2ffc3b84700eb76091c85c9de1efa9b86ba8a58c08a6ec2e04e866a63e59",
+      "size_bytes": 2191
+    },
+    {
+      "name": "v24_maintenance_quality_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_maintenance_quality_result.json",
+      "sha256": "39f76f9f6b5ea9ae3b3bf7261b76a8cf2e1a13519c8dc3ed16c32cf489d9d055",
+      "size_bytes": 3188
+    },
+    {
+      "name": "v24_maintenance_quality_scorecard",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_maintenance_quality_scorecard.json",
+      "sha256": "8673bf0e62efe5eba7cd9c56f746a1d871ac7f49f056aa6ceb9588d08529c01d",
+      "size_bytes": 1455
+    },
+    {
+      "name": "v24_maintenance_safety_boundary_sweep",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_maintenance_safety_boundary_sweep.json",
+      "sha256": "172b274ed3db6216dd13d16fdcd7c80273b2fb8a6eccf1f9ce291d65844c1a8c",
+      "size_bytes": 1700
+    },
+    {
+      "name": "v24_owner_maintenance_dashboard_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_owner_maintenance_dashboard_result.json",
+      "sha256": "2c8f06ce2b3c1aae7a08d14bea56831712d2e7b2536627ceba718089d1569a6a",
+      "size_bytes": 1465
+    },
+    {
+      "name": "v24_protected_path_sweep",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_protected_path_sweep.json",
+      "sha256": "f477ef0d624541b40335e675309bd3d698d0350daf463b2ae0c106913005f66c",
+      "size_bytes": 1206
+    },
+    {
+      "name": "v24_report_deduplication_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_report_deduplication_result.json",
+      "sha256": "d382c77cad955775299251fcf57f0067615ed10ab1c2968dbf360eabd03a36ee",
+      "size_bytes": 2009
+    },
+    {
+      "name": "v24_safety_boundary_sweep",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_safety_boundary_sweep.json",
+      "sha256": "964d229a7c45aaf1baef68caf9b8c0acfda08118c8515aee893ad401006e7a15",
+      "size_bytes": 1157
+    },
+    {
+      "name": "v24_shared_result_contract_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_shared_result_contract_result.json",
+      "sha256": "baa2a9d22f812fe5ec58a8a323096b663863cc1c5488a899db9d66d00005cbfe",
+      "size_bytes": 9450
+    },
+    {
+      "name": "v24_test_maintenance_result",
+      "path": "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_test_maintenance_result.json",
+      "sha256": "4ea974a5fb7e887693bb18f44b56a1a976dc2609d59ccbf151fc77f92d11923d",
+      "size_bytes": 2163
+    }
+  ],
+  "warnings": [],
+  "blocking_reasons": [],
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

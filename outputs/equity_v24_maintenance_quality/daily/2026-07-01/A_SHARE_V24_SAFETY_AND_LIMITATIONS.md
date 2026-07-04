@@ -1,0 +1,43 @@
+# A-Share v2.4 Safety and Limitations
+
+- target_version: v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction
+- source_version: v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+- as_of_date: 2026-07-01
+- overall_passed: True
+- blocking_reasons: []
+- warnings: ['duplicate_markdown_hashes_detected', 'cleanup_plan_contains_candidates_but_no_actions_executed']
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- live_trading_ready: False
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- cleanup_plan_dry_run_only: True
+
+## Summary
+- overall_passed: True
+- artifact_inventory_bloat_result_generated: True
+- report_deduplication_result_generated: True
+- cli_hygiene_result_generated: True
+- shared_result_contract_result_generated: True
+- audit_contract_consolidation_result_generated: True
+- test_maintenance_result_generated: True
+- code_organization_result_generated: True
+- artifact_cleanup_plan_result_generated: True
+- maintenance_quality_scorecard_generated: True
+- owner_maintenance_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- maintenance_quality_score_is_owner_readiness_score: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- source_readiness_score: 54
+- minimum_owner_readiness_score: 75

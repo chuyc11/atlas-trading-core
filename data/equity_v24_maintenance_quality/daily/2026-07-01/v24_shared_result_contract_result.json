@@ -1,0 +1,258 @@
+{
+  "result_id": "A-SHARE-V24-SHARED-RESULT-CONTRACT",
+  "target_version": "v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction",
+  "shared_result_contract_result_generated": true,
+  "common_safety_fields_registry": [
+    "as_of_date",
+    "blocking_reasons",
+    "broker_connected",
+    "buy_sell_signals_generated",
+    "controlled_gate_reevaluation_run",
+    "daemon_installed",
+    "day2_executed",
+    "live_trading_ready",
+    "new_gate_decision_generated",
+    "new_gate_score_generated",
+    "not_buy_sell_signal",
+    "not_investment_advice",
+    "not_live_trading_ready",
+    "not_order_preview",
+    "not_real_order",
+    "old_run_daily_called",
+    "overall_passed",
+    "owner_readiness_gate_rerun",
+    "real_account_data_read",
+    "real_order_preview_generated",
+    "real_orders_placed",
+    "research_only",
+    "silent_scheduler_installed",
+    "simulation_only",
+    "source_version",
+    "target_version",
+    "threshold_lowered",
+    "virtual_only",
+    "waiver_applied",
+    "warnings"
+  ],
+  "result_files_sampled": 46,
+  "missing_common_fields_by_file": {
+    "data/equity_v20_platform_closeout/daily/2026-07-01/v20_artifact_cli_repository_hygiene_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v20_platform_closeout/daily/2026-07-01/v20_e2e_platform_audit_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v20_platform_closeout/daily/2026-07-01/v20_plan_gap_known_limitations_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v20_platform_closeout/daily/2026-07-01/v20_release_candidate_result.json": [
+      "overall_passed",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_benchmark_claim_guard_rehardening_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_benchmark_source_depth_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_corporate_action_adjusted_price_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_data_quality_sla_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_financial_statement_pit_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_index_constituent_source_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_industry_sector_source_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_owner_data_reliability_dashboard_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v21_data_source_benchmark_hardening/daily/2026-07-01/v21_suspension_delisting_st_status_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_adaptive_model_selection_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_candidate_rank_ensemble_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_ensemble_research_framework_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_ensemble_validation_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_factor_ensemble_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_meta_strategy_research_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_model_ensemble_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_owner_ensemble_dashboard_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_research_portfolio_ensemble_integration_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v22_ensemble_meta_strategy/daily/2026-07-01/v22_strategy_ensemble_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_chinese_report_polish_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_daily_research_review_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_decision_journal_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_operator_checklist_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_owner_operator_dashboard_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_owner_status_digest_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_periodic_research_review_result.json": [
+      "overall_passed",
+      "blocking_reasons"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_report_artifact_index_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v23_operator_ux_journal/daily/2026-07-01/v23_warning_blocker_explanation_result.json": [
+      "overall_passed",
+      "blocking_reasons",
+      "warnings"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_artifact_cleanup_plan_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_artifact_inventory_bloat_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_audit_contract_consolidation_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_cli_hygiene_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_code_organization_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_owner_maintenance_dashboard_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_report_deduplication_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_shared_result_contract_result.json": [
+      "overall_passed"
+    ],
+    "data/equity_v24_maintenance_quality/daily/2026-07-01/v24_test_maintenance_result.json": [
+      "overall_passed"
+    ]
+  },
+  "inconsistent_field_naming": [],
+  "schema_reuse_recommendation": "Extract shared safety/result contract helpers in a later refactor without rewriting historical JSON.",
+  "historical_result_json_rewritten": false,
+  "historical_fields_deleted": false,
+  "audit_severity_lowered": false,
+  "blocker_converted_to_warning": false,
+  "auto_waiver_applied": false,
+  "warnings": [],
+  "blocking_reasons": [],
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

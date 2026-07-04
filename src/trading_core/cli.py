@@ -133,6 +133,8 @@ from trading_core.equity_v22_ensemble_meta_strategy import DEFAULT_AS_OF_DATE as
 from trading_core.equity_v22_ensemble_meta_strategy import audit_a_share_v22_ensemble_meta_strategy, run_a_share_v22_ensemble_meta_strategy
 from trading_core.equity_v23_operator_ux_journal import DEFAULT_AS_OF_DATE as DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE
 from trading_core.equity_v23_operator_ux_journal import audit_a_share_v23_operator_ux_journal, run_a_share_v23_operator_ux_journal
+from trading_core.equity_v24_maintenance_quality import DEFAULT_AS_OF_DATE as DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE
+from trading_core.equity_v24_maintenance_quality import audit_a_share_v24_maintenance_quality, run_a_share_v24_maintenance_quality
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1521,6 +1523,32 @@ def build_parser() -> argparse.ArgumentParser:
     v23_operator_dashboard = subparsers.add_parser("build-a-share-owner-operator-dashboard")
     v23_operator_dashboard.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
     v23_operator_dashboard.add_argument("--simulation-only", action="store_true")
+    v24_build = subparsers.add_parser("build-a-share-v24-maintenance-quality")
+    v24_build.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_build.add_argument("--simulation-only", action="store_true")
+    v24_audit = subparsers.add_parser("audit-a-share-v24-maintenance-quality")
+    v24_audit.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_all = subparsers.add_parser("build-and-audit-a-share-v24-maintenance-quality")
+    v24_all.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_all.add_argument("--simulation-only", action="store_true")
+    v24_artifact = subparsers.add_parser("build-a-share-artifact-bloat-review")
+    v24_artifact.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_artifact.add_argument("--simulation-only", action="store_true")
+    v24_dedup = subparsers.add_parser("build-a-share-report-deduplication-review")
+    v24_dedup.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_dedup.add_argument("--simulation-only", action="store_true")
+    v24_cli = subparsers.add_parser("build-a-share-cli-hygiene-review")
+    v24_cli.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_cli.add_argument("--simulation-only", action="store_true")
+    v24_contract = subparsers.add_parser("build-a-share-shared-result-contract-review")
+    v24_contract.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_contract.add_argument("--simulation-only", action="store_true")
+    v24_test = subparsers.add_parser("build-a-share-test-maintenance-review")
+    v24_test.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_test.add_argument("--simulation-only", action="store_true")
+    v24_dashboard = subparsers.add_parser("build-a-share-owner-maintenance-dashboard")
+    v24_dashboard.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
+    v24_dashboard.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -3157,6 +3185,69 @@ def _v23_operator_ux_journal_cli_payload(result: dict) -> dict:
         "day2_executed": result.get("day2_executed"),
         "live_trading_ready": result.get("live_trading_ready"),
         "full_pytest_run": result.get("full_pytest_run"),
+        "full_pytest_deferred_until": result.get("full_pytest_deferred_until"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+
+
+def _v24_maintenance_quality_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "v23_baseline_verified": result.get("v23_baseline_verified"),
+        "artifact_inventory_bloat_result_generated": result.get("artifact_inventory_bloat_result_generated"),
+        "report_deduplication_result_generated": result.get("report_deduplication_result_generated"),
+        "cli_hygiene_result_generated": result.get("cli_hygiene_result_generated"),
+        "shared_result_contract_result_generated": result.get("shared_result_contract_result_generated"),
+        "audit_contract_consolidation_result_generated": result.get("audit_contract_consolidation_result_generated"),
+        "test_maintenance_result_generated": result.get("test_maintenance_result_generated"),
+        "code_organization_result_generated": result.get("code_organization_result_generated"),
+        "artifact_cleanup_plan_result_generated": result.get("artifact_cleanup_plan_result_generated"),
+        "maintenance_quality_scorecard_generated": result.get("maintenance_quality_scorecard_generated"),
+        "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"),
+        "artifact_inventory_fabricated": result.get("artifact_inventory_fabricated"),
+        "cleanup_result_fabricated": result.get("cleanup_result_fabricated"),
+        "test_result_fabricated": result.get("test_result_fabricated"),
+        "audit_result_fabricated": result.get("audit_result_fabricated"),
+        "performance_claim_fabricated": result.get("performance_claim_fabricated"),
+        "historical_evidence_deleted": result.get("historical_evidence_deleted"),
+        "audit_evidence_deleted": result.get("audit_evidence_deleted"),
+        "release_evidence_deleted": result.get("release_evidence_deleted"),
+        "required_artifacts_deleted": result.get("required_artifacts_deleted"),
+        "cleanup_plan_dry_run_only": result.get("cleanup_plan_dry_run_only"),
+        "cli_broker_command_added": result.get("cli_broker_command_added"),
+        "cli_live_trading_command_added": result.get("cli_live_trading_command_added"),
+        "cli_order_command_added": result.get("cli_order_command_added"),
+        "cli_owner_gate_command_added": result.get("cli_owner_gate_command_added"),
+        "old_run_daily_present": result.get("old_run_daily_present"),
+        "maintenance_quality_score_is_owner_readiness_score": result.get("maintenance_quality_score_is_owner_readiness_score"),
+        "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "source_readiness_score": result.get("source_readiness_score"),
+        "minimum_owner_readiness_score": result.get("minimum_owner_readiness_score"),
+        "score_gap": result.get("score_gap"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "controlled_gate_reevaluation_run": result.get("controlled_gate_reevaluation_run"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "old_run_daily_called": result.get("old_run_daily_called"),
+        "day2_executed": result.get("day2_executed"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "full_pytest_run": result.get("full_pytest_run"),
+        "targeted_pytest_required": result.get("targeted_pytest_required"),
         "full_pytest_deferred_until": result.get("full_pytest_deferred_until"),
         "recommended_next_version": result.get("recommended_next_version"),
     }
@@ -5932,6 +6023,43 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-owner-operator-dashboard":
         result = run_a_share_v23_operator_ux_journal(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "owner_operator_dashboard_generated": result.get("owner_operator_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v24-maintenance-quality":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v24_maintenance_quality_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v24-maintenance-quality":
+        result = audit_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v24-maintenance-quality":
+        build_result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v24_maintenance_quality_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if args.command == "build-a-share-artifact-bloat-review":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "artifact_inventory_bloat_result_generated": result.get("artifact_inventory_bloat_result_generated"), "artifact_inventory_fabricated": result.get("artifact_inventory_fabricated"), "required_artifacts_deleted": result.get("required_artifacts_deleted"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-report-deduplication-review":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "report_deduplication_result_generated": result.get("report_deduplication_result_generated"), "historical_evidence_deleted": result.get("historical_evidence_deleted"), "release_evidence_deleted": result.get("release_evidence_deleted"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-cli-hygiene-review":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "cli_hygiene_result_generated": result.get("cli_hygiene_result_generated"), "cli_broker_command_added": result.get("cli_broker_command_added"), "cli_live_trading_command_added": result.get("cli_live_trading_command_added"), "cli_order_command_added": result.get("cli_order_command_added"), "cli_owner_gate_command_added": result.get("cli_owner_gate_command_added"), "old_run_daily_present": result.get("old_run_daily_present"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-shared-result-contract-review":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "shared_result_contract_result_generated": result.get("shared_result_contract_result_generated"), "audit_contract_consolidation_result_generated": result.get("audit_contract_consolidation_result_generated"), "new_gate_score_generated": result.get("new_gate_score_generated"), "new_gate_decision_generated": result.get("new_gate_decision_generated"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-test-maintenance-review":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "test_maintenance_result_generated": result.get("test_maintenance_result_generated"), "code_organization_result_generated": result.get("code_organization_result_generated"), "test_result_fabricated": result.get("test_result_fabricated"), "full_pytest_run": result.get("full_pytest_run"), "targeted_pytest_required": result.get("targeted_pytest_required"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-owner-maintenance-dashboard":
+        result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
