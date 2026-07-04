@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening
+
+v2.8.0 adds autonomous research experiment governance, LLM proposal governance, RL policy governance, parameter experiment governance, experiment evaluation scorecard, research queue, and owner autonomous research dashboard artifacts.
+
+- keeps LLM/RL/parameter outputs as research hypotheses and simulation-only evidence
+- explicitly blocks trade instructions, real account control, active strategy mutation, live deployment decisions, scheduler installation, and fabricated experiment/statistical claims
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest and recent smoke passed; full pytest remains deferred by v2.8 policy
+- recommended next version: `v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep`
+
 ## v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening
 
 v2.7.0 adds simulated strategy lifecycle, virtual-only canary governance, transition evidence, simulated active strategy registry, lifecycle monitoring alerts, and owner lifecycle dashboard artifacts.
