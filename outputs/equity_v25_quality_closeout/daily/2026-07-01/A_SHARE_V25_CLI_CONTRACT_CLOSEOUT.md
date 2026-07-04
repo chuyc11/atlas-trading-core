@@ -1,0 +1,41 @@
+# A Share V25 Cli Contract Closeout
+
+- target_version: v2.5.0-a-share-simulation-research-quality-closeout-and-full-regression
+- source_version: v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: True
+- full_pytest_passed: True
+- live_trading_ready: False
+
+## Generated Checks
+- artifact_generated: True
+- full_regression_evidence_generated: True
+- artifact_report_journal_closeout_generated: True
+- safety_regression_sweep_generated: True
+- cli_contract_closeout_generated: True
+- owner_quality_dashboard_generated: True
+- full_pytest_run: True
+- full_pytest_passed: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False

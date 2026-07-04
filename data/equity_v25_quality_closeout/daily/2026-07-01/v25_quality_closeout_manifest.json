@@ -1,0 +1,166 @@
+{
+  "manifest_id": "V25-QUALITY-CLOSEOUT-MANIFEST",
+  "target_version": "v2.5.0-a-share-simulation-research-quality-closeout-and-full-regression",
+  "source_version": "v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-04T17:33:16.653046Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V25_ARTIFACT_REPORT_JOURNAL_CLOSEOUT.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_ARTIFACT_REPORT_JOURNAL_CLOSEOUT.md",
+      "sha256": "4e8a035d38c6a92c6f903950f483dd753b864f3dbb0f0868e8854b8ce13e8cc1",
+      "size_bytes": 1399
+    },
+    {
+      "name": "md:A_SHARE_V25_CLI_CONTRACT_CLOSEOUT.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_CLI_CONTRACT_CLOSEOUT.md",
+      "sha256": "9ec6b0aeed2451826edf5fd3ecf2ec5759ef7a34dd271a6e3b6ffc4d497fe64d",
+      "size_bytes": 1388
+    },
+    {
+      "name": "md:A_SHARE_V25_FULL_REGRESSION_REPORT.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_FULL_REGRESSION_REPORT.md",
+      "sha256": "7e0619c3eef78ff9bf3b3310d146c0512174e47c11adf847347b6cf3a144cc0e",
+      "size_bytes": 1389
+    },
+    {
+      "name": "md:A_SHARE_V25_OWNER_QUALITY_DASHBOARD.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_OWNER_QUALITY_DASHBOARD.md",
+      "sha256": "395a9899fddb15f648aa595a7c5f0341c04e586d7615aa4594a9c8c63f686d07",
+      "size_bytes": 1390
+    },
+    {
+      "name": "md:A_SHARE_V25_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "8bbe248a17e592e09e294ed9c0d87959177f62db34b2c757012ad08ee64f6b49",
+      "size_bytes": 1389
+    },
+    {
+      "name": "md:A_SHARE_V25_SAFETY_REGRESSION_SWEEP.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_SAFETY_REGRESSION_SWEEP.md",
+      "sha256": "d08fff305d5f43d16bb02f316e0e71127880a18c02bb8efd65a56e47ec5bec6c",
+      "size_bytes": 1390
+    },
+    {
+      "name": "md:A_SHARE_V25_V23_V24_CARRY_FORWARD_CLOSEOUT.md",
+      "path": "outputs/equity_v25_quality_closeout/daily/2026-07-01/A_SHARE_V25_V23_V24_CARRY_FORWARD_CLOSEOUT.md",
+      "sha256": "2b744b7032b473d387cf579177e31d7cfdaafd6d1356626cf75adf5ac17e27af",
+      "size_bytes": 1397
+    },
+    {
+      "name": "v25_artifact_integrity_sweep",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_artifact_integrity_sweep.json",
+      "sha256": "23d6013a1f7b519c0e75dfd029f49f920ed6411ec7a6146ec71d9944a9f8c50c",
+      "size_bytes": 1928
+    },
+    {
+      "name": "v25_artifact_report_journal_closeout",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_artifact_report_journal_closeout.json",
+      "sha256": "21e576e16f8b46baf2b61d33a867a290a4a0e9d340bc54ae2b35527453f65939",
+      "size_bytes": 2330
+    },
+    {
+      "name": "v25_cli_contract_closeout",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_cli_contract_closeout.json",
+      "sha256": "df633814bce902c8c416c8f4087f50fbc19e78ccb3de27447a8bc3ff220bb4e1",
+      "size_bytes": 2308
+    },
+    {
+      "name": "v25_full_regression_evidence",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_full_regression_evidence.json",
+      "sha256": "c0f5461a73320bf594ea58650a431f444d33cd4d891b0d3a47dd389f9a9d46dd",
+      "size_bytes": 2497
+    },
+    {
+      "name": "v25_owner_quality_dashboard_result",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_owner_quality_dashboard_result.json",
+      "sha256": "888db21fc1d6a5aaed479ce9e84ea779e2fe1b510356ee1f568c32207ab46256",
+      "size_bytes": 2326
+    },
+    {
+      "name": "v25_protected_path_sweep",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_protected_path_sweep.json",
+      "sha256": "4c93b945b9fbd837c2447e57e77f0cde9daa89795a4fe135e6316ade63607bfc",
+      "size_bytes": 1916
+    },
+    {
+      "name": "v25_quality_closeout_request",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_quality_closeout_request.json",
+      "sha256": "ed26a87fb4927dc9f3f1b45641b2487677fbc493fe978bff6f5285bd6cc10514",
+      "size_bytes": 2314
+    },
+    {
+      "name": "v25_quality_closeout_result",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_quality_closeout_result.json",
+      "sha256": "bf8f5ebf3c17e167f44a169c066b4c93a78f36b08cf75d29495fba5b36b7b6d4",
+      "size_bytes": 2251
+    },
+    {
+      "name": "v25_safety_boundary_sweep",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_safety_boundary_sweep.json",
+      "sha256": "1266497894f8729cb51f2ce7719fad437d79955b879b61bd21825f72f252dcb2",
+      "size_bytes": 1911
+    },
+    {
+      "name": "v25_safety_regression_sweep",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_safety_regression_sweep.json",
+      "sha256": "fb3fd4c2a80acdd200a5109a97f431855a4990ac8653a62302cbd2f19663772e",
+      "size_bytes": 2312
+    },
+    {
+      "name": "v25_v23_v24_carry_forward_closeout",
+      "path": "data/equity_v25_quality_closeout/daily/2026-07-01/v25_v23_v24_carry_forward_closeout.json",
+      "sha256": "aa3f7f9a3e10e2a5430fadbab2aff87a53ef0ef2ec2dfaa25c99e289ead6a3a5",
+      "size_bytes": 2326
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v24_baseline_verified": true,
+  "v23_v24_no_full_pytest_carried_forward": true,
+  "full_regression_evidence_generated": true,
+  "artifact_report_journal_closeout_generated": true,
+  "safety_regression_sweep_generated": true,
+  "cli_contract_closeout_generated": true,
+  "owner_quality_dashboard_generated": true,
+  "full_pytest_run": true,
+  "full_pytest_passed": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "fabricated_test_result": false,
+  "fabricated_audit_result": false,
+  "fabricated_release_evidence": false,
+  "historical_evidence_deleted": false,
+  "audit_evidence_deleted": false,
+  "release_evidence_deleted": false,
+  "v4_baseline_verified": true,
+  "targeted_pytest_required": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

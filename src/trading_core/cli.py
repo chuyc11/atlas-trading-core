@@ -135,6 +135,8 @@ from trading_core.equity_v23_operator_ux_journal import DEFAULT_AS_OF_DATE as DE
 from trading_core.equity_v23_operator_ux_journal import audit_a_share_v23_operator_ux_journal, run_a_share_v23_operator_ux_journal
 from trading_core.equity_v24_maintenance_quality import DEFAULT_AS_OF_DATE as DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE
 from trading_core.equity_v24_maintenance_quality import audit_a_share_v24_maintenance_quality, run_a_share_v24_maintenance_quality
+from trading_core.equity_release_chain import RELEASE_SPECS, audit_release_artifacts, command_to_spec, run_release_artifacts
+from trading_core.equity_release_chain.generic import DEFAULT_AS_OF_DATE as DEFAULT_RELEASE_CHAIN_AS_OF_DATE
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1549,6 +1551,19 @@ def build_parser() -> argparse.ArgumentParser:
     v24_dashboard = subparsers.add_parser("build-a-share-owner-maintenance-dashboard")
     v24_dashboard.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
     v24_dashboard.add_argument("--simulation-only", action="store_true")
+    for release_spec in RELEASE_SPECS:
+        release_build = subparsers.add_parser(release_spec["build_command"])
+        release_build.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
+        release_build.add_argument("--simulation-only", action="store_true")
+        release_audit = subparsers.add_parser(release_spec["audit_command"])
+        release_audit.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
+        release_all = subparsers.add_parser(release_spec["all_command"])
+        release_all.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
+        release_all.add_argument("--simulation-only", action="store_true")
+        for release_command in release_spec["component_commands"]:
+            release_component = subparsers.add_parser(release_command)
+            release_component.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
+            release_component.add_argument("--simulation-only", action="store_true")
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -3251,6 +3266,40 @@ def _v24_maintenance_quality_cli_payload(result: dict) -> dict:
         "full_pytest_deferred_until": result.get("full_pytest_deferred_until"),
         "recommended_next_version": result.get("recommended_next_version"),
     }
+
+
+def _release_chain_cli_payload(spec: dict, result: dict) -> dict:
+    payload = {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "full_pytest_run": result.get("full_pytest_run"),
+        "full_pytest_passed": result.get("full_pytest_passed"),
+        "targeted_pytest_required": result.get("targeted_pytest_required"),
+        "artifact_integrity_sweep_passed": result.get("artifact_integrity_sweep_passed"),
+        "protected_path_sweep_passed": result.get("protected_path_sweep_passed"),
+        "safety_boundary_sweep_passed": result.get("safety_boundary_sweep_passed"),
+        "broker_connected": result.get("broker_connected"),
+        "real_account_data_read": result.get("real_account_data_read"),
+        "real_orders_placed": result.get("real_orders_placed"),
+        "real_order_preview_generated": result.get("real_order_preview_generated"),
+        "buy_sell_signals_generated": result.get("buy_sell_signals_generated"),
+        "owner_readiness_gate_rerun": result.get("owner_readiness_gate_rerun"),
+        "new_gate_score_generated": result.get("new_gate_score_generated"),
+        "new_gate_decision_generated": result.get("new_gate_decision_generated"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
+    for key in spec["required_true"] + spec["required_false"]:
+        payload[key] = result.get(key)
+    if "release_decision" in result:
+        payload["release_decision"] = result["release_decision"]
+    return payload
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -6060,6 +6109,24 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-owner-maintenance-dashboard":
         result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    release_spec, release_action = command_to_spec(args.command)
+    if release_spec is not None and release_action == "build":
+        result = run_release_artifacts(release_spec, as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_release_chain_cli_payload(release_spec, result))
+        return 0 if result["overall_passed"] else 1
+    if release_spec is not None and release_action == "audit":
+        result = audit_release_artifacts(spec=release_spec, as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if release_spec is not None and release_action == "all":
+        build_result = run_release_artifacts(release_spec, as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_release_artifacts(spec=release_spec, as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_release_chain_cli_payload(release_spec, build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    if release_spec is not None and release_action == "component":
+        result = run_release_artifacts(release_spec, as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print({"overall_passed": result["overall_passed"], "target_version": result["target_version"], "source_version": result["source_version"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "full_pytest_run": result.get("full_pytest_run"), "recommended_next_version": result.get("recommended_next_version")})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-daily-data-refresh":
         result = build_a_share_daily_data_refresh(
