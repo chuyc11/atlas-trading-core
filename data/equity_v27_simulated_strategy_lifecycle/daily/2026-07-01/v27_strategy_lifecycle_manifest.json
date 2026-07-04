@@ -1,0 +1,160 @@
+{
+  "manifest_id": "V27-STRATEGY-LIFECYCLE-MANIFEST",
+  "target_version": "v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening",
+  "source_version": "v2.6.0-a-share-public-data-provider-adapter-and-data-contract-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-04T18:37:11.194867Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V27_OWNER_LIFECYCLE_DASHBOARD.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_OWNER_LIFECYCLE_DASHBOARD.md",
+      "sha256": "62485b5c45ec76ec4e5fcff7db2e726dca13d5a3ebf6901d7c109b2742d1aa02",
+      "size_bytes": 1294
+    },
+    {
+      "name": "md:A_SHARE_V27_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "48d4ad3833226b12457c888be8af2756c42612974f209169f51018d546093bb4",
+      "size_bytes": 1110
+    },
+    {
+      "name": "md:A_SHARE_V27_SIMULATION_ACTIVE_STRATEGY_REGISTRY.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_SIMULATION_ACTIVE_STRATEGY_REGISTRY.md",
+      "sha256": "b8efc69462f49ae7f16063636a5a66bf3e7d9247f8af3e9253d120187fe66db5",
+      "size_bytes": 1304
+    },
+    {
+      "name": "md:A_SHARE_V27_STRATEGY_LIFECYCLE_REPORT.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_STRATEGY_LIFECYCLE_REPORT.md",
+      "sha256": "71754e920d59f6408332c2c477dd98f702eb0c42c870073e94a5b5456cd677ce",
+      "size_bytes": 1294
+    },
+    {
+      "name": "md:A_SHARE_V27_TRANSITION_EVIDENCE_REPORT.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_TRANSITION_EVIDENCE_REPORT.md",
+      "sha256": "2c6635ca0f3495c1f58c09619ca16981373e6e7c72d62fb2e1906978f7dc3ed6",
+      "size_bytes": 1295
+    },
+    {
+      "name": "md:A_SHARE_V27_VIRTUAL_CANARY_GOVERNANCE_REPORT.md",
+      "path": "outputs/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/A_SHARE_V27_VIRTUAL_CANARY_GOVERNANCE_REPORT.md",
+      "sha256": "f41a5a9f5e37fede1f801262ae2e8b1192e43f4bb3a055c21b9e3de4bf7a7316",
+      "size_bytes": 1301
+    },
+    {
+      "name": "v27_artifact_integrity_sweep",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_artifact_integrity_sweep.json",
+      "sha256": "53750c94b4c5cabb075b6157821fb40548ac9391afe2d0dcec650083ca15345e",
+      "size_bytes": 2046
+    },
+    {
+      "name": "v27_lifecycle_monitoring_alerts",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_lifecycle_monitoring_alerts.json",
+      "sha256": "6f55ca4d5fbe97fcb7982b291130e242c5e76528553357387cdf5977a9d81144",
+      "size_bytes": 2382
+    },
+    {
+      "name": "v27_owner_lifecycle_dashboard_result",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_owner_lifecycle_dashboard_result.json",
+      "sha256": "bfa8264f0254a220e77fd11a4c62f150a53a898a38ecd4e4b330656a241e2f2d",
+      "size_bytes": 2392
+    },
+    {
+      "name": "v27_protected_path_sweep",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_protected_path_sweep.json",
+      "sha256": "454cb84535b5df83aeed286be2890c9b00ed617e52f35109f76c51401ce12bcd",
+      "size_bytes": 2145
+    },
+    {
+      "name": "v27_safety_boundary_sweep",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_safety_boundary_sweep.json",
+      "sha256": "e473b9f4f5e3ee44a972d26a96866b13a5eb9ada4b3a071bc991173e3f32e289",
+      "size_bytes": 2026
+    },
+    {
+      "name": "v27_simulation_active_strategy_registry",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_simulation_active_strategy_registry.json",
+      "sha256": "ecc21b0d9f945f50cfe5932b2f2ee6a6b5b8018d1a5ace9faf73388be9f98a19",
+      "size_bytes": 2398
+    },
+    {
+      "name": "v27_strategy_lifecycle_registry",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_strategy_lifecycle_registry.json",
+      "sha256": "1bf3c3bf21f7f73d525c949b9bfa83e716303b1f21819ca5ec5b7508b31c34d7",
+      "size_bytes": 2382
+    },
+    {
+      "name": "v27_strategy_lifecycle_request",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_strategy_lifecycle_request.json",
+      "sha256": "a5812f62f891176b96d9dd4b93428457bab2b9e7dc8c45f8815ec28bda808a1a",
+      "size_bytes": 2380
+    },
+    {
+      "name": "v27_strategy_lifecycle_result",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_strategy_lifecycle_result.json",
+      "sha256": "06978dfab0831eadb5c522c58754a70fb6e346a5bd8af164be3cc4bbc86411a9",
+      "size_bytes": 2503
+    },
+    {
+      "name": "v27_transition_evidence_result",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_transition_evidence_result.json",
+      "sha256": "9d00c869991d2e9233b9132423800368028fe10566f4a4a43d80de0ca1d30717",
+      "size_bytes": 2380
+    },
+    {
+      "name": "v27_virtual_canary_governance_result",
+      "path": "data/equity_v27_simulated_strategy_lifecycle/daily/2026-07-01/v27_virtual_canary_governance_result.json",
+      "sha256": "04c5cfa60c418b09041f7c45db81ea866d6f2b83beeb3a06e8e14a1ea4461877",
+      "size_bytes": 2392
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 6,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v26_baseline_verified": true,
+  "strategy_lifecycle_registry_generated": true,
+  "virtual_canary_governance_result_generated": true,
+  "transition_evidence_result_generated": true,
+  "simulation_active_strategy_registry_generated": true,
+  "owner_lifecycle_dashboard_generated": true,
+  "real_trading_active_state_present": false,
+  "real_canary_state_present": false,
+  "broker_active_state_present": false,
+  "transition_evidence_fabricated": false,
+  "canary_evidence_fabricated": false,
+  "promotion_generates_real_trade": false,
+  "demotion_generates_sell_signal": false,
+  "rollback_generates_real_trade": false,
+  "simulation_active_generates_real_order": false,
+  "full_pytest_run": false,
+  "v6_baseline_verified": true,
+  "full_pytest_passed": false,
+  "targeted_pytest_required": true,
+  "full_pytest_deferred_until": "v3.0.0-final-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
