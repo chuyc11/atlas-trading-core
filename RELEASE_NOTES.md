@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep
+
+v2.9.0 adds v3 readiness preparation, release lineage summary, docs/operator guide review, migration and upgrade plan, v3 release-candidate prerequisites, system dependency graph, known limitations register, and owner v3 readiness dashboard artifacts.
+
+- prepares v3 without marking v3 as released
+- explicitly blocks fabricated docs, fabricated migration result, fabricated dependency graph, hidden limitations, and full pytest claims
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest and recent smoke passed; full pytest remains deferred by v2.9 policy
+- recommended next version: `v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout`
+
 ## v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening
 
 v2.8.0 adds autonomous research experiment governance, LLM proposal governance, RL policy governance, parameter experiment governance, experiment evaluation scorecard, research queue, and owner autonomous research dashboard artifacts.
