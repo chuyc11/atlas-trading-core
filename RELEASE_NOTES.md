@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
+
+v2.3.0 adds an owner-facing operator UX, reporting, decision journal, artifact navigation, warning/blocker explanation, Chinese report polish, and safety wording audit layer for the A-share research platform.
+
+- adds v23 operator UX framework, decision journal, daily review, periodic review, report/artifact index, owner status digest, operator checklist, owner operator dashboard, and UX safety sweep
+- keeps history-dependent weekly/monthly trend claims as `not_available` with warnings when run history is insufficient
+- preserves all outputs as research-only, simulation-only, virtual-only owner reports and audit artifacts: no broker, no real account read, no real order, no order preview, no buy/sell signal, no owner-readiness gate rerun, and no new gate score/decision
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest: `12 passed`; recent smoke: `34 passed`; full pytest remains deferred until `next-major-closeout-or-explicit-request`
+- recommended next version: `v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction`
+
 ## v2.2.0-a-share-ensemble-meta-strategy-research-only-expansion
 
 v2.2.0 adds a research-only ensemble, meta-strategy, strategy blending, and adaptive model selection layer for the A-share simulation platform.
