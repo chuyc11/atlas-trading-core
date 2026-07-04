@@ -1,5 +1,17 @@
 # Release Notes
 
+## v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout
+
+v3.0.0 finalizes the A-share autonomous simulation research platform as a research-only, simulation-only, virtual-only closeout with release lineage validation, full regression evidence, final safety sweep, release evidence validation, final capability map, known limitations/next phase register, owner final dashboard, and release health report artifacts.
+
+- release decision: `released_as_research_only_simulation_platform`
+- validates v2 release lineage and v2.9 baseline without deleting historical, audit, or release evidence
+- records final full regression as a split matrix because the one-shot pytest command is blocked by local runtime/Windows constraints
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- does not add broker access, real account reads, real orders, order previews, buy/sell signals, owner-readiness gate execution, or new gate score/decision
+- full regression matrix: `2024 passed, 1 skipped`
+- recommended next version: `v3.1.0-a-share-public-data-provider-integration-and-research-workflow-performance-hardening`
+
 ## v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep
 
 v2.9.0 adds v3 readiness preparation, release lineage summary, docs/operator guide review, migration and upgrade plan, v3 release-candidate prerequisites, system dependency graph, known limitations register, and owner v3 readiness dashboard artifacts.
