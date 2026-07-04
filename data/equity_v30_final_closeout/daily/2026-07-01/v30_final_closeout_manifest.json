@@ -1,0 +1,181 @@
+{
+  "manifest_id": "V30-FINAL-CLOSEOUT-MANIFEST",
+  "target_version": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+  "source_version": "v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-04T18:39:56.297304Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V30_CAPABILITY_MAP_FINAL_VALIDATION.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_CAPABILITY_MAP_FINAL_VALIDATION.md",
+      "sha256": "bab0d8e2b03b48ca0713141070e8884dfa80d4b81cf5aad7710e6f4cb370eb99",
+      "size_bytes": 1527
+    },
+    {
+      "name": "md:A_SHARE_V30_FINAL_CLOSEOUT_REPORT.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_FINAL_CLOSEOUT_REPORT.md",
+      "sha256": "4d4918ea7dd8f1b9bcd32969e4fbef6ff06dba63d633b5d0bdc07095b29e0345",
+      "size_bytes": 1517
+    },
+    {
+      "name": "md:A_SHARE_V30_FINAL_SAFETY_BOUNDARY_SWEEP.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_FINAL_SAFETY_BOUNDARY_SWEEP.md",
+      "sha256": "4b420e1f0f067697d196057b0b5a769a25065bb2fe5fa1bd6e199521e12c4098",
+      "size_bytes": 1523
+    },
+    {
+      "name": "md:A_SHARE_V30_FULL_REGRESSION_REPORT.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_FULL_REGRESSION_REPORT.md",
+      "sha256": "b83631564e6a11527e4e5ae0735c548d3af8caf5289c1ac7516caac571468bff",
+      "size_bytes": 1518
+    },
+    {
+      "name": "md:A_SHARE_V30_KNOWN_LIMITATIONS_AND_NEXT_PHASE.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_KNOWN_LIMITATIONS_AND_NEXT_PHASE.md",
+      "sha256": "3d2374ab92908271d5201431d06728390e03c547c236881c132e53217b63fc97",
+      "size_bytes": 1528
+    },
+    {
+      "name": "md:A_SHARE_V30_OWNER_FINAL_DASHBOARD.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_OWNER_FINAL_DASHBOARD.md",
+      "sha256": "00d4be6824e4a387e5f1f79cc9eacfe16b4d8660dd99c8c3d2b3af0630a9216f",
+      "size_bytes": 1517
+    },
+    {
+      "name": "md:A_SHARE_V30_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v30_final_closeout/daily/2026-07-01/A_SHARE_V30_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "fb9f2984f99940a6385f0298ad76484b05afa16087fc706b19c7c28df8e1a694",
+      "size_bytes": 1301
+    },
+    {
+      "name": "v30_artifact_integrity_sweep",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_artifact_integrity_sweep.json",
+      "sha256": "e34abb439dfb10fdd91901ad1f3e53a1737eb2ca9b7a94d76d1392ff4eaf61c7",
+      "size_bytes": 2070
+    },
+    {
+      "name": "v30_capability_map_final_validation",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_capability_map_final_validation.json",
+      "sha256": "c6f9558b626f07a00f0e55a93666f043342bff32f2ef113a96b6ee333dbb7f58",
+      "size_bytes": 2456
+    },
+    {
+      "name": "v30_final_closeout_request",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_final_closeout_request.json",
+      "sha256": "69a500667d02aee3b57ba915583b1e9b4b97a0586ac3b17a0d05c749d53b6835",
+      "size_bytes": 2438
+    },
+    {
+      "name": "v30_final_closeout_result",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_final_closeout_result.json",
+      "sha256": "0a4af3c77def848967f1437d50e90317cdde0bfbe9d416faeb832a36a445c915",
+      "size_bytes": 2469
+    },
+    {
+      "name": "v30_final_safety_boundary_sweep",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_final_safety_boundary_sweep.json",
+      "sha256": "046ebbb1fe873a83b97ba23041622d8c5f133dfd08b153ff56fe128f052f3a90",
+      "size_bytes": 2053
+    },
+    {
+      "name": "v30_full_regression_evidence",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_full_regression_evidence.json",
+      "sha256": "12d38209330e58b29cdee63e4c9396f4965eaf4c9ba4af391fd470a650413c75",
+      "size_bytes": 2625
+    },
+    {
+      "name": "v30_known_limitations_next_phase_result",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_known_limitations_next_phase_result.json",
+      "sha256": "bf12cee710f39e5bfd2e8fea9290345df516e3fabd05d3029510015398f8fec9",
+      "size_bytes": 2464
+    },
+    {
+      "name": "v30_owner_final_dashboard_result",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_owner_final_dashboard_result.json",
+      "sha256": "732e8f1b618b7d78eba5bd5980368a898ebbefdca6061e8b5b7a604961e2f10a",
+      "size_bytes": 2450
+    },
+    {
+      "name": "v30_protected_path_sweep",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_protected_path_sweep.json",
+      "sha256": "b4e79b1fa7d2227384b19852288163c122cc5b6b587d9923abdea7bf04bd1bef",
+      "size_bytes": 2058
+    },
+    {
+      "name": "v30_release_evidence_validation",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_release_evidence_validation.json",
+      "sha256": "7398571e730baa023780cfa923a897f91cdd2464cb954b8cd5af076bad1e3677",
+      "size_bytes": 2448
+    },
+    {
+      "name": "v30_release_health_report",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_release_health_report.json",
+      "sha256": "bc17aba7ac4d5bdaf59d451af4ab083f0a6593af0b20a7da2d1f1e8aa2a47300",
+      "size_bytes": 2436
+    },
+    {
+      "name": "v30_safety_boundary_sweep",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_safety_boundary_sweep.json",
+      "sha256": "890b5ffff23e59ce518db4f23b39e7e1ed49f47d2e583f795d4df317bae02226",
+      "size_bytes": 2436
+    },
+    {
+      "name": "v30_v2_release_lineage_validation",
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_v2_release_lineage_validation.json",
+      "sha256": "e69c3dcd9bbb5304bc52fc9dde3335e24ce62db5210458f2b983e813ddaaf0f0",
+      "size_bytes": 2452
+    }
+  ],
+  "json_count": 14,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v29_baseline_verified": true,
+  "v2_release_lineage_validation_generated": true,
+  "full_regression_evidence_generated": true,
+  "final_safety_boundary_sweep_generated": true,
+  "release_evidence_validation_generated": true,
+  "capability_map_final_validation_generated": true,
+  "known_limitations_next_phase_generated": true,
+  "owner_final_dashboard_generated": true,
+  "release_health_report_generated": true,
+  "full_pytest_run": true,
+  "full_pytest_passed": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "fabricated_release_evidence": false,
+  "fabricated_test_result": false,
+  "fabricated_audit_result": false,
+  "fabricated_capability_claim": false,
+  "historical_evidence_deleted": false,
+  "audit_evidence_deleted": false,
+  "release_evidence_deleted": false,
+  "live_trading_ready": false,
+  "v9_baseline_verified": true,
+  "targeted_pytest_required": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

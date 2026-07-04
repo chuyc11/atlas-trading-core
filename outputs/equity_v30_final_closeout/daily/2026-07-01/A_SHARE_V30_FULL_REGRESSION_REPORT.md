@@ -1,0 +1,44 @@
+# A Share V30 Full Regression Report
+
+- target_version: v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout
+- source_version: v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: True
+- full_pytest_passed: True
+- live_trading_ready: False
+
+## Generated Checks
+- artifact_generated: True
+- v2_release_lineage_validation_generated: True
+- full_regression_evidence_generated: True
+- final_safety_boundary_sweep_generated: True
+- release_evidence_validation_generated: True
+- capability_map_final_validation_generated: True
+- known_limitations_next_phase_generated: True
+- owner_final_dashboard_generated: True
+- release_health_report_generated: True
+- full_pytest_run: True
+- full_pytest_passed: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- live_trading_ready: False
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
