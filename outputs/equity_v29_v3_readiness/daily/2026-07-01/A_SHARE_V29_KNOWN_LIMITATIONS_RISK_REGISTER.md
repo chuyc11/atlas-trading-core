@@ -1,0 +1,40 @@
+# A Share V29 Known Limitations Risk Register
+
+- target_version: v2.9.0-a-share-v3-readiness-docs-migration-and-release-candidate-prep
+- source_version: v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: False
+- full_pytest_passed: False
+- live_trading_ready: False
+
+## Generated Checks
+- artifact_generated: True
+- release_lineage_summary_generated: True
+- docs_operator_guide_generated: True
+- migration_upgrade_plan_generated: True
+- v3_release_candidate_prerequisites_generated: True
+- system_dependency_graph_generated: True
+- known_limitations_risk_register_generated: True
+- owner_v3_readiness_dashboard_generated: True
+- full_pytest_run: False
+- full_pytest_passed: False
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False
