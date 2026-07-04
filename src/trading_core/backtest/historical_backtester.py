@@ -32,7 +32,7 @@ def run_historical_backtest(
     )
     rows = load_imported_prices(market, paths)
     grouped_prices = prices_by_date(rows)
-    dates = [date for date in date_range(start_date, end_date) if date in grouped_prices]
+    dates = [date for date in date_range(start_date, end_date, paths=paths) if date in grouped_prices]
     pending_signals: list[dict[str, Any]] = []
     pending_signal_date: str | None = None
     previous_total = account.total_asset
@@ -43,6 +43,7 @@ def run_historical_backtest(
     turnover = 0.0
 
     for date in dates:
+        account.settle_t_plus_one()
         close_prices = _close_price_rows(grouped_prices[date])
         open_prices = _open_price_rows(grouped_prices[date])
         orders, trades = process_signals(pending_signals, date, account, open_prices) if pending_signals else ([], [])
@@ -69,7 +70,7 @@ def run_historical_backtest(
     portfolio_path = paths.data_dir / "backtests" / f"backtest_portfolio-{suffix}.jsonl"
     benchmark_path = paths.data_dir / "backtests" / f"backtest_benchmark-{suffix}.json"
     report_path = paths.outputs_dir / "backtests" / f"backtest_report-{suffix}.md"
-    benchmark_summary = daily_benchmarks[-1] if daily_benchmarks else {}
+    benchmark_summary = _benchmark_summary(daily_benchmarks, portfolio_rows)
     write_jsonl(trades_path, all_trades)
     write_jsonl(portfolio_path, portfolio_rows)
     write_json(benchmark_path, benchmark_summary)
@@ -221,3 +222,30 @@ def _build_backtest_report(
         f"- Limitation: {limitations if limitations else 'none'}",
     ]
     return "\n".join(lines) + "\n"
+
+
+def _benchmark_summary(daily_benchmarks: list[dict[str, Any]], portfolios: list[dict[str, Any]]) -> dict[str, Any]:
+    if not daily_benchmarks:
+        return {}
+    summary = dict(daily_benchmarks[-1])
+    benchmark_ids = set()
+    for benchmark in daily_benchmarks:
+        benchmark_ids.update(benchmark.get("benchmarks", {}).keys())
+    cumulative: dict[str, float] = {}
+    for benchmark_id in benchmark_ids:
+        compounded = 1.0
+        for benchmark in daily_benchmarks:
+            daily_return = float(benchmark.get("benchmarks", {}).get(benchmark_id, {}).get("return", 0.0))
+            compounded *= 1.0 + daily_return
+        cumulative[benchmark_id] = round(compounded - 1.0, 8)
+        summary.setdefault("benchmarks", {}).setdefault(benchmark_id, {})["cumulative_return"] = cumulative[benchmark_id]
+    start_asset = 100000.0
+    final_asset = float(portfolios[-1]["total_asset"]) if portfolios else start_asset
+    strategy_cumulative = (final_asset / start_asset) - 1.0 if start_asset else 0.0
+    summary["strategy_cumulative_return"] = round(strategy_cumulative, 8)
+    summary["benchmark_cumulative_return"] = cumulative
+    summary["excess_return"] = {
+        benchmark_id: round(strategy_cumulative - benchmark_return, 8)
+        for benchmark_id, benchmark_return in cumulative.items()
+    }
+    return summary

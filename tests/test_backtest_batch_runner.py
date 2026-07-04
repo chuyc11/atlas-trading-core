@@ -3,7 +3,9 @@ from __future__ import annotations
 from datetime import date, timedelta
 from pathlib import Path
 
-from trading_core.backtest.batch_runner import run_backtest_batch
+import pytest
+
+from trading_core.backtest.batch_runner import _metrics, run_backtest_batch
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_json
 
@@ -91,3 +93,22 @@ def test_backtest_batch_runner_stops_on_failed_validation(tmp_path: Path) -> Non
     assert result["strategy_results"] == {}
     assert read_json(output_dir / "data_validation.json")["passed"] is False
     assert "data_validation_failed" in (output_dir / "BACKTEST_BATCH_REPORT.md").read_text(encoding="utf-8")
+
+
+def test_batch_metrics_use_period_cumulative_excess_return_not_last_daily_excess() -> None:
+    portfolios = [
+        {"date": "2026-01-01", "total_asset": 100000, "daily_return": 0.0},
+        {"date": "2026-01-02", "total_asset": 110000, "daily_return": 0.10},
+        {"date": "2026-01-05", "total_asset": 121000, "daily_return": 0.10},
+    ]
+    benchmark = {
+        "benchmarks": {"EQUAL_ETF": {"return": 0.99, "cumulative_return": 0.10}},
+        "benchmark_cumulative_return": {"EQUAL_ETF": 0.10},
+        "excess_return": {"EQUAL_ETF": 0.99},
+    }
+
+    result = _metrics("golden_strategy", portfolios, [], benchmark)
+
+    assert result["cumulative_return"] == pytest.approx(0.21)
+    assert result["excess_return_equal_etf"] == pytest.approx(0.11)
+    assert result["admission_metrics"]["excess_return"] == pytest.approx(0.11)

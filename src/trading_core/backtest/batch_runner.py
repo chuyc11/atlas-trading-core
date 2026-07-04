@@ -131,7 +131,12 @@ def _metrics(
     cost_total = sum(float(trade.get("commission", 0.0)) + float(trade.get("tax", 0.0)) for trade in trades)
     turnover = sum(float(trade.get("gross_amount", 0.0)) for trade in trades) / INITIAL_CAPITAL
     win_rate = _win_rate(portfolios)
-    excess = float(benchmark.get("excess_return", {}).get("EQUAL_ETF", 0.0)) if benchmark else 0.0
+    benchmark_cumulative = None
+    if benchmark:
+        benchmark_cumulative = benchmark.get("benchmark_cumulative_return", {}).get("EQUAL_ETF")
+        if benchmark_cumulative is None:
+            benchmark_cumulative = benchmark.get("benchmarks", {}).get("EQUAL_ETF", {}).get("cumulative_return")
+    excess = cumulative_return - float(benchmark_cumulative) if benchmark_cumulative is not None else 0.0
     return {
         "strategy_id": strategy_id,
         "final_asset": round(final, 6),

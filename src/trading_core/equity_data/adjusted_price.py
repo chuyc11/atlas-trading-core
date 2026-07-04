@@ -41,9 +41,11 @@ def ingest_a_share_adjusted_prices(*, paths: ProjectPaths | None = None) -> dict
         "rows": int(len(frame)),
         "symbol_count": int(frame["symbol"].nunique()) if not frame.empty else 0,
         "adjustment_types": sorted(frame["adjustment_type"].unique().tolist()) if not frame.empty else [],
-        "coverage_note": "raw prices used as adjusted-price fallback with adj_factor=1.0; true forward/backward adjustment deferred to richer providers",
+        "adjusted_price_status": "raw_fallback" if not frame.empty else "unavailable",
+        "true_adjustment_factor_available": False,
+        "raw_price_used_as_adjusted_price_fallback": not frame.empty,
+        "coverage_note": "raw prices used as explicit adjusted-price fallback with adj_factor=1.0; true forward/backward adjustment is unavailable from current source",
     }
     manifest_path = paths.data_dir / "equity_market" / "adjusted_price_panel_manifest.json"
     write_json(manifest_path, manifest)
     return {**manifest, "parquet_path": str(parquet_path), "manifest_path": str(manifest_path)}
-

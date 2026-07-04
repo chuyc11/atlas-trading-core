@@ -41,7 +41,7 @@ def validate_data_package(
                 stats["total_rows"] += 1
                 _validate_row(file_path, line_number, row, stats, seen, rows_by_symbol)
 
-    _summarize_coverage(stats, rows_by_symbol, suspicious_return_threshold)
+    _summarize_coverage(stats, rows_by_symbol, suspicious_return_threshold, paths)
     stats["passed"] = not stats["errors"] and stats["duplicate_records_count"] == 0 and stats["ohlc_anomaly_count"] == 0
     stats["symbols_count"] = len(stats["symbols"])
     stats["symbols"] = sorted(stats["symbols"])
@@ -156,7 +156,7 @@ def _extend_date_range(stats: dict[str, Any], date_value: str) -> None:
     stats["date_range"]["end"] = date_value if end is None else max(end, date_value)
 
 
-def _summarize_coverage(stats: dict[str, Any], rows_by_symbol: dict[str, list[dict[str, Any]]], threshold: float) -> None:
+def _summarize_coverage(stats: dict[str, Any], rows_by_symbol: dict[str, list[dict[str, Any]]], threshold: float, paths: ProjectPaths | None = None) -> None:
     for symbol, rows in rows_by_symbol.items():
         rows = sorted(rows, key=lambda row: row["date"])
         observed = {row["date"] for row in rows}
@@ -165,7 +165,7 @@ def _summarize_coverage(stats: dict[str, Any], rows_by_symbol: dict[str, list[di
             current = parse_date(rows[0]["date"])
             end = parse_date(rows[-1]["date"])
             while current <= end:
-                if is_trading_day(current) and current.isoformat() not in observed:
+                if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
                     missing += 1
                 current += timedelta(days=1)
         stats["missing_trading_days_by_symbol"][symbol] = missing

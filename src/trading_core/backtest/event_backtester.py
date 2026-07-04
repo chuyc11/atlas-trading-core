@@ -19,12 +19,12 @@ from trading_core.storage.jsonl_store import write_json
 from trading_core.universe.universe_loader import load_universe
 
 
-def date_range(start_date: str, end_date: str) -> list[str]:
+def date_range(start_date: str, end_date: str, paths: Any | None = None) -> list[str]:
     current = parse_date(start_date)
     end = parse_date(end_date)
     dates = []
     while current <= end:
-        if is_trading_day(current):
+        if is_trading_day(current, paths=paths):
             dates.append(current.isoformat())
         current += timedelta(days=1)
     return dates
@@ -35,8 +35,8 @@ def run_event_backtest(
     end_date: str,
     workspace_root: Path | None = None,
 ) -> dict[str, Any]:
-    dates = date_range(start_date, end_date)
     paths = project_paths(workspace_root)
+    dates = date_range(start_date, end_date, paths=paths)
     settings = load_config("settings.yaml")
     universe = load_universe()
     account_id = settings["default_account_id"]
@@ -46,11 +46,13 @@ def run_event_backtest(
     pending_signals: list[dict[str, Any]] = []
     pending_signal_date: str | None = None
     for date in dates:
+        account.settle_t_plus_one()
         prices, price_limitations = load_china_prices(date, paths)
         executed_signals = pending_signals
         executed_signal_date = pending_signal_date
         orders, trades = process_signals(executed_signals, date, account, prices) if executed_signals else ([], [])
         valuation = value_account(account, date, simple_price_map(prices), previous_total)
+        portfolio = account.to_portfolio(date, previous_total)
         previous_total = float(valuation["total_asset"])
 
         macro_rows, macro_limitations = load_macro_signals(date, paths)
@@ -70,6 +72,10 @@ def run_event_backtest(
                 "generated_signal_count": len(generated_signals),
                 "executed_signal_count": len(executed_signals),
                 "trade_count": len(trades),
+                "orders": orders,
+                "trades": trades,
+                "cash": portfolio["cash"],
+                "positions": portfolio["positions"],
                 "executed_signal_date": executed_signal_date if executed_signals else None,
                 "limitations": price_limitations + macro_limitations,
             }

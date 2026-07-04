@@ -61,6 +61,24 @@ def test_historical_backtest_t_plus_one_outputs_and_no_future_data(tmp_path: Pat
     assert all(trade["signal_date"] < trade["date"] for trade in trades)
 
 
+def test_historical_backtest_settles_pending_t1_before_following_day(tmp_path: Path) -> None:
+    csv_path = tmp_path / "prices.csv"
+    _write_price_csv(csv_path, days=4)
+    paths = project_paths(tmp_path)
+    import_prices_csv(csv_path, "A_SHARE", paths)
+
+    result = run_historical_backtest("2026-01-01", "2026-01-06", "macro_etf_strategy_v1", workspace_root=tmp_path)
+    portfolios = read_jsonl(Path(result["portfolio_path"]))
+
+    day2_position = portfolios[1]["positions"][0]
+    day3_position = portfolios[2]["positions"][0]
+    assert day2_position["quantity"] > 0
+    assert day2_position["pending_t1_quantity"] == day2_position["quantity"]
+    assert day2_position["available_quantity"] == 0
+    assert day3_position["available_quantity"] >= day2_position["quantity"]
+    assert day3_position["available_quantity"] > day2_position["available_quantity"]
+
+
 def test_historical_backtest_strategy_outputs_are_separate(tmp_path: Path) -> None:
     csv_path = tmp_path / "prices.csv"
     _write_price_csv(csv_path, days=25)
