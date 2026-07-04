@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from datetime import date, timedelta
 from pathlib import Path
 
@@ -32,15 +33,40 @@ def _write_price_csv(path: Path, days: int = 70) -> None:
     path.write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
+def _write_calendar(paths, start: date = date(2026, 1, 1), days: int = 130) -> None:
+    calendar_path = paths.data_dir / "equity_universe" / "trading_calendar.csv"
+    calendar_path.parent.mkdir(parents=True, exist_ok=True)
+    rows = ["date,is_trading_day"]
+    current = start
+    for _ in range(days):
+        rows.append(f"{current.isoformat()},{str(current.weekday() < 5).lower()}")
+        current += timedelta(days=1)
+    calendar_path.write_text("\n".join(rows) + "\n", encoding="utf-8")
+
+
+def _write_adjusted_manifest(paths, *, raw_fallback: bool = False) -> None:
+    manifest_path = paths.data_dir / "equity_market" / "adjusted_price_panel_manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "adjusted_price_status": "raw_fallback" if raw_fallback else "available",
+        "true_adjustment_factor_available": not raw_fallback,
+        "raw_price_used_as_adjusted_price_fallback": raw_fallback,
+    }
+    manifest_path.write_text(json.dumps(payload), encoding="utf-8")
+
+
 def test_backtest_batch_runner_writes_standard_outputs(tmp_path: Path) -> None:
     csv_path = tmp_path / "prices.csv"
     _write_price_csv(csv_path)
+    paths = project_paths(tmp_path)
+    _write_calendar(paths)
+    _write_adjusted_manifest(paths)
 
     result = run_backtest_batch(
         "2026-01-01",
         "2026-04-08",
         csv_path,
-        paths=project_paths(tmp_path),
+        paths=paths,
         timestamp="TESTBATCH",
     )
 
@@ -102,13 +128,66 @@ def test_batch_metrics_use_period_cumulative_excess_return_not_last_daily_excess
         {"date": "2026-01-05", "total_asset": 121000, "daily_return": 0.10},
     ]
     benchmark = {
-        "benchmarks": {"EQUAL_ETF": {"return": 0.99, "cumulative_return": 0.10}},
-        "benchmark_cumulative_return": {"EQUAL_ETF": 0.10},
+        "benchmarks": {"EQUAL_ETF": {"return": 0.99, "cumulative_return": 0.1025}},
+        "benchmark_cumulative_return": {"EQUAL_ETF": 0.1025},
         "excess_return": {"EQUAL_ETF": 0.99},
     }
 
     result = _metrics("golden_strategy", portfolios, [], benchmark)
 
     assert result["cumulative_return"] == pytest.approx(0.21)
-    assert result["excess_return_equal_etf"] == pytest.approx(0.11)
-    assert result["admission_metrics"]["excess_return"] == pytest.approx(0.11)
+    assert result["excess_return_equal_etf"] == pytest.approx(0.1075)
+    assert result["admission_metrics"]["excess_return"] == pytest.approx(0.1075)
+
+
+def test_backtest_batch_runner_fails_closed_without_formal_calendar(tmp_path: Path) -> None:
+    csv_path = tmp_path / "prices.csv"
+    _write_price_csv(csv_path)
+    paths = project_paths(tmp_path)
+    _write_adjusted_manifest(paths)
+
+    result = run_backtest_batch(
+        "2026-01-01",
+        "2026-04-08",
+        csv_path,
+        paths=paths,
+        timestamp="NOCALENDAR",
+        strategies=["hold_strategy"],
+    )
+
+    assert result["passed"] is False
+    assert "calendar_gate_failed" in result["limitations"]
+    assert result["data_validation"]["formal_gates"]["calendar"]["status"] == "missing_calendar"
+
+
+def test_backtest_batch_runner_rejects_raw_adjusted_price_fallback_by_default(tmp_path: Path) -> None:
+    csv_path = tmp_path / "prices.csv"
+    _write_price_csv(csv_path)
+    paths = project_paths(tmp_path)
+    _write_calendar(paths)
+    _write_adjusted_manifest(paths, raw_fallback=True)
+
+    result = run_backtest_batch(
+        "2026-01-01",
+        "2026-04-08",
+        csv_path,
+        paths=paths,
+        timestamp="RAWBLOCK",
+        strategies=["hold_strategy"],
+    )
+    allowed = run_backtest_batch(
+        "2026-01-01",
+        "2026-04-08",
+        csv_path,
+        paths=paths,
+        timestamp="RAWALLOW",
+        strategies=["hold_strategy"],
+        allow_raw_price=True,
+    )
+
+    assert result["passed"] is False
+    assert "adjusted_price_gate_failed" in result["limitations"]
+    assert result["data_validation"]["formal_gates"]["adjusted_price"]["status"] == "raw_fallback"
+    assert allowed["passed"] is True
+    assert allowed["data_validation"]["formal_gates"]["adjusted_price"]["degraded"] is True
+    assert any("raw prices used" in item for item in allowed["limitations"])

@@ -175,7 +175,7 @@ def test_replay_critical_error_marks_historical_replay_failed(tmp_path: Path, mo
     _write_prices(price_dir, days, quality="stale")
     _write_macro(tmp_path, days[0])
 
-    def bad_process_signals(signals: list[dict[str, Any]], day: str, account: Any, prices: dict[str, dict[str, Any]]) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    def bad_process_signals(signals: list[dict[str, Any]], day: str, account: Any, prices: dict[str, dict[str, Any]], **_: Any) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         return (
             [
                 {

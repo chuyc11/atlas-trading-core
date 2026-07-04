@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import json
+
 import pandas as pd
 
 from trading_core.equity_data.daily_price import ingest_a_share_daily_prices
@@ -49,3 +51,47 @@ def ingest_a_share_adjusted_prices(*, paths: ProjectPaths | None = None) -> dict
     manifest_path = paths.data_dir / "equity_market" / "adjusted_price_panel_manifest.json"
     write_json(manifest_path, manifest)
     return {**manifest, "parquet_path": str(parquet_path), "manifest_path": str(manifest_path)}
+
+
+def validate_adjusted_price_status(*, paths: ProjectPaths | None = None, allow_raw_price: bool = False) -> dict:
+    paths = default_paths(paths)
+    manifest_path = paths.data_dir / "equity_market" / "adjusted_price_panel_manifest.json"
+    if not manifest_path.exists():
+        return {
+            "passed": False,
+            "status": "unavailable",
+            "adjusted_price_status": "unavailable",
+            "degraded": False,
+            "allow_raw_price": allow_raw_price,
+            "warning": "formal backtest requires adjusted-price status metadata; manifest is missing",
+        }
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    status = str(manifest.get("adjusted_price_status", "unavailable"))
+    true_factor = bool(manifest.get("true_adjustment_factor_available"))
+    raw_fallback = bool(manifest.get("raw_price_used_as_adjusted_price_fallback")) or status == "raw_fallback"
+    if true_factor and status not in {"raw_fallback", "unavailable"}:
+        return {
+            "passed": True,
+            "status": "available",
+            "adjusted_price_status": status,
+            "degraded": False,
+            "allow_raw_price": allow_raw_price,
+            "warning": None,
+        }
+    if raw_fallback and allow_raw_price:
+        return {
+            "passed": True,
+            "status": "raw_fallback",
+            "adjusted_price_status": status,
+            "degraded": True,
+            "allow_raw_price": allow_raw_price,
+            "warning": "raw prices used as adjusted-price fallback; result is degraded",
+        }
+    return {
+        "passed": False,
+        "status": status,
+        "adjusted_price_status": status,
+        "degraded": raw_fallback,
+        "allow_raw_price": allow_raw_price,
+        "warning": "formal backtest requires true adjusted prices unless allow_raw_price=true",
+    }

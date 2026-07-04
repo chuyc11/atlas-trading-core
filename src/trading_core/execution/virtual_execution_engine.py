@@ -5,6 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from trading_core.broker.cost_model import calculate_trade_cost, slippage_price
+from trading_core.broker.market_constraints import market_constraint_rejection
 from trading_core.broker.market_rules import get_market_rule
 from trading_core.execution.ashare_lot_rules import validate_order_quantity
 from trading_core.execution.ashare_tradability import evaluate_tradability
@@ -20,6 +21,13 @@ def execute_virtual_order(order: dict[str, Any], state: dict[str, Any], price_ro
     status = str(price_row.get("status", "tradable"))
     price = price_row.get("price")
     position = state.setdefault("positions", {}).setdefault(symbol, {"quantity": 0, "available_quantity": 0, "pending": {}})
+    market_constraint = market_constraint_rejection(
+        {**order, "side": side, "market": market, "quantity": quantity},
+        price_row,
+        require_price_row=True,
+    )
+    if market_constraint:
+        return _reject(order, market_constraint["risk_reason_code"]), None
     tradability = evaluate_tradability(status, side, price_available=price is not None, status_date=price_row.get("status_date"), execution_date=execution_date)
     if not tradability.allowed:
         return _reject(order, tradability.reason), None
@@ -81,4 +89,3 @@ def portfolio_snapshot(state: dict[str, Any], prices: dict[str, float]) -> dict[
 
 def _reject(order: dict[str, Any], reason: str) -> dict[str, Any]:
     return {**order, "status": "rejected", "reject_reason": reason, "fill_reason": None}
-

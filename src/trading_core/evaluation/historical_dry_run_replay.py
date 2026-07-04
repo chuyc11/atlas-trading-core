@@ -108,7 +108,7 @@ def replay_dry_run(
     price_only_replay = True
 
     for day in days:
-        account.settle_t_plus_one()
+        account.settle_t_plus_one(day, paths=replay_paths)
         close_prices = _close_price_rows(grouped[day])
         macro_rows, macro_limitations = load_macro_signals(day, replay_paths)
         input_missing = _missing_global_inputs(day, paths)
@@ -125,7 +125,7 @@ def replay_dry_run(
             signals = [hold_signal(day, account_id, "historical replay no_signal/HOLD due to missing or empty macro_signals")]
         write_jsonl(replay_paths.dated_jsonl("signals", "trading_signals", day), signals)
 
-        orders, trades = process_signals(signals, day, account, close_prices)
+        orders, trades = process_signals(signals, day, account, close_prices, paths=replay_paths)
         _stamp_quality(orders, close_prices)
         write_jsonl(replay_paths.dated_jsonl("orders", "orders", day), orders)
         write_jsonl(replay_paths.dated_jsonl("trades", "trades", day), trades)

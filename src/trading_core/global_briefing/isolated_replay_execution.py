@@ -6,6 +6,7 @@ import math
 from dataclasses import dataclass
 from typing import Any
 
+from trading_core.broker.market_constraints import market_constraint_rejection
 from trading_core.global_briefing.isolated_replay_state import (
     ReplayDayResult,
     ReplayOrder,
@@ -41,7 +42,8 @@ def process_isolated_replay_day(
     equity_before = _mark_equity(state, price_map, warnings)
 
     for signal in signals:
-        price = _lookup_price(signal.symbol, price_map)
+        price_row = _lookup_price_row(signal.symbol, price_map)
+        price = _price_from_row(price_row)
         if price is None:
             warnings.append(f"{replay_date}: missing price for {signal.symbol}; no order generated")
             continue
@@ -66,6 +68,14 @@ def process_isolated_replay_day(
             quantity = _shrink_to_cash(quantity, price, lot_size, state.account.cash, cost_model)
         if quantity <= 0:
             warnings.append(f"{replay_date}: insufficient cash for minimum lot in {signal.symbol}")
+            continue
+        constraint = market_constraint_rejection(
+            {"symbol": signal.symbol, "market": "A_SHARE", "side": side, "quantity": quantity},
+            {**price_row, "price": price} if price_row else None,
+            require_price_row=True,
+        )
+        if constraint:
+            warnings.append(f"{replay_date}: {constraint['risk_reason_code']} for {signal.symbol}; no order generated")
             continue
         order, trade = _execute_order(
             state,
@@ -195,6 +205,10 @@ def _mark_equity(state: ReplayState, price_map: dict[str, dict[str, Any]], warni
 
 
 def _lookup_price(symbol: str, price_map: dict[str, dict[str, Any]]) -> float | None:
+    return _price_from_row(_lookup_price_row(symbol, price_map))
+
+
+def _lookup_price_row(symbol: str, price_map: dict[str, dict[str, Any]]) -> dict[str, Any] | None:
     candidates = [symbol]
     if "." in symbol:
         candidates.append(symbol.split(".", 1)[0])
@@ -202,15 +216,21 @@ def _lookup_price(symbol: str, price_map: dict[str, dict[str, Any]]) -> float | 
         candidates.extend([f"{symbol}.SH", f"{symbol}.SZ", f"{symbol}.HK"])
     for candidate in candidates:
         row = price_map.get(candidate)
-        if not row:
-            continue
-        for key in ["close", "price"]:
-            value = row.get(key)
-            if value is not None and str(value) != "":
-                try:
-                    return float(value)
-                except (TypeError, ValueError):
-                    return None
+        if row:
+            return row
+    return None
+
+
+def _price_from_row(row: dict[str, Any] | None) -> float | None:
+    if not row:
+        return None
+    for key in ["close", "price"]:
+        value = row.get(key)
+        if value is not None and str(value) != "":
+            try:
+                return float(value)
+            except (TypeError, ValueError):
+                return None
     return None
 
 

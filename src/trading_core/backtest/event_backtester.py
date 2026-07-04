@@ -46,11 +46,11 @@ def run_event_backtest(
     pending_signals: list[dict[str, Any]] = []
     pending_signal_date: str | None = None
     for date in dates:
-        account.settle_t_plus_one()
+        account.settle_t_plus_one(date, paths=paths)
         prices, price_limitations = load_china_prices(date, paths)
         executed_signals = pending_signals
         executed_signal_date = pending_signal_date
-        orders, trades = process_signals(executed_signals, date, account, prices) if executed_signals else ([], [])
+        orders, trades = process_signals(executed_signals, date, account, prices, paths=paths) if executed_signals else ([], [])
         valuation = value_account(account, date, simple_price_map(prices), previous_total)
         portfolio = account.to_portfolio(date, previous_total)
         previous_total = float(valuation["total_asset"])

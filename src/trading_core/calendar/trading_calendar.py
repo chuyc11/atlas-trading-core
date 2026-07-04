@@ -54,6 +54,32 @@ def calendar_status(date: str | Date, market: str = "A_SHARE", *, paths: Project
     }
 
 
+def require_a_share_calendar(
+    *,
+    paths: ProjectPaths | None = None,
+    calendar_path: Path | str | None = None,
+    market: str = "A_SHARE",
+) -> dict[str, Any]:
+    if market != "A_SHARE":
+        return {"passed": True, "market": market, "status": "not_required", "warning": None}
+    calendar = _load_external_calendar(paths=paths, calendar_path=calendar_path)
+    if not calendar:
+        return {
+            "passed": False,
+            "market": market,
+            "status": "missing_calendar",
+            "warning": "formal A-share backtest requires an exchange trading calendar file; weekday fallback is degraded only",
+        }
+    return {
+        "passed": True,
+        "market": market,
+        "status": "calendar_file",
+        "trading_day_count": sum(1 for value in calendar.values() if value),
+        "closed_day_count": sum(1 for value in calendar.values() if not value),
+        "warning": None,
+    }
+
+
 def next_trading_day(date: str | Date, market: str = "A_SHARE", *, paths: ProjectPaths | None = None, calendar_path: Path | str | None = None) -> str:
     current = parse_date(date) + timedelta(days=1)
     while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):

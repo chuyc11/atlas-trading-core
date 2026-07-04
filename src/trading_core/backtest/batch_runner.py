@@ -7,10 +7,12 @@ from pathlib import Path
 from typing import Any
 
 from trading_core.backtest.historical_backtester import run_historical_backtest
+from trading_core.calendar.trading_calendar import require_a_share_calendar
 from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv
 from trading_core.evaluation.strategy_leaderboard import build_strategy_leaderboard
 from trading_core.evolution.admission_gate import evaluate_admission
+from trading_core.equity_data.adjusted_price import validate_adjusted_price_status
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 from trading_core.storage.jsonl_store import read_json, read_jsonl, write_json
 
@@ -28,6 +30,8 @@ def run_backtest_batch(
     market: str = "A_SHARE",
     strategies: list[str] | None = None,
     timestamp: str | None = None,
+    require_calendar: bool = True,
+    allow_raw_price: bool = False,
 ) -> dict[str, Any]:
     paths = paths or project_paths()
     strategies = strategies or DEFAULT_STRATEGIES
@@ -36,6 +40,25 @@ def run_backtest_batch(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     validation = validate_data_package(data_path, paths, timestamp=timestamp)
+    calendar_gate = require_a_share_calendar(paths=paths, market=market) if require_calendar else {"passed": True, "status": "degraded_allowed", "warning": None}
+    adjusted_price_gate = (
+        validate_adjusted_price_status(paths=paths, allow_raw_price=allow_raw_price)
+        if market == "A_SHARE"
+        else {"passed": True, "status": "not_required", "warning": None}
+    )
+    formal_gates = {"calendar": calendar_gate, "adjusted_price": adjusted_price_gate}
+    gate_failures = [
+        gate_name
+        for gate_name, gate in formal_gates.items()
+        if not bool(gate.get("passed"))
+    ]
+    gate_warnings = [str(gate["warning"]) for gate in formal_gates.values() if gate.get("warning")]
+    effective_validation = {
+        **validation,
+        "passed": bool(validation["passed"]) and not gate_failures,
+        "formal_gates": formal_gates,
+        "warnings": sorted(set([*validation["warnings"], *gate_warnings])),
+    }
     batch_config = {
         "start_date": start_date,
         "end_date": end_date,
@@ -43,12 +66,19 @@ def run_backtest_batch(
         "market": market,
         "strategies": strategies,
         "benchmarks": DEFAULT_BENCHMARKS,
+        "require_calendar": require_calendar,
+        "allow_raw_price": allow_raw_price,
+        "formal_gates": formal_gates,
     }
     write_json(output_dir / "batch_config.json", batch_config)
-    write_json(output_dir / "data_validation.json", validation)
+    write_json(output_dir / "data_validation.json", effective_validation)
 
-    if not validation["passed"]:
-        payload = _empty_failed_batch(start_date, end_date, output_dir, validation, batch_config)
+    if not effective_validation["passed"]:
+        limitations = []
+        if not validation["passed"]:
+            limitations.append("data_validation_failed")
+        limitations.extend(f"{gate_name}_gate_failed" for gate_name in gate_failures)
+        payload = _empty_failed_batch(start_date, end_date, output_dir, effective_validation, batch_config, limitations=limitations)
         _write_batch_outputs(output_dir, payload)
         return payload
 
@@ -56,7 +86,7 @@ def run_backtest_batch(
     strategy_results: dict[str, Any] = {}
     benchmark_results: dict[str, Any] = {}
     admission_results: dict[str, Any] = {}
-    limitations = list(validation["warnings"])
+    limitations = list(effective_validation["warnings"])
 
     for strategy_id in strategies:
         result = run_historical_backtest(start_date, end_date, strategy_id, market=market, workspace_root=paths.workspace_root)
@@ -79,7 +109,7 @@ def run_backtest_batch(
         "end_date": end_date,
         "output_dir": str(output_dir),
         "batch_config": {**batch_config, "import_result": import_result},
-        "data_validation": validation,
+        "data_validation": effective_validation,
         "strategy_results": strategy_results,
         "benchmark_results": benchmark_results,
         "admission_results": admission_results,
@@ -87,7 +117,7 @@ def run_backtest_batch(
         "best_strategy": _best_strategy(strategy_results),
         "worst_strategy": _worst_strategy(strategy_results),
         "limitations": sorted(set(str(item) for item in limitations)),
-        "warnings": validation["warnings"],
+        "warnings": effective_validation["warnings"],
         "passed": True,
     }
     _write_batch_outputs(output_dir, payload)
@@ -100,6 +130,8 @@ def _empty_failed_batch(
     output_dir: Path,
     validation: dict[str, Any],
     batch_config: dict[str, Any],
+    *,
+    limitations: list[str] | None = None,
 ) -> dict[str, Any]:
     return {
         "start_date": start_date,
@@ -113,7 +145,7 @@ def _empty_failed_batch(
         "leaderboard": {"items": []},
         "best_strategy": None,
         "worst_strategy": None,
-        "limitations": ["data_validation_failed"],
+        "limitations": limitations or ["data_validation_failed"],
         "warnings": validation["warnings"],
         "passed": False,
     }

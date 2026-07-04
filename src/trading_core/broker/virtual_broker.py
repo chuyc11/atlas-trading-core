@@ -5,11 +5,11 @@ from __future__ import annotations
 from typing import Any
 
 from trading_core.accounting.account import Account
-from trading_core.broker.market_rules import round_lot
+from trading_core.broker.market_constraints import market_constraint_rejection
+from trading_core.broker.market_rules import is_t_plus_one, round_lot
 from trading_core.broker.matching_engine import match_order
+from trading_core.calendar.trading_calendar import next_trading_day
 from trading_core.risk.risk_engine import check_order
-
-MAX_VOLUME_PARTICIPATION = 0.10
 
 
 def signal_to_order(
@@ -20,6 +20,7 @@ def signal_to_order(
     sequence: int = 1,
     existing_order_count: int = 0,
     today_traded_notional: float = 0.0,
+    paths: Any | None = None,
 ) -> dict[str, Any]:
     side = "BUY" if signal.get("side") == "LONG" else str(signal.get("side", "HOLD")).upper()
     if side == "HOLD":
@@ -57,8 +58,10 @@ def signal_to_order(
         "quantity": quantity,
         "estimated_price": price if price else None,
     }
+    if side == "BUY" and is_t_plus_one(market):
+        order["settlement_date"] = next_trading_day(date, market, paths=paths)
     quality = str(price_row.get("quality", "missing")) if price_row else "missing"
-    market_constraint = _market_constraint_rejection(order, price_row)
+    market_constraint = market_constraint_rejection(order, price_row)
     if market_constraint:
         order.update(market_constraint)
     else:
@@ -72,7 +75,9 @@ def execute_order(order: dict[str, Any], account: Account, price_row: dict[str, 
         return None
     if not price_row or price_row.get("price") is None:
         return None
-    trade = match_order(order, float(price_row["price"]))
+    trade = match_order(order, float(price_row["price"]), price_row)
+    if trade.get("status") != "filled":
+        return None
     account.apply_trade(trade)
     return trade
 
@@ -82,6 +87,8 @@ def process_signals(
     date: str,
     account: Account,
     prices: dict[str, dict[str, Any]],
+    *,
+    paths: Any | None = None,
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     orders: list[dict[str, Any]] = []
     trades: list[dict[str, Any]] = []
@@ -95,6 +102,7 @@ def process_signals(
             index,
             len(orders),
             today_traded_notional,
+            paths,
         )
         orders.append(order)
         trade = execute_order(order, account, prices.get(str(signal.get("symbol"))))
@@ -102,60 +110,3 @@ def process_signals(
             trades.append(trade)
             today_traded_notional += abs(float(trade.get("gross_amount", 0.0)))
     return orders, trades
-
-
-def _market_constraint_rejection(order: dict[str, Any], price_row: dict[str, Any] | None) -> dict[str, str] | None:
-    if not price_row or str(order.get("side", "")).upper() == "HOLD":
-        return None
-    row = _flatten_price_row(price_row)
-    side = str(order.get("side", "")).upper()
-    quantity = int(order.get("quantity") or 0)
-    if _truthy(row.get("suspended")) or _truthy(row.get("is_suspended")) or _truthy(row.get("halted")):
-        return _reject("security_suspended")
-    volume = _number(row.get("volume"))
-    if volume is not None:
-        if volume <= 0:
-            return _reject("zero_volume_suspension")
-        if quantity > int(volume * MAX_VOLUME_PARTICIPATION):
-            return _reject("volume_capacity_exceeded")
-    if side == "BUY" and (_truthy(row.get("limit_up")) or _at_price_limit(row, "up")):
-        return _reject("buy_blocked_at_limit_up")
-    if side == "SELL" and (_truthy(row.get("limit_down")) or _at_price_limit(row, "down")):
-        return _reject("sell_blocked_at_limit_down")
-    return None
-
-
-def _flatten_price_row(price_row: dict[str, Any]) -> dict[str, Any]:
-    raw = price_row.get("raw")
-    return {**raw, **price_row} if isinstance(raw, dict) else price_row
-
-
-def _at_price_limit(row: dict[str, Any], direction: str) -> bool:
-    pct_change = _number(row.get("pct_change") if row.get("pct_change") is not None else row.get("change_pct"))
-    if pct_change is not None:
-        return pct_change >= 9.9 if direction == "up" else pct_change <= -9.9
-    price = _number(row.get("price"))
-    previous_close = _number(row.get("previous_close"))
-    if price is None or previous_close in (None, 0):
-        return False
-    change = (price / previous_close - 1.0) * 100
-    return change >= 9.9 if direction == "up" else change <= -9.9
-
-
-def _number(value: Any) -> float | None:
-    try:
-        return float(value)
-    except (TypeError, ValueError):
-        return None
-
-
-def _truthy(value: Any) -> bool:
-    if isinstance(value, bool):
-        return value
-    if isinstance(value, (int, float)):
-        return bool(value)
-    return str(value).strip().lower() in {"1", "true", "yes", "y"}
-
-
-def _reject(reason: str) -> dict[str, str]:
-    return {"risk_check": "rejected", "risk_reason": reason, "risk_reason_code": reason}

@@ -43,7 +43,7 @@ def _data_quality_counts(
 
 
 def _previous_portfolio(paths: ProjectPaths, date: str) -> dict[str, Any] | None:
-    previous = previous_trading_day(date)
+    previous = previous_trading_day(date, paths=paths)
     return read_json(paths.dated_json("portfolios", "portfolio", previous), default=None)
 
 
@@ -83,8 +83,8 @@ def run_daily(date: str, workspace_root: Path | None = None) -> dict[str, Any]:
     account_id = settings["default_account_id"]
     initial_cash = float(settings["initial_account"]["initial_cash"])
     previous_portfolio = _previous_portfolio(paths, date)
-    account = account_from_portfolio(previous_portfolio, account_id, initial_cash)
-    account.settle_t_plus_one()
+    account = account_from_portfolio(previous_portfolio, account_id, initial_cash, paths=paths)
+    account.settle_t_plus_one(date, paths=paths)
     previous_total = float(previous_portfolio["total_asset"]) if previous_portfolio else account.total_asset
 
     limitations: list[str] = []
@@ -116,7 +116,7 @@ def run_daily(date: str, workspace_root: Path | None = None) -> dict[str, Any]:
     write_json(paths.dated_json("snapshots", "data_quality", date), data_quality_summary)
 
     write_jsonl(paths.dated_jsonl("signals", "trading_signals", date), signals)
-    orders, trades = process_signals(signals, date, account, prices)
+    orders, trades = process_signals(signals, date, account, prices, paths=paths)
     write_jsonl(paths.dated_jsonl("orders", "orders", date), orders)
     write_jsonl(paths.dated_jsonl("trades", "trades", date), trades)
 

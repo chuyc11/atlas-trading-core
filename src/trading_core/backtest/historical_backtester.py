@@ -43,10 +43,10 @@ def run_historical_backtest(
     turnover = 0.0
 
     for date in dates:
-        account.settle_t_plus_one()
+        account.settle_t_plus_one(date, paths=paths)
         close_prices = _close_price_rows(grouped_prices[date])
         open_prices = _open_price_rows(grouped_prices[date])
-        orders, trades = process_signals(pending_signals, date, account, open_prices) if pending_signals else ([], [])
+        orders, trades = process_signals(pending_signals, date, account, open_prices, paths=paths) if pending_signals else ([], [])
         all_trades.extend(_stamp_backtest_trade(trade, strategy_id, pending_signal_date) for trade in trades)
         turnover += sum(float(trade.get("gross_amount", 0.0)) for trade in trades)
         valuation = value_account(account, date, {symbol: row["price"] for symbol, row in close_prices.items()}, previous_total)

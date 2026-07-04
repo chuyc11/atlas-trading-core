@@ -46,6 +46,17 @@ def test_missing_price_does_not_order() -> None:
     assert any("missing price" in item for item in day.warnings)
 
 
+def test_market_constraints_block_isolated_replay_fill() -> None:
+    state = ReplayState.initialize("R1", 1_000_000.0)
+    prices = {"510300": {"symbol": "510300", "close": 4.0, "volume": 0}}
+
+    orders, trades, _valuation, day = process_isolated_replay_day(state, "2024-01-02", [_signal(0.10)], prices)
+
+    assert orders == []
+    assert trades == []
+    assert any("zero_volume_suspension" in item for item in day.warnings)
+
+
 def test_insufficient_cash_shrinks_quantity() -> None:
     state = ReplayState.initialize("R1", 1_000.0)
 
