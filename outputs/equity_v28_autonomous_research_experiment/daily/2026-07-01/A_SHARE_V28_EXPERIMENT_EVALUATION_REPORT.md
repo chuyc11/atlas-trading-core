@@ -1,0 +1,41 @@
+# A Share V28 Experiment Evaluation Report
+
+- target_version: v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening
+- source_version: v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: False
+- full_pytest_passed: False
+- live_trading_ready: False
+
+## Generated Checks
+- artifact_generated: True
+- experiment_registry_generated: True
+- hypothesis_registry_generated: True
+- llm_proposal_governance_generated: True
+- rl_policy_governance_generated: True
+- parameter_experiment_result_generated: True
+- experiment_evaluation_scorecard_generated: True
+- research_queue_generated: True
+- owner_autonomous_research_dashboard_generated: True
+- full_pytest_run: False
+- full_pytest_passed: False
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False

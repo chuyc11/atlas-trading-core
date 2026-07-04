@@ -1,0 +1,59 @@
+# A-SHARE-V28-AUDIT
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 1
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- full_pytest_run: False
+- full_pytest_passed: False
+
+## Artifact Checks
+- json_count: 14
+- markdown_count: 8
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v27_baseline_verified: True
+- experiment_registry_generated: True
+- hypothesis_registry_generated: True
+- llm_proposal_governance_generated: True
+- rl_policy_governance_generated: True
+- parameter_experiment_result_generated: True
+- experiment_evaluation_scorecard_generated: True
+- research_queue_generated: True
+- owner_autonomous_research_dashboard_generated: True
+
+## Forbidden Checks
+- llm_proposal_fabricated: False
+- rl_policy_result_fabricated: False
+- experiment_result_fabricated: False
+- statistical_claim_fabricated: False
+- llm_proposal_generates_trade_instruction: False
+- rl_policy_controls_real_account: False
+- parameter_engine_modifies_active_strategy: False
+- experiment_decision_deploys_live: False
+- research_queue_installs_scheduler: False
+- full_pytest_run: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False

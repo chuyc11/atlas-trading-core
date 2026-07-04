@@ -1,0 +1,187 @@
+{
+  "manifest_id": "V28-AUTONOMOUS-RESEARCH-MANIFEST",
+  "target_version": "v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening",
+  "source_version": "v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-04T18:38:06.805843Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V28_AUTONOMOUS_RESEARCH_OVERVIEW.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_AUTONOMOUS_RESEARCH_OVERVIEW.md",
+      "sha256": "74ff88b386ac53db2bdbc00564fdc49496e5e1df99f2945c66cbc9bcd8aeea7f",
+      "size_bytes": 1413
+    },
+    {
+      "name": "md:A_SHARE_V28_EXPERIMENT_EVALUATION_REPORT.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_EXPERIMENT_EVALUATION_REPORT.md",
+      "sha256": "1971da3ea175190682ed50c50c0282d594a5c9203a32b94c6152752b0e0b4543",
+      "size_bytes": 1413
+    },
+    {
+      "name": "md:A_SHARE_V28_LLM_PROPOSAL_GOVERNANCE_REPORT.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_LLM_PROPOSAL_GOVERNANCE_REPORT.md",
+      "sha256": "a1787096200174d07bab2fe6d2a32269059f94b158b4fb08e70b3ba31f0967f5",
+      "size_bytes": 1415
+    },
+    {
+      "name": "md:A_SHARE_V28_OWNER_AUTONOMOUS_RESEARCH_DASHBOARD.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_OWNER_AUTONOMOUS_RESEARCH_DASHBOARD.md",
+      "sha256": "147d0ed4bc00a3d7d6c63b18159cc50382ba7ca59e490041dfe2eb92d59dfdfb",
+      "size_bytes": 1420
+    },
+    {
+      "name": "md:A_SHARE_V28_PARAMETER_EXPERIMENT_REPORT.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_PARAMETER_EXPERIMENT_REPORT.md",
+      "sha256": "4db09535caf0f4ffa06c246929f2df115a768d2be8c24bc252d521e5a4e70676",
+      "size_bytes": 1412
+    },
+    {
+      "name": "md:A_SHARE_V28_RESEARCH_QUEUE_REPORT.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_RESEARCH_QUEUE_REPORT.md",
+      "sha256": "30c43d4bc0414683ba9faca1a999c69c58b0587d213f195890e1f26e3a6a1c8e",
+      "size_bytes": 1406
+    },
+    {
+      "name": "md:A_SHARE_V28_RL_POLICY_GOVERNANCE_REPORT.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_RL_POLICY_GOVERNANCE_REPORT.md",
+      "sha256": "a0963ba6f608e5f97505fe8c6683ff799de428abc16736386324f471aeaf7115",
+      "size_bytes": 1412
+    },
+    {
+      "name": "md:A_SHARE_V28_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v28_autonomous_research_experiment/daily/2026-07-01/A_SHARE_V28_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "50fbb14e0463c2b852ff879cf6488ee56a797d2bb2c2154ce5b9474e1f87398d",
+      "size_bytes": 1222
+    },
+    {
+      "name": "v28_artifact_integrity_sweep",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_artifact_integrity_sweep.json",
+      "sha256": "c99041969ffea3840bec1b860ff8aed4ce95d04f9b4d6c406c6308f623d7c776",
+      "size_bytes": 2182
+    },
+    {
+      "name": "v28_autonomous_research_request",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_autonomous_research_request.json",
+      "sha256": "94b102e9533d8450112da1ad7ea8f76c0b79c750fe66c39b14cec429d426cc37",
+      "size_bytes": 2522
+    },
+    {
+      "name": "v28_autonomous_research_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_autonomous_research_result.json",
+      "sha256": "fa0f117c15753b2d0c1ba0a14ac1bdf72db2cd36187c8ba372e32adf4fd15f59",
+      "size_bytes": 2629
+    },
+    {
+      "name": "v28_experiment_evaluation_scorecard",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_experiment_evaluation_scorecard.json",
+      "sha256": "08214b7d3204639381ed11332a29c5fae4efbedbade9fe1359fcd3d50ca471f1",
+      "size_bytes": 2530
+    },
+    {
+      "name": "v28_experiment_registry_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_experiment_registry_result.json",
+      "sha256": "4524bbee8065346dd585d8a511dfd95c31824828f30ee0c0e5d3660346e0fdd8",
+      "size_bytes": 2520
+    },
+    {
+      "name": "v28_hypothesis_registry_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_hypothesis_registry_result.json",
+      "sha256": "d311d5368ee260bf8eadbd0901b455852fb172b0418ff183456a239188df2d6e",
+      "size_bytes": 2520
+    },
+    {
+      "name": "v28_llm_proposal_governance_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_llm_proposal_governance_result.json",
+      "sha256": "8b02248b714a14505b5608435c7d279362d0ba688f5cb25fd2955582e9a7e1c4",
+      "size_bytes": 2528
+    },
+    {
+      "name": "v28_owner_autonomous_research_dashboard_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_owner_autonomous_research_dashboard_result.json",
+      "sha256": "857a7180b472a2752bdd2c387d58e73e65c40a3ac8049aaa0d314be5efec013c",
+      "size_bytes": 2552
+    },
+    {
+      "name": "v28_parameter_experiment_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_parameter_experiment_result.json",
+      "sha256": "b8e15f367cde34597b52d39506f6dbb4f78143bcec9de82d1858aee613a1ee11",
+      "size_bytes": 2522
+    },
+    {
+      "name": "v28_protected_path_sweep",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_protected_path_sweep.json",
+      "sha256": "3018dc1c3859ec8678685c1490994f338e9380bc616cf0d1282a3885789612c4",
+      "size_bytes": 2281
+    },
+    {
+      "name": "v28_research_queue_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_research_queue_result.json",
+      "sha256": "f73f9ae471d8d81cc4bbe24cb5549f0e9d474b6bb5840c898f735a3768efd88a",
+      "size_bytes": 2510
+    },
+    {
+      "name": "v28_rl_policy_governance_result",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_rl_policy_governance_result.json",
+      "sha256": "b55b27b0cd7f7615db873e9469f2a8311a5066b50eeaed2afbb8435cb57f1e0c",
+      "size_bytes": 2522
+    },
+    {
+      "name": "v28_safety_boundary_sweep",
+      "path": "data/equity_v28_autonomous_research_experiment/daily/2026-07-01/v28_safety_boundary_sweep.json",
+      "sha256": "82f1a6a631f5435d292ce9737a08e4b80abb6e94bcf7ba1ed20842e9f493f98c",
+      "size_bytes": 2162
+    }
+  ],
+  "json_count": 14,
+  "markdown_count": 8,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v27_baseline_verified": true,
+  "experiment_registry_generated": true,
+  "hypothesis_registry_generated": true,
+  "llm_proposal_governance_generated": true,
+  "rl_policy_governance_generated": true,
+  "parameter_experiment_result_generated": true,
+  "experiment_evaluation_scorecard_generated": true,
+  "research_queue_generated": true,
+  "owner_autonomous_research_dashboard_generated": true,
+  "llm_proposal_fabricated": false,
+  "rl_policy_result_fabricated": false,
+  "experiment_result_fabricated": false,
+  "statistical_claim_fabricated": false,
+  "llm_proposal_generates_trade_instruction": false,
+  "rl_policy_controls_real_account": false,
+  "parameter_engine_modifies_active_strategy": false,
+  "experiment_decision_deploys_live": false,
+  "research_queue_installs_scheduler": false,
+  "full_pytest_run": false,
+  "v7_baseline_verified": true,
+  "full_pytest_passed": false,
+  "targeted_pytest_required": true,
+  "full_pytest_deferred_until": "v3.0.0-final-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
