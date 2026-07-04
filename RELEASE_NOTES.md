@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.5.0-a-share-simulation-research-quality-closeout-and-full-regression
+
+v2.5.0 closes out the v2.3/v2.4 maintenance sequence with full-regression evidence, safety regression sweep, CLI/contract closeout, artifact/report/journal closeout, and owner quality dashboard artifacts.
+
+- adds v25 quality closeout request/result/manifest, full regression evidence, v23/v24 carry-forward closeout, artifact/report/journal closeout, safety regression sweep, CLI contract closeout, owner quality dashboard, and audit artifacts
+- records full regression as completed in split matrix form after the direct one-shot pytest command hit the Windows/runtime timeout path
+- preserves all outputs as research-only, simulation-only, virtual-only closeout evidence: no broker, no real account read, no real order, no order preview, no buy/sell signal, no owner-readiness gate rerun, and no new gate score/decision
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest: `6 passed`; full regression matrix: `2024 passed, 1 skipped`
+- recommended next version: `v2.6.0-a-share-public-data-provider-adapter-and-data-contract-hardening`
+
 ## v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction
 
 v2.4.0 adds the post-v2.3 maintenance quality, artifact bloat, report deduplication, CLI hygiene, shared contract, test/code maintenance, dry-run cleanup plan, and owner maintenance dashboard review layer for the A-share research platform.
