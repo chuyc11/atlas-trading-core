@@ -1,5 +1,16 @@
 # Release Notes
 
+## v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction
+
+v2.4.0 adds the post-v2.3 maintenance quality, artifact bloat, report deduplication, CLI hygiene, shared contract, test/code maintenance, dry-run cleanup plan, and owner maintenance dashboard review layer for the A-share research platform.
+
+- adds v24 maintenance quality request/result/manifest, artifact inventory bloat review, report deduplication review, CLI hygiene review, shared result/audit contract review, test/code maintenance review, dry-run cleanup plan, maintenance scorecard, owner maintenance dashboard, safety sweep, protected path sweep, and audit artifacts
+- keeps cleanup strictly dry-run only: no historical evidence deletion, no audit evidence deletion, no release evidence deletion, no required artifact deletion, and no historical release artifact rewrite
+- preserves all outputs as research-only, simulation-only, virtual-only maintenance evidence: no broker, no real account read, no real order, no order preview, no buy/sell signal, no owner-readiness gate rerun, and no new gate score/decision
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest: `10 passed`; recent smoke: `34 passed`; full pytest remains deferred until `next-major-closeout-or-explicit-request`
+- recommended next version: `v2.5.0-a-share-simulation-research-quality-closeout-and-full-regression`
+
 ## v2.3.0-a-share-research-operator-ux-reporting-and-decision-journal-hardening
 
 v2.3.0 adds an owner-facing operator UX, reporting, decision journal, artifact navigation, warning/blocker explanation, Chinese report polish, and safety wording audit layer for the A-share research platform.
