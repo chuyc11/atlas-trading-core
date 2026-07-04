@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.6.0-a-share-public-data-provider-adapter-and-data-contract-hardening
+
+v2.6.0 adds public-data-provider adapter governance, provider health review, data contract normalization review, provider comparison, refresh dry-run/import planning, and owner provider dashboard artifacts.
+
+- keeps provider refresh and import planning dry-run only
+- explicitly blocks broker/private-account/real-order/order-preview adapters and unsafe imports
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest and recent smoke passed; full pytest remains deferred by v2.6 policy
+- recommended next version: `v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening`
+
 ## v2.5.0-a-share-simulation-research-quality-closeout-and-full-regression
 
 v2.5.0 closes out the v2.3/v2.4 maintenance sequence with full-regression evidence, safety regression sweep, CLI/contract closeout, artifact/report/journal closeout, and owner quality dashboard artifacts.
