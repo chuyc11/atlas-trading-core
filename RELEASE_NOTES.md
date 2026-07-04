@@ -1,5 +1,15 @@
 # Release Notes
 
+## v2.7.0-a-share-simulated-strategy-lifecycle-and-canary-governance-hardening
+
+v2.7.0 adds simulated strategy lifecycle, virtual-only canary governance, transition evidence, simulated active strategy registry, lifecycle monitoring alerts, and owner lifecycle dashboard artifacts.
+
+- keeps lifecycle states simulated-only and virtual-only
+- explicitly blocks real trading active states, broker active states, real canary states, real trade generation, sell-signal demotion semantics, and real order generation
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest and recent smoke passed; full pytest remains deferred by v2.7 policy
+- recommended next version: `v2.8.0-a-share-autonomous-research-experiment-engine-and-llm-rl-governance-hardening`
+
 ## v2.6.0-a-share-public-data-provider-adapter-and-data-contract-hardening
 
 v2.6.0 adds public-data-provider adapter governance, provider health review, data contract normalization review, provider comparison, refresh dry-run/import planning, and owner provider dashboard artifacts.
