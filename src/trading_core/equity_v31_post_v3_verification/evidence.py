@@ -59,7 +59,38 @@ def parse_pytest_summary(stdout: str, stderr: str = "") -> dict[str, int]:
         match = re.search(pattern, source)
         if match:
             parsed[name] = int(match.group(1))
+    if not any(parsed[name] for name in ["passed", "skipped", "failed", "errors", "xfailed", "xpassed"]):
+        progress_counts = _parse_pytest_progress_counts(text)
+        parsed.update({name: value for name, value in progress_counts.items() if value or name != "warnings"})
+        if parsed["warnings"] == 0:
+            parsed["warnings"] = progress_counts["warnings"]
     return parsed
+
+
+def _parse_pytest_progress_counts(text: str) -> dict[str, int]:
+    counts = {
+        "passed": 0,
+        "skipped": 0,
+        "failed": 0,
+        "errors": 0,
+        "warnings": 0,
+        "xfailed": 0,
+        "xpassed": 0,
+    }
+    for line in text.splitlines():
+        if "warnings summary" in line:
+            break
+        if re.search(r"\[\s*\d+%\]", line):
+            progress = line.split("[", 1)[0]
+            counts["passed"] += progress.count(".")
+            counts["skipped"] += progress.count("s")
+            counts["failed"] += progress.count("F")
+            counts["errors"] += progress.count("E")
+            counts["xfailed"] += progress.count("x")
+            counts["xpassed"] += progress.count("X")
+    for match in re.finditer(r":\s*(\d+)\s+warnings?$", text, flags=re.MULTILINE):
+        counts["warnings"] += int(match.group(1))
+    return counts
 
 
 def current_git_commit(project_root: Path) -> str:

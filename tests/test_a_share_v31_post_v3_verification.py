@@ -16,6 +16,19 @@ from trading_core.equity_v31_post_v3_verification.builder import (
     TARGET_VERSION,
     run_a_share_v31_post_v3_verification,
 )
+from trading_core.equity_v31_post_v3_verification.evidence import parse_pytest_summary
+
+
+def test_v31_pytest_summary_parser_falls_back_to_progress_counts() -> None:
+    stdout = """........................................................................ [ 50%]
+.......s................................................................ [100%]
+============================== warnings summary ===============================
+tests/test_example.py: 2 warnings
+"""
+
+    assert parse_pytest_summary(stdout)["passed"] == 143
+    assert parse_pytest_summary(stdout)["skipped"] == 1
+    assert parse_pytest_summary(stdout)["warnings"] == 2
 
 
 def test_v31_build_generates_post_v3_verification_contract(tmp_path: Path) -> None:
