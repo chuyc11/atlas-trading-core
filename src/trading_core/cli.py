@@ -137,6 +137,8 @@ from trading_core.equity_v24_maintenance_quality import DEFAULT_AS_OF_DATE as DE
 from trading_core.equity_v24_maintenance_quality import audit_a_share_v24_maintenance_quality, run_a_share_v24_maintenance_quality
 from trading_core.equity_release_chain import RELEASE_SPECS, audit_release_artifacts, command_to_spec, run_release_artifacts
 from trading_core.equity_release_chain.generic import DEFAULT_AS_OF_DATE as DEFAULT_RELEASE_CHAIN_AS_OF_DATE
+from trading_core.equity_v31_post_v3_verification import DEFAULT_AS_OF_DATE as DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE
+from trading_core.equity_v31_post_v3_verification import audit_a_share_v31_post_v3_verification, run_a_share_v31_post_v3_verification
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_config import ALLOWED_MODES as A_SHARE_CURRENT_DAY_MODES
 from trading_core.equity_current_day.current_day_config import ALLOWED_WORKFLOW_MODES as A_SHARE_CURRENT_DAY_WORKFLOW_MODES
@@ -1551,6 +1553,26 @@ def build_parser() -> argparse.ArgumentParser:
     v24_dashboard = subparsers.add_parser("build-a-share-owner-maintenance-dashboard")
     v24_dashboard.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
     v24_dashboard.add_argument("--simulation-only", action="store_true")
+    v31_build = subparsers.add_parser("build-a-share-v31-post-v3-verification")
+    v31_build.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
+    v31_build.add_argument("--simulation-only", action="store_true")
+    v31_audit = subparsers.add_parser("audit-a-share-v31-post-v3-verification")
+    v31_audit.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
+    v31_all = subparsers.add_parser("build-and-audit-a-share-v31-post-v3-verification")
+    v31_all.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
+    v31_all.add_argument("--simulation-only", action="store_true")
+    for v31_command in [
+        "build-a-share-v31-semantic-regression-pack",
+        "build-a-share-v31-split-matrix-evidence",
+        "build-a-share-v31-test-evidence-contract",
+        "build-a-share-v31-git-evidence-pack",
+        "build-a-share-v31-artifact-checksum-pack",
+        "build-a-share-v31-external-audit-package",
+        "build-a-share-v31-owner-verification-dashboard",
+    ]:
+        v31_component = subparsers.add_parser(v31_command)
+        v31_component.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
+        v31_component.add_argument("--simulation-only", action="store_true")
     for release_spec in RELEASE_SPECS:
         release_build = subparsers.add_parser(release_spec["build_command"])
         release_build.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
@@ -3300,6 +3322,34 @@ def _release_chain_cli_payload(spec: dict, result: dict) -> dict:
     if "release_decision" in result:
         payload["release_decision"] = result["release_decision"]
     return payload
+
+
+def _v31_post_v3_verification_cli_payload(result: dict) -> dict:
+    return {
+        "target_version": result["target_version"],
+        "source_version": result["source_version"],
+        "as_of_date": result["as_of_date"],
+        "overall_passed": result["overall_passed"],
+        "blocking_reasons": result["blocking_reasons"],
+        "warnings": len(result["warnings"]),
+        "semantic_fix_commit": result.get("semantic_fix_commit"),
+        "semantic_fix_commit_verified": result.get("semantic_fix_commit_verified"),
+        "t_plus_one_dated_settlement_verified": result.get("t_plus_one_dated_settlement_verified"),
+        "period_cumulative_excess_return_verified": result.get("period_cumulative_excess_return_verified"),
+        "formal_calendar_fail_closed_verified": result.get("formal_calendar_fail_closed_verified"),
+        "raw_adjusted_price_fallback_blocked_by_default": result.get("raw_adjusted_price_fallback_blocked_by_default"),
+        "execution_path_market_constraints_verified": result.get("execution_path_market_constraints_verified"),
+        "full_regression_mode": result.get("full_regression_mode"),
+        "full_regression_passed": result.get("full_regression_passed"),
+        "full_regression_total_passed": result.get("full_regression_total_passed"),
+        "full_regression_total_skipped": result.get("full_regression_total_skipped"),
+        "single_command_pytest_completed": result.get("single_command_pytest_completed"),
+        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": result.get("single_command_pytest_blocked_by_local_timeout_or_windows_limit"),
+        "owner_readiness_state": result.get("owner_readiness_state"),
+        "owner_operationally_acceptable": result.get("owner_operationally_acceptable"),
+        "live_trading_ready": result.get("live_trading_ready"),
+        "recommended_next_version": result.get("recommended_next_version"),
+    }
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -6109,6 +6159,33 @@ def main(argv: Sequence[str] | None = None) -> int:
     if args.command == "build-a-share-owner-maintenance-dashboard":
         result = run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
         print({"overall_passed": result["overall_passed"], "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-a-share-v31-post-v3-verification":
+        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        print(_v31_post_v3_verification_cli_payload(result))
+        return 0 if result["overall_passed"] else 1
+    if args.command == "audit-a-share-v31-post-v3-verification":
+        result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths)
+        print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
+        return 0 if result["overall_passed"] else 1
+    if args.command == "build-and-audit-a-share-v31-post-v3-verification":
+        build_result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        audit_result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        print({**_v31_post_v3_verification_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
+        return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
+    v31_component_flags = {
+        "build-a-share-v31-semantic-regression-pack": "semantic_regression_pack_generated",
+        "build-a-share-v31-split-matrix-evidence": "split_matrix_regression_evidence_generated",
+        "build-a-share-v31-test-evidence-contract": "test_evidence_truthfulness_contract_generated",
+        "build-a-share-v31-git-evidence-pack": "git_diff_evidence_pack_generated",
+        "build-a-share-v31-artifact-checksum-pack": "artifact_checksum_provenance_pack_generated",
+        "build-a-share-v31-external-audit-package": "external_reviewer_audit_package_generated",
+        "build-a-share-v31-owner-verification-dashboard": "owner_post_v3_verification_dashboard_generated",
+    }
+    if args.command in v31_component_flags:
+        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        component_flag = v31_component_flags[args.command]
+        print({"overall_passed": result["overall_passed"], component_flag: result.get(component_flag), "full_regression_mode": result.get("full_regression_mode"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"])})
         return 0 if result["overall_passed"] else 1
     release_spec, release_action = command_to_spec(args.command)
     if release_spec is not None and release_action == "build":
