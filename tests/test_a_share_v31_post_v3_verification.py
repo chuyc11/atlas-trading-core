@@ -200,6 +200,22 @@ def test_v31_audit_rejects_manifest_content_and_envelope_drift(tmp_path: Path) -
     assert "manifest_content_checksum_mismatch:v31_semantic_regression_pack_result" in audit["blocking_reasons"]
 
 
+def test_v31_manifest_content_hashes_are_stable_across_output_dirs(tmp_path: Path) -> None:
+    paths = make_v31_paths(tmp_path)
+    out_a = tmp_path / "out-a"
+    out_b = tmp_path / "out-b"
+    run_a_share_v31_post_v3_verification(paths=paths, simulation_only=True, output_dir=out_a)
+    run_a_share_v31_post_v3_verification(paths=paths, simulation_only=True, output_dir=out_b)
+    manifest_a = v31_json(paths, "v31_post_v3_verification_manifest", artifact_dir=out_a)
+    manifest_b = v31_json(paths, "v31_post_v3_verification_manifest", artifact_dir=out_b)
+    records_a = {record["name"]: record for record in manifest_a["artifact_records"]}
+    records_b = {record["name"]: record for record in manifest_b["artifact_records"]}
+
+    assert {name: record["content_sha256"] for name, record in records_a.items()} == {
+        name: record["content_sha256"] for name, record in records_b.items()
+    }
+
+
 def test_v31_cli_build_audit_and_component_commands(tmp_path: Path, monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]) -> None:
     from trading_core import cli
 

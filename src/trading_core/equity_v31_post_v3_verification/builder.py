@@ -342,7 +342,7 @@ def _test_evidence_truthfulness_contract(as_of_date: str, full_evidence: dict[st
         "disallowed_test_evidence_types": ["inferred_test_result", "copied_old_result_without_rerun", "partial_result_labeled_full", "timeout_labeled_pass", "skipped_failure_labeled_pass"],
         "test_result_normalization": "pytest totals are parsed from raw stdout/stderr and must match the machine-readable evidence summary",
         "test_evidence_source_pointer": "v31_full_regression_command_evidence plus raw stdout/stderr checksum fields",
-        "test_evidence_hash": canonical_json_sha256(full_evidence, exclude_keys={"generated_at", "duration_seconds"}),
+        "test_evidence_hash": canonical_json_sha256(full_evidence, exclude_keys=VOLATILE_CONTENT_HASH_FIELDS),
         "test_evidence_limitation": "",
         "test_evidence_reviewer_note": "Reviewers should rerun the exact command and compare parsed summary plus raw-output checksums.",
         "split_vs_single_command_distinction": "full_regression_mode=single_command and single_command_pytest_completed=true",
@@ -739,7 +739,19 @@ def _result(
     }
 
 
-VOLATILE_CONTENT_HASH_FIELDS = {"generated_at", "duration_seconds", "cwd", "raw_stdout_path", "raw_stderr_path"}
+VOLATILE_CONTENT_HASH_FIELDS = {
+    "generated_at",
+    "duration_seconds",
+    "cwd",
+    "path",
+    "raw_stdout_path",
+    "raw_stderr_path",
+    "raw_stdout_sha256",
+    "raw_stderr_sha256",
+    "full_regression_raw_stdout_sha256",
+    "full_regression_raw_stderr_sha256",
+    "test_evidence_hash",
+}
 
 
 def _manifest(paths: ProjectPaths, artifacts: dict[str, Path], as_of_date: str, generated_at: str, result: dict[str, Any]) -> dict[str, Any]:
