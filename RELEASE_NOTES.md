@@ -1,5 +1,15 @@
 # Release Notes
 
+## v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening
+
+v3.1.0 adds a post-v3 verification and external audit readiness package for the v3.0 A-share research-only simulation platform.
+
+- adds v31 semantic regression, split-matrix regression evidence, test truthfulness, git diff evidence, checksum provenance, external reviewer package, environment limitation, owner verification dashboard, and safety/limitation artifacts
+- verifies the post-fix P0/P1 trading semantics evidence for T+1 settlement, cumulative excess return, A-share calendar strictness, adjusted-price raw fallback blocking, and execution market constraints
+- preserves research-only, simulation-only, virtual-only boundaries: no broker connection, no real account data, no real orders, no order preview, no buy/sell signal, and owner readiness remains blocked at 54 / 75
+- records single-command pytest local timeout/Windows limitations transparently while keeping full regression evidence as split matrix: 2024 passed, 1 skipped
+- recommended next version: `v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening`
+
 ## v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout
 
 v3.0.0 finalizes the A-share autonomous simulation research platform as a research-only, simulation-only, virtual-only closeout with release lineage validation, full regression evidence, final safety sweep, release evidence validation, final capability map, known limitations/next phase register, owner final dashboard, and release health report artifacts.

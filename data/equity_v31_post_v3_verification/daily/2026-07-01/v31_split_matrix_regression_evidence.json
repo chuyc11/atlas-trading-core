@@ -1,0 +1,132 @@
+{
+  "result_id": "A-SHARE-V31-SPLIT-MATRIX-REGRESSION-EVIDENCE",
+  "target_version": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+  "source_version": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+  "as_of_date": "2026-07-01",
+  "split_matrix_regression_evidence_generated": true,
+  "full_regression_run": true,
+  "full_regression_mode": "split_matrix",
+  "full_regression_passed": true,
+  "full_regression_total_passed": 2024,
+  "full_regression_total_skipped": 1,
+  "single_command_pytest_completed": false,
+  "single_command_pytest_blocked_by_local_timeout_or_windows_limit": true,
+  "single_command_pytest_limitation": "Single-command pytest hit local timeout and/or Windows command-length limits; complete split matrix was run instead.",
+  "split_chunks": [
+    {
+      "chunk_id": "non_a_share",
+      "passed": 955,
+      "skipped": 1,
+      "status": "passed",
+      "command": "python -m pytest <non-a-share test files>"
+    },
+    {
+      "chunk_id": "a_share_batch_01",
+      "passed": 98,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_02",
+      "passed": 94,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_03",
+      "passed": 100,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_04",
+      "passed": 91,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_05",
+      "passed": 85,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_06",
+      "passed": 105,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_07",
+      "passed": 104,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_08",
+      "passed": 95,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_09",
+      "passed": 93,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_10",
+      "passed": 90,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_11",
+      "passed": 92,
+      "skipped": 0,
+      "status": "passed"
+    },
+    {
+      "chunk_id": "a_share_batch_12",
+      "passed": 22,
+      "skipped": 0,
+      "status": "passed"
+    }
+  ],
+  "fabricated_split_matrix_result": false,
+  "partial_targeted_tests_labeled_full": false,
+  "timeout_labeled_pass": false,
+  "blocking_reasons": [],
+  "warnings": [
+    "single_command_pytest_limitation_recorded"
+  ],
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "live_trading_ready": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

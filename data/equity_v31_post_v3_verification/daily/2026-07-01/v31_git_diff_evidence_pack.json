@@ -1,0 +1,147 @@
+{
+  "result_id": "A-SHARE-V31-GIT-DIFF-EVIDENCE-PACK",
+  "target_version": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+  "source_version": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+  "as_of_date": "2026-07-01",
+  "git_diff_evidence_pack_generated": true,
+  "semantic_fix_commit_verified": true,
+  "semantic_fix_commit": "1c44d08",
+  "semantic_fix_subject": "1c44d08 fix: close post-fix trading semantics gaps",
+  "commit_evidence_registry": [
+    "1c44d08",
+    "8dbd123",
+    "5c565d0"
+  ],
+  "file_level_change_evidence": [
+    {
+      "path": "src/trading_core/accounting/positions.py",
+      "exists": true,
+      "sha256": "dcbc39096d68c79d1eec47d62beaf9c89df3109b60cee2127a8974e1d9bb36de",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/accounting/positions.py"
+    },
+    {
+      "path": "src/trading_core/accounting/account.py",
+      "exists": true,
+      "sha256": "2cf4804b758eef1180ec960c07f29601b7f483072120282a20212dd83ee4383b",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/accounting/account.py"
+    },
+    {
+      "path": "src/trading_core/backtest/event_backtester.py",
+      "exists": true,
+      "sha256": "ecf729010604549187a40079f109b6a3672250a4db57574880f870a923a57a73",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/backtest/event_backtester.py"
+    },
+    {
+      "path": "src/trading_core/backtest/historical_backtester.py",
+      "exists": true,
+      "sha256": "32499e5736024b0863036ef5a7da331eece4c1f8d3a373bd1aea933e62559e52",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/backtest/historical_backtester.py"
+    },
+    {
+      "path": "src/trading_core/backtest/batch_runner.py",
+      "exists": true,
+      "sha256": "f6f956499a19698cd91f70aa7a8d549312a7edc13d1cc44016c85743b310f477",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/backtest/batch_runner.py"
+    },
+    {
+      "path": "src/trading_core/calendar/trading_calendar.py",
+      "exists": true,
+      "sha256": "50d69014427982af1faae0745d14391679d8629c3d03d93561f6ae37a6b59ae8",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/calendar/trading_calendar.py"
+    },
+    {
+      "path": "src/trading_core/equity_data/adjusted_price.py",
+      "exists": true,
+      "sha256": "6ae04cffb4750edbf6b7734070c1c48a4bcbceb4623d496f12a3539452911b08",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/equity_data/adjusted_price.py"
+    },
+    {
+      "path": "src/trading_core/broker/market_constraints.py",
+      "exists": true,
+      "sha256": "f915837f9f2ecbf8001b0f332f02faf09f518ad727845f65efea1dfb621f0334",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/broker/market_constraints.py"
+    },
+    {
+      "path": "src/trading_core/broker/virtual_broker.py",
+      "exists": true,
+      "sha256": "47366d315a7128d1e14cbf873c7cbc1c30c6504950dd5f92ab9b33d23a02038e",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/broker/virtual_broker.py"
+    },
+    {
+      "path": "src/trading_core/broker/matching_engine.py",
+      "exists": true,
+      "sha256": "8fc3c3494a4435d314fec9b42cb92c0fbea15d7d5cd648dca40b68eeb3cb4c49",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/broker/matching_engine.py"
+    },
+    {
+      "path": "src/trading_core/execution/ashare_lot_rules.py",
+      "exists": true,
+      "sha256": "caab1d40231008b6345c584cf5451a67e2d267a90061bc8362e2be2fbff9e8d2",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/execution/ashare_lot_rules.py"
+    },
+    {
+      "path": "src/trading_core/execution/virtual_execution_engine.py",
+      "exists": true,
+      "sha256": "b45b8648b04e511db1a9e2eea11ee1a484f1c8d0c013cb6d117ae6331c33130b",
+      "git_show_command": "git show 1c44d08 -- src/trading_core/execution/virtual_execution_engine.py"
+    },
+    {
+      "path": "tests/test_isolated_replay_execution.py",
+      "exists": true,
+      "sha256": "9077c16b3a55e7d31ed5e8dfb562f207c6b1fdbb07264cddc5e9e358414aea96",
+      "git_show_command": "git show 1c44d08 -- tests/test_isolated_replay_execution.py"
+    }
+  ],
+  "git_show_command_manifest": [
+    "git show 1c44d08 -- src/trading_core/accounting/positions.py",
+    "git show 1c44d08 -- src/trading_core/accounting/account.py",
+    "git show 1c44d08 -- src/trading_core/backtest/event_backtester.py",
+    "git show 1c44d08 -- src/trading_core/backtest/historical_backtester.py",
+    "git show 1c44d08 -- src/trading_core/backtest/batch_runner.py",
+    "git show 1c44d08 -- src/trading_core/calendar/trading_calendar.py",
+    "git show 1c44d08 -- src/trading_core/equity_data/adjusted_price.py",
+    "git show 1c44d08 -- src/trading_core/broker/market_constraints.py",
+    "git show 1c44d08 -- src/trading_core/broker/virtual_broker.py",
+    "git show 1c44d08 -- src/trading_core/broker/matching_engine.py",
+    "git show 1c44d08 -- src/trading_core/execution/ashare_lot_rules.py",
+    "git show 1c44d08 -- src/trading_core/execution/virtual_execution_engine.py",
+    "git show 1c44d08 -- tests/test_isolated_replay_execution.py"
+  ],
+  "git_status_evidence": "",
+  "tag_evidence": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+  "version_evidence": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+  "fabricated_git_evidence": false,
+  "git_history_rewritten": false,
+  "evidence_deleted": false,
+  "blocking_reasons": [],
+  "warnings": [],
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "live_trading_ready": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

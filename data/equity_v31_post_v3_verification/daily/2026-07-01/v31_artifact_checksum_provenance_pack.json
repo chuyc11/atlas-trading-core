@@ -1,0 +1,203 @@
+{
+  "result_id": "A-SHARE-V31-ARTIFACT-CHECKSUM-PROVENANCE-PACK",
+  "target_version": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+  "source_version": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-05T06:04:54.584370Z",
+  "artifact_checksum_provenance_pack_generated": true,
+  "checksum_manifest_generated": true,
+  "source_artifact_records": [
+    {
+      "path": "data/equity_v30_final_closeout/daily/2026-07-01/v30_final_closeout_result.json",
+      "exists": true,
+      "sha256": "0a4af3c77def848967f1437d50e90317cdde0bfbe9d416faeb832a36a445c915"
+    },
+    {
+      "path": "data/equity_data_quality/a_share_v30_final_closeout_audit.json",
+      "exists": true,
+      "sha256": "c09debf00e9c36f35f097d4b57a18508e5e8af00409fedaa4ec79a3d419bb0ee"
+    },
+    {
+      "path": "VERSION",
+      "exists": true,
+      "sha256": "4d28bb1391ccb7b5da84f61bddb990d1cce2ac8cb1237df424a887ea6d3a9069"
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "exists": true,
+      "sha256": "922c645b6b98e40ff4fb428b259271e65247a336d2dec94bf171ffec48fe67c5"
+    }
+  ],
+  "generated_artifact_records": [
+    {
+      "artifact_name": "v31_post_v3_verification_request",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_post_v3_verification_request.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_semantic_regression_pack_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_semantic_regression_pack_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_split_matrix_regression_evidence",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_split_matrix_regression_evidence.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_test_evidence_truthfulness_contract",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_test_evidence_truthfulness_contract.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_git_diff_evidence_pack",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_git_diff_evidence_pack.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_artifact_checksum_provenance_pack",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_artifact_checksum_provenance_pack.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_external_reviewer_audit_package_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_external_reviewer_audit_package_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_local_environment_limitation_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_local_environment_limitation_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_owner_post_v3_verification_dashboard_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_owner_post_v3_verification_dashboard_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_not_live_trading_ready_explanation_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_not_live_trading_ready_explanation_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_artifact_integrity_sweep",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_artifact_integrity_sweep.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_protected_path_sweep",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_protected_path_sweep.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_safety_boundary_sweep",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_safety_boundary_sweep.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_post_v3_verification_result",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_post_v3_verification_result.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "v31_post_v3_verification_manifest",
+      "path": "data/equity_v31_post_v3_verification/daily/2026-07-01/v31_post_v3_verification_manifest.json",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_POST_V3_VERIFICATION_OVERVIEW.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_POST_V3_VERIFICATION_OVERVIEW.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_SEMANTIC_REGRESSION_REPORT.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_SEMANTIC_REGRESSION_REPORT.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_SPLIT_MATRIX_FULL_REGRESSION_EVIDENCE.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_SPLIT_MATRIX_FULL_REGRESSION_EVIDENCE.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_TEST_EVIDENCE_TRUTHFULNESS_CONTRACT.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_TEST_EVIDENCE_TRUTHFULNESS_CONTRACT.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_GIT_DIFF_EVIDENCE_PACK.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_GIT_DIFF_EVIDENCE_PACK.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_ARTIFACT_CHECKSUM_PROVENANCE.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_ARTIFACT_CHECKSUM_PROVENANCE.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_EXTERNAL_REVIEWER_AUDIT_PACKAGE.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_EXTERNAL_REVIEWER_AUDIT_PACKAGE.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_LOCAL_ENVIRONMENT_LIMITATIONS.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_LOCAL_ENVIRONMENT_LIMITATIONS.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_OWNER_POST_V3_VERIFICATION_DASHBOARD.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_OWNER_POST_V3_VERIFICATION_DASHBOARD.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_WHY_NOT_LIVE_TRADING_READY.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_WHY_NOT_LIVE_TRADING_READY.md",
+      "will_generate": true
+    },
+    {
+      "artifact_name": "md:A_SHARE_V31_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v31_post_v3_verification/daily/2026-07-01/A_SHARE_V31_SAFETY_AND_LIMITATIONS.md",
+      "will_generate": true
+    }
+  ],
+  "provenance_graph": {
+    "source_version": "v3.0.0-a-share-autonomous-simulation-research-platform-final-closeout",
+    "target_version": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+    "generated_by": "build-a-share-v31-post-v3-verification"
+  },
+  "artifact_generated_by_command": "python -m trading_core.cli build-a-share-v31-post-v3-verification --as-of-date 2026-07-01 --simulation-only",
+  "missing_checksum_warning": false,
+  "checksum_mismatch_blocker": false,
+  "fabricated_checksum": false,
+  "blocking_reasons": [],
+  "warnings": [],
+  "owner_readiness_state": "blocked",
+  "owner_operationally_acceptable": false,
+  "source_readiness_score": 54,
+  "minimum_owner_readiness_score": 75,
+  "score_gap": 21,
+  "live_trading_ready": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
