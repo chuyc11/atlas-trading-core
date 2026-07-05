@@ -47,6 +47,35 @@ def test_virtual_broker_rejects_suspended_limit_and_capacity_constrained_orders(
     assert capacity["risk_reason_code"] == "volume_capacity_exceeded"
 
 
+def test_virtual_broker_capacity_is_cumulative_for_same_symbol_same_day() -> None:
+    account = Account("CHINA_PAPER", cash=100000)
+    base_signal = {
+        "date": "2026-06-23",
+        "account_id": "CHINA_PAPER",
+        "symbol": "510300.SH",
+        "market": "A_SHARE",
+        "side": "LONG",
+        "target_weight": 0.005,
+    }
+    price = {"price": 4.0, "quality": "fresh", "volume": 1500}
+
+    orders, trades = process_signals(
+        [
+            {**base_signal, "signal_id": "BUY1"},
+            {**base_signal, "signal_id": "BUY2"},
+        ],
+        "2026-06-23",
+        account,
+        {"510300.SH": price},
+    )
+
+    assert orders[0]["status"] == "submitted"
+    assert trades[0]["filled_quantity"] == 100
+    assert orders[1]["status"] == "rejected"
+    assert orders[1]["risk_reason_code"] == "volume_capacity_exceeded"
+    assert len(trades) == 1
+
+
 def test_t_plus_one_blocks_same_day_sell_then_allows_after_settlement() -> None:
     account = Account("CHINA_PAPER", cash=100000)
     buy_signal = {

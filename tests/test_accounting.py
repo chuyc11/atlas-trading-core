@@ -2,6 +2,7 @@ from trading_core.accounting.account import Account
 from trading_core.accounting.valuation import value_account
 from trading_core.broker.matching_engine import match_order
 from trading_core.calendar.trading_calendar import next_trading_day
+import pytest
 
 
 def test_account_buy_t_plus_one_and_sell() -> None:
@@ -101,6 +102,63 @@ def test_account_settlement_skips_non_trading_days_and_crosses_holiday(tmp_path)
     account.settle_t_plus_one("2026-10-09", calendar_path=calendar)
     assert account.positions["510300.SH"].available_quantity == 100
     assert account.positions["510300.SH"].pending_t1_quantity == 0
+
+
+def test_account_settlement_requires_explicit_date() -> None:
+    account = Account("CHINA_PAPER", cash=100000)
+    account.apply_trade(
+        {
+            "symbol": "510300.SH",
+            "market": "A_SHARE",
+            "side": "BUY",
+            "date": "2026-06-23",
+            "filled_quantity": 100,
+            "filled_price": 4.0,
+            "net_amount": 405.0,
+            "settlement_date": "2026-06-24",
+        }
+    )
+
+    with pytest.raises(ValueError, match="settlement_date_required"):
+        account.settle_t_plus_one()
+
+    position = account.positions["510300.SH"]
+    assert position.available_quantity == 0
+    assert position.pending_t1_quantity == 100
+
+
+def test_account_apply_trade_rejects_direct_oversell_bypass() -> None:
+    account = Account("CHINA_PAPER", cash=100000)
+    account.apply_trade(
+        {
+            "symbol": "510300.SH",
+            "market": "A_SHARE",
+            "side": "BUY",
+            "date": "2026-06-23",
+            "filled_quantity": 100,
+            "filled_price": 4.0,
+            "net_amount": 405.0,
+            "settlement_date": "2026-06-24",
+        }
+    )
+
+    with pytest.raises(ValueError, match="sell_trade_exceeds_available_quantity"):
+        account.apply_trade(
+            {
+                "symbol": "510300.SH",
+                "market": "A_SHARE",
+                "side": "SELL",
+                "date": "2026-06-23",
+                "filled_quantity": 100,
+                "filled_price": 4.0,
+                "net_amount": 395.0,
+            }
+        )
+
+    position = account.positions["510300.SH"]
+    assert position.quantity == 100
+    assert position.available_quantity == 0
+    assert position.pending_t1_quantity == 100
 
 
 def test_account_partial_sell_updates_available_cash_commission_and_tax() -> None:

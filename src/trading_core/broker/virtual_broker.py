@@ -21,6 +21,7 @@ def signal_to_order(
     existing_order_count: int = 0,
     today_traded_notional: float = 0.0,
     paths: Any | None = None,
+    today_symbol_quantity: int = 0,
 ) -> dict[str, Any]:
     side = "BUY" if signal.get("side") == "LONG" else str(signal.get("side", "HOLD")).upper()
     if side == "HOLD":
@@ -61,7 +62,8 @@ def signal_to_order(
     if side == "BUY" and is_t_plus_one(market):
         order["settlement_date"] = next_trading_day(date, market, paths=paths)
     quality = str(price_row.get("quality", "missing")) if price_row else "missing"
-    market_constraint = market_constraint_rejection(order, price_row)
+    order["same_day_filled_quantity"] = today_symbol_quantity
+    market_constraint = market_constraint_rejection(order, price_row, prior_filled_quantity=today_symbol_quantity)
     if market_constraint:
         order.update(market_constraint)
     else:
@@ -93,20 +95,26 @@ def process_signals(
     orders: list[dict[str, Any]] = []
     trades: list[dict[str, Any]] = []
     today_traded_notional = 0.0
+    today_filled_quantity_by_symbol: dict[str, int] = {}
     for index, signal in enumerate(signals, 1):
+        symbol = str(signal.get("symbol"))
         order = signal_to_order(
             signal,
             date,
             account,
-            prices.get(str(signal.get("symbol"))),
+            prices.get(symbol),
             index,
             len(orders),
             today_traded_notional,
             paths,
+            today_filled_quantity_by_symbol.get(symbol, 0),
         )
         orders.append(order)
-        trade = execute_order(order, account, prices.get(str(signal.get("symbol"))))
+        trade = execute_order(order, account, prices.get(symbol))
         if trade:
             trades.append(trade)
             today_traded_notional += abs(float(trade.get("gross_amount", 0.0)))
+            today_filled_quantity_by_symbol[symbol] = today_filled_quantity_by_symbol.get(symbol, 0) + int(
+                trade.get("filled_quantity", 0)
+            )
     return orders, trades

@@ -13,6 +13,7 @@ def market_constraint_rejection(
     price_row: dict[str, Any] | None,
     *,
     require_price_row: bool = False,
+    prior_filled_quantity: int = 0,
 ) -> dict[str, str] | None:
     side = str(order.get("side", "")).upper()
     market = str(order.get("market", "A_SHARE"))
@@ -30,7 +31,8 @@ def market_constraint_rejection(
     if volume is not None:
         if volume <= 0:
             return _reject("zero_volume_suspension")
-        if quantity > int(volume * MAX_VOLUME_PARTICIPATION):
+        consumed_quantity = int(order.get("same_day_filled_quantity", prior_filled_quantity) or 0)
+        if quantity + consumed_quantity > int(volume * MAX_VOLUME_PARTICIPATION):
             return _reject("volume_capacity_exceeded")
     if side == "BUY" and (_truthy(row.get("limit_up")) or _at_price_limit(row, "up")):
         return _reject("buy_blocked_at_limit_up")

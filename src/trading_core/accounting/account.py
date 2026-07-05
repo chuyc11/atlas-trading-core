@@ -44,6 +44,8 @@ class Account:
         position.current_price = price
 
         if side == "BUY":
+            if float(trade["net_amount"]) > self.cash:
+                raise ValueError("buy_trade_exceeds_cash")
             self.cash = round(self.cash - float(trade["net_amount"]), 6)
             old_quantity = position.quantity
             new_quantity = old_quantity + quantity
@@ -66,6 +68,8 @@ class Account:
                 position.available_quantity += quantity
             position.last_buy_date = trade_date
         elif side == "SELL":
+            if quantity > position.available_quantity:
+                raise ValueError("sell_trade_exceeds_available_quantity")
             self.cash = round(self.cash + float(trade["net_amount"]), 6)
             position.quantity -= quantity
             position.available_quantity = max(0, position.available_quantity - quantity)
@@ -86,16 +90,12 @@ class Account:
         paths: Any | None = None,
         calendar_path: Any | None = None,
     ) -> None:
+        if settlement_date is None:
+            raise ValueError("settlement_date_required")
         for position in self.positions.values():
             if position.pending_t1_quantity and not position.pending_t1_lots:
                 position.pending_t1_lots = _legacy_pending_lots(position, paths=paths, calendar_path=calendar_path)
             if not position.pending_t1_lots:
-                continue
-            if settlement_date is None:
-                settled_quantity = _pending_quantity(position.pending_t1_lots)
-                position.available_quantity += settled_quantity
-                position.pending_t1_lots = []
-                position.pending_t1_quantity = 0
                 continue
             if not is_trading_day(settlement_date, position.market, paths=paths, calendar_path=calendar_path):
                 continue
