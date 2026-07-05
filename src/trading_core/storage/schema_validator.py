@@ -8,6 +8,10 @@ from typing import Any
 
 
 def load_schema(path: Path) -> dict[str, Any]:
+    if not path.exists() and "shared" in path.parts and "schemas" in path.parts:
+        fallback = Path(__file__).resolve().parents[3] / "shared" / "schemas" / path.name
+        if fallback.exists():
+            path = fallback
     return json.loads(path.read_text(encoding="utf-8"))
 
 

@@ -1,0 +1,1 @@
+{"type": "object", "required": ["signal_id", "date", "strategy_id", "account_id", "symbol", "side", "target_weight", "confidence", "status"]}
