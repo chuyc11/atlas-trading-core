@@ -32,9 +32,20 @@ def make_v31_paths(tmp_path: Path) -> ProjectPaths:
     return paths
 
 
-def v31_json(paths: ProjectPaths, name: str, *, as_of_date: str = DEFAULT_AS_OF_DATE) -> dict:
-    path = paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date / f"{name}.json"
+def v31_json(paths: ProjectPaths, name: str, *, as_of_date: str = DEFAULT_AS_OF_DATE, artifact_dir: Path | None = None) -> dict:
+    if artifact_dir is None:
+        path = paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date / f"{name}.json"
+    else:
+        path = artifact_dir / "data" / "equity_v31_post_v3_verification" / "daily" / as_of_date / f"{name}.json"
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def write_v31_json(paths: ProjectPaths, name: str, payload: dict, *, as_of_date: str = DEFAULT_AS_OF_DATE, artifact_dir: Path | None = None) -> None:
+    if artifact_dir is None:
+        path = paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date / f"{name}.json"
+    else:
+        path = artifact_dir / "data" / "equity_v31_post_v3_verification" / "daily" / as_of_date / f"{name}.json"
+    _write_json(path, payload)
 
 
 def _write_json(path: Path, payload: dict) -> None:

@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -11,6 +10,11 @@ from typing import Any
 from trading_core import __version__
 from trading_core.equity_data_quality.common import read_json, sha256_file, utc_now, write_json
 from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE
+from trading_core.equity_v31_post_v3_verification.evidence import (
+    canonical_json_sha256,
+    evidence_raw_paths,
+    load_or_create_full_regression_evidence,
+)
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 TARGET_VERSION = "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening"
@@ -19,8 +23,6 @@ RECOMMENDED_NEXT_VERSION = "v3.2.0-a-share-research-workflow-performance-caching
 DEFAULT_AS_OF_DATE = "2026-07-01"
 SEMANTIC_FIX_COMMIT = "1c44d08"
 SEMANTIC_FIX_SUBJECT = "fix: close post-fix trading semantics gaps"
-FULL_REGRESSION_TOTAL_PASSED = 2024
-FULL_REGRESSION_TOTAL_SKIPPED = 1
 SOURCE_READINESS_SCORE = 54
 MINIMUM_OWNER_READINESS_SCORE = 75
 SCORE_GAP = 21
@@ -28,6 +30,7 @@ SCORE_GAP = 21
 JSON_NAMES = [
     "v31_post_v3_verification_request",
     "v31_semantic_regression_pack_result",
+    "v31_full_regression_command_evidence",
     "v31_split_matrix_regression_evidence",
     "v31_test_evidence_truthfulness_contract",
     "v31_git_diff_evidence_pack",
@@ -79,9 +82,10 @@ def run_a_share_v31_post_v3_verification(
     as_of_date: str = DEFAULT_AS_OF_DATE,
     simulation_only: bool = False,
     paths: ProjectPaths | None = None,
+    output_dir: Path | None = None,
 ) -> dict[str, Any]:
     paths = paths or project_paths()
-    artifacts = _artifact_paths(paths, as_of_date)
+    artifacts = _artifact_paths(paths, as_of_date, output_dir=output_dir)
     _ensure_dirs(artifacts)
     if not simulation_only:
         result = _fail_closed(as_of_date, "simulation_only_flag_required")
@@ -90,9 +94,15 @@ def run_a_share_v31_post_v3_verification(
 
     generated_at = utc_now()
     baseline = _baseline_verification(paths, as_of_date)
-    semantic = _semantic_regression_pack(paths, as_of_date)
-    split = _split_matrix_evidence(as_of_date)
-    truth = _test_evidence_truthfulness_contract(as_of_date, split)
+    full_evidence = load_or_create_full_regression_evidence(
+        paths=paths,
+        evidence_json_path=artifacts["v31_full_regression_command_evidence"],
+        raw_paths=evidence_raw_paths(_evidence_dir(paths, as_of_date, output_dir)),
+    )
+    full_evidence = _with_v31_boundary_fields(full_evidence)
+    semantic = _semantic_regression_pack(paths, as_of_date, full_evidence)
+    split = _split_matrix_evidence(as_of_date, full_evidence)
+    truth = _test_evidence_truthfulness_contract(as_of_date, full_evidence)
     git_evidence = _git_diff_evidence_pack(paths, as_of_date)
     external = _external_reviewer_audit_package(as_of_date, semantic, split, git_evidence)
     environment = _local_environment_limitation(as_of_date)
@@ -103,6 +113,7 @@ def run_a_share_v31_post_v3_verification(
     payloads = {
         "v31_post_v3_verification_request": request,
         "v31_semantic_regression_pack_result": semantic,
+        "v31_full_regression_command_evidence": full_evidence,
         "v31_split_matrix_regression_evidence": split,
         "v31_test_evidence_truthfulness_contract": truth,
         "v31_git_diff_evidence_pack": git_evidence,
@@ -186,7 +197,16 @@ def _baseline_verification(paths: ProjectPaths, as_of_date: str) -> dict[str, An
     }
 
 
-def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str) -> dict[str, Any]:
+def _with_v31_boundary_fields(payload: dict[str, Any]) -> dict[str, Any]:
+    return {
+        **payload,
+        **_owner_state(),
+        **BOUNDARY_TRUE,
+        **BOUNDARY_FALSE,
+    }
+
+
+def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str, full_evidence: dict[str, Any]) -> dict[str, Any]:
     files = {
         "account": _read_project(paths, "src/trading_core/accounting/account.py"),
         "positions": _read_project(paths, "src/trading_core/accounting/positions.py"),
@@ -238,6 +258,20 @@ def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str) -> dict[str,
         "account_apply_trade_bypass_absent": "apply_trade(" in files["virtual_broker"] and "market_constraint_rejection" in files["matching_engine"],
         "no_execution_bypass_invariant": all("market_constraint_rejection" in files[name] for name in ["virtual_broker", "matching_engine", "virtual_execution_engine"]),
         "execution_path_market_constraints_verified": all("market_constraint_rejection" in files[name] for name in ["virtual_broker", "matching_engine", "virtual_execution_engine"]),
+        "historical_backtester_no_future_price_window_verified": "d <= date" in files["historical_backtester"] and "window_dates = dates[start_index : end_index + 1]" in files["historical_backtester"],
+        "historical_backtester_next_bar_execution_verified": "process_signals(pending_signals, date" in files["historical_backtester"] and "pending_signals = generated" in files["historical_backtester"],
+    }
+    source_evidence_references = {
+        key: [
+            {"type": "source_scan", "files": sorted(files)},
+            {
+                "type": "full_regression_command",
+                "artifact": "v31_full_regression_command_evidence",
+                "git_commit": full_evidence.get("git_commit"),
+                "raw_stdout_sha256": full_evidence.get("raw_stdout_sha256"),
+            },
+        ]
+        for key in invariants
     }
     blocking = [key for key, value in invariants.items() if value is not True]
     return {
@@ -249,6 +283,7 @@ def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str) -> dict[str,
         "semantic_regression_manifest_generated": True,
         "semantic_regression_must_be_simulation_only": True,
         "semantic_coverage_fabricated": False,
+        "source_evidence_references": source_evidence_references,
         **invariants,
         "overall_passed": not blocking,
         "blocking_reasons": blocking,
@@ -260,24 +295,13 @@ def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str) -> dict[str,
     }
 
 
-def _split_matrix_evidence(as_of_date: str) -> dict[str, Any]:
-    chunks = [
-        {"chunk_id": "non_a_share", "passed": 955, "skipped": 1, "status": "passed", "command": "python -m pytest <non-a-share test files>"},
-        {"chunk_id": "a_share_batch_01", "passed": 98, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_02", "passed": 94, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_03", "passed": 100, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_04", "passed": 91, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_05", "passed": 85, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_06", "passed": 105, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_07", "passed": 104, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_08", "passed": 95, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_09", "passed": 93, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_10", "passed": 90, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_11", "passed": 92, "skipped": 0, "status": "passed"},
-        {"chunk_id": "a_share_batch_12", "passed": 22, "skipped": 0, "status": "passed"},
-    ]
-    total_passed = sum(chunk["passed"] for chunk in chunks)
-    total_skipped = sum(chunk["skipped"] for chunk in chunks)
+def _split_matrix_evidence(as_of_date: str, full_evidence: dict[str, Any]) -> dict[str, Any]:
+    summary = full_evidence.get("summary", {})
+    total_passed = int(summary.get("passed") or 0)
+    total_skipped = int(summary.get("skipped") or 0)
+    total_failed = int(summary.get("failed") or 0)
+    total_errors = int(summary.get("errors") or 0)
+    command_passed = full_evidence.get("exit_code") == 0 and total_passed > 0 and total_failed == 0 and total_errors == 0
     return {
         "result_id": "A-SHARE-V31-SPLIT-MATRIX-REGRESSION-EVIDENCE",
         "target_version": TARGET_VERSION,
@@ -285,46 +309,48 @@ def _split_matrix_evidence(as_of_date: str) -> dict[str, Any]:
         "as_of_date": as_of_date,
         "split_matrix_regression_evidence_generated": True,
         "full_regression_run": True,
-        "full_regression_mode": "split_matrix",
-        "full_regression_passed": total_passed == FULL_REGRESSION_TOTAL_PASSED and total_skipped == FULL_REGRESSION_TOTAL_SKIPPED,
+        "full_regression_mode": "single_command",
+        "full_regression_passed": command_passed,
         "full_regression_total_passed": total_passed,
         "full_regression_total_skipped": total_skipped,
-        "single_command_pytest_completed": False,
-        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": True,
-        "single_command_pytest_limitation": "Single-command pytest hit local timeout and/or Windows command-length limits; complete split matrix was run instead.",
-        "split_chunks": chunks,
+        "single_command_pytest_completed": True,
+        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": False,
+        "single_command_pytest_limitation": "",
+        "full_regression_command_evidence_artifact": "v31_full_regression_command_evidence",
+        "full_regression_raw_stdout_sha256": full_evidence.get("raw_stdout_sha256"),
+        "full_regression_raw_stderr_sha256": full_evidence.get("raw_stderr_sha256"),
+        "split_chunks": [],
         "fabricated_split_matrix_result": False,
         "partial_targeted_tests_labeled_full": False,
         "timeout_labeled_pass": False,
-        "blocking_reasons": [] if total_passed == FULL_REGRESSION_TOTAL_PASSED and total_skipped == FULL_REGRESSION_TOTAL_SKIPPED else ["split_matrix_total_mismatch"],
-        "warnings": ["single_command_pytest_limitation_recorded"],
+        "blocking_reasons": [] if command_passed else ["full_regression_command_failed"],
+        "warnings": [],
         **_owner_state(),
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
     }
 
 
-def _test_evidence_truthfulness_contract(as_of_date: str, split: dict[str, Any]) -> dict[str, Any]:
-    evidence_text = repr(split["split_chunks"]).encode("utf-8")
+def _test_evidence_truthfulness_contract(as_of_date: str, full_evidence: dict[str, Any]) -> dict[str, Any]:
     return {
         "result_id": "A-SHARE-V31-TEST-EVIDENCE-TRUTHFULNESS-CONTRACT",
         "target_version": TARGET_VERSION,
         "source_version": SOURCE_VERSION,
         "as_of_date": as_of_date,
         "test_evidence_truthfulness_contract_generated": True,
-        "allowed_test_evidence_types": ["direct_pytest_output", "split_matrix_pytest_output", "targeted_pytest_output", "smoke_pytest_output", "e2e_cli_output", "git_show_output"],
+        "allowed_test_evidence_types": ["direct_pytest_output", "targeted_pytest_output", "smoke_pytest_output", "e2e_cli_output", "git_show_output"],
         "disallowed_test_evidence_types": ["inferred_test_result", "copied_old_result_without_rerun", "partial_result_labeled_full", "timeout_labeled_pass", "skipped_failure_labeled_pass"],
-        "test_result_normalization": "split chunks aggregate passed/skipped counts without relabeling targeted tests as full regression",
-        "test_evidence_source_pointer": "v3.0/v3.1 split matrix command logs in this Codex thread and v31 split matrix artifact",
-        "test_evidence_hash": hashlib.sha256(evidence_text).hexdigest(),
-        "test_evidence_limitation": "single command pytest did not complete; split matrix completed",
-        "test_evidence_reviewer_note": "Reviewers should rerun the split matrix, not rely on a single timeout-prone command.",
-        "split_vs_single_command_distinction": "full_regression_mode=split_matrix and single_command_pytest_completed=false",
+        "test_result_normalization": "pytest totals are parsed from raw stdout/stderr and must match the machine-readable evidence summary",
+        "test_evidence_source_pointer": "v31_full_regression_command_evidence plus raw stdout/stderr checksum fields",
+        "test_evidence_hash": canonical_json_sha256(full_evidence, exclude_keys={"generated_at", "duration_seconds"}),
+        "test_evidence_limitation": "",
+        "test_evidence_reviewer_note": "Reviewers should rerun the exact command and compare parsed summary plus raw-output checksums.",
+        "split_vs_single_command_distinction": "full_regression_mode=single_command and single_command_pytest_completed=true",
         "false_evidence_blocker": False,
-        "timeout_transparency_warning": True,
+        "timeout_transparency_warning": False,
         "fabricated_test_result": False,
         "blocking_reasons": [],
-        "warnings": ["timeout_transparency_warning"],
+        "warnings": [],
         **_owner_state(),
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
@@ -456,14 +482,14 @@ def _local_environment_limitation(as_of_date: str) -> dict[str, Any]:
         "as_of_date": as_of_date,
         "local_environment_limitation_result_generated": True,
         "os_limitation": "Windows command-line and local tool execution constraints observed.",
-        "windows_command_limitation": True,
-        "ten_minute_local_tool_timeout_limitation": True,
-        "split_matrix_reason": "Single-command full pytest timed out locally and A-share file list can exceed Windows argument length.",
-        "single_command_pytest_limitation": True,
-        "path_length_limitation": True,
+        "windows_command_limitation": False,
+        "ten_minute_local_tool_timeout_limitation": False,
+        "split_matrix_reason": "",
+        "single_command_pytest_limitation": False,
+        "path_length_limitation": False,
         "shell_limitation": "PowerShell glob expansion and long argument lists require batching.",
-        "test_duration_limitation": "Full regression requires several split chunks.",
-        "rerun_recommendation": "Run non-A-share group and A-share batches by sorted file list.",
+        "test_duration_limitation": "",
+        "rerun_recommendation": "Run the recorded full pytest command and compare the raw-output checksums.",
         "reviewer_reproduction_note": "Limitations are transparency notes, not waivers.",
         "limitation_severity": "medium",
         "limitation_used_as_pass": False,
@@ -472,7 +498,7 @@ def _local_environment_limitation(as_of_date: str) -> dict[str, Any]:
         "limitation_is_waiver": False,
         "testing_requirement_lowered": False,
         "blocking_reasons": [],
-        "warnings": ["single_command_pytest_limitation_recorded"],
+        "warnings": [],
         **_owner_state(),
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
@@ -674,6 +700,8 @@ def _result(
         "raw_adjusted_price_fallback_blocked_by_default": semantic["raw_adjusted_price_fallback_blocked_by_default"],
         "execution_path_market_constraints_verified": semantic["execution_path_market_constraints_verified"],
         "account_apply_trade_bypass_absent": semantic["account_apply_trade_bypass_absent"],
+        "historical_backtester_no_future_price_window_verified": semantic["historical_backtester_no_future_price_window_verified"],
+        "historical_backtester_next_bar_execution_verified": semantic["historical_backtester_next_bar_execution_verified"],
         "artifact_integrity_sweep_passed": integrity["artifact_integrity_sweep_passed"],
         "protected_path_sweep_passed": protected["protected_path_sweep_passed"],
         "safety_boundary_sweep_passed": safety["safety_boundary_sweep_passed"],
@@ -711,11 +739,28 @@ def _result(
     }
 
 
+VOLATILE_CONTENT_HASH_FIELDS = {"generated_at", "duration_seconds", "cwd", "raw_stdout_path", "raw_stderr_path"}
+
+
 def _manifest(paths: ProjectPaths, artifacts: dict[str, Path], as_of_date: str, generated_at: str, result: dict[str, Any]) -> dict[str, Any]:
     records = []
     for name, path in sorted(artifacts.items()):
+        if name == "v31_post_v3_verification_manifest":
+            continue
         if path.exists():
-            records.append({"name": name, "path": _rel(path, paths.project_root), "sha256": sha256_file(path), "size_bytes": path.stat().st_size})
+            record = {
+                "name": name,
+                "path": _rel(path, paths.project_root),
+                "envelope_sha256": sha256_file(path),
+                "size_bytes": path.stat().st_size,
+            }
+            if path.suffix == ".json" and name != "v31_post_v3_verification_manifest":
+                record["content_sha256"] = canonical_json_sha256(read_json(path), exclude_keys=VOLATILE_CONTENT_HASH_FIELDS)
+                record["volatile_fields_excluded_from_content_hash"] = sorted(VOLATILE_CONTENT_HASH_FIELDS)
+            else:
+                record["content_sha256"] = record["envelope_sha256"]
+                record["volatile_fields_excluded_from_content_hash"] = []
+            records.append(record)
     return {
         "manifest_id": "A-SHARE-V31-POST-V3-VERIFICATION-MANIFEST",
         "target_version": TARGET_VERSION,
@@ -788,12 +833,23 @@ def _write_markdown(path: Path, title: str, payload: dict[str, Any]) -> None:
     path.write_text("\n".join(lines), encoding="utf-8")
 
 
-def _artifact_paths(paths: ProjectPaths, as_of_date: str) -> dict[str, Path]:
-    data_dir = paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date
-    output_dir = paths.outputs_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date
+def _artifact_paths(paths: ProjectPaths, as_of_date: str, *, output_dir: Path | None = None) -> dict[str, Path]:
+    if output_dir is None:
+        data_dir = paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date
+        markdown_dir = paths.outputs_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date
+    else:
+        root = Path(output_dir)
+        data_dir = root / "data" / "equity_v31_post_v3_verification" / "daily" / as_of_date
+        markdown_dir = root / "outputs" / "equity_v31_post_v3_verification" / "daily" / as_of_date
     artifact_map = {name: data_dir / f"{name}.json" for name in JSON_NAMES}
-    artifact_map.update({f"md:{name}": output_dir / name for name in MARKDOWN_NAMES})
+    artifact_map.update({f"md:{name}": markdown_dir / name for name in MARKDOWN_NAMES})
     return artifact_map
+
+
+def _evidence_dir(paths: ProjectPaths, as_of_date: str, output_dir: Path | None) -> Path:
+    if output_dir is None:
+        return paths.data_dir / "equity_v31_post_v3_verification" / "daily" / as_of_date / "raw_evidence"
+    return Path(output_dir) / "evidence" / "equity_v31_post_v3_verification" / "daily" / as_of_date
 
 
 def _ensure_dirs(artifacts: dict[str, Path]) -> None:

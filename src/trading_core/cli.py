@@ -1556,11 +1556,16 @@ def build_parser() -> argparse.ArgumentParser:
     v31_build = subparsers.add_parser("build-a-share-v31-post-v3-verification")
     v31_build.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
     v31_build.add_argument("--simulation-only", action="store_true")
+    v31_build.add_argument("--output-dir")
     v31_audit = subparsers.add_parser("audit-a-share-v31-post-v3-verification")
     v31_audit.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
+    v31_audit.add_argument("--input-dir")
+    v31_audit.add_argument("--output-dir")
     v31_all = subparsers.add_parser("build-and-audit-a-share-v31-post-v3-verification")
     v31_all.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
     v31_all.add_argument("--simulation-only", action="store_true")
+    v31_all.add_argument("--input-dir")
+    v31_all.add_argument("--output-dir")
     for v31_command in [
         "build-a-share-v31-semantic-regression-pack",
         "build-a-share-v31-split-matrix-evidence",
@@ -1573,6 +1578,7 @@ def build_parser() -> argparse.ArgumentParser:
         v31_component = subparsers.add_parser(v31_command)
         v31_component.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
         v31_component.add_argument("--simulation-only", action="store_true")
+        v31_component.add_argument("--output-dir")
     for release_spec in RELEASE_SPECS:
         release_build = subparsers.add_parser(release_spec["build_command"])
         release_build.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
@@ -2181,6 +2187,23 @@ def _resolve_project_path(value: str | None, paths) -> Path | None:
     if len(parts) >= 2 and parts[0] == "work" and parts[1] == "trading-core":
         return paths.workspace_root / path
     return paths.project_root / path
+
+
+def _resolve_v31_artifact_dir(value: str | None, paths) -> Path | None:
+    candidate = _resolve_project_path(value, paths)
+    if candidate is None:
+        return None
+    resolved = candidate.resolve()
+    project_root = paths.project_root.resolve()
+    forbidden_roots = [
+        project_root,
+        project_root / "src",
+        project_root / "tests",
+        project_root / ".git",
+    ]
+    if any(resolved == root or root in resolved.parents for root in forbidden_roots):
+        raise ValueError(f"unsafe v31 artifact directory: {resolved}")
+    return resolved
 
 
 def _split_csv_arg(value: str | None) -> list[str] | None:
@@ -6161,16 +6184,32 @@ def main(argv: Sequence[str] | None = None) -> int:
         print({"overall_passed": result["overall_passed"], "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-a-share-v31-post-v3-verification":
-        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        try:
+            output_dir = _resolve_v31_artifact_dir(args.output_dir, paths)
+        except ValueError as exc:
+            print({"error": str(exc)})
+            return 2
+        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths, output_dir=output_dir)
         print(_v31_post_v3_verification_cli_payload(result))
         return 0 if result["overall_passed"] else 1
     if args.command == "audit-a-share-v31-post-v3-verification":
-        result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths)
+        try:
+            input_dir = _resolve_v31_artifact_dir(args.input_dir or args.output_dir, paths)
+        except ValueError as exc:
+            print({"error": str(exc)})
+            return 2
+        result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths, input_dir=input_dir)
         print({"audit_id": result["audit_id"], "target_version": result["target_version"], "as_of_date": result["as_of_date"], "overall_passed": result["overall_passed"], "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"]), "artifact_checks": result["artifact_checks"], "quality_checks": result["quality_checks"], "forbidden_checks": result["forbidden_checks"], "recommended_next_version": result["recommended_next_version"]})
         return 0 if result["overall_passed"] else 1
     if args.command == "build-and-audit-a-share-v31-post-v3-verification":
-        build_result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-        audit_result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
+        try:
+            output_dir = _resolve_v31_artifact_dir(args.output_dir, paths)
+            input_dir = _resolve_v31_artifact_dir(args.input_dir, paths) or output_dir
+        except ValueError as exc:
+            print({"error": str(exc)})
+            return 2
+        build_result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths, output_dir=output_dir)
+        audit_result = audit_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, paths=paths, input_dir=input_dir) if build_result["overall_passed"] else {"overall_passed": False, "blocking_reasons": ["build_failed"], "warnings": []}
         print({**_v31_post_v3_verification_cli_payload(build_result), "audit_overall_passed": audit_result["overall_passed"], "audit_blocking_reasons": audit_result["blocking_reasons"], "audit_warnings": len(audit_result["warnings"])})
         return 0 if build_result["overall_passed"] and audit_result["overall_passed"] else 1
     v31_component_flags = {
@@ -6183,7 +6222,12 @@ def main(argv: Sequence[str] | None = None) -> int:
         "build-a-share-v31-owner-verification-dashboard": "owner_post_v3_verification_dashboard_generated",
     }
     if args.command in v31_component_flags:
-        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
+        try:
+            output_dir = _resolve_v31_artifact_dir(args.output_dir, paths)
+        except ValueError as exc:
+            print({"error": str(exc)})
+            return 2
+        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths, output_dir=output_dir)
         component_flag = v31_component_flags[args.command]
         print({"overall_passed": result["overall_passed"], component_flag: result.get(component_flag), "full_regression_mode": result.get("full_regression_mode"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"])})
         return 0 if result["overall_passed"] else 1
