@@ -1,0 +1,175 @@
+{
+  "manifest_id": "V34-PORTFOLIO-ATTRIBUTION-MANIFEST",
+  "target_version": "v3.4.0-a-share-simulation-portfolio-analytics-depth-and-risk-attribution-hardening",
+  "source_version": "v3.3.0-a-share-owner-knowledge-base-report-query-and-evidence-router-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T14:49:48.628924Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V34_DRAWDOWN_ATTRIBUTION.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_DRAWDOWN_ATTRIBUTION.md",
+      "sha256": "6ca17100500c49bbd4c2414a14db99b278769364111bea47dfa768ee6e759499",
+      "size_bytes": 1474
+    },
+    {
+      "name": "md:A_SHARE_V34_FACTOR_SECTOR_INDUSTRY_ATTRIBUTION.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_FACTOR_SECTOR_INDUSTRY_ATTRIBUTION.md",
+      "sha256": "1fb7247f0fcb73aea51b130a72e132f5179f2abd07b3dec4c11fb8a9912e8778",
+      "size_bytes": 1488
+    },
+    {
+      "name": "md:A_SHARE_V34_NAV_RETURN_DECOMPOSITION.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_NAV_RETURN_DECOMPOSITION.md",
+      "sha256": "6fec47435916edb71f0c96e5862421f8add3f7fb4ebbb2a62f7c0090ef69fd54",
+      "size_bytes": 1478
+    },
+    {
+      "name": "md:A_SHARE_V34_OWNER_RISK_ATTRIBUTION_DASHBOARD.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_OWNER_RISK_ATTRIBUTION_DASHBOARD.md",
+      "sha256": "05e97cdeba43c6e446aa2bc4cf3dcaf97e14caa9bd48fde784129019abd8e8e3",
+      "size_bytes": 1486
+    },
+    {
+      "name": "md:A_SHARE_V34_PORTFOLIO_ATTRIBUTION_OVERVIEW.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_PORTFOLIO_ATTRIBUTION_OVERVIEW.md",
+      "sha256": "d784e4550939e3fd84c28b1f321480e125b1d83f4d3b569abe37d35cbcea5b0b",
+      "size_bytes": 1484
+    },
+    {
+      "name": "md:A_SHARE_V34_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "4630a38b920ff9939087f8ba041277e2cea89da339793e76d5caff65c9ae7e28",
+      "size_bytes": 1250
+    },
+    {
+      "name": "md:A_SHARE_V34_STRATEGY_MODEL_ENSEMBLE_CONTRIBUTION.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_STRATEGY_MODEL_ENSEMBLE_CONTRIBUTION.md",
+      "sha256": "226ab31b0e5f487d8184e6a03f742c992465e739a9cdfa301db96822a3807410",
+      "size_bytes": 1490
+    },
+    {
+      "name": "md:A_SHARE_V34_TURNOVER_COST_SLIPPAGE_ATTRIBUTION.md",
+      "path": "outputs/equity_v34_portfolio_attribution/daily/2026-07-01/A_SHARE_V34_TURNOVER_COST_SLIPPAGE_ATTRIBUTION.md",
+      "sha256": "13d8445e58b8bb26f7c19f970703a6b53c15c23548ca1eafe9484c46f2a38ad5",
+      "size_bytes": 1488
+    },
+    {
+      "name": "v34_artifact_integrity_sweep",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_artifact_integrity_sweep.json",
+      "sha256": "614071c77c23c2a8bdf15cfde72463331bdaecac606c16631ee733bca9372c3a",
+      "size_bytes": 2217
+    },
+    {
+      "name": "v34_drawdown_attribution_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_drawdown_attribution_result.json",
+      "sha256": "f4de0e3095d00add7f018f073aa2dc2d0b519aaa8f101c98fe66eeeef20f43c1",
+      "size_bytes": 2660
+    },
+    {
+      "name": "v34_factor_sector_industry_attribution_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_factor_sector_industry_attribution_result.json",
+      "sha256": "154bdcf91506ed567993d4b0a52c08d9b83e6fce4393b3dbc0ba88e5e7add0e6",
+      "size_bytes": 2688
+    },
+    {
+      "name": "v34_nav_return_decomposition_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_nav_return_decomposition_result.json",
+      "sha256": "045ae0d2bf402cb3b158b8b2448c25d3ba46f08f0c6c1f35aa2b77cffae5215b",
+      "size_bytes": 2668
+    },
+    {
+      "name": "v34_owner_risk_attribution_dashboard_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_owner_risk_attribution_dashboard_result.json",
+      "sha256": "113d7d6becc5d6fa3d635f9f3cc1adc375b8227290d354c1ccc2c0e43f9c3e35",
+      "size_bytes": 2684
+    },
+    {
+      "name": "v34_portfolio_attribution_request",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_portfolio_attribution_request.json",
+      "sha256": "8f138e422eb339b84b0ede7d7f38a9473165db525c6fed63348cc7df963e0151",
+      "size_bytes": 2664
+    },
+    {
+      "name": "v34_portfolio_attribution_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_portfolio_attribution_result.json",
+      "sha256": "9b983ff88551091c264710340a75f998bb5bf1964f6d6bef336c2627761bfc5e",
+      "size_bytes": 2538
+    },
+    {
+      "name": "v34_protected_path_sweep",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_protected_path_sweep.json",
+      "sha256": "605b028d3d9130af6378e5a80a9f95157928d48e545d6d343341ff1f572d4482",
+      "size_bytes": 2320
+    },
+    {
+      "name": "v34_safety_boundary_sweep",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_safety_boundary_sweep.json",
+      "sha256": "97636f35d32bc5e4ad5257bfc25b34e0c4d8154072b5a70c73b273975a29eefd",
+      "size_bytes": 2200
+    },
+    {
+      "name": "v34_strategy_model_ensemble_contribution_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_strategy_model_ensemble_contribution_result.json",
+      "sha256": "a85a4260249f3508b40f0f66c54ca832835115c9bed46c58eb3291f467c74ae4",
+      "size_bytes": 2692
+    },
+    {
+      "name": "v34_turnover_cost_slippage_attribution_result",
+      "path": "data/equity_v34_portfolio_attribution/daily/2026-07-01/v34_turnover_cost_slippage_attribution_result.json",
+      "sha256": "dbc50b4b63453bb99e4c0e6f41d1543f5977408f3ffb5e7850d317397b2403ce",
+      "size_bytes": 2688
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 8,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v33_baseline_verified": true,
+  "nav_return_decomposition_generated": true,
+  "drawdown_attribution_generated": true,
+  "turnover_cost_slippage_attribution_generated": true,
+  "factor_sector_industry_attribution_generated": true,
+  "strategy_model_ensemble_contribution_generated": true,
+  "owner_risk_attribution_dashboard_generated": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "nav_attribution_fabricated": false,
+  "drawdown_attribution_fabricated": false,
+  "cost_slippage_attribution_fabricated": false,
+  "factor_attribution_fabricated": false,
+  "strategy_model_ensemble_contribution_fabricated": false,
+  "attribution_generates_real_allocation": false,
+  "attribution_generates_rebalance_advice": false,
+  "attribution_generates_buy_sell_signal": false,
+  "portfolio_is_real_portfolio": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "next-major-closeout-or-explicit-request",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
