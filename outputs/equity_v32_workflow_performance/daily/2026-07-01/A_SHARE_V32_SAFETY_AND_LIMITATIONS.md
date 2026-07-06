@@ -1,0 +1,38 @@
+# A Share V32 Safety And Limitations
+
+- target_version: v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening
+- as_of_date: 2026-07-01
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- full_pytest_run: False
+- full_pytest_passed: False
+- live_trading_ready: False
+
+## Generated Checks
+- safety_boundary_sweep_passed: True
+- workflow_dependency_graph_generated: True
+- cache_manifest_result_generated: True
+- partial_rebuild_plan_result_generated: True
+- runtime_profile_result_generated: True
+- cache_correctness_audit_result_generated: True
+- owner_performance_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- performance_pass_means_live_trading_ready: False
+- full_pytest_run: False
+- full_pytest_passed: False
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False

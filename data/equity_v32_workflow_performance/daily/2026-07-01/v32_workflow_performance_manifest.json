@@ -1,0 +1,170 @@
+{
+  "manifest_id": "V32-WORKFLOW-PERFORMANCE-MANIFEST",
+  "target_version": "v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening",
+  "source_version": "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T14:44:44.336147Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V32_CACHE_CORRECTNESS_AUDIT.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_CACHE_CORRECTNESS_AUDIT.md",
+      "sha256": "41aa948dc3c4668162fb05f61a90f0a0e067b31908e973a320b139d33db1ee73",
+      "size_bytes": 1515
+    },
+    {
+      "name": "md:A_SHARE_V32_CACHE_MANIFEST_REVIEW.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_CACHE_MANIFEST_REVIEW.md",
+      "sha256": "0c9984fae0279638ba264c23c582ce11346c512e8aeb89dd4ff493d1302a4302",
+      "size_bytes": 1513
+    },
+    {
+      "name": "md:A_SHARE_V32_INCREMENTAL_BUILD_PLAN.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_INCREMENTAL_BUILD_PLAN.md",
+      "sha256": "a2b5ca83523073fb0146f223337e7c712e0b0ac2949508865db4b49d022a8125",
+      "size_bytes": 1514
+    },
+    {
+      "name": "md:A_SHARE_V32_OWNER_PERFORMANCE_DASHBOARD.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_OWNER_PERFORMANCE_DASHBOARD.md",
+      "sha256": "b8bb93cce93eae06ca37f019e9d03cd93ffb6298988a08bc889b578582c53f87",
+      "size_bytes": 1519
+    },
+    {
+      "name": "md:A_SHARE_V32_RUNTIME_PROFILE_REPORT.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_RUNTIME_PROFILE_REPORT.md",
+      "sha256": "a92f8a39263e8f37f1b35d7e4d0f7eb4d73cf72f366358c227d577d9e7e9a16c",
+      "size_bytes": 1514
+    },
+    {
+      "name": "md:A_SHARE_V32_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "85a692423896bbf8b6d02bffbe1ac0934dc0ad4d478dce8e6fcec01970e01499",
+      "size_bytes": 1276
+    },
+    {
+      "name": "md:A_SHARE_V32_WORKFLOW_PERFORMANCE_OVERVIEW.md",
+      "path": "outputs/equity_v32_workflow_performance/daily/2026-07-01/A_SHARE_V32_WORKFLOW_PERFORMANCE_OVERVIEW.md",
+      "sha256": "3c35eb802c58d2242dc8dfb8c0687e57eacdd35c738fb40ad159b3dff4002b69",
+      "size_bytes": 1521
+    },
+    {
+      "name": "v32_artifact_integrity_sweep",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_artifact_integrity_sweep.json",
+      "sha256": "e7195f6b0c113eeafeb700512c4480e4e873846d05be5d27f6d454ce868f55c1",
+      "size_bytes": 2209
+    },
+    {
+      "name": "v32_cache_correctness_audit_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_cache_correctness_audit_result.json",
+      "sha256": "27615edd10f5ffb01e508172d20ea93ad691d74895fa4a0867f96e453f589c23",
+      "size_bytes": 2883
+    },
+    {
+      "name": "v32_cache_manifest_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_cache_manifest_result.json",
+      "sha256": "0e111590ea9798bd1cebd21f6dfc3cca5fcb08cf0ccd6154ba02324b08206b65",
+      "size_bytes": 2865
+    },
+    {
+      "name": "v32_owner_performance_dashboard_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_owner_performance_dashboard_result.json",
+      "sha256": "245393da2d8e425f3819fba53d6838a934070f0d12cb2aaf4037db5ea57ad6b8",
+      "size_bytes": 2891
+    },
+    {
+      "name": "v32_partial_rebuild_plan_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_partial_rebuild_plan_result.json",
+      "sha256": "b1d9192c838da8e17b087e766914c49b44cf1496f4eed5d30d3cfc68407de4da",
+      "size_bytes": 2877
+    },
+    {
+      "name": "v32_protected_path_sweep",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_protected_path_sweep.json",
+      "sha256": "0d4a9af961effe198f8eb180e1abc63a788e43caaba8bea0f836c60610c5654c",
+      "size_bytes": 2312
+    },
+    {
+      "name": "v32_runtime_profile_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_runtime_profile_result.json",
+      "sha256": "baa1a825e74a7dc1465e0c3b8ffa8aa9ef90c87fcd21bc0df3e30c04028b26a0",
+      "size_bytes": 2867
+    },
+    {
+      "name": "v32_safety_boundary_sweep",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_safety_boundary_sweep.json",
+      "sha256": "059209b650d3ca16116a67051a60b39bd47cbac29cfb96d06063828badcd480c",
+      "size_bytes": 2192
+    },
+    {
+      "name": "v32_workflow_dependency_graph",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_workflow_dependency_graph.json",
+      "sha256": "15af05bf92cca26e36ae1e7ed7614a457f0922463c3761a5db05d6124c514a5d",
+      "size_bytes": 2873
+    },
+    {
+      "name": "v32_workflow_performance_request",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_workflow_performance_request.json",
+      "sha256": "5baf5db504980b3440c2f495b0b2a2728a213d4972fa2e113f6126460ef37234",
+      "size_bytes": 2879
+    },
+    {
+      "name": "v32_workflow_performance_result",
+      "path": "data/equity_v32_workflow_performance/daily/2026-07-01/v32_workflow_performance_result.json",
+      "sha256": "4d2e617acbd6826bfbc15e22536cac214fb3dcd003980f91da378351f1a07d50",
+      "size_bytes": 2532
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v31_baseline_verified": true,
+  "workflow_dependency_graph_generated": true,
+  "cache_manifest_result_generated": true,
+  "partial_rebuild_plan_result_generated": true,
+  "runtime_profile_result_generated": true,
+  "cache_correctness_audit_result_generated": true,
+  "owner_performance_dashboard_generated": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "semantic_outputs_changed": false,
+  "cache_reused_stale_artifact": false,
+  "cache_bypassed_safety_audit": false,
+  "cache_bypassed_protected_path_sweep": false,
+  "cache_bypassed_artifact_integrity_sweep": false,
+  "cache_result_fabricated": false,
+  "runtime_profile_fabricated": false,
+  "performance_claim_fabricated": false,
+  "performance_score_is_owner_readiness_score": false,
+  "performance_pass_means_live_trading_ready": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "next-major-closeout-or-explicit-request",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

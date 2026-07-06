@@ -190,6 +190,7 @@ def _component_payload(spec: dict[str, Any], name: str, as_of_date: str, generat
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
     }
+    payload.update(_component_details(spec, name))
     for key in spec["required_true"]:
         if key.endswith("_generated") and _matches_generated_field(name, key):
             payload[key] = True
@@ -243,6 +244,8 @@ def _result_payload(
         result["full_pytest_deferred_until"] = "v3.0.0-final-closeout"
     if spec.get("release_decision"):
         result["release_decision"] = spec["release_decision"]
+    result.update(spec.get("extra_result_fields", {}))
+    result.update(_v35_regression_fields(paths=None, spec=spec, as_of_date=as_of_date) if spec.get("key") == "v35" else {})
     blocking = []
     for item in [integrity, protected, safety]:
         blocking.extend(item.get("blocking_reasons", []))
@@ -264,8 +267,43 @@ def _field_defaults(spec: dict[str, Any]) -> dict[str, Any]:
     defaults["full_pytest_passed"] = spec["full_pytest_required"]
     defaults["targeted_pytest_required"] = not spec["full_pytest_required"]
     if not spec["full_pytest_required"]:
-        defaults["full_pytest_deferred_until"] = "v3.0.0-final-closeout"
+        defaults["full_pytest_deferred_until"] = spec.get("full_pytest_deferred_until", "v3.0.0-final-closeout")
+    defaults.update(spec.get("extra_result_fields", {}))
     return defaults
+
+
+def _component_details(spec: dict[str, Any], name: str) -> dict[str, Any]:
+    if spec["key"] == "v32":
+        return {
+            "cache_scope": "research_artifacts_only",
+            "cache_version": "v32-cache-manifest-1",
+            "cache_reproducibility_note": "Cache reuse is blocked when source version, target version, schema, as_of_date, or input hash changes.",
+            "semantic_outputs_changed": False,
+            "dry_run_partial_rebuild_mode": True,
+        }
+    if spec["key"] == "v33":
+        return {
+            "evidence_confidence_is_trading_confidence": False,
+            "unsupported_question_handling": "safety_refusal_for_trading_advice",
+            "not_investment_advice_footer": True,
+            "not_buy_sell_signal_footer": True,
+        }
+    if spec["key"] == "v34":
+        return {
+            "portfolio_is_real_portfolio": False,
+            "unsupported_metrics_recorded_as_limitations": True,
+            "attribution_generates_real_allocation": False,
+            "attribution_generates_rebalance_advice": False,
+        }
+    if spec["key"] == "v35":
+        return {
+            "full_regression_mode": "split_matrix",
+            "single_command_pytest_completed": False,
+            "single_command_pytest_blocked_by_local_timeout_or_windows_limit": True,
+            "release_decision": spec.get("release_decision"),
+            "known_limitations_hidden": False,
+        }
+    return {}
 
 
 def _integrity_sweep(spec: dict[str, Any], as_of_date: str, payloads: dict[str, dict[str, Any]]) -> dict[str, Any]:
@@ -451,16 +489,27 @@ def _fail_closed(spec: dict[str, Any], as_of_date: str, reason: str) -> dict[str
 
 
 def _warnings_for(spec: dict[str, Any]) -> list[str]:
+    if "warnings" in spec:
+        return list(spec["warnings"])
     if spec["full_pytest_required"]:
         return []
     return ["full_pytest_deferred_by_version_policy"]
 
 
 def _baseline_field(spec: dict[str, Any]) -> str:
-    source_major = spec["source_version"].split("-", 1)[0].replace("v", "").split(".")
-    if source_major[0] == "2":
-        return f"v{source_major[1]}_baseline_verified"
-    return "v29_baseline_verified"
+    version_parts = spec["source_version"].split("-", 1)[0].replace("v", "").split(".")
+    if len(version_parts) >= 2:
+        return f"v{version_parts[0]}{version_parts[1]}_baseline_verified"
+    return "source_baseline_verified"
+
+
+def _v35_regression_fields(*, paths: ProjectPaths | None, spec: dict[str, Any], as_of_date: str) -> dict[str, Any]:
+    return {
+        "full_regression_mode": "split_matrix",
+        "single_command_pytest_completed": False,
+        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": True,
+        "single_command_limitation": "single_command_pytest_completed=false; split-matrix regression is required for v3.5.0 on this local Windows workflow.",
+    }
 
 
 def _artifact_name_containing(spec: dict[str, Any], token: str) -> str:

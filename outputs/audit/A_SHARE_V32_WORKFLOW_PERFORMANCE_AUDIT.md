@@ -1,0 +1,62 @@
+# A-SHARE-V32-AUDIT
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 0
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- full_pytest_run: False
+- full_pytest_passed: False
+
+## Artifact Checks
+- json_count: 12
+- markdown_count: 7
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v31_baseline_verified: True
+- workflow_dependency_graph_generated: True
+- cache_manifest_result_generated: True
+- partial_rebuild_plan_result_generated: True
+- runtime_profile_result_generated: True
+- cache_correctness_audit_result_generated: True
+- owner_performance_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- targeted_pytest_required: True
+
+## Forbidden Checks
+- semantic_outputs_changed: False
+- cache_reused_stale_artifact: False
+- cache_bypassed_safety_audit: False
+- cache_bypassed_protected_path_sweep: False
+- cache_bypassed_artifact_integrity_sweep: False
+- cache_result_fabricated: False
+- runtime_profile_fabricated: False
+- performance_claim_fabricated: False
+- performance_score_is_owner_readiness_score: False
+- performance_pass_means_live_trading_ready: False
+- full_pytest_run: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
