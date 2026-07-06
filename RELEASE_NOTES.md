@@ -1,5 +1,15 @@
 # Release Notes
 
+## v3.3.0-a-share-owner-knowledge-base-report-query-and-evidence-router-hardening
+
+v3.3.0 adds a queryable owner knowledge base, report query index, evidence router, owner question router, warning/blocker/limitation search, decision journal query layer, and owner knowledge dashboard artifacts.
+
+- links reports, evidence, warnings, blockers, limitations, and decision-journal entries without fabricating report or evidence links
+- safety-refuses trading-advice question types: no buy/sell signal, no real allocation, no trade instruction, and no real account advice
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `8 passed`; recent smoke passed: `33 passed`; full pytest remains deferred by v3.3 policy
+- recommended next version: `v3.4.0-a-share-simulation-portfolio-analytics-depth-and-risk-attribution-hardening`
+
 ## v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening
 
 v3.2.0 adds research workflow performance, cache manifest, and incremental build hardening artifacts for the A-share research-only simulation platform.
