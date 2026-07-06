@@ -1,0 +1,45 @@
+# A Share V35 V3X Capability Validation
+
+- target_version: v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh
+- source_version: v3.4.0-a-share-simulation-portfolio-analytics-depth-and-risk-attribution-hardening
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: True
+- full_pytest_passed: True
+- live_trading_ready: False
+- release_decision: released_as_research_only_simulation_platform_v3x_closeout
+
+## Generated Checks
+- artifact_generated: True
+- v3x_release_lineage_registry_generated: True
+- long_horizon_regression_evidence_generated: True
+- v3x_capability_validation_generated: True
+- external_review_package_refresh_generated: True
+- known_limitations_refresh_generated: True
+- owner_final_v3x_dashboard_generated: True
+- full_regression_run: True
+- full_regression_passed: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- full_pytest_run: True
+- full_pytest_passed: True
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False

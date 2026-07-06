@@ -1,0 +1,96 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core
+configfile: pyproject.toml
+collected 180 items
+
+tests\test_mvp_requirement_map.py ..                                     [  1%]
+tests\test_next_work_register.py ...                                     [  2%]
+tests\test_oecd_cli_package_repair.py ...                                [  4%]
+tests\test_parameter_sweep.py ..........................s                [ 19%]
+tests\test_plan_alignment_audit.py ...                                   [ 21%]
+tests\test_plan_checklist_extractor.py ..                                [ 22%]
+tests\test_point_in_time.py .                                            [ 22%]
+tests\test_position_availability.py .                                    [ 23%]
+tests\test_price_acquisition.py ....                                     [ 25%]
+tests\test_price_acquisition_retry.py ...                                [ 27%]
+tests\test_price_dataset_merge.py ...                                    [ 28%]
+tests\test_price_status_contract.py ..                                   [ 30%]
+tests\test_project_status_report.py ..                                   [ 31%]
+tests\test_promotion_gate.py .                                           [ 31%]
+tests\test_promotion_simulation.py ..................                    [ 41%]
+tests\test_protected_path_residue_scanner.py ....                        [ 43%]
+tests\test_proxy_replay_warning_reduction.py ..                          [ 45%]
+tests\test_quick_status.py ....                                          [ 47%]
+tests\test_real_data_validation_report.py ....                           [ 49%]
+tests\test_report_index.py .....                                         [ 52%]
+tests\test_reporting_system_audit.py ...                                 [ 53%]
+tests\test_research_pipeline.py ...                                      [ 55%]
+tests\test_risk_engine.py .                                              [ 56%]
+tests\test_risk_max_daily_turnover.py .......                            [ 60%]
+tests\test_rule_memory.py .                                              [ 60%]
+tests\test_runtime_health.py ....                                        [ 62%]
+tests\test_settings_timezone.py ...                                      [ 64%]
+tests\test_shadow_runner.py .                                            [ 65%]
+tests\test_signal_schema.py .                                            [ 65%]
+tests\test_signal_scorecard.py .                                         [ 66%]
+tests\test_storage.py ...                                                [ 67%]
+tests\test_strategy_comparison.py ......                                 [ 71%]
+tests\test_strategy_leaderboard.py ..                                    [ 72%]
+tests\test_strategy_scorecard.py .                                       [ 72%]
+tests\test_system_dashboard.py ..                                        [ 73%]
+tests\test_system_integrity_audit.py ........                            [ 78%]
+tests\test_system_smoke_test.py ......                                   [ 81%]
+tests\test_t_plus_1_semantics.py .                                       [ 82%]
+tests\test_universe.py .                                                 [ 82%]
+tests\test_usability_audit.py ........                                   [ 87%]
+tests\test_v051_validation_gap_remediation.py .                          [ 87%]
+tests\test_virtual_broker.py ......                                      [ 91%]
+tests\test_virtual_execution_contract.py ..                              [ 92%]
+tests\test_virtual_execution_engine.py .                                 [ 92%]
+tests\test_walk_forward.py .                                             [ 93%]
+tests\test_walk_forward_dataset.py ...                                   [ 95%]
+tests\test_weekly_research_report.py ...                                 [ 96%]
+tests\test_yfinance_fallback.py ......                                   [100%]
+
+============================== warnings summary ===============================
+tests/test_price_acquisition.py: 3 warnings
+tests/test_price_acquisition_retry.py: 2 warnings
+tests/test_price_dataset_merge.py: 2 warnings
+tests/test_yfinance_fallback.py: 4 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\data\data_package_validator.py:168: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
+
+tests/test_runtime_health.py::test_run_daily_generates_runtime_health
+tests/test_runtime_health.py::test_missing_macro_signals_warns_without_crashing
+tests/test_runtime_health.py::test_missing_price_snapshot_warns_without_crashing
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:92: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_runtime_health.py::test_run_daily_generates_runtime_health
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+tests/test_virtual_broker.py::test_virtual_broker_creates_order_trade_and_updates_account
+tests/test_virtual_broker.py::test_virtual_broker_rejects_suspended_limit_and_capacity_constrained_orders
+tests/test_virtual_broker.py::test_virtual_broker_capacity_is_cumulative_for_same_symbol_same_day
+tests/test_virtual_broker.py::test_t_plus_one_blocks_same_day_sell_then_allows_after_settlement
+tests/test_virtual_broker.py::test_sell_quantity_over_available_is_rejected
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:85: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+tests/test_virtual_broker.py::test_t_plus_one_blocks_same_day_sell_then_allows_after_settlement
+tests/test_virtual_broker.py::test_sell_quantity_over_available_is_rejected
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\accounting\account.py:100: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if not is_trading_day(settlement_date, position.market, paths=paths, calendar_path=calendar_path):
+
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\runtime\health.py:86: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current):
+
+tests/test_walk_forward.py::test_walk_forward_runs_windows
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\backtest\event_backtester.py:27: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================ 179 passed, 1 skipped, 27 warnings in 31.89s =================

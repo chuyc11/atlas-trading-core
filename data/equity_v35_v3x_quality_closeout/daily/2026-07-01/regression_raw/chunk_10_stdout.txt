@@ -1,0 +1,165 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core
+configfile: pyproject.toml
+collected 246 items
+
+tests\test_a_share_validate_dashboard_vs_build_dashboard.py .            [  0%]
+tests\test_a_share_validate_vs_build_comparison.py .                     [  0%]
+tests\test_a_share_virtual_portfolio_audit.py ..                         [  1%]
+tests\test_a_share_virtual_portfolio_benchmark_comparison.py .           [  2%]
+tests\test_a_share_virtual_portfolio_boundaries.py .                     [  2%]
+tests\test_a_share_virtual_portfolio_cli.py .                            [  2%]
+tests\test_a_share_virtual_portfolio_config.py ..                        [  3%]
+tests\test_a_share_virtual_portfolio_digest.py .                         [  4%]
+tests\test_a_share_virtual_portfolio_drawdown.py .                       [  4%]
+tests\test_a_share_virtual_portfolio_exposure.py .                       [  4%]
+tests\test_a_share_virtual_portfolio_industry_constraints.py ..          [  5%]
+tests\test_a_share_virtual_portfolio_inputs.py ..                        [  6%]
+tests\test_a_share_virtual_portfolio_manifest.py .                       [  6%]
+tests\test_a_share_virtual_portfolio_nav.py .                            [  7%]
+tests\test_a_share_virtual_portfolio_performance.py .                    [  7%]
+tests\test_a_share_virtual_portfolio_tracking_audit.py ..                [  8%]
+tests\test_a_share_virtual_portfolio_tracking_boundaries.py ....         [ 10%]
+tests\test_a_share_virtual_portfolio_tracking_cli.py .                   [ 10%]
+tests\test_a_share_virtual_portfolio_tracking_config.py .                [ 10%]
+tests\test_a_share_virtual_portfolio_tracking_inputs.py ..               [ 11%]
+tests\test_a_share_virtual_portfolio_tracking_manifest.py .              [ 12%]
+tests\test_a_share_virtual_portfolio_valuation.py ..                     [ 13%]
+tests\test_a_share_virtual_portfolio_weighting.py .                      [ 13%]
+tests\test_a_share_waiver_candidate_evaluation.py .                      [ 13%]
+tests\test_a_share_waiver_exclusion_package.py .                         [ 14%]
+tests\test_a_share_warning_issue_digest.py .                             [ 14%]
+tests\test_a_share_warning_issue_quality_gate.py .                       [ 15%]
+tests\test_a_share_warning_mapping_evidence_package.py .                 [ 15%]
+tests\test_acceptance_core.py ............                               [ 20%]
+tests\test_acceptance_hardening.py ..........                            [ 24%]
+tests\test_acceptance_report.py ...                                      [ 25%]
+tests\test_accounting.py .......                                         [ 28%]
+tests\test_admission_gate.py .....                                       [ 30%]
+tests\test_artifact_browser.py .....                                     [ 32%]
+tests\test_artifact_coverage_scanner.py ..                               [ 33%]
+tests\test_artifact_inventory.py ....                                    [ 34%]
+tests\test_ashare_execution_gap_plan.py ...                              [ 36%]
+tests\test_ashare_execution_rules_audit.py ...                           [ 37%]
+tests\test_ashare_lot_position_contract.py ..                            [ 38%]
+tests\test_ashare_lot_rules.py .                                         [ 38%]
+tests\test_ashare_tradability.py .                                       [ 39%]
+tests\test_ashare_trading_calendar_audit.py ..                           [ 39%]
+tests\test_ashare_trading_calendar_contract.py .                         [ 40%]
+tests\test_attribution_engine.py .                                       [ 40%]
+tests\test_audit_gaps.py ...                                             [ 41%]
+tests\test_backtest_batch_runner.py .....                                [ 43%]
+tests\test_backtest_consistency_checker.py ........                      [ 47%]
+tests\test_baseline_benchmark_comparison.py ..                           [ 47%]
+tests\test_baseline_order_preview.py ..                                  [ 48%]
+tests\test_baseline_signal_engine.py ..                                  [ 49%]
+tests\test_baseline_strategy_contract.py ..                              [ 50%]
+tests\test_baseline_strategy_pack_audit.py ...                           [ 51%]
+tests\test_baseline_strategy_pack_summary.py ...                         [ 52%]
+tests\test_baseline_strategy_registry.py ..                              [ 53%]
+tests\test_baseline_strategy_replay.py ..                                [ 54%]
+tests\test_baseline_strategy_report.py ..                                [ 55%]
+tests\test_baseline_strategy_scope_plan.py ..                            [ 56%]
+tests\test_benchmark_change_pct_units.py ....                            [ 57%]
+tests\test_benchmark_engine.py ..                                        [ 58%]
+tests\test_boundary_regression_audit.py ........                         [ 61%]
+tests\test_calendar.py ....                                              [ 63%]
+tests\test_cash_position_invariants.py .                                 [ 63%]
+tests\test_cli.py ...                                                    [ 65%]
+tests\test_cli_inventory.py ...                                          [ 66%]
+tests\test_config.py .                                                   [ 66%]
+tests\test_consistency_checker.py ...                                    [ 67%]
+tests\test_cost_model.py .                                               [ 68%]
+tests\test_current_daily_workflow_readiness_snapshot.py ..               [ 69%]
+tests\test_daily_baseline_signal_binding.py ..                           [ 69%]
+tests\test_daily_data_quality_audit.py ....                              [ 71%]
+tests\test_daily_input_freeze_manifest.py ..                             [ 72%]
+tests\test_daily_isolated_execution_preview.py ..                        [ 73%]
+tests\test_daily_market_data_snapshot.py ...                             [ 74%]
+tests\test_daily_order_preview_binding.py ..                             [ 75%]
+tests\test_daily_report_packet.py ..                                     [ 76%]
+tests\test_daily_workflow_audit.py ...                                   [ 77%]
+tests\test_daily_workflow_scope_plan.py ..                               [ 78%]
+tests\test_data_package_validator.py ...                                 [ 79%]
+tests\test_data_quality.py ..                                            [ 80%]
+tests\test_day0_blocking_conditions.py ...                               [ 81%]
+tests\test_day0_data_freeze.py ...                                       [ 82%]
+tests\test_day0_manual_confirmation.py ..                                [ 83%]
+tests\test_day0_readiness_audit.py ...                                   [ 84%]
+tests\test_day0_readiness_report.py ..                                   [ 85%]
+tests\test_day0_run_daily_preflight.py ...                               [ 86%]
+tests\test_day0_warning_register.py ...                                  [ 87%]
+tests\test_day1_blocker_classifier.py ...                                [ 89%]
+tests\test_day1_blocker_reclassification_v059.py ..                      [ 89%]
+tests\test_day1_blocker_reclassification_v060.py ..                      [ 90%]
+tests\test_day1_blocker_reclassification_v061.py ..                      [ 91%]
+tests\test_day1_blocker_reclassification_v062.py ..                      [ 92%]
+tests\test_day1_blocker_reclassification_v0621.py ..                     [ 93%]
+tests\test_day1_continuation_reclassification_v0631.py ..                [ 93%]
+tests\test_dry_run_auditor.py ..                                         [ 94%]
+tests\test_dry_run_range.py .                                            [ 95%]
+tests\test_dry_run_validation_report.py ....                             [ 96%]
+tests\test_end_to_end_daily_run.py ..                                    [ 97%]
+tests\test_epu_package_repair.py ...                                     [ 98%]
+tests\test_equity_data_source_manifest.py .                              [ 99%]
+tests\test_event_backtester.py ..                                        [100%]
+
+============================== warnings summary ===============================
+tests/test_acceptance_core.py: 8 warnings
+tests/test_acceptance_hardening.py: 5 warnings
+tests/test_backtest_consistency_checker.py: 1 warning
+tests/test_calendar.py: 1 warning
+tests/test_consistency_checker.py: 3 warnings
+tests/test_dry_run_range.py: 1 warning
+tests/test_end_to_end_daily_run.py: 2 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:92: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_acceptance_core.py: 9 warnings
+tests/test_acceptance_hardening.py: 6 warnings
+tests/test_accounting.py: 2 warnings
+tests/test_calendar.py: 1 warning
+tests/test_dry_run_range.py: 1 warning
+tests/test_end_to_end_daily_run.py: 2 warnings
+tests/test_event_backtester.py: 2 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:85: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_acceptance_core.py: 2 warnings
+tests/test_acceptance_hardening.py: 2 warnings
+tests/test_accounting.py: 3 warnings
+tests/test_dry_run_range.py: 1 warning
+tests/test_end_to_end_daily_run.py: 1 warning
+tests/test_event_backtester.py: 1 warning
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\accounting\account.py:100: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if not is_trading_day(settlement_date, position.market, paths=paths, calendar_path=calendar_path):
+
+tests/test_acceptance_core.py: 1 warning
+tests/test_acceptance_hardening.py: 1 warning
+tests/test_backtest_consistency_checker.py: 1 warning
+tests/test_consistency_checker.py: 1 warning
+tests/test_dry_run_auditor.py: 2 warnings
+tests/test_dry_run_range.py: 1 warning
+tests/test_dry_run_validation_report.py: 4 warnings
+tests/test_event_backtester.py: 2 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\backtest\event_backtester.py:27: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths):
+
+tests/test_backtest_batch_runner.py::test_backtest_batch_runner_stops_on_failed_validation
+tests/test_backtest_batch_runner.py::test_backtest_batch_runner_fails_closed_without_formal_calendar
+tests/test_data_package_validator.py::test_validate_data_package_accepts_directory_and_warns_on_suspicious_return
+tests/test_data_package_validator.py::test_validate_data_package_fails_dirty_rows
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\data\data_package_validator.py:168: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
+
+tests/test_calendar.py::test_weekday_calendar_fallback_is_explicitly_degraded
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\tests\test_calendar.py:12: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    assert not is_trading_day("2026-06-20", "A_SHARE")
+
+tests/test_dry_run_range.py::test_dry_run_range_writes_summary_and_survives_missing_inputs
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\runtime\health.py:86: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================ 246 passed, 73 warnings in 147.81s (0:02:27) =================
