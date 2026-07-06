@@ -1,5 +1,17 @@
 # Release Notes
 
+## v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh
+
+v3.5.0 closes out the v3.x A-share research-only simulation sequence across v3.1-v3.4 with long-horizon split-matrix regression evidence, capability validation, external review package refresh, known limitations refresh, owner final v3.x dashboard, release health report, safety sweeps, manifest, and audit artifacts.
+
+- release decision: `released_as_research_only_simulation_platform_v3x_closeout`
+- validates v3.4 baseline and v3.x lineage without deleting historical, audit, or release evidence
+- records full regression as split matrix because one-shot pytest is blocked by local Windows/runtime limits
+- full regression matrix: `2073 passed, 1 skipped, 0 failed` across 12 chunks / 1148 test files
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- does not add broker access, real account reads, real orders, order previews, buy/sell signals, real allocation, owner-readiness gate execution, new gate score/decision, or live-trading readiness
+- recommended next version: `v3.6.0-a-share-research-platform-knowledge-performance-and-attribution-maintenance`
+
 ## v3.4.0-a-share-simulation-portfolio-analytics-depth-and-risk-attribution-hardening
 
 v3.4.0 adds simulation-only portfolio attribution depth and owner risk attribution dashboard artifacts.
