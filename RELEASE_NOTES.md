@@ -1,5 +1,15 @@
 # Release Notes
 
+## v3.4.0-a-share-simulation-portfolio-analytics-depth-and-risk-attribution-hardening
+
+v3.4.0 adds simulation-only portfolio attribution depth and owner risk attribution dashboard artifacts.
+
+- adds NAV/return decomposition, drawdown attribution, turnover/cost/slippage attribution, factor/sector/industry attribution, strategy/model/ensemble contribution, owner risk dashboard, safety sweeps, manifest, and audit artifacts
+- keeps attribution virtual-only: no real portfolio, no real allocation, no rebalance advice, no buy/sell signal, and no fabricated attribution claims
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `8 passed`; recent smoke passed: `26 passed`; full pytest remains deferred by v3.4 policy
+- recommended next version: `v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh`
+
 ## v3.3.0-a-share-owner-knowledge-base-report-query-and-evidence-router-hardening
 
 v3.3.0 adds a queryable owner knowledge base, report query index, evidence router, owner question router, warning/blocker/limitation search, decision journal query layer, and owner knowledge dashboard artifacts.
