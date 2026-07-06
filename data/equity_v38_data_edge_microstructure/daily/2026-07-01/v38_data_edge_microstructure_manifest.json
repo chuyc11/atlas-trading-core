@@ -1,0 +1,175 @@
+{
+  "manifest_id": "V38-DATA-EDGE-MICROSTRUCTURE-MANIFEST",
+  "target_version": "v3.8.0-a-share-data-contract-edge-case-and-market-microstructure-validation-hardening",
+  "source_version": "v3.7.0-a-share-long-running-operations-observability-and-incident-drill-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T15:41:07.900524Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V38_ADJUSTED_PRICE_CORPORATE_ACTION_EDGE_CASES.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_ADJUSTED_PRICE_CORPORATE_ACTION_EDGE_CASES.md",
+      "sha256": "018b1712fbf90d14ca23fbbf983cbf5d35e0e96ce0186586fff13bf4054ffe19",
+      "size_bytes": 1577
+    },
+    {
+      "name": "md:A_SHARE_V38_CALENDAR_SETTLEMENT_EDGE_CASES.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_CALENDAR_SETTLEMENT_EDGE_CASES.md",
+      "sha256": "56230975a66d8fa9d7d457aeddbbf9761cbe1469c920119fb23e0aa1b9b82e10",
+      "size_bytes": 1565
+    },
+    {
+      "name": "md:A_SHARE_V38_DATA_EDGE_MICROSTRUCTURE_OVERVIEW.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_DATA_EDGE_MICROSTRUCTURE_OVERVIEW.md",
+      "sha256": "92718902eb3da96acccace701907b81cf8fdb89f7db673611fdfc6eb4692589d",
+      "size_bytes": 1568
+    },
+    {
+      "name": "md:A_SHARE_V38_EXECUTION_MICROSTRUCTURE_EDGE_CASES.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_EXECUTION_MICROSTRUCTURE_EDGE_CASES.md",
+      "sha256": "917461400415e8b7ea1971e5867fff1716638bdc185ead7165687d28e941b45f",
+      "size_bytes": 1570
+    },
+    {
+      "name": "md:A_SHARE_V38_FINANCIAL_PIT_EDGE_CASES.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_FINANCIAL_PIT_EDGE_CASES.md",
+      "sha256": "0d5f865b0928cf8d24cdb79ffa39cf00643cdaf121b290cdc04f25e00caf8539",
+      "size_bytes": 1559
+    },
+    {
+      "name": "md:A_SHARE_V38_OWNER_MICROSTRUCTURE_DASHBOARD.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_OWNER_MICROSTRUCTURE_DASHBOARD.md",
+      "sha256": "e0371e13c3af5263d9ca1a395d523136fd6ada2d4e4b6c85846613908531244a",
+      "size_bytes": 1565
+    },
+    {
+      "name": "md:A_SHARE_V38_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v38_data_edge_microstructure/daily/2026-07-01/A_SHARE_V38_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "200d882b5c1b4a9569a32ea87f4d624604df60e85bb0b6eafc8fa504698c3920",
+      "size_bytes": 1328
+    },
+    {
+      "name": "v38_adjusted_price_corporate_action_edge_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_adjusted_price_corporate_action_edge_result.json",
+      "sha256": "a6bb08e2222491c3da7dae7a68fefb5ff97006c76636755e39588d0e36bc321d",
+      "size_bytes": 2830
+    },
+    {
+      "name": "v38_artifact_integrity_sweep",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_artifact_integrity_sweep.json",
+      "sha256": "fe69d6418b7d5c89fe36f987a50641a9502b92d56f5f4f9199d3659383f9d133",
+      "size_bytes": 2234
+    },
+    {
+      "name": "v38_calendar_edge_case_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_calendar_edge_case_result.json",
+      "sha256": "ae488d59a055f9db28ee58d084ca39c44fd0ce225c5391af7e34084fe7ea32a6",
+      "size_bytes": 2794
+    },
+    {
+      "name": "v38_data_edge_microstructure_request",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_data_edge_microstructure_request.json",
+      "sha256": "89960b71ea06fb632dab9655a76f88518a18ca865907fa0081d1ac30183b281b",
+      "size_bytes": 2808
+    },
+    {
+      "name": "v38_data_edge_microstructure_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_data_edge_microstructure_result.json",
+      "sha256": "2fed64823ae24319f733578edb62a9ce6abb04bc9c780794a9e2fe40f47e66b2",
+      "size_bytes": 2558
+    },
+    {
+      "name": "v38_execution_path_edge_case_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_execution_path_edge_case_result.json",
+      "sha256": "c3a7a72192c38d3f870bdbd38f623a1d9380058729b074e11ebd762dd961ae90",
+      "size_bytes": 2806
+    },
+    {
+      "name": "v38_financial_pit_edge_case_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_financial_pit_edge_case_result.json",
+      "sha256": "927bda79a8cf931c3eea188b0f69991214162449b4021cc26c1fef5c9027d4dc",
+      "size_bytes": 2804
+    },
+    {
+      "name": "v38_owner_microstructure_dashboard_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_owner_microstructure_dashboard_result.json",
+      "sha256": "da36191e0923c55307994f4230dd106281f3c483179599a6b4821a87cfac7482",
+      "size_bytes": 2818
+    },
+    {
+      "name": "v38_price_volume_constraint_edge_case_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_price_volume_constraint_edge_case_result.json",
+      "sha256": "323488ee23f0ad3a326008942f78450f0ce06bfeadc43f6fe920fae1040e9983",
+      "size_bytes": 2824
+    },
+    {
+      "name": "v38_protected_path_sweep",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_protected_path_sweep.json",
+      "sha256": "f55e9b62a7b4a0fc3a283956c15de49d157c04448165344a56831d9132063f57",
+      "size_bytes": 2337
+    },
+    {
+      "name": "v38_safety_boundary_sweep",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_safety_boundary_sweep.json",
+      "sha256": "6d3e8b755e920bbf603e91619356ee5e67fd0bc826be2ca502fec5eb48806bf3",
+      "size_bytes": 2217
+    },
+    {
+      "name": "v38_tplusone_settlement_edge_case_result",
+      "path": "data/equity_v38_data_edge_microstructure/daily/2026-07-01/v38_tplusone_settlement_edge_case_result.json",
+      "sha256": "aca833312d1bc19a3f69eb143be69df1d6df48f484d2d28b0b4058bc9590a452",
+      "size_bytes": 2816
+    }
+  ],
+  "json_count": 13,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v37_baseline_verified": true,
+  "calendar_edge_case_result_generated": true,
+  "tplusone_settlement_edge_case_result_generated": true,
+  "price_volume_constraint_edge_case_result_generated": true,
+  "adjusted_price_corporate_action_edge_result_generated": true,
+  "financial_pit_edge_case_result_generated": true,
+  "execution_path_edge_case_result_generated": true,
+  "owner_microstructure_dashboard_generated": true,
+  "account_apply_trade_bypass_absent": true,
+  "formal_calendar_fail_closed_verified": true,
+  "raw_adjusted_price_fallback_blocked_by_default": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "calendar_edge_fabricated": false,
+  "settlement_edge_fabricated": false,
+  "execution_edge_fabricated": false,
+  "financial_pit_edge_fabricated": false,
+  "microstructure_validation_generates_trade_signal": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "v4.0.0-final-maintenance-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
