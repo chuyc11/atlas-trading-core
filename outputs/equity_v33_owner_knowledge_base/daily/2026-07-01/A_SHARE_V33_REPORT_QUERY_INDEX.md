@@ -1,0 +1,42 @@
+# A Share V33 Report Query Index
+
+- target_version: v3.3.0-a-share-owner-knowledge-base-report-query-and-evidence-router-hardening
+- source_version: v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening
+- as_of_date: 2026-07-01
+- review_status: passed
+- blocking_reasons: []
+- warnings: []
+- research_only: True
+- simulation_only: True
+- virtual_only: True
+- not_real_order: True
+- not_order_preview: True
+- not_buy_sell_signal: True
+- not_investment_advice: True
+- not_live_trading_ready: True
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- full_pytest_run: False
+- full_pytest_passed: False
+- live_trading_ready: False
+
+## Generated Checks
+- artifact_generated: True
+- report_query_index_generated: True
+- evidence_router_generated: True
+- owner_question_router_generated: True
+- warning_blocker_limitation_search_generated: True
+- decision_journal_query_generated: True
+- owner_knowledge_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- full_pytest_run: False
+- full_pytest_passed: False
+- not_live_trading_ready: True
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- live_trading_ready: False

@@ -170,7 +170,7 @@ def _baseline_verification(paths: ProjectPaths, as_of_date: str) -> dict[str, An
     checks = {
         "v30_tag_exists": tag.get("stdout", "").strip() == SOURCE_VERSION,
         "version_matches": version_text in {SOURCE_VERSION, TARGET_VERSION},
-        "cli_version_matches": any(item in cli_version.get("stdout", "") for item in ["trading-core 3.0.0", "trading-core 3.1.0"]),
+        "cli_version_matches": _cli_version_is_v3(cli_version.get("stdout", "")),
         "v30_result_overall_passed": v30_result.get("overall_passed") is True,
         "v30_audit_overall_passed": v30_audit.get("overall_passed") is True,
         "v30_blocking_reasons_empty": v30_result.get("blocking_reasons") == [] and v30_audit.get("blocking_reasons") == [],
@@ -204,6 +204,11 @@ def _with_v31_boundary_fields(payload: dict[str, Any]) -> dict[str, Any]:
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
     }
+
+
+def _cli_version_is_v3(stdout: str) -> bool:
+    text = stdout.strip()
+    return text.startswith("trading-core 3.")
 
 
 def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str, full_evidence: dict[str, Any]) -> dict[str, Any]:

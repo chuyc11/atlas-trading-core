@@ -1,0 +1,59 @@
+# A-SHARE-V33-AUDIT
+
+- overall_passed: True
+- blocking_reasons: []
+- warnings_count: 0
+- owner_readiness_state: blocked
+- owner_operationally_acceptable: False
+- live_trading_ready: False
+- full_pytest_run: False
+- full_pytest_passed: False
+
+## Artifact Checks
+- json_count: 12
+- markdown_count: 8
+- audit_markdown_count: 1
+- all_json_present: True
+- all_markdown_present: True
+- json_budget_passed: True
+- markdown_budget_passed: True
+- audit_markdown_budget_passed: True
+
+## Quality Checks
+- v32_baseline_verified: True
+- report_query_index_generated: True
+- evidence_router_generated: True
+- owner_question_router_generated: True
+- warning_blocker_limitation_search_generated: True
+- decision_journal_query_generated: True
+- owner_knowledge_dashboard_generated: True
+- artifact_integrity_sweep_passed: True
+- protected_path_sweep_passed: True
+- safety_boundary_sweep_passed: True
+- targeted_pytest_required: True
+
+## Forbidden Checks
+- knowledge_base_fabricated: False
+- evidence_links_fabricated: False
+- report_links_fabricated: False
+- question_router_generates_trading_advice: False
+- question_router_generates_buy_sell_signal: False
+- question_router_generates_real_allocation: False
+- decision_journal_query_generates_trade_instruction: False
+- full_pytest_run: False
+- owner_readiness_gate_rerun: False
+- controlled_gate_reevaluation_run: False
+- new_gate_score_generated: False
+- new_gate_decision_generated: False
+- threshold_lowered: False
+- waiver_applied: False
+- broker_connected: False
+- real_account_data_read: False
+- real_orders_placed: False
+- real_order_preview_generated: False
+- buy_sell_signals_generated: False
+- old_run_daily_called: False
+- day2_executed: False
+- live_trading_ready: False
+- silent_scheduler_installed: False
+- daemon_installed: False
