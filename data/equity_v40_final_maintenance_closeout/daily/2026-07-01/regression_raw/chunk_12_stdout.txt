@@ -1,0 +1,130 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core
+configfile: pyproject.toml
+collected 328 items
+
+tests\test_historical_data_downloaders.py .....                          [  1%]
+tests\test_historical_data_gap_closure_audit.py ..                       [  2%]
+tests\test_historical_data_gap_closure_report.py .                       [  2%]
+tests\test_historical_data_gap_closure_workflow.py ..                    [  3%]
+tests\test_historical_data_quality_audit.py ...                          [  3%]
+tests\test_historical_data_source_resolver.py .......                    [  6%]
+tests\test_historical_dry_run_replay.py ........                         [  8%]
+tests\test_historical_package_normalizer.py ....                         [  9%]
+tests\test_historical_warning_inventory.py ...                           [ 10%]
+tests\test_isolated_ledger_invariant_audit.py ..                         [ 11%]
+tests\test_isolated_replay_adapter_audit.py ..............               [ 15%]
+tests\test_isolated_replay_execution.py ..............                   [ 19%]
+tests\test_isolated_replay_state.py ..........                           [ 22%]
+tests\test_label_store.py .........                                      [ 25%]
+tests\test_latest_artifact.py ......                                     [ 27%]
+tests\test_market_rules.py .                                             [ 27%]
+tests\test_mistake_classifier.py .                                       [ 28%]
+tests\test_mistake_pattern_library.py ......................             [ 34%]
+tests\test_ml_prediction_engine.py ..                                    [ 35%]
+tests\test_ml_shadow_boundaries.py ...............                       [ 39%]
+tests\test_ml_shadow_leaderboard.py ...                                  [ 40%]
+tests\test_ml_shadow_model.py ...                                        [ 41%]
+tests\test_ml_shadow_report.py ..                                        [ 42%]
+tests\test_ml_shadow_signal_generator.py ..                              [ 42%]
+tests\test_monthly_research_report.py ....                               [ 44%]
+tests\test_mvp_gap_classifier.py ...                                     [ 45%]
+tests\test_mvp_requirement_map.py ..                                     [ 45%]
+tests\test_next_work_register.py ...                                     [ 46%]
+tests\test_oecd_cli_package_repair.py ...                                [ 47%]
+tests\test_parameter_sweep.py ..........................s                [ 55%]
+tests\test_plan_alignment_audit.py ...                                   [ 56%]
+tests\test_plan_checklist_extractor.py ..                                [ 57%]
+tests\test_point_in_time.py .                                            [ 57%]
+tests\test_position_availability.py .                                    [ 57%]
+tests\test_price_acquisition.py ....                                     [ 59%]
+tests\test_price_acquisition_retry.py ...                                [ 60%]
+tests\test_price_dataset_merge.py ...                                    [ 60%]
+tests\test_price_status_contract.py ..                                   [ 61%]
+tests\test_project_status_report.py ..                                   [ 62%]
+tests\test_promotion_gate.py .                                           [ 62%]
+tests\test_promotion_simulation.py ..................                    [ 67%]
+tests\test_protected_path_residue_scanner.py ....                        [ 69%]
+tests\test_proxy_replay_warning_reduction.py ..                          [ 69%]
+tests\test_quick_status.py ....                                          [ 71%]
+tests\test_real_data_validation_report.py ....                           [ 72%]
+tests\test_report_index.py .....                                         [ 73%]
+tests\test_reporting_system_audit.py ...                                 [ 74%]
+tests\test_research_pipeline.py ...                                      [ 75%]
+tests\test_risk_engine.py .                                              [ 75%]
+tests\test_risk_max_daily_turnover.py .......                            [ 78%]
+tests\test_rule_memory.py .                                              [ 78%]
+tests\test_runtime_health.py ....                                        [ 79%]
+tests\test_settings_timezone.py ...                                      [ 80%]
+tests\test_shadow_runner.py .                                            [ 80%]
+tests\test_signal_schema.py .                                            [ 81%]
+tests\test_signal_scorecard.py .                                         [ 81%]
+tests\test_storage.py ...                                                [ 82%]
+tests\test_strategy_comparison.py ......                                 [ 84%]
+tests\test_strategy_leaderboard.py ..                                    [ 84%]
+tests\test_strategy_scorecard.py .                                       [ 85%]
+tests\test_system_dashboard.py ..                                        [ 85%]
+tests\test_system_integrity_audit.py ........                            [ 88%]
+tests\test_system_smoke_test.py ......                                   [ 89%]
+tests\test_t_plus_1_semantics.py .                                       [ 90%]
+tests\test_universe.py .                                                 [ 90%]
+tests\test_usability_audit.py ........                                   [ 92%]
+tests\test_v051_validation_gap_remediation.py .                          [ 93%]
+tests\test_virtual_broker.py ......                                      [ 95%]
+tests\test_virtual_execution_contract.py ..                              [ 95%]
+tests\test_virtual_execution_engine.py .                                 [ 96%]
+tests\test_walk_forward.py .                                             [ 96%]
+tests\test_walk_forward_dataset.py ...                                   [ 97%]
+tests\test_weekly_research_report.py ...                                 [ 98%]
+tests\test_yfinance_fallback.py ......                                   [100%]
+
+============================== warnings summary ===============================
+tests/test_historical_dry_run_replay.py::test_replay_last_30_trading_days_completes_price_only_replay
+tests/test_historical_dry_run_replay.py::test_missing_macro_signals_records_warning_and_hold
+tests/test_historical_dry_run_replay.py::test_replay_account_continues_across_days_and_t_plus_one
+tests/test_historical_dry_run_replay.py::test_replay_is_idempotent
+tests/test_historical_dry_run_replay.py::test_missing_price_rejects_trade
+tests/test_historical_dry_run_replay.py::test_replay_outputs_do_not_pollute_main_daily_run_dirs
+tests/test_historical_dry_run_replay.py::test_replay_audit_contains_required_forward_false
+tests/test_historical_dry_run_replay.py::test_replay_critical_error_marks_historical_replay_failed
+tests/test_walk_forward.py::test_walk_forward_runs_windows
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\backtest\event_backtester.py:27: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths):
+
+tests/test_historical_dry_run_replay.py: 3 warnings
+tests/test_label_store.py: 1 warning
+tests/test_runtime_health.py: 2 warnings
+tests/test_virtual_broker.py: 5 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:85: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_historical_dry_run_replay.py::test_replay_account_continues_across_days_and_t_plus_one
+tests/test_historical_dry_run_replay.py::test_replay_is_idempotent
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+tests/test_virtual_broker.py::test_t_plus_one_blocks_same_day_sell_then_allows_after_settlement
+tests/test_virtual_broker.py::test_sell_quantity_over_available_is_rejected
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\accounting\account.py:100: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if not is_trading_day(settlement_date, position.market, paths=paths, calendar_path=calendar_path):
+
+tests/test_label_store.py::test_run_daily_does_not_read_label_files
+tests/test_runtime_health.py::test_run_daily_generates_runtime_health
+tests/test_runtime_health.py::test_missing_macro_signals_warns_without_crashing
+tests/test_runtime_health.py::test_missing_price_snapshot_warns_without_crashing
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:92: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_price_acquisition.py: 3 warnings
+tests/test_price_acquisition_retry.py: 2 warnings
+tests/test_price_dataset_merge.py: 2 warnings
+tests/test_yfinance_fallback.py: 4 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\data\data_package_validator.py:168: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
+
+tests/test_runtime_health.py::test_summarize_health_aggregates_multiple_days
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\runtime\health.py:86: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========== 327 passed, 1 skipped, 42 warnings in 105.01s (0:01:45) ===========

@@ -1,0 +1,162 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.7, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core
+configfile: pyproject.toml
+collected 484 items
+
+tests\test_daily_report_packet.py ..                                     [  0%]
+tests\test_daily_workflow_audit.py ...                                   [  1%]
+tests\test_daily_workflow_scope_plan.py ..                               [  1%]
+tests\test_data_package_validator.py ...                                 [  2%]
+tests\test_data_quality.py ..                                            [  2%]
+tests\test_day0_blocking_conditions.py ...                               [  3%]
+tests\test_day0_data_freeze.py ...                                       [  3%]
+tests\test_day0_manual_confirmation.py ..                                [  4%]
+tests\test_day0_readiness_audit.py ...                                   [  4%]
+tests\test_day0_readiness_report.py ..                                   [  5%]
+tests\test_day0_run_daily_preflight.py ...                               [  5%]
+tests\test_day0_warning_register.py ...                                  [  6%]
+tests\test_day1_blocker_classifier.py ...                                [  7%]
+tests\test_day1_blocker_reclassification_v059.py ..                      [  7%]
+tests\test_day1_blocker_reclassification_v060.py ..                      [  7%]
+tests\test_day1_blocker_reclassification_v061.py ..                      [  8%]
+tests\test_day1_blocker_reclassification_v062.py ..                      [  8%]
+tests\test_day1_blocker_reclassification_v0621.py ..                     [  9%]
+tests\test_day1_continuation_reclassification_v0631.py ..                [  9%]
+tests\test_dry_run_auditor.py ..                                         [  9%]
+tests\test_dry_run_range.py .                                            [ 10%]
+tests\test_dry_run_validation_report.py ....                             [ 10%]
+tests\test_end_to_end_daily_run.py ..                                    [ 11%]
+tests\test_epu_package_repair.py ...                                     [ 11%]
+tests\test_equity_data_source_manifest.py .                              [ 12%]
+tests\test_event_backtester.py ..                                        [ 12%]
+tests\test_evolution_throttling.py ...                                   [ 13%]
+tests\test_execution_aware_replay_smoke.py ..                            [ 13%]
+tests\test_execution_cost_model.py ..                                    [ 14%]
+tests\test_execution_timeline_contract.py ..                             [ 14%]
+tests\test_experiment_dashboard.py ..........                            [ 16%]
+tests\test_experiment_queue.py .                                         [ 16%]
+tests\test_experiment_registry.py ............................           [ 22%]
+tests\test_experiment_release_audit.py ....                              [ 23%]
+tests\test_experiment_system_audit.py ............                       [ 25%]
+tests\test_export_summary.py ..                                          [ 26%]
+tests\test_external_project_intake.py ...                                [ 26%]
+tests\test_feature_store.py .....                                        [ 27%]
+tests\test_fill_price_model.py .                                         [ 28%]
+tests\test_final_handoff_review.py ........                              [ 29%]
+tests\test_forward_dry_run_authorization_materialization_audit.py ...    [ 30%]
+tests\test_forward_dry_run_authorization_scope_plan.py ..                [ 30%]
+tests\test_forward_dry_run_completed_manual_confirmation_checklist_v2.py . [ 30%]
+.                                                                        [ 31%]
+tests\test_forward_dry_run_day1_artifact_manifest.py ...                 [ 31%]
+tests\test_forward_dry_run_day1_audit_status.py ...                      [ 32%]
+tests\test_forward_dry_run_day1_continuation_artifact_audit.py ......... [ 34%]
+.                                                                        [ 34%]
+tests\test_forward_dry_run_day1_continuation_blocker_note.py ...         [ 35%]
+tests\test_forward_dry_run_day1_continuation_gap_analysis.py ....        [ 35%]
+tests\test_forward_dry_run_day1_data_reproducibility_appendix.py ..      [ 36%]
+tests\test_forward_dry_run_day1_input_snapshot.py ...                    [ 36%]
+tests\test_forward_dry_run_day1_isolated_ledger_report.py ..             [ 37%]
+tests\test_forward_dry_run_day1_owner_report_audit.py ...                [ 38%]
+tests\test_forward_dry_run_day1_owner_report_pack_summary.py ..          [ 38%]
+tests\test_forward_dry_run_day1_owner_report_scope_plan.py ..            [ 38%]
+tests\test_forward_dry_run_day1_owner_summary_report.py ..               [ 39%]
+tests\test_forward_dry_run_day1_pre_execution_gate.py ....               [ 40%]
+tests\test_forward_dry_run_day1_prompt_eligibility.py ..                 [ 40%]
+tests\test_forward_dry_run_day1_prompt_eligibility_revalidation_v0621.py . [ 40%]
+.                                                                        [ 40%]
+tests\test_forward_dry_run_day1_reproducibility_manifest.py ..           [ 41%]
+tests\test_forward_dry_run_day1_strategy_signal_explanation.py ..        [ 41%]
+tests\test_forward_dry_run_day1_virtual_execution.py ...                 [ 42%]
+tests\test_forward_dry_run_day1_virtual_order_fill_report.py ..          [ 42%]
+tests\test_forward_dry_run_day2_continuation_gate_preview.py ..          [ 43%]
+tests\test_forward_dry_run_day2_readiness_packet.py ..                   [ 43%]
+tests\test_forward_dry_run_manual_confirmation_checklist_v2.py ..        [ 44%]
+tests\test_forward_dry_run_operating_calendar.py ..                      [ 44%]
+tests\test_forward_dry_run_owner_authorization_packet.py ..              [ 44%]
+tests\test_forward_dry_run_owner_manual_confirmation_record.py ..        [ 45%]
+tests\test_forward_dry_run_readiness.py .........................        [ 50%]
+tests\test_forward_dry_run_run_daily_command_preview.py ..               [ 50%]
+tests\test_forward_dry_run_start_authorization_audit.py ....             [ 51%]
+tests\test_forward_dry_run_start_gate_revalidation_v0621.py ..           [ 52%]
+tests\test_forward_dry_run_start_gate_validator_v062.py ...              [ 52%]
+tests\test_forward_dry_run_start_prerequisite_inventory.py ..            [ 53%]
+tests\test_forward_dry_run_updated_owner_authorization_packet.py ..      [ 53%]
+tests\test_full_historical_proxy_builder.py ..                           [ 53%]
+tests\test_full_historical_proxy_workflow.py ....                        [ 54%]
+tests\test_global_briefing_evidence_quality_audit.py ............        [ 57%]
+tests\test_global_briefing_evidence_quality_report.py ........           [ 58%]
+tests\test_global_briefing_historical_replay_runner.py ...............   [ 61%]
+tests\test_global_briefing_integration.py .                              [ 62%]
+tests\test_global_briefing_integration_robustness.py ..........          [ 64%]
+tests\test_global_briefing_production_acceptance_criteria.py ......      [ 65%]
+tests\test_global_briefing_real_package_coverage_audit.py ..........     [ 67%]
+tests\test_global_briefing_real_package_integration_audit.py ........... [ 69%]
+.                                                                        [ 70%]
+tests\test_global_briefing_real_package_integration_report.py .........  [ 71%]
+tests\test_global_briefing_real_package_manifest.py ..........           [ 73%]
+tests\test_global_briefing_real_package_normalizer.py ............       [ 76%]
+tests\test_global_briefing_real_package_replay_workflow.py ........      [ 78%]
+tests\test_global_briefing_replay_audit.py ....................          [ 82%]
+tests\test_global_briefing_replay_bundle_builder.py .............        [ 84%]
+tests\test_global_briefing_replay_evaluation_report.py ................. [ 88%]
+..                                                                       [ 88%]
+tests\test_global_briefing_replay_signal_adapter.py ........             [ 90%]
+tests\test_global_briefing_signal_contract.py .......                    [ 91%]
+tests\test_global_briefing_signal_package_validator.py ................. [ 95%]
+.                                                                        [ 95%]
+tests\test_global_briefing_warning_triage.py ..........                  [ 97%]
+tests\test_historical_backtest.py ....                                   [ 98%]
+tests\test_historical_backtest_runbook.py .                              [ 98%]
+tests\test_historical_data_acquisition_audit.py ....                     [ 99%]
+tests\test_historical_data_acquisition_report.py ..                      [100%]
+
+============================== warnings summary ===============================
+tests/test_data_package_validator.py::test_validate_data_package_accepts_directory_and_warns_on_suspicious_return
+tests/test_data_package_validator.py::test_validate_data_package_fails_dirty_rows
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\data\data_package_validator.py:168: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
+
+tests/test_dry_run_auditor.py: 2 warnings
+tests/test_dry_run_range.py: 1 warning
+tests/test_dry_run_validation_report.py: 4 warnings
+tests/test_event_backtester.py: 2 warnings
+tests/test_historical_backtest.py: 3 warnings
+tests/test_historical_backtest_runbook.py: 1 warning
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\backtest\event_backtester.py:27: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current, paths=paths):
+
+tests/test_dry_run_range.py: 1 warning
+tests/test_end_to_end_daily_run.py: 2 warnings
+tests/test_export_summary.py: 1 warning
+tests/test_global_briefing_integration.py: 1 warning
+tests/test_global_briefing_integration_robustness.py: 10 warnings
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:92: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_dry_run_range.py: 1 warning
+tests/test_end_to_end_daily_run.py: 2 warnings
+tests/test_event_backtester.py: 2 warnings
+tests/test_export_summary.py: 1 warning
+tests/test_global_briefing_integration_robustness.py: 5 warnings
+tests/test_historical_backtest.py: 3 warnings
+tests/test_historical_backtest_runbook.py: 1 warning
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\calendar\trading_calendar.py:85: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+
+tests/test_dry_run_range.py::test_dry_run_range_writes_summary_and_survives_missing_inputs
+tests/test_end_to_end_daily_run.py::test_next_day_settles_t_plus_one
+tests/test_event_backtester.py::test_event_backtester_settles_t_plus_one_before_next_day_sell
+tests/test_historical_backtest.py::test_historical_backtest_t_plus_one_outputs_and_no_future_data
+tests/test_historical_backtest.py::test_historical_backtest_settles_pending_t1_before_following_day
+tests/test_historical_backtest.py::test_historical_backtest_strategy_outputs_are_separate
+tests/test_historical_backtest_runbook.py::test_historical_etf_backtest_runbook_writes_acceptance_artifacts
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\accounting\account.py:100: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if not is_trading_day(settlement_date, position.market, paths=paths, calendar_path=calendar_path):
+
+tests/test_dry_run_range.py::test_dry_run_range_writes_summary_and_survives_missing_inputs
+  C:\Users\26084\Documents\Codex\2026-06-12\new-chat\work\trading-core\src\trading_core\runtime\health.py:86: RuntimeWarning: A-share trading calendar file unavailable; using weekday fallback only
+    if is_trading_day(current):
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================ 484 passed, 53 warnings in 185.25s (0:03:05) =================

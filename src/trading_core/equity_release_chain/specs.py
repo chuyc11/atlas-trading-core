@@ -1091,7 +1091,12 @@ RELEASE_SPECS: list[dict[str, Any]] = [
         "full_pytest_required": True,
         "warnings": [],
         "freeze_decision": "frozen_as_research_only_simulation_platform",
-        "extra_result_fields": {"full_regression_mode": "split_matrix"},
+        "extra_result_fields": {
+            "full_regression_mode": "split_matrix",
+            "project_frozen_as_research_only_simulation_platform": True,
+            "live_trading_ready_decision_allowed": False,
+            "real_trading_enabled_decision_allowed": False,
+        },
         "source_result_dir": "equity_v39_owner_handoff_docs",
         "source_result_name": "v39_owner_handoff_docs_result",
         "source_audit_json": "a_share_v39_owner_handoff_docs_audit.json",

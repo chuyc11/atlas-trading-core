@@ -1,0 +1,182 @@
+{
+  "manifest_id": "V40-FINAL-MAINTENANCE-CLOSEOUT-MANIFEST",
+  "target_version": "v4.0.0-a-share-research-platform-final-maintenance-closeout-and-freeze",
+  "source_version": "v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T16:18:56.821451Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V40_EXTERNAL_REVIEWER_FREEZE_PACKAGE.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_EXTERNAL_REVIEWER_FREEZE_PACKAGE.md",
+      "sha256": "bb86bb53c2649c7e7e1a7a880fb6b22ff0387a5bd74702f593974e41a13aef06",
+      "size_bytes": 1568
+    },
+    {
+      "name": "md:A_SHARE_V40_FINAL_MAINTENANCE_CLOSEOUT_REPORT.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_FINAL_MAINTENANCE_CLOSEOUT_REPORT.md",
+      "sha256": "b3784fe7ba1ffca7197e30b960430cdb74ff9a6c1b195367934311eeb9dde037",
+      "size_bytes": 1569
+    },
+    {
+      "name": "md:A_SHARE_V40_FINAL_REGRESSION_EVIDENCE.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_FINAL_REGRESSION_EVIDENCE.md",
+      "sha256": "e0e9188b42d7248bd914e5979b1d57314f8ab0c81b8e623049940c43a0049cfd",
+      "size_bytes": 1561
+    },
+    {
+      "name": "md:A_SHARE_V40_KNOWN_LIMITATIONS_FINAL.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_KNOWN_LIMITATIONS_FINAL.md",
+      "sha256": "6eb32b1b83328e902878e107f52803e6e82aefde1090010c640245c729a85923",
+      "size_bytes": 1559
+    },
+    {
+      "name": "md:A_SHARE_V40_OWNER_FINAL_MAINTENANCE_DASHBOARD.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_OWNER_FINAL_MAINTENANCE_DASHBOARD.md",
+      "sha256": "4145db91cec2263496f9810a29bf3f8c8e1513107887f2721d29577437569c01",
+      "size_bytes": 1569
+    },
+    {
+      "name": "md:A_SHARE_V40_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "36636071146957fbff75b0c1f6b0c5b7431015b5a5776cbe6192a1d003e3a716",
+      "size_bytes": 1558
+    },
+    {
+      "name": "md:A_SHARE_V40_SECURITY_OPS_DATA_DOCS_VALIDATION.md",
+      "path": "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_SECURITY_OPS_DATA_DOCS_VALIDATION.md",
+      "sha256": "98bd795c36f9237c737104de86989e15a73098d01f7c766734da8b338e3395d9",
+      "size_bytes": 1569
+    },
+    {
+      "name": "v40_artifact_integrity_sweep",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_artifact_integrity_sweep.json",
+      "sha256": "eed4682a8719b18ac4aacf5753b762b993026335ae2741b574427955fbedcc7a",
+      "size_bytes": 2397
+    },
+    {
+      "name": "v40_external_reviewer_freeze_package_result",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_external_reviewer_freeze_package_result.json",
+      "sha256": "231c5ea4c7d28d9a6d6cfd8e22179b2731158da4281b51a1b8c12f801c161b8c",
+      "size_bytes": 2864
+    },
+    {
+      "name": "v40_final_maintenance_closeout_request",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_maintenance_closeout_request.json",
+      "sha256": "4146f6f53d3f0a0eabd3e8dd093d56e585d2aa3ab28d3d08b69bf281f55e3214",
+      "size_bytes": 2854
+    },
+    {
+      "name": "v40_final_maintenance_closeout_result",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_maintenance_closeout_result.json",
+      "sha256": "a19f29b3144f5cbac24643a3209d32c178c0f965ea77b758dc8806776f10dc27",
+      "size_bytes": 11829
+    },
+    {
+      "name": "v40_final_regression_evidence",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_regression_evidence.json",
+      "sha256": "4134c3afb131bd3c615273d06be1f1c57e053418b4cc54eb9367bc0a3968afa4",
+      "size_bytes": 11926
+    },
+    {
+      "name": "v40_final_release_lineage_registry",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_release_lineage_registry.json",
+      "sha256": "24e6f28577756472a0fdc65f829f1380fffc2129e5667bec268cba0b874df20c",
+      "size_bytes": 2846
+    },
+    {
+      "name": "v40_known_limitations_final_result",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_known_limitations_final_result.json",
+      "sha256": "676eb5ccd9384e8c4f0535703a9cd6888b7ecb4a685dc7d87d5a3f21118f62d8",
+      "size_bytes": 2846
+    },
+    {
+      "name": "v40_owner_final_maintenance_dashboard_result",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_owner_final_maintenance_dashboard_result.json",
+      "sha256": "ebaacf2038a6106d6e0d832857b557ef509231f9e2079d557164ae6453e7e175",
+      "size_bytes": 2866
+    },
+    {
+      "name": "v40_protected_path_sweep",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_protected_path_sweep.json",
+      "sha256": "b4ffaac188d646a23a67c35b811a3580aa43d32baa2d34b44f8090d0cdb8441e",
+      "size_bytes": 2385
+    },
+    {
+      "name": "v40_release_health_report",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_release_health_report.json",
+      "sha256": "d111bef20d8af63c5b87ac8e40325ef1cb5a82a84dcd926f4151f5b6bbf47955",
+      "size_bytes": 2828
+    },
+    {
+      "name": "v40_safety_boundary_sweep",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_safety_boundary_sweep.json",
+      "sha256": "1a9375cba9bd386604a1e43994dbbbb0eedaf10f75e27524ce3cff86e633a4aa",
+      "size_bytes": 2380
+    },
+    {
+      "name": "v40_security_ops_data_docs_validation_result",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_security_ops_data_docs_validation_result.json",
+      "sha256": "07385c0c54be96703c39d4c62f5f3d7ff998dee4bccbdf3e3be1ff0fcb19fc7e",
+      "size_bytes": 2866
+    }
+  ],
+  "json_count": 13,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v39_baseline_verified": true,
+  "final_release_lineage_registry_generated": true,
+  "final_regression_evidence_generated": true,
+  "security_ops_data_docs_validation_generated": true,
+  "external_reviewer_freeze_package_generated": true,
+  "known_limitations_final_generated": true,
+  "owner_final_maintenance_dashboard_generated": true,
+  "release_health_report_generated": true,
+  "full_regression_run": true,
+  "full_regression_passed": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "fabricated_test_result": false,
+  "fabricated_audit_result": false,
+  "fabricated_release_evidence": false,
+  "fabricated_security_evidence": false,
+  "fabricated_incident_evidence": false,
+  "fabricated_docs_evidence": false,
+  "known_limitations_hidden": false,
+  "historical_evidence_deleted": false,
+  "audit_evidence_deleted": false,
+  "release_evidence_deleted": false,
+  "full_pytest_run": true,
+  "full_pytest_passed": true,
+  "targeted_pytest_required": false,
+  "full_regression_mode": "split_matrix",
+  "project_frozen_as_research_only_simulation_platform": true,
+  "live_trading_ready_decision_allowed": false,
+  "real_trading_enabled_decision_allowed": false,
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
