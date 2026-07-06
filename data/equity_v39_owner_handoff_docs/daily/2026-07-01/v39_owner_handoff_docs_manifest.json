@@ -1,0 +1,160 @@
+{
+  "manifest_id": "V39-OWNER-HANDOFF-DOCS-MANIFEST",
+  "target_version": "v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening",
+  "source_version": "v3.8.0-a-share-data-contract-edge-case-and-market-microstructure-validation-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T15:42:48.384461Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V39_FINAL_ARCHITECTURE_AND_CLI_GUIDE.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_FINAL_ARCHITECTURE_AND_CLI_GUIDE.md",
+      "sha256": "69cde23b8048942e5126e9350e289742967a5c19802be685f0348dfa2d275091",
+      "size_bytes": 1403
+    },
+    {
+      "name": "md:A_SHARE_V39_KNOWLEDGE_BASE_POLISH_REPORT.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_KNOWLEDGE_BASE_POLISH_REPORT.md",
+      "sha256": "c00e0e8b5c41d632f99980344e4f4af7c2c7096f68f1c6cb58d15a3970bb31bd",
+      "size_bytes": 1399
+    },
+    {
+      "name": "md:A_SHARE_V39_OWNER_DAILY_WORKFLOW_GUIDE.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_OWNER_DAILY_WORKFLOW_GUIDE.md",
+      "sha256": "ae1663c8cb94f005b0283ef8b53ebd49bb4e8d9f4be82b9639f58ed33297fa54",
+      "size_bytes": 1397
+    },
+    {
+      "name": "md:A_SHARE_V39_OWNER_HANDOFF_DASHBOARD.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_OWNER_HANDOFF_DASHBOARD.md",
+      "sha256": "8742b4f24d626d6d0546f82a5e734f2a72899c22776e9528f3903d4b72366edc",
+      "size_bytes": 1394
+    },
+    {
+      "name": "md:A_SHARE_V39_OWNER_HANDOFF_PACKAGE.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_OWNER_HANDOFF_PACKAGE.md",
+      "sha256": "9786ad2f917770cfb5f10c468aabac22655a653e82fe769a7ca3cfbda79deadd",
+      "size_bytes": 1392
+    },
+    {
+      "name": "md:A_SHARE_V39_REPORT_READABILITY_CONSISTENCY.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_REPORT_READABILITY_CONSISTENCY.md",
+      "sha256": "6c7f1b073b5a2091151477aeb34f3454607c5f77acba50ec44a2258f39707055",
+      "size_bytes": 1401
+    },
+    {
+      "name": "md:A_SHARE_V39_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v39_owner_handoff_docs/daily/2026-07-01/A_SHARE_V39_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "ac10b082e21d3bbc8db6189c2fcde626dd56ffef1e319209c06597fe13c28f36",
+      "size_bytes": 1160
+    },
+    {
+      "name": "v39_artifact_integrity_sweep",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_artifact_integrity_sweep.json",
+      "sha256": "0a276a48f3009cb9c05c5a3b0c8dc3c36fe238ed0143d1f79b9e2699bf18b883",
+      "size_bytes": 2003
+    },
+    {
+      "name": "v39_final_documentation_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_final_documentation_result.json",
+      "sha256": "4f1591208f62fb5c5238375796626f1f712e9eba8ceabdfea56ea47ce5bb9828",
+      "size_bytes": 2554
+    },
+    {
+      "name": "v39_knowledge_base_polish_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_knowledge_base_polish_result.json",
+      "sha256": "78bb00af2daa39d301cef071442ed619a1a1a12443c386d8dfe13c6d55400d5d",
+      "size_bytes": 2558
+    },
+    {
+      "name": "v39_owner_handoff_dashboard_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_owner_handoff_dashboard_result.json",
+      "sha256": "6932433a41eee35fe4494b916816d1116574ef2e5266e4cf05ccf73ccddad4b5",
+      "size_bytes": 2562
+    },
+    {
+      "name": "v39_owner_handoff_docs_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_owner_handoff_docs_result.json",
+      "sha256": "82dc6598d415344e9a21dc7fbc6d9a520175d4a71f6819061b09160f8df1296b",
+      "size_bytes": 2317
+    },
+    {
+      "name": "v39_owner_handoff_package_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_owner_handoff_package_result.json",
+      "sha256": "fb50f40fbdf1a9cb8590a536ceb3a33c4886bccc9dbde35873dd0e0a755b58b1",
+      "size_bytes": 2558
+    },
+    {
+      "name": "v39_owner_handoff_request",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_owner_handoff_request.json",
+      "sha256": "0fc04de3168bb83d1334a841cd7755e06d5bcb5f1575b32b96dce1a7e610422e",
+      "size_bytes": 2544
+    },
+    {
+      "name": "v39_protected_path_sweep",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_protected_path_sweep.json",
+      "sha256": "c9367ca2d6a27d042cad1ca2e39a742ba227ccf407b0a7ef5490ec69871a27c5",
+      "size_bytes": 2106
+    },
+    {
+      "name": "v39_report_readability_consistency_result",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_report_readability_consistency_result.json",
+      "sha256": "23e827751183fbd486a5d44f18ef5144f26a053d9058307b8beb1635c33b14e5",
+      "size_bytes": 2576
+    },
+    {
+      "name": "v39_safety_boundary_sweep",
+      "path": "data/equity_v39_owner_handoff_docs/daily/2026-07-01/v39_safety_boundary_sweep.json",
+      "sha256": "2752f3b75aae8ff76699f7e997273ae2e7736a6f58867a7e8c7217783a6cf134",
+      "size_bytes": 1986
+    }
+  ],
+  "json_count": 11,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v38_baseline_verified": true,
+  "final_documentation_generated": true,
+  "knowledge_base_polish_generated": true,
+  "owner_handoff_package_generated": true,
+  "report_readability_consistency_generated": true,
+  "owner_handoff_dashboard_generated": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "documentation_fabricated": false,
+  "knowledge_base_links_fabricated": false,
+  "handoff_includes_broker_setup": false,
+  "handoff_includes_real_account_steps": false,
+  "handoff_includes_trading_instruction": false,
+  "question_router_generates_trading_advice": false,
+  "forbidden_wording_detected": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "v4.0.0-final-maintenance-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}
