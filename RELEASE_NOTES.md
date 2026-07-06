@@ -1,5 +1,16 @@
 # Release Notes
 
+## v3.6.0-a-share-platform-security-config-and-supply-chain-hardening
+
+v3.6.0 adds research-only security, configuration, supply-chain, file-system, and network-boundary hardening artifacts.
+
+- adds secret scan, config governance, dependency review, filesystem/path safety, network boundary, owner security dashboard, safety sweeps, manifest, and audit artifacts
+- records vulnerability database coverage as not_available rather than fabricating CVE coverage
+- blocks high-confidence secrets, broker/account credentials, order endpoints, unsafe config override, unsafe file delete, broker/account network paths, and fabricated security/dependency results
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `7 passed`; recent smoke passed: `25 passed`; full pytest remains deferred by v3.6 policy
+- recommended next version: `v3.7.0-a-share-long-running-operations-observability-and-incident-drill-hardening`
+
 ## v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh
 
 v3.5.0 closes out the v3.x A-share research-only simulation sequence across v3.1-v3.4 with long-horizon split-matrix regression evidence, capability validation, external review package refresh, known limitations refresh, owner final v3.x dashboard, release health report, safety sweeps, manifest, and audit artifacts.
