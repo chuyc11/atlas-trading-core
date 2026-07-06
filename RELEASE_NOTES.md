@@ -1,5 +1,16 @@
 # Release Notes
 
+## v3.8.0-a-share-data-contract-edge-case-and-market-microstructure-validation-hardening
+
+v3.8.0 adds validation-hardening artifacts for data contract edge cases and A-share microstructure simulation semantics.
+
+- adds calendar, T+1 settlement, price/volume, adjusted-price/corporate-action, financial PIT, execution-path, owner microstructure dashboard, safety sweeps, manifest, and audit artifacts
+- verifies formal-calendar fail-closed behavior, raw adjusted-price fallback blocking, and Account.apply_trade bypass absence
+- keeps edge validation simulation-only: no trade signal, no order preview, no real order, and no fabricated edge evidence
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `5 passed`; recent smoke passed: `22 passed`; full pytest remains deferred by v3.8 policy
+- recommended next version: `v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening`
+
 ## v3.7.0-a-share-long-running-operations-observability-and-incident-drill-hardening
 
 v3.7.0 adds local/internal operations observability, health status, incident drill, recovery rehearsal, owner runbook, and observability dashboard artifacts.
