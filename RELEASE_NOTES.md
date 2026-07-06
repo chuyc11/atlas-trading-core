@@ -1,5 +1,16 @@
 # Release Notes
 
+## v3.7.0-a-share-long-running-operations-observability-and-incident-drill-hardening
+
+v3.7.0 adds local/internal operations observability, health status, incident drill, recovery rehearsal, owner runbook, and observability dashboard artifacts.
+
+- keeps telemetry local-only: no external notifications, no scheduler installation, and no daemon installation
+- rehearses incident and recovery workflows as dry-run evidence only: no destructive recovery, no git history rollback, and no evidence deletion
+- separates health review from owner-readiness and live-trading readiness
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `5 passed`; recent smoke passed: `24 passed`; full pytest remains deferred by v3.7 policy
+- recommended next version: `v3.8.0-a-share-data-contract-edge-case-and-market-microstructure-validation-hardening`
+
 ## v3.6.0-a-share-platform-security-config-and-supply-chain-hardening
 
 v3.6.0 adds research-only security, configuration, supply-chain, file-system, and network-boundary hardening artifacts.
