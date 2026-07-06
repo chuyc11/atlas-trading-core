@@ -3,7 +3,7 @@
   "target_version": "v4.0.0-a-share-research-platform-final-maintenance-closeout-and-freeze",
   "source_version": "v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-06T16:18:56.821451Z",
+  "generated_at": "2026-07-06T16:20:42.368072Z",
   "overall_passed": true,
   "artifact_records": [
     {
@@ -57,43 +57,49 @@
     {
       "name": "v40_external_reviewer_freeze_package_result",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_external_reviewer_freeze_package_result.json",
-      "sha256": "231c5ea4c7d28d9a6d6cfd8e22179b2731158da4281b51a1b8c12f801c161b8c",
+      "sha256": "5485932a37ca1b92652b82802b64d222061438f02de42e8928b2dae691478c10",
       "size_bytes": 2864
+    },
+    {
+      "name": "v40_final_maintenance_closeout_manifest",
+      "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_maintenance_closeout_manifest.json",
+      "sha256": "30fc9ef27a55bb72f14ab238e525cfbd5d1a17758fb08b693b145907b3907796",
+      "size_bytes": 8354
     },
     {
       "name": "v40_final_maintenance_closeout_request",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_maintenance_closeout_request.json",
-      "sha256": "4146f6f53d3f0a0eabd3e8dd093d56e585d2aa3ab28d3d08b69bf281f55e3214",
+      "sha256": "bb5676ed8c27fbe7cadb16e6ab22cbb146bf2e2305f98346d5e69485cca00e3b",
       "size_bytes": 2854
     },
     {
       "name": "v40_final_maintenance_closeout_result",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_maintenance_closeout_result.json",
-      "sha256": "a19f29b3144f5cbac24643a3209d32c178c0f965ea77b758dc8806776f10dc27",
+      "sha256": "7d60c1bcda25b668255895c6ec30519812ff50747714d9371ebfe69618023c5c",
       "size_bytes": 11829
     },
     {
       "name": "v40_final_regression_evidence",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_regression_evidence.json",
-      "sha256": "4134c3afb131bd3c615273d06be1f1c57e053418b4cc54eb9367bc0a3968afa4",
+      "sha256": "82b71c7c6c0a6f98708a56e41f5b97f517a8b20446d5425b36f58b3c822fc4d6",
       "size_bytes": 11926
     },
     {
       "name": "v40_final_release_lineage_registry",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_final_release_lineage_registry.json",
-      "sha256": "24e6f28577756472a0fdc65f829f1380fffc2129e5667bec268cba0b874df20c",
+      "sha256": "0532545628f744e1054e66126e230f27fcaca58f2a3c068faceefbf55e24d741",
       "size_bytes": 2846
     },
     {
       "name": "v40_known_limitations_final_result",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_known_limitations_final_result.json",
-      "sha256": "676eb5ccd9384e8c4f0535703a9cd6888b7ecb4a685dc7d87d5a3f21118f62d8",
+      "sha256": "5142d36eb002a9d57278b9b3509cd45985e16f1e48e2671486838af68624e5d7",
       "size_bytes": 2846
     },
     {
       "name": "v40_owner_final_maintenance_dashboard_result",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_owner_final_maintenance_dashboard_result.json",
-      "sha256": "ebaacf2038a6106d6e0d832857b557ef509231f9e2079d557164ae6453e7e175",
+      "sha256": "2b5549df0758e31b245086f871a09ee80a541ddab72e16abbfb6bf128e1fdc97",
       "size_bytes": 2866
     },
     {
@@ -105,7 +111,7 @@
     {
       "name": "v40_release_health_report",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_release_health_report.json",
-      "sha256": "d111bef20d8af63c5b87ac8e40325ef1cb5a82a84dcd926f4151f5b6bbf47955",
+      "sha256": "6587efa58122ee15860f000473565f7a8f53e81b407007d40473afebf197326e",
       "size_bytes": 2828
     },
     {
@@ -117,7 +123,7 @@
     {
       "name": "v40_security_ops_data_docs_validation_result",
       "path": "data/equity_v40_final_maintenance_closeout/daily/2026-07-01/v40_security_ops_data_docs_validation_result.json",
-      "sha256": "07385c0c54be96703c39d4c62f5f3d7ff998dee4bccbdf3e3be1ff0fcb19fc7e",
+      "sha256": "576508a103c429162d4dfa04a2748e5327262106702ed87a96f7d09319d85cea",
       "size_bytes": 2866
     }
   ],

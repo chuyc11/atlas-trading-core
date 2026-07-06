@@ -560,6 +560,10 @@ def _v35_regression_defaults() -> dict[str, Any]:
 
 def _v35_regression_fields(*, paths: ProjectPaths, spec: dict[str, Any], as_of_date: str) -> dict[str, Any]:
     fields = _v35_regression_defaults()
+    release_label = spec["target_version"].split("-", 1)[0]
+    fields["single_command_limitation"] = (
+        f"single_command_pytest_completed=false; split-matrix regression is required for {release_label} on this local Windows workflow."
+    )
     seed_name = spec.get("regression_seed_name", "v35_regression_seed")
     seed = read_json(paths.data_dir / spec["package_dir"] / "daily" / as_of_date / f"{seed_name}.json")
     if seed:

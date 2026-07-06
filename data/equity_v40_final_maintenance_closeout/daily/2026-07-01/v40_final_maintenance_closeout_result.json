@@ -69,7 +69,7 @@
   "freeze_decision": "frozen_as_research_only_simulation_platform",
   "single_command_pytest_completed": false,
   "single_command_pytest_blocked_by_local_timeout_or_windows_limit": true,
-  "single_command_limitation": "single_command_pytest_completed=false; split-matrix regression is required for v3.5.0 on this local Windows workflow.",
+  "single_command_limitation": "single_command_pytest_completed=false; split-matrix regression is required for v4.0.0 on this local Windows workflow.",
   "full_regression_total_passed": 2099,
   "full_regression_total_skipped": 1,
   "full_regression_total_failed": 0,

@@ -1,5 +1,17 @@
 # Release Notes
 
+## v4.0.0-a-share-research-platform-final-maintenance-closeout-and-freeze
+
+v4.0.0 freezes the A-share research-only simulation platform as the final maintenance closeout baseline.
+
+- freeze decision: `frozen_as_research_only_simulation_platform`
+- consolidates v3.6 security/config/supply-chain, v3.7 observability/incident drill, v3.8 data edge/microstructure, and v3.9 docs/handoff evidence
+- records final full regression as split matrix because one-shot pytest remains blocked by local Windows/runtime limits
+- final regression matrix: `2099 passed, 1 skipped, 0 failed` across 12 chunks / 1174 test files
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- does not add broker access, real account reads, real orders, order previews, buy/sell signals, owner-readiness gate execution, new gate score/decision, real allocation, or investment advice
+- recommended next version: `maintenance-only`
+
 ## v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening
 
 v3.9.0 adds final owner-facing documentation, knowledge-base polish, owner handoff package, report readability/consistency review, owner handoff dashboard, safety sweeps, manifest, and audit artifacts.
