@@ -1,0 +1,168 @@
+{
+  "manifest_id": "V37-OPERATIONS-OBSERVABILITY-MANIFEST",
+  "target_version": "v3.7.0-a-share-long-running-operations-observability-and-incident-drill-hardening",
+  "source_version": "v3.6.0-a-share-platform-security-config-and-supply-chain-hardening",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T15:39:30.273041Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V37_HEALTH_STATUS_REPORT.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_HEALTH_STATUS_REPORT.md",
+      "sha256": "50d9f9fdffdd85ba68dd27637e3423476d7801bcc442723fd8232013c380d572",
+      "size_bytes": 1467
+    },
+    {
+      "name": "md:A_SHARE_V37_INCIDENT_DRILL_REPORT.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_INCIDENT_DRILL_REPORT.md",
+      "sha256": "45437a11f8d982a376ee368ed9078ac3627d034fa5e82937568912cb1fa81bdd",
+      "size_bytes": 1468
+    },
+    {
+      "name": "md:A_SHARE_V37_OPERATIONS_OBSERVABILITY_OVERVIEW.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_OPERATIONS_OBSERVABILITY_OVERVIEW.md",
+      "sha256": "72f7f06b314330319b6ef0ef31bf902a3977bb241d4fc7134e3fe624f902ea45",
+      "size_bytes": 1480
+    },
+    {
+      "name": "md:A_SHARE_V37_OWNER_OBSERVABILITY_DASHBOARD.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_OWNER_OBSERVABILITY_DASHBOARD.md",
+      "sha256": "f65edc9048702f85decce746d46925ad72b4ec6c62aff9b3a80508085092c672",
+      "size_bytes": 1476
+    },
+    {
+      "name": "md:A_SHARE_V37_OWNER_OPERATIONS_RUNBOOK.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_OWNER_OPERATIONS_RUNBOOK.md",
+      "sha256": "110f586b1cfcd90b41f7b63a253256ef7a8a486728dea560550109ef7b24c8a1",
+      "size_bytes": 1471
+    },
+    {
+      "name": "md:A_SHARE_V37_RECOVERY_REHEARSAL_REPORT.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_RECOVERY_REHEARSAL_REPORT.md",
+      "sha256": "f8ab6123e6a49daf212e262b7a3f9da390b0d2f30116f7eb7f601870f449112e",
+      "size_bytes": 1472
+    },
+    {
+      "name": "md:A_SHARE_V37_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v37_operations_observability/daily/2026-07-01/A_SHARE_V37_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "b5640d2a20bcc289fbbc71f28537a5429a49ed642e0b3db6edbaacc0aefb96fa",
+      "size_bytes": 1255
+    },
+    {
+      "name": "v37_artifact_integrity_sweep",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_artifact_integrity_sweep.json",
+      "sha256": "ffb4f3f4e6ad824054ff94456defa1fce5c088a7c3f90ec6bee852c2f7fdee4a",
+      "size_bytes": 2090
+    },
+    {
+      "name": "v37_health_status_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_health_status_result.json",
+      "sha256": "34d56dd514e6b85cc07b62e10ca30aeef5a39b8559024e2f385e1514d8274c8c",
+      "size_bytes": 2693
+    },
+    {
+      "name": "v37_incident_drill_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_incident_drill_result.json",
+      "sha256": "7c089575fa426ed2cb3ed874e6793d3a762b516e8d42b06d02c7f893a68b57b3",
+      "size_bytes": 2695
+    },
+    {
+      "name": "v37_operations_observability_request",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_operations_observability_request.json",
+      "sha256": "e3ca3e2b6dcda8059d816efe721e0ce264e31ea1f8ad4681c6e787de20aee221",
+      "size_bytes": 2717
+    },
+    {
+      "name": "v37_operations_observability_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_operations_observability_result.json",
+      "sha256": "c13a2dc079e9a2c0d20aa97708c58f934877622cb220daef9f496d55d8a3ea7f",
+      "size_bytes": 2406
+    },
+    {
+      "name": "v37_owner_observability_dashboard_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_owner_observability_dashboard_result.json",
+      "sha256": "c8dd3994052a61b266490ae55f89d83de7305b96d7864bb856adf2eff6c28802",
+      "size_bytes": 2725
+    },
+    {
+      "name": "v37_owner_operations_runbook_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_owner_operations_runbook_result.json",
+      "sha256": "b1c625d26c9d11aba4065cbba9ef76d154b5b26e65db8f600f0bff7f7b335182",
+      "size_bytes": 2715
+    },
+    {
+      "name": "v37_protected_path_sweep",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_protected_path_sweep.json",
+      "sha256": "63576f51e022544436b078aba8b7f12a8db80a6548d1c55a6983d4bf93f63375",
+      "size_bytes": 2193
+    },
+    {
+      "name": "v37_recovery_rehearsal_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_recovery_rehearsal_result.json",
+      "sha256": "8e06c8d822f7f1809ede9a25ac275d88f8ba6848eaff57625b11997b3f798d76",
+      "size_bytes": 2703
+    },
+    {
+      "name": "v37_run_telemetry_result",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_run_telemetry_result.json",
+      "sha256": "3848fb6febf712471250fbf063e759302871e7c9d026c7a1690ee97ede9a405b",
+      "size_bytes": 2693
+    },
+    {
+      "name": "v37_safety_boundary_sweep",
+      "path": "data/equity_v37_operations_observability/daily/2026-07-01/v37_safety_boundary_sweep.json",
+      "sha256": "da171d50aac8137a020592786ba00812d6f2509eeef10013f3b6837fb271f5bd",
+      "size_bytes": 2073
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v36_baseline_verified": true,
+  "run_telemetry_result_generated": true,
+  "health_status_result_generated": true,
+  "incident_drill_result_generated": true,
+  "recovery_rehearsal_result_generated": true,
+  "owner_operations_runbook_generated": true,
+  "owner_observability_dashboard_generated": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "telemetry_external_notification_enabled": false,
+  "scheduler_installed": false,
+  "daemon_installed": false,
+  "destructive_recovery_performed": false,
+  "git_history_rollback_performed": false,
+  "incident_evidence_fabricated": false,
+  "health_status_fabricated": false,
+  "health_score_is_owner_readiness_score": false,
+  "health_pass_means_live_trading_ready": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "v4.0.0-final-maintenance-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false
+}
