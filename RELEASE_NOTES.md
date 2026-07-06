@@ -1,5 +1,15 @@
 # Release Notes
 
+## v3.2.0-a-share-research-workflow-performance-caching-and-incremental-build-hardening
+
+v3.2.0 adds research workflow performance, cache manifest, and incremental build hardening artifacts for the A-share research-only simulation platform.
+
+- adds v32 workflow dependency graph, cache manifest review, partial rebuild plan, runtime profile, cache correctness audit, owner performance dashboard, safety sweeps, manifest, and audit artifacts
+- keeps cache and partial rebuild behavior research-only and fail-closed: stale reuse, safety bypass, protected path bypass, artifact-integrity bypass, and fabricated cache/runtime/performance claims are all false
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `8 passed`; recent smoke passed: `26 passed`; full pytest remains deferred by v3.2 policy
+- recommended next version: `v3.3.0-a-share-owner-knowledge-base-report-query-and-evidence-router-hardening`
+
 ## v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening
 
 v3.1.0 adds a post-v3 verification and external audit readiness package for the v3.0 A-share research-only simulation platform.
