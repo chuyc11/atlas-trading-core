@@ -1,5 +1,15 @@
 # Release Notes
 
+## v3.9.0-a-share-documentation-knowledge-base-polish-and-owner-handoff-hardening
+
+v3.9.0 adds final owner-facing documentation, knowledge-base polish, owner handoff package, report readability/consistency review, owner handoff dashboard, safety sweeps, manifest, and audit artifacts.
+
+- keeps documentation Chinese owner-facing and research-only/simulation-only/not-live-trading-ready
+- blocks broker setup, real account steps, trading instructions, buy/sell/allocation answers, fabricated documentation, fabricated knowledge-base links, and forbidden wording
+- preserves owner-readiness as blocked at 54 / 75 / gap 21 with owner_operationally_acceptable=false and live_trading_ready=false
+- targeted pytest passed: `4 passed`; recent smoke passed: `20 passed`; full pytest remains deferred by v3.9 policy
+- recommended next version: `v4.0.0-a-share-research-platform-final-maintenance-closeout-and-freeze`
+
 ## v3.8.0-a-share-data-contract-edge-case-and-market-microstructure-validation-hardening
 
 v3.8.0 adds validation-hardening artifacts for data contract edge cases and A-share microstructure simulation semantics.
