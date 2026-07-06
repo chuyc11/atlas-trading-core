@@ -36,7 +36,7 @@ def make_v3x_paths(tmp_path: Path) -> ProjectPaths:
 
 
 def build_through(paths: ProjectPaths, key: str) -> dict:
-    order = ["v32", "v33", "v34", "v35"]
+    order = ["v32", "v33", "v34", "v35", "v36", "v37", "v38", "v39", "v40"]
     result = {}
     for item in order[: order.index(key) + 1]:
         spec = spec_by_key(item)

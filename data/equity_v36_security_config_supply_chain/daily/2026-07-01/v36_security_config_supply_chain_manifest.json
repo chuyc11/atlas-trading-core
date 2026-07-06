@@ -1,0 +1,170 @@
+{
+  "manifest_id": "V36-SECURITY-CONFIG-SUPPLY-CHAIN-MANIFEST",
+  "target_version": "v3.6.0-a-share-platform-security-config-and-supply-chain-hardening",
+  "source_version": "v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh",
+  "as_of_date": "2026-07-01",
+  "generated_at": "2026-07-06T15:37:32.722961Z",
+  "overall_passed": true,
+  "artifact_records": [
+    {
+      "name": "md:A_SHARE_V36_CONFIG_GOVERNANCE_REPORT.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_CONFIG_GOVERNANCE_REPORT.md",
+      "sha256": "9cf4be191fb994889f70966bd24c3ce4184cb0b127dea6400bfa81a2410c3671",
+      "size_bytes": 1527
+    },
+    {
+      "name": "md:A_SHARE_V36_FILESYSTEM_NETWORK_BOUNDARY_REPORT.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_FILESYSTEM_NETWORK_BOUNDARY_REPORT.md",
+      "sha256": "d800949917c62b448c7e18399c6963cdc6ad006e8576b975162c2e2b658fafe6",
+      "size_bytes": 1537
+    },
+    {
+      "name": "md:A_SHARE_V36_OWNER_SECURITY_DASHBOARD.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_OWNER_SECURITY_DASHBOARD.md",
+      "sha256": "a312841cf988b01b03d9a63a412a51cd6d5d2434fe28b209cfa0f33d64e9573d",
+      "size_bytes": 1527
+    },
+    {
+      "name": "md:A_SHARE_V36_SAFETY_AND_LIMITATIONS.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_SAFETY_AND_LIMITATIONS.md",
+      "sha256": "deb6b029de446988d1331a7607a5cbfb59114bfc66bec76adb8eff011960ea42",
+      "size_bytes": 1525
+    },
+    {
+      "name": "md:A_SHARE_V36_SECRET_SCAN_REPORT.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_SECRET_SCAN_REPORT.md",
+      "sha256": "41abd94b63bb4688adc667a8df41991a1596706f29be5735585122c0877c57f1",
+      "size_bytes": 1521
+    },
+    {
+      "name": "md:A_SHARE_V36_SECURITY_CONFIG_OVERVIEW.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_SECURITY_CONFIG_OVERVIEW.md",
+      "sha256": "1b27c01d600df5697fcf30aa7ede0e0e6892cb738731daeb3ee965a03daaa40f",
+      "size_bytes": 1527
+    },
+    {
+      "name": "md:A_SHARE_V36_SUPPLY_CHAIN_DEPENDENCY_REPORT.md",
+      "path": "outputs/equity_v36_security_config_supply_chain/daily/2026-07-01/A_SHARE_V36_SUPPLY_CHAIN_DEPENDENCY_REPORT.md",
+      "sha256": "abf4962a446154998ac3814078ef4c5ae9c09d4a33847bc90deb9c7e2f0bee1c",
+      "size_bytes": 1533
+    },
+    {
+      "name": "v36_artifact_integrity_sweep",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_artifact_integrity_sweep.json",
+      "sha256": "136eac0be674b804ec31103c6096ed187835f081533d82e17aaaf76c0f25f034",
+      "size_bytes": 2149
+    },
+    {
+      "name": "v36_config_governance_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_config_governance_result.json",
+      "sha256": "1f192ec6b56918f63707fe8b9d700ed224c956e609804e017d0e3e7efef2f569",
+      "size_bytes": 2780
+    },
+    {
+      "name": "v36_filesystem_path_safety_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_filesystem_path_safety_result.json",
+      "sha256": "b7fc4e224a7c7af7538a66431e449c29d6fc670ab62c5c6bed782c627f0ceb07",
+      "size_bytes": 2790
+    },
+    {
+      "name": "v36_network_boundary_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_network_boundary_result.json",
+      "sha256": "693a1c0e9df87eca408df26b0eaa7468f2035a2e87406eaf8c236241b8bbecca",
+      "size_bytes": 2778
+    },
+    {
+      "name": "v36_owner_security_dashboard_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_owner_security_dashboard_result.json",
+      "sha256": "0d80c89133aeca16fee460d689466b0a8b3efb3f8e20ea166ce779f74436b835",
+      "size_bytes": 2794
+    },
+    {
+      "name": "v36_protected_path_sweep",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_protected_path_sweep.json",
+      "sha256": "2566ec1e4240895aa1da6b487e0d4378fac84396a0a5686d6bf33a47d23bad7f",
+      "size_bytes": 2252
+    },
+    {
+      "name": "v36_safety_boundary_sweep",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_safety_boundary_sweep.json",
+      "sha256": "bbcb66e12bcac12ccb68d1aa21bb30ce9e907d2afd103e03ed94464c92d6a3b1",
+      "size_bytes": 2132
+    },
+    {
+      "name": "v36_secret_scan_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_secret_scan_result.json",
+      "sha256": "73c70c887d287b152a3d753f48a400a82f194d1475553a2a26cb8568e6e312f3",
+      "size_bytes": 2768
+    },
+    {
+      "name": "v36_security_config_request",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_security_config_request.json",
+      "sha256": "256bbc0059c08cd10ffe3e9dd79523bfb54171af62c9909d6f4b23c1ff5c3250",
+      "size_bytes": 2778
+    },
+    {
+      "name": "v36_security_config_supply_chain_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_security_config_supply_chain_result.json",
+      "sha256": "7c053e95d7d3967102db493408e6e842d3ed3eac99cd887296c90e2709f02d2c",
+      "size_bytes": 2486
+    },
+    {
+      "name": "v36_supply_chain_dependency_result",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_supply_chain_dependency_result.json",
+      "sha256": "7f7371106cd76641247a5c9517dc8ed1dc5638c49316711b922e7b4ddc7a02fc",
+      "size_bytes": 2792
+    }
+  ],
+  "json_count": 12,
+  "markdown_count": 7,
+  "blocking_reasons": [],
+  "warnings": [],
+  "v35_baseline_verified": true,
+  "secret_scan_result_generated": true,
+  "config_governance_result_generated": true,
+  "supply_chain_dependency_result_generated": true,
+  "filesystem_path_safety_result_generated": true,
+  "network_boundary_result_generated": true,
+  "owner_security_dashboard_generated": true,
+  "artifact_integrity_sweep_passed": true,
+  "protected_path_sweep_passed": true,
+  "safety_boundary_sweep_passed": true,
+  "targeted_pytest_required": true,
+  "high_confidence_secret_detected": false,
+  "broker_credential_detected": false,
+  "account_credential_detected": false,
+  "order_api_endpoint_detected": false,
+  "unsafe_config_override_detected": false,
+  "unsafe_file_delete_detected": false,
+  "broker_network_path_detected": false,
+  "account_network_path_detected": false,
+  "dependency_result_fabricated": false,
+  "security_result_fabricated": false,
+  "full_pytest_run": false,
+  "full_pytest_passed": false,
+  "full_pytest_deferred_until": "v4.0.0-final-maintenance-closeout",
+  "research_only": true,
+  "simulation_only": true,
+  "virtual_only": true,
+  "not_investment_advice": true,
+  "not_real_order": true,
+  "not_order_preview": true,
+  "not_buy_sell_signal": true,
+  "not_live_trading_ready": true,
+  "owner_readiness_gate_rerun": false,
+  "controlled_gate_reevaluation_run": false,
+  "new_gate_score_generated": false,
+  "new_gate_decision_generated": false,
+  "threshold_lowered": false,
+  "waiver_applied": false,
+  "broker_connected": false,
+  "real_account_data_read": false,
+  "real_orders_placed": false,
+  "real_order_preview_generated": false,
+  "buy_sell_signals_generated": false,
+  "old_run_daily_called": false,
+  "day2_executed": false,
+  "live_trading_ready": false,
+  "silent_scheduler_installed": false,
+  "daemon_installed": false
+}

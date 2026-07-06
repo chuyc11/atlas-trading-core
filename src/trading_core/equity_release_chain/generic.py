@@ -61,8 +61,9 @@ def run_release_artifacts(
     )
     result = _result_payload(paths, spec, as_of_date, baseline, payloads, integrity, protected, safety)
     payloads[spec["result_name"]] = result
-    if spec["key"] == "v35" and "v35_long_horizon_regression_evidence" in payloads:
-        payloads["v35_long_horizon_regression_evidence"].update(
+    regression_artifact = spec.get("regression_artifact_name")
+    if regression_artifact and regression_artifact in payloads:
+        payloads[regression_artifact].update(
             {key: value for key, value in result.items() if key.startswith("full_regression_") or key.startswith("single_command_")}
         )
 
@@ -203,7 +204,7 @@ def _component_payload(spec: dict[str, Any], name: str, as_of_date: str, generat
         payload["full_pytest_passed"] = spec["full_pytest_required"]
         payload["full_pytest_command"] = "python -m pytest"
         payload["full_pytest_evidence_note"] = "Recorded from release-turn command evidence; not a substitute for rerunning tests after code changes."
-    if spec["key"] == "v35" and name == "v35_long_horizon_regression_evidence":
+    if spec.get("regression_artifact_name") == name:
         payload.update(_v35_regression_defaults())
     return payload
 
@@ -251,8 +252,10 @@ def _result_payload(
         result["full_pytest_deferred_until"] = "v3.0.0-final-closeout"
     if spec.get("release_decision"):
         result["release_decision"] = spec["release_decision"]
+    if spec.get("freeze_decision"):
+        result["freeze_decision"] = spec["freeze_decision"]
     result.update(spec.get("extra_result_fields", {}))
-    result.update(_v35_regression_fields(paths=paths, spec=spec, as_of_date=as_of_date) if spec.get("key") == "v35" else {})
+    result.update(_v35_regression_fields(paths=paths, spec=spec, as_of_date=as_of_date) if spec.get("regression_artifact_name") else {})
     blocking = []
     for item in [integrity, protected, safety]:
         blocking.extend(item.get("blocking_reasons", []))
@@ -309,6 +312,42 @@ def _component_details(spec: dict[str, Any], name: str) -> dict[str, Any]:
             "single_command_pytest_blocked_by_local_timeout_or_windows_limit": True,
             "release_decision": spec.get("release_decision"),
             "known_limitations_hidden": False,
+        }
+    if spec["key"] == "v36":
+        return {
+            "vulnerability_db_available": False,
+            "vulnerability_db_status": "not_available",
+            "dependency_risk_score_is_owner_readiness_score": False,
+            "dependency_pass_means_live_trading_ready": False,
+            "public_network_refresh_run": False,
+        }
+    if spec["key"] == "v37":
+        return {
+            "telemetry_scope": "local_internal_only",
+            "health_status_taxonomy": ["healthy", "warning", "degraded", "blocked", "not_available"],
+            "dry_run_recovery_only": True,
+            "external_notification_sent": False,
+        }
+    if spec["key"] == "v38":
+        return {
+            "edge_case_scope": "validation_only",
+            "strategy_functionality_added": False,
+            "simulated_order_remains_simulated": True,
+            "simulated_fill_remains_simulated": True,
+        }
+    if spec["key"] == "v39":
+        return {
+            "docs_language": "zh-CN-owner-facing",
+            "faq_answers_buy_sell_allocation": False,
+            "historical_reports_rewritten": False,
+            "evidence_altered": False,
+        }
+    if spec["key"] == "v40":
+        return {
+            "freeze_scope": "research_only_simulation_platform",
+            "live_trading_ready_decision_allowed": False,
+            "real_trading_enabled_decision_allowed": False,
+            "project_frozen_as_research_only_simulation_platform": True,
         }
     return {}
 
@@ -521,7 +560,8 @@ def _v35_regression_defaults() -> dict[str, Any]:
 
 def _v35_regression_fields(*, paths: ProjectPaths, spec: dict[str, Any], as_of_date: str) -> dict[str, Any]:
     fields = _v35_regression_defaults()
-    seed = read_json(paths.data_dir / spec["package_dir"] / "daily" / as_of_date / "v35_regression_seed.json")
+    seed_name = spec.get("regression_seed_name", "v35_regression_seed")
+    seed = read_json(paths.data_dir / spec["package_dir"] / "daily" / as_of_date / f"{seed_name}.json")
     if seed:
         fields.update(
             {
