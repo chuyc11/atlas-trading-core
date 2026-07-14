@@ -3,7 +3,7 @@
   "target_version": "v3.6.0-a-share-platform-security-config-and-supply-chain-hardening",
   "source_version": "v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-06T15:37:32.722961Z",
+  "generated_at": "2026-07-14T09:54:48.131261Z",
   "overall_passed": true,
   "artifact_records": [
     {
@@ -51,68 +51,74 @@
     {
       "name": "v36_artifact_integrity_sweep",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_artifact_integrity_sweep.json",
-      "sha256": "136eac0be674b804ec31103c6096ed187835f081533d82e17aaaf76c0f25f034",
-      "size_bytes": 2149
+      "sha256": "c99748c4ee2e37fe4fc811b479c65ef5bc7d6fa61cd864165a47401b28810ab2",
+      "size_bytes": 2141
     },
     {
       "name": "v36_config_governance_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_config_governance_result.json",
-      "sha256": "1f192ec6b56918f63707fe8b9d700ed224c956e609804e017d0e3e7efef2f569",
-      "size_bytes": 2780
+      "sha256": "d2c535c5cd199d7f5f19886823cc18bad4e4a55ba079971d85f44db7da5f54f5",
+      "size_bytes": 2898
     },
     {
       "name": "v36_filesystem_path_safety_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_filesystem_path_safety_result.json",
-      "sha256": "b7fc4e224a7c7af7538a66431e449c29d6fc670ab62c5c6bed782c627f0ceb07",
-      "size_bytes": 2790
+      "sha256": "6541d42d1f3ff4b2a5e5869347f22adbd48a8f66ef2d23f1ab5dfec641f7ccdf",
+      "size_bytes": 2908
     },
     {
       "name": "v36_network_boundary_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_network_boundary_result.json",
-      "sha256": "693a1c0e9df87eca408df26b0eaa7468f2035a2e87406eaf8c236241b8bbecca",
-      "size_bytes": 2778
+      "sha256": "cf12b2fd0f00e25c370e21923fff032d31667432294100a93559df89e9c711e4",
+      "size_bytes": 2896
     },
     {
       "name": "v36_owner_security_dashboard_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_owner_security_dashboard_result.json",
-      "sha256": "0d80c89133aeca16fee460d689466b0a8b3efb3f8e20ea166ce779f74436b835",
-      "size_bytes": 2794
+      "sha256": "a529db85852937dfd11bddd21abd5c4491ea778d9a8b14793937f3c7fdad97d2",
+      "size_bytes": 2912
     },
     {
       "name": "v36_protected_path_sweep",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_protected_path_sweep.json",
-      "sha256": "2566ec1e4240895aa1da6b487e0d4378fac84396a0a5686d6bf33a47d23bad7f",
-      "size_bytes": 2252
+      "sha256": "8bb86d6bfa2c6bc186d2cb3703dc127baa2cea9836eabffd50f773ab2528c041",
+      "size_bytes": 2244
     },
     {
       "name": "v36_safety_boundary_sweep",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_safety_boundary_sweep.json",
-      "sha256": "bbcb66e12bcac12ccb68d1aa21bb30ce9e907d2afd103e03ed94464c92d6a3b1",
-      "size_bytes": 2132
+      "sha256": "9abb044ed615b2c995d7ab59700bec03c4cfe5f32ae2a0484b25c733e60cc764",
+      "size_bytes": 2124
     },
     {
       "name": "v36_secret_scan_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_secret_scan_result.json",
-      "sha256": "73c70c887d287b152a3d753f48a400a82f194d1475553a2a26cb8568e6e312f3",
-      "size_bytes": 2768
+      "sha256": "563a229e6502eac387898ab29b8ff2bc6504c69fa76933a5987ac9e17058b6d6",
+      "size_bytes": 2886
     },
     {
       "name": "v36_security_config_request",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_security_config_request.json",
-      "sha256": "256bbc0059c08cd10ffe3e9dd79523bfb54171af62c9909d6f4b23c1ff5c3250",
-      "size_bytes": 2778
+      "sha256": "b46647d2f8fb07b7828682bbe24986d818621088a9ced4ca0ef07f1912b17ea7",
+      "size_bytes": 2896
+    },
+    {
+      "name": "v36_security_config_supply_chain_manifest",
+      "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_security_config_supply_chain_manifest.json",
+      "sha256": "9c66df4c61cf27bf730ca48b197c42e1699079fe9922afa011923f1d2756839a",
+      "size_bytes": 7706
     },
     {
       "name": "v36_security_config_supply_chain_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_security_config_supply_chain_result.json",
-      "sha256": "7c053e95d7d3967102db493408e6e842d3ed3eac99cd887296c90e2709f02d2c",
-      "size_bytes": 2486
+      "sha256": "a78163d4cd2c9387d6ca996fb842f1ac29009a5433defcc1e2f96b1dba7d1abc",
+      "size_bytes": 4330
     },
     {
       "name": "v36_supply_chain_dependency_result",
       "path": "data/equity_v36_security_config_supply_chain/daily/2026-07-01/v36_supply_chain_dependency_result.json",
-      "sha256": "7f7371106cd76641247a5c9517dc8ed1dc5638c49316711b922e7b4ddc7a02fc",
-      "size_bytes": 2792
+      "sha256": "e45439023a9c84a11783843151dec9f5df98f6060175661651ebd7c8ae268bf6",
+      "size_bytes": 4519
     }
   ],
   "json_count": 12,
@@ -130,14 +136,14 @@
   "protected_path_sweep_passed": true,
   "safety_boundary_sweep_passed": true,
   "targeted_pytest_required": true,
-  "high_confidence_secret_detected": false,
-  "broker_credential_detected": false,
-  "account_credential_detected": false,
-  "order_api_endpoint_detected": false,
-  "unsafe_config_override_detected": false,
-  "unsafe_file_delete_detected": false,
-  "broker_network_path_detected": false,
-  "account_network_path_detected": false,
+  "high_confidence_secret_detected": null,
+  "broker_credential_detected": null,
+  "account_credential_detected": null,
+  "order_api_endpoint_detected": null,
+  "unsafe_config_override_detected": null,
+  "unsafe_file_delete_detected": null,
+  "broker_network_path_detected": null,
+  "account_network_path_detected": null,
   "dependency_result_fabricated": false,
   "security_result_fabricated": false,
   "full_pytest_run": false,

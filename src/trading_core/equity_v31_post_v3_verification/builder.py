@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import subprocess
 import sys
+import re
 from pathlib import Path
 from typing import Any
 
@@ -170,7 +171,7 @@ def _baseline_verification(paths: ProjectPaths, as_of_date: str) -> dict[str, An
     checks = {
         "v30_tag_exists": tag.get("stdout", "").strip() == SOURCE_VERSION,
         "version_matches": version_text in {SOURCE_VERSION, TARGET_VERSION},
-        "cli_version_matches": _cli_version_is_v3(cli_version.get("stdout", "")),
+        "cli_version_matches": _cli_version_is_post_v3_compatible(cli_version.get("stdout", "")),
         "v30_result_overall_passed": v30_result.get("overall_passed") is True,
         "v30_audit_overall_passed": v30_audit.get("overall_passed") is True,
         "v30_blocking_reasons_empty": v30_result.get("blocking_reasons") == [] and v30_audit.get("blocking_reasons") == [],
@@ -206,9 +207,18 @@ def _with_v31_boundary_fields(payload: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def _cli_version_is_v3(stdout: str) -> bool:
-    text = stdout.strip()
-    return text.startswith("trading-core 3.")
+def _cli_version_is_post_v3_compatible(stdout: str) -> bool:
+    """Accept semantic CLI versions at or after v3 without accepting arbitrary text.
+
+    The v3.1 verification remains part of later release trains, so pinning this
+    gate to the literal ``3.`` prefix incorrectly rejects the current v4 CLI.
+    """
+
+    match = re.fullmatch(
+        r"trading-core\s+(?P<major>\d+)\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?",
+        stdout.strip(),
+    )
+    return match is not None and int(match.group("major")) >= 3
 
 
 def _semantic_regression_pack(paths: ProjectPaths, as_of_date: str, full_evidence: dict[str, Any]) -> dict[str, Any]:

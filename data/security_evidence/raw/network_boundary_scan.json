@@ -1,0 +1,254 @@
+{
+  "allowed_hosts": [
+    "cdn.cboe.com",
+    "data.eastmoney.com",
+    "datacenter-web.eastmoney.com",
+    "fred.stlouisfed.org",
+    "github.com",
+    "push2.eastmoney.com",
+    "push2delay.eastmoney.com",
+    "push2his.eastmoney.com",
+    "query1.finance.yahoo.com",
+    "quote.eastmoney.com"
+  ],
+  "findings": [],
+  "observed_urls": [
+    {
+      "host": "github.com",
+      "line": 10,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 11,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 12,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 13,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 14,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 15,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 16,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 17,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 18,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 19,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 20,
+      "path": "scripts/download_external_research_repos.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "push2his.eastmoney.com",
+      "line": 73,
+      "path": "src/trading_core/equity_benchmarks/index_benchmarks.py",
+      "url": "https://push2his.eastmoney.com"
+    },
+    {
+      "host": "push2his.eastmoney.com",
+      "line": 101,
+      "path": "src/trading_core/equity_benchmarks/index_benchmarks.py",
+      "url": "https://push2his.eastmoney.com"
+    },
+    {
+      "host": "push2.eastmoney.com",
+      "line": 186,
+      "path": "src/trading_core/equity_data_freshness.py",
+      "url": "https://push2.eastmoney.com"
+    },
+    {
+      "host": "push2delay.eastmoney.com",
+      "line": 186,
+      "path": "src/trading_core/equity_data_freshness.py",
+      "url": "https://push2delay.eastmoney.com"
+    },
+    {
+      "host": "quote.eastmoney.com",
+      "line": 291,
+      "path": "src/trading_core/equity_data_freshness.py",
+      "url": "https://quote.eastmoney.com"
+    },
+    {
+      "host": "github.com",
+      "line": 11,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 24,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 37,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 50,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 63,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 76,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 89,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 103,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 116,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 129,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "github.com",
+      "line": 142,
+      "path": "src/trading_core/external_intake/project_catalog.py",
+      "url": "https://github.com"
+    },
+    {
+      "host": "fred.stlouisfed.org",
+      "line": 86,
+      "path": "src/trading_core/global_briefing/downloaders/epu_downloader.py",
+      "url": "https://fred.stlouisfed.org"
+    },
+    {
+      "host": "query1.finance.yahoo.com",
+      "line": 492,
+      "path": "src/trading_core/global_briefing/historical_data_downloaders.py",
+      "url": "https://query1.finance.yahoo.com"
+    },
+    {
+      "host": "fred.stlouisfed.org",
+      "line": 527,
+      "path": "src/trading_core/global_briefing/historical_data_downloaders.py",
+      "url": "https://fred.stlouisfed.org"
+    },
+    {
+      "host": "cdn.cboe.com",
+      "line": 605,
+      "path": "src/trading_core/global_briefing/historical_data_downloaders.py",
+      "url": "https://cdn.cboe.com"
+    },
+    {
+      "host": "query1.finance.yahoo.com",
+      "line": 626,
+      "path": "src/trading_core/global_briefing/historical_data_downloaders.py",
+      "url": "https://query1.finance.yahoo.com"
+    },
+    {
+      "host": "push2his.eastmoney.com",
+      "line": 181,
+      "path": "src/trading_core/integrations/public_data/historical_provider_registry.py",
+      "url": "https://push2his.eastmoney.com"
+    },
+    {
+      "host": "quote.eastmoney.com",
+      "line": 184,
+      "path": "src/trading_core/integrations/public_data/historical_provider_registry.py",
+      "url": "https://quote.eastmoney.com"
+    },
+    {
+      "host": "datacenter-web.eastmoney.com",
+      "line": 250,
+      "path": "src/trading_core/integrations/public_data/historical_provider_registry.py",
+      "url": "https://datacenter-web.eastmoney.com"
+    },
+    {
+      "host": "data.eastmoney.com",
+      "line": 253,
+      "path": "src/trading_core/integrations/public_data/historical_provider_registry.py",
+      "url": "https://data.eastmoney.com"
+    },
+    {
+      "host": "push2delay.eastmoney.com",
+      "line": 17,
+      "path": "src/trading_core/integrations/public_data/qstock_reference_adapter.py",
+      "url": "https://push2delay.eastmoney.com"
+    },
+    {
+      "host": "push2.eastmoney.com",
+      "line": 18,
+      "path": "src/trading_core/integrations/public_data/qstock_reference_adapter.py",
+      "url": "https://push2.eastmoney.com"
+    },
+    {
+      "host": "quote.eastmoney.com",
+      "line": 121,
+      "path": "src/trading_core/integrations/public_data/qstock_reference_adapter.py",
+      "url": "https://quote.eastmoney.com"
+    }
+  ],
+  "status": "passed",
+  "tool": "atlas-network-boundary-policy",
+  "tool_version": "atlas-v36-policy-2"
+}

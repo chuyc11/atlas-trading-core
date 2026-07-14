@@ -126,6 +126,40 @@ def test_replay_is_idempotent(tmp_path: Path) -> None:
     assert second["duplicate_trade_status"]["passed"] is True
 
 
+@pytest.mark.parametrize(
+    ("start_date", "end_date"),
+    [
+        ("../2026-01-01", "2026-01-02"),
+        ("2026-01-01", "..\\2026-01-02"),
+        ("2026-1-1", "2026-01-02"),
+        ("2026-01-03", "2026-01-02"),
+    ],
+)
+def test_replay_rejects_unsafe_or_invalid_dates_without_deleting_files(
+    tmp_path: Path,
+    start_date: str,
+    end_date: str,
+) -> None:
+    days = _trading_days(2)
+    price_dir = tmp_path / "prices"
+    _write_prices(price_dir, days)
+    sentinel = tmp_path / "sentinel.txt"
+    sentinel.write_text("preserve", encoding="utf-8")
+
+    with pytest.raises(ValueError):
+        replay_dry_run(start_date, end_date, price_dir, project_paths(tmp_path))
+
+    assert sentinel.read_text(encoding="utf-8") == "preserve"
+
+
+def test_replay_last_days_rejects_non_positive_window(tmp_path: Path) -> None:
+    price_dir = tmp_path / "prices"
+    _write_prices(price_dir, _trading_days(2))
+
+    with pytest.raises(ValueError, match="days must be positive"):
+        replay_last_trading_days(0, "2026-01-02", price_dir, project_paths(tmp_path))
+
+
 def test_missing_price_rejects_trade(tmp_path: Path) -> None:
     days = _trading_days(30)
     price_dir = tmp_path / "prices"

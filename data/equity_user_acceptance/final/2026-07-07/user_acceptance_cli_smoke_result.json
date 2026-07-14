@@ -1,0 +1,46 @@
+{
+  "target": "final_user_acceptance_cli_smoke",
+  "as_of_date": "2026-07-07",
+  "cli_version_ok": true,
+  "owner_daily_status_ok": true,
+  "main_user_cli_ok": true,
+  "audit_cli_ok": true,
+  "build_and_audit_cli_ok": true,
+  "v401_commands_present": false,
+  "v401_commands_not_applicable": true,
+  "forbidden_cli_detected": true,
+  "broker_cli_detected": true,
+  "order_cli_detected": true,
+  "live_trading_cli_detected": false,
+  "owner_gate_cli_detected": true,
+  "legacy_signal_cli_names": [
+    "generate-ml-shadow-signals",
+    "validate-global-briefing-signals",
+    "generate-baseline-strategy-signals",
+    "daily-baseline-signals",
+    "forward-dry-run-day1-strategy-signals",
+    "forward-dry-run-day1-strategy-signal-explanation"
+  ],
+  "legacy_order_cli_names": [
+    "build-baseline-order-preview",
+    "daily-order-preview",
+    "forward-dry-run-day1-virtual-order-preview",
+    "forward-dry-run-day1-virtual-order-fill-report"
+  ],
+  "legacy_broker_cli_names": [
+    "build-a-share-virtual-broker-rule-hardening"
+  ],
+  "legacy_owner_gate_cli_names": [
+    "validate-a-share-owner-readiness-gate-inputs",
+    "build-a-share-owner-readiness-gate",
+    "audit-a-share-owner-readiness-gate",
+    "build-and-audit-a-share-owner-readiness-gate",
+    "validate-a-share-owner-controlled-gate-reevaluation-inputs",
+    "build-a-share-owner-controlled-gate-reevaluation",
+    "audit-a-share-owner-controlled-gate-reevaluation",
+    "build-and-audit-a-share-owner-controlled-gate-reevaluation"
+  ],
+  "blocking_reasons": [
+    "legacy_forbidden_cli_names_exposed"
+  ]
+}

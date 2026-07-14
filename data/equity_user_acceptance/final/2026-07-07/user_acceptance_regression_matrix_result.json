@@ -1,0 +1,168 @@
+{
+  "target": "final_user_acceptance_regression_matrix",
+  "as_of_date": "2026-07-07",
+  "semantic_regression_run": true,
+  "semantic_regression_passed": true,
+  "semantic_regression_total_passed": 16,
+  "semantic_regression_total_failed": 0,
+  "targeted_owner_daily_status_tests_run": true,
+  "targeted_owner_daily_status_tests_passed": true,
+  "targeted_v40_tests_run": true,
+  "targeted_v40_tests_passed": true,
+  "targeted_user_acceptance_tests_present": false,
+  "targeted_user_acceptance_tests_run": false,
+  "full_regression_run": true,
+  "full_regression_mode": "split_matrix",
+  "full_regression_passed": false,
+  "full_regression_total_collected": 2100,
+  "full_regression_total_passed": 2096,
+  "full_regression_total_skipped": 1,
+  "full_regression_total_failed": 3,
+  "single_command_pytest_completed": false,
+  "single_command_pytest_blocked_by_local_timeout_or_windows_limit": true,
+  "single_command_pytest_timeout_seconds": 904,
+  "split_matrix_chunks": [
+    {
+      "chunk_id": "chunk_01",
+      "file_count": 98,
+      "test_count": 121,
+      "passed": 121,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_additional_evidence_requirement_register.py",
+      "last_file": "tests/test_a_share_candidate_generation_boundaries.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_02",
+      "file_count": 98,
+      "test_count": 126,
+      "passed": 126,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_candidate_generation_cli.py",
+      "last_file": "tests/test_a_share_dataset_contracts.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_03",
+      "file_count": 98,
+      "test_count": 109,
+      "passed": 109,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_dataset_refresh_plan.py",
+      "last_file": "tests/test_a_share_historical_trading_day_discovery.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_04",
+      "file_count": 98,
+      "test_count": 103,
+      "passed": 103,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_holding_contribution.py",
+      "last_file": "tests/test_a_share_owner_closeout_manifest.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_05",
+      "file_count": 98,
+      "test_count": 129,
+      "passed": 129,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_owner_closeout_report.py",
+      "last_file": "tests/test_a_share_owner_readiness_gate_manifest.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_06",
+      "file_count": 98,
+      "test_count": 121,
+      "passed": 121,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_owner_readiness_gate_report.py",
+      "last_file": "tests/test_a_share_recovery_manifest.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_07",
+      "file_count": 98,
+      "test_count": 111,
+      "passed": 111,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_recovery_milestone_plan.py",
+      "last_file": "tests/test_a_share_v090_rc_audit.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_08",
+      "file_count": 98,
+      "test_count": 118,
+      "passed": 118,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_v090_rc_config.py",
+      "last_file": "tests/test_a_share_v17_owner_dashboard.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_09",
+      "file_count": 98,
+      "test_count": 121,
+      "passed": 118,
+      "skipped": 0,
+      "failed": 3,
+      "first_file": "tests/test_a_share_v17_pit_sample_split.py",
+      "last_file": "tests/test_a_share_v33_owner_question_router.py",
+      "exit_code": 1,
+      "failed_tests": [
+        "tests/test_a_share_v31_post_v3_verification.py::test_v31_build_generates_post_v3_verification_contract",
+        "tests/test_a_share_v31_post_v3_verification.py::test_v31_audit_enforces_required_true_false_and_boundaries",
+        "tests/test_a_share_v31_post_v3_verification.py::test_v31_cli_build_audit_and_component_commands"
+      ],
+      "failure_summary": "v31 post-v3 verification returned overall_passed=false with blocking_reasons cli_version_matches and v30_baseline_verified"
+    },
+    {
+      "chunk_id": "chunk_10",
+      "file_count": 98,
+      "test_count": 176,
+      "passed": 176,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_a_share_v33_report_query_index.py",
+      "last_file": "tests/test_baseline_strategy_registry.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_11",
+      "file_count": 98,
+      "test_count": 330,
+      "passed": 330,
+      "skipped": 0,
+      "failed": 0,
+      "first_file": "tests/test_baseline_strategy_replay.py",
+      "last_file": "tests/test_global_briefing_evidence_quality_audit.py",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "chunk_12",
+      "file_count": 96,
+      "test_count": 535,
+      "passed": 534,
+      "skipped": 1,
+      "failed": 0,
+      "first_file": "tests/test_global_briefing_evidence_quality_report.py",
+      "last_file": "tests/test_yfinance_fallback.py",
+      "exit_code": 0
+    }
+  ],
+  "blocking_reasons": [
+    "full_regression_failed",
+    "targeted_user_acceptance_tests_missing"
+  ]
+}

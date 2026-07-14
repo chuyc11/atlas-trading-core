@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from uuid import uuid4
 from typing import Any
 
 from trading_core.storage.file_paths import ProjectPaths, project_paths
@@ -22,7 +23,43 @@ def macro_signal_path(date: str, paths: ProjectPaths | None = None):
     return global_path
 
 
-def load_macro_signals(date: str, paths: ProjectPaths | None = None) -> tuple[list[dict[str, Any]], list[str]]:
+def sync_macro_signals(
+    date: str,
+    paths: ProjectPaths | None = None,
+    *,
+    write_local: bool = True,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Validate the global-briefing source and atomically refresh the local copy.
+
+    Unlike ``load_macro_signals``, this function never prefers an existing local
+    snapshot. It is the bridge/import operation used by ATLAS sync.
+    """
+    paths = paths or project_paths()
+    source_path = paths.global_briefing_data_dir / f"macro_signals-{date}.jsonl"
+    if not source_path.exists():
+        return [], [f"missing global macro_signals for {date}"]
+    rows, limitations = _read_macro_jsonl(source_path)
+    if not rows:
+        limitations.append(f"empty global macro_signals for {date}")
+    rows, validation_limitations = _validate_macro_rows(rows)
+    limitations.extend(validation_limitations)
+    if limitations or not write_local:
+        return rows, limitations
+
+    local_path = paths.data_dir / "macro_signals" / f"macro_signals-{date}.jsonl"
+    local_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = local_path.with_name(f".{local_path.name}.{uuid4().hex}.tmp")
+    temporary.write_bytes(source_path.read_bytes())
+    temporary.replace(local_path)
+    return rows, []
+
+
+def load_macro_signals(
+    date: str,
+    paths: ProjectPaths | None = None,
+    *,
+    write_local: bool = True,
+) -> tuple[list[dict[str, Any]], list[str]]:
     paths = paths or project_paths()
     path = macro_signal_path(date, paths)
     if not path.exists():
@@ -33,7 +70,7 @@ def load_macro_signals(date: str, paths: ProjectPaths | None = None) -> tuple[li
     rows, validation_limitations = _validate_macro_rows(rows)
     limitations.extend(validation_limitations)
     local_path = paths.data_dir / "macro_signals" / f"macro_signals-{date}.jsonl"
-    if path != local_path:
+    if write_local and path != local_path:
         write_jsonl(local_path, rows)
     return rows, limitations
 

@@ -1,0 +1,47 @@
+{
+  "target": "final_user_acceptance_manifest",
+  "as_of_date": "2026-07-07",
+  "overall_passed": false,
+  "user_normal_use_status": "BLOCKED",
+  "data_dir": "data/equity_user_acceptance/final/2026-07-07",
+  "output_dir": "outputs/equity_user_acceptance/final/2026-07-07",
+  "json_artifacts": [
+    "user_acceptance_test_request.json",
+    "user_acceptance_environment_result.json",
+    "user_acceptance_cli_smoke_result.json",
+    "user_acceptance_workflow_matrix_result.json",
+    "user_acceptance_report_readability_result.json",
+    "user_acceptance_artifact_integrity_result.json",
+    "user_acceptance_safety_boundary_result.json",
+    "user_acceptance_protected_path_result.json",
+    "user_acceptance_regression_matrix_result.json",
+    "user_acceptance_known_limitations_result.json",
+    "user_acceptance_final_result.json",
+    "user_acceptance_manifest.json"
+  ],
+  "markdown_artifacts": [
+    "A_SHARE_USER_ACCEPTANCE_FINAL_REPORT.md",
+    "A_SHARE_USER_NORMAL_USE_GUIDE.md",
+    "A_SHARE_USER_ACCEPTANCE_TEST_EVIDENCE.md",
+    "A_SHARE_USER_SAFETY_AND_LIMITATIONS.md"
+  ],
+  "audit_artifacts": [
+    "data/equity_data_quality/a_share_user_acceptance_final_audit.json",
+    "outputs/audit/A_SHARE_USER_ACCEPTANCE_FINAL_AUDIT.md"
+  ],
+  "blocking_reasons": [
+    "owner_report_unreadable",
+    "known_limitations_not_enumerated",
+    "full_regression_failed",
+    "targeted_user_acceptance_tests_missing",
+    "legacy_forbidden_cli_names_exposed",
+    "dirty_worktree_after_acceptance"
+  ],
+  "warnings": [
+    "single_command_pytest_timed_out_after_904_seconds; split_matrix_used",
+    "v40 dashboard/audit commands write v40 release artifact side effects for 2026-07-07; side effects quarantined in git stash",
+    "generated acceptance artifacts are untracked and therefore git status is expected to be dirty until quarantined or otherwise handled",
+    "formal calendar fallback warnings appeared in regression tests",
+    "git status after acceptance contains only generated user acceptance artifacts and user acceptance audit artifacts"
+  ]
+}

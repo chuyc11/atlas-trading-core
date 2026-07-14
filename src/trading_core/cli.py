@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from collections.abc import Sequence
 from datetime import date as Date
 from pathlib import Path
@@ -452,7 +453,7 @@ from trading_core.reports.system_dashboard import build_system_dashboard
 from trading_core.reports.trading_summary import export_trading_summary
 from trading_core.reports.weekly_research_report import build_weekly_research_report
 from trading_core.runtime.health import load_health, summarize_health
-from trading_core.signals.macro_signal_loader import load_macro_signals
+from trading_core.signals.macro_signal_loader import load_macro_signals, sync_macro_signals
 from trading_core.storage.file_paths import ensure_project_dirs, project_paths
 from trading_core.system.artifact_inventory import build_artifact_inventory
 from trading_core.system.artifact_browser import build_artifact_browser
@@ -506,6 +507,16 @@ def run_daily(date: str):
     return _run_daily(date)
 
 
+def _canonical_iso_date(value: str) -> str:
+    try:
+        normalized = Date.fromisoformat(value).isoformat()
+    except ValueError as exc:
+        raise argparse.ArgumentTypeError("date must be a valid YYYY-MM-DD value") from exc
+    if value != normalized:
+        raise argparse.ArgumentTypeError("date must use canonical YYYY-MM-DD format")
+    return normalized
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="trading-core",
@@ -520,10 +531,12 @@ def build_parser() -> argparse.ArgumentParser:
         action="version",
         version=f"%(prog)s {__version__}",
     )
-    subparsers = parser.add_subparsers(dest="command")
+    subparsers = parser.add_subparsers(dest="command", required=True)
     for command in PLANNED_COMMANDS:
         subparser = subparsers.add_parser(command)
         subparser.add_argument("--date", default=Date.today().isoformat())
+        if command == "load-macro":
+            subparser.add_argument("--dry-run", action="store_true")
     backtest = subparsers.add_parser("backtest")
     backtest.add_argument("--start-date", required=True)
     backtest.add_argument("--end-date", required=True)
@@ -1964,7 +1977,7 @@ def _add_a_share_ops_history_arguments(parser: argparse.ArgumentParser, *, inclu
 
 
 def _add_a_share_gated_build_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
-    parser.add_argument("--as-of-date", default=DEFAULT_GATED_BUILD_AS_OF_DATE)
+    parser.add_argument("--as-of-date", type=_canonical_iso_date, default=DEFAULT_GATED_BUILD_AS_OF_DATE)
     if include_mode:
         parser.add_argument("--mode", choices=A_SHARE_GATED_BUILD_MODES, default="run_gated_build_from_existing_data")
     else:
@@ -1981,7 +1994,7 @@ def _add_a_share_gated_build_arguments(parser: argparse.ArgumentParser, *, inclu
 
 
 def _add_a_share_build_repeatability_arguments(parser: argparse.ArgumentParser, *, include_mode: bool = True) -> None:
-    parser.add_argument("--as-of-date", default=DEFAULT_BUILD_REPEATABILITY_AS_OF_DATE)
+    parser.add_argument("--as-of-date", type=_canonical_iso_date, default=DEFAULT_BUILD_REPEATABILITY_AS_OF_DATE)
     if include_mode:
         parser.add_argument("--mode", choices=A_SHARE_BUILD_REPEATABILITY_MODES, default="run_repeat_build_from_existing_data")
     else:
@@ -3386,9 +3399,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"initialized {paths.project_root}")
         return 0
     if args.command == "load-macro":
-        rows, limitations = load_macro_signals(args.date, paths)
+        rows, limitations = sync_macro_signals(args.date, paths, write_local=not args.dry_run)
         print({"macro_signals": len(rows), "limitations": limitations})
-        return 0
+        return 1 if limitations else 0
     if args.command == "backtest":
         if args.strategy_id:
             result = run_historical_backtest(args.start_date, args.end_date, args.strategy_id)
@@ -8348,6 +8361,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         result = export_trading_summary(args.date)
         print(result)
         return 0
+    if args.command != "run-daily":
+        print(
+            f"Command {args.command!r} is not implemented as an isolated stage; "
+            "use 'run-daily' for the legacy full pipeline.",
+            file=sys.stderr,
+        )
+        return 2
     result = run_daily(args.date)
     print(
         {

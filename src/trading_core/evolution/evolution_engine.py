@@ -6,7 +6,7 @@ from typing import Any
 
 from trading_core.evolution.experiment_queue import update_experiment_queue
 from trading_core.evolution.mistake_classifier import classify_mistakes
-from trading_core.evolution.promotion_gate import recommend_promotion
+from trading_core.evolution.promotion_evidence import evaluate_verified_shadow_promotion
 from trading_core.evolution.rule_memory import update_rule_memory
 from trading_core.evolution.signal_scorecard import score_signals
 from trading_core.evolution.strategy_scorecard import score_strategies
@@ -47,16 +47,7 @@ def run_evolution(
         cooldown_days_per_rule=int(queue_config["cooldown_days_per_rule"]),
         cooldown_days_per_strategy=int(queue_config["cooldown_days_per_strategy"]),
     )
-    promotion = recommend_promotion(
-        "shadow",
-        {
-            "days": 20,
-            "signals": max(10, len(signals)),
-            "excess_return": benchmark.get("excess_return", {}).get("EQUAL_ETF", 0.0),
-            "mistake_rate": 0.0 if not mistakes else min(1.0, len(mistakes) / max(1, len(signals))),
-            "max_drawdown": float(valuation.get("max_drawdown", 0.0)),
-        },
-    )
+    promotion = evaluate_verified_shadow_promotion("momentum_shadow_v1", date, paths)
     summary = {
         "date": date,
         "signal_scorecard": signal_scorecard,

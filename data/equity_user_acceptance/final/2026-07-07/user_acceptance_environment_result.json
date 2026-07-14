@@ -1,0 +1,12 @@
+{
+  "target": "final_user_acceptance_environment",
+  "as_of_date": "2026-07-07",
+  "python_version": "Python 3.12.7",
+  "pip_version": "pip 24.2 from C:\\Users\\26084\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-packages\\pip (python 3.12)",
+  "cli_version": "trading-core 4.0.0",
+  "python_version_recorded": true,
+  "cli_version_recorded": true,
+  "dependency_check_run": true,
+  "dependency_check_result": "No broken requirements found.",
+  "dependency_check_blocking": false
+}

@@ -3,7 +3,7 @@
   "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
   "as_of_date": "2026-07-01",
   "requested_as_of_date": "2026-07-01",
-  "generated_at": "2026-07-01T16:11:52.856045Z",
+  "generated_at": "2026-07-11T04:03:29.248545Z",
   "input_versions": {
     "feature_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
     "score_version": "v0.7.4-a-share-long-mid-short-scoring-system",
@@ -18,13 +18,13 @@
     "risk_downgraded_candidates": 289
   },
   "executive_summary": [
-    "strict tradable universe 覆盖 3699 只，评分覆盖 3699 只。",
+    "流通结论：不可对外流通；数据已陈旧：交易日距生成日 10 个日历日；上游审计日期与简报 2026-07-01 不一致（特征=2026-06-26, 评分=2026-06-26, 候选=2026-06-26, 组合=2026-06-26）；虚拟组合未按 100% 目标完成配置（mid=92.00%）",
+    "严格可交易股票池覆盖 3699 只，评分覆盖 3699 只。",
     "长期/中期/短期研究候选数量分别为 30 / 30 / 30，本简报各展示前 10 / 10 / 10 只。",
     "多周期共振候选 50 只，本简报展示前 10 只；这只是多周期相对评分靠前。",
-    "风险降级股票 289 只，说明部分高分股票仍被风险、流动性或置信度约束排除。",
+    "风险降级股票 289 只（占评分覆盖 7.8%），说明部分高分股票被风险质量或流动性门槛排除。",
     "长期/中期/短期虚拟组合持仓数量为 30 / 30 / 20。",
-    "主要集中方向：长期 Unclassified/CHINEXT/300 (25.00%)，中期 Unclassified/STAR/688 (25.00%)，短期 Unclassified/CHINEXT/300 (25.03%)。",
-    "风险与流动性概览：长期均值 71.210887 / 65.780552，中期均值 48.551286 / 62.319024，短期均值 68.59814 / 69.289183。",
+    "代码板块代理桶集中方向：长期 Unclassified/CHINEXT/300 (25.00%)，中期 Unclassified/STAR/688 (25.00%)，短期 Unclassified/CHINEXT/300 (25.03%)；该口径不能替代真实行业暴露。",
     "本阶段只做每日中文信息简报，不重新生成评分、候选股或虚拟组合。"
   ],
   "long_candidates_top10": [
@@ -745,6 +745,7 @@
       "name": "招商证券",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Short",
+      "eligibility_status": "research_eligible",
       "LongScore": 68.595152,
       "MidScore": 78.1246,
       "ShortScore": 82.713029,
@@ -764,6 +765,7 @@
       "name": "药明康德",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Long",
+      "eligibility_status": "research_eligible",
       "LongScore": 69.2387,
       "MidScore": 76.136191,
       "ShortScore": 81.052783,
@@ -783,6 +785,7 @@
       "name": "三环集团",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Mid",
+      "eligibility_status": "research_eligible",
       "LongScore": 66.071744,
       "MidScore": 85.042274,
       "ShortScore": 71.343539,
@@ -802,6 +805,7 @@
       "name": "长江证券",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Short",
+      "eligibility_status": "research_eligible",
       "LongScore": 64.513833,
       "MidScore": 72.568469,
       "ShortScore": 82.283084,
@@ -821,6 +825,7 @@
       "name": "巨化股份",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Long",
+      "eligibility_status": "research_eligible",
       "LongScore": 66.753591,
       "MidScore": 77.039033,
       "ShortScore": 76.486825,
@@ -840,6 +845,7 @@
       "name": "普冉股份",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Mid",
+      "eligibility_status": "risk_downgraded",
       "LongScore": 65.603814,
       "MidScore": 85.670168,
       "ShortScore": 74.532757,
@@ -859,6 +865,7 @@
       "name": "激智科技",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Long",
+      "eligibility_status": "research_eligible",
       "LongScore": 65.188586,
       "MidScore": 80.339981,
       "ShortScore": 77.41919,
@@ -878,6 +885,7 @@
       "name": "华安证券",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Long",
+      "eligibility_status": "research_eligible",
       "LongScore": 67.056812,
       "MidScore": 78.50319,
       "ShortScore": 69.88267,
@@ -897,6 +905,7 @@
       "name": "有研硅",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Short",
+      "eligibility_status": "risk_downgraded",
       "LongScore": 60.632683,
       "MidScore": 82.383482,
       "ShortScore": 80.711059,
@@ -916,6 +925,7 @@
       "name": "长川科技",
       "horizon_overlap_type": "Long+Mid+Short",
       "best_horizon": "Mid",
+      "eligibility_status": "research_eligible",
       "LongScore": 64.586796,
       "MidScore": 84.903833,
       "ShortScore": 72.990008,
@@ -933,6 +943,15 @@
   ],
   "risk_downgraded_summary": {
     "count": 289,
+    "reason_counts": {
+      "low_risk_score": 235,
+      "low_liquidity_score": 55
+    },
+    "horizon_counts": {
+      "Mid": 165,
+      "Short": 76,
+      "Long": 48
+    },
     "top10": [
       {
         "symbol": "688766.SH",
@@ -1041,6 +1060,8 @@
       "portfolio_id": "long_virtual_portfolio",
       "holding_count": 30,
       "weight_sum": 1.0,
+      "cash_weight": 0.0,
+      "allocation_status": "fully_allocated",
       "max_single_weight": 0.036093,
       "max_industry_weight": 0.25,
       "top10_holdings": [
@@ -1198,14 +1219,16 @@
         }
       ],
       "risk_notes": [
-        "avg RiskScore=71.210887, avg LiquidityScore=65.780552",
-        "min RiskScore=52.035911, min LiquidityScore=44.730107"
+        "目标权重归一后的平均风险质量分=71.67，平均流动性质量分=65.85",
+        "最低风险质量分=52.04，最低流动性质量分=44.73"
       ]
     },
     "mid": {
       "portfolio_id": "mid_virtual_portfolio",
       "holding_count": 30,
       "weight_sum": 0.92,
+      "cash_weight": 0.08,
+      "allocation_status": "underallocated",
       "max_single_weight": 0.06,
       "max_industry_weight": 0.25,
       "top10_holdings": [
@@ -1363,14 +1386,16 @@
         }
       ],
       "risk_notes": [
-        "avg RiskScore=48.551286, avg LiquidityScore=62.319024",
-        "min RiskScore=39.60068, min LiquidityScore=49.329323"
+        "目标权重归一后的平均风险质量分=48.45，平均流动性质量分=63.13",
+        "最低风险质量分=39.60，最低流动性质量分=49.33"
       ]
     },
     "short": {
       "portfolio_id": "short_virtual_portfolio",
       "holding_count": 20,
       "weight_sum": 1.0,
+      "cash_weight": 0.0,
+      "allocation_status": "fully_allocated",
       "max_single_weight": 0.054327,
       "max_industry_weight": 0.250336,
       "top10_holdings": [
@@ -1528,8 +1553,8 @@
         }
       ],
       "risk_notes": [
-        "avg RiskScore=68.59814, avg LiquidityScore=69.289183",
-        "min RiskScore=36.042399, min LiquidityScore=53.144544",
+        "目标权重归一后的平均风险质量分=68.93，平均流动性质量分=69.67",
+        "最低风险质量分=36.04，最低流动性质量分=53.14",
         "短期组合需要重点观察过热风险、短期波动和流动性变化。"
       ]
     }
@@ -1561,6 +1586,9 @@
       "raw_industry_weight_by_level_1": {
         "Unclassified": 1.0
       },
+      "unclassified_weight": 1.0,
+      "exposure_basis": "proxy_listing_bucket",
+      "true_industry_concentration_verifiable": false,
       "industry_concentration_warning": false,
       "industry_cap_violations": []
     },
@@ -1590,6 +1618,9 @@
       "raw_industry_weight_by_level_1": {
         "Unclassified": 0.92
       },
+      "unclassified_weight": 0.92,
+      "exposure_basis": "proxy_listing_bucket",
+      "true_industry_concentration_verifiable": false,
       "industry_concentration_warning": false,
       "industry_cap_violations": []
     },
@@ -1619,6 +1650,9 @@
       "raw_industry_weight_by_level_1": {
         "Unclassified": 1.0
       },
+      "unclassified_weight": 1.0,
+      "exposure_basis": "proxy_listing_bucket",
+      "true_industry_concentration_verifiable": false,
       "industry_concentration_warning": false,
       "industry_cap_violations": []
     },
@@ -1626,8 +1660,9 @@
   },
   "risk_liquidity_summary": {
     "long": {
-      "avg_risk_score": 71.210887,
-      "avg_liquidity_score": 65.780552,
+      "avg_risk_score": 71.672501,
+      "avg_liquidity_score": 65.845636,
+      "average_basis": "target_weight_normalized",
       "min_risk_score": 52.035911,
       "min_liquidity_score": 44.730107,
       "low_liquidity_notes": [
@@ -1635,14 +1670,15 @@
         "688059.SH 华锐精密 LiquidityScore=50.262909",
         "601198.SH 东兴证券 LiquidityScore=53.418829"
       ],
-      "high_risk_notes": [
+      "low_risk_quality_notes": [
         "未触发显著提示。"
       ],
       "overheat_risk_notes": []
     },
     "mid": {
-      "avg_risk_score": 48.551286,
-      "avg_liquidity_score": 62.319024,
+      "avg_risk_score": 48.449776,
+      "avg_liquidity_score": 63.126777,
+      "average_basis": "target_weight_normalized",
       "min_risk_score": 39.60068,
       "min_liquidity_score": 49.329323,
       "low_liquidity_notes": [
@@ -1652,7 +1688,7 @@
         "688669.SH 聚石化学 LiquidityScore=52.603857",
         "301200.SZ 大族数控 LiquidityScore=53.561323"
       ],
-      "high_risk_notes": [
+      "low_risk_quality_notes": [
         "300604.SZ 长川科技 RiskScore=39.60068",
         "300319.SZ 麦捷科技 RiskScore=39.764463",
         "002636.SZ 金安国纪 RiskScore=40.047085",
@@ -1662,20 +1698,28 @@
       "overheat_risk_notes": []
     },
     "short": {
-      "avg_risk_score": 68.59814,
-      "avg_liquidity_score": 69.289183,
+      "avg_risk_score": 68.929767,
+      "avg_liquidity_score": 69.670901,
+      "average_basis": "target_weight_normalized",
       "min_risk_score": 36.042399,
       "min_liquidity_score": 53.144544,
       "low_liquidity_notes": [
         "300873.SZ 海晨股份 LiquidityScore=53.144544",
         "300434.SZ 金石亚药 LiquidityScore=53.176309"
       ],
-      "high_risk_notes": [
+      "low_risk_quality_notes": [
         "300121.SZ 阳谷华泰 RiskScore=36.042399"
       ],
       "overheat_risk_notes": [
-        "no_severe_overheat_flag_detected",
-        "overheat_risk"
+        "300759.SZ 康龙化成",
+        "603259.SH 药明康德",
+        "000783.SZ 长江证券",
+        "300024.SZ 机器人",
+        "603019.SH 中科曙光",
+        "603379.SH 三美股份",
+        "002430.SZ 杭氧股份",
+        "300434.SZ 金石亚药",
+        "300121.SZ 阳谷华泰"
       ]
     }
   },
@@ -1684,6 +1728,7 @@
       "audit_id": "A-SHARE-MULTI-HORIZON-FEATURE-AUDIT",
       "target_version": "v0.7.3-a-share-multi-horizon-feature-engineering",
       "as_of_date": "2026-06-26",
+      "as_of_date_matches": false,
       "overall_passed": true,
       "blocking_reasons": [],
       "warnings": [],
@@ -1693,6 +1738,7 @@
       "audit_id": "A-SHARE-SCORING-AUDIT",
       "target_version": "v0.7.4-a-share-long-mid-short-scoring-system",
       "as_of_date": "2026-06-26",
+      "as_of_date_matches": false,
       "overall_passed": true,
       "blocking_reasons": [],
       "warnings": [
@@ -1704,6 +1750,7 @@
       "audit_id": "A-SHARE-CANDIDATE-GENERATION-AUDIT",
       "target_version": "v0.7.5-a-share-candidate-generation-system",
       "as_of_date": "2026-06-26",
+      "as_of_date_matches": false,
       "overall_passed": true,
       "blocking_reasons": [],
       "warnings": [],
@@ -1713,6 +1760,7 @@
       "audit_id": "A-SHARE-VIRTUAL-PORTFOLIO-CONSTRUCTION-AUDIT",
       "target_version": "v0.7.6-a-share-virtual-portfolio-construction",
       "as_of_date": "2026-06-26",
+      "as_of_date_matches": false,
       "overall_passed": true,
       "blocking_reasons": [],
       "warnings": [
@@ -1722,6 +1770,7 @@
       ],
       "recommended_next_version": "v0.7.7-a-share-daily-stock-selection-briefing"
     },
+    "all_audits_current": false,
     "warnings": [
       "fundamental score confidence is partial",
       "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
@@ -1745,6 +1794,29 @@
       "live_trading_ready": false
     }
   },
+  "quality_gate": {
+    "circulation_status": "不可对外流通",
+    "decision_summary": "数据已陈旧：交易日距生成日 10 个日历日；上游审计日期与简报 2026-07-01 不一致（特征=2026-06-26, 评分=2026-06-26, 候选=2026-06-26, 组合=2026-06-26）；虚拟组合未按 100% 目标完成配置（mid=92.00%）",
+    "data_age_days": 10,
+    "input_manifest_dates_match": true,
+    "blocking_issues": [
+      "数据已陈旧：交易日距生成日 10 个日历日",
+      "上游审计日期与简报 2026-07-01 不一致（特征=2026-06-26, 评分=2026-06-26, 候选=2026-06-26, 组合=2026-06-26）",
+      "虚拟组合未按 100% 目标完成配置（mid=92.00%）",
+      "真实行业集中度不可验证：长期, 中期, 短期组合行业字段为 Unclassified"
+    ],
+    "warnings": [
+      "fundamental score confidence is partial",
+      "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "mid_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
+      "short_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps"
+    ]
+  },
+  "score_definitions": {
+    "RiskScore": "风险质量分（0-100，越高代表模型内风险质量越好；不是损失概率）",
+    "LiquidityScore": "流动性质量分（0-100，越高代表模型内流动性越好）",
+    "horizon_scores": "长期/中期/短期分均为横截面相对研究分，不是目标价、收益率或上涨概率"
+  },
   "do_not_misread": [
     "候选股不是买入建议。",
     "虚拟组合不是实盘组合。",
@@ -1758,9 +1830,9 @@
     "下一步应进入虚拟组合跟踪和纸面账本。",
     "跟踪每日涨跌、组合收益、回撤、行业暴露变化。",
     "比较长期/中期/短期组合与基准指数。",
-    "持续记录风险降级股票是否改善风险、流动性或置信度状态。"
+    "持续记录风险降级股票是否改善风险质量或流动性状态。"
   ],
-  "source_trace_complete": true,
+  "source_trace_complete": false,
   "boundary": {
     "briefing_only": true,
     "scores_regenerated": false,
@@ -1784,5 +1856,10 @@
     "daily_stock_selection_briefing_report": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
     "briefing_source_trace_report": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md"
   },
-  "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"
+  "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger",
+  "manifest_ref": "data/equity_briefings/daily/2026-07-01/briefing_manifest.json",
+  "reports": {
+    "daily_stock_selection_briefing_report": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
+    "briefing_source_trace_report": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md"
+  }
 }

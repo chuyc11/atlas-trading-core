@@ -20,7 +20,7 @@ from trading_core.equity_briefings.briefing_config import (
     TARGET_VERSION,
 )
 from trading_core.equity_briefings.briefing_inputs import briefing_data_dir, briefing_output_dir
-from trading_core.equity_data_quality.common import json_safe, write_report
+from trading_core.equity_data_quality.common import json_safe, sha256_file, write_report
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
 
@@ -113,6 +113,11 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
         "do_not_misread_section_exists": required_sections["do_not_misread"],
         "source_trace_complete": bool(source_trace.get("source_trace_complete")) and all(source_trace_sections.values()),
         "source_trace_covers_every_section": set(source_trace_sections) == set(SOURCE_TRACE_SECTION_KEYS),
+        "source_hashes_match": _source_hashes_match(source_trace, artifacts["briefing_source_trace"]),
+        "manifest_artifact_hashes_match": _manifest_artifact_hashes_match(manifest, artifacts["briefing_manifest"]),
+        "upstream_audit_dates_match_briefing": briefing.get("audit_status", {}).get("all_audits_current") is True,
+        "input_manifest_dates_match_briefing": briefing.get("quality_gate", {}).get("input_manifest_dates_match") is True,
+        "portfolio_weight_sums_valid": _portfolio_weight_sums_valid(briefing),
         "briefing_reads_from_existing_artifacts": _reads_from_existing_artifacts(source_trace),
         "no_forbidden_wording": not kwargs["forbidden_wording_hits"],
         "no_buy_sell_signal_artifacts_generated": not kwargs["forbidden_artifacts"]["buy_sell_signal_artifacts_present"],
@@ -158,6 +163,38 @@ def _source_trace_sections(source_trace: dict[str, Any], paths: ProjectPaths) ->
         source_paths = record.get("source_paths", [])
         sections[key] = bool(record.get("complete")) and bool(source_paths) and all((paths.project_root / source).exists() for source in source_paths)
     return sections
+
+
+def _source_hashes_match(source_trace: dict[str, Any], trace_path: Path) -> bool:
+    if not trace_path.exists():
+        return False
+    for section in source_trace.get("sections", {}).values():
+        for record in section.get("sources", []):
+            path = trace_path.parents[4] / str(record.get("path", ""))
+            if not path.exists() or record.get("sha256") != sha256_file(path):
+                return False
+    return bool(source_trace.get("sections"))
+
+
+def _manifest_artifact_hashes_match(manifest: dict[str, Any], manifest_path: Path) -> bool:
+    if not manifest_path.exists() or not manifest.get("artifacts"):
+        return False
+    project_root = manifest_path.parents[4]
+    for record in manifest.get("artifacts", {}).values():
+        path = project_root / str(record.get("path", ""))
+        if not path.exists() or record.get("exists") is not True or record.get("sha256") != sha256_file(path):
+            return False
+    return True
+
+
+def _portfolio_weight_sums_valid(briefing: dict[str, Any]) -> bool:
+    portfolios = briefing.get("virtual_portfolios", {})
+    if set(portfolios) != {"long", "mid", "short"}:
+        return False
+    try:
+        return all(abs(float(record.get("weight_sum")) - 1.0) <= 0.001 for record in portfolios.values())
+    except (TypeError, ValueError):
+        return False
 
 
 def _reads_from_existing_artifacts(source_trace: dict[str, Any]) -> bool:

@@ -8,5 +8,6 @@ def test_v36_supply_chain_does_not_fabricate_vulnerability_coverage(tmp_path):
 
     assert result["supply_chain_dependency_result_generated"] is True
     assert result["dependency_result_fabricated"] is False
-    assert supply["vulnerability_db_status"] == "not_available"
+    assert supply["vulnerability_db_status"] == "available"
+    assert supply["assessment_status"] == "passed"
     assert supply["dependency_risk_score_is_owner_readiness_score"] is False

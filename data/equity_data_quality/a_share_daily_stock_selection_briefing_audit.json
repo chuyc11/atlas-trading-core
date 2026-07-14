@@ -1,10 +1,14 @@
 {
   "audit_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING-AUDIT",
   "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
-  "as_of_date": "2026-06-26",
-  "requested_as_of_date": "2026-06-26",
-  "overall_passed": true,
-  "blocking_reasons": [],
+  "as_of_date": "2026-07-01",
+  "requested_as_of_date": "2026-07-01",
+  "overall_passed": false,
+  "blocking_reasons": [
+    "source_trace_complete=false",
+    "upstream_audit_dates_match_briefing=false",
+    "portfolio_weight_sums_valid=false"
+  ],
   "warnings": [
     "fundamental score confidence is partial",
     "long_virtual_portfolio: raw industry_level_1 contains Unclassified; audit uses industry fallback buckets for caps",
@@ -36,7 +40,7 @@
     "virtual_portfolio_summary": true,
     "industry_exposure_summary": true,
     "risk_liquidity_summary": true,
-    "audit_status": true,
+    "audit_status": false,
     "do_not_misread": true,
     "next_tracking_actions": true
   },
@@ -56,8 +60,13 @@
     "industry_exposure_section_exists": true,
     "risk_liquidity_section_exists": true,
     "do_not_misread_section_exists": true,
-    "source_trace_complete": true,
+    "source_trace_complete": false,
     "source_trace_covers_every_section": true,
+    "source_hashes_match": true,
+    "manifest_artifact_hashes_match": true,
+    "upstream_audit_dates_match_briefing": false,
+    "input_manifest_dates_match_briefing": true,
+    "portfolio_weight_sums_valid": false,
     "briefing_reads_from_existing_artifacts": true,
     "no_forbidden_wording": true,
     "no_buy_sell_signal_artifacts_generated": true,
@@ -113,5 +122,5 @@
     "model_profit_guaranteed": false,
     "live_trading_ready": false
   },
-  "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"
+  "recommended_next_version": "v0.7.7.1-a-share-daily-stock-selection-briefing-remediation"
 }

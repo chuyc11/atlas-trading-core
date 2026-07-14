@@ -56,4 +56,5 @@ def _artifact_records(paths: ProjectPaths, artifacts: dict[str, Path]) -> dict[s
             "sha256": sha256_file(path),
         }
         for key, path in artifacts.items()
+        if key != "briefing_manifest"
     }

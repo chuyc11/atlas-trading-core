@@ -17,5 +17,7 @@ def test_briefing_source_trace_covers_every_required_section(tmp_path: Path) -> 
     for record in trace["sections"].values():
         assert record["complete"] is True
         assert record["source_paths"]
+        assert record["date_aligned"] is True
+        assert all(source["sha256"] for source in record["sources"])
         for source in record["source_paths"]:
             assert (paths.project_root / source).exists()

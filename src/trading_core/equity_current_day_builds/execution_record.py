@@ -9,10 +9,10 @@ from datetime import UTC, datetime
 from trading_core.equity_current_day_builds.gated_build_config import (
     TARGET_VERSION,
     TO_WORKFLOW_MODE,
-    WORKFLOW_COMMAND_TEMPLATE,
 )
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
+from trading_core.system.safe_workflow_command import current_day_workflow_argv, current_day_workflow_display, normalize_iso_date
 
 
 def execute_gated_build_and_record(
@@ -23,6 +23,7 @@ def execute_gated_build_and_record(
     execution_plan: dict,
 ) -> dict:
     paths = default_paths(paths)
+    as_of_date = normalize_iso_date(as_of_date)
 
     if not preflight_gate.get("overall_passed", False):
         return {
@@ -48,7 +49,32 @@ def execute_gated_build_and_record(
             "order_preview_generated": False,
         }
 
-    command = execution_plan["workflow_command"]
+    command = current_day_workflow_display(as_of_date)
+    expected_plan_argv = current_day_workflow_argv(as_of_date)
+    if execution_plan.get("workflow_command") != command or execution_plan.get("workflow_argv") != expected_plan_argv:
+        return {
+            "execution_id": "A-SHARE-GATED-BUILD-FROM-EXISTING-DATA-EXECUTION",
+            "target_version": TARGET_VERSION,
+            "as_of_date": as_of_date,
+            "workflow_mode": TO_WORKFLOW_MODE,
+            "command": command,
+            "command_executed": False,
+            "exit_code": None,
+            "status": "preflight_failed",
+            "started_at": None,
+            "finished_at": None,
+            "duration_seconds": None,
+            "workflow_audit_path": "",
+            "workflow_audit_overall_passed": False,
+            "blocking_reasons": ["execution_plan_command_mismatch"],
+            "warnings": [],
+            "old_run_daily_called": False,
+            "broker_connected": False,
+            "real_orders_placed": False,
+            "buy_sell_signals_generated": False,
+            "order_preview_generated": False,
+        }
+    command_argv = current_day_workflow_argv(as_of_date, executable=True)
     started = datetime.now(UTC)
     exit_code = None
     stdout_text = ""
@@ -56,8 +82,8 @@ def execute_gated_build_and_record(
 
     try:
         result = subprocess.run(
-            command,
-            shell=True,
+            command_argv,
+            shell=False,
             capture_output=True,
             text=True,
             timeout=300,

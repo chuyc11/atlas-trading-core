@@ -21,3 +21,5 @@ def test_briefing_manifest_records_read_only_boundaries_and_sources(tmp_path: Pa
     assert manifest["input_candidate_manifest_path"].endswith("candidate_manifest.json")
     assert manifest["input_score_manifest_path"].endswith("score_manifest.json")
     assert manifest["input_portfolio_manifest_path"].endswith("portfolio_manifest.json")
+    assert "briefing_manifest" not in manifest["artifacts"]
+    assert all(record["exists"] and record["sha256"] for record in manifest["artifacts"].values())

@@ -1,0 +1,31 @@
+{
+  "target": "final_user_acceptance_report_readability",
+  "as_of_date": "2026-07-07",
+  "report_readability_passed": false,
+  "owner_facing_report_is_raw_key_value_dump": true,
+  "title_says_share_v40": true,
+  "executive_summary_exists": false,
+  "testing_evidence_section_exists": false,
+  "safety_boundary_section_exists": false,
+  "owner_readiness_section_exists": false,
+  "known_limitations_section_exists": false,
+  "maintenance_only_section_exists": false,
+  "forbidden_trading_wording_absent": true,
+  "required_disclaimers_present": false,
+  "required_disclaimer_missing": [
+    "仅研究用途",
+    "仅模拟用途",
+    "仅虚拟环境",
+    "不构成投资建议",
+    "不构成买卖信号",
+    "尚未达到实盘可用状态"
+  ],
+  "checked_reports": [
+    "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_FINAL_MAINTENANCE_CLOSEOUT_REPORT.md",
+    "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_OWNER_FINAL_MAINTENANCE_DASHBOARD.md",
+    "outputs/equity_v40_final_maintenance_closeout/daily/2026-07-01/A_SHARE_V40_SAFETY_AND_LIMITATIONS.md"
+  ],
+  "blocking_reasons": [
+    "owner_report_unreadable"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "target": "final_user_acceptance_protected_path",
+  "as_of_date": "2026-07-07",
+  "protected_path_sweep_passed": true,
+  "protected_path_modified_by_acceptance_test": false,
+  "real_order_path_written": false,
+  "real_account_path_written": false,
+  "real_trade_path_written": false,
+  "historical_data_orders_files_exist": 9,
+  "historical_data_trades_files_exist": 9,
+  "historical_existence_is_not_current_modification": true,
+  "blocking_reasons": []
+}

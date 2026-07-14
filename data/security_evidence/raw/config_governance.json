@@ -1,0 +1,21 @@
+{
+  "bandit_errors": [],
+  "bandit_high_severity_high_confidence_findings": [],
+  "command": [
+    "bandit",
+    "-r",
+    "src",
+    "-lll",
+    "-iii",
+    "-f",
+    "json",
+    "-q"
+  ],
+  "exit_code": 0,
+  "scanned_config_files": 15,
+  "status": "passed",
+  "stderr": "",
+  "tool": "bandit+atlas-config-policy",
+  "tool_version": "bandit 1.8.6+atlas-v36-policy-2",
+  "unsafe_config_findings": []
+}

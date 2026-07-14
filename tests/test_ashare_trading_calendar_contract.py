@@ -13,6 +13,9 @@ def test_calendar_contract_core_rules(tmp_path: Path) -> None:
     assert cal.is_trading_day("2024-01-02", "HKEX")
     assert not cal.is_trading_day("2024-01-06", "SSE")
     assert not cal.is_trading_day("2024-10-01", "SSE")
+    assert not cal.is_trading_day("2026-06-19", "SSE")
+    assert not cal.is_trading_day("2026-07-01", "HKEX")
+    assert cal.is_trading_day("2026-07-01", "SSE")
     assert cal.next_trading_day("2024-01-05", "SSE") == "2024-01-08"
     assert cal.next_trading_day("2024-09-30", "SSE") == "2024-10-02"
     assert cal.previous_trading_day("2024-01-08", "SSE") == "2024-01-05"
@@ -20,4 +23,3 @@ def test_calendar_contract_core_rules(tmp_path: Path) -> None:
     result = build_trading_calendar_contract(paths=paths)
     assert result["weekday_assumption_forbidden"] is True
     assert_no_protected_paths(paths)
-

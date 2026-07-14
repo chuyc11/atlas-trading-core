@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import json
 from pathlib import Path
 
@@ -32,6 +33,7 @@ def make_v3x_paths(tmp_path: Path) -> ProjectPaths:
         paths.data_dir / "equity_data_quality" / "a_share_v31_post_v3_verification_audit.json",
         {"target_version": V31_VERSION, "overall_passed": True, "blocking_reasons": [], "warnings": []},
     )
+    _write_security_evidence(paths)
     return paths
 
 
@@ -87,3 +89,42 @@ def assert_common_boundary(result: dict) -> None:
 def _write_json(path: Path, payload: dict) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+
+def _write_security_evidence(paths: ProjectPaths) -> None:
+    evidence_root = paths.project_root / "data" / "security_evidence" / "raw"
+    scans = {}
+    for name, tool in {
+        "secret_scan": "gitleaks",
+        "config_governance": "atlas-config-policy",
+        "dependency_scan": "pip-audit",
+        "filesystem_path_scan": "atlas-path-policy",
+        "network_boundary_scan": "atlas-network-policy",
+    }.items():
+        raw_path = evidence_root / f"{name}.json"
+        _write_json(raw_path, {"scan": name, "status": "passed", "findings": []})
+        relative = raw_path.relative_to(paths.project_root).as_posix()
+        scan = {
+            "status": "passed",
+            "tool": tool,
+            "tool_version": "test-fixture-1",
+            "evidence_path": relative,
+            "evidence_sha256": hashlib.sha256(raw_path.read_bytes()).hexdigest(),
+        }
+        if name == "dependency_scan":
+            scan.update(
+                {
+                    "vulnerability_db_status": "available",
+                    "vulnerability_db_updated_at": "2026-07-01T00:00:00Z",
+                }
+            )
+        scans[name] = scan
+    _write_json(
+        paths.project_root / "data" / "security_evidence" / "v36_security_assessment.json",
+        {
+            "schema_version": 1,
+            "generated_at": "2026-07-01T00:00:00Z",
+            "scope_commit": "a" * 40,
+            "scans": scans,
+        },
+    )

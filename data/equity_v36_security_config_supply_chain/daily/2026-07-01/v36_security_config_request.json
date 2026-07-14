@@ -3,7 +3,7 @@
   "target_version": "v3.6.0-a-share-platform-security-config-and-supply-chain-hardening",
   "source_version": "v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-06T15:37:32.722961Z",
+  "generated_at": "2026-07-14T09:54:48.131261Z",
   "baseline_verified": true,
   "artifact_name": "v36_security_config_request",
   "artifact_generated": true,
@@ -67,5 +67,7 @@
   "vulnerability_db_status": "not_available",
   "dependency_risk_score_is_owner_readiness_score": false,
   "dependency_pass_means_live_trading_ready": false,
-  "public_network_refresh_run": false
+  "public_network_refresh_run": false,
+  "assessment_status": "passed",
+  "security_evidence_path": "data/security_evidence/v36_security_assessment.json"
 }

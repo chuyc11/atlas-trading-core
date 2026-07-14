@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+import json
 
 from trading_core.equity_briefings.briefing_config import SOURCE_TRACE_SECTION_KEYS, TARGET_VERSION
 from trading_core.equity_briefings.briefing_inputs import BriefingInputs, briefing_data_dir, briefing_output_dir
@@ -17,6 +18,7 @@ def build_briefing_source_trace(paths: ProjectPaths, inputs: BriefingInputs, gen
         "executive_summary": [
             inputs.candidate_manifest_path,
             inputs.score_manifest_path,
+            inputs.feature_manifest_path,
             inputs.portfolio_manifest_path,
             inputs.portfolio_dir / "portfolio_industry_exposure.json",
             inputs.portfolio_dir / "portfolio_risk_liquidity_summary.json",
@@ -46,10 +48,13 @@ def build_briefing_source_trace(paths: ProjectPaths, inputs: BriefingInputs, gen
     sections = {}
     for key in SOURCE_TRACE_SECTION_KEYS:
         paths_for_section = section_sources[key]
+        source_records = [_source_record(paths, path, inputs.as_of_date) for path in paths_for_section]
+        date_aligned = all(record.get("as_of_date_matches", True) for record in source_records)
         sections[key] = {
             "source_paths": [relative(path, paths.project_root) for path in paths_for_section],
-            "sources": [_source_record(paths, path) for path in paths_for_section],
-            "complete": all(path.exists() for path in paths_for_section),
+            "sources": source_records,
+            "date_aligned": date_aligned,
+            "complete": all(path.exists() for path in paths_for_section) and date_aligned,
         }
     return {
         "trace_id": "A-SHARE-DAILY-STOCK-SELECTION-BRIEFING-SOURCE-TRACE",
@@ -81,18 +86,30 @@ def render_source_trace_report(trace: dict[str, Any]) -> str:
         f"- as_of_date: {trace['as_of_date']}",
         f"- source_trace_complete: {str(trace['source_trace_complete']).lower()}",
         "",
-        "| Section | Complete | Source Paths |",
-        "|---|---:|---|",
+        "| Section | Complete | Date Aligned | Source Paths / SHA256 |",
+        "|---|---:|---:|---|",
     ]
     for section, record in trace["sections"].items():
-        sources = "<br>".join(record["source_paths"])
-        lines.append(f"| {section} | {str(record['complete']).lower()} | {sources} |")
+        sources = "<br>".join(f"{source['path']} ({source.get('sha256') or 'missing'})" for source in record.get("sources", []))
+        lines.append(f"| {section} | {str(record['complete']).lower()} | {str(record.get('date_aligned', True)).lower()} | {sources} |")
     return "\n".join(lines) + "\n"
 
 
-def _source_record(paths: ProjectPaths, path: Path) -> dict[str, Any]:
-    return {
+def _source_record(paths: ProjectPaths, path: Path, expected_as_of_date: str) -> dict[str, Any]:
+    source_as_of_date = None
+    if path.exists() and path.suffix.lower() == ".json":
+        try:
+            value = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(value, dict):
+                source_as_of_date = value.get("as_of_date")
+        except (json.JSONDecodeError, OSError):
+            source_as_of_date = None
+    record = {
         "path": relative(path, paths.project_root),
         "exists": path.exists(),
         "sha256": sha256_file(path),
     }
+    if "equity_data_quality" in path.parts:
+        record["as_of_date"] = source_as_of_date
+        record["as_of_date_matches"] = source_as_of_date == expected_as_of_date
+    return record

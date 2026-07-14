@@ -15,20 +15,22 @@ def recommend_promotion(state: str, metrics: dict[str, Any]) -> dict[str, Any]:
     signals = int(metrics.get("signals", 0))
     excess = float(metrics.get("excess_return", 0.0))
     mistake_rate = float(metrics.get("mistake_rate", 0.0))
-    max_drawdown = float(metrics.get("max_drawdown", 0.0))
+    # All promotion inputs use a positive drawdown magnitude. Normalizing here
+    # also prevents a positive 10% drawdown from passing a ``>-3%`` check.
+    max_drawdown = abs(float(metrics.get("max_drawdown", 0.0)))
 
     recommendation = "keep_current_state"
     target_state = state
     if state == "candidate" and metrics.get("definition_complete", True):
         recommendation = "promote_to_shadow"
         target_state = "shadow"
-    elif state == "shadow" and days >= 20 and signals >= 10 and excess > 0 and mistake_rate < 0.30 and max_drawdown > -0.03:
+    elif state == "shadow" and days >= 20 and signals >= 10 and excess > 0 and mistake_rate < 0.30 and max_drawdown <= 0.03:
         recommendation = "promote_to_active_small"
         target_state = "active_small"
     elif state == "active_small" and days >= 60 and excess > 0 and mistake_rate < 0.30:
         recommendation = "suggest_active_normal_manual_review"
         target_state = "active_small"
-    elif state in {"active_small", "active_normal"} and (excess < -0.003 or mistake_rate > 0.30 or max_drawdown < -0.03):
+    elif state in {"active_small", "active_normal"} and (excess < -0.003 or mistake_rate > 0.30 or max_drawdown > 0.03):
         recommendation = "pause"
         target_state = "paused"
 

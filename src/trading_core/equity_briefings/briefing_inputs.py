@@ -127,6 +127,7 @@ def _has_required_inputs(paths: ProjectPaths, as_of_date: str) -> bool:
     candidate_dir = paths.data_dir / "equity_selection" / "daily" / as_of_date
     score_dir = paths.data_dir / "equity_scores" / "daily" / as_of_date
     portfolio_dir = paths.data_dir / "equity_portfolios" / "daily" / as_of_date
+    feature_dir = paths.data_dir / "equity_features" / "daily" / as_of_date
     required = [
         candidate_dir / CANDIDATE_FILES["candidate_manifest"],
         candidate_dir / CANDIDATE_FILES["long_candidates_json"],
@@ -136,10 +137,12 @@ def _has_required_inputs(paths: ProjectPaths, as_of_date: str) -> bool:
         candidate_dir / CANDIDATE_FILES["risk_downgraded_candidates"],
         score_dir / SCORE_FILES["score_manifest"],
         score_dir / SCORE_FILES["scoring_summary"],
+        feature_dir / "feature_manifest.json",
         portfolio_dir / PORTFOLIO_FILES["portfolio_manifest"],
         portfolio_dir / PORTFOLIO_FILES["long_virtual_portfolio_json"],
         portfolio_dir / PORTFOLIO_FILES["mid_virtual_portfolio_json"],
         portfolio_dir / PORTFOLIO_FILES["short_virtual_portfolio_json"],
+        portfolio_dir / PORTFOLIO_FILES["portfolio_weight_summary"],
         portfolio_dir / PORTFOLIO_FILES["portfolio_industry_exposure"],
         portfolio_dir / PORTFOLIO_FILES["portfolio_risk_liquidity_summary"],
     ]

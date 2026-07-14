@@ -1,12 +1,12 @@
 # A-Share Daily Stock Selection Briefing Audit
 
 - target_version: v0.7.7-a-share-daily-stock-selection-briefing
-- as_of_date: 2026-06-26
-- overall_passed: true
-- blocking_reasons: []
+- as_of_date: 2026-07-01
+- overall_passed: false
+- blocking_reasons: ['source_trace_complete=false', 'upstream_audit_dates_match_briefing=false', 'portfolio_weight_sums_valid=false']
 - warnings: 5
 - required_sections: {'executive_summary': True, 'long_candidates_top10': True, 'mid_candidates_top10': True, 'short_candidates_top10': True, 'multi_horizon_candidates': True, 'risk_downgraded_candidates': True, 'virtual_portfolio_summary': True, 'industry_exposure_summary': True, 'risk_liquidity_summary': True, 'audit_status': True, 'do_not_misread': True, 'next_tracking_actions': True}
-- source_trace_complete: True
+- source_trace_complete: False
 
 ## Boundary
 - Briefing only.
@@ -23,4 +23,4 @@
 - This is not a model profit guarantee.
 - Live trading ready: false.
 
-Recommended next version: v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger
+Recommended next version: v0.7.7.1-a-share-daily-stock-selection-briefing-remediation

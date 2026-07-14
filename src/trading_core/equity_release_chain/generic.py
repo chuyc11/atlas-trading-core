@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -10,12 +11,31 @@ from typing import Any
 
 from trading_core.equity_data_quality.common import read_json, sha256_file, utc_now, write_json
 from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE
+from trading_core.security.v36_scope import collect_v36_scope_records
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 DEFAULT_AS_OF_DATE = "2026-07-01"
 SOURCE_READINESS_SCORE = 54
 MINIMUM_OWNER_READINESS_SCORE = 75
 SCORE_GAP = 21
+V36_EVIDENCE_RELATIVE_PATH = Path("data/security_evidence/v36_security_assessment.json")
+V36_REQUIRED_SCANS = {
+    "secret_scan",
+    "config_governance",
+    "dependency_scan",
+    "filesystem_path_scan",
+    "network_boundary_scan",
+}
+V36_OBSERVATION_FIELDS = {
+    "high_confidence_secret_detected",
+    "broker_credential_detected",
+    "account_credential_detected",
+    "order_api_endpoint_detected",
+    "unsafe_config_override_detected",
+    "unsafe_file_delete_detected",
+    "broker_network_path_detected",
+    "account_network_path_detected",
+}
 
 
 def run_release_artifacts(
@@ -41,6 +61,7 @@ def run_release_artifacts(
         write_json(artifacts[spec["result_name"]], result)
         return result
 
+    security_assessment = _load_v36_security_assessment(paths) if spec["key"] == "v36" else None
     payloads: dict[str, dict[str, Any]] = {}
     for name in spec["json_names"]:
         if name == spec["manifest_name"]:
@@ -48,6 +69,8 @@ def run_release_artifacts(
         if name == spec["result_name"]:
             continue
         payloads[name] = _component_payload(spec, name, as_of_date, generated_at, baseline)
+    if security_assessment is not None:
+        _apply_v36_component_assessment(payloads, security_assessment)
 
     integrity = _integrity_sweep(spec, as_of_date, payloads)
     protected = _protected_sweep(spec, as_of_date)
@@ -59,7 +82,17 @@ def run_release_artifacts(
             _artifact_name_containing(spec, "safety_boundary_sweep"): safety,
         }
     )
-    result = _result_payload(paths, spec, as_of_date, baseline, payloads, integrity, protected, safety)
+    result = _result_payload(
+        paths,
+        spec,
+        as_of_date,
+        baseline,
+        payloads,
+        integrity,
+        protected,
+        safety,
+        security_assessment=security_assessment,
+    )
     payloads[spec["result_name"]] = result
     regression_artifact = spec.get("regression_artifact_name")
     if regression_artifact and regression_artifact in payloads:
@@ -109,6 +142,12 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
         blocking.append("owner_readiness_state_not_blocked")
     if result.get("owner_operationally_acceptable") is not False:
         blocking.append("owner_operationally_acceptable_not_false")
+    current_security_assessment = None
+    if spec["key"] == "v36":
+        current_security_assessment = _load_v36_security_assessment(paths)
+        if current_security_assessment["status"] != "passed":
+            blocking.append(f"current_security_assessment_{current_security_assessment['status']}")
+            blocking.extend(current_security_assessment.get("blocking_reasons", []))
 
     audit = {
         "audit_id": f"A-SHARE-{spec['key'].upper()}-AUDIT",
@@ -138,6 +177,11 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
         "release_readiness_decision": "passed" if not blocking else "blocked",
         "recommended_next_version": spec["recommended_next_version"],
     }
+    if current_security_assessment is not None:
+        audit["security_assessment"] = current_security_assessment
+        if current_security_assessment["status"] != "passed":
+            for key in V36_OBSERVATION_FIELDS:
+                audit["forbidden_checks"][key] = None
     audit_path = paths.data_dir / "equity_data_quality" / spec["audit_json"]
     report_path = paths.outputs_dir / "audit" / spec["audit_md"]
     write_json(audit_path, audit)
@@ -153,7 +197,7 @@ def _baseline_verification(paths: ProjectPaths, spec: dict[str, Any], as_of_date
     tag = _run(["git", "tag", "--list", spec["source_version"]], paths.project_root) if (paths.project_root / ".git").exists() else {"stdout": spec["source_version"]}
     checks = {
         "source_tag_exists": tag.get("stdout", "").strip() == spec["source_version"],
-        "version_matches": version_text in {spec["source_version"], spec["target_version"]},
+        "version_matches": _release_version_is_at_or_after(version_text, spec["source_version"]),
         "source_result_present": bool(source_result),
         "source_audit_present": bool(source_audit),
         "source_result_overall_passed": source_result.get("overall_passed") is True,
@@ -171,6 +215,21 @@ def _baseline_verification(paths: ProjectPaths, spec: dict[str, Any], as_of_date
         "overall_passed": all(value is True for value in checks.values()),
         "blocking_reasons": [key for key, value in checks.items() if value is not True],
     }
+
+
+def _release_version_is_at_or_after(current: str, minimum: str) -> bool:
+    """Allow historical release audits on later semantic release trains."""
+
+    current_version = _release_semver(current)
+    minimum_version = _release_semver(minimum)
+    return current_version is not None and minimum_version is not None and current_version >= minimum_version
+
+
+def _release_semver(value: str) -> tuple[int, int, int] | None:
+    match = re.match(r"^v(\d+)\.(\d+)\.(\d+)(?:-|$)", value.strip())
+    if not match:
+        return None
+    return tuple(int(part) for part in match.groups())
 
 
 def _component_payload(spec: dict[str, Any], name: str, as_of_date: str, generated_at: str, baseline: dict[str, Any]) -> dict[str, Any]:
@@ -218,6 +277,7 @@ def _result_payload(
     integrity: dict[str, Any],
     protected: dict[str, Any],
     safety: dict[str, Any],
+    security_assessment: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     result = {
         "result_id": spec["result_name"].upper().replace("_", "-"),
@@ -244,7 +304,8 @@ def _result_payload(
     for key in spec["required_true"]:
         result[key] = True
     for key in spec["required_false"]:
-        result[key] = False
+        if spec["key"] != "v36" or key not in V36_OBSERVATION_FIELDS:
+            result[key] = False
     result["full_pytest_run"] = spec["full_pytest_required"]
     result["full_pytest_passed"] = spec["full_pytest_required"] if spec["full_pytest_required"] else result.get("full_pytest_passed", False)
     if not spec["full_pytest_required"]:
@@ -256,9 +317,24 @@ def _result_payload(
         result["freeze_decision"] = spec["freeze_decision"]
     result.update(spec.get("extra_result_fields", {}))
     result.update(_v35_regression_fields(paths=paths, spec=spec, as_of_date=as_of_date) if spec.get("regression_artifact_name") else {})
+    if security_assessment is not None:
+        result.update(
+            {
+                "assessment_status": security_assessment["status"],
+                "review_status": security_assessment["status"],
+                "security_evidence_path": V36_EVIDENCE_RELATIVE_PATH.as_posix(),
+                "security_scans": security_assessment.get("scans", {}),
+                "vulnerability_db_available": security_assessment.get("vulnerability_db_available", False),
+                "vulnerability_db_status": security_assessment.get("vulnerability_db_status", "not_available"),
+            }
+        )
+        if security_assessment["status"] == "passed":
+            result.update({key: False for key in V36_OBSERVATION_FIELDS})
     blocking = []
     for item in [integrity, protected, safety]:
         blocking.extend(item.get("blocking_reasons", []))
+    if security_assessment is not None:
+        blocking.extend(security_assessment.get("blocking_reasons", []))
     blocking.extend(key for key in spec["required_true"] if result.get(key) is not True)
     blocking.extend(key for key in spec["required_false"] if result.get(key) is not False)
     result["blocking_reasons"] = blocking
@@ -271,7 +347,7 @@ def _field_defaults(spec: dict[str, Any]) -> dict[str, Any]:
     for key in spec["required_true"]:
         defaults[key] = True
     for key in spec["required_false"]:
-        defaults[key] = False
+        defaults[key] = None if spec["key"] == "v36" and key in V36_OBSERVATION_FIELDS else False
     defaults[_baseline_field(spec)] = True
     defaults["full_pytest_run"] = spec["full_pytest_required"]
     defaults["full_pytest_passed"] = spec["full_pytest_required"]
@@ -280,6 +356,130 @@ def _field_defaults(spec: dict[str, Any]) -> dict[str, Any]:
         defaults["full_pytest_deferred_until"] = spec.get("full_pytest_deferred_until", "v3.0.0-final-closeout")
     defaults.update(spec.get("extra_result_fields", {}))
     return defaults
+
+
+def _load_v36_security_assessment(paths: ProjectPaths) -> dict[str, Any]:
+    evidence_path = paths.project_root / V36_EVIDENCE_RELATIVE_PATH
+    payload = read_json(evidence_path)
+    if not payload:
+        return {
+            "status": "not_assessed",
+            "blocking_reasons": ["security_assessment_evidence_missing"],
+            "scans": {},
+            "vulnerability_db_available": False,
+            "vulnerability_db_status": "not_available",
+        }
+
+    blocking: list[str] = []
+    schema_version = payload.get("schema_version")
+    if schema_version not in {1, 2}:
+        blocking.append("security_assessment_schema_invalid")
+    scope_commit = str(payload.get("scope_commit") or "")
+    if len(scope_commit) != 40 or any(char not in "0123456789abcdefABCDEF" for char in scope_commit):
+        blocking.append("security_assessment_scope_commit_invalid")
+    if not payload.get("generated_at"):
+        blocking.append("security_assessment_generated_at_missing")
+    if schema_version == 2:
+        blocking.extend(_validate_v36_scope_manifest(paths, payload))
+    scans = payload.get("scans")
+    if not isinstance(scans, dict):
+        scans = {}
+        blocking.append("security_assessment_scans_invalid")
+
+    summaries: dict[str, dict[str, Any]] = {}
+    project_root = paths.project_root.resolve()
+    for scan_name in sorted(V36_REQUIRED_SCANS):
+        scan = scans.get(scan_name)
+        if not isinstance(scan, dict):
+            blocking.append(f"security_scan_missing:{scan_name}")
+            continue
+        if scan.get("status") != "passed":
+            blocking.append(f"security_scan_not_passed:{scan_name}")
+        if not scan.get("tool") or not scan.get("tool_version"):
+            blocking.append(f"security_scan_tool_identity_missing:{scan_name}")
+        relative = str(scan.get("evidence_path") or "")
+        expected_hash = str(scan.get("evidence_sha256") or "").lower()
+        candidate = (project_root / relative).resolve()
+        try:
+            candidate.relative_to(project_root)
+        except ValueError:
+            blocking.append(f"security_scan_evidence_outside_project:{scan_name}")
+            continue
+        if not candidate.is_file():
+            blocking.append(f"security_scan_evidence_missing:{scan_name}")
+        elif len(expected_hash) != 64 or sha256_file(candidate).lower() != expected_hash:
+            blocking.append(f"security_scan_evidence_hash_mismatch:{scan_name}")
+        summaries[scan_name] = {
+            "status": scan.get("status"),
+            "tool": scan.get("tool"),
+            "tool_version": scan.get("tool_version"),
+            "evidence_path": relative,
+            "evidence_sha256": expected_hash,
+        }
+
+    dependency = scans.get("dependency_scan", {}) if isinstance(scans, dict) else {}
+    vulnerability_db_available = dependency.get("vulnerability_db_status") == "available"
+    if not vulnerability_db_available or not dependency.get("vulnerability_db_updated_at"):
+        blocking.append("dependency_vulnerability_database_unavailable")
+    return {
+        "status": "passed" if not blocking else "failed",
+        "blocking_reasons": sorted(set(blocking)),
+        "scans": summaries,
+        "vulnerability_db_available": vulnerability_db_available,
+        "vulnerability_db_status": "available" if vulnerability_db_available else "not_available",
+    }
+
+
+def _validate_v36_scope_manifest(paths: ProjectPaths, payload: dict[str, Any]) -> list[str]:
+    blocking: list[str] = []
+    project_root = paths.project_root.resolve()
+    relative = str(payload.get("scope_manifest_path") or "")
+    expected_hash = str(payload.get("scope_manifest_sha256") or "").lower()
+    candidate = (project_root / relative).resolve()
+    try:
+        candidate.relative_to(project_root)
+    except ValueError:
+        return ["security_scope_manifest_outside_project"]
+    if not candidate.is_file():
+        return ["security_scope_manifest_missing"]
+    if len(expected_hash) != 64 or sha256_file(candidate).lower() != expected_hash:
+        blocking.append("security_scope_manifest_hash_mismatch")
+    manifest = read_json(candidate)
+    records = manifest.get("records")
+    if not isinstance(records, list):
+        return blocking + ["security_scope_manifest_records_invalid"]
+    current_records = collect_v36_scope_records(project_root)
+    if records != current_records:
+        blocking.append("security_scope_manifest_stale")
+    if payload.get("scope_file_count") != len(records):
+        blocking.append("security_scope_file_count_mismatch")
+    commit = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=project_root,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    if commit.returncode != 0 or commit.stdout.strip() != payload.get("scope_commit"):
+        blocking.append("security_assessment_scope_commit_stale")
+    return blocking
+
+
+def _apply_v36_component_assessment(
+    payloads: dict[str, dict[str, Any]],
+    assessment: dict[str, Any],
+) -> None:
+    for payload in payloads.values():
+        payload["assessment_status"] = assessment["status"]
+        payload["review_status"] = assessment["status"]
+        payload["security_evidence_path"] = V36_EVIDENCE_RELATIVE_PATH.as_posix()
+        payload["blocking_reasons"] = list(assessment.get("blocking_reasons", []))
+        if assessment["status"] == "passed":
+            payload.update({key: False for key in V36_OBSERVATION_FIELDS})
+        if payload.get("artifact_name") == "v36_supply_chain_dependency_result":
+            payload["vulnerability_db_available"] = assessment.get("vulnerability_db_available", False)
+            payload["vulnerability_db_status"] = assessment.get("vulnerability_db_status", "not_available")
+            payload["security_scans"] = assessment.get("scans", {})
 
 
 def _component_details(spec: dict[str, Any], name: str) -> dict[str, Any]:

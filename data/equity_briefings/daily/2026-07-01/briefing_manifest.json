@@ -3,7 +3,7 @@
   "target_version": "v0.7.7-a-share-daily-stock-selection-briefing",
   "as_of_date": "2026-07-01",
   "requested_as_of_date": "2026-07-01",
-  "generated_at": "2026-07-01T16:11:52.856045Z",
+  "generated_at": "2026-07-11T04:03:29.248545Z",
   "input_candidate_manifest_path": "data/equity_selection/daily/2026-07-01/candidate_manifest.json",
   "input_score_manifest_path": "data/equity_scores/daily/2026-07-01/score_manifest.json",
   "input_feature_manifest_path": "data/equity_features/daily/2026-07-01/feature_manifest.json",
@@ -40,32 +40,27 @@
     "daily_stock_selection_briefing": {
       "path": "data/equity_briefings/daily/2026-07-01/daily_stock_selection_briefing.json",
       "exists": true,
-      "sha256": "2399e492b4a87dfbcc77ffb1739038860517c73749c0cbadb007de3fef96bf73"
-    },
-    "briefing_manifest": {
-      "path": "data/equity_briefings/daily/2026-07-01/briefing_manifest.json",
-      "exists": false,
-      "sha256": null
+      "sha256": "3e4c9fe2e3a6a1f16807a1d07dfc88fe5788b606b0361fc4072f1d349f49aee7"
     },
     "briefing_source_trace": {
       "path": "data/equity_briefings/daily/2026-07-01/briefing_source_trace.json",
       "exists": true,
-      "sha256": "9a18d88d4ad0cd6d6c9c17eff2b754e462d7ad5c3f52d99fb9d0e5632e3a9309"
+      "sha256": "490e11c3d98205f0b6d4ba0432d4558db02840fd590c4d4e13048bc32b3bcb2d"
     },
     "briefing_boundary_check": {
       "path": "data/equity_briefings/daily/2026-07-01/briefing_boundary_check.json",
       "exists": true,
-      "sha256": "7e174d7ee639e721ed647b1d498300e5555c57156212829529052ca47c3a70b7"
+      "sha256": "87f36cbd4e3d704655f20995a009efad9a7b3e006418e17f9b81e538c3cf7beb"
     },
     "daily_stock_selection_briefing_report": {
       "path": "outputs/equity_briefings/daily/2026-07-01/DAILY_STOCK_SELECTION_BRIEFING.md",
       "exists": true,
-      "sha256": "7a5253272c49d04aa586a6b8fd87b18d863e739ed58d0e4a4bc5adb06bf3bf2d"
+      "sha256": "7722852e7bb265ba11b81bb162359cb35a1d9104bb67c0823dc209b6f6491c95"
     },
     "briefing_source_trace_report": {
       "path": "outputs/equity_briefings/daily/2026-07-01/BRIEFING_SOURCE_TRACE.md",
       "exists": true,
-      "sha256": "ee177533aebcf13bc211894a1829079c213eedcfb9713cf24f2f71607d3d3898"
+      "sha256": "84a965e9180e84e050522d7adebb723de3ed8537129dd9473738f4757cbbdd2e"
     }
   },
   "recommended_next_version": "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"

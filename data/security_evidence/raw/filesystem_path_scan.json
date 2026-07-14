@@ -1,0 +1,19 @@
+{
+  "findings": [],
+  "reviewed_destructive_sinks": [
+    {
+      "function": "_reset_replay_dirs",
+      "guard_verified": true,
+      "line": 251,
+      "path": "src/trading_core/evaluation/historical_dry_run_replay.py"
+    }
+  ],
+  "rules": [
+    "subprocess_shell_true",
+    "unprotected_recursive_delete",
+    "python_syntax_error"
+  ],
+  "status": "passed",
+  "tool": "atlas-filesystem-path-policy",
+  "tool_version": "atlas-v36-policy-2"
+}

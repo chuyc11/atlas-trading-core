@@ -14,6 +14,7 @@ from trading_core.equity_v31_post_v3_verification.builder import (
     RECOMMENDED_NEXT_VERSION,
     SOURCE_VERSION,
     TARGET_VERSION,
+    _cli_version_is_post_v3_compatible,
     run_a_share_v31_post_v3_verification,
 )
 from trading_core.equity_v31_post_v3_verification.evidence import parse_pytest_summary
@@ -29,6 +30,21 @@ tests/test_example.py: 2 warnings
     assert parse_pytest_summary(stdout)["passed"] == 143
     assert parse_pytest_summary(stdout)["skipped"] == 1
     assert parse_pytest_summary(stdout)["warnings"] == 2
+
+
+@pytest.mark.parametrize(
+    ("stdout", "expected"),
+    [
+        ("trading-core 3.1.0", True),
+        ("trading-core 4.0.0", True),
+        ("trading-core 4.1.0-rc.1", True),
+        ("trading-core 2.9.9", False),
+        ("trading-core 4.x", False),
+        ("prefix trading-core 4.0.0 suffix", False),
+    ],
+)
+def test_v31_cli_version_gate_accepts_only_post_v3_semver(stdout: str, expected: bool) -> None:
+    assert _cli_version_is_post_v3_compatible(stdout) is expected
 
 
 def test_v31_build_generates_post_v3_verification_contract(tmp_path: Path) -> None:

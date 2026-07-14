@@ -9,6 +9,7 @@ from datetime import UTC, datetime
 from trading_core.equity_build_repeatability.repeatability_config import TARGET_VERSION, WORKFLOW_MODE
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
+from trading_core.system.safe_workflow_command import current_day_workflow_argv, current_day_workflow_display, normalize_iso_date
 
 
 def execute_repeat_build_and_record(
@@ -20,8 +21,9 @@ def execute_repeat_build_and_record(
     execution_plan: dict,
 ) -> dict:
     paths = default_paths(paths)
+    as_of_date = normalize_iso_date(as_of_date)
     preflight_ok = input_availability.get("overall_passed", False) and date_alignment.get("overall_passed", False)
-    command = execution_plan.get("workflow_command") or execution_plan.get("command", "")
+    command = current_day_workflow_display(as_of_date)
     if not preflight_ok or not execution_plan.get("command_allowed", False):
         return _base_record(
             as_of_date=as_of_date,
@@ -38,13 +40,31 @@ def execute_repeat_build_and_record(
             workflow_audit_overall_passed=False,
         )
 
+    expected_plan_argv = current_day_workflow_argv(as_of_date)
+    if execution_plan.get("workflow_command") != command or execution_plan.get("workflow_argv") != expected_plan_argv:
+        return _base_record(
+            as_of_date=as_of_date,
+            command=command,
+            command_executed=False,
+            exit_code=None,
+            status="preflight_failed",
+            started_at=None,
+            finished_at=None,
+            duration_seconds=None,
+            blocking_reasons=["execution_plan_command_mismatch"],
+            warnings=[],
+            workflow_audit_path="",
+            workflow_audit_overall_passed=False,
+        )
+    command_argv = current_day_workflow_argv(as_of_date, executable=True)
+
     started = datetime.now(UTC)
     exit_code = -1
     stderr_text = ""
     try:
         result = subprocess.run(
-            command,
-            shell=True,
+            command_argv,
+            shell=False,
             capture_output=True,
             text=True,
             timeout=300,
@@ -113,4 +133,3 @@ def _base_record(**kwargs) -> dict:
         "public_network_refresh_run": False,
         "full_research_run": False,
     }
-

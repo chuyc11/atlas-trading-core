@@ -16,4 +16,15 @@ def test_a_share_trading_calendar_covers_exchanges(tmp_path: Path) -> None:
     assert frame["is_trading_day"].all()
     assert result["trading_days"] > 0
     assert result["max_date"] >= "2026-06-26"
+    assert "2026-06-19" not in set(frame["date"])
+    assert set(frame["source"]) == {"official_exchange_holiday_schedule_v1"}
 
+
+def test_a_share_calendar_fails_closed_without_official_year_coverage(tmp_path: Path) -> None:
+    paths = make_a_share_paths(tmp_path)
+    try:
+        build_a_share_trading_calendar(paths=paths, end_date="2027-01-15", lookback_days=10)
+    except ValueError as exc:
+        assert "missing years: 2027" in str(exc)
+    else:
+        raise AssertionError("calendar must not fall back to weekday-only settlement")

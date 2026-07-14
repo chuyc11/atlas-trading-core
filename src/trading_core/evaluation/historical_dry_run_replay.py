@@ -6,6 +6,7 @@ import csv
 import shutil
 from collections import Counter
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
 from typing import Any
 
@@ -70,6 +71,9 @@ def replay_last_trading_days(
     paths: ProjectPaths | None = None,
     write_main_ledger: bool = False,
 ) -> dict[str, Any]:
+    _validate_iso_date(end_date, "end_date")
+    if days <= 0:
+        raise ValueError("days must be positive")
     paths = paths or project_paths()
     grouped = _load_price_package(data_path, paths)
     trading_days = [day for day in sorted(grouped) if day <= end_date]
@@ -86,6 +90,10 @@ def replay_dry_run(
     paths: ProjectPaths | None = None,
     write_main_ledger: bool = False,
 ) -> dict[str, Any]:
+    start = _validate_iso_date(start_date, "start_date")
+    end = _validate_iso_date(end_date, "end_date")
+    if start > end:
+        raise ValueError("start_date must be on or before end_date")
     paths = paths or project_paths()
     grouped = _load_price_package(data_path, paths)
     days = [day for day in sorted(grouped) if start_date <= day <= end_date]
@@ -226,10 +234,32 @@ def _resolve_data_path(data_path: Path, paths: ProjectPaths) -> Path:
 
 
 def _reset_replay_dirs(replay_paths: ReplayPaths) -> None:
-    for path in [replay_paths.data_dir, replay_paths.outputs_dir]:
-        if path.exists():
-            shutil.rmtree(path)
-        path.mkdir(parents=True, exist_ok=True)
+    replay_roots = [
+        (replay_paths.data_dir, replay_paths.base_paths.data_dir / "replays"),
+        (replay_paths.outputs_dir, replay_paths.base_paths.outputs_dir / "replays"),
+    ]
+    for path, allowed_root in replay_roots:
+        resolved = path.resolve()
+        resolved_root = allowed_root.resolve()
+        try:
+            relative = resolved.relative_to(resolved_root)
+        except ValueError as exc:
+            raise ValueError(f"unsafe replay path outside managed root: {resolved}") from exc
+        if relative == Path("."):
+            raise ValueError("refusing to delete the replay root")
+        if resolved.exists():
+            shutil.rmtree(resolved)
+        resolved.mkdir(parents=True, exist_ok=True)
+
+
+def _validate_iso_date(value: str, field_name: str) -> date:
+    try:
+        parsed = date.fromisoformat(value)
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"{field_name} must be an ISO date (YYYY-MM-DD)") from exc
+    if parsed.isoformat() != value:
+        raise ValueError(f"{field_name} must be a canonical ISO date (YYYY-MM-DD)")
+    return parsed
 
 
 def _close_price_rows(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:

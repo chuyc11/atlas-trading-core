@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 
 from a_share_daily_stock_selection_briefing_test_utils import briefing_output_dir, build_briefing_package, make_briefing_paths
 from a_share_feature_test_utils import AS_OF_DATE
@@ -32,3 +33,31 @@ def test_briefing_audit_allows_required_negative_disclaimers(tmp_path: Path) -> 
 
     assert audit["checks"]["no_forbidden_wording"] is True
     assert audit["recommended_next_version"] == "v0.7.8-a-share-virtual-portfolio-tracking-and-paper-ledger"
+
+
+def test_briefing_audit_rejects_stale_upstream_audit(tmp_path: Path) -> None:
+    paths = make_briefing_paths(tmp_path)
+    audit_path = paths.data_dir / "equity_data_quality" / "a_share_scoring_audit.json"
+    payload = json.loads(audit_path.read_text(encoding="utf-8"))
+    payload["as_of_date"] = "2026-06-25"
+    audit_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+
+    result = build_briefing_package(paths)
+    audit = audit_a_share_daily_stock_selection_briefing(paths=paths, as_of_date=AS_OF_DATE)
+
+    assert result["source_trace_complete"] is False
+    assert result["audit_status"]["all_audits_current"] is False
+    assert audit["overall_passed"] is False
+    assert "upstream_audit_dates_match_briefing=false" in audit["blocking_reasons"]
+
+
+def test_briefing_audit_rejects_source_tampering_after_build(tmp_path: Path) -> None:
+    paths = make_briefing_paths(tmp_path)
+    build_briefing_package(paths)
+    source_path = paths.data_dir / "equity_selection" / "daily" / AS_OF_DATE / "long_candidates.json"
+    source_path.write_text(source_path.read_text(encoding="utf-8") + "\n", encoding="utf-8")
+
+    audit = audit_a_share_daily_stock_selection_briefing(paths=paths, as_of_date=AS_OF_DATE)
+
+    assert audit["overall_passed"] is False
+    assert "source_hashes_match=false" in audit["blocking_reasons"]

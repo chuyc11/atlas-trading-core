@@ -12,7 +12,10 @@ def test_briefing_renderer_contains_required_owner_sections_and_disclaimer(tmp_p
 
     markdown = render_daily_stock_selection_briefing(payload)
 
-    assert "## 今日总体结论" in markdown
+    assert "## 决策摘要" in markdown
+    assert "流通状态" in markdown
+    assert "风险质量分↑" in markdown
+    assert "来源链路齐备且日期对齐" in markdown
     assert "## 长期研究候选 Top 10" in markdown
     assert "## 多周期共振候选" in markdown
     assert "## 不要误读" in markdown

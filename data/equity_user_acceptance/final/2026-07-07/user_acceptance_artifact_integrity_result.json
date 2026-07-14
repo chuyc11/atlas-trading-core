@@ -1,0 +1,17 @@
+{
+  "target": "final_user_acceptance_artifact_integrity",
+  "as_of_date": "2026-07-07",
+  "artifact_integrity_sweep_passed": true,
+  "final_result_json_exists": true,
+  "final_audit_json_exists": true,
+  "final_audit_markdown_exists": true,
+  "final_owner_dashboard_exists": true,
+  "safety_and_limitations_report_exists": true,
+  "known_limitations_report_exists": true,
+  "external_reviewer_freeze_package_exists": true,
+  "historical_evidence_deleted": false,
+  "audit_evidence_deleted": false,
+  "release_evidence_deleted": false,
+  "required_artifacts_deleted": false,
+  "blocking_reasons": []
+}

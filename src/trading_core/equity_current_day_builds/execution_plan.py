@@ -5,8 +5,8 @@ from __future__ import annotations
 from trading_core.equity_current_day_builds.gated_build_config import (
     TARGET_VERSION,
     TO_WORKFLOW_MODE,
-    WORKFLOW_COMMAND_TEMPLATE,
 )
+from trading_core.system.safe_workflow_command import current_day_workflow_argv, current_day_workflow_display
 
 
 def build_gated_build_execution_plan(
@@ -14,7 +14,8 @@ def build_gated_build_execution_plan(
     as_of_date: str,
     preflight_gate: dict,
 ) -> dict:
-    command = WORKFLOW_COMMAND_TEMPLATE.format(as_of_date=as_of_date)
+    command_argv = current_day_workflow_argv(as_of_date)
+    command = current_day_workflow_display(as_of_date)
 
     commands_allowed = [command]
     commands_forbidden = [
@@ -45,6 +46,7 @@ def build_gated_build_execution_plan(
         "preflight_must_pass": True,
         "preflight_passed": preflight_gate.get("overall_passed", False),
         "workflow_command": command,
+        "workflow_argv": command_argv,
         "workflow_mode": TO_WORKFLOW_MODE,
         "commands_allowed": commands_allowed,
         "commands_forbidden": commands_forbidden,

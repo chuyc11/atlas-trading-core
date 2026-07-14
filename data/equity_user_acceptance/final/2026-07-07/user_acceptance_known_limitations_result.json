@@ -1,0 +1,17 @@
+{
+  "target": "final_user_acceptance_known_limitations",
+  "as_of_date": "2026-07-07",
+  "known_limitations_hidden": false,
+  "known_limitations_section_exists": false,
+  "known_limitations_count": 0,
+  "known_limitations_required_minimum": 20,
+  "known_limitations_enumerated": false,
+  "limitations_are_user_readable": false,
+  "limitations_do_not_function_as_waiver": true,
+  "limitations_do_not_hide_blockers": true,
+  "source_markdown_bullet_lines": 41,
+  "source_markdown_is_key_value_dump": true,
+  "blocking_reasons": [
+    "known_limitations_not_enumerated"
+  ]
+}

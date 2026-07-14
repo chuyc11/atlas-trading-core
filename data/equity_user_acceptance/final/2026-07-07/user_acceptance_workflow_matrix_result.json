@@ -1,0 +1,27 @@
+{
+  "target": "final_user_acceptance_workflow_matrix",
+  "as_of_date": "2026-07-07",
+  "daily_status_workflow_passed": true,
+  "owner_daily_status_exit_success": true,
+  "owner_daily_status_owner_readiness_state": "blocked",
+  "owner_daily_status_owner_operationally_acceptable": false,
+  "owner_daily_status_live_trading_ready": false,
+  "final_dashboard_workflow_passed": true,
+  "dashboard_cli_exit_success": true,
+  "dashboard_cli_output_overall_passed": true,
+  "dashboard_cli_owner_readiness_state": "blocked",
+  "dashboard_cli_live_trading_ready": false,
+  "dashboard_cli_write_side_effects": true,
+  "dashboard_cli_side_effects_quarantined": true,
+  "audit_workflow_passed": true,
+  "audit_cli_exit_success": true,
+  "audit_cli_overall_passed": true,
+  "audit_cli_write_side_effects": true,
+  "audit_cli_side_effects_quarantined": true,
+  "core_user_workflow_passed": false,
+  "blocking_reasons": [
+    "owner_report_unreadable",
+    "known_limitations_not_enumerated",
+    "legacy_forbidden_cli_names_exposed"
+  ]
+}

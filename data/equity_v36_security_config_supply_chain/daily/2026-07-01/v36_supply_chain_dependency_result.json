@@ -3,7 +3,7 @@
   "target_version": "v3.6.0-a-share-platform-security-config-and-supply-chain-hardening",
   "source_version": "v3.5.0-a-share-v3x-quality-closeout-long-horizon-regression-and-external-review-refresh",
   "as_of_date": "2026-07-01",
-  "generated_at": "2026-07-06T15:37:32.722961Z",
+  "generated_at": "2026-07-14T09:54:48.131261Z",
   "baseline_verified": true,
   "artifact_name": "v36_supply_chain_dependency_result",
   "artifact_generated": true,
@@ -63,9 +63,48 @@
   "live_trading_ready": false,
   "silent_scheduler_installed": false,
   "daemon_installed": false,
-  "vulnerability_db_available": false,
-  "vulnerability_db_status": "not_available",
+  "vulnerability_db_available": true,
+  "vulnerability_db_status": "available",
   "dependency_risk_score_is_owner_readiness_score": false,
   "dependency_pass_means_live_trading_ready": false,
-  "public_network_refresh_run": false
+  "public_network_refresh_run": false,
+  "assessment_status": "passed",
+  "security_evidence_path": "data/security_evidence/v36_security_assessment.json",
+  "security_scans": {
+    "config_governance": {
+      "status": "passed",
+      "tool": "bandit+atlas-config-policy",
+      "tool_version": "bandit 1.8.6+atlas-v36-policy-2",
+      "evidence_path": "data/security_evidence/raw/config_governance.json",
+      "evidence_sha256": "c9e0d8203399dbddc7fcac83c00309defa578090c9b82c1485d3a1a5fd547df3"
+    },
+    "dependency_scan": {
+      "status": "passed",
+      "tool": "pip-audit",
+      "tool_version": "pip-audit 2.9.0",
+      "evidence_path": "data/security_evidence/raw/dependency_scan.json",
+      "evidence_sha256": "64081f399105b39fbe01d68b2e066e69510ab64ebe95de7a1dd78014c0335fb1"
+    },
+    "filesystem_path_scan": {
+      "status": "passed",
+      "tool": "atlas-filesystem-path-policy",
+      "tool_version": "atlas-v36-policy-2",
+      "evidence_path": "data/security_evidence/raw/filesystem_path_scan.json",
+      "evidence_sha256": "5e6328d264d756ddd287a809ddca6b2a7086653b046b0ce5ac1626daa6303373"
+    },
+    "network_boundary_scan": {
+      "status": "passed",
+      "tool": "atlas-network-boundary-policy",
+      "tool_version": "atlas-v36-policy-2",
+      "evidence_path": "data/security_evidence/raw/network_boundary_scan.json",
+      "evidence_sha256": "ae4e8af1a9c6b26b3d1a00f3bf31851e4dccf3e6163705874a81501363ae1acd"
+    },
+    "secret_scan": {
+      "status": "passed",
+      "tool": "detect-secrets",
+      "tool_version": "1.5.0",
+      "evidence_path": "data/security_evidence/raw/secret_scan.json",
+      "evidence_sha256": "68eca33f06e495d9ef33fefdf7ce776ea87f4faf1c3a0fc814822557f23b351e"
+    }
+  }
 }
