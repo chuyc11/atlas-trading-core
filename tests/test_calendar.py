@@ -3,15 +3,22 @@ import pytest
 from trading_core.calendar.trading_calendar import calendar_status, is_trading_day, next_trading_day, previous_trading_day, require_a_share_calendar
 
 
-def test_weekday_calendar_fallback_is_explicitly_degraded() -> None:
-    status = calendar_status("2026-06-23", "A_SHARE")
+def test_weekday_calendar_fallback_warns_and_supports_strict_mode(tmp_path) -> None:
+    missing = tmp_path / "missing.csv"
+    status = calendar_status("2026-06-23", "A_SHARE", calendar_path=missing)
     assert status["status"] == "degraded"
     assert "weekday fallback" in status["warning"]
+    with pytest.raises(RuntimeError, match="calendar file unavailable"):
+        is_trading_day("2026-06-23", "A_SHARE", calendar_path=missing, allow_degraded=False)
     with pytest.warns(RuntimeWarning, match="calendar file unavailable"):
-        assert is_trading_day("2026-06-23", "A_SHARE")
-    assert not is_trading_day("2026-06-20", "A_SHARE")
-    assert next_trading_day("2026-06-19") == "2026-06-22"
-    assert previous_trading_day("2026-06-22") == "2026-06-19"
+        assert is_trading_day("2026-06-23", "A_SHARE", calendar_path=missing)
+    assert next_trading_day("2026-06-19", calendar_path=missing) == "2026-06-22"
+    assert previous_trading_day("2026-06-22", calendar_path=missing) == "2026-06-19"
+
+
+def test_default_a_share_calendar_is_discovered_from_project_data() -> None:
+    assert calendar_status("2026-07-16", "A_SHARE")["status"] == "calendar_file"
+    assert is_trading_day("2026-07-16", "A_SHARE")
 
 
 def test_a_share_calendar_uses_external_file_for_holidays(tmp_path) -> None:
@@ -48,3 +55,10 @@ def test_formal_a_share_calendar_gate_accepts_external_calendar(tmp_path) -> Non
     assert result["status"] == "calendar_file"
     assert result["trading_day_count"] == 1
     assert result["closed_day_count"] == 1
+
+
+def test_next_trading_day_fails_when_loaded_calendar_lacks_required_date(tmp_path) -> None:
+    calendar = tmp_path / "a_share_calendar.csv"
+    calendar.write_text("date,is_trading_day\n2026-10-01,false\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="is absent"):
+        next_trading_day("2026-10-01", calendar_path=calendar)

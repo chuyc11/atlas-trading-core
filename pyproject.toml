@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools==81.0.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -16,7 +16,7 @@ dependencies = [
 
 [project.optional-dependencies]
 test = [
-  "pytest>=8",
+  "pytest==9.0.3",
 ]
 
 [project.scripts]
@@ -30,3 +30,6 @@ include = ["trading_core*"]
 addopts = "-q"
 pythonpath = ["src"]
 testpaths = ["tests"]
+filterwarnings = [
+  "ignore:A-share trading calendar file unavailable; using weekday fallback only:RuntimeWarning",
+]

@@ -8,7 +8,7 @@ from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
 
-from trading_core.calendar.trading_calendar import is_trading_day, parse_date
+from trading_core.calendar.trading_calendar import calendar_status, parse_date
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 from trading_core.storage.jsonl_store import write_json
 
@@ -165,7 +165,7 @@ def _summarize_coverage(stats: dict[str, Any], rows_by_symbol: dict[str, list[di
             current = parse_date(rows[0]["date"])
             end = parse_date(rows[-1]["date"])
             while current <= end:
-                if is_trading_day(current, paths=paths) and current.isoformat() not in observed:
+                if calendar_status(current, paths=paths)["is_trading_day"] and current.isoformat() not in observed:
                     missing += 1
                 current += timedelta(days=1)
         stats["missing_trading_days_by_symbol"][symbol] = missing

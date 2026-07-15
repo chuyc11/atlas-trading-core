@@ -18,7 +18,8 @@
 
 ## Current release
 
-v0.9.1-a-share-owner-daily-run-operator-experience-and-known-blocked-state-hardening
+v4.0.0. The milestone list below is retained as historical provenance; the
+v0.9.1 label is not the current package version.
 
 ## Completed milestones
 

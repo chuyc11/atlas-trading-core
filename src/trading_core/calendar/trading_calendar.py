@@ -8,7 +8,7 @@ from typing import Any
 import json
 import warnings
 
-from trading_core.storage.file_paths import ProjectPaths
+from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 
 def parse_date(value: str | Date) -> Date:
@@ -21,9 +21,18 @@ def format_date(value: Date) -> str:
     return value.isoformat()
 
 
-def is_trading_day(date: str | Date, market: str = "A_SHARE", *, paths: ProjectPaths | None = None, calendar_path: Path | str | None = None) -> bool:
+def is_trading_day(
+    date: str | Date,
+    market: str = "A_SHARE",
+    *,
+    paths: ProjectPaths | None = None,
+    calendar_path: Path | str | None = None,
+    allow_degraded: bool = True,
+) -> bool:
     status = calendar_status(date, market=market, paths=paths, calendar_path=calendar_path)
     if status["status"] == "degraded":
+        if not allow_degraded:
+            raise RuntimeError(status["warning"])
         warnings.warn(status["warning"], RuntimeWarning, stacklevel=2)
     return bool(status["is_trading_day"])
 
@@ -38,6 +47,14 @@ def calendar_status(date: str | Date, market: str = "A_SHARE", *, paths: Project
         value = calendar.get(current.isoformat())
         if value is not None:
             return {"date": current.isoformat(), "market": market, "is_trading_day": value, "status": "calendar_file", "warning": None}
+        if calendar and min(calendar) <= current.isoformat() <= max(calendar):
+            return {
+                "date": current.isoformat(),
+                "market": market,
+                "is_trading_day": False,
+                "status": "calendar_file_inferred_closed_date",
+                "warning": None,
+            }
         return {
             "date": current.isoformat(),
             "market": market,
@@ -80,32 +97,56 @@ def require_a_share_calendar(
     }
 
 
-def next_trading_day(date: str | Date, market: str = "A_SHARE", *, paths: ProjectPaths | None = None, calendar_path: Path | str | None = None) -> str:
+def next_trading_day(
+    date: str | Date,
+    market: str = "A_SHARE",
+    *,
+    paths: ProjectPaths | None = None,
+    calendar_path: Path | str | None = None,
+    allow_degraded: bool = True,
+) -> str:
     current = parse_date(date) + timedelta(days=1)
-    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+    for _attempt in range(370):
+        status = calendar_status(current, market=market, paths=paths, calendar_path=calendar_path)
+        if status["status"] == "calendar_file_missing_date":
+            raise ValueError(status["warning"])
+        if is_trading_day(current, market, paths=paths, calendar_path=calendar_path, allow_degraded=allow_degraded):
+            return format_date(current)
         current += timedelta(days=1)
-    return format_date(current)
+    raise ValueError(f"No next trading day found within 370 calendar days after {format_date(parse_date(date))}")
 
 
-def previous_trading_day(date: str | Date, market: str = "A_SHARE", *, paths: ProjectPaths | None = None, calendar_path: Path | str | None = None) -> str:
+def previous_trading_day(
+    date: str | Date,
+    market: str = "A_SHARE",
+    *,
+    paths: ProjectPaths | None = None,
+    calendar_path: Path | str | None = None,
+    allow_degraded: bool = True,
+) -> str:
     current = parse_date(date) - timedelta(days=1)
-    while not is_trading_day(current, market, paths=paths, calendar_path=calendar_path):
+    for _attempt in range(370):
+        status = calendar_status(current, market=market, paths=paths, calendar_path=calendar_path)
+        if status["status"] == "calendar_file_missing_date":
+            raise ValueError(status["warning"])
+        if is_trading_day(current, market, paths=paths, calendar_path=calendar_path, allow_degraded=allow_degraded):
+            return format_date(current)
         current -= timedelta(days=1)
-    return format_date(current)
+    raise ValueError(f"No previous trading day found within 370 calendar days before {format_date(parse_date(date))}")
 
 
 def _load_external_calendar(*, paths: ProjectPaths | None, calendar_path: Path | str | None) -> dict[str, bool] | None:
-    candidates: list[Path] = []
+    candidates: list[Path]
     if calendar_path is not None:
-        candidates.append(Path(calendar_path))
-    if paths is not None:
-        candidates.extend(
-            [
-                paths.data_dir / "equity_universe" / "trading_calendar.parquet",
-                paths.data_dir / "equity_universe" / "trading_calendar.csv",
-                paths.data_dir / "calendar" / "a_share_trading_calendar.json",
-            ]
-        )
+        candidates = [Path(calendar_path)]
+    else:
+        active_paths = paths or project_paths()
+        candidates = [
+            active_paths.data_dir / "equity_universe" / "trading_calendar.json",
+            active_paths.data_dir / "equity_universe" / "trading_calendar.csv",
+            active_paths.data_dir / "equity_universe" / "trading_calendar.parquet",
+            active_paths.data_dir / "calendar" / "a_share_trading_calendar.json",
+        ]
     for candidate in candidates:
         if candidate.exists():
             return _read_calendar_file(candidate)

@@ -30,7 +30,7 @@ def check_consistency(
     errors: list[str] = []
     warnings: list[str] = []
     portfolio = read_json(paths.dated_json("portfolios", "portfolio", date), default={})
-    previous = read_json(paths.dated_json("portfolios", "portfolio", previous_trading_day(date)), default=None)
+    previous = read_json(paths.dated_json("portfolios", "portfolio", previous_trading_day(date, paths=paths)), default=None)
     orders = read_jsonl(paths.dated_jsonl("orders", "orders", date))
     trades = read_jsonl(paths.dated_jsonl("trades", "trades", date))
     signals = read_jsonl(paths.dated_jsonl("signals", "trading_signals", date))
@@ -87,7 +87,7 @@ def check_consistency_range(
         return check_backtest_consistency_range(start_date, end_date, artifact_dir, paths, tolerance)
     if normalized_mode != "daily":
         raise ValueError(f"Unsupported consistency mode: {mode}")
-    results = [check_consistency(day, paths, tolerance) for day in date_range(start_date, end_date)]
+    results = [check_consistency(day, paths, tolerance) for day in date_range(start_date, end_date, paths)]
     payload = {
         "mode": "daily",
         "start_date": start_date,
