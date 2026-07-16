@@ -44,6 +44,12 @@ jobs:
           tests/test_a_share_build_repeatability_execution_record.py
           tests/test_a_share_v36_secret_scan.py
           tests/test_a_share_v36_supply_chain.py
+          tests/test_calendar.py
+          tests/test_consistency_checker.py
+          tests/test_backtest_consistency_checker.py
+          tests/test_data_package_validator.py
+          tests/test_file_paths.py
+          tests/test_v36_evidence_policy.py
 
   dependency-and-static-security:
     runs-on: ubuntu-latest

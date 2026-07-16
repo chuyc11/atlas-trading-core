@@ -36,6 +36,7 @@ PUBLIC_NETWORK_HOSTS = {
     "quote.eastmoney.com",
     "query1.finance.yahoo.com",
     "data.eastmoney.com",
+    "www.sse.com.cn",
 }
 CONFIG_SUFFIXES = {".json", ".toml", ".yaml", ".yml", ".ini", ".env"}
 UNSAFE_CONFIG_PATTERNS = {
