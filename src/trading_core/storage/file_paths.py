@@ -11,16 +11,20 @@ def find_workspace_root(start: Path | None = None) -> Path:
     for candidate in [start, *start.parents]:
         if (candidate / "work" / "trading-core").exists():
             return candidate
-    return Path(__file__).resolve().parents[4]
+    for candidate in [start, *start.parents]:
+        if (candidate / "pyproject.toml").is_file() and (candidate / "src" / "trading_core").is_dir():
+            return candidate
+    raise FileNotFoundError(f"unable to discover trading-core workspace from {start}")
 
 
 @dataclass(frozen=True)
 class ProjectPaths:
     workspace_root: Path
+    project_root_override: Path | None = None
 
     @property
     def project_root(self) -> Path:
-        return self.workspace_root / "work" / "trading-core"
+        return (self.project_root_override or self.workspace_root / "work" / "trading-core").resolve()
 
     @property
     def data_dir(self) -> Path:
@@ -45,7 +49,9 @@ class ProjectPaths:
 
 
 def project_paths(workspace_root: Path | None = None) -> ProjectPaths:
-    return ProjectPaths((workspace_root or find_workspace_root()).resolve())
+    root = (workspace_root or find_workspace_root()).resolve()
+    standalone = root if (root / "pyproject.toml").is_file() and (root / "src" / "trading_core").is_dir() else None
+    return ProjectPaths(root, standalone)
 
 
 def ensure_project_dirs(paths: ProjectPaths) -> None:
