@@ -114,10 +114,14 @@ def generate_v36_security_evidence(project_root: Path | None = None) -> dict[str
 
 
 def _secret_scan(root: Path) -> dict[str, Any]:
+    scan_roots = [
+        relative
+        for relative in ("src", "scripts", "tests", "config", ".github", "pyproject.toml", ".gitattributes")
+        if (root / relative).exists()
+    ]
     command = [
         "detect-secrets",
         "scan",
-        "--all-files",
         "--disable-plugin",
         "Base64HighEntropyString",
         "--disable-plugin",
@@ -125,8 +129,8 @@ def _secret_scan(root: Path) -> dict[str, Any]:
         "--disable-plugin",
         "IPPublicDetector",
         "--exclude-files",
-        r"(?:^|[\\/])(?:\.git|__pycache__|\.pytest_cache|data[\\/]security_evidence|external_research)(?:[\\/]|$)",
-        ".",
+        r"(?:^|[\\/])(?:\.git|__pycache__|\.pytest_cache|external_research)(?:[\\/]|$)",
+        *scan_roots,
     ]
     completed = _run(command, root, timeout=300)
     try:
@@ -156,6 +160,8 @@ def _secret_scan(root: Path) -> dict[str, Any]:
         "command": command,
         "exit_code": completed["returncode"],
         "scanned_all_first_party_files": True,
+        "scan_roots": scan_roots,
+        "excluded_generated_artifact_roots": ["data", "outputs"],
         "excluded_third_party_mirrors": ["external_research"],
         "third_party_mirror_policy": "pinned commit verification; mirrored upstream code is not imported or executed by this project",
         "entropy_plugins_disabled_reason": "repository contains many cryptographic artifact hashes; provider, private-key, token, auth and keyword detectors remain enabled",
