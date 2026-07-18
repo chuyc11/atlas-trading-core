@@ -1,3 +1,4 @@
+from a_share_release_chain_test_utils import record_test_full_pytest_evidence
 from a_share_v3x_release_test_utils import AS_OF_DATE, build_through, make_v3x_paths
 
 
@@ -6,6 +7,7 @@ def test_v40_cli_build_audit_and_component_commands(tmp_path, monkeypatch, capsy
 
     paths = make_v3x_paths(tmp_path)
     build_through(paths, "v39")
+    record_test_full_pytest_evidence(paths)
     monkeypatch.setattr(cli, "project_paths", lambda: paths)
 
     assert cli.main(["build-a-share-v40-final-maintenance-closeout", "--as-of-date", AS_OF_DATE, "--simulation-only"]) == 0

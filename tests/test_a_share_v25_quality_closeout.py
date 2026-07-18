@@ -15,6 +15,7 @@ def test_v25_quality_closeout_full_regression_flags_and_safety(tmp_path: Path) -
     assert result["full_regression_evidence_generated"] is True
     assert result["full_pytest_run"] is True
     assert result["full_pytest_passed"] is True
+    assert result["full_pytest_evidence_status"] == "verified"
     assert result["fabricated_test_result"] is False
     assert result["live_trading_ready"] is False
     assert len(spec["json_names"]) == 12

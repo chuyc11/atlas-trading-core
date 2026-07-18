@@ -18,6 +18,19 @@ DEFAULT_AS_OF_DATE = "2026-07-01"
 SOURCE_READINESS_SCORE = 54
 MINIMUM_OWNER_READINESS_SCORE = 75
 SCORE_GAP = 21
+FULL_PYTEST_EVIDENCE_RELATIVE_PATH = Path("data/equity_release_evidence/full_pytest_evidence.json")
+FULL_PYTEST_SUMMARY_RELATIVE_PATH = Path("data/equity_release_evidence/full_pytest_summary.txt")
+FULL_PYTEST_EVIDENCE_SCHEMA_VERSION = 1
+# These flags describe an externally executed test run.  They must never be
+# populated by a release builder merely because a release spec lists them as a
+# required field.  The v3.x names are historical aliases for the same full
+# repository pytest evidence and are kept in lockstep below.
+EVIDENCE_DERIVED_TRUE_FIELDS = {
+    "full_pytest_run",
+    "full_pytest_passed",
+    "full_regression_run",
+    "full_regression_passed",
+}
 V36_EVIDENCE_RELATIVE_PATH = Path("data/security_evidence/v36_security_assessment.json")
 V36_REQUIRED_SCANS = {
     "secret_scan",
@@ -61,6 +74,7 @@ def run_release_artifacts(
         write_json(artifacts[spec["result_name"]], result)
         return result
 
+    pytest_evidence = _load_full_pytest_evidence(paths, spec)
     security_assessment = _load_v36_security_assessment(paths) if spec["key"] == "v36" else None
     payloads: dict[str, dict[str, Any]] = {}
     for name in spec["json_names"]:
@@ -68,7 +82,7 @@ def run_release_artifacts(
             continue
         if name == spec["result_name"]:
             continue
-        payloads[name] = _component_payload(spec, name, as_of_date, generated_at, baseline)
+        payloads[name] = _component_payload(spec, name, as_of_date, generated_at, baseline, pytest_evidence)
     if security_assessment is not None:
         _apply_v36_component_assessment(payloads, security_assessment)
 
@@ -83,7 +97,6 @@ def run_release_artifacts(
         }
     )
     result = _result_payload(
-        paths,
         spec,
         as_of_date,
         baseline,
@@ -91,6 +104,7 @@ def run_release_artifacts(
         integrity,
         protected,
         safety,
+        pytest_evidence,
         security_assessment=security_assessment,
     )
     payloads[spec["result_name"]] = result
@@ -103,7 +117,7 @@ def run_release_artifacts(
     for name, payload in payloads.items():
         write_json(artifacts[name], payload)
     _write_markdowns(spec, artifacts, payloads, result)
-    manifest = _manifest(paths, spec, artifacts, as_of_date, generated_at, result)
+    manifest = _manifest(paths, spec, artifacts, as_of_date, generated_at, result, pytest_evidence)
     write_json(artifacts[spec["manifest_name"]], manifest)
     return result
 
@@ -116,6 +130,8 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
     result = payloads[spec["result_name"]]
     markdowns = [output_dir / name for name in spec["markdown_names"]]
     blocking: list[str] = []
+    manifest_check = _verify_release_manifest(paths, spec, as_of_date)
+    pytest_evidence = _load_full_pytest_evidence(paths, spec)
 
     blocking.extend(name for name, payload in payloads.items() if not payload)
     if not all(path.exists() for path in markdowns):
@@ -126,6 +142,14 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
         blocking.append("result_not_passed")
     if result.get("blocking_reasons") != []:
         blocking.append("result_blocking_reasons_not_empty")
+    if not manifest_check["passed"]:
+        blocking.extend(manifest_check["blocking_reasons"])
+    if spec["full_pytest_required"]:
+        verified_evidence_fields = _full_pytest_result_fields(pytest_evidence)
+        for field in sorted(EVIDENCE_DERIVED_TRUE_FIELDS.intersection(spec["required_true"])):
+            if result.get(field) is not verified_evidence_fields[field]:
+                blocking.append(f"{field}_does_not_match_verified_evidence")
+        blocking.extend(pytest_evidence["blocking_reasons"])
     for key in spec["required_true"]:
         if result.get(key) is not True:
             blocking.append(f"required_true_missing:{key}")
@@ -165,6 +189,8 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
             "json_budget_passed": len(spec["json_names"]) <= 28,
             "markdown_budget_passed": len(spec["markdown_names"]) <= 8,
             "audit_markdown_budget_passed": True,
+            "manifest_integrity_passed": manifest_check["passed"],
+            "manifest_record_count": manifest_check["record_count"],
         },
         "quality_checks": {key: result.get(key) for key in spec["required_true"]},
         "forbidden_checks": {key: result.get(key) for key in spec["required_false"] + list(BOUNDARY_FALSE)},
@@ -173,6 +199,8 @@ def audit_release_artifacts(*, spec: dict[str, Any], as_of_date: str = DEFAULT_A
         "live_trading_ready": result.get("live_trading_ready"),
         "full_pytest_run": result.get("full_pytest_run"),
         "full_pytest_passed": result.get("full_pytest_passed"),
+        "full_pytest_evidence": _full_pytest_result_fields(pytest_evidence),
+        "manifest_integrity": manifest_check,
         "targeted_pytest_required": result.get("targeted_pytest_required"),
         "release_readiness_decision": "passed" if not blocking else "blocked",
         "recommended_next_version": spec["recommended_next_version"],
@@ -232,7 +260,14 @@ def _release_semver(value: str) -> tuple[int, int, int] | None:
     return tuple(int(part) for part in match.groups())
 
 
-def _component_payload(spec: dict[str, Any], name: str, as_of_date: str, generated_at: str, baseline: dict[str, Any]) -> dict[str, Any]:
+def _component_payload(
+    spec: dict[str, Any],
+    name: str,
+    as_of_date: str,
+    generated_at: str,
+    baseline: dict[str, Any],
+    pytest_evidence: dict[str, Any],
+) -> dict[str, Any]:
     payload = {
         "artifact_id": name.upper().replace("_", "-"),
         "target_version": spec["target_version"],
@@ -259,17 +294,15 @@ def _component_payload(spec: dict[str, Any], name: str, as_of_date: str, generat
         if key.endswith("_generated") and _matches_generated_field(name, key):
             payload[key] = True
     if "full_regression" in name:
-        payload["full_pytest_run"] = spec["full_pytest_required"]
-        payload["full_pytest_passed"] = spec["full_pytest_required"]
+        payload.update(_full_pytest_result_fields(pytest_evidence))
         payload["full_pytest_command"] = "python -m pytest"
-        payload["full_pytest_evidence_note"] = "Recorded from release-turn command evidence; not a substitute for rerunning tests after code changes."
+        payload["full_pytest_evidence_note"] = "Derived from a verified full-repository pytest evidence record bound to the current source tree."
     if spec.get("regression_artifact_name") == name:
-        payload.update(_v35_regression_defaults())
+        payload.update(_full_regression_fields(spec, pytest_evidence))
     return payload
 
 
 def _result_payload(
-    paths: ProjectPaths,
     spec: dict[str, Any],
     as_of_date: str,
     baseline: dict[str, Any],
@@ -277,6 +310,7 @@ def _result_payload(
     integrity: dict[str, Any],
     protected: dict[str, Any],
     safety: dict[str, Any],
+    pytest_evidence: dict[str, Any],
     security_assessment: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     result = {
@@ -302,12 +336,12 @@ def _result_payload(
     }
     result[_baseline_field(spec)] = baseline["overall_passed"]
     for key in spec["required_true"]:
-        result[key] = True
+        if key not in EVIDENCE_DERIVED_TRUE_FIELDS:
+            result[key] = True
     for key in spec["required_false"]:
         if spec["key"] != "v36" or key not in V36_OBSERVATION_FIELDS:
             result[key] = False
-    result["full_pytest_run"] = spec["full_pytest_required"]
-    result["full_pytest_passed"] = spec["full_pytest_required"] if spec["full_pytest_required"] else result.get("full_pytest_passed", False)
+    result.update(_full_pytest_result_fields(pytest_evidence))
     if not spec["full_pytest_required"]:
         result["targeted_pytest_required"] = True
         result["full_pytest_deferred_until"] = "v3.0.0-final-closeout"
@@ -316,7 +350,8 @@ def _result_payload(
     if spec.get("freeze_decision"):
         result["freeze_decision"] = spec["freeze_decision"]
     result.update(spec.get("extra_result_fields", {}))
-    result.update(_v35_regression_fields(paths=paths, spec=spec, as_of_date=as_of_date) if spec.get("regression_artifact_name") else {})
+    if spec.get("regression_artifact_name"):
+        result.update(_full_regression_fields(spec, pytest_evidence))
     if security_assessment is not None:
         result.update(
             {
@@ -335,6 +370,7 @@ def _result_payload(
         blocking.extend(item.get("blocking_reasons", []))
     if security_assessment is not None:
         blocking.extend(security_assessment.get("blocking_reasons", []))
+    blocking.extend(pytest_evidence.get("blocking_reasons", []))
     blocking.extend(key for key in spec["required_true"] if result.get(key) is not True)
     blocking.extend(key for key in spec["required_false"] if result.get(key) is not False)
     result["blocking_reasons"] = blocking
@@ -345,17 +381,234 @@ def _result_payload(
 def _field_defaults(spec: dict[str, Any]) -> dict[str, Any]:
     defaults: dict[str, Any] = {}
     for key in spec["required_true"]:
-        defaults[key] = True
+        defaults[key] = False if key in EVIDENCE_DERIVED_TRUE_FIELDS else True
     for key in spec["required_false"]:
         defaults[key] = None if spec["key"] == "v36" and key in V36_OBSERVATION_FIELDS else False
     defaults[_baseline_field(spec)] = True
-    defaults["full_pytest_run"] = spec["full_pytest_required"]
-    defaults["full_pytest_passed"] = spec["full_pytest_required"]
+    # A release artifact must never create its own full-test pass assertion.
+    # These values are replaced only with independently recorded, verified
+    # pytest evidence in _result_payload.
+    defaults["full_pytest_run"] = False
+    defaults["full_pytest_passed"] = False
     defaults["targeted_pytest_required"] = not spec["full_pytest_required"]
     if not spec["full_pytest_required"]:
         defaults["full_pytest_deferred_until"] = spec.get("full_pytest_deferred_until", "v3.0.0-final-closeout")
     defaults.update(spec.get("extra_result_fields", {}))
     return defaults
+
+
+def record_full_pytest_evidence(
+    *,
+    paths: ProjectPaths | None = None,
+    timeout_seconds: int = 3600,
+) -> dict[str, Any]:
+    """Run the full repository suite and write evidence for release gates.
+
+    Release builders deliberately do not execute pytest themselves: doing so
+    from inside pytest would recursively invoke the test suite, and a release
+    build must not replace a real CI/test command.  This explicit operation is
+    the only producer of a ``full_pytest_passed`` assertion.
+    """
+
+    if timeout_seconds <= 0:
+        raise ValueError("timeout_seconds must be positive")
+    paths = paths or project_paths()
+    project_root = paths.project_root
+    command = [sys.executable, "-m", "pytest"]
+    completed = True
+    try:
+        run = subprocess.run(
+            command,
+            cwd=project_root,
+            text=True,
+            capture_output=True,
+            check=False,
+            timeout=timeout_seconds,
+        )
+        returncode: int | None = run.returncode
+        stdout = run.stdout
+    except subprocess.TimeoutExpired as exc:
+        completed = False
+        returncode = None
+        stdout = _as_text(exc.stdout)
+    except OSError:
+        # A missing interpreter/pytest executable is evidence of an
+        # incomplete run, not a reason to let the release command bypass the
+        # evidence gate with an uncaught exception.
+        completed = False
+        returncode = None
+        stdout = ""
+
+    evidence_path = project_root / FULL_PYTEST_EVIDENCE_RELATIVE_PATH
+    # Do not archive arbitrary pytest stdout/stderr: a failed test can echo
+    # credentials or other sensitive fixture values.  Persist only a compact
+    # pass/fail summary, and keep full diagnostics in the invoking CI log.
+    summary_path = project_root / FULL_PYTEST_SUMMARY_RELATIVE_PATH
+    summary_path.parent.mkdir(parents=True, exist_ok=True)
+    summary_path.write_text(_pytest_evidence_summary(stdout, completed and returncode == 0), encoding="utf-8")
+    payload = {
+        "schema_version": FULL_PYTEST_EVIDENCE_SCHEMA_VERSION,
+        "evidence_kind": "python_module_pytest_full_repository",
+        "generated_at": utc_now(),
+        "command": command,
+        "full_pytest_run": completed,
+        "full_pytest_passed": completed and returncode == 0,
+        "returncode": returncode,
+        "timeout_seconds": timeout_seconds,
+        "source_tree_sha256": _source_tree_sha256(project_root),
+        "git_commit": _git_head(project_root),
+        "summary_path": FULL_PYTEST_SUMMARY_RELATIVE_PATH.as_posix(),
+        "summary_sha256": sha256_file(summary_path),
+    }
+    write_json(evidence_path, payload)
+    return {**payload, "evidence_path": str(evidence_path)}
+
+
+def _load_full_pytest_evidence(paths: ProjectPaths, spec: dict[str, Any]) -> dict[str, Any]:
+    """Load and validate pytest evidence against the current source tree."""
+
+    if not spec["full_pytest_required"]:
+        return {
+            "status": "not_required",
+            "full_pytest_run": False,
+            "full_pytest_passed": False,
+            "evidence_path": FULL_PYTEST_EVIDENCE_RELATIVE_PATH.as_posix(),
+            "blocking_reasons": [],
+        }
+
+    project_root = paths.project_root
+    evidence_path = project_root / FULL_PYTEST_EVIDENCE_RELATIVE_PATH
+    payload = read_json(evidence_path)
+    if not payload:
+        return {
+            "status": "missing",
+            "full_pytest_run": False,
+            "full_pytest_passed": False,
+            "evidence_path": FULL_PYTEST_EVIDENCE_RELATIVE_PATH.as_posix(),
+            "blocking_reasons": ["full_pytest_evidence_missing"],
+        }
+
+    blocking: list[str] = []
+    if payload.get("schema_version") != FULL_PYTEST_EVIDENCE_SCHEMA_VERSION:
+        blocking.append("full_pytest_evidence_schema_invalid")
+    if payload.get("evidence_kind") != "python_module_pytest_full_repository":
+        blocking.append("full_pytest_evidence_kind_invalid")
+    command = payload.get("command")
+    if not isinstance(command, list) or len(command) != 3 or command[1:] != ["-m", "pytest"]:
+        blocking.append("full_pytest_evidence_command_not_full_repository_pytest")
+    if payload.get("full_pytest_run") is not True:
+        blocking.append("full_pytest_not_completed")
+    if payload.get("returncode") != 0:
+        blocking.append("full_pytest_returncode_nonzero")
+    if payload.get("full_pytest_passed") is not True:
+        blocking.append("full_pytest_not_passed")
+    if payload.get("source_tree_sha256") != _source_tree_sha256(project_root):
+        blocking.append("full_pytest_evidence_source_tree_stale")
+    recorded_commit = str(payload.get("git_commit") or "")
+    current_commit = _git_head(project_root)
+    if recorded_commit and current_commit and recorded_commit != current_commit:
+        blocking.append("full_pytest_evidence_git_commit_stale")
+    _validate_evidence_file(
+        project_root,
+        str(payload.get("summary_path") or ""),
+        str(payload.get("summary_sha256") or ""),
+        "summary",
+        blocking,
+    )
+
+    return {
+        "status": "verified" if not blocking else "invalid",
+        "full_pytest_run": payload.get("full_pytest_run") is True,
+        "full_pytest_passed": not blocking and payload.get("full_pytest_passed") is True,
+        "evidence_path": FULL_PYTEST_EVIDENCE_RELATIVE_PATH.as_posix(),
+        "source_tree_sha256": payload.get("source_tree_sha256"),
+        "git_commit": recorded_commit or None,
+        "blocking_reasons": sorted(set(blocking)),
+    }
+
+
+def _full_pytest_result_fields(evidence: dict[str, Any]) -> dict[str, Any]:
+    full_pytest_run = evidence.get("full_pytest_run") is True
+    full_pytest_passed = evidence.get("full_pytest_passed") is True
+    return {
+        "full_pytest_run": full_pytest_run,
+        "full_pytest_passed": full_pytest_passed,
+        # v3.5/v4.0 labelled their full-suite claim as "full_regression".
+        # It is the same claim and must be derived from the same verified
+        # evidence, rather than from a release-spec default.
+        "full_regression_run": full_pytest_run,
+        "full_regression_passed": full_pytest_passed,
+        "full_pytest_evidence_status": evidence.get("status", "missing"),
+        "full_pytest_evidence_path": evidence.get("evidence_path", FULL_PYTEST_EVIDENCE_RELATIVE_PATH.as_posix()),
+        "full_pytest_evidence_blocking_reasons": list(evidence.get("blocking_reasons", [])),
+    }
+
+
+def _validate_evidence_file(
+    project_root: Path,
+    relative: str,
+    expected_hash: str,
+    label: str,
+    blocking: list[str],
+) -> None:
+    candidate = (project_root / relative).resolve()
+    try:
+        candidate.relative_to(project_root.resolve())
+    except ValueError:
+        blocking.append(f"full_pytest_evidence_{label}_outside_project")
+        return
+    if not candidate.is_file():
+        blocking.append(f"full_pytest_evidence_{label}_missing")
+        return
+    if len(expected_hash) != 64 or sha256_file(candidate).lower() != expected_hash.lower():
+        blocking.append(f"full_pytest_evidence_{label}_hash_mismatch")
+
+
+def _source_tree_sha256(project_root: Path) -> str:
+    """Fingerprint executable source, tests, and runtime configuration."""
+
+    candidates: list[Path] = []
+    for name in ("src", "tests", "config"):
+        root = project_root / name
+        if root.is_dir():
+            candidates.extend(path for path in root.rglob("*") if path.is_file() and "__pycache__" not in path.parts)
+    for name in ("pyproject.toml", "VERSION"):
+        path = project_root / name
+        if path.is_file():
+            candidates.append(path)
+    digest = hashlib.sha256()
+    for path in sorted(set(candidates), key=lambda item: item.as_posix()):
+        relative = _rel(path, project_root)
+        digest.update(relative.encode("utf-8"))
+        digest.update(b"\0")
+        digest.update(sha256_file(path).encode("ascii"))
+        digest.update(b"\n")
+    return digest.hexdigest()
+
+
+def _git_head(project_root: Path) -> str | None:
+    if not (project_root / ".git").exists():
+        return None
+    result = _run(["git", "rev-parse", "HEAD"], project_root)
+    return result["stdout"].strip() if result.get("returncode") == 0 else None
+
+
+def _as_text(value: str | bytes | None) -> str:
+    if value is None:
+        return ""
+    if isinstance(value, bytes):
+        return value.decode("utf-8", errors="replace")
+    return value
+
+
+def _pytest_evidence_summary(stdout: str, passed: bool) -> str:
+    if not passed:
+        return "pytest did not complete successfully; full diagnostic output is retained only by the invoking process.\n"
+    for line in reversed(stdout.splitlines()):
+        normalized = line.strip()
+        if "passed" in normalized.lower():
+            return normalized + "\n"
+    return "pytest completed with returncode=0; no textual summary was emitted.\n"
 
 
 def _load_v36_security_assessment(paths: ProjectPaths) -> dict[str, Any]:
@@ -609,10 +862,77 @@ def _safety_sweep(spec: dict[str, Any], as_of_date: str, payloads: dict[str, dic
     }
 
 
-def _manifest(paths: ProjectPaths, spec: dict[str, Any], artifacts: dict[str, Path], as_of_date: str, generated_at: str, result: dict[str, Any]) -> dict[str, Any]:
+def _verify_release_manifest(paths: ProjectPaths, spec: dict[str, Any], as_of_date: str) -> dict[str, Any]:
+    """Recompute every manifest hash before treating a release audit as valid."""
+
+    artifacts = _artifact_paths(paths, spec, as_of_date)
+    manifest_path = artifacts[spec["manifest_name"]]
+    manifest = read_json(manifest_path)
+    blocking: list[str] = []
+    if not manifest:
+        return {"passed": False, "record_count": 0, "blocking_reasons": ["manifest_missing_or_invalid"]}
+    if manifest.get("target_version") != spec["target_version"]:
+        blocking.append("manifest_target_version_mismatch")
+    if manifest.get("as_of_date") != as_of_date:
+        blocking.append("manifest_as_of_date_mismatch")
+    records = manifest.get("artifact_records")
+    if not isinstance(records, list):
+        return {"passed": False, "record_count": 0, "blocking_reasons": [*blocking, "manifest_artifact_records_invalid"]}
+
+    expected = {name: path for name, path in artifacts.items() if name != spec["manifest_name"]}
+    record_by_name: dict[str, dict[str, Any]] = {}
+    for record in records:
+        if not isinstance(record, dict) or not isinstance(record.get("name"), str):
+            blocking.append("manifest_record_invalid")
+            continue
+        name = record["name"]
+        if name in record_by_name:
+            blocking.append(f"manifest_duplicate_record:{name}")
+            continue
+        record_by_name[name] = record
+    missing_records = sorted(set(expected) - set(record_by_name))
+    unexpected_records = sorted(set(record_by_name) - set(expected))
+    blocking.extend(f"manifest_record_missing:{name}" for name in missing_records)
+    blocking.extend(f"manifest_record_unexpected:{name}" for name in unexpected_records)
+
+    for name, expected_path in expected.items():
+        record = record_by_name.get(name)
+        if record is None:
+            continue
+        expected_relative = _rel(expected_path, paths.project_root)
+        if record.get("path") != expected_relative:
+            blocking.append(f"manifest_record_path_mismatch:{name}")
+            continue
+        if not expected_path.is_file():
+            blocking.append(f"manifest_artifact_missing:{name}")
+            continue
+        expected_hash = str(record.get("sha256") or "")
+        if len(expected_hash) != 64 or sha256_file(expected_path).lower() != expected_hash.lower():
+            blocking.append(f"manifest_sha256_mismatch:{name}")
+        if record.get("size_bytes") != expected_path.stat().st_size:
+            blocking.append(f"manifest_size_mismatch:{name}")
+    return {
+        "passed": not blocking,
+        "record_count": len(records),
+        "blocking_reasons": sorted(set(blocking)),
+    }
+
+
+def _manifest(
+    paths: ProjectPaths,
+    spec: dict[str, Any],
+    artifacts: dict[str, Path],
+    as_of_date: str,
+    generated_at: str,
+    result: dict[str, Any],
+    pytest_evidence: dict[str, Any],
+) -> dict[str, Any]:
     records = []
     for name, path in sorted(artifacts.items()):
-        if path.exists():
+        # A manifest cannot attest to its own bytes.  Including an existing
+        # manifest on a rebuild creates a self-referential stale record and
+        # makes the otherwise unchanged rerun fail verification.
+        if name != spec["manifest_name"] and path.exists():
             records.append({"name": name, "path": _rel(path, paths.project_root), "sha256": sha256_file(path), "size_bytes": path.stat().st_size})
     return {
         "manifest_id": spec["manifest_name"].upper().replace("_", "-"),
@@ -627,6 +947,7 @@ def _manifest(paths: ProjectPaths, spec: dict[str, Any], artifacts: dict[str, Pa
         "blocking_reasons": [],
         "warnings": [],
         **_field_defaults(spec),
+        **_full_pytest_result_fields(pytest_evidence),
         **BOUNDARY_TRUE,
         **BOUNDARY_FALSE,
     }
@@ -691,6 +1012,8 @@ def _write_audit_report(path: Path, audit: dict[str, Any]) -> None:
         f"- live_trading_ready: {audit['live_trading_ready']}",
         f"- full_pytest_run: {audit['full_pytest_run']}",
         f"- full_pytest_passed: {audit['full_pytest_passed']}",
+        f"- full_pytest_evidence_status: {audit['full_pytest_evidence']['full_pytest_evidence_status']}",
+        f"- manifest_integrity_passed: {audit['manifest_integrity']['passed']}",
         "",
         "## Artifact Checks",
         *[f"- {key}: {value}" for key, value in audit["artifact_checks"].items()],
@@ -749,39 +1072,30 @@ def _baseline_field(spec: dict[str, Any]) -> str:
     return "source_baseline_verified"
 
 
-def _v35_regression_defaults() -> dict[str, Any]:
-    return {
-        "full_regression_mode": "split_matrix",
-        "single_command_pytest_completed": False,
-        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": True,
-        "single_command_limitation": "single_command_pytest_completed=false; split-matrix regression is required for v3.5.0 on this local Windows workflow.",
-    }
+def _full_regression_fields(spec: dict[str, Any], pytest_evidence: dict[str, Any]) -> dict[str, Any]:
+    """Describe v3.5/v4.0 regression status from full-suite evidence only.
 
+    Older artifacts used a static ``split_matrix`` record and optional seed
+    file, which could state that a regression had passed without executing any
+    test.  A release now needs the explicit full-repository pytest evidence
+    generated by :func:`record_full_pytest_evidence`.
+    """
 
-def _v35_regression_fields(*, paths: ProjectPaths, spec: dict[str, Any], as_of_date: str) -> dict[str, Any]:
-    fields = _v35_regression_defaults()
+    result_fields = _full_pytest_result_fields(pytest_evidence)
     release_label = spec["target_version"].split("-", 1)[0]
-    fields["single_command_limitation"] = (
-        f"single_command_pytest_completed=false; split-matrix regression is required for {release_label} on this local Windows workflow."
-    )
-    seed_name = spec.get("regression_seed_name", "v35_regression_seed")
-    seed = read_json(paths.data_dir / spec["package_dir"] / "daily" / as_of_date / f"{seed_name}.json")
-    if seed:
-        fields.update(
-            {
-                "full_regression_total_passed": seed.get("total_passed", 0),
-                "full_regression_total_skipped": seed.get("total_skipped", 0),
-                "full_regression_total_failed": seed.get("total_failed", 0),
-                "full_regression_command_chunks": seed.get("command_chunks", []),
-                "full_regression_environment_limitation": seed.get("environment_limitation"),
-                "full_regression_split_matrix_reason": seed.get("split_matrix_reason"),
-                "single_command_pytest_completed": seed.get("single_command_pytest_completed", False),
-                "single_command_pytest_blocked_by_local_timeout_or_windows_limit": seed.get(
-                    "single_command_pytest_blocked_by_local_timeout_or_windows_limit", True
-                ),
-            }
-        )
-    return fields
+    completed = result_fields["full_pytest_run"]
+    passed = result_fields["full_pytest_passed"]
+    return {
+        "full_regression_run": completed,
+        "full_regression_passed": passed,
+        "full_regression_mode": "full_repository_pytest",
+        "single_command_pytest_completed": completed,
+        "single_command_pytest_blocked_by_local_timeout_or_windows_limit": not completed,
+        "single_command_limitation": (
+            f"Full-repository pytest evidence is required for {release_label}; "
+            "missing, timed-out, failed, or stale evidence blocks the release."
+        ),
+    }
 
 
 def _artifact_name_containing(spec: dict[str, Any], token: str) -> str:

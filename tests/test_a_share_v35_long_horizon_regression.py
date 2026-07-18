@@ -10,5 +10,6 @@ def test_v35_long_horizon_regression_is_split_matrix(tmp_path):
     assert result["long_horizon_regression_evidence_generated"] is True
     assert result["full_regression_run"] is True
     assert result["full_regression_passed"] is True
-    assert result["full_regression_mode"] == "split_matrix"
-    assert evidence["full_regression_mode"] == "split_matrix"
+    assert result["full_regression_mode"] == "full_repository_pytest"
+    assert evidence["full_regression_mode"] == "full_repository_pytest"
+    assert result["full_pytest_evidence_status"] == "verified"

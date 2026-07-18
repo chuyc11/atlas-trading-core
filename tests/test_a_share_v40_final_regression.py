@@ -9,4 +9,5 @@ def test_v40_final_regression_defaults_to_split_matrix(tmp_path):
     assert result["final_regression_evidence_generated"] is True
     assert result["full_regression_run"] is True
     assert result["full_regression_passed"] is True
-    assert result["full_regression_mode"] == "split_matrix"
+    assert result["full_regression_mode"] == "full_repository_pytest"
+    assert result["full_pytest_evidence_status"] == "verified"

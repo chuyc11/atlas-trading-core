@@ -7,6 +7,7 @@ from pathlib import Path
 from trading_core.equity_release_chain import audit_release_artifacts, run_release_artifacts, spec_by_key
 from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE
 from trading_core.storage.file_paths import ProjectPaths
+from a_share_release_chain_test_utils import record_test_full_pytest_evidence
 
 AS_OF_DATE = "2026-07-01"
 V31_VERSION = "v3.1.0-a-share-post-v3-verification-reproducibility-and-external-audit-readiness-hardening"
@@ -43,6 +44,12 @@ def build_through(paths: ProjectPaths, key: str) -> dict:
     for item in order[: order.index(key) + 1]:
         spec = spec_by_key(item)
         (paths.project_root / "VERSION").write_text(spec["source_version"], encoding="utf-8")
+        if spec["full_pytest_required"]:
+            # The synthetic fixture has no real repository suite, so use the
+            # shared test-only producer.  Production builds cannot reach this
+            # helper and fail closed when evidence is absent or stale.
+            (paths.project_root / "VERSION").write_text(spec["target_version"], encoding="utf-8")
+            record_test_full_pytest_evidence(paths)
         result = run_release_artifacts(spec, as_of_date=AS_OF_DATE, simulation_only=True, paths=paths)
         assert result["overall_passed"] is True
         audit = audit_release_artifacts(spec=spec, as_of_date=AS_OF_DATE, paths=paths)

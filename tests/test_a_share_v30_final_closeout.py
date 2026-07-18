@@ -16,6 +16,7 @@ def test_v30_final_closeout_is_research_only_release_not_live_trading(tmp_path: 
     assert result["full_regression_evidence_generated"] is True
     assert result["full_pytest_run"] is True
     assert result["full_pytest_passed"] is True
+    assert result["full_pytest_evidence_status"] == "verified"
     assert result["fabricated_release_evidence"] is False
     assert result["fabricated_capability_claim"] is False
     assert result["live_trading_ready"] is False

@@ -97,6 +97,8 @@ def replay_dry_run(
     paths = paths or project_paths()
     grouped = _load_price_package(data_path, paths)
     days = [day for day in sorted(grouped) if start_date <= day <= end_date]
+    if not days:
+        raise ValueError("no trading days found in data package for replay range")
     replay_id = f"replay-{start_date}-{end_date}"
     replay_paths = ReplayPaths(paths, replay_id)
     _reset_replay_dirs(replay_paths)
@@ -113,28 +115,49 @@ def replay_dry_run(
     missing_global_briefing_days: list[str] = []
     missing_price_days = _missing_price_days(start_date, end_date, grouped)
     macro_signal_days = 0
-    price_only_replay = True
+    actionable_signal_days = 0
+    macro_signal_timing_violations: list[str] = []
+    pending_signals: list[dict[str, Any]] = []
+    pending_signal_date: str | None = None
 
     for day in days:
         account.settle_t_plus_one(day, paths=replay_paths)
         close_prices = _close_price_rows(grouped[day])
+        open_prices = _open_price_rows(grouped[day])
+
+        # Signals are generated after the close (15:10) and therefore cannot
+        # legitimately be filled against that day's closing price.  Execute
+        # only the prior trading day's actionable signals at this day's open.
+        execution_signals = pending_signals
+        execution_signal_date = pending_signal_date
+        if execution_signals:
+            orders, trades = process_signals(execution_signals, day, account, open_prices, paths=replay_paths)
+            _stamp_execution_metadata(orders, trades, execution_signal_date)
+            _stamp_quality(orders, open_prices)
+        else:
+            orders, trades = [], []
+
         macro_rows, macro_limitations = load_macro_signals(day, replay_paths)
         input_missing = _missing_global_inputs(day, paths)
         if input_missing:
             missing_global_briefing_days.append(day)
         filtered_macro = filter_china_macro_signals(macro_rows, universe)
+        filtered_macro, timing_limitations = _filter_macro_signals_for_replay_day(filtered_macro, day)
+        macro_limitations = [*macro_limitations, *timing_limitations]
+        macro_signal_timing_violations.extend(timing_limitations)
         if filtered_macro:
             macro_signal_days += 1
-            price_only_replay = False
             signals = generate_trading_signals(filtered_macro, day, account_id, universe=universe)
             if not signals:
                 signals = [hold_signal(day, account_id, "macro signals did not pass confidence/universe filters")]
         else:
             signals = [hold_signal(day, account_id, "historical replay no_signal/HOLD due to missing or empty macro_signals")]
+        actionable_signals = [signal for signal in signals if _is_actionable_macro_signal(signal)]
+        if actionable_signals:
+            actionable_signal_days += 1
+        for signal in actionable_signals:
+            signal["execution_model"] = "next_trading_day_open"
         write_jsonl(replay_paths.dated_jsonl("signals", "trading_signals", day), signals)
-
-        orders, trades = process_signals(signals, day, account, close_prices, paths=replay_paths)
-        _stamp_quality(orders, close_prices)
         write_jsonl(replay_paths.dated_jsonl("orders", "orders", day), orders)
         write_jsonl(replay_paths.dated_jsonl("trades", "trades", day), trades)
 
@@ -165,15 +188,20 @@ def replay_dry_run(
                 "date": day,
                 "status": "success",
                 "signals": len(signals),
+                "actionable_signals": len(actionable_signals),
                 "orders": len(orders),
                 "trades": len(trades),
                 "macro_signals": len(macro_rows),
+                "executed_signal_date": execution_signal_date,
                 "shadow_signals": len(shadow),
                 "input_missing": input_missing,
+                "macro_limitations": macro_limitations,
             }
         )
         previous_total = float(portfolio["total_asset"])
         previous_portfolio = portfolio
+        pending_signals = actionable_signals
+        pending_signal_date = day if actionable_signals else None
 
     audit = _build_replay_audit(
         replay_paths,
@@ -184,7 +212,10 @@ def replay_dry_run(
         missing_global_briefing_days,
         missing_price_days,
         macro_signal_days,
-        price_only_replay,
+        actionable_signal_days,
+        macro_signal_timing_violations,
+        pending_signals,
+        pending_signal_date,
     )
     return audit
 
@@ -266,6 +297,71 @@ def _close_price_rows(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, An
     return {symbol: {**row, "price": float(row["close"])} for symbol, row in rows.items()}
 
 
+def _open_price_rows(rows: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    """Return execution prices for delayed historical-replay fills.
+
+    Signals in this replay are observed after the source day's close.  A fill
+    may therefore use only the following available trading day's opening bar;
+    close prices remain available solely for end-of-day valuation.
+    """
+
+    return {
+        symbol: {
+            **row,
+            "price": float(row["open"]),
+            "execution_price_basis": "next_trading_day_open",
+        }
+        for symbol, row in rows.items()
+    }
+
+
+def _is_actionable_macro_signal(signal: dict[str, Any]) -> bool:
+    """Accept only traceable, non-HOLD signals for delayed execution."""
+
+    return (
+        str(signal.get("side", "")).upper() in {"LONG", "SELL"}
+        and bool(str(signal.get("macro_signal_id") or "").strip())
+    )
+
+
+def _filter_macro_signals_for_replay_day(
+    macro_signals: list[dict[str, Any]],
+    replay_day: str,
+) -> tuple[list[dict[str, Any]], list[str]]:
+    """Admit only source signals dated to the replay session.
+
+    Files are named by date, but treating their name as proof would allow a
+    later signal to be inserted into an earlier file and then relabelled by the
+    signal generator.  Missing or mismatched dates are therefore excluded and
+    recorded as a point-in-time violation.
+    """
+
+    accepted: list[dict[str, Any]] = []
+    violations: list[str] = []
+    for signal in macro_signals:
+        source_date = str(signal.get("date") or signal.get("as_of_date") or "")
+        signal_id = str(signal.get("macro_signal_id") or "unknown")
+        if source_date != replay_day:
+            violations.append(
+                f"{replay_day}: macro signal {signal_id} has source date {source_date or 'missing'}"
+            )
+            continue
+        accepted.append(signal)
+    return accepted, violations
+
+
+def _stamp_execution_metadata(
+    orders: list[dict[str, Any]],
+    trades: list[dict[str, Any]],
+    signal_date: str | None,
+) -> None:
+    """Attach immutable timing provenance to order and fill artifacts."""
+
+    for row in [*orders, *trades]:
+        row["signal_date"] = signal_date
+        row["execution_price_basis"] = "next_trading_day_open"
+
+
 def _missing_price_days(start_date: str, end_date: str, grouped: dict[str, dict[str, dict[str, Any]]]) -> list[str]:
     from trading_core.backtest.event_backtester import date_range
 
@@ -332,17 +428,30 @@ def _build_replay_audit(
     missing_global_briefing_days: list[str],
     missing_price_days: list[str],
     macro_signal_days: int,
-    price_only_replay: bool,
+    actionable_signal_days: int,
+    macro_signal_timing_violations: list[str],
+    pending_signals: list[dict[str, Any]],
+    pending_signal_date: str | None,
 ) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
+    price_only_replay = actionable_signal_days == 0
     if missing_global_briefing_days:
         warnings.append("missing global-briefing inputs; affected dates used no_signal/HOLD")
     if price_only_replay:
         warnings.append("price-only replay: no real macro_signals were available")
     stats = _audit_replay_days(replay_paths, days, errors, warnings)
+    eligibility_blockers: list[str] = []
+    if len(days) < 30:
+        eligibility_blockers.append("historical_replay_requires_at_least_30_trading_days")
+    if price_only_replay:
+        eligibility_blockers.append("historical_replay_requires_actionable_macro_signals")
+    if stats["total_trades"] <= 0:
+        eligibility_blockers.append("historical_replay_requires_at_least_one_filled_trade")
+    eligibility_blockers.extend(f"macro_signal_point_in_time_violation:{item}" for item in macro_signal_timing_violations)
+    errors.extend(eligibility_blockers)
     consistency_status = {"passed": not errors, "critical_errors": errors}
-    historical_replay_passed = len(days) >= 30 and not errors
+    historical_replay_passed = not errors
     payload = {
         "start_date": start_date,
         "end_date": end_date,
@@ -368,7 +477,12 @@ def _build_replay_audit(
         "historical_replay_passed": historical_replay_passed,
         "forward_30d_dry_run_passed": False,
         "macro_signal_days": macro_signal_days,
+        "actionable_macro_signal_days": actionable_signal_days,
         "price_only_replay": price_only_replay,
+        "macro_signal_timing_violations": macro_signal_timing_violations,
+        "signal_execution_status": stats["signal_execution_status"],
+        "unexecuted_end_of_window_signal_count": len(pending_signals),
+        "unexecuted_end_of_window_signal_date": pending_signal_date,
         "warnings": warnings,
         "release_recommendation": "historical_replay_candidate" if historical_replay_passed else "do_not_release_fix_replay_issues",
     }
@@ -392,6 +506,7 @@ def _audit_replay_days(replay_paths: ReplayPaths, days: list[str], errors: list[
     benchmark_errors: list[str] = []
     attribution_errors: list[str] = []
     t1_errors: list[str] = []
+    execution_timing_errors: list[str] = []
     evolution_errors: list[str] = []
     blocked_quality_errors: list[str] = []
 
@@ -417,11 +532,13 @@ def _audit_replay_days(replay_paths: ReplayPaths, days: list[str], errors: list[
             if order.get("side") == "BUY" and order.get("status") in {"submitted", "filled"}:
                 if order.get("price_quality") in {"fallback", "stale", "missing"}:
                     blocked_quality_errors.append(f"{day}: BUY on {order.get('price_quality')} price {order.get('symbol')}")
+            _audit_signal_execution_timing(day, order, execution_timing_errors)
         for trade in trades:
             trade_id = str(trade.get("trade_id"))
             if trade_id in seen_trades:
                 duplicate_trades.append(trade_id)
             seen_trades.add(trade_id)
+            _audit_signal_execution_timing(day, trade, execution_timing_errors)
         if not portfolio:
             portfolio_missing.append(day)
         else:
@@ -440,6 +557,7 @@ def _audit_replay_days(replay_paths: ReplayPaths, days: list[str], errors: list[
         errors.extend(f"duplicate trade_id {item}" for item in sorted(set(duplicate_trades)))
     errors.extend(blocked_quality_errors)
     errors.extend(t1_errors)
+    errors.extend(execution_timing_errors)
     errors.extend(benchmark_errors)
     errors.extend(attribution_errors)
     errors.extend(evolution_errors)
@@ -457,6 +575,11 @@ def _audit_replay_days(replay_paths: ReplayPaths, days: list[str], errors: list[
         "duplicate_order_status": {"passed": not duplicate_orders, "duplicate_order_ids": sorted(set(duplicate_orders))},
         "duplicate_trade_status": {"passed": not duplicate_trades, "duplicate_trade_ids": sorted(set(duplicate_trades))},
         "t_plus_one_status": {"passed": not t1_errors, "errors": t1_errors},
+        "signal_execution_status": {
+            "passed": not execution_timing_errors,
+            "model": "next_trading_day_open",
+            "errors": execution_timing_errors,
+        },
         "benchmark_status": {"passed": not benchmark_errors, "errors": benchmark_errors},
         "attribution_status": {"passed": not attribution_errors, "errors": attribution_errors},
         "evolution_throttling_status": {"passed": not evolution_errors, "errors": evolution_errors},
@@ -488,6 +611,22 @@ def _audit_t_plus_one(day: str, portfolio: dict[str, Any], errors: list[str]) ->
         last_buy = position.get("last_buy_date")
         if market == "A_SHARE" and last_buy == day and int(position.get("available_quantity", 0)) > 0:
             errors.append(f"{day}: T+1 violation {position.get('symbol')}")
+
+
+def _audit_signal_execution_timing(day: str, row: dict[str, Any], errors: list[str]) -> None:
+    """Reject any replay execution that could have used the signal-day close."""
+
+    if str(row.get("side", "")).upper() == "HOLD":
+        return
+    signal_date = row.get("signal_date")
+    if not signal_date:
+        errors.append(f"{day}: execution missing source signal_date {row.get('order_id') or row.get('trade_id')}")
+    elif str(signal_date) >= day:
+        errors.append(
+            f"{day}: execution must follow signal date {signal_date} {row.get('order_id') or row.get('trade_id')}"
+        )
+    if row.get("execution_price_basis") != "next_trading_day_open":
+        errors.append(f"{day}: execution did not use next_trading_day_open {row.get('order_id') or row.get('trade_id')}")
 
 
 def _audit_evolution(day: str, evolution: dict[str, Any], errors: list[str], warnings: list[str]) -> None:
@@ -529,16 +668,21 @@ def _replay_audit_markdown(payload: dict[str, Any]) -> str:
         f"- total_orders: {payload['total_orders']}",
         f"- total_trades: {payload['total_trades']}",
         f"- rejected_orders: {payload['rejected_orders']}",
+        f"- macro_signal_days: {payload['macro_signal_days']}",
+        f"- actionable_macro_signal_days: {payload['actionable_macro_signal_days']}",
         f"- most_common_rejection_reasons: {payload['most_common_rejection_reasons']}",
         f"- portfolio_continuity_status: {payload['portfolio_continuity_status']}",
         f"- duplicate_order_status: {payload['duplicate_order_status']}",
         f"- duplicate_trade_status: {payload['duplicate_trade_status']}",
         f"- T+1_status: {payload['T+1_status']}",
+        f"- signal_execution_status: {payload['signal_execution_status']}",
         f"- benchmark_status: {payload['benchmark_status']}",
         f"- attribution_status: {payload['attribution_status']}",
         f"- consistency_status: {payload['consistency_status']}",
         f"- evolution_throttling_status: {payload['evolution_throttling_status']}",
         f"- price_only_replay: {payload['price_only_replay']}",
+        f"- macro_signal_timing_violations: {payload['macro_signal_timing_violations']}",
+        f"- unexecuted_end_of_window_signal_count: {payload['unexecuted_end_of_window_signal_count']}",
         "",
         "## Warnings",
     ]

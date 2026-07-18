@@ -136,7 +136,7 @@ from trading_core.equity_v23_operator_ux_journal import DEFAULT_AS_OF_DATE as DE
 from trading_core.equity_v23_operator_ux_journal import audit_a_share_v23_operator_ux_journal, run_a_share_v23_operator_ux_journal
 from trading_core.equity_v24_maintenance_quality import DEFAULT_AS_OF_DATE as DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE
 from trading_core.equity_v24_maintenance_quality import audit_a_share_v24_maintenance_quality, run_a_share_v24_maintenance_quality
-from trading_core.equity_release_chain import RELEASE_SPECS, audit_release_artifacts, command_to_spec, run_release_artifacts
+from trading_core.equity_release_chain import RELEASE_SPECS, audit_release_artifacts, command_to_spec, record_full_pytest_evidence, run_release_artifacts
 from trading_core.equity_release_chain.generic import DEFAULT_AS_OF_DATE as DEFAULT_RELEASE_CHAIN_AS_OF_DATE
 from trading_core.equity_v31_post_v3_verification import DEFAULT_AS_OF_DATE as DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE
 from trading_core.equity_v31_post_v3_verification import audit_a_share_v31_post_v3_verification, run_a_share_v31_post_v3_verification
@@ -1605,6 +1605,8 @@ def build_parser() -> argparse.ArgumentParser:
             release_component = subparsers.add_parser(release_command)
             release_component.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
             release_component.add_argument("--simulation-only", action="store_true")
+    release_evidence = subparsers.add_parser("record-a-share-full-pytest-evidence")
+    release_evidence.add_argument("--timeout-seconds", type=int, default=3600)
     current_day_readiness = subparsers.add_parser("validate-a-share-current-day-readiness")
     _add_a_share_current_day_arguments(current_day_readiness, include_mode=False)
     current_day_run = subparsers.add_parser("run-a-share-current-day-research")
@@ -6244,6 +6246,18 @@ def main(argv: Sequence[str] | None = None) -> int:
         component_flag = v31_component_flags[args.command]
         print({"overall_passed": result["overall_passed"], component_flag: result.get(component_flag), "full_regression_mode": result.get("full_regression_mode"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"])})
         return 0 if result["overall_passed"] else 1
+    if args.command == "record-a-share-full-pytest-evidence":
+        result = record_full_pytest_evidence(paths=paths, timeout_seconds=args.timeout_seconds)
+        print(
+            {
+                "full_pytest_run": result["full_pytest_run"],
+                "full_pytest_passed": result["full_pytest_passed"],
+                "returncode": result["returncode"],
+                "evidence_path": result["evidence_path"],
+                "source_tree_sha256": result["source_tree_sha256"],
+            }
+        )
+        return 0 if result["full_pytest_passed"] else 1
     release_spec, release_action = command_to_spec(args.command)
     if release_spec is not None and release_action == "build":
         result = run_release_artifacts(release_spec, as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)

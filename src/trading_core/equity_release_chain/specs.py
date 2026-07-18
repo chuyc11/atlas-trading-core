@@ -726,7 +726,6 @@ RELEASE_SPECS: list[dict[str, Any]] = [
         "source_result_name": "v34_portfolio_attribution_result",
         "source_audit_json": "a_share_v34_portfolio_attribution_audit.json",
         "regression_artifact_name": "v35_long_horizon_regression_evidence",
-        "regression_seed_name": "v35_regression_seed",
     },
     {
         "key": "v36",
@@ -1101,7 +1100,6 @@ RELEASE_SPECS: list[dict[str, Any]] = [
         "source_result_name": "v39_owner_handoff_docs_result",
         "source_audit_json": "a_share_v39_owner_handoff_docs_audit.json",
         "regression_artifact_name": "v40_final_regression_evidence",
-        "regression_seed_name": "v40_regression_seed",
     },
 ]
 
