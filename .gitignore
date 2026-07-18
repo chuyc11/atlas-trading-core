@@ -2,6 +2,8 @@ __pycache__/
 .pytest_cache/
 *.pyc
 .venv/
+/build/
+/src/*.egg-info/
 outputs/backtests/
 outputs/dry-runs/
 outputs/data-validation/
