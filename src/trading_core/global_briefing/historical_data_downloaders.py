@@ -19,7 +19,6 @@ from trading_core.global_briefing.historical_data_packages import (
     ETF_UNIVERSE,
     FRED_SERIES,
     PACKAGE_SPECS,
-    PROXY_PACKAGE_ID,
     REQUIRED_PACKAGE_IDS,
     TRADING_AUTHORIZATION_NOTICE,
     coverage_ratio,
@@ -201,7 +200,7 @@ def _download_one(
     http_get: HttpGet,
     resolution: dict[str, Any],
 ) -> dict[str, Any]:
-    spec = PACKAGE_SPECS[package_id]
+    _spec = PACKAGE_SPECS[package_id]
     warnings: list[str] = []
     local_file = next((path for path in local_authorized_candidates(paths, package_id) if path.exists()), None)
     if local_file is not None:

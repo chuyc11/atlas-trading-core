@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import subprocess
-import time
 from datetime import UTC, datetime
 
 from trading_core.equity_current_day_builds.gated_build_config import (
@@ -77,8 +76,6 @@ def execute_gated_build_and_record(
     command_argv = current_day_workflow_argv(as_of_date, executable=True)
     started = datetime.now(UTC)
     exit_code = None
-    stdout_text = ""
-    stderr_text = ""
 
     try:
         result = subprocess.run(
@@ -90,14 +87,10 @@ def execute_gated_build_and_record(
             cwd=str(paths.project_root),
         )
         exit_code = result.returncode
-        stdout_text = result.stdout
-        stderr_text = result.stderr
     except subprocess.TimeoutExpired:
         exit_code = -1
-        stderr_text = "command timed out after 300s"
-    except Exception as exc:
+    except Exception:
         exit_code = -1
-        stderr_text = str(exc)
 
     finished = datetime.now(UTC)
     duration = (finished - started).total_seconds()

@@ -10,7 +10,7 @@ import pandas as pd
 
 from trading_core.equity_data_quality.common import json_safe, read_frame, write_report
 from trading_core.equity_selection.candidate_config import CANDIDATE_BOUNDARY, CANDIDATE_FILES, CANDIDATE_REPORTS, DEFAULT_AS_OF_DATE, RECOMMENDED_NEXT_VERSION, REMEDIATION_VERSION, TARGET_VERSION
-from trading_core.equity_selection.filter_inputs import selection_data_dir, selection_output_dir
+from trading_core.equity_selection.filter_inputs import selection_output_dir
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
 

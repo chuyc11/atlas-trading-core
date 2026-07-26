@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import write_json
@@ -19,9 +18,7 @@ from trading_core.equity_ops_history.issue_recurrence import build_ops_issue_rec
 from trading_core.equity_ops_history.module_reliability import build_ops_module_reliability_baseline
 from trading_core.equity_ops_history.ops_history_boundary import build_ops_history_boundary_check
 from trading_core.equity_ops_history.ops_history_config import (
-    APPEND_CURRENT_OPS_RUN_TO_HISTORY,
     AUDIT_EXISTING_HISTORY_BASELINES,
-    BUILD_HISTORY_BASELINE_REPORT,
     BUILD_TREND_BASELINES,
     DEFAULT_AS_OF_DATE,
     DEFAULT_BASELINE_WINDOW_OBSERVATIONS,

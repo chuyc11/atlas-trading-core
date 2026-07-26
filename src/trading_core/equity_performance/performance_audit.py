@@ -284,7 +284,7 @@ def _no_future_dates(payloads: list[dict[str, Any]], as_of_date: str) -> bool:
 
 def _forbidden_wording_hits(artifacts: dict[str, Path]) -> list[str]:
     hits = []
-    for key, path in artifacts.items():
+    for _key, path in artifacts.items():
         if not path.exists() or path.suffix not in {".md", ".json"}:
             continue
         text = path.read_text(encoding="utf-8").lower()

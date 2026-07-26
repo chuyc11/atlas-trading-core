@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date, timedelta
 from typing import Any
 
-from trading_core.reports.research_common import default_paths, latest_json, read_json, read_jsonl_count, write_json_and_markdown
+from trading_core.reports.research_common import default_paths, latest_json, read_json, write_json_and_markdown
 from trading_core.storage.file_paths import ProjectPaths
 
 
@@ -31,7 +31,7 @@ def build_monthly_research_report(
     if not start_date or not end_date:
         raise ValueError("start_date/end_date or month is required")
     warnings: list[str] = []
-    weekly_files = sorted((paths.data_dir / "reports").glob(f"weekly_research_summary-*.json")) if (paths.data_dir / "reports").exists() else []
+    weekly_files = sorted((paths.data_dir / "reports").glob("weekly_research_summary-*.json")) if (paths.data_dir / "reports").exists() else []
     weekly_payloads = [
         payload for payload in (read_json(path, default=None) for path in weekly_files)
         if isinstance(payload, dict) and start_date <= payload.get("start_date", "") <= end_date

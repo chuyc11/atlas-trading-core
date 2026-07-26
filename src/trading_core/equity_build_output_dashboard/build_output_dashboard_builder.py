@@ -13,8 +13,6 @@ from trading_core.equity_build_output_dashboard.build_output_dashboard_config im
     BUILD_DASHBOARD,
     DEFAULT_AS_OF_DATE,
     FILES,
-    REPORTS,
-    TARGET_VERSION,
     VALIDATE_INPUTS,
     BuildOutputDashboardConfig,
     artifact_paths,

@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
-from typing import Any
 
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 

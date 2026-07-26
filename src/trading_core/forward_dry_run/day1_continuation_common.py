@@ -13,12 +13,10 @@ from trading_core.forward_dry_run.day1_common import (
     RELEASE_CANDIDATE as BASELINE_TAG,
     audit_report,
     day_json,
-    day_report,
     non_claim_lines,
-    paths_or_default,
+    paths_or_default as paths_or_default,
     read_json_file,
     system_json,
-    system_report,
     write_artifact,
 )
 from trading_core.storage.file_paths import ProjectPaths
@@ -279,4 +277,3 @@ def _is_negated(line: str, phrase: str) -> bool:
     idx = line.find(phrase)
     prefix = line[max(0, idx - 32) : idx]
     return any(marker in prefix for marker in ["not ", "no ", "false", "without ", "did not ", "was not ", "is not "]) or any(marker in line for marker in ["=false", ": false"])
-

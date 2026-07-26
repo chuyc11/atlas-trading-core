@@ -256,7 +256,7 @@ class TestPriceDataLoading:
         assert "159915.SZ" in prices
 
         # Check data structure
-        for symbol, rows in prices.items():
+        for _symbol, rows in prices.items():
             assert len(rows) == 60  # 60 days
             assert "date" in rows[0]
             assert "close" in rows[0]

@@ -13,17 +13,14 @@ from __future__ import annotations
 
 import ast
 import importlib
-import sys
 from pathlib import Path
-from typing import Any
 
 import pytest
 
 from trading_core.features.feature_store import FEATURE_COLUMNS
-from trading_core.ml.prediction_engine import generate_ml_shadow_predictions
 from trading_core.ml.shadow_leaderboard import build_ml_shadow_leaderboard
 from trading_core.ml.shadow_report import build_ml_shadow_report
-from trading_core.ml.walk_forward_dataset import ROWS_COLUMNS, build_walk_forward_dataset
+from trading_core.ml.walk_forward_dataset import build_walk_forward_dataset
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_jsonl
 
@@ -119,7 +116,7 @@ def test_walk_forward_rows_feature_columns_do_not_include_label_value(tmp_path: 
     # Ensure no future_* column is in the rows beyond what's in ROWS_COLUMNS
     for col_name in first_row:
         if col_name.startswith("future_"):
-            assert False, f"Walk-forward row contains future field: {col_name}"
+            raise AssertionError(f"Walk-forward row contains future field: {col_name}")
 
 
 # ---------------------------------------------------------------------------

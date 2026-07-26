@@ -20,7 +20,7 @@ from trading_core.daily_workflow.common import (
     sha256_file,
     volume_for_symbol,
 )
-from trading_core.execution.common import read_dict, rel
+from trading_core.execution.common import read_dict
 from trading_core.execution.trading_calendar_contract import default_calendar
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.strategies.common import DEFAULT_BENCHMARKS, DEFAULT_UNIVERSE

@@ -13,7 +13,6 @@ from trading_core.equity_workflows.workflow_config import (
     TARGET_VERSION,
     WORKFLOW_BOUNDARY,
     WORKFLOW_FLAGS,
-    required_input_artifacts,
     upstream_audit_artifacts,
 )
 from trading_core.storage.file_paths import ProjectPaths

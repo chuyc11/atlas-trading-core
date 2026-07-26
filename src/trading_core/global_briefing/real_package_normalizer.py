@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.global_briefing.real_package_manifest import read_local_package_rows

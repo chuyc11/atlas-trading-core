@@ -9,7 +9,7 @@ from typing import Any
 
 import pandas as pd
 
-from trading_core.equity_data_quality.common import normalize_symbol, read_frame, read_json
+from trading_core.equity_data_quality.common import normalize_symbol, read_frame
 from trading_core.equity_features.feature_config import DEFAULT_AS_OF_DATE
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths

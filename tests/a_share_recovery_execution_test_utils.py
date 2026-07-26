@@ -1,4 +1,4 @@
-from tests.a_share_owner_readiness_recovery_test_utils import AS_OF_DATE, make_paths, seed_owner_readiness_recovery_outputs
+from tests.a_share_owner_readiness_recovery_test_utils import AS_OF_DATE, make_paths as make_paths, seed_owner_readiness_recovery_outputs
 from trading_core.equity_owner_readiness_recovery_execution.io import load_json
 
 

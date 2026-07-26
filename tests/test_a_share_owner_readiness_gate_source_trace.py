@@ -1,4 +1,4 @@
-from tests.a_share_owner_readiness_gate_test_utils import AS_OF_DATE, gate_data, make_paths, seed_owner_readiness_gate_outputs
+from tests.a_share_owner_readiness_gate_test_utils import gate_data, make_paths, seed_owner_readiness_gate_outputs
 
 
 def test_owner_readiness_gate_source_trace_complete_and_hashes_present(tmp_path):

@@ -123,7 +123,7 @@ def expand_parameter_grid(parameters: dict[str, list[Any]]) -> list[dict[str, An
     values_lists = [parameters[k] for k in keys]
     combinations = []
     for combo in product(*values_lists):
-        combinations.append(dict(zip(keys, combo)))
+        combinations.append(dict(zip(keys, combo, strict=False)))
     return combinations
 
 

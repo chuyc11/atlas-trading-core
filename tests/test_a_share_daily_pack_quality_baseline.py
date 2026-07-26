@@ -13,7 +13,6 @@ def test_daily_pack_quality_baseline_insufficient_history(tmp_path):
 
 
 def test_daily_pack_quality_baseline_enough_history(tmp_path):
-    paths = make_paths(tmp_path)
     quality = build_quality_baseline(
         as_of_date=AS_OF_DATE,
         artifacts={},

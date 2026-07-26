@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from global_briefing_test_utils import assert_no_protected_paths, make_paths, write_json
+from global_briefing_test_utils import assert_no_protected_paths, make_paths
 from trading_core.global_briefing.full_historical_proxy_workflow import run_full_historical_proxy_replay
 from trading_core.global_briefing.historical_data_downloaders import download_historical_data_packages
 from trading_core.global_briefing.historical_package_normalizer import normalize_historical_data_packages

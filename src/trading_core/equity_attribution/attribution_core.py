@@ -10,7 +10,6 @@ from trading_core.equity_attribution.attribution_config import (
     ATTRIBUTION_FLAGS,
     BUCKET_EDGES,
     PORTFOLIO_IDS,
-    PORTFOLIO_KEYS,
     SCORE_NAMES,
 )
 
@@ -110,7 +109,7 @@ def bucket_records(rows: list[dict[str, Any]], *, score_name: str) -> dict[str, 
     by_portfolio: dict[str, list[dict[str, Any]]] = {}
     for portfolio_id, portfolio_rows in group_by_field(rows, "portfolio_id").items():
         records = []
-        for low, high in zip(BUCKET_EDGES[:-1], BUCKET_EDGES[1:]):
+        for low, high in zip(BUCKET_EDGES[:-1], BUCKET_EDGES[1:], strict=False):
             label = f"{low}-{high}"
             bucket_rows = [row for row in portfolio_rows if _in_bucket(_score(row, score_name), low, high)]
             records.append(

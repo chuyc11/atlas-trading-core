@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
-import json
 import subprocess
 import sys
 from datetime import date
 from pathlib import Path
 from typing import Any
 
-from trading_core.equity_benchmark_claim_hardening.builder import TARGET_VERSION as V101_TARGET_VERSION
 from trading_core.equity_data_quality.common import read_json, sha256_file, utc_now, write_json
 from trading_core.equity_owner_daily_status import build_owner_daily_status_payload
 from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE

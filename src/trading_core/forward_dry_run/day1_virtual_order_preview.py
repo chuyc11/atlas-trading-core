@@ -8,7 +8,7 @@ from trading_core.broker.cost_model import calculate_trade_cost
 from trading_core.daily_workflow.common import market_rows_for_date, price_for_symbol
 from trading_core.execution.ashare_lot_rules import validate_order_quantity
 from trading_core.execution.ashare_tradability import evaluate_tradability
-from trading_core.forward_dry_run.day1_common import DAY_INDEX, INITIAL_CASH_PER_STRATEGY, boundary, day_json, day_report, non_claim_lines, paths_or_default, read_json_file, write_artifact
+from trading_core.forward_dry_run.day1_common import DAY_INDEX, INITIAL_CASH_PER_STRATEGY, day_json, day_report, non_claim_lines, paths_or_default, read_json_file, write_artifact
 from trading_core.forward_dry_run.day1_strategy_signals import build_day1_strategy_signals
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.strategies.common import market_for_symbol

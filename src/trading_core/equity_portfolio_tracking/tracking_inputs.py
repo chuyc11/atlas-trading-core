@@ -11,7 +11,7 @@ import pandas as pd
 
 from trading_core.equity_briefings.briefing_config import BRIEFING_FILES
 from trading_core.equity_data_quality.common import read_frame
-from trading_core.equity_portfolio_tracking.tracking_config import DEFAULT_AS_OF_DATE, PORTFOLIO_KEYS, PORTFOLIO_IDS
+from trading_core.equity_portfolio_tracking.tracking_config import DEFAULT_AS_OF_DATE, PORTFOLIO_KEYS
 from trading_core.equity_portfolios.portfolio_config import PORTFOLIO_FILES
 from trading_core.equity_scoring.score_config import SCORE_FILES
 from trading_core.storage.file_paths import ProjectPaths

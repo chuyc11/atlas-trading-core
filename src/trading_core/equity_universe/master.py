@@ -6,7 +6,7 @@ from typing import Any
 
 import pandas as pd
 
-from trading_core.equity_data_quality.common import EQUITY_MASTER_COLUMNS, board_for_symbol, exchange_for_symbol, markdown_boundary, normalize_date, normalize_symbol, safe_float, source_timestamp, utc_now, write_frame
+from trading_core.equity_data_quality.common import EQUITY_MASTER_COLUMNS, board_for_symbol, exchange_for_symbol, markdown_boundary, normalize_date, normalize_symbol, safe_float, source_timestamp, write_frame
 from trading_core.integrations.public_data.provider_registry import load_or_fetch_snapshot
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths

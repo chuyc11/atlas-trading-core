@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import Any
 
 from trading_core.daily_workflow.common import benchmark_rows_for_date, market_rows_for_date, risk_proxy_for_date
-from trading_core.forward_dry_run.day1_common import DAY_INDEX, boundary, day_json, day_report, eligible_as_of_date, non_claim_lines, paths_or_default, source_hashes, write_artifact
+from trading_core.forward_dry_run.day1_common import DAY_INDEX, day_json, day_report, eligible_as_of_date, non_claim_lines, paths_or_default, source_hashes, write_artifact
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.strategies.common import DEFAULT_BENCHMARKS, DEFAULT_UNIVERSE
 

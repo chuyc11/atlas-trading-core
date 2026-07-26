@@ -1,7 +1,7 @@
 import hashlib
 
 from tests.a_share_gated_build_test_utils import seed_gated_build_outputs
-from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths, write_json, write_text
+from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths as make_paths, write_json, write_text
 from trading_core.equity_build_repeatability.repeatability_config import (
     REPEATABILITY_BOUNDARY,
     REPEATABILITY_FILES,
@@ -127,4 +127,3 @@ def seed_repeatability_outputs(paths, as_of_date: str = AS_OF_DATE) -> None:
     write_json(artifacts["repeatability_summary"], {**base, "overall_passed": True})
     for key in REPEATABILITY_REPORTS:
         write_text(artifacts[key], "report")
-

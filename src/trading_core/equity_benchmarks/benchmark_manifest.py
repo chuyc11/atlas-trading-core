@@ -9,7 +9,6 @@ from trading_core.equity_benchmarks.benchmark_config import (
     BENCHMARK_BOUNDARY,
     BENCHMARK_FLAGS,
     BENCHMARK_IDS,
-    FORBIDDEN_ARTIFACTS,
     PORTFOLIO_IDS,
     PORTFOLIO_KEYS,
     RECOMMENDED_NEXT_VERSION,

@@ -21,7 +21,7 @@ from trading_core.equity_selection.filter_inputs import selection_data_dir
 from trading_core.equity_selection.multi_horizon_candidates import build_multi_horizon_candidates
 from trading_core.equity_selection.risk_downgraded_candidates import build_risk_downgraded_candidates
 from trading_core.storage.file_paths import ProjectPaths
-from trading_core.system.common import default_paths, relative
+from trading_core.system.common import default_paths
 
 
 @dataclass(frozen=True)

@@ -9,7 +9,7 @@ from pathlib import Path
 from statistics import mean, pstdev
 from typing import Any
 
-from trading_core.execution.common import read_dict, read_rows, rel, standard_boundary, write_rows
+from trading_core.execution.common import read_dict as read_dict, read_rows, rel, standard_boundary, write_rows
 from trading_core.execution.trading_calendar_contract import default_calendar
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.storage.jsonl_store import write_json
@@ -235,7 +235,7 @@ def returns_for_symbol(prices: dict[str, dict[str, float]], symbol: str, day: st
         return []
     window = available[-(lookback + 1) :]
     returns = []
-    for previous, current in zip(window, window[1:]):
+    for previous, current in zip(window, window[1:], strict=False):
         prev_price = prices[previous][symbol]
         current_price = prices[current][symbol]
         if prev_price > 0:
@@ -324,4 +324,3 @@ def markdown_boundary(scope: str) -> list[str]:
         "- RL not used",
         "- promotion not triggered",
     ]
-

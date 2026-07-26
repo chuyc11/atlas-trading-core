@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-import pandas as pd
 
 from trading_core.equity_data_quality.common import read_frame, read_json, utc_now, write_json
 from trading_core.storage.file_paths import ProjectPaths, project_paths
@@ -371,7 +370,7 @@ def _candidate_overlap_and_turnover_diagnostics(paths: ProjectPaths, as_of_date:
     days = [item["date"] for item in register["eligible_days"]]
     sets_by_day = {date: _candidate_symbols(paths, date) for date in days}
     comparisons = []
-    for previous, current in zip(days, days[1:]):
+    for previous, current in zip(days, days[1:], strict=False):
         previous_set = sets_by_day[previous]
         current_set = sets_by_day[current]
         stable = sorted(previous_set & current_set)

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 
-from baseline_strategy_test_utils import TEST_END, TEST_START, build_baseline_strategy_stack, make_baseline_paths
+from baseline_strategy_test_utils import build_baseline_strategy_stack, make_baseline_paths
 from global_briefing_test_utils import assert_no_protected_paths
 from trading_core.planning.day1_blocker_reclassification_v060 import reclassify_day1_blockers_after_baseline_strategies
 

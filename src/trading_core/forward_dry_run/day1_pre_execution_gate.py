@@ -6,7 +6,6 @@ from typing import Any
 
 from trading_core.forward_dry_run.day1_common import (
     DAY_INDEX,
-    boundary,
     day1_already_executed,
     day_json,
     day_report,

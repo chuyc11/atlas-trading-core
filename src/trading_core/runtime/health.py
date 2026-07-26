@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from collections import Counter
 from datetime import datetime, timedelta, timezone
-from pathlib import Path
 from typing import Any
 from uuid import uuid4
 

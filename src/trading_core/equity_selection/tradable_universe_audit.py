@@ -7,10 +7,9 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-import pandas as pd
 
-from trading_core.equity_data_quality.common import json_safe, read_frame, read_json, write_report
-from trading_core.equity_selection.filter_config import RECOMMENDED_NEXT_VERSION, REMEDIATION_VERSION, TARGET_VERSION, TRADABLE_UNIVERSE_BOUNDARY, TradableUniverseFilterConfig
+from trading_core.equity_data_quality.common import json_safe, read_frame, write_report
+from trading_core.equity_selection.filter_config import RECOMMENDED_NEXT_VERSION, REMEDIATION_VERSION, TARGET_VERSION, TRADABLE_UNIVERSE_BOUNDARY
 from trading_core.equity_selection.filter_inputs import resolve_as_of_date, selection_data_dir
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths

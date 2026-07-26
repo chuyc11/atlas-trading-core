@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from collections import defaultdict
 from typing import Any
 
 from trading_core.forward_dry_run.day1_common import DAY_INDEX, INITIAL_CASH_PER_STRATEGY, boundary, day_json, day_report, ledger_root, non_claim_lines, paths_or_default, read_json_file, safe_float, write_artifact, write_json_only

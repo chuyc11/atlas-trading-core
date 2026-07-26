@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import write_json
@@ -19,7 +18,6 @@ from trading_core.equity_ops_center.ops_boundary import build_ops_boundary_check
 from trading_core.equity_ops_center.ops_config import (
     AGGREGATE_EXISTING_OPS_ARTIFACTS,
     AUDIT_EXISTING_OPS_CENTER,
-    BUILD_OPS_PLAN,
     DEFAULT_AS_OF_DATE,
     OPS_FILES,
     RUN_SAFE_OPS_VALIDATION_CHAIN,

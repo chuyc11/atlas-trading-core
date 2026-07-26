@@ -155,7 +155,7 @@ def build_preflight_gate(
 
     # Check boundary fields from upstream audits
     boundary_clean = True
-    for key, audit_info in audit_results.items():
+    for _key, audit_info in audit_results.items():
         if not audit_info.get("overall_passed", False):
             boundary_clean = False
             break

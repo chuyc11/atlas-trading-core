@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-import pandas as pd
 
 from trading_core.equity_data_quality.common import read_frame, read_json, utc_now, write_json
 from trading_core.storage.file_paths import ProjectPaths, project_paths
@@ -568,7 +567,7 @@ def _platform_boundary_check(as_of_date: str, protected_untouched: bool, workflo
         blocking.append("rl_real_account_action_generated")
     if promotion.get("real_trading_promotion"):
         blocking.append("real_trading_promotion_generated")
-    for key, value in BOUNDARY_FALSE.items():
+    for key, _value in BOUNDARY_FALSE.items():
         if workflow.get(key, False) or execution.get(key, False):
             blocking.append(f"forbidden_boundary_true:{key}")
     return {
@@ -593,7 +592,7 @@ def _platform_boundary_check(as_of_date: str, protected_untouched: bool, workflo
 
 def _manifest(paths: ProjectPaths, as_of_date: str, workflow: dict[str, Any]) -> dict[str, Any]:
     artifact_paths = _artifact_paths(paths, as_of_date)
-    keys = [key for key in artifact_paths if key.endswith(".md") is False]
+    _keys = [key for key in artifact_paths if key.endswith(".md") is False]
     return {
         "manifest_id": "A-SHARE-V09-PLATFORM-MANIFEST",
         "target_version": TARGET_VERSION,

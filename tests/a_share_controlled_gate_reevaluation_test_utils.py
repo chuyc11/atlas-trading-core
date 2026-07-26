@@ -1,4 +1,4 @@
-from tests.a_share_recovery_execution_test_utils import AS_OF_DATE, make_paths, seed_recovery_execution_outputs
+from tests.a_share_recovery_execution_test_utils import AS_OF_DATE, make_paths as make_paths, seed_recovery_execution_outputs
 from trading_core.equity_owner_controlled_gate_reevaluation.io import load_json
 
 
@@ -18,4 +18,3 @@ def seed_controlled_gate_reevaluation_outputs(paths, as_of_date: str = AS_OF_DAT
 
 def controlled_data(paths, name: str, as_of_date: str = AS_OF_DATE):
     return load_json(paths.data_dir / "equity_owner_controlled_gate_reevaluation" / "daily" / as_of_date / name)
-

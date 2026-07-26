@@ -1,4 +1,3 @@
-import pytest
 
 from trading_core.equity_build_repeatability.repeatability_config import (
     RUN_REPEAT_BUILD_FROM_EXISTING_DATA,

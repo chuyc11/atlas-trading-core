@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from trading_core.forward_dry_run.common import DAY0_NOTICE, TRADING_AUTHORIZATION_NOTICE, latest_tag, paths_or_default, rel, resolve_path, standard_boundary
+from trading_core.forward_dry_run.common import DAY0_NOTICE, TRADING_AUTHORIZATION_NOTICE, latest_tag, paths_or_default, rel, standard_boundary
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import timestamp_id, write_json_markdown
 

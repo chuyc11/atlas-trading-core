@@ -1,4 +1,4 @@
-from tests.a_share_v0820_test_utils import AS_OF_DATE, make_paths, seed_v0820_outputs
+from tests.a_share_v0820_test_utils import AS_OF_DATE, make_paths as make_paths, seed_v0820_outputs
 from trading_core.equity_owner_closeout_review.io import load_json
 
 

@@ -11,7 +11,7 @@ from trading_core.daily_workflow.daily_market_data_snapshot import build_daily_m
 
 def test_daily_data_quality_audit_passes(tmp_path: Path) -> None:
     paths = make_daily_workflow_paths(tmp_path)
-    snapshot = build_daily_market_data_snapshot(as_of_date=AS_OF, paths=paths)
+    _snapshot = build_daily_market_data_snapshot(as_of_date=AS_OF, paths=paths)
     result = audit_daily_data_quality(snapshot=f"data/daily_workflow/snapshots/daily_market_data_snapshot-{AS_OF}.json", paths=paths)
     assert result["overall_passed"] is True
     assert result["summary"]["symbols_total"] == 8
@@ -63,4 +63,3 @@ def test_daily_data_quality_audit_cli(tmp_path: Path, monkeypatch: pytest.Monkey
     monkeypatch.setattr(cli, "project_paths", lambda: paths)
     monkeypatch.setattr(cli, "run_daily", lambda _date: (_ for _ in ()).throw(AssertionError("run_daily called")))
     assert cli.main(["audit-daily-data-quality", "--snapshot", f"data/daily_workflow/snapshots/daily_market_data_snapshot-{AS_OF}.json"]) == 0
-

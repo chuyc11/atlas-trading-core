@@ -19,7 +19,7 @@ from trading_core.equity_briefings.briefing_config import (
     SOURCE_TRACE_SECTION_KEYS,
     TARGET_VERSION,
 )
-from trading_core.equity_briefings.briefing_inputs import briefing_data_dir, briefing_output_dir
+from trading_core.equity_briefings.briefing_inputs import briefing_output_dir
 from trading_core.equity_data_quality.common import json_safe, sha256_file, write_report
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from trading_core.forward_dry_run.day1_common import DAY_INDEX, boundary, day_json, day_report, ledger_root, non_claim_lines, paths_or_default, read_json_file, write_artifact
+from trading_core.forward_dry_run.day1_common import DAY_INDEX, day_json, day_report, ledger_root, non_claim_lines, paths_or_default, read_json_file, write_artifact
 from trading_core.forward_dry_run.day1_virtual_execution_result import build_day1_virtual_execution_result
 from trading_core.storage.file_paths import ProjectPaths
 

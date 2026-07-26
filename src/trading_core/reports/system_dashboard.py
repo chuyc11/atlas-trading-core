@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.reports.research_common import default_paths, file_exists, utc_now_id, write_json_and_markdown

@@ -1,4 +1,4 @@
-from tests.a_share_operator_experience_test_utils import AS_OF_DATE, make_paths, operator_data, seed_operator_outputs
+from tests.a_share_operator_experience_test_utils import AS_OF_DATE, make_paths, seed_operator_outputs
 from trading_core.equity_owner_operator_experience.operator_experience_audit import audit_a_share_owner_operator_experience
 
 

@@ -1,4 +1,4 @@
-from tests.a_share_build_repeatability_test_utils import AS_OF_DATE, make_paths, seed_repeatability_outputs
+from tests.a_share_build_repeatability_test_utils import AS_OF_DATE, make_paths as make_paths, seed_repeatability_outputs
 from tests.a_share_owner_dashboard_test_utils import write_json, write_text
 from trading_core.equity_build_output_dashboard.build_output_dashboard_config import artifact_paths
 

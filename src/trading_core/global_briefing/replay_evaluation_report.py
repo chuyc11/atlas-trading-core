@@ -102,7 +102,7 @@ def _optional_json(path_text: str | None, paths: ProjectPaths, warnings: list[st
 
 def _integrity_from_replay(replay: dict[str, Any]) -> dict[str, Any]:
     boundary = replay.get("boundary", {}) if isinstance(replay.get("boundary"), dict) else {}
-    execution = replay.get("execution", {}) if isinstance(replay.get("execution"), dict) else {}
+    _execution = replay.get("execution", {}) if isinstance(replay.get("execution"), dict) else {}
     outputs = replay.get("isolated_outputs") or replay.get("isolated_output_paths") or {}
     valuations = _read_jsonl_safely(outputs.get("valuations")) if isinstance(outputs, dict) else []
     account = read_json(Path(outputs.get("account")), default={}) if isinstance(outputs, dict) and outputs.get("account") else {}

@@ -217,7 +217,7 @@ def _trading_dates(snapshots: dict[str, Any]) -> list[str]:
 def _schema_fallback_decisions(snapshots: dict[str, Any]) -> list[dict[str, str]]:
     decisions = []
     for dataset_id, snapshot in snapshots.items():
-        for canonical, aliases in snapshot.contract.aliases.items():
+        for canonical, _aliases in snapshot.contract.aliases.items():
             resolved = resolve_column(snapshot.frame, snapshot.contract, canonical)
             if resolved is not None and resolved != canonical:
                 decisions.append({"dataset_id": dataset_id, "canonical_field": canonical, "resolved_field": resolved, "fallback_type": "schema_alias"})

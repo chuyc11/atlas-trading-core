@@ -15,7 +15,6 @@ from trading_core.equity_workflows.workflow_config import (
 )
 from trading_core.equity_workflows.workflow_manifest import artifact_record
 from trading_core.storage.file_paths import ProjectPaths
-from trading_core.system.common import relative
 
 
 def build_workflow_source_trace(

@@ -21,7 +21,6 @@ from trading_core.equity_owner_monitoring.monitoring_config import (
     DEFAULT_AS_OF_DATE,
     DEFAULT_HISTORY_WINDOW_DAYS,
     DEFAULT_MINIMUM_HISTORY_OBSERVATIONS,
-    EVALUATE_OWNER_ALERTS,
     VALIDATE_MONITORING_INPUTS,
     OwnerMonitoringConfig,
     monitoring_artifact_paths,
@@ -36,7 +35,7 @@ from trading_core.equity_owner_monitoring.run_history import update_run_history
 from trading_core.equity_owner_monitoring.warning_trends import update_warning_history_and_snapshot
 from trading_core.equity_owner_monitoring.workflow_health_trends import build_workflow_health_trend_snapshot
 from trading_core.storage.file_paths import ProjectPaths
-from trading_core.system.common import default_paths, relative
+from trading_core.system.common import default_paths
 
 
 def validate_a_share_owner_monitoring_inputs(

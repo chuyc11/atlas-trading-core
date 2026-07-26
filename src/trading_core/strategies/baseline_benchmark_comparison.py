@@ -23,7 +23,6 @@ from .common import (
     price_on_or_before,
     read_dict,
     read_rows,
-    rel,
     replay_summary_path,
     research_boundary,
     selected_strategies,
@@ -80,7 +79,7 @@ def compare_baseline_strategy_benchmarks(
 
 def _strategy_metrics(strategy_id: str, summary: dict[str, Any], valuations: list[dict[str, Any]], benchmarks: dict[str, Any]) -> dict[str, Any]:
     assets = [float(row.get("total_asset", 0.0)) for row in valuations if float(row.get("total_asset", 0.0)) > 0]
-    returns = [current / previous - 1.0 for previous, current in zip(assets, assets[1:]) if previous]
+    returns = [current / previous - 1.0 for previous, current in zip(assets, assets[1:], strict=False) if previous]
     cumulative = assets[-1] / assets[0] - 1.0 if len(assets) >= 2 and assets[0] else 0.0
     cost_summary = summary.get("cost_summary", {})
     initial_asset = assets[0] if assets else 1.0
@@ -127,7 +126,7 @@ def _benchmarks(prices: dict[str, dict[str, float]], start_date: str, end_date: 
         if len(values) < 2:
             output[name] = {"available": False, "missing_reason": "insufficient_proxy_price_history"}
             continue
-        returns = [current / previous - 1.0 for previous, current in zip(values, values[1:]) if previous]
+        returns = [current / previous - 1.0 for previous, current in zip(values, values[1:], strict=False) if previous]
         cumulative = values[-1] / values[0] - 1.0
         output[name] = {
             "available": True,
@@ -168,4 +167,3 @@ def build_markdown(payload: dict[str, Any], paths: ProjectPaths) -> str:
         ]
     )
     return "\n".join(lines)
-

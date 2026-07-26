@@ -1,6 +1,6 @@
-from tests.a_share_build_output_ops_test_utils import AS_OF_DATE, make_paths
+from tests.a_share_build_output_ops_test_utils import AS_OF_DATE, make_paths as make_paths
 from tests.a_share_owner_daily_pack_history_test_utils import seed_owner_daily_pack_history_outputs
-from trading_core.equity_owner_readiness_gate.io import load_json, write_json
+from trading_core.equity_owner_readiness_gate.io import load_json
 
 
 def seed_owner_readiness_gate_inputs(paths, as_of_date: str = AS_OF_DATE) -> None:

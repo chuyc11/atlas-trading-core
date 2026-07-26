@@ -117,7 +117,7 @@ def build_dashboard_input_availability(*, paths: ProjectPaths | None, as_of_date
                 "source_path": relative(source, paths.project_root),
                 "source_audit_path": relative(audit, paths.project_root) if audit else None,
                 "source_audit_passed": audit_payload.get("overall_passed") is True if audit and audit.exists() else None,
-                "blocking_reasons": list(audit_payload.get("blocking_reasons", [])) if audit_payload else ([] if not group in required else ["input_missing"] if not source_available else []),
+                "blocking_reasons": list(audit_payload.get("blocking_reasons", [])) if audit_payload else ([] if group not in required else ["input_missing"] if not source_available else []),
                 "warnings": list(audit_payload.get("warnings", [])) if audit_payload else [],
             }
         )

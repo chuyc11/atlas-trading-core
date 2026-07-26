@@ -1,4 +1,4 @@
-from tests.a_share_evidence_backed_prep_test_utils import AS_OF_DATE, make_paths, seed_evidence_backed_prep_outputs, prep_data
+from tests.a_share_evidence_backed_prep_test_utils import make_paths, seed_evidence_backed_prep_outputs, prep_data
 
 
 def test_evidence_backed_prep_source_trace_complete_and_hashed(tmp_path):

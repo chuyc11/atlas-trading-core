@@ -25,7 +25,7 @@ def correlation(left: list[float], right: list[float]) -> float | None:
         return None
     left_mean = sum(left) / len(left)
     right_mean = sum(right) / len(right)
-    numerator = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right))
+    numerator = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right, strict=False))
     left_var = sum((a - left_mean) ** 2 for a in left)
     right_var = sum((b - right_mean) ** 2 for b in right)
     denominator = math.sqrt(left_var * right_var)

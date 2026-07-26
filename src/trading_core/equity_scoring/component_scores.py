@@ -11,7 +11,7 @@ import pandas as pd
 
 from trading_core.equity_data_quality.common import json_safe, read_frame, utc_now, write_json
 from trading_core.equity_features.multi_horizon import FEATURE_FILES
-from trading_core.equity_scoring.score_config import COMMON_COLUMNS, DEFAULT_AS_OF_DATE, SCORE_BOUNDARY, SCORE_FILES, SCORE_COLUMNS, TARGET_VERSION, default_score_config, validate_score_config
+from trading_core.equity_scoring.score_config import COMMON_COLUMNS, DEFAULT_AS_OF_DATE, SCORE_BOUNDARY, SCORE_FILES, TARGET_VERSION, default_score_config, validate_score_config
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths, relative
 

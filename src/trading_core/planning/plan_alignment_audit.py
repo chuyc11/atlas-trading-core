@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.planning.common import PLAN_ALIGNMENT_NOTICE, RELEASE_CANDIDATE, paths_or_default, read_dict, rel, standard_boundary

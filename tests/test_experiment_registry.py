@@ -8,7 +8,6 @@ from pathlib import Path
 import pytest
 import yaml
 
-from trading_core.cli import main as cli_main
 from trading_core.experiments.experiment_registry import (
     ExperimentRegistry,
     ExperimentValidationError,
@@ -227,7 +226,7 @@ class TestExperimentRegistry:
         assert not outputs_exp_dir.exists()
 
         # Creating registry should create the directories
-        registry = ExperimentRegistry(paths)
+        _registry = ExperimentRegistry(paths)
         assert data_exp_dir.exists()
         assert outputs_exp_dir.exists()
 

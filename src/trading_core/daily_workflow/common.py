@@ -4,17 +4,15 @@ from __future__ import annotations
 
 import csv
 import hashlib
-import json
 import subprocess
 from pathlib import Path
 from typing import Any
 
-from trading_core.execution.common import read_dict, read_rows, rel, standard_boundary
+from trading_core.execution.common import read_dict, read_rows, rel as rel, standard_boundary
 from trading_core.execution.trading_calendar_contract import default_calendar
 from trading_core.storage.file_paths import ProjectPaths
-from trading_core.storage.jsonl_store import write_json
 from trading_core.system.common import default_paths, write_json_markdown
-from trading_core.strategies.common import DEFAULT_BENCHMARKS, DEFAULT_UNIVERSE, STRATEGY_IDS
+from trading_core.strategies.common import DEFAULT_UNIVERSE, STRATEGY_IDS as STRATEGY_IDS
 
 
 RELEASE_CANDIDATE = "v0.6.1-daily-workflow-binding-audited"
@@ -258,4 +256,3 @@ def run_daily_preview(as_of_date: str) -> dict[str, Any]:
         "executed": False,
         "run_daily_called": False,
     }
-

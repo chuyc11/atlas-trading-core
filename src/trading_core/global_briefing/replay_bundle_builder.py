@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import csv
 from datetime import date
-from pathlib import Path
 from typing import Any
 
 from trading_core.global_briefing.signal_schema import (

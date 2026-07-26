@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.planning.common import VALID_EVIDENCE_TYPES, paths_or_default, read_dict, rel, resolve_path, standard_boundary

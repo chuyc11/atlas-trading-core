@@ -2,13 +2,8 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 
 from trading_core.equity_current_day_builds.gated_build_config import (
-    DATA_REFRESH_VERSION,
-    CURRENT_DAY_VERSION,
-    OPS_CENTER_VERSION,
-    BASELINE_VERSION,
     TARGET_VERSION,
 )
 from trading_core.storage.file_paths import ProjectPaths

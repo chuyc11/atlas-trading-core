@@ -7,7 +7,7 @@ from typing import Any
 from trading_core.equity_owner_recovery_evidence.artifact_completeness import build_artifact_completeness_evidence
 from trading_core.equity_owner_recovery_evidence.date_alignment import build_date_alignment
 from trading_core.equity_owner_recovery_evidence.evidence_boundary import build_recovery_evidence_boundary_check
-from trading_core.equity_owner_recovery_evidence.evidence_config import ALLOWED_MODES, AUDIT_EXISTING, BUILD_IMPROVEMENT, COLLECT_EVIDENCE, DEFAULT_AS_OF_DATE, FILES, GRADE_QUALITY, RECOMMENDED_NEXT_VERSION, REPORTS, TARGET_VERSION, VALIDATE_INPUTS, RecoveryEvidenceConfig, artifact_paths, data_dir, output_dir, validate_config
+from trading_core.equity_owner_recovery_evidence.evidence_config import ALLOWED_MODES, AUDIT_EXISTING, COLLECT_EVIDENCE, DEFAULT_AS_OF_DATE, FILES, RECOMMENDED_NEXT_VERSION, REPORTS, VALIDATE_INPUTS, RecoveryEvidenceConfig, artifact_paths, data_dir, output_dir, validate_config
 from trading_core.equity_owner_recovery_evidence.evidence_gaps import build_evidence_gap_register, build_remaining_blocker_register
 from trading_core.equity_owner_recovery_evidence.evidence_manifest import build_recovery_evidence_manifest, build_recovery_evidence_summary
 from trading_core.equity_owner_recovery_evidence.evidence_quality import build_evidence_quality_grading
@@ -121,7 +121,7 @@ def build_a_share_owner_recovery_evidence(
     completeness = build_artifact_completeness_evidence(as_of_date=as_of_date, required_paths={key: path for key, path in sources.items()})
     gaps = build_evidence_gap_register(as_of_date=as_of_date, task_evidence=task, developer=developer, owner=owner)
     blockers = build_remaining_blocker_register(as_of_date=as_of_date, gap_register=gaps, score_gap=max(minimum_score - source_score, 0))
-    prep_stub = build_next_reevaluation_prep_checklist(as_of_date=as_of_date, quality=grading, source_trace=source_trace_improvement, artifact_completeness=completeness)
+    _prep_stub = build_next_reevaluation_prep_checklist(as_of_date=as_of_date, quality=grading, source_trace=source_trace_improvement, artifact_completeness=completeness)
     boundary = build_recovery_evidence_boundary_check(paths=paths, as_of_date=as_of_date, source_gate_decision=source_gate_decision, blocking_reasons=availability["blocking_reasons"] + resolution["blocking_reasons"] + alignment["blocking_reasons"])
     prep = build_next_reevaluation_prep_checklist(as_of_date=as_of_date, quality=grading, source_trace=source_trace_improvement, artifact_completeness=completeness, boundary=boundary)
     payloads.update(

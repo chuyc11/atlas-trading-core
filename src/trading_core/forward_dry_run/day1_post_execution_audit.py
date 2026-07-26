@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from trading_core.forward_dry_run.day1_common import DAY_INDEX, NEXT_VERSION, RELEASE_CANDIDATE, audit_report, boundary, day_json, non_claim_lines, paths_or_default, read_json_file, write_artifact
+from trading_core.forward_dry_run.day1_common import DAY_INDEX, NEXT_VERSION, RELEASE_CANDIDATE, audit_report, day_json, non_claim_lines, paths_or_default, read_json_file, write_artifact
 from trading_core.storage.file_paths import ProjectPaths
 
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from trading_core.global_briefing.historical_data_packages import PACKAGE_SPECS, PROXY_PACKAGE_ID, RELEASE_CANDIDATE, REQUIRED_PACKAGE_IDS, TRADING_AUTHORIZATION_NOTICE, text_contains_secret
+from trading_core.global_briefing.historical_data_packages import RELEASE_CANDIDATE, REQUIRED_PACKAGE_IDS, TRADING_AUTHORIZATION_NOTICE, text_contains_secret
 from trading_core.global_briefing.signal_schema import read_signal_package
 from trading_core.reports.research_common import PROTECTED_PATHS, snapshot_protected
 from trading_core.storage.file_paths import ProjectPaths

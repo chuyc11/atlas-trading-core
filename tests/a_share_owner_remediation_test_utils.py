@@ -1,4 +1,4 @@
-from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths
+from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE
 from tests.a_share_owner_monitoring_test_utils import seed_monitoring_inputs
 from trading_core.equity_data_quality.common import write_json
 from trading_core.equity_data_refresh.data_refresh_config import data_refresh_artifact_paths

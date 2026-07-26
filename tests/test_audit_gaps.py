@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import pytest
 from trading_core.accounting.account import Account
 from trading_core.risk.risk_engine import check_order, load_risk_rules
 from trading_core.broker.market_rules import get_market_rule

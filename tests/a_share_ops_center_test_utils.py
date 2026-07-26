@@ -1,4 +1,4 @@
-from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths
+from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE
 from tests.a_share_owner_remediation_test_utils import build_remediation_artifacts
 from trading_core.equity_current_day.current_day_config import current_day_artifact_paths
 from trading_core.equity_data_quality.common import write_json

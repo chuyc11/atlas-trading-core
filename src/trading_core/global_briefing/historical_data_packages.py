@@ -7,7 +7,7 @@ import hashlib
 import json
 import os
 from dataclasses import dataclass
-from datetime import UTC, date, datetime
+from datetime import date
 from pathlib import Path
 from typing import Any, Iterable
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse

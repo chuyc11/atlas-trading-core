@@ -1,4 +1,3 @@
-import pytest
 
 from trading_core.equity_owner_readiness_gate.gate_config import OwnerReadinessGateConfig, TARGET_VERSION, validate_config
 

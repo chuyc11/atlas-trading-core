@@ -12,7 +12,7 @@ from trading_core.benchmarks.benchmark_engine import build_benchmark
 from trading_core.broker.virtual_broker import process_signals
 from trading_core.config_loader import load_config
 from trading_core.data.historical_prices import load_imported_prices, prices_by_date
-from trading_core.storage.file_paths import ProjectPaths, project_paths
+from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import write_json, write_jsonl
 from trading_core.universe.universe_loader import universe_symbols
 
@@ -49,7 +49,7 @@ def run_historical_backtest(
         orders, trades = process_signals(pending_signals, date, account, open_prices, paths=paths) if pending_signals else ([], [])
         all_trades.extend(_stamp_backtest_trade(trade, strategy_id, pending_signal_date) for trade in trades)
         turnover += sum(float(trade.get("gross_amount", 0.0)) for trade in trades)
-        valuation = value_account(account, date, {symbol: row["price"] for symbol, row in close_prices.items()}, previous_total)
+        _valuation = value_account(account, date, {symbol: row["price"] for symbol, row in close_prices.items()}, previous_total)
         portfolio = account.to_portfolio(date, previous_total)
         portfolio["strategy_id"] = strategy_id
         portfolio["executed_signal_date"] = pending_signal_date if trades else None
@@ -200,7 +200,7 @@ def _build_backtest_report(
 ) -> str:
     initial = 100000.0
     final = float(portfolios[-1]["total_asset"]) if portfolios else initial
-    returns = [(float(row["total_asset"]) / initial) - 1 for row in portfolios] if portfolios else [0.0]
+    _returns = [(float(row["total_asset"]) / initial) - 1 for row in portfolios] if portfolios else [0.0]
     max_drawdown = min((float(row.get("max_drawdown", 0.0)) for row in portfolios), default=0.0)
     wins = len([trade for trade in trades if float(trade.get("net_amount", 0.0)) > 0])
     cost = sum(float(trade.get("commission", 0.0)) + float(trade.get("tax", 0.0)) for trade in trades)

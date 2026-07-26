@@ -416,7 +416,6 @@ from trading_core.planning.plan_alignment_audit import audit_plan_alignment
 from trading_core.planning.plan_checklist_extractor import build_plan_checklist
 from trading_core.evolution.admission_gate import run_admission
 from trading_core.experiments.experiment_registry import (
-    ExperimentRegistry,
     get_experiment,
     list_experiments,
     register_experiment,
@@ -453,7 +452,7 @@ from trading_core.reports.system_dashboard import build_system_dashboard
 from trading_core.reports.trading_summary import export_trading_summary
 from trading_core.reports.weekly_research_report import build_weekly_research_report
 from trading_core.runtime.health import load_health, summarize_health
-from trading_core.signals.macro_signal_loader import load_macro_signals, sync_macro_signals
+from trading_core.signals.macro_signal_loader import sync_macro_signals
 from trading_core.storage.file_paths import ensure_project_dirs, project_paths
 from trading_core.system.artifact_inventory import build_artifact_inventory
 from trading_core.system.artifact_browser import build_artifact_browser

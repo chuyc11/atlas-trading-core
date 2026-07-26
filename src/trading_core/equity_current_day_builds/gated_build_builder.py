@@ -11,16 +11,10 @@ from trading_core.equity_current_day_builds.execution_plan import build_gated_bu
 from trading_core.equity_current_day_builds.execution_record import execute_gated_build_and_record
 from trading_core.equity_current_day_builds.gated_build_boundary import build_gated_build_boundary_check
 from trading_core.equity_current_day_builds.gated_build_config import (
-    AUDIT_EXISTING_GATED_BUILD,
-    ALLOWED_MODES,
-    COMPARE_VALIDATE_VS_BUILD_OUTPUTS,
     DEFAULT_AS_OF_DATE,
-    EVALUATE_PREFLIGHT_GATE,
     GATED_BUILD_FILES,
-    GATED_BUILD_REPORTS,
     RUN_GATED_BUILD_FROM_EXISTING_DATA,
     TARGET_VERSION,
-    VALIDATE_GATED_BUILD_INPUTS,
     GatedBuildConfig,
     gated_build_artifact_paths,
     gated_build_data_dir,

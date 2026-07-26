@@ -2,14 +2,12 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.forward_dry_run.common import (
     AVAILABLE_STATUSES,
     DAY0_NOTICE,
     OPTIONAL_AUTH_GB_PACKAGE,
-    PROXY_PACKAGE_ID,
     RELEASE_CANDIDATE,
     REQUIRED_FREEZE_PACKAGES,
     TRADING_AUTHORIZATION_NOTICE,

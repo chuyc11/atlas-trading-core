@@ -4,10 +4,8 @@ from __future__ import annotations
 
 import json
 import hashlib
-from pathlib import Path
 
 from trading_core.equity_current_day_builds.gated_build_config import (
-    GATED_BUILD_BOUNDARY,
     RECOMMENDED_NEXT_VERSION,
     TARGET_VERSION,
     gated_build_artifact_paths,
@@ -276,8 +274,8 @@ def _source_trace_hashes_match(paths: ProjectPaths, source_trace: dict) -> bool:
 
 def _render_audit_report(audit: dict) -> str:
     lines = [
-        f"# A 股 Gated Build-from-Existing-Data Dry-Run Audit",
-        f"",
+        "# A 股 Gated Build-from-Existing-Data Dry-Run Audit",
+        "",
         f"- **Audit ID**: {audit['audit_id']}",
         f"- **Target Version**: {audit['target_version']}",
         f"- **As-of Date**: {audit['as_of_date']}",
@@ -285,9 +283,9 @@ def _render_audit_report(audit: dict) -> str:
         f"- **Overall Passed**: {audit['overall_passed']}",
         f"- **Blocking Reasons**: {audit['blocking_reasons']}",
         f"- **Warnings Count**: {len(audit['warnings'])}",
-        f"",
-        f"## Preflight Checks",
-        f"",
+        "",
+        "## Preflight Checks",
+        "",
     ]
     for key, val in audit["preflight_checks"].items():
         lines.append(f"- {key}: {val}")

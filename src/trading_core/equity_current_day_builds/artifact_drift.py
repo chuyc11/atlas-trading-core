@@ -3,14 +3,13 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from pathlib import Path
 
 from trading_core.equity_current_day_builds.gated_build_config import (
     TARGET_VERSION,
 )
 from trading_core.storage.file_paths import ProjectPaths
-from trading_core.system.common import default_paths, relative
+from trading_core.system.common import default_paths
 
 
 def _sha256(path: Path) -> str | None:

@@ -2,14 +2,11 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 from typing import Any
 
 from trading_core.global_briefing.historical_data_packages import (
     AUTHORIZED_GB_PACKAGE_ID,
-    PACKAGE_SPECS,
-    PROXY_PACKAGE_ID,
     REQUIRED_PACKAGE_IDS,
     TRADING_AUTHORIZATION_NOTICE,
     text_contains_secret,

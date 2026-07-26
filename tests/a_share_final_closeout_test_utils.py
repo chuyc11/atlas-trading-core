@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from tests.a_share_research_evidence_test_utils import AS_OF_DATE, make_paths, phase_b, seed_research_evidence_inputs
+from tests.a_share_research_evidence_test_utils import AS_OF_DATE, make_paths, seed_research_evidence_inputs
 from trading_core.equity_readiness_final_closeout import build_a_share_final_not_ready_closeout
 from trading_core.equity_research_evidence_accumulation import (
     audit_a_share_research_evidence_accumulation_and_prep,

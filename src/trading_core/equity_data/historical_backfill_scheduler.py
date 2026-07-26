@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from collections import defaultdict
-from pathlib import Path
 from typing import Any
 
 import pandas as pd
@@ -14,7 +13,6 @@ from trading_core.equity_data.historical_daily_basic import backfill_a_share_dai
 from trading_core.equity_data.historical_daily_price import backfill_a_share_daily_price_history
 from trading_core.equity_data.historical_backfill_checkpoint import load_backfill_checkpoint, write_backfill_checkpoint
 from trading_core.equity_data_quality.common import (
-    DAILY_PRICE_HISTORY_COLUMNS,
     HISTORICAL_BOUNDARY,
     HISTORICAL_TARGET_VERSION,
     data_quality_dir,

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import json_safe, utc_now, write_json

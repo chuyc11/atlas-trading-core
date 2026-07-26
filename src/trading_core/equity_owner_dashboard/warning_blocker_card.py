@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 from typing import Any
 
 from trading_core.equity_owner_dashboard.dashboard_config import TARGET_VERSION

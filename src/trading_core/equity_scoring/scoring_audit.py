@@ -9,7 +9,7 @@ from typing import Any
 import pandas as pd
 
 from trading_core.equity_data_quality.common import json_safe, read_frame, write_report
-from trading_core.equity_scoring.component_scores import score_data_dir, score_output_dir
+from trading_core.equity_scoring.component_scores import score_output_dir
 from trading_core.equity_scoring.normalization import score_range
 from trading_core.equity_scoring.score_config import DEFAULT_AS_OF_DATE, RECOMMENDED_NEXT_VERSION, REMEDIATION_VERSION, SCORE_BOUNDARY, SCORE_COLUMNS, SCORE_FILES, TARGET_VERSION
 from trading_core.storage.file_paths import ProjectPaths

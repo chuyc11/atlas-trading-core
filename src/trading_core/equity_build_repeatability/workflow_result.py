@@ -24,7 +24,7 @@ def build_repeat_build_workflow_result(
         paths.data_dir / "equity_current_day_runs" / "daily" / as_of_date / "current_day_stage_manifest.json"
     )
     audit = _load(audit_path)
-    execution = _load(execution_path)
+    _execution = _load(execution_path)
     stages = _load(stage_path).get("stages", [])
     stage_values = stages.values() if isinstance(stages, dict) else stages
     failed = [s for s in stage_values if isinstance(s, dict) and s.get("status") not in {"passed", "skipped"}]
@@ -53,4 +53,3 @@ def _load(path) -> dict:
         return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return {}
-

@@ -127,7 +127,7 @@ def _correlation(left: list[float], right: list[float]) -> float | None:
         return None
     left_mean = mean(left)
     right_mean = mean(right)
-    numerator = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right))
+    numerator = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right, strict=False))
     denominator = math.sqrt(sum((a - left_mean) ** 2 for a in left) * sum((b - right_mean) ** 2 for b in right))
     return None if denominator == 0.0 else numerator / denominator
 
@@ -140,7 +140,7 @@ def _beta(left: list[float], right: list[float]) -> float | None:
     if variance == 0.0:
         return None
     left_mean = mean(left)
-    covariance = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right))
+    covariance = sum((a - left_mean) * (b - right_mean) for a, b in zip(left, right, strict=False))
     return covariance / variance
 
 

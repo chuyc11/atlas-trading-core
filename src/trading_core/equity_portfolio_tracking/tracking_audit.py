@@ -184,7 +184,7 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
     holdings = kwargs["holdings"]
     nav = kwargs["nav"]
     performance = kwargs["performance"]
-    exposure = kwargs["exposure"]
+    _exposure = kwargs["exposure"]
     benchmark = kwargs["benchmark"]
     checks = {
         "tracking_inputs_available": not kwargs["input_error"],
@@ -265,7 +265,7 @@ def _initial_capital_recorded(config: dict[str, Any], ledgers: dict[str, list[di
     capital = config.get("initial_virtual_capital", {})
     if not all(float(capital.get(key, 0.0) or 0.0) > 0.0 for key in PORTFOLIO_KEYS):
         return False
-    for key, rows in ledgers.items():
+    for _key, rows in ledgers.items():
         if not rows:
             return False
         if not all("virtual_position_value" in row for row in rows):

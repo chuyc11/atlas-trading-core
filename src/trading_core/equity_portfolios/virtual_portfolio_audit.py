@@ -11,7 +11,7 @@ import pandas as pd
 from trading_core.equity_data_quality.common import json_safe, read_frame, write_report
 from trading_core.equity_portfolios.industry_constraints import industry_cap_violations, max_industry_weight
 from trading_core.equity_portfolios.portfolio_config import PORTFOLIO_BOUNDARY, PORTFOLIO_FILES, PORTFOLIO_REPORTS, DEFAULT_AS_OF_DATE, RECOMMENDED_NEXT_VERSION, REMEDIATION_VERSION, TARGET_VERSION
-from trading_core.equity_portfolios.portfolio_inputs import portfolio_data_dir, portfolio_output_dir
+from trading_core.equity_portfolios.portfolio_inputs import portfolio_output_dir
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
 
@@ -260,7 +260,7 @@ def _forbidden_artifacts(paths: ProjectPaths, as_of_date: str) -> dict[str, list
 
 def _forbidden_wording_hits(artifacts: dict[str, Path]) -> list[str]:
     hits = []
-    for key, path in artifacts.items():
+    for _key, path in artifacts.items():
         if not path.exists() or path.suffix not in {".json", ".md"}:
             continue
         text = path.read_text(encoding="utf-8").lower()

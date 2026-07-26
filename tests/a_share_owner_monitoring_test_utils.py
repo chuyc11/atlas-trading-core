@@ -1,4 +1,4 @@
-from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths, seed_owner_dashboard_inputs
+from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, seed_owner_dashboard_inputs
 from trading_core.equity_owner_dashboard.dashboard_audit import audit_a_share_owner_dashboard
 from trading_core.equity_owner_dashboard.dashboard_builder import build_a_share_owner_dashboard
 

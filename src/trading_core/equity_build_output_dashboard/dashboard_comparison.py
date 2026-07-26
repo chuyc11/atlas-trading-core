@@ -19,7 +19,7 @@ def build_dashboard_comparison(
     validate_summary = load_json(paths.data_dir / "equity_owner_dashboard" / "daily" / as_of_date / "dashboard_summary.json")
     validate_boundary = load_json(paths.data_dir / "equity_owner_dashboard" / "daily" / as_of_date / "dashboard_boundary_check.json")
     build_warning = build_cards.get("build_output_warning_and_blocker_card", {})
-    build_boundary = build_cards.get("build_output_dashboard_boundary_check", {})
+    _build_boundary = build_cards.get("build_output_dashboard_boundary_check", {})
     unexpected = []
     if build_warning.get("blocking_count", 0):
         unexpected.append("build_dashboard_has_blocking_reasons")
@@ -57,4 +57,3 @@ def build_dashboard_comparison(
         "blocking_reasons": unexpected,
         "warnings": ["source_mode_changed_to_build_from_existing_data"],
     }
-

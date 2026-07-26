@@ -25,7 +25,7 @@ def write_monitoring_reports(output_dir: Path, payload: dict[str, Any]) -> dict[
 
 def render_monitoring_summary(payload: dict[str, Any]) -> str:
     status = payload["monitoring_status_card"]
-    alerts = payload["owner_alert_summary_card"]
+    _alerts = payload["owner_alert_summary_card"]
     warning = payload["warning_trend_snapshot"]
     blocking = payload["blocking_trend_snapshot"]
     provider = payload["provider_health_trend_snapshot"]

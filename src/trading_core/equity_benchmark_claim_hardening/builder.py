@@ -650,7 +650,7 @@ def _write_owner_reports(
                 f"- unavailable_or_partial: {unavailable}",
                 "",
                 "## Valid Metrics",
-                f"- cash_benchmark: zero_return_cash_baseline, simulation comparison only",
+                "- cash_benchmark: zero_return_cash_baseline, simulation comparison only",
                 f"- csi_benchmark_relative_metrics_generated: {csi['benchmark_relative_metrics_generated']}",
                 f"- simulated_account_return: {simulated['simulated_account_return']}",
                 "",

@@ -9,7 +9,6 @@ from trading_core.equity_current_day_builds.gated_build_config import (
     RECOMMENDED_NEXT_VERSION,
     TARGET_VERSION,
 )
-from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import relative
 
 

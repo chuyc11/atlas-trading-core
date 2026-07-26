@@ -15,7 +15,6 @@ from .common import (
     benchmark_path,
     paths_or_default,
     preview_path,
-    rel,
     replay_summary_path,
     report_path,
     research_boundary,

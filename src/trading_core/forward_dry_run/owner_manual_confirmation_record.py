@@ -6,7 +6,6 @@ from typing import Any
 
 from trading_core.forward_dry_run.start_authorization_common import (
     MATERIALIZATION_NOTICE,
-    materialization_boundary,
     materialization_non_claim_markdown,
     paths_or_default,
     system_json,

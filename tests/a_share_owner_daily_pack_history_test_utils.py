@@ -1,4 +1,4 @@
-from tests.a_share_build_output_ops_test_utils import AS_OF_DATE, make_paths
+from tests.a_share_build_output_ops_test_utils import AS_OF_DATE
 from tests.a_share_owner_daily_pack_test_utils import seed_owner_daily_pack_outputs
 
 

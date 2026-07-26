@@ -1,4 +1,4 @@
-from tests.a_share_evidence_backed_prep_test_utils import AS_OF_DATE, make_paths, seed_evidence_backed_prep_outputs
+from tests.a_share_evidence_backed_prep_test_utils import AS_OF_DATE, make_paths as make_paths, seed_evidence_backed_prep_outputs
 from trading_core.equity_owner_v0820_gate_outcome.io import load_json
 
 
@@ -18,4 +18,3 @@ def seed_v0820_outputs(paths, as_of_date: str = AS_OF_DATE):
 
 def v0820_data(paths, name: str, as_of_date: str = AS_OF_DATE):
     return load_json(paths.data_dir / "equity_owner_v0820_gate_outcome" / "daily" / as_of_date / name)
-

@@ -1,4 +1,4 @@
-from tests.a_share_build_output_ops_test_utils import AS_OF_DATE, make_paths
+from tests.a_share_build_output_ops_test_utils import AS_OF_DATE, make_paths as make_paths
 from tests.a_share_owner_readiness_gate_test_utils import seed_owner_readiness_gate_inputs
 from trading_core.equity_owner_quality_exceptions.io import load_json
 

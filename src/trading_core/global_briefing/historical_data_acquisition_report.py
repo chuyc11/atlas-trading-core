@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from trading_core.global_briefing.historical_data_packages import AUTHORIZED_GB_PACKAGE_ID, PACKAGE_SPECS, PROXY_PACKAGE_ID, TRADING_AUTHORIZATION_NOTICE
+from trading_core.global_briefing.historical_data_packages import AUTHORIZED_GB_PACKAGE_ID, PACKAGE_SPECS, TRADING_AUTHORIZATION_NOTICE
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.storage.jsonl_store import read_json
 from trading_core.system.common import default_paths, timestamp_id, write_json_markdown

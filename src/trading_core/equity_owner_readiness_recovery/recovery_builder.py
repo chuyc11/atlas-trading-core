@@ -21,8 +21,6 @@ from trading_core.equity_owner_readiness_recovery.recovery_config import (
     ANALYZE_GAP,
     AUDIT_EXISTING,
     BUILD_IMPROVEMENT,
-    BUILD_REPORT,
-    BUILD_VERIFICATION,
     DEFAULT_AS_OF_DATE,
     FILES,
     RECOMMENDED_NEXT_VERSION,

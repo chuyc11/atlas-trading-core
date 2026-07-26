@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import hashlib
-import json
 from pathlib import Path
 
 from trading_core.equity_current_day_builds.gated_build_config import (

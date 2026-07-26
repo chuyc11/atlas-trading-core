@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from trading_core.equity_data_quality.common import write_json
 
 
 def write_reports(output_dir, payloads: dict) -> None:

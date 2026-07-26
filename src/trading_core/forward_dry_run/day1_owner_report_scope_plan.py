@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Any
 
-from trading_core.forward_dry_run.day1_owner_report_common import BASELINE_FROM, TARGET_VERSION, owner_non_claim_lines, paths_or_default, report_boundary, scope_plan_system_paths
+from trading_core.forward_dry_run.day1_owner_report_common import BASELINE_FROM, TARGET_VERSION, owner_non_claim_lines, paths_or_default, scope_plan_system_paths
 from trading_core.forward_dry_run.day1_common import write_artifact
 from trading_core.storage.file_paths import ProjectPaths
 

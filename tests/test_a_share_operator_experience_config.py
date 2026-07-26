@@ -1,4 +1,3 @@
-import pytest
 
 from trading_core.equity_owner_operator_experience.operator_config import BUILD_STATUS, OperatorExperienceConfig, validate_config
 

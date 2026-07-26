@@ -25,7 +25,6 @@ from trading_core.equity_selection.tradable_universe_filter import build_a_share
 from trading_core.equity_workflows.workflow_config import (
     BUILD_FROM_EXISTING_DATA,
     DEFAULT_AS_OF_DATE,
-    FULL_RESEARCH_RUN,
     RECOMMENDED_NEXT_VERSION,
     TARGET_VERSION,
     VALIDATE_EXISTING_ARTIFACTS,
@@ -34,7 +33,6 @@ from trading_core.equity_workflows.workflow_config import (
     WorkflowConfig,
     required_input_artifacts,
     stage_definitions,
-    upstream_audit_artifacts,
     validate_workflow_config,
     workflow_artifact_paths,
     workflow_output_dir,

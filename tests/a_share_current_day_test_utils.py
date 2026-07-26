@@ -52,7 +52,7 @@ def seed_data_refresh(paths: ProjectPaths, *, passed: bool = True, as_of_date: s
         },
         "recommended_next_version": "v0.8.1-a-share-current-day-research-workflow-runner",
     }
-    for key, path in artifacts.items():
+    for _key, path in artifacts.items():
         if path.suffix == ".json":
             write_json(path, {"target_version": audit["target_version"], "as_of_date": as_of_date})
     write_json(artifacts["date_resolution"], {"target_version": audit["target_version"], "as_of_date": as_of_date, "resolved_as_of_date": as_of_date})
@@ -71,4 +71,3 @@ def fake_workflow_audit(as_of_date: str = AS_OF_DATE) -> dict[str, Any]:
         "stage_counts": {"total": 11, "passed": 11},
         "recommended_next_version": "v0.7.10-a-share-benchmark-data-and-performance-comparison",
     }
-

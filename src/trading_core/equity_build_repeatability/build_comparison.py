@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from pathlib import Path
 
 from trading_core.equity_build_repeatability.deterministic_normalization import normalized_json_hash
 from trading_core.equity_build_repeatability.repeatability_config import TARGET_VERSION

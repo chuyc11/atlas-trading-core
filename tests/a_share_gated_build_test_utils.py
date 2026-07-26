@@ -1,7 +1,6 @@
 import hashlib
-from pathlib import Path
 
-from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, make_paths, write_json, write_text
+from tests.a_share_owner_dashboard_test_utils import AS_OF_DATE, write_json, write_text
 from trading_core.equity_current_day_builds.gated_build_config import (
     GATED_BUILD_BOUNDARY,
     GATED_BUILD_FILES,

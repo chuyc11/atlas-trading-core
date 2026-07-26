@@ -73,7 +73,7 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
     input_availability = payloads.get("monitoring_input_availability", {})
     alert_eval = payloads.get("alert_evaluation_result", {})
     alert_log = payloads.get("alert_event_log", {})
-    warning_trend = payloads.get("warning_trend_snapshot", {})
+    _warning_trend = payloads.get("warning_trend_snapshot", {})
     blocking_trend = payloads.get("blocking_trend_snapshot", {})
     source_trace = payloads.get("monitoring_source_trace", {})
     boundary = payloads.get("monitoring_boundary_check", {})

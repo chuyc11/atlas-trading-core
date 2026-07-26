@@ -7,7 +7,6 @@ from pathlib import Path
 
 from trading_core.equity_build_repeatability.repeatability_config import (
     BASELINE_VERSION,
-    RECOMMENDED_NEXT_VERSION,
     TARGET_VERSION,
 )
 from trading_core.storage.file_paths import ProjectPaths

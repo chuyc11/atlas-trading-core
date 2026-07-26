@@ -13,11 +13,6 @@ from trading_core.equity_features.feature_config import (
     COMMON_COLUMNS,
     FEATURE_BOUNDARY,
     FEATURE_GROUP_FIELDS,
-    LIQUIDITY_FIELDS,
-    LONG_FIELDS,
-    MID_FIELDS,
-    RISK_FIELDS,
-    SHORT_FIELDS,
     TARGET_VERSION,
 )
 from trading_core.equity_features.feature_inputs import feature_data_dir, load_feature_inputs
@@ -342,7 +337,7 @@ def _industry_features(
         symbol = row["symbol"]
         item = industry_map.get(symbol, row.to_dict())
         key = industry_key(item)
-        symbol_returns = return_lookup.get(symbol, {})
+        _symbol_returns = return_lookup.get(symbol, {})
         result = {
             **_common(row, "industry"),
             "industry_level_1": item.get("industry_level_1") or row.get("industry_level_1", ""),

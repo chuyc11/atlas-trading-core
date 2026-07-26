@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from global_briefing_test_utils import assert_no_protected_paths, make_paths, real_fixture_path, write_json, write_text
+from global_briefing_test_utils import assert_no_protected_paths, make_paths, write_json, write_text
 from trading_core.global_briefing.real_package_manifest import build_global_briefing_package_manifest
 
 

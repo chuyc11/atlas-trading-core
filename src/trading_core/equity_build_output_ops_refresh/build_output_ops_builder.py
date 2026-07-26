@@ -12,7 +12,6 @@ from trading_core.equity_build_output_ops_refresh.build_output_ops_config import
     BUILD_REFRESH,
     DEFAULT_AS_OF_DATE,
     FILES,
-    REPORTS,
     BuildOutputOpsRefreshConfig,
     artifact_paths,
     data_dir,
