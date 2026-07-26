@@ -30,11 +30,21 @@ OFFICIAL_CALENDAR_SOURCE = "official_exchange_holiday_schedule_v1"
 OFFICIAL_SOURCE_TIMESTAMPS = {2025: "2024-12-23", 2026: "2025-12-22"}
 
 
-def build_a_share_trading_calendar(*, paths: ProjectPaths | None = None, end_date: str | None = None, lookback_days: int = 365) -> dict[str, Any]:
+def build_a_share_trading_calendar(
+    *,
+    paths: ProjectPaths | None = None,
+    end_date: str | None = None,
+    lookback_days: int = 730,
+    forward_days: int = 120,
+) -> dict[str, Any]:
     paths = default_paths(paths)
     end = date.fromisoformat(end_date or latest_weekday())
-    start = end - timedelta(days=lookback_days)
-    dates = [start + timedelta(days=offset) for offset in range((end - start).days + 31)]
+    first_supported = date(min(OFFICIAL_ASHARE_HOLIDAYS), 1, 1)
+    start = max(end - timedelta(days=lookback_days), first_supported)
+    dates = [
+        start + timedelta(days=offset)
+        for offset in range((end - start).days + forward_days + 1)
+    ]
     unsupported_years = sorted({item.year for item in dates} - set(OFFICIAL_ASHARE_HOLIDAYS))
     if unsupported_years:
         raise ValueError(
@@ -74,6 +84,7 @@ def build_a_share_trading_calendar(*, paths: ProjectPaths | None = None, end_dat
         "trading_days": int(frame["date"].nunique()) if not frame.empty else 0,
         "min_date": str(frame["date"].min()) if not frame.empty else "",
         "max_date": str(frame["date"].max()) if not frame.empty else "",
+        "forward_days_requested": forward_days,
         "parquet_path": str(parquet_path),
         "json_path": str(json_path),
         "report_path": str(report_path),

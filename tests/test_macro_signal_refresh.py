@@ -48,3 +48,19 @@ def test_sync_dry_run_does_not_replace_local_copy(tmp_path) -> None:
     assert limitations == []
     assert rows[0]["scenario"] == "revised upstream"
     assert read_jsonl(local)[0]["scenario"] == "stale local"
+
+
+def test_sync_can_explicitly_accept_and_copy_an_empty_daily_export(tmp_path) -> None:
+    date = "2026-07-22"
+    paths = project_paths(tmp_path)
+    source = paths.global_briefing_data_dir / f"macro_signals-{date}.jsonl"
+    local = paths.data_dir / "macro_signals" / source.name
+    source.parent.mkdir(parents=True, exist_ok=True)
+    source.write_text("", encoding="utf-8")
+    write_jsonl(local, [macro(date, "stale local")])
+
+    rows, limitations = sync_macro_signals(date, paths, allow_empty=True)
+
+    assert rows == []
+    assert limitations == [f"empty global macro_signals for {date}"]
+    assert local.read_bytes() == source.read_bytes() == b""

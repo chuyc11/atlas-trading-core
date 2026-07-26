@@ -10,7 +10,7 @@ from trading_core.accounting.valuation import value_account
 from trading_core.attribution.attribution_engine import build_attribution
 from trading_core.benchmarks.benchmark_engine import build_benchmark
 from trading_core.broker.virtual_broker import process_signals
-from trading_core.calendar.trading_calendar import previous_trading_day
+from trading_core.calendar.trading_calendar import previous_trading_day, require_a_share_calendar
 from trading_core.config_loader import load_config
 from trading_core.data.price_loader import load_china_prices, simple_price_map
 from trading_core.evolution.evolution_engine import run_evolution
@@ -77,6 +77,14 @@ def _append_price_quality_limitations(
 def run_daily(date: str, workspace_root: Path | None = None) -> dict[str, Any]:
     paths = project_paths(workspace_root)
     ensure_project_dirs(paths)
+
+    calendar_gate = require_a_share_calendar(
+        paths=paths,
+        as_of_date=date,
+        minimum_forward_days=30,
+    )
+    if calendar_gate["passed"] is not True:
+        raise RuntimeError(str(calendar_gate["warning"]))
 
     settings = load_config("settings.yaml")
     universe = load_universe()

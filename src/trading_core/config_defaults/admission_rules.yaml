@@ -1,0 +1,10 @@
+{
+  "min_backtest_days": 60,
+  "min_trades": 10,
+  "require_positive_excess_return": true,
+  "max_drawdown": 0.05,
+  "max_mistake_rate": 0.30,
+  "max_cost_ratio": 0.20,
+  "require_benchmark_comparison": true,
+  "require_no_future_data_flag": true
+}

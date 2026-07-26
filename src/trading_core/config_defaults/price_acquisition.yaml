@@ -1,0 +1,9 @@
+{
+  "retry": {"max_attempts": 3, "initial_sleep_seconds": 2, "backoff_multiplier": 2, "jitter_seconds": 1},
+  "throttle": {"sleep_between_symbols_seconds": 3},
+  "failure_policy": {
+    "allow_partial_success": true,
+    "never_generate_synthetic_prices": true,
+    "never_forward_fill_missing_prices": true
+  }
+}

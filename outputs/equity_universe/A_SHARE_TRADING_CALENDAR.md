@@ -3,9 +3,9 @@
 - source: official_exchange_holiday_schedule_v1
 - source_url: https://www.sse.com.cn/disclosure/dealinstruc/closed/
 - exchanges: BSE, SSE, SZSE
-- trading_days: 265
-- min_date: 2025-07-01
-- max_date: 2026-07-31
+- trading_days: 451
+- min_date: 2025-01-02
+- max_date: 2026-11-13
 
 ## Boundary
 - Data ingestion only.

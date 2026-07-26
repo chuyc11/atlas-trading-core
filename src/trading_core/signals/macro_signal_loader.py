@@ -28,6 +28,7 @@ def sync_macro_signals(
     paths: ProjectPaths | None = None,
     *,
     write_local: bool = True,
+    allow_empty: bool = False,
 ) -> tuple[list[dict[str, Any]], list[str]]:
     """Validate the global-briefing source and atomically refresh the local copy.
 
@@ -39,11 +40,17 @@ def sync_macro_signals(
     if not source_path.exists():
         return [], [f"missing global macro_signals for {date}"]
     rows, limitations = _read_macro_jsonl(source_path)
+    empty_limitation = f"empty global macro_signals for {date}"
     if not rows:
-        limitations.append(f"empty global macro_signals for {date}")
+        limitations.append(empty_limitation)
     rows, validation_limitations = _validate_macro_rows(rows)
     limitations.extend(validation_limitations)
-    if limitations or not write_local:
+    fatal_limitations = [
+        limitation
+        for limitation in limitations
+        if not (allow_empty and limitation == empty_limitation)
+    ]
+    if fatal_limitations or (limitations and not allow_empty) or not write_local:
         return rows, limitations
 
     local_path = paths.data_dir / "macro_signals" / f"macro_signals-{date}.jsonl"
@@ -51,7 +58,7 @@ def sync_macro_signals(
     temporary = local_path.with_name(f".{local_path.name}.{uuid4().hex}.tmp")
     temporary.write_bytes(source_path.read_bytes())
     temporary.replace(local_path)
-    return rows, []
+    return rows, limitations
 
 
 def load_macro_signals(

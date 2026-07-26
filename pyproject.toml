@@ -11,6 +11,7 @@ requires-python = ">=3.11"
 dependencies = [
   "numpy==2.2.6",
   "pandas==2.3.3",
+  "pyarrow==24.0.0",
   "PyYAML==6.0.3",
 ]
 
@@ -26,10 +27,10 @@ trading-core = "trading_core.entrypoint:main"
 where = ["src"]
 include = ["trading_core*"]
 
+[tool.setuptools.package-data]
+trading_core = ["config_defaults/*.yaml"]
+
 [tool.pytest.ini_options]
 addopts = "-q"
 pythonpath = ["src"]
 testpaths = ["tests"]
-filterwarnings = [
-  "ignore:A-share trading calendar file unavailable; using weekday fallback only:RuntimeWarning",
-]

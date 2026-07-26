@@ -76,6 +76,8 @@ def require_a_share_calendar(
     paths: ProjectPaths | None = None,
     calendar_path: Path | str | None = None,
     market: str = "A_SHARE",
+    as_of_date: str | Date | None = None,
+    minimum_forward_days: int = 0,
 ) -> dict[str, Any]:
     if market != "A_SHARE":
         return {"passed": True, "market": market, "status": "not_required", "warning": None}
@@ -87,13 +89,33 @@ def require_a_share_calendar(
             "status": "missing_calendar",
             "warning": "formal A-share backtest requires an exchange trading calendar file; weekday fallback is degraded only",
         }
+    minimum_date = min(calendar)
+    maximum_date = max(calendar)
+    coverage_warning: str | None = None
+    coverage_days: int | None = None
+    if as_of_date is not None:
+        requested = parse_date(as_of_date)
+        coverage_days = (parse_date(maximum_date) - requested).days
+        if requested.isoformat() < minimum_date or requested.isoformat() > maximum_date:
+            coverage_warning = (
+                f"A-share trading calendar does not cover {requested.isoformat()}; "
+                f"available range is {minimum_date} through {maximum_date}"
+            )
+        elif coverage_days < minimum_forward_days:
+            coverage_warning = (
+                f"A-share trading calendar has only {coverage_days} forward calendar days "
+                f"from {requested.isoformat()}; at least {minimum_forward_days} are required"
+            )
     return {
-        "passed": True,
+        "passed": coverage_warning is None,
         "market": market,
-        "status": "calendar_file",
+        "status": "calendar_file" if coverage_warning is None else "calendar_coverage_insufficient",
         "trading_day_count": sum(1 for value in calendar.values() if value),
         "closed_day_count": sum(1 for value in calendar.values() if not value),
-        "warning": None,
+        "minimum_date": minimum_date,
+        "maximum_date": maximum_date,
+        "forward_calendar_days": coverage_days,
+        "warning": coverage_warning,
     }
 
 
@@ -147,6 +169,16 @@ def _load_external_calendar(*, paths: ProjectPaths | None, calendar_path: Path |
             active_paths.data_dir / "equity_universe" / "trading_calendar.parquet",
             active_paths.data_dir / "calendar" / "a_share_trading_calendar.json",
         ]
+        if paths is not None:
+            shared_paths = project_paths()
+            if shared_paths.data_dir != active_paths.data_dir:
+                candidates.extend(
+                    [
+                        shared_paths.data_dir / "equity_universe" / "trading_calendar.json",
+                        shared_paths.data_dir / "equity_universe" / "trading_calendar.csv",
+                        shared_paths.data_dir / "equity_universe" / "trading_calendar.parquet",
+                    ]
+                )
     for candidate in candidates:
         if candidate.exists():
             return _read_calendar_file(candidate)

@@ -8,7 +8,9 @@ from typing import Any
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-CONFIG_DIR = PROJECT_ROOT / "config"
+SOURCE_CONFIG_DIR = PROJECT_ROOT / "config"
+PACKAGE_CONFIG_DIR = Path(__file__).resolve().with_name("config_defaults")
+CONFIG_DIR = SOURCE_CONFIG_DIR if SOURCE_CONFIG_DIR.is_dir() else PACKAGE_CONFIG_DIR
 
 
 def load_config(name: str, config_dir: Path | None = None) -> dict[str, Any]:

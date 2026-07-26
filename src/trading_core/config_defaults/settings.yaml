@@ -1,0 +1,18 @@
+{
+  "project_timezone": "Asia/Shanghai",
+  "base_currency": "CNY",
+  "default_account_id": "CHINA_PAPER",
+  "paths": {
+    "global_briefing_data": "work/global-briefing/data",
+    "trading_core_data": "work/trading-core/data",
+    "outputs": "work/trading-core/outputs",
+    "shared_schemas": "work/shared/schemas"
+  },
+  "run_mode": {
+    "allow_real_trading": false,
+    "allow_broker_connection": false,
+    "allow_margin": false,
+    "allow_short": false
+  },
+  "initial_account": {"account_id": "CHINA_PAPER", "initial_cash": 100000.0}
+}

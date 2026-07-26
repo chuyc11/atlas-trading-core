@@ -1,0 +1,24 @@
+{
+  "markets": {
+    "A_SHARE": {
+      "lot_size": 100,
+      "allow_fractional": false,
+      "t_plus_one": true,
+      "price_tick": 0.001,
+      "default_slippage_bps": 10,
+      "commission_rate": 0.0003,
+      "min_commission": 5.0,
+      "stamp_tax_sell_rate": 0.0005
+    },
+    "HK": {
+      "lot_size": 1,
+      "allow_fractional": false,
+      "t_plus_one": false,
+      "price_tick": 0.001,
+      "default_slippage_bps": 10,
+      "commission_rate": 0.0003,
+      "min_commission": 5.0,
+      "stamp_tax_sell_rate": 0.001
+    }
+  }
+}

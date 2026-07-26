@@ -57,6 +57,32 @@ def test_formal_a_share_calendar_gate_accepts_external_calendar(tmp_path) -> Non
     assert result["closed_day_count"] == 1
 
 
+def test_formal_a_share_calendar_gate_rejects_expired_or_short_coverage(tmp_path) -> None:
+    calendar = tmp_path / "a_share_calendar.csv"
+    calendar.write_text(
+        "date,is_trading_day\n"
+        "2026-07-30,true\n"
+        "2026-07-31,true\n",
+        encoding="utf-8",
+    )
+
+    expired = require_a_share_calendar(
+        calendar_path=calendar,
+        as_of_date="2026-08-03",
+    )
+    short = require_a_share_calendar(
+        calendar_path=calendar,
+        as_of_date="2026-07-30",
+        minimum_forward_days=30,
+    )
+
+    assert expired["passed"] is False
+    assert expired["status"] == "calendar_coverage_insufficient"
+    assert "does not cover" in expired["warning"]
+    assert short["passed"] is False
+    assert "at least 30" in short["warning"]
+
+
 def test_next_trading_day_fails_when_loaded_calendar_lacks_required_date(tmp_path) -> None:
     calendar = tmp_path / "a_share_calendar.csv"
     calendar.write_text("date,is_trading_day\n2026-10-01,false\n", encoding="utf-8")

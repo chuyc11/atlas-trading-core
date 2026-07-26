@@ -17,6 +17,7 @@ def run_load_macro(arguments: list[str]) -> int:
     parser = argparse.ArgumentParser(prog="trading-core load-macro")
     parser.add_argument("--date", required=True)
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--allow-empty", action="store_true")
     args = parser.parse_args(arguments)
 
     from trading_core.signals.macro_signal_loader import sync_macro_signals
@@ -26,9 +27,16 @@ def run_load_macro(arguments: list[str]) -> int:
         args.date,
         project_paths(),
         write_local=not args.dry_run,
+        allow_empty=args.allow_empty,
     )
     print({"macro_signals": len(rows), "limitations": limitations})
-    return 1 if limitations else 0
+    accepted_empty = f"empty global macro_signals for {args.date}"
+    fatal_limitations = [
+        limitation
+        for limitation in limitations
+        if not (args.allow_empty and limitation == accepted_empty)
+    ]
+    return 1 if fatal_limitations else 0
 
 
 def main(argv: Sequence[str] | None = None) -> int:
