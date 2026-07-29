@@ -60,18 +60,18 @@ def _fresh_snapshot_items() -> list[dict]:
     ],
 )
 def test_global_briefing_bad_inputs_degrade_without_illegal_trades(
-    tmp_path: Path,
+    workspace_with_calendar: Path,
     date: str,
     macro_text: str | None,
     snapshot_items: list[dict] | None,
     snapshot_raw: str | None,
     expected_limitation: str,
 ) -> None:
-    data_dir = _gb_dir(tmp_path)
+    data_dir = _gb_dir(workspace_with_calendar)
     _write_macro(data_dir, date, macro_text)
     _write_snapshot(data_dir, date, snapshot_items, snapshot_raw)
 
-    result = run_daily(date, tmp_path)
+    result = run_daily(date, workspace_with_calendar)
     combined_limitations = "\n".join(result["limitations"])
 
     assert expected_limitation in combined_limitations
@@ -83,9 +83,9 @@ def test_global_briefing_bad_inputs_degrade_without_illegal_trades(
     assert any(expected_limitation in warning for warning in result["health"]["warnings"])
 
 
-def test_market_snapshot_mixed_change_pct_units_do_not_crash(tmp_path: Path) -> None:
+def test_market_snapshot_mixed_change_pct_units_do_not_crash(workspace_with_calendar: Path) -> None:
     date = "2026-07-14"
-    data_dir = _gb_dir(tmp_path)
+    data_dir = _gb_dir(workspace_with_calendar)
     _write_macro(data_dir, date, _valid_macro_line(date))
     _write_snapshot(
         data_dir,
@@ -96,7 +96,7 @@ def test_market_snapshot_mixed_change_pct_units_do_not_crash(tmp_path: Path) -> 
         ],
     )
 
-    result = run_daily(date, tmp_path)
+    result = run_daily(date, workspace_with_calendar)
 
     assert result["benchmark"]["benchmarks"]["CSI300"]["return"] == pytest.approx(0.0063)
     assert result["health"]["warnings"] or result["orders"]

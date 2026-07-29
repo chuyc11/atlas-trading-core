@@ -59,11 +59,17 @@ def _seed_inputs(root: Path) -> None:
     )
 
 
-def test_dry_run_range_writes_summary_and_survives_missing_inputs(tmp_path: Path) -> None:
+def test_dry_run_range_writes_summary_and_survives_missing_inputs(
+    workspace_with_calendar: Path,
+) -> None:
     module = _load_dry_run_module()
-    _seed_inputs(tmp_path)
+    _seed_inputs(workspace_with_calendar)
 
-    result = module.run_dry_run_range("2026-06-23", "2026-06-25", workspace_root=tmp_path)
+    result = module.run_dry_run_range(
+        "2026-06-23",
+        "2026-06-25",
+        workspace_root=workspace_with_calendar,
+    )
 
     report_path = Path(result["report_path"])
     json_path = Path(result["json_path"])

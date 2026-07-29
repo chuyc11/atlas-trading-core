@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from datetime import date, timedelta
 from pathlib import Path
 
 import pytest
@@ -7,9 +8,30 @@ import pytest
 from trading_core.storage.jsonl_store import write_json, write_jsonl
 
 
+def write_test_calendar(root: Path) -> None:
+    calendar_dir = root / "work" / "trading-core" / "data" / "equity_universe"
+    calendar_dir.mkdir(parents=True, exist_ok=True)
+    first_day = date(2026, 6, 1)
+    rows = [
+        {
+            "date": (first_day + timedelta(days=offset)).isoformat(),
+            "is_trading_day": (first_day + timedelta(days=offset)).weekday() < 5,
+        }
+        for offset in range(90)
+    ]
+    write_json(calendar_dir / "trading_calendar.json", {"rows": rows})
+
+
+@pytest.fixture
+def workspace_with_calendar(tmp_path: Path) -> Path:
+    write_test_calendar(tmp_path)
+    return tmp_path
+
+
 @pytest.fixture
 def sample_workspace(tmp_path: Path) -> Path:
     root = tmp_path
+    write_test_calendar(root)
     data_dir = root / "work" / "global-briefing" / "data"
     data_dir.mkdir(parents=True)
     write_jsonl(

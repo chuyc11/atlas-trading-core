@@ -169,16 +169,6 @@ def _load_external_calendar(*, paths: ProjectPaths | None, calendar_path: Path |
             active_paths.data_dir / "equity_universe" / "trading_calendar.parquet",
             active_paths.data_dir / "calendar" / "a_share_trading_calendar.json",
         ]
-        if paths is not None:
-            shared_paths = project_paths()
-            if shared_paths.data_dir != active_paths.data_dir:
-                candidates.extend(
-                    [
-                        shared_paths.data_dir / "equity_universe" / "trading_calendar.json",
-                        shared_paths.data_dir / "equity_universe" / "trading_calendar.csv",
-                        shared_paths.data_dir / "equity_universe" / "trading_calendar.parquet",
-                    ]
-                )
     for candidate in candidates:
         if candidate.exists():
             return _read_calendar_file(candidate)

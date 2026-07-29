@@ -21,21 +21,21 @@ def test_run_daily_generates_runtime_health(sample_workspace: Path) -> None:
     assert load_health("2026-06-23", project_paths(sample_workspace))["run_id"] == health["run_id"]
 
 
-def test_missing_macro_signals_warns_without_crashing(tmp_path: Path) -> None:
-    data = tmp_path / "work" / "global-briefing" / "data"
+def test_missing_macro_signals_warns_without_crashing(workspace_with_calendar: Path) -> None:
+    data = workspace_with_calendar / "work" / "global-briefing" / "data"
     data.mkdir(parents=True)
     write_json(
         data / "china-market-snapshot-2026-06-23.json",
         {"items": [{"symbol": "510300.SH", "price": 4.0, "previous_close": 4.0, "data_status": "ok"}]},
     )
 
-    result = run_daily("2026-06-23", tmp_path)
+    result = run_daily("2026-06-23", workspace_with_calendar)
     assert "missing macro_signals for 2026-06-23" in result["health"]["warnings"]
     assert result["health"]["errors"] == []
 
 
-def test_missing_price_snapshot_warns_without_crashing(tmp_path: Path) -> None:
-    result = run_daily("2026-06-23", tmp_path)
+def test_missing_price_snapshot_warns_without_crashing(workspace_with_calendar: Path) -> None:
+    result = run_daily("2026-06-23", workspace_with_calendar)
     assert any("missing China market snapshot" in warning for warning in result["health"]["warnings"])
     assert result["health"]["missing_prices_count"] >= 1
     assert result["health"]["errors"] == []

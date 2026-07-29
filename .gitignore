@@ -17,6 +17,7 @@ outputs/ml/
 outputs/shadow/
 outputs/experiments/
 outputs/strategy-leaderboard-*.md
+outputs/test-matrix/
 data/raw/prices/etf_daily/
 data/raw/prices/*.jsonl
 data/runtime/

@@ -134,9 +134,9 @@ def _write_five_day_dataset(root: Path, *, include_sell_cycle: bool = False) -> 
 
 
 @pytest.fixture
-def hardening_workspace(tmp_path: Path) -> Path:
-    _write_five_day_dataset(tmp_path)
-    return tmp_path
+def hardening_workspace(workspace_with_calendar: Path) -> Path:
+    _write_five_day_dataset(workspace_with_calendar)
+    return workspace_with_calendar
 
 
 def test_issue_26_dataset_contains_required_hardening_cases(hardening_workspace: Path) -> None:
@@ -187,10 +187,12 @@ def test_issue_26_account_continues_across_days_without_reinitializing(hardening
     assert day2["positions"][0]["available_quantity"] == day1["positions"][0]["quantity"]
 
 
-def test_issue_26_a_share_t_plus_one_blocks_same_day_sell_and_allows_next_day(tmp_path: Path) -> None:
-    _write_five_day_dataset(tmp_path, include_sell_cycle=True)
+def test_issue_26_a_share_t_plus_one_blocks_same_day_sell_and_allows_next_day(
+    workspace_with_calendar: Path,
+) -> None:
+    _write_five_day_dataset(workspace_with_calendar, include_sell_cycle=True)
 
-    day1 = run_daily(DATES[0], tmp_path)
+    day1 = run_daily(DATES[0], workspace_with_calendar)
     buy_trades = [trade for trade in day1["trades"] if trade["side"] == "BUY"]
     same_day_sell_orders = [order for order in day1["orders"] if order["side"] == "SELL"]
     assert buy_trades[0]["filled_quantity"] == 1200
@@ -198,7 +200,7 @@ def test_issue_26_a_share_t_plus_one_blocks_same_day_sell_and_allows_next_day(tm
     assert day1["portfolio"]["positions"][0]["last_buy_date"] == DATES[0]
     assert same_day_sell_orders[0]["status"] == "rejected"
 
-    day2 = run_daily(DATES[1], tmp_path)
+    day2 = run_daily(DATES[1], workspace_with_calendar)
     sell_trades = [trade for trade in day2["trades"] if trade["side"] == "SELL"]
     assert day2["portfolio"]["positions"][0]["available_quantity"] > 0
     assert sell_trades

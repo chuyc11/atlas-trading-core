@@ -1,6 +1,7 @@
 import pytest
 
 from trading_core.calendar.trading_calendar import calendar_status, is_trading_day, next_trading_day, previous_trading_day, require_a_share_calendar
+from trading_core.storage.file_paths import project_paths
 
 
 def test_weekday_calendar_fallback_warns_and_supports_strict_mode(tmp_path) -> None:
@@ -19,6 +20,18 @@ def test_weekday_calendar_fallback_warns_and_supports_strict_mode(tmp_path) -> N
 def test_default_a_share_calendar_is_discovered_from_project_data() -> None:
     assert calendar_status("2026-07-16", "A_SHARE")["status"] == "calendar_file"
     assert is_trading_day("2026-07-16", "A_SHARE")
+
+
+def test_explicit_project_paths_do_not_fall_back_to_shared_workspace_calendar(tmp_path) -> None:
+    isolated_paths = project_paths(tmp_path)
+
+    status = calendar_status("2026-01-02", "A_SHARE", paths=isolated_paths)
+    gate = require_a_share_calendar(paths=isolated_paths)
+
+    assert status["status"] == "degraded"
+    assert status["is_trading_day"] is True
+    assert gate["passed"] is False
+    assert gate["status"] == "missing_calendar"
 
 
 def test_a_share_calendar_uses_external_file_for_holidays(tmp_path) -> None:

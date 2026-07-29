@@ -84,14 +84,14 @@ def test_account_state_continues_across_three_days(sample_workspace: Path) -> No
     assert day_25["cash"] == day_24["cash"]
 
 
-def test_t_plus_one_rejects_same_day_sell_then_allows_next_day(tmp_path: Path) -> None:
-    data = _global_data(tmp_path)
+def test_t_plus_one_rejects_same_day_sell_then_allows_next_day(workspace_with_calendar: Path) -> None:
+    data = _global_data(workspace_with_calendar)
     write_jsonl(data / "macro_signals-2026-06-23.jsonl", [_macro("2026-06-23", "LONG"), _macro("2026-06-23", "SELL")])
     write_jsonl(data / "macro_signals-2026-06-24.jsonl", [_macro("2026-06-24", "SELL")])
-    _snapshot("2026-06-23", [_fresh_item(price=4.0), _fresh_item("000300.SH", 5000, 5000)], tmp_path)
-    _snapshot("2026-06-24", [_fresh_item(price=4.1, previous_close=4.0), _fresh_item("000300.SH", 5050, 5000)], tmp_path)
+    _snapshot("2026-06-23", [_fresh_item(price=4.0), _fresh_item("000300.SH", 5000, 5000)], workspace_with_calendar)
+    _snapshot("2026-06-24", [_fresh_item(price=4.1, previous_close=4.0), _fresh_item("000300.SH", 5050, 5000)], workspace_with_calendar)
 
-    day_23 = run_daily("2026-06-23", tmp_path)
+    day_23 = run_daily("2026-06-23", workspace_with_calendar)
     sell_order_23 = [order for order in day_23["orders"] if order["side"] == "SELL"][0]
     assert sell_order_23["status"] == "rejected"
     assert "available position" in sell_order_23["risk_reason"]
@@ -99,19 +99,19 @@ def test_t_plus_one_rejects_same_day_sell_then_allows_next_day(tmp_path: Path) -
     assert day_23["portfolio"]["positions"][0]["available_quantity"] == 0
     assert day_23["portfolio"]["positions"][0]["last_buy_date"] == "2026-06-23"
 
-    day_24 = run_daily("2026-06-24", tmp_path)
+    day_24 = run_daily("2026-06-24", workspace_with_calendar)
     sell_trades = [trade for trade in day_24["trades"] if trade["side"] == "SELL"]
     assert sell_trades
     assert sell_trades[0]["date"] == "2026-06-24"
     assert sell_trades[0]["filled_quantity"] == 1200
 
 
-def test_missing_price_blocks_order_and_records_data_quality(tmp_path: Path) -> None:
-    data = _global_data(tmp_path)
+def test_missing_price_blocks_order_and_records_data_quality(workspace_with_calendar: Path) -> None:
+    data = _global_data(workspace_with_calendar)
     write_jsonl(data / "macro_signals-2026-06-23.jsonl", [_macro("2026-06-23")])
-    _snapshot("2026-06-23", [_fresh_item("000300.SH", 5000, 5000)], tmp_path)
+    _snapshot("2026-06-23", [_fresh_item("000300.SH", 5000, 5000)], workspace_with_calendar)
 
-    result = run_daily("2026-06-23", tmp_path)
+    result = run_daily("2026-06-23", workspace_with_calendar)
     assert result["signals"][0]["symbol"] == "510300.SH"
     assert result["orders"][0]["status"] == "rejected"
     assert result["trades"] == []
@@ -128,14 +128,19 @@ def test_missing_price_blocks_order_and_records_data_quality(tmp_path: Path) -> 
         ("stale", "rejected", 0),
     ],
 )
-def test_fallback_and_stale_block_buy(tmp_path: Path, status: str, expected_order_status: str, expected_trades: int) -> None:
-    data = _global_data(tmp_path)
+def test_fallback_and_stale_block_buy(
+    workspace_with_calendar: Path,
+    status: str,
+    expected_order_status: str,
+    expected_trades: int,
+) -> None:
+    data = _global_data(workspace_with_calendar)
     write_jsonl(data / "macro_signals-2026-06-23.jsonl", [_macro("2026-06-23")])
     item = _fresh_item()
     item["data_status"] = status
-    _snapshot("2026-06-23", [item, _fresh_item("000300.SH", 5000, 5000)], tmp_path)
+    _snapshot("2026-06-23", [item, _fresh_item("000300.SH", 5000, 5000)], workspace_with_calendar)
 
-    result = run_daily("2026-06-23", tmp_path)
+    result = run_daily("2026-06-23", workspace_with_calendar)
     assert result["orders"][0]["status"] == expected_order_status
     assert len(result["trades"]) == expected_trades
 
