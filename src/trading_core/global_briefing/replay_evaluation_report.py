@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
+from trading_core.global_briefing.isolated_replay_execution import summarize_replay_price_coverage
 from trading_core.global_briefing.signal_schema import compact_date, resolve_project_path
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.storage.jsonl_store import read_json, read_jsonl
@@ -46,7 +47,18 @@ def build_global_briefing_replay_report(
     replay_days = int(replay.get("summary", {}).get("replay_days", 0) or 0)
     days_processed = int(replay.get("summary", {}).get("days_processed", 0) or 0)
     signal_ratio = _signal_coverage_ratio(bundle, replay)
-    price_ratio = (days_processed / replay_days) if replay_days else None
+    outputs = replay.get("isolated_outputs") or replay.get("isolated_output_paths") or {}
+    valuations = _read_jsonl_safely(outputs.get("valuations")) if isinstance(outputs, dict) else []
+    trades = _read_jsonl_safely(outputs.get("trades")) if isinstance(outputs, dict) else []
+    price_coverage = summarize_replay_price_coverage(valuations, trades)
+    if price_coverage["resolved_price_observations"] < price_coverage["required_price_observations"]:
+        blocking.append(
+            "price coverage incomplete: "
+            f"{price_coverage['resolved_price_observations']}/"
+            f"{price_coverage['required_price_observations']} daily-symbol observations resolved"
+        )
+    if price_coverage["invalid_valuation_days"]:
+        blocking.append(f"invalid replay valuations: {price_coverage['invalid_valuation_days']}")
     if validation and validation.get("overall_passed") is False:
         blocking.append("validation artifact did not pass")
 
@@ -64,9 +76,8 @@ def build_global_briefing_replay_report(
             "replay_days": replay_days,
             "days_processed": days_processed,
             "signal_coverage_ratio": signal_ratio,
-            "price_coverage_ratio": price_ratio,
+            **price_coverage,
             "missing_signal_days": replay.get("data_quality", {}).get("missing_signal_days", []),
-            "missing_price_days": replay.get("data_quality", {}).get("missing_price_days", []),
         },
         "execution": execution,
         "integrity": integrity,

@@ -15,7 +15,7 @@ def utc_now() -> str:
 class ReplayAccount:
     replay_id: str
     cash: float
-    equity: float
+    equity: float | None
     currency: str = "CNY"
     created_at: str = field(default_factory=utc_now)
     isolated: bool = True
@@ -24,7 +24,7 @@ class ReplayAccount:
         return {
             "replay_id": self.replay_id,
             "cash": self.cash,
-            "equity": self.equity,
+            "equity": float(self.equity) if self.equity is not None else None,
             "currency": self.currency,
             "created_at": self.created_at,
             "isolated": self.isolated,
@@ -89,6 +89,8 @@ class ReplayOrder:
     status: str
     reason: str = "isolated_replay_order"
     isolated: bool = True
+    reference_price: float | None = None
+    slippage_bps: float = 0.0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -99,6 +101,9 @@ class ReplayOrder:
             "side": self.side,
             "quantity": int(self.quantity),
             "price": float(self.price),
+            "execution_price": float(self.price),
+            "reference_price": float(self.reference_price) if self.reference_price is not None else float(self.price),
+            "slippage_bps": float(self.slippage_bps),
             "status": self.status,
             "reason": self.reason,
             "isolated": self.isolated,
@@ -119,8 +124,13 @@ class ReplayTrade:
     fee: float
     tax: float = 0.0
     isolated: bool = True
+    reference_price: float | None = None
+    slippage_bps: float = 0.0
+    slippage_cost: float = 0.0
 
     def to_dict(self) -> dict[str, Any]:
+        reference_price = float(self.reference_price) if self.reference_price is not None else float(self.price)
+        total_transaction_cost = float(self.fee) + float(self.tax) + float(self.slippage_cost)
         return {
             "trade_id": self.trade_id,
             "order_id": self.order_id,
@@ -130,9 +140,21 @@ class ReplayTrade:
             "side": self.side,
             "quantity": int(self.quantity),
             "price": float(self.price),
+            "execution_price": float(self.price),
+            "reference_price": reference_price,
             "notional": float(self.notional),
             "fee": float(self.fee),
+            "commission": float(self.fee),
             "tax": float(self.tax),
+            "slippage_bps": float(self.slippage_bps),
+            "slippage_cost": float(self.slippage_cost),
+            "total_transaction_cost": total_transaction_cost,
+            "costs": {
+                "commission": float(self.fee),
+                "tax": float(self.tax),
+                "slippage": float(self.slippage_cost),
+                "total": total_transaction_cost,
+            },
             "isolated": self.isolated,
         }
 
@@ -142,22 +164,26 @@ class ReplayValuation:
     replay_id: str
     date: str
     cash: float
-    market_value: float
-    equity: float
+    market_value: float | None
+    equity: float | None
     positions: list[dict[str, Any]]
     warnings: list[str] = field(default_factory=list)
     isolated: bool = True
+    valuation_valid: bool = True
+    price_observations: list[dict[str, Any]] = field(default_factory=list)
 
     def to_dict(self) -> dict[str, Any]:
         return {
             "replay_id": self.replay_id,
             "date": self.date,
             "cash": float(self.cash),
-            "market_value": float(self.market_value),
-            "equity": float(self.equity),
+            "market_value": float(self.market_value) if self.market_value is not None else None,
+            "equity": float(self.equity) if self.equity is not None else None,
             "positions": self.positions,
             "warnings": list(self.warnings),
             "isolated": self.isolated,
+            "valuation_valid": self.valuation_valid,
+            "price_observations": list(self.price_observations),
         }
 
 
@@ -169,9 +195,10 @@ class ReplayDayResult:
     orders: int
     trades: int
     cash: float
-    equity: float
+    equity: float | None
     warnings: list[str] = field(default_factory=list)
     isolated: bool = True
+    valuation_valid: bool = True
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -181,9 +208,10 @@ class ReplayDayResult:
             "orders": int(self.orders),
             "trades": int(self.trades),
             "cash": float(self.cash),
-            "equity": float(self.equity),
+            "equity": float(self.equity) if self.equity is not None else None,
             "warnings": list(self.warnings),
             "isolated": self.isolated,
+            "valuation_valid": self.valuation_valid,
         }
 
 
@@ -194,6 +222,7 @@ class ReplayState:
     positions: dict[str, ReplayPosition] = field(default_factory=dict)
     day_results: list[ReplayDayResult] = field(default_factory=list)
     isolated: bool = True
+    last_prices: dict[str, dict[str, Any]] = field(default_factory=dict, repr=False)
 
     @classmethod
     def initialize(cls, replay_id: str, initial_cash: float, currency: str = "CNY") -> "ReplayState":

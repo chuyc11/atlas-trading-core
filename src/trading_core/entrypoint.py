@@ -9,12 +9,18 @@ from __future__ import annotations
 import argparse
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 
 from trading_core import __version__
 
 
 def run_load_macro(arguments: list[str]) -> int:
     parser = argparse.ArgumentParser(prog="trading-core load-macro")
+    parser.add_argument(
+        "--workspace-root",
+        type=Path,
+        help="Explicit ATLAS workspace root; required for an installed wheel outside a source checkout.",
+    )
     parser.add_argument("--date", required=True)
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--allow-empty", action="store_true")
@@ -23,9 +29,10 @@ def run_load_macro(arguments: list[str]) -> int:
     from trading_core.signals.macro_signal_loader import sync_macro_signals
     from trading_core.storage.file_paths import project_paths
 
+    workspace_root = args.workspace_root.resolve() if args.workspace_root is not None else None
     rows, limitations = sync_macro_signals(
         args.date,
-        project_paths(),
+        project_paths(workspace_root),
         write_local=not args.dry_run,
         allow_empty=args.allow_empty,
     )

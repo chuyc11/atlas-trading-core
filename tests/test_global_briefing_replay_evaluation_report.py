@@ -174,6 +174,54 @@ def test_negative_positions_blocks(tmp_path: Path) -> None:
     assert any("negative positions" in item for item in result["blocking_reasons"])
 
 
+def test_daily_symbol_price_gap_blocks_research_review_ready(tmp_path: Path) -> None:
+    paths = make_paths(tmp_path)
+    prices = paths.project_root / fixture_path(paths, "prices_valid.csv")
+    rows = prices.read_text(encoding="utf-8").splitlines()
+    rows = [
+        "2024-01-04,000001,10.0,10.0,1000000,fixture,fresh" if row.startswith("2024-01-04,510300,") else row
+        for row in rows
+    ]
+    prices.write_text("\n".join(rows) + "\n", encoding="utf-8")
+    bundle = build_global_briefing_replay_bundle(
+        str(prices.parent / "signals_valid.jsonl"),
+        str(prices),
+        start_date="2024-01-02",
+        end_date="2024-01-08",
+        allow_carry_forward=True,
+        paths=paths,
+    )
+    replay = replay_global_briefing_history(
+        bundle["json_path"],
+        str(prices),
+        start_date="2024-01-02",
+        end_date="2024-01-08",
+        paths=paths,
+    )
+
+    result = build_global_briefing_replay_report(replay["json_path"], paths=paths)
+
+    assert result["overall_status"] == "blocked"
+    assert result["coverage"]["required_price_observations"] > result["coverage"]["resolved_price_observations"]
+    assert result["coverage"]["price_coverage_ratio"] < 1.0
+    assert any(item["date"] == "2024-01-04" and item["symbol"] == "510300.SH" for item in result["coverage"]["unresolved_price_observations"])
+    assert any("price coverage incomplete" in item for item in result["blocking_reasons"])
+
+
+def test_coverage_is_rederived_from_positions_when_price_evidence_is_removed(tmp_path: Path) -> None:
+    paths = make_paths(tmp_path)
+    replay = _replay(paths)
+    valuations_path = Path(replay["isolated_outputs"]["valuations"])
+    rows = [json.loads(line) for line in valuations_path.read_text(encoding="utf-8").splitlines()]
+    rows[1]["price_observations"] = []
+    write_text(valuations_path, "\n".join(json.dumps(row) for row in rows) + "\n")
+
+    result = build_global_briefing_replay_report(replay["json_path"], paths=paths)
+
+    assert result["overall_status"] == "blocked"
+    assert any(item["date"] == rows[1]["date"] for item in result["coverage"]["unresolved_price_observations"])
+
+
 def test_report_contains_not_strategy_effectiveness_proof(tmp_path: Path) -> None:
     result = _evaluation(make_paths(tmp_path))
     report = Path(result["report_path"]).read_text(encoding="utf-8")

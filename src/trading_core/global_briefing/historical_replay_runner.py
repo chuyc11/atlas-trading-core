@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import csv
+from datetime import date, timedelta
 from typing import Any
 
-from trading_core.global_briefing.isolated_replay_execution import ReplayCostModel, process_isolated_replay_day
+from trading_core.global_briefing.isolated_replay_execution import (
+    ReplayCostModel,
+    process_isolated_replay_day,
+    summarize_replay_price_coverage,
+)
 from trading_core.global_briefing.isolated_replay_state import ReplayState
-from trading_core.global_briefing.replay_bundle_builder import _load_price_dates
 from trading_core.global_briefing.replay_signal_adapter import ADAPTER_ID, adapt_bundle_row_to_replay_signals
 from trading_core.global_briefing.signal_schema import compact_date, resolve_project_path
 from trading_core.reports.research_common import snapshot_protected
@@ -28,6 +32,8 @@ def replay_global_briefing_history(
     max_total_weight: float = 0.50,
     lot_size: int = 100,
     commission_rate: float = 0.0005,
+    slippage_bps: float = 0.0,
+    max_price_staleness_days: int = 3,
     isolated_output_root: str | None = None,
     report_output_root: str | None = None,
     paths: ProjectPaths | None = None,
@@ -44,7 +50,6 @@ def replay_global_briefing_history(
     bundle = read_json(bundle_file, default={})
     if not isinstance(bundle, dict) or not isinstance(bundle.get("rows"), list):
         raise ValueError("bundle must be a JSON object with rows")
-    price_dates = set(_load_price_dates(prices_path, start_date, end_date, paths))
     selected_rows = [row for row in bundle["rows"] if start_date <= str(row.get("replay_date")) <= end_date]
     if not selected_rows:
         raise ValueError("bundle contains no replay rows for requested range")
@@ -54,15 +59,11 @@ def replay_global_briefing_history(
     data_root = resolve_project_path(isolated_output_root, paths) if isolated_output_root else paths.data_dir / "replays" / "global_briefing"
     output_root = resolve_project_path(report_output_root, paths) if report_output_root else paths.outputs_dir / "replays" / "global_briefing"
 
-    missing_price_days = [str(row.get("replay_date")) for row in selected_rows if str(row.get("replay_date")) not in price_dates]
     missing_signal_days = [
         str(row.get("replay_date"))
         for row in selected_rows
         if not row.get("selected_signal_generated_at")
     ]
-    if execution_mode == "isolated" and missing_price_days:
-        raise ValueError(f"missing price dates for isolated replay: {missing_price_days}")
-
     if execution_mode == "isolated":
         ledger = _run_isolated_replay_adapter(
             replay_id,
@@ -74,10 +75,13 @@ def replay_global_briefing_history(
             max_total_weight=max_total_weight,
             lot_size=lot_size,
             commission_rate=commission_rate,
+            slippage_bps=slippage_bps,
+            max_price_staleness_days=max_price_staleness_days,
             prices_path=prices_path,
             paths=paths,
         )
         warnings = ledger["warnings"]
+        price_coverage = summarize_replay_price_coverage(ledger["valuations"], ledger["trades"])
     else:
         ledger = _run_no_trade_replay(
             replay_id,
@@ -87,6 +91,7 @@ def replay_global_briefing_history(
             initial_cash=initial_cash,
         )
         warnings = ledger["warnings"]
+        price_coverage = summarize_replay_price_coverage(ledger["valuations"], ledger["trades"])
 
     isolated_paths = _write_isolated_replay_ledger(data_root, ledger)
     protected_changes = protected_diff(paths, before)
@@ -107,16 +112,21 @@ def replay_global_briefing_history(
             "valuations": len(ledger["valuations"]),
             "ending_cash": ledger["account"]["cash"],
             "ending_equity": ledger["account"]["equity"],
-            "errors": 0,
+            "errors": len(price_coverage["invalid_valuation_days"]),
         },
         "execution": {
             "mode": execution_mode,
             "no_trade_fallback": execution_mode == "no-trade",
             "adapter": ADAPTER_ID if execution_mode == "isolated" else "global_briefing_no_trade_replay_v1",
+            "cost_model": {
+                "commission_rate": commission_rate,
+                "slippage_bps": slippage_bps,
+            },
+            "max_price_staleness_days": max_price_staleness_days,
         },
         "data_quality": {
-            "missing_price_days": missing_price_days,
             "missing_signal_days": missing_signal_days,
+            **price_coverage,
         },
         "isolated_outputs": isolated_paths,
         "isolated_output_paths": isolated_paths,
@@ -154,21 +164,35 @@ def _run_isolated_replay_adapter(
     max_total_weight: float,
     lot_size: int,
     commission_rate: float,
+    slippage_bps: float,
+    max_price_staleness_days: int,
     prices_path: str,
     paths: ProjectPaths,
 ) -> dict[str, Any]:
     state = ReplayState.initialize(replay_id, initial_cash)
-    price_rows = _load_price_rows(prices_path, start_date, end_date, paths)
-    cost_model = ReplayCostModel(commission_rate=commission_rate)
+    price_rows = _load_price_rows(
+        prices_path,
+        start_date,
+        end_date,
+        paths,
+        lookback_days=max_price_staleness_days,
+    )
+    cost_model = ReplayCostModel(commission_rate=commission_rate, slippage_bps=slippage_bps)
     all_signals: list[dict[str, Any]] = []
     all_orders: list[dict[str, Any]] = []
     all_trades: list[dict[str, Any]] = []
     all_valuations: list[dict[str, Any]] = []
     day_results: list[dict[str, Any]] = []
     warnings: list[str] = []
+    visible_prices: dict[str, dict[str, Any]] = {}
+    price_dates = sorted(price_rows)
+    next_price_date = 0
 
     for row in rows:
         replay_date = str(row.get("replay_date"))
+        while next_price_date < len(price_dates) and price_dates[next_price_date] <= replay_date:
+            visible_prices.update(price_rows[price_dates[next_price_date]])
+            next_price_date += 1
         signals, signal_warnings = adapt_bundle_row_to_replay_signals(
             row,
             replay_id=replay_id,
@@ -180,9 +204,10 @@ def _run_isolated_replay_adapter(
             state,
             replay_date,
             signals,
-            price_rows.get(replay_date, {}),
+            visible_prices,
             cost_model=cost_model,
             lot_size=lot_size,
+            max_price_staleness_days=max_price_staleness_days,
         )
         all_signals.extend(signal.to_dict() for signal in signals)
         all_orders.extend(order.to_dict() for order in orders)
@@ -311,12 +336,20 @@ def _write_isolated_replay_ledger(data_root, ledger: dict[str, Any]) -> dict[str
     }
 
 
-def _load_price_rows(prices_path: str, start_date: str, end_date: str, paths: ProjectPaths) -> dict[str, dict[str, dict[str, Any]]]:
+def _load_price_rows(
+    prices_path: str,
+    start_date: str,
+    end_date: str,
+    paths: ProjectPaths,
+    *,
+    lookback_days: int,
+) -> dict[str, dict[str, dict[str, Any]]]:
     path = resolve_project_path(prices_path, paths)
     if not path.exists():
         raise ValueError(f"prices file missing: {path}")
     files = sorted(path.glob("*.csv")) if path.is_dir() else [path]
     rows: dict[str, dict[str, dict[str, Any]]] = {}
+    earliest_source_date = (date.fromisoformat(start_date) - timedelta(days=lookback_days)).isoformat()
     for file_path in files:
         with file_path.open("r", encoding="utf-8-sig", newline="") as handle:
             reader = csv.DictReader(handle)
@@ -325,7 +358,7 @@ def _load_price_rows(prices_path: str, start_date: str, end_date: str, paths: Pr
             for raw in reader:
                 day = str(raw.get("date", "")).strip()
                 symbol = str(raw.get("symbol", "")).strip()
-                if start_date <= day <= end_date and symbol:
+                if earliest_source_date <= day <= end_date and symbol:
                     rows.setdefault(day, {})[symbol] = raw
     return rows
 
@@ -363,6 +396,9 @@ def build_replay_markdown(payload: dict[str, Any]) -> str:
             "",
             "## Data Quality",
             f"- missing_price_days={payload['data_quality']['missing_price_days']}",
+            f"- price_coverage_ratio={payload['data_quality']['price_coverage_ratio']}",
+            f"- required_price_observations={payload['data_quality']['required_price_observations']}",
+            f"- resolved_price_observations={payload['data_quality']['resolved_price_observations']}",
             f"- missing_signal_days={payload['data_quality']['missing_signal_days']}",
             "",
             "## Isolated Replay Ledger",

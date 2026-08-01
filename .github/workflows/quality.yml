@@ -53,7 +53,7 @@ jobs:
 
   dependency-and-static-security:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -76,7 +76,6 @@ jobs:
             sbom.cdx.json
 
   full-regression:
-    if: github.event_name == 'pull_request' || github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -94,3 +93,47 @@ jobs:
         with:
           name: trading-core-full-regression
           path: full-regression.xml
+
+  clean-wheel-install:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Build and install the wheel in a clean environment
+        shell: bash
+        run: |
+          python -m pip wheel --no-deps --wheel-dir dist .
+          python -m venv "${RUNNER_TEMP}/trading-core-wheel"
+          "${RUNNER_TEMP}/trading-core-wheel/bin/python" -m pip install dist/*.whl
+          "${RUNNER_TEMP}/trading-core-wheel/bin/trading-core" --version
+      - name: Verify packaged configs, Parquet IO, and the operational CLI
+        shell: bash
+        run: |
+          workspace="${RUNNER_TEMP}/trading-core-workspace"
+          mkdir -p "${workspace}/work/global-briefing/data"
+          : > "${workspace}/work/global-briefing/data/macro_signals-2026-08-01.jsonl"
+          "${RUNNER_TEMP}/trading-core-wheel/bin/trading-core" load-macro \
+            --workspace-root "${workspace}" \
+            --date 2026-08-01 \
+            --dry-run \
+            --allow-empty
+          "${RUNNER_TEMP}/trading-core-wheel/bin/python" - <<'PY'
+          from pathlib import Path
+          import os
+          import pandas as pd
+          from trading_core.config_loader import load_all_configs
+
+          configs = load_all_configs()
+          assert len(configs) == 8
+          target = Path(os.environ["RUNNER_TEMP"]) / "trading-core-wheel" / "roundtrip.parquet"
+          expected = pd.DataFrame({"symbol": ["510300.SH"], "close": [4.2]})
+          expected.to_parquet(target, index=False)
+          actual = pd.read_parquet(target)
+          assert actual.to_dict("records") == expected.to_dict("records")
+          PY

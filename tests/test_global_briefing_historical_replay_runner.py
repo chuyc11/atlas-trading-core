@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -139,6 +140,26 @@ def test_isolated_mode_no_trade_fallback_false(tmp_path: Path) -> None:
 
     assert result["execution"]["no_trade_fallback"] is False
     assert result["boundary"]["isolated_replay_ledger_written"] is True
+
+
+def test_replay_ledger_records_slippage_cost_model_and_fill_breakdown(tmp_path: Path) -> None:
+    paths = make_paths(tmp_path)
+    bundle = _bundle(paths, allow_carry_forward=True)
+
+    result = replay_global_briefing_history(
+        bundle["json_path"],
+        fixture_path(paths, "prices_valid.csv"),
+        start_date="2024-01-02",
+        end_date="2024-01-08",
+        slippage_bps=10.0,
+        paths=paths,
+    )
+    first_trade = json.loads(Path(result["isolated_outputs"]["trades"]).read_text(encoding="utf-8").splitlines()[0])
+
+    assert result["execution"]["cost_model"]["slippage_bps"] == pytest.approx(10.0)
+    assert first_trade["execution_price"] != first_trade["reference_price"]
+    assert first_trade["slippage_bps"] == pytest.approx(10.0)
+    assert first_trade["costs"]["slippage"] > 0
 
 
 def test_no_trade_mode_still_available(tmp_path: Path) -> None:
