@@ -29,7 +29,7 @@ def build_ops_action_summary(*, as_of_date: str, payloads: dict[str, Any]) -> di
         "wait_for_history_count": len(wait),
         "escalation_count": len(escalation),
         "top_owner_actions": [item.get("title_zh") for item in items[:5]],
-        "forbidden_action_hits": sorted(set(str(item) for item in forbidden_hits if item)),
+        "forbidden_action_hits": sorted({str(item) for item in forbidden_hits if item}),
     }
 
 

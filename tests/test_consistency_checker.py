@@ -5,6 +5,9 @@ from pathlib import Path
 from trading_core.accounting.consistency_checker import check_consistency, check_consistency_range
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_json, write_json, write_jsonl
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def _seed_consistent_day(root: Path, day: str, *, cash: float = 95000.0, total_asset: float = 100000.0) -> None:

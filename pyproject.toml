@@ -18,6 +18,7 @@ dependencies = [
 [project.optional-dependencies]
 test = [
   "pytest==9.0.3",
+  "pytest-cov==7.1.0",
 ]
 
 [project.scripts]
@@ -34,3 +35,51 @@ trading_core = ["config_defaults/*.yaml"]
 addopts = "-q"
 pythonpath = ["src"]
 testpaths = ["tests"]
+markers = [
+  "smoke: fast-feedback subset run on every PR/push (see quality.yml tests job)",
+  "slow: long-running tests; excluded from fast feedback loops",
+]
+
+[tool.mypy]
+# Incremental rollout: `files` lists modules that must stay type-check clean.
+# Widen the list only together with a cleanup pass; everything outside `files`
+# is unchecked for now.
+python_version = "3.11"
+files = [
+  "src/trading_core/storage",
+  "src/trading_core/calendar",
+]
+
+[[tool.mypy.overrides]]
+# pandas-stubs adoption is a later step; without it pandas resolves to Any.
+module = "pandas.*"
+ignore_missing_imports = true
+
+[tool.coverage.run]
+# Path-based source: the repo-root trading_core/ shim merges src into the
+# package __path__, so a package-name source would measure only the shim.
+source = ["src/trading_core"]
+omit = ["*/config_defaults/*"]
+
+[tool.coverage.report]
+show_missing = false
+precision = 1
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+# Base rules (E4/E7/E9/F) plus bugbear, pyupgrade, flake8-simplify, and
+# flake8-comprehensions; the codebase is currently clean at this level, so any
+# new finding blocks CI. Widen only together with a cleanup pass.
+select = ["E4", "E7", "E9", "F", "B", "UP", "SIM", "C4"]
+
+[tool.ruff.lint.per-file-ignores]
+# Scripts insert a src path shim before importing trading_core.
+"scripts/*.py" = ["E402"]
+# cli.py is the composition root: its imports stay as the module namespace that
+# cli_dispatch handlers resolve at call time (late binding) and that tests
+# monkeypatch, so "unused" imports there are intentional re-exports.
+"src/trading_core/cli.py" = ["F401"]

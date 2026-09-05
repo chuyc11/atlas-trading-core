@@ -146,9 +146,7 @@ def _required_sections(briefing: dict[str, Any]) -> dict[str, bool]:
     sections = {}
     for audit_key, payload_key in REQUIRED_SECTION_KEYS.items():
         value = briefing.get(payload_key)
-        if isinstance(value, list):
-            sections[audit_key] = bool(value)
-        elif isinstance(value, dict):
+        if isinstance(value, (list, dict)):
             sections[audit_key] = bool(value)
         else:
             sections[audit_key] = value not in (None, "")

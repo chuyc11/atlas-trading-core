@@ -96,6 +96,6 @@ def build_artifact_drift_summary(
         "drift_items": drift_items,
         "blocking_reasons": sorted(set(blocking)),
         "warnings": sorted(set(warnings)),
-        "drift_categories_found": list(set(item["drift_category"] for item in drift_items)),
+        "drift_categories_found": list({item["drift_category"] for item in drift_items}),
         "overall_status": "clean" if not blocking else "has_blocking_drift",
     }

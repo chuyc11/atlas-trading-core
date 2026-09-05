@@ -12,7 +12,7 @@ def test_v11_llm_proposal_governance_blocks_direct_strategy_and_trade_instructio
     llm = v11_json(paths, "v11_llm_proposal_governance_result")
 
     assert result["llm_proposal_governance_generated"] is True
-    assert set(["hypothesis", "risk_note", "expected_effect", "required_data", "experiment_plan"]).issubset(llm["required_fields"])
+    assert {"hypothesis", "risk_note", "expected_effect", "required_data", "experiment_plan"}.issubset(llm["required_fields"])
     assert llm["can_modify_active_simulated_strategy_directly"] is False
     assert llm["can_generate_trade_instruction"] is False
     assert llm["must_pass_experiment_runner_before_strategy_candidate"] is True

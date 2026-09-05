@@ -81,7 +81,7 @@ def build_dry_run_validation_report(
         "evolution_throttle_status": evolution_status,
         "audit_passed": bool(audit.get("passed")),
         "critical_errors": audit.get("critical_errors", []),
-        "warnings": sorted(set([*warnings, *audit.get("warnings", [])])),
+        "warnings": sorted({*warnings, *audit.get("warnings", [])}),
         "dry_run_30d_passed": not release_blocking_reasons,
         "release_blocking_reasons": release_blocking_reasons,
         "audit_path": audit.get("json_path"),

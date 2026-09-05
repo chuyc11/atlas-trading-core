@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -35,7 +35,7 @@ def run_backtest_batch(
 ) -> dict[str, Any]:
     paths = paths or project_paths()
     strategies = strategies or DEFAULT_STRATEGIES
-    timestamp = timestamp or datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    timestamp = timestamp or datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
     output_dir = paths.outputs_dir / "backtests" / f"batch-{timestamp}"
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -57,7 +57,7 @@ def run_backtest_batch(
         **validation,
         "passed": bool(validation["passed"]) and not gate_failures,
         "formal_gates": formal_gates,
-        "warnings": sorted(set([*validation["warnings"], *gate_warnings])),
+        "warnings": sorted({*validation["warnings"], *gate_warnings}),
     }
     batch_config = {
         "start_date": start_date,
@@ -116,7 +116,7 @@ def run_backtest_batch(
         "leaderboard": leaderboard,
         "best_strategy": _best_strategy(strategy_results),
         "worst_strategy": _worst_strategy(strategy_results),
-        "limitations": sorted(set(str(item) for item in limitations)),
+        "limitations": sorted({str(item) for item in limitations}),
         "warnings": effective_validation["warnings"],
         "passed": True,
     }

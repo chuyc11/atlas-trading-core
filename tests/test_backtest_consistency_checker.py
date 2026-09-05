@@ -5,6 +5,9 @@ from pathlib import Path
 from trading_core.accounting.consistency_checker import check_consistency_range
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_json, read_jsonl, write_json, write_jsonl
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 START = "2026-01-02"

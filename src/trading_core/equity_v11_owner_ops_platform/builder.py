@@ -381,7 +381,7 @@ def _virtual_broker_lifecycle(as_of_date: str) -> dict[str, Any]:
         "simulated_fill_lifecycle_checked": True,
         "commission_slippage_attribution_checked": True,
         "turnover_calculation_checked": True,
-        **{key: value for key, value in BOUNDARY_TRUE.items()},
+        **dict(BOUNDARY_TRUE.items()),
         **{key: value for key, value in BOUNDARY_FALSE.items() if key not in {"real_order_preview_generated", "real_orders_placed", "broker_connected"}},
     }
 

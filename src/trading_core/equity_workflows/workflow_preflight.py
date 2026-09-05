@@ -163,7 +163,7 @@ def _required_cli_commands_present(paths: ProjectPaths) -> dict[str, Any]:
     if not cli_path.exists():
         return {
             "required_cli_commands_present": True,
-            "commands": {command: True for command in REQUIRED_WORKFLOW_COMMANDS},
+            "commands": dict.fromkeys(REQUIRED_WORKFLOW_COMMANDS, True),
             "warnings": ["cli.py not present under test project root; command availability checked by package tests"],
         }
     text = cli_path.read_text(encoding="utf-8")

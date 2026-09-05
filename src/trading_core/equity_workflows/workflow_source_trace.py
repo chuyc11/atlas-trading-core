@@ -79,7 +79,7 @@ def build_workflow_source_trace(
 def source_trace_has_forbidden_paths(source_trace: dict[str, Any]) -> list[str]:
     recorded = list(source_trace.get("forbidden_path_hits", []))
     rescanned = _forbidden_path_hits([record for record in source_trace.get("sources", []) if isinstance(record, dict)])
-    return sorted(set([*recorded, *rescanned]))
+    return sorted({*recorded, *rescanned})
 
 
 def _forbidden_path_hits(records: list[dict[str, Any]]) -> list[str]:

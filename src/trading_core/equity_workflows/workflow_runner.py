@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 
 from trading_core.equity_briefings.briefing_audit import audit_a_share_daily_stock_selection_briefing
 from trading_core.equity_briefings.daily_stock_selection_briefing import build_a_share_daily_stock_selection_briefing

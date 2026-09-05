@@ -40,17 +40,30 @@ def build_a_share_trading_calendar(
     paths = default_paths(paths)
     end = date.fromisoformat(end_date or latest_weekday())
     first_supported = date(min(OFFICIAL_ASHARE_HOLIDAYS), 1, 1)
-    start = max(end - timedelta(days=lookback_days), first_supported)
-    dates = [
-        start + timedelta(days=offset)
-        for offset in range((end - start).days + forward_days + 1)
-    ]
-    unsupported_years = sorted({item.year for item in dates} - set(OFFICIAL_ASHARE_HOLIDAYS))
-    if unsupported_years:
+    last_supported = date(max(OFFICIAL_ASHARE_HOLIDAYS), 12, 31)
+    if end.year not in OFFICIAL_ASHARE_HOLIDAYS:
         raise ValueError(
             "Official A-share holiday coverage is required; missing years: "
-            + ", ".join(str(year) for year in unsupported_years)
+            + ", ".join(str(year) for year in sorted({end.year} - set(OFFICIAL_ASHARE_HOLIDAYS)))
         )
+    start = max(end - timedelta(days=lookback_days), first_supported)
+    requested_end = end + timedelta(days=forward_days)
+    missing_years = sorted(
+        {year for year in range(end.year, requested_end.year + 1) if year not in OFFICIAL_ASHARE_HOLIDAYS}
+    )
+    horizon_end = min(requested_end, last_supported)
+    horizon_clamped = requested_end > last_supported
+    warnings: list[str] = []
+    if horizon_clamped:
+        warnings.append(
+            "forward planning horizon clamped to the last officially supported year "
+            f"({last_supported.isoformat()}); official A-share holiday coverage required for: "
+            + ", ".join(str(year) for year in missing_years)
+        )
+    dates = [
+        start + timedelta(days=offset)
+        for offset in range((horizon_end - start).days + 1)
+    ]
     trading_days = [
         item for item in dates
         if item.weekday() < 5 and item.isoformat() not in OFFICIAL_ASHARE_HOLIDAYS[item.year]
@@ -77,7 +90,7 @@ def build_a_share_trading_calendar(
     write_frame(frame, parquet_path, json_path)
     report_path = paths.outputs_dir / "equity_universe" / "A_SHARE_TRADING_CALENDAR.md"
     report_path.parent.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(_markdown(frame), encoding="utf-8")
+    report_path.write_text(_markdown(frame, requested_end, horizon_end, horizon_clamped, warnings), encoding="utf-8")
     return {
         "artifact_id": "A-SHARE-TRADING-CALENDAR",
         "target_version": "v0.7.1-a-share-full-market-data-ingestion",
@@ -85,13 +98,23 @@ def build_a_share_trading_calendar(
         "min_date": str(frame["date"].min()) if not frame.empty else "",
         "max_date": str(frame["date"].max()) if not frame.empty else "",
         "forward_days_requested": forward_days,
+        "forward_horizon_end": requested_end.isoformat(),
+        "calendar_horizon_end": horizon_end.isoformat(),
+        "horizon_clamped": horizon_clamped,
+        "warnings": warnings,
         "parquet_path": str(parquet_path),
         "json_path": str(json_path),
         "report_path": str(report_path),
     }
 
 
-def _markdown(frame: pd.DataFrame) -> str:
+def _markdown(
+    frame: pd.DataFrame,
+    requested_end: date,
+    horizon_end: date,
+    horizon_clamped: bool,
+    warnings: list[str],
+) -> str:
     lines = [
         "# A-Share Trading Calendar",
         "",
@@ -101,6 +124,10 @@ def _markdown(frame: pd.DataFrame) -> str:
         f"- trading_days: {frame['date'].nunique() if not frame.empty else 0}",
         f"- min_date: {frame['date'].min() if not frame.empty else ''}",
         f"- max_date: {frame['date'].max() if not frame.empty else ''}",
+        f"- forward_horizon_end: {requested_end.isoformat()}",
+        f"- calendar_horizon_end: {horizon_end.isoformat()}",
+        f"- horizon_clamped: {str(horizon_clamped).lower()}",
+        *warnings,
         "",
         "## Boundary",
         *markdown_boundary(),

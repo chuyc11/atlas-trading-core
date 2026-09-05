@@ -13,7 +13,7 @@ from trading_core.storage.file_paths import ProjectPaths
 def update_warning_history_and_snapshot(*, paths: ProjectPaths, as_of_date: str, minimum_history_observations: int, source_hash: str | None) -> tuple[dict[str, Any], dict[str, Any]]:
     artifacts = monitoring_artifact_paths(paths, as_of_date)
     audit = load_json(monitoring_input_paths(paths, as_of_date)["owner_dashboard_audit"])
-    current_warnings = sorted(set(str(item) for item in audit.get("warnings", [])))
+    current_warnings = sorted({str(item) for item in audit.get("warnings", [])})
     existing = load_json(artifacts["warning_history_index"])
     records = list(existing.get("records", []))
     key_exists = any(row.get("as_of_date") == as_of_date and row.get("source_dashboard_hash") == source_hash for row in records)

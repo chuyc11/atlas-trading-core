@@ -225,7 +225,7 @@ class ReplayState:
     last_prices: dict[str, dict[str, Any]] = field(default_factory=dict, repr=False)
 
     @classmethod
-    def initialize(cls, replay_id: str, initial_cash: float, currency: str = "CNY") -> "ReplayState":
+    def initialize(cls, replay_id: str, initial_cash: float, currency: str = "CNY") -> ReplayState:
         account = ReplayAccount(replay_id=replay_id, cash=float(initial_cash), equity=float(initial_cash), currency=currency)
         return cls(replay_id=replay_id, account=account)
 

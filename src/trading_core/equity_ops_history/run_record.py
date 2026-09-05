@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -42,5 +42,5 @@ def build_ops_run_record(*, paths: ProjectPaths, as_of_date: str, payloads: dict
         "source_trace_path": relative(source_trace_path, paths.project_root),
         "source_trace_sha256": sha256_file(source_trace_path),
         "manifest_sha256": sha256_file(manifest_path),
-        "created_at": datetime.now(timezone.utc).isoformat(),
+        "created_at": datetime.now(UTC).isoformat(),
     }

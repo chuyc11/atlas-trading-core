@@ -6,7 +6,7 @@ import re
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -54,7 +54,7 @@ def parse_pytest_summary(stdout: str, stderr: str = "") -> dict[str, int]:
         "xfailed": r"(\d+)\s+xfailed",
         "xpassed": r"(\d+)\s+xpassed",
     }
-    parsed = {name: 0 for name in keys}
+    parsed = dict.fromkeys(keys, 0)
     for name, pattern in keys.items():
         match = re.search(pattern, source)
         if match:
@@ -144,7 +144,7 @@ def build_command_evidence(
     return {
         "schema_version": SCHEMA_VERSION,
         "evidence_kind": evidence_kind,
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "git_commit": current_git_commit(paths.project_root),
         "git_status_short": current_git_status_short(paths.project_root),
         "command": command,

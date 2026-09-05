@@ -6,10 +6,11 @@ import csv
 import math
 import random
 import time
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, UTC
 from pathlib import Path
 from time import perf_counter
-from typing import Any, Callable, Protocol
+from typing import Any, Protocol
+from collections.abc import Callable
 
 from trading_core.config_loader import load_config
 from trading_core.data.data_package_validator import REQUIRED_COLUMNS, validate_data_package
@@ -199,7 +200,7 @@ def fetch_prices(
     if any(source_name == "yfinance" for source_name in source_by_symbol.values()):
         warnings.append(YFINANCE_LIMITATION)
     manifest = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "start_date": start_date,
         "end_date": end_date,
         "symbols_requested": [str(row["symbol"]) for row in symbols],

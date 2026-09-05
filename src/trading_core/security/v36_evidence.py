@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 import time
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 from urllib.parse import urlparse
@@ -106,7 +106,7 @@ def generate_v36_security_evidence(project_root: Path | None = None) -> dict[str
     evidence_root = root / "data" / "security_evidence"
     raw_root = evidence_root / "raw"
     raw_root.mkdir(parents=True, exist_ok=True)
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
 
     scope_records = collect_v36_scope_records(root)
     manifest_path = evidence_root / "v36_scope_manifest.json"
@@ -545,9 +545,11 @@ def _network_boundary_scan(root: Path) -> dict[str, Any]:
             urls.append(record)
             if parsed.scheme != "https" or host not in PUBLIC_NETWORK_HOSTS:
                 findings.append({**record, "rule": "network_host_not_allowlisted"})
-        if "/broker/" in f"/{relative}" or "/accounting/" in f"/{relative}":
-            if re.search(r"\b(?:urlopen|requests\.|httpx\.|socket\.)", source):
-                findings.append({"path": relative, "rule": "broker_or_account_network_client"})
+        if (
+            ("/broker/" in f"/{relative}" or "/accounting/" in f"/{relative}")
+            and re.search(r"\b(?:urlopen|requests\.|httpx\.|socket\.)", source)
+        ):
+            findings.append({"path": relative, "rule": "broker_or_account_network_client"})
     return {
         "status": "passed" if not findings else "failed",
         "tool": "atlas-network-boundary-policy",

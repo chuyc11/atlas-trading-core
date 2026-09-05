@@ -9,7 +9,8 @@ import urllib.parse
 import urllib.request
 from datetime import date
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 
 import pandas as pd
 

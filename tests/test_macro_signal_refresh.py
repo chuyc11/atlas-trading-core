@@ -3,6 +3,9 @@ from __future__ import annotations
 from trading_core.signals.macro_signal_loader import sync_macro_signals
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_jsonl, write_jsonl
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def macro(date: str, scenario: str) -> dict[str, object]:

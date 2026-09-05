@@ -80,7 +80,7 @@ def build_workflow_result(
         "as_of_date": as_of_date,
         "workflow_mode": TO_WORKFLOW_MODE,
         "command": execution_record.get("command", ""),
-        "exit_code": execution_record.get("exit_code", None),
+        "exit_code": execution_record.get("exit_code"),
         "status": execution_record.get("status", "unknown"),
         "workflow_audit_path": execution_record.get("workflow_audit_path", ""),
         "workflow_audit_overall_passed": workflow_audit_overall_passed,

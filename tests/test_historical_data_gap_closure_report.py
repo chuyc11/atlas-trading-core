@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from global_briefing_test_utils import make_paths
@@ -18,7 +20,7 @@ def test_gap_closure_report_json_markdown_and_cli(tmp_path, monkeypatch: pytest.
     assert result["overall_status"] == "passed"
     assert result["available_packages"]["current"] >= 8
     assert result["grouped_warning_output_enabled"] is True
-    assert "Historical Data Gap Closure Report" in open(result["report_path"], encoding="utf-8").read()
+    assert "Historical Data Gap Closure Report" in Path(result["report_path"]).read_text(encoding="utf-8")
     assert result["boundary"]["run_daily_called"] is False
     assert result["boundary"]["main_ledger_written"] is False
 

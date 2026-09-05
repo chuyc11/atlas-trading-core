@@ -231,10 +231,7 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
 
 
 def _none_with_reason(rows: list[dict[str, Any]], reasons: set[str]) -> bool:
-    for row in rows:
-        if reasons.intersection(set(row.get("filter_reasons") or [])):
-            return False
-    return True
+    return all(not reasons.intersection(set(row.get("filter_reasons") or [])) for row in rows)
 
 
 def _top_exclusion_reasons(rows: list[dict[str, Any]]) -> dict[str, int]:

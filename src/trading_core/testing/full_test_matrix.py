@@ -12,9 +12,10 @@ import time
 import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any
+from collections.abc import Sequence
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
@@ -208,7 +209,7 @@ def run_matrix(
     if not files:
         raise RuntimeError(f"no test files discovered under {project_root / 'tests'}")
     shards = partition_test_files(files, shard_count)
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    run_id = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     run_dir = output_dir / run_id
     suffix = 1
     while run_dir.exists():
@@ -242,7 +243,7 @@ def run_matrix(
     summary = {
         "schema_version": 1,
         "status": "passed" if passed else "failed",
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "duration_seconds": round(time.monotonic() - started, 3),
         "project_root": str(project_root),
         "test_file_count": len(files),

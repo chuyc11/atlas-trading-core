@@ -364,7 +364,7 @@ def _result_payload(
             }
         )
         if security_assessment["status"] == "passed":
-            result.update({key: False for key in V36_OBSERVATION_FIELDS})
+            result.update(dict.fromkeys(V36_OBSERVATION_FIELDS, False))
     blocking = []
     for item in [integrity, protected, safety]:
         blocking.extend(item.get("blocking_reasons", []))
@@ -381,7 +381,7 @@ def _result_payload(
 def _field_defaults(spec: dict[str, Any]) -> dict[str, Any]:
     defaults: dict[str, Any] = {}
     for key in spec["required_true"]:
-        defaults[key] = False if key in EVIDENCE_DERIVED_TRUE_FIELDS else True
+        defaults[key] = key not in EVIDENCE_DERIVED_TRUE_FIELDS
     for key in spec["required_false"]:
         defaults[key] = None if spec["key"] == "v36" and key in V36_OBSERVATION_FIELDS else False
     defaults[_baseline_field(spec)] = True
@@ -728,7 +728,7 @@ def _apply_v36_component_assessment(
         payload["security_evidence_path"] = V36_EVIDENCE_RELATIVE_PATH.as_posix()
         payload["blocking_reasons"] = list(assessment.get("blocking_reasons", []))
         if assessment["status"] == "passed":
-            payload.update({key: False for key in V36_OBSERVATION_FIELDS})
+            payload.update(dict.fromkeys(V36_OBSERVATION_FIELDS, False))
         if payload.get("artifact_name") == "v36_supply_chain_dependency_result":
             payload["vulnerability_db_available"] = assessment.get("vulnerability_db_available", False)
             payload["vulnerability_db_status"] = assessment.get("vulnerability_db_status", "not_available")

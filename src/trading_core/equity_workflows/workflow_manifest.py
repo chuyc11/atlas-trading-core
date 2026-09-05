@@ -107,7 +107,7 @@ def build_workflow_summary(
         "mode": mode,
         "overall_passed": bool(run_manifest.get("overall_passed")) and bool(boundary_check.get("overall_passed")),
         "blocking_reasons": list(run_manifest.get("blocking_reasons", [])) + list(boundary_check.get("blocking_reasons", [])),
-        "warnings": sorted(set([*run_manifest.get("warnings", []), *boundary_check.get("warnings", [])])),
+        "warnings": sorted({*run_manifest.get("warnings", []), *boundary_check.get("warnings", [])}),
         "stage_counts": stage_counts(run_manifest.get("stages", [])),
         "required_stage_status": {stage["stage_id"]: stage["status"] for stage in run_manifest.get("stages", [])},
         "candidate_counts": counts,

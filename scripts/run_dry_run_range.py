@@ -17,7 +17,7 @@ from trading_core.daily_run import run_daily
 from trading_core.reports.trading_summary import export_trading_summary
 from trading_core.runtime.health import load_health, summarize_health
 from trading_core.storage.file_paths import project_paths
-from trading_core.storage.jsonl_store import read_json, read_jsonl, write_json
+from trading_core.storage.jsonl_store import read_jsonl, write_json
 
 
 def run_dry_run_range(

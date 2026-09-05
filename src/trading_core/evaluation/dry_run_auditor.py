@@ -166,9 +166,12 @@ def _audit_orders_and_trades(
         if order.get("status") == "rejected":
             rejection_reasons[str(order.get("risk_reason", "unknown"))] += 1
         quality = str(order.get("price_quality", "fresh"))
-        if order.get("side") == "BUY" and order.get("status") in {"submitted", "filled"}:
-            if quality in {"fallback", "stale", "missing"} or order.get("symbol") in blocked_symbols:
-                critical_errors.append(f"{day}: BUY created on blocked data quality for {order.get('symbol')}")
+        if (
+            order.get("side") == "BUY"
+            and order.get("status") in {"submitted", "filled"}
+            and (quality in {"fallback", "stale", "missing"} or order.get("symbol") in blocked_symbols)
+        ):
+            critical_errors.append(f"{day}: BUY created on blocked data quality for {order.get('symbol')}")
     for trade in trades:
         trade_id = str(trade.get("trade_id"))
         if trade_id in seen_trade_ids:

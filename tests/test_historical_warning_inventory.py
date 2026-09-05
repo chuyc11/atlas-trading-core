@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 
 from global_briefing_test_utils import assert_no_protected_paths, make_paths, write_json
@@ -60,7 +62,7 @@ def test_warning_inventory_groups_replay_warnings_and_generates_reports(tmp_path
     assert result["by_category"]["missing_price"] == 1
     assert result["boundary"]["run_daily_called"] is False
     assert result["boundary"]["main_ledger_written"] is False
-    assert "Historical Warning Inventory" in open(result["report_path"], encoding="utf-8").read()
+    assert "Historical Warning Inventory" in Path(result["report_path"]).read_text(encoding="utf-8")
     assert_no_protected_paths(paths)
 
 

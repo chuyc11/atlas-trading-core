@@ -7,7 +7,8 @@ import json
 import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
@@ -444,7 +445,7 @@ def _host_for_source(source: str | None) -> str | None:
         "yahoo_query_or_equivalent_authorized_market_data_source": "query1.finance.yahoo.com",
         "fixture": None,
         "local_authorized_export": None,
-    }.get(str(source), None)
+    }.get(str(source))
 
 
 def _write_package_artifacts(result: dict[str, Any], paths: ProjectPaths) -> None:

@@ -23,7 +23,7 @@ def build_forward_dry_run_day1_prompt_eligibility(*, paths: ProjectPaths | None 
         deny_reasons.append("start_gate_day1_start_allowed=false")
     payload: dict[str, Any] = {
         "eligibility_id": "FORWARD-DRY-RUN-DAY1-PROMPT-ELIGIBILITY",
-        "day1_prompt_eligible": False if deny_reasons else True,
+        "day1_prompt_eligible": not deny_reasons,
         "day1_prompt_generated": False,
         "deny_reasons": deny_reasons,
         "next_required_action": "owner_manual_confirmation_and_start_authorization",

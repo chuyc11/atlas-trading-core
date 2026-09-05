@@ -2,6 +2,9 @@ from pathlib import Path
 from unittest.mock import patch
 
 from trading_core.security.v36_evidence import _network_boundary_scan, _secret_scan
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_network_policy_allows_exact_sse_host_and_rejects_lookalike(tmp_path: Path) -> None:

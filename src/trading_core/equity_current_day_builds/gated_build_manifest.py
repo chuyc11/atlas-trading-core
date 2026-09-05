@@ -88,7 +88,7 @@ def build_gated_build_summary(
         "workflow_audit_passed": workflow_result.get("workflow_audit_overall_passed", False),
         "comparison_completed": comparison.get("comparison_completed", False),
         "drift_status": drift_summary.get("overall_status", "unknown"),
-        "exit_code": execution_record.get("exit_code", None),
-        "duration_seconds": execution_record.get("duration_seconds", None),
+        "exit_code": execution_record.get("exit_code"),
+        "duration_seconds": execution_record.get("duration_seconds"),
         "recommended_next_version": RECOMMENDED_NEXT_VERSION,
     }

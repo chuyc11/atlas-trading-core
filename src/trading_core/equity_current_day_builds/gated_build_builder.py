@@ -325,7 +325,7 @@ def build_a_share_gated_build(
         "gated_build_summary": str(artifact_paths["gated_build_summary"]),
         "gated_build_boundary_check": str(artifact_paths["gated_build_boundary_check"]),
         "gated_build_dry_run_report": str(artifact_paths["gated_build_dry_run_report"]),
-        "exit_code": execution_record.get("exit_code", None),
+        "exit_code": execution_record.get("exit_code"),
         "recommended_next_version": "v0.8.8-a-share-build-from-existing-data-repeatability-and-diff-stability",
     }
 

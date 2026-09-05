@@ -49,7 +49,7 @@ def build_performance_data_availability(
 
 
 def _benchmark_counts(snapshot: dict[str, Any], as_of_date: str) -> dict[str, int]:
-    counts = {benchmark_id: 0 for benchmark_id in BENCHMARK_IDS}
+    counts = dict.fromkeys(BENCHMARK_IDS, 0)
     for row in snapshot.get("records", []):
         benchmark_id = row.get("benchmark_id")
         if benchmark_id in counts and str(row.get("date")) <= as_of_date:

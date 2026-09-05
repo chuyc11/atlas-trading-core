@@ -146,7 +146,7 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
 def _forbidden_action_type_hits(checklist: dict[str, Any]) -> list[str]:
     hits = [item.get("safe_action_type") for item in checklist.get("items", []) if item.get("safe_action_type") in FORBIDDEN_ACTION_TYPES]
     hits.extend(validate_checklist(checklist.get("items", [])))
-    return sorted(set(str(hit) for hit in hits if hit))
+    return sorted({str(hit) for hit in hits if hit})
 
 
 def _source_hashes_match(paths: ProjectPaths, trace: dict[str, Any]) -> bool:

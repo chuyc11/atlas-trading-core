@@ -35,10 +35,7 @@ def calculate_trade_cost(
     gross = round(fill_price * quantity, 6)
     commission = max(abs(gross) * rule.commission_rate, rule.min_commission) if quantity else 0.0
     tax = abs(gross) * rule.stamp_tax_sell_rate if side.upper() == "SELL" else 0.0
-    if side.upper() == "BUY":
-        net = gross + commission + tax
-    else:
-        net = gross - commission - tax
+    net = gross + commission + tax if side.upper() == "BUY" else gross - commission - tax
     return TradeCost(
         gross_amount=round(gross, 6),
         commission=round(commission, 6),

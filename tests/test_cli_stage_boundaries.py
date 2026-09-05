@@ -4,6 +4,8 @@ import pytest
 
 import trading_core.cli as cli
 
+pytestmark = pytest.mark.smoke
+
 
 @pytest.mark.parametrize(
     "command",

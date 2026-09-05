@@ -6,6 +6,9 @@ from trading_core.data.data_package_validator import validate_data_package
 from trading_core.data.historical_prices import import_prices_csv, load_imported_prices
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import read_json
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 HEADER = "date,symbol,open,high,low,close,volume,source,quality"

@@ -51,7 +51,7 @@ def build_global_briefing_package_manifest(
                 continue
             packages.append(_inspect_package(file_path, paths))
 
-    counts = {fmt: 0 for fmt in ["json", "jsonl", "csv", "parquet"]}
+    counts = dict.fromkeys(["json", "jsonl", "csv", "parquet"], 0)
     for package in packages:
         counts[str(package["format"])] += 1
     payload: dict[str, Any] = {

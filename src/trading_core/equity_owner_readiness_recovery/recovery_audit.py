@@ -169,7 +169,7 @@ def _config_preserves_boundaries(config: dict[str, Any]) -> bool:
     ]
     true_fields = {"does_not_change_gate_decision", "does_not_lower_threshold", "does_not_auto_waive"}
     for key in expected_false:
-        expected = True if key in true_fields else False
+        expected = key in true_fields
         if config.get(key) is not expected:
             return False
     return config.get("research_only") is True and config.get("virtual_only") is True
@@ -181,10 +181,7 @@ def _task_categories_clean(backlog: dict[str, Any]) -> bool:
 
 
 def _boundary_fields_clean(boundary: dict[str, Any]) -> bool:
-    for key, expected in BOUNDARY.items():
-        if boundary.get(key) is not expected:
-            return False
-    return True
+    return all(boundary.get(key) is expected for key, expected in BOUNDARY.items())
 
 
 def _source_hashes_match(paths: ProjectPaths, trace: dict[str, Any]) -> bool:

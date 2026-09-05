@@ -455,7 +455,7 @@ def _snapshot_pollution_paths(paths: ProjectPaths) -> dict[str, tuple[tuple[str,
     for raw in LEDGER_POLLUTION_PATHS:
         root = paths.project_root / raw
         if not root.exists():
-            snapshot[str(root)] = tuple()
+            snapshot[str(root)] = ()
             continue
         rows = []
         for file in sorted(root.rglob("*")):
@@ -472,7 +472,7 @@ def _snapshot_diff(
 ) -> list[str]:
     changed = []
     for path in sorted(set(before) | set(after)):
-        if before.get(path, tuple()) != after.get(path, tuple()):
+        if before.get(path, ()) != after.get(path, ()):
             changed.append(path)
     return changed
 

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from typing import Any
 
 from trading_core.equity_data_quality.common import write_json
@@ -93,7 +93,7 @@ def build_a_share_daily_ops_center(
     boundary = build_ops_boundary_check(paths=paths, as_of_date=as_of_date, warnings=availability["warnings"], blocking_reasons=[], commands_executed=commands_executed)
     output_paths = {key: artifacts[key] for key in artifacts if key not in {"ops_audit_json", "ops_audit_report"}}
     navigation = build_ops_artifact_navigation(paths=paths, as_of_date=as_of_date, input_paths=input_paths, output_paths=output_paths)
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
     source_trace = build_ops_source_trace(
         paths=paths,
         as_of_date=as_of_date,

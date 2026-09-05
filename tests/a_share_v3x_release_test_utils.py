@@ -27,7 +27,7 @@ def make_v3x_paths(tmp_path: Path) -> ProjectPaths:
             "overall_passed": True,
             "blocking_reasons": [],
             "warnings": [],
-            **{key: False for key in BOUNDARY_FALSE},
+            **dict.fromkeys(BOUNDARY_FALSE, False),
         },
     )
     _write_json(

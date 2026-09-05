@@ -84,7 +84,7 @@ def snapshot_protected(paths: ProjectPaths) -> dict[str, tuple[tuple[str, int, i
     for raw in PROTECTED_PATHS:
         root = paths.project_root / raw
         if not root.exists():
-            snapshot[str(root)] = tuple()
+            snapshot[str(root)] = ()
             continue
         rows = []
         for file in sorted(root.rglob("*")):
@@ -98,7 +98,7 @@ def snapshot_protected(paths: ProjectPaths) -> dict[str, tuple[tuple[str, int, i
 def snapshot_diff(before: dict[str, Any], after: dict[str, Any]) -> list[str]:
     changed = []
     for key in sorted(set(before) | set(after)):
-        if before.get(key, tuple()) != after.get(key, tuple()):
+        if before.get(key, ()) != after.get(key, ()):
             changed.append(key)
     return changed
 

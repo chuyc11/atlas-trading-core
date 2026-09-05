@@ -4,6 +4,9 @@ from pathlib import Path
 
 from trading_core import __version__
 from trading_core.entrypoint import main
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_version_path_does_not_import_large_cli(capsys) -> None:

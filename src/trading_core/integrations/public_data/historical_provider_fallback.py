@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 
 from trading_core.equity_data_quality.common import normalize_symbol, utc_now
 from trading_core.integrations.public_data.akshare_history_provider import fetch_akshare_price_history

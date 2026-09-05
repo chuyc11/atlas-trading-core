@@ -62,7 +62,8 @@ def build_a_share_multi_horizon_features(
     return_frame = _attach_industry_rank_inputs(return_frame, industry_map)
     industry_rank_maps = _industry_rank_maps(return_frame)
     basic_rows = latest_daily_basic(inputs.daily_basic_history, inputs.daily_basic_snapshot, inputs.as_of_date)
-    financial_groups = {symbol: frame for symbol, frame in inputs.financial_history.groupby("symbol", sort=False)} if not inputs.financial_history.empty else {}
+    # dict(groupby) is not equivalent: GroupBy.keys() makes dict() treat it as a mapping.
+    financial_groups = {symbol: frame for symbol, frame in inputs.financial_history.groupby("symbol", sort=False)} if not inputs.financial_history.empty else {}  # noqa: C416
 
     frames = {
         "short_horizon": _short_features(base, grouped_price),

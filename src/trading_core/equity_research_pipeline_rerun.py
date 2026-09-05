@@ -4,7 +4,8 @@ from __future__ import annotations
 
 import time
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 
 import pandas as pd
 
@@ -262,9 +263,7 @@ def _collect_paths(value: Any) -> list[str]:
     paths: list[str] = []
     if isinstance(value, dict):
         for key, item in value.items():
-            if key.endswith("_path") or key == "artifacts" or key == "reports":
-                paths.extend(_collect_paths(item))
-            elif isinstance(item, (dict, list)):
+            if key.endswith("_path") or key == "artifacts" or key == "reports" or isinstance(item, (dict, list)):
                 paths.extend(_collect_paths(item))
             elif isinstance(item, str) and (item.endswith(".json") or item.endswith(".parquet") or item.endswith(".md")):
                 paths.append(item)

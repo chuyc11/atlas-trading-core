@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from typing import Any
 
 from trading_core.equity_data_quality.common import sha256_file, write_json
@@ -33,7 +33,7 @@ def build_run_history_record(*, paths: ProjectPaths, as_of_date: str, generated_
         "source_dashboard_version": dashboard_manifest.get("target_version"),
         "source_current_day_version": current_manifest.get("target_version"),
         "source_dashboard_hash": dashboard_hash,
-        "generated_at": generated_at or datetime.now(timezone.utc).isoformat(),
+        "generated_at": generated_at or datetime.now(UTC).isoformat(),
         "overall_status": dashboard_summary.get("overall_status", "unknown"),
         "data_refresh_status": "passed" if refresh_audit.get("overall_passed") else "failed",
         "current_day_run_status": "passed" if current_audit.get("overall_passed") else "failed",

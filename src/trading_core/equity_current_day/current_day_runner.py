@@ -143,7 +143,7 @@ def run_a_share_current_day_research(
         runner_warnings=[],
     )
     blocking = _blocking(readiness, workflow_execution, warning_summary)
-    warnings = sorted(set([row["warning"] for row in warning_summary.get("warnings", [])]))
+    warnings = sorted({row["warning"] for row in warning_summary.get("warnings", [])})
     stage_manifest = build_current_day_stage_manifest(
         as_of_date=as_of_date,
         resolved_as_of_date=resolved_as_of_date,

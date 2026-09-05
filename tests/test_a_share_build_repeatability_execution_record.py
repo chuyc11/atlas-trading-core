@@ -3,6 +3,9 @@ from unittest.mock import patch
 from tests.a_share_build_repeatability_test_utils import AS_OF_DATE, make_paths
 from trading_core.equity_build_repeatability.execution_plan import build_repeat_build_execution_plan
 from trading_core.equity_build_repeatability.execution_record import execute_repeat_build_and_record
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_repeatability_execution_record_skips_on_preflight_failure(tmp_path):

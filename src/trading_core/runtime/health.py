@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, UTC
 from typing import Any
 from uuid import uuid4
 
@@ -45,7 +45,7 @@ def build_runtime_health(result: dict[str, Any], paths: ProjectPaths | None = No
     report_path = paths.daily_report(date)
     health = {
         "date": date,
-        "run_id": f"RUN-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}-{uuid4().hex[:8]}",
+        "run_id": f"RUN-{datetime.now(UTC).strftime('%Y%m%dT%H%M%S%fZ')}-{uuid4().hex[:8]}",
         "account_id": account_id,
         "input_files_found": input_files_found,
         "input_files_missing": input_files_missing,

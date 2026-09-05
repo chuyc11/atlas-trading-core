@@ -1,6 +1,9 @@
 from pathlib import Path
 
 from trading_core.daily_run import run_daily
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_missing_global_briefing_files_do_not_crash(workspace_with_calendar: Path) -> None:

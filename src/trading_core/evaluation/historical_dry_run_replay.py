@@ -529,9 +529,12 @@ def _audit_replay_days(replay_paths: ReplayPaths, days: list[str], errors: list[
             seen_orders.add(order_id)
             if order.get("status") == "rejected":
                 rejection_reasons[str(order.get("risk_reason", "unknown"))] += 1
-            if order.get("side") == "BUY" and order.get("status") in {"submitted", "filled"}:
-                if order.get("price_quality") in {"fallback", "stale", "missing"}:
-                    blocked_quality_errors.append(f"{day}: BUY on {order.get('price_quality')} price {order.get('symbol')}")
+            if (
+                order.get("side") == "BUY"
+                and order.get("status") in {"submitted", "filled"}
+                and order.get("price_quality") in {"fallback", "stale", "missing"}
+            ):
+                blocked_quality_errors.append(f"{day}: BUY on {order.get('price_quality')} price {order.get('symbol')}")
             _audit_signal_execution_timing(day, order, execution_timing_errors)
         for trade in trades:
             trade_id = str(trade.get("trade_id"))

@@ -21,7 +21,7 @@ CONFIRMATION_FIELDS = [
 def build_day0_manual_confirmation_packet(*, paths: ProjectPaths | None = None) -> dict[str, Any]:
     paths = paths_or_default(paths)
     packet_id, created_at = timestamp_id("DAY0-MANUAL-CONFIRMATION")
-    confirmations = {field: False for field in CONFIRMATION_FIELDS}
+    confirmations = dict.fromkeys(CONFIRMATION_FIELDS, False)
     payload: dict[str, Any] = {
         "packet_id": packet_id,
         "created_at": created_at,

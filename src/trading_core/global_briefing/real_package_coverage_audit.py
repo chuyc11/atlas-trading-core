@@ -61,9 +61,12 @@ def audit_global_briefing_package_coverage(
             valid_rows.append(clean)
         generated_dt, _ = parse_datetime(row.get("generated_at"))
         as_of = row.get("as_of_date")
-        if generated_dt is not None and isinstance(as_of, str):
-            if normalize_datetime(generated_dt).date() > date.fromisoformat(as_of):
-                generated_after_as_of += 1
+        if (
+            generated_dt is not None
+            and isinstance(as_of, str)
+            and normalize_datetime(generated_dt).date() > date.fromisoformat(as_of)
+        ):
+            generated_after_as_of += 1
 
     expected_days = _expected_days(prices_path, calendar_path, start_date, end_date, paths)
     observed_counter = Counter(row["as_of_date"] for row in valid_rows)

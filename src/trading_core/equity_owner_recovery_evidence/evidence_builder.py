@@ -118,7 +118,7 @@ def build_a_share_owner_recovery_evidence(
     )
     output_artifacts = {key: artifacts[key] for key in FILES | REPORTS}
     markdown = build_markdown_quality_improvement_evidence(output_roots=[paths.outputs_dir / "equity_owner_controlled_gate_reevaluation" / "daily" / as_of_date, paths.outputs_dir / "equity_owner_readiness_recovery_execution" / "daily" / as_of_date], as_of_date=as_of_date)
-    completeness = build_artifact_completeness_evidence(as_of_date=as_of_date, required_paths={key: path for key, path in sources.items()})
+    completeness = build_artifact_completeness_evidence(as_of_date=as_of_date, required_paths=dict(sources.items()))
     gaps = build_evidence_gap_register(as_of_date=as_of_date, task_evidence=task, developer=developer, owner=owner)
     blockers = build_remaining_blocker_register(as_of_date=as_of_date, gap_register=gaps, score_gap=max(minimum_score - source_score, 0))
     _prep_stub = build_next_reevaluation_prep_checklist(as_of_date=as_of_date, quality=grading, source_trace=source_trace_improvement, artifact_completeness=completeness)

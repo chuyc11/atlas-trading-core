@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import csv
 from collections import defaultdict
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -63,7 +63,7 @@ def merge_price_data(
     write_jsonl(discarded_path, discarded)
     validation = validate_data_package(output_path, paths)
     manifest = {
-        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "generated_at": datetime.now(UTC).isoformat(),
         "inputs": [str(path) for path in inputs],
         "output_path": str(output_path),
         "source_priority": source_priority,

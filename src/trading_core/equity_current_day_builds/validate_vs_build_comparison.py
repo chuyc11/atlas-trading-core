@@ -11,6 +11,7 @@ from trading_core.equity_current_day_builds.gated_build_config import (
 )
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
+import contextlib
 
 
 def build_validate_vs_build_comparison(
@@ -66,34 +67,24 @@ def build_validate_vs_build_comparison(
     build_artifact_index = {}
 
     if not validate_manifest and validate_manifest_path.exists():
-        try:
+        with contextlib.suppress(Exception):
             validate_manifest = json.loads(validate_manifest_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
 
     if build_execution_path.exists():
-        try:
+        with contextlib.suppress(Exception):
             build_execution = json.loads(build_execution_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
 
     if not validate_boundary and validate_boundary_path.exists():
-        try:
+        with contextlib.suppress(Exception):
             validate_boundary = json.loads(validate_boundary_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
 
     if validate_boundary_path.exists():
-        try:
+        with contextlib.suppress(Exception):
             build_boundary = json.loads(validate_boundary_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
 
     if validate_artifact_index_path.exists():
-        try:
+        with contextlib.suppress(Exception):
             build_artifact_index = json.loads(validate_artifact_index_path.read_text(encoding="utf-8"))
-        except Exception:
-            pass
 
     # Compare key fields
     comparisons = {

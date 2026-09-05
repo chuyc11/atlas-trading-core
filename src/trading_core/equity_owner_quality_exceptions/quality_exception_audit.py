@@ -136,10 +136,7 @@ def _follow_up_commands_clean(developer: dict[str, Any]) -> bool:
 
 
 def _boundary_fields_clean(boundary: dict[str, Any]) -> bool:
-    for key, expected in BOUNDARY.items():
-        if boundary.get(key) is not expected:
-            return False
-    return True
+    return all(boundary.get(key) is expected for key, expected in BOUNDARY.items())
 
 
 def _source_hashes_match(paths: ProjectPaths, trace: dict[str, Any]) -> bool:

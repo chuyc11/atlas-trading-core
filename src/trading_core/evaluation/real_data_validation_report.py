@@ -242,7 +242,7 @@ def _benchmark_ids(benchmark_results: dict[str, Any]) -> list[str]:
     ids: set[str] = set()
     for row in benchmark_results.values():
         if isinstance(row, dict):
-            ids.update(str(key) for key in row.keys())
+            ids.update(str(key) for key in row)
     return sorted(ids)
 
 

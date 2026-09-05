@@ -13,10 +13,7 @@ MIN_BUY_CONFIDENCE = 0.50
 
 
 def confidence_to_score(value: str | float | int | None, risk_flags: list[str] | None = None) -> float:
-    if isinstance(value, (int, float)):
-        base = float(value)
-    else:
-        base = CONFIDENCE_MAP.get(str(value or "low").lower(), 0.40)
+    base = float(value) if isinstance(value, (int, float)) else CONFIDENCE_MAP.get(str(value or "low").lower(), 0.4)
     penalty = 0.05 * len(risk_flags or [])
     return max(0.0, round(base - penalty, 4))
 

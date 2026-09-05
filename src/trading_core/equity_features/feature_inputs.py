@@ -105,10 +105,7 @@ def _resolve_universe_path(paths: ProjectPaths, as_of_date: str, allow_latest: b
 
 
 def _read_universe(path: Path) -> pd.DataFrame:
-    if path.suffix == ".parquet":
-        frame = pd.read_parquet(path)
-    else:
-        frame = pd.DataFrame(_read_json_list(path))
+    frame = pd.read_parquet(path) if path.suffix == ".parquet" else pd.DataFrame(_read_json_list(path))
     if "bucket" in frame.columns:
         frame = frame[frame["bucket"].astype(str) == "strict_tradable_universe"].copy()
     return frame.drop_duplicates("symbol").sort_values("symbol") if not frame.empty else frame

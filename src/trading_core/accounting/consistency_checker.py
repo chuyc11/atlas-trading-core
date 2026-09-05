@@ -596,9 +596,13 @@ def _check_backtest_benchmark(
         result_return = _as_float(row.get("return") if isinstance(row, dict) else None, f"{strategy_id}: benchmark {benchmark_id} return", errors)
         excess = benchmark.get("excess_return", {}).get(benchmark_id)
         excess_return = _as_float(excess, f"{strategy_id}: benchmark {benchmark_id} excess_return", errors)
-        if portfolio_return is not None and result_return is not None and excess_return is not None:
-            if abs(excess_return - (portfolio_return - result_return)) > max(tolerance, 0.000001):
-                errors.append(f"{strategy_id}: benchmark {benchmark_id} excess_return mismatch")
+        if (
+            portfolio_return is not None
+            and result_return is not None
+            and excess_return is not None
+            and abs(excess_return - (portfolio_return - result_return)) > max(tolerance, 0.000001)
+        ):
+            errors.append(f"{strategy_id}: benchmark {benchmark_id} excess_return mismatch")
 
 
 def _check_batch_benchmark_result(

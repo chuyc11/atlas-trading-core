@@ -3,6 +3,9 @@ from __future__ import annotations
 from trading_core.evolution.promotion_evidence import evaluate_verified_shadow_promotion
 from trading_core.storage.file_paths import project_paths
 from trading_core.storage.jsonl_store import write_json
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_first_day_without_verified_shadow_evidence_never_promotes(tmp_path) -> None:

@@ -45,7 +45,7 @@ def build_global_briefing_warning_triage(
     current_package = artifacts["report"].get("selected_package") or "GB-REAL-FIXTURE"
     triaged = [_triage_warning(item, coverage_ratio=coverage_ratio, current_package=str(current_package)) for item in warnings]
     production_blockers = _production_blockers(triaged, coverage_ratio)
-    by_category = {category: 0 for category in CATEGORIES}
+    by_category = dict.fromkeys(CATEGORIES, 0)
     for item in triaged:
         by_category[item["category"]] += 1
 

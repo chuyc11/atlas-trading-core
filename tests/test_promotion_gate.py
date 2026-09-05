@@ -1,4 +1,7 @@
 from trading_core.evolution.promotion_gate import recommend_promotion
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_promotion_gate_never_auto_applies_active_normal() -> None:

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -90,7 +90,7 @@ def build_a_share_owner_remediation(
     artifacts = remediation_artifact_paths(paths, as_of_date)
     input_paths = remediation_input_paths(paths, as_of_date)
     payloads = {key: load_json(path) for key, path in input_paths.items()}
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
     issue_catalog = build_issue_catalog(as_of_date=as_of_date, payloads=payloads)
     issue_codes = [issue["issue_code"] for issue in issue_catalog.get("issues", [])]
     alert_codes = [str(event.get("rule_id")) for event in payloads.get("alert_event_log", {}).get("events", [])]

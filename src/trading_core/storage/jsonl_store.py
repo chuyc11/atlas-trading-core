@@ -5,7 +5,8 @@ from __future__ import annotations
 import json
 from uuid import uuid4
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
+from collections.abc import Iterable
 
 
 def ensure_parent(path: Path) -> None:

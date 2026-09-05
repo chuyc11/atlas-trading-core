@@ -7,7 +7,8 @@ import json
 import os
 import time
 from datetime import UTC, datetime
-from typing import Any, Callable
+from typing import Any
+from collections.abc import Callable
 from urllib.parse import urlencode
 
 from trading_core.global_briefing.macro_cycle_proxy_builder import REGIONS, build_macro_cycle_proxy_rows

@@ -9,7 +9,8 @@ import os
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
+from collections.abc import Iterable
 from urllib.parse import parse_qsl, urlencode, urlparse, urlunparse
 
 from trading_core.storage.file_paths import ProjectPaths
@@ -310,7 +311,7 @@ def fixture_path(paths: ProjectPaths, name: str) -> Path:
 
 
 def package_status_counts(packages: list[dict[str, Any]]) -> dict[str, int]:
-    counts = {status: 0 for status in ["downloaded", "partial_downloaded", "loaded_from_local", "not_configured", "failed", "failed_soft", "skipped_optional", "normalized", "audit_passed", "audit_failed"]}
+    counts = dict.fromkeys(["downloaded", "partial_downloaded", "loaded_from_local", "not_configured", "failed", "failed_soft", "skipped_optional", "normalized", "audit_passed", "audit_failed"], 0)
     for package in packages:
         status = str(package.get("status", "unknown"))
         counts[status] = counts.get(status, 0) + 1

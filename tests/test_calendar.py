@@ -3,6 +3,8 @@ import pytest
 from trading_core.calendar.trading_calendar import calendar_status, is_trading_day, next_trading_day, previous_trading_day, require_a_share_calendar
 from trading_core.storage.file_paths import project_paths
 
+pytestmark = pytest.mark.smoke
+
 
 def test_weekday_calendar_fallback_warns_and_supports_strict_mode(tmp_path) -> None:
     missing = tmp_path / "missing.csv"

@@ -501,7 +501,7 @@ def _recomputed_evidence_request(as_of_date: str, lookback_start: str, target_ev
 
 
 def _recomputed_evidence_eligible_day_register(paths: ProjectPaths, as_of_date: str, backfill: dict[str, Any], target_evidence_days: int) -> dict[str, Any]:
-    candidate_days = sorted(set([*backfill["reused_existing_days"], *backfill["selected_backfill_days"]]))
+    candidate_days = sorted({*backfill["reused_existing_days"], *backfill["selected_backfill_days"]})
     eligible = []
     ineligible = []
     for day in candidate_days:

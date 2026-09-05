@@ -189,7 +189,7 @@ class TestExperimentRegistry:
         json_path = registry_paths.data_dir / "experiments" / "experiment_registry.json"
         assert json_path.exists()
 
-        with open(json_path, "r", encoding="utf-8") as f:
+        with open(json_path, encoding="utf-8") as f:
             data = json.load(f)
 
         assert "experiments" in data

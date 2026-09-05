@@ -4,6 +4,8 @@ import pytest
 
 from trading_core.storage.file_paths import find_workspace_root, project_paths
 
+pytestmark = pytest.mark.smoke
+
 
 def test_path_discovery_prefers_composite_workspace_layout(tmp_path: Path) -> None:
     project = tmp_path / "work" / "trading-core"

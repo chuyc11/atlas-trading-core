@@ -4,6 +4,8 @@ from a_share_v3x_release_test_utils import build_through, component_json, make_v
 from trading_core.equity_release_chain import audit_release_artifacts, run_release_artifacts, spec_by_key
 from trading_core.equity_release_chain.generic import _release_version_is_at_or_after
 
+pytestmark = pytest.mark.smoke
+
 
 @pytest.mark.parametrize(
     ("current", "expected"),

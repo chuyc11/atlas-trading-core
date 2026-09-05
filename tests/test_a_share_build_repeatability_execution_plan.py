@@ -2,6 +2,8 @@ import pytest
 
 from trading_core.equity_build_repeatability.execution_plan import build_repeat_build_execution_plan
 
+pytestmark = pytest.mark.smoke
+
 
 def test_repeatability_execution_plan_uses_build_from_existing_data():
     plan = build_repeat_build_execution_plan(as_of_date="2026-06-26")

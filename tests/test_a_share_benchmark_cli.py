@@ -38,10 +38,7 @@ def test_benchmark_cli_smoke_no_run_daily(tmp_path: Path, monkeypatch: pytest.Mo
             "overall_passed": True,
             "blocking_reasons": [],
             "warnings": [],
-            "benchmark_availability_checks": {
-                key: "available"
-                for key in ["CSI300", "CSI500", "CSI1000", "CASH", "EQUAL_WEIGHT_STRICT_TRADABLE", "EQUAL_WEIGHT_CANDIDATE_POOL"]
-            },
+            "benchmark_availability_checks": dict.fromkeys(["CSI300", "CSI500", "CSI1000", "CASH", "EQUAL_WEIGHT_STRICT_TRADABLE", "EQUAL_WEIGHT_CANDIDATE_POOL"], "available"),
             "comparison_checks": {"limited_history_correctly_flagged": True, "performance_not_fabricated": True},
             "recommended_next_version": "v0.7.11-a-share-multi-day-portfolio-performance-tracking",
             "json_path": "j",

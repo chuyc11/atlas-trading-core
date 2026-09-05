@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from typing import Any
 
 from trading_core.equity_data_quality.common import write_json
@@ -92,7 +92,7 @@ def build_a_share_ops_history_baseline(
     artifacts = ops_history_artifact_paths(paths, as_of_date)
     input_paths = ops_history_input_paths(paths, as_of_date)
     payloads = {key: load_json(path) for key, path in input_paths.items()}
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
 
     run_record = build_ops_run_record(paths=paths, as_of_date=as_of_date, payloads=payloads, input_paths=input_paths)
     history_index, append_result = append_ops_run_history(

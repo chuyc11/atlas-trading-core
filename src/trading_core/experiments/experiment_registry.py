@@ -43,7 +43,7 @@ class ExperimentRegistry:
         """Load the registry from disk."""
         if not self._data_path.exists():
             return {"experiments": []}
-        with open(self._data_path, "r", encoding="utf-8") as f:
+        with open(self._data_path, encoding="utf-8") as f:
             return json.load(f)
 
     def save(self, registry: dict[str, Any]) -> None:
@@ -139,10 +139,7 @@ def _contains_forbidden_keyword(value: str) -> bool:
     experiment, e.g. experiment_type="live_broker_test".
     """
     value_lower = value.lower()
-    for keyword in FORBIDDEN_EXPERIMENT_TYPES:
-        if keyword in value_lower:
-            return True
-    return False
+    return any(keyword in value_lower for keyword in FORBIDDEN_EXPERIMENT_TYPES)
 
 
 def _validate_experiment_config(config: dict[str, Any]) -> None:
@@ -209,7 +206,7 @@ def load_experiment_config(config_path: str | Path) -> dict[str, Any]:
     path = Path(config_path)
     suffix = path.suffix.lower()
 
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         if suffix in {".yaml", ".yml"}:
             return yaml.safe_load(f)
         elif suffix == ".json":

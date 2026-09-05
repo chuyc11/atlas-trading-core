@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pathlib import Path
 from typing import Any
 
@@ -78,7 +78,7 @@ def build_a_share_owner_dashboard(
     if issues:
         raise ValueError("; ".join(issues))
     artifacts = dashboard_artifact_paths(paths, as_of_date)
-    generated_at = datetime.now(timezone.utc).isoformat()
+    generated_at = datetime.now(UTC).isoformat()
     availability = build_dashboard_input_availability(paths=paths, as_of_date=resolved_as_of_date)
     write_json(artifacts["dashboard_config"], config.to_dict())
     write_json(artifacts["dashboard_input_availability"], availability)

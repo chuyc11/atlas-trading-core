@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import csv
 from collections import Counter, defaultdict
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timedelta, UTC
 from pathlib import Path
 from typing import Any
 
@@ -25,7 +25,7 @@ def validate_data_package(
 ) -> dict[str, Any]:
     paths = paths or project_paths()
     files = _csv_files(input_path)
-    timestamp = timestamp or datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    timestamp = timestamp or datetime.now(UTC).strftime("%Y%m%d-%H%M%S")
     stats = _empty_stats(input_path, files, suspicious_return_threshold)
     seen: set[tuple[str, str]] = set()
     rows_by_symbol: dict[str, list[dict[str, Any]]] = defaultdict(list)

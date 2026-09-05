@@ -1,4 +1,7 @@
 from a_share_v3x_release_test_utils import build_through, component_json, make_v3x_paths
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_v36_supply_chain_does_not_fabricate_vulnerability_coverage(tmp_path):

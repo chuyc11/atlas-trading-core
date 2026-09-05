@@ -40,3 +40,8 @@ data/shadow/
 data/experiments/
 data/evolution/
 external_research/
+
+# CI test-run artifacts
+full-regression.xml
+coverage.xml
+.coverage

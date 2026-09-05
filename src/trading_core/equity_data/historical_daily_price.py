@@ -49,9 +49,8 @@ def backfill_a_share_daily_price_history(
     if not frame.empty:
         frame["symbol"] = frame["symbol"].map(normalize_symbol)
         frame = frame[(frame["date"] >= start_date) & (frame["date"] <= end_date)]
-        if merge_existing:
-            if not existing.empty:
-                frame = pd.concat([existing[DAILY_PRICE_HISTORY_COLUMNS], frame], ignore_index=True)
+        if merge_existing and not existing.empty:
+            frame = pd.concat([existing[DAILY_PRICE_HISTORY_COLUMNS], frame], ignore_index=True)
         frame = frame.drop_duplicates(["date", "symbol"]).sort_values(["date", "symbol"])
     dirs = history_dirs(paths)
     parquet_path = dirs["market_history"] / "daily_price_history_panel.parquet"

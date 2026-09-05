@@ -72,7 +72,7 @@ def load_price_data(data_path: str | Path) -> dict[str, list[dict[str, Any]]]:
     for csv_file in sorted(data_path.glob("*.csv")):
         symbol = csv_file.stem
         rows: list[dict[str, Any]] = []
-        with open(csv_file, "r", encoding="utf-8") as f:
+        with open(csv_file, encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 rows.append({
@@ -328,7 +328,7 @@ def run_momentum_sweep_evaluator(
             # Calculate new target weights
             if selected:
                 weight_per = min(target_weight, 1.0 / len(selected))
-                new_holdings = {s: weight_per for s in selected}
+                new_holdings = dict.fromkeys(selected, weight_per)
             else:
                 new_holdings = {}
 

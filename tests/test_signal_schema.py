@@ -1,6 +1,9 @@
 from trading_core.signals.macro_signal_loader import filter_china_macro_signals
 from trading_core.signals.signal_generator import generate_trading_signals
 from trading_core.universe.universe_loader import load_universe
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_macro_signal_generates_trading_signal_and_filters_universe() -> None:

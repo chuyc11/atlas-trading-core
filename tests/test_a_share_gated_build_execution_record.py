@@ -4,6 +4,9 @@ from unittest.mock import patch
 from trading_core.equity_current_day_builds.execution_plan import build_gated_build_execution_plan
 from trading_core.equity_current_day_builds.execution_record import execute_gated_build_and_record
 from trading_core.storage.file_paths import ProjectPaths
+import pytest
+
+pytestmark = pytest.mark.smoke
 
 
 def test_gated_build_execution_record_skips_when_preflight_failed(tmp_path):

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from uuid import uuid4
 from typing import Any
 
@@ -95,7 +95,7 @@ def generate_daily_report(
         if previous != markdown:
             archive_dir = path.parent / "archive"
             archive_dir.mkdir(parents=True, exist_ok=True)
-            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%S%fZ")
             archive_path = archive_dir / f"{path.stem}-{stamp}-{uuid4().hex[:8]}.md"
             archive_path.write_text(previous, encoding="utf-8")
     path.write_text(markdown, encoding="utf-8")

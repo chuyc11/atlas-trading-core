@@ -35,7 +35,7 @@ def test_local_oecd_csv_loaded_with_checksum_provenance_and_report(tmp_path) -> 
     assert item["status"] == "loaded_from_local"
     assert item["sha256"]
     assert item["provenance_path"]
-    assert "Historical data authorization is not trading authorization" in open(paths.outputs_dir / "system" / "HIST_OECD_CLI_MACRO_CYCLE_PACKAGE_REPORT.md", encoding="utf-8").read()
+    assert "Historical data authorization is not trading authorization" in (paths.outputs_dir / "system" / "HIST_OECD_CLI_MACRO_CYCLE_PACKAGE_REPORT.md").read_text(encoding="utf-8")
     assert_no_protected_paths(paths)
 
 

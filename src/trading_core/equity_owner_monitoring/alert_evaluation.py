@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from typing import Any
 
 from trading_core.equity_owner_monitoring.monitoring_config import TARGET_VERSION
@@ -22,7 +22,7 @@ def evaluate_alert_rules(
     send_external_notifications: bool,
 ) -> dict[str, Any]:
     events = []
-    now = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(UTC).isoformat()
     for rule in alert_rule_config.get("rules", []):
         status, message, source_stage, source_artifact = _evaluate_rule(
             rule_id=rule["rule_id"],
@@ -126,9 +126,8 @@ def _evaluate_rule(
         if provider_health.get("insufficient_history"):
             return "insufficient_history", "data freshness trend requires more run observations", "provider_health", "provider_health_trend_snapshot"
         return _trigger(provider_health.get("current_status") == "failed", "data freshness degraded", "provider_health", "provider_health_trend_snapshot")
-    if rule_id == "TREND_ANALYSIS_INSUFFICIENT_HISTORY":
-        if not warning_trend.get("trend_analysis_available"):
-            return "insufficient_history", "trend analysis intentionally disabled until enough observations exist", "run_history", "run_history_snapshot"
+    if rule_id == "TREND_ANALYSIS_INSUFFICIENT_HISTORY" and not warning_trend.get("trend_analysis_available"):
+        return "insufficient_history", "trend analysis intentionally disabled until enough observations exist", "run_history", "run_history_snapshot"
     return "not_triggered", "", "monitoring", "alert_rule_config"
 
 

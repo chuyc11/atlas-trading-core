@@ -26,7 +26,7 @@ def test_gap_closure_audit_passes_and_recommends_release(tmp_path, monkeypatch: 
     result = audit_historical_data_gap_closure(paths=paths)
     assert result["overall_passed"] is True
     assert result["blocking_reasons"] == []
-    assert RELEASE_CANDIDATE in open(result["report_path"], encoding="utf-8").read()
+    assert RELEASE_CANDIDATE in Path(result["report_path"]).read_text(encoding="utf-8")
     assert result["boundary"]["run_daily_called"] is False
     assert result["boundary"]["main_ledger_written"] is False
     assert_no_protected_paths(paths)

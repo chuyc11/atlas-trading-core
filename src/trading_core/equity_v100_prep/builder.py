@@ -405,9 +405,7 @@ def _release_readiness_decision(
         decision = "not_ready_blocking_warnings"
     elif not boundary["safety_boundary_sweep_passed"]:
         decision = "not_ready_boundary_failure"
-    elif not integrity["artifact_integrity_passed"]:
-        decision = "not_ready_artifact_integrity_failure"
-    elif not platform["v098_platform_verified"] or not cli_surface["cli_surface_verified"]:
+    elif not integrity["artifact_integrity_passed"] or not platform["v098_platform_verified"] or not cli_surface["cli_surface_verified"]:
         decision = "not_ready_artifact_integrity_failure"
     else:
         decision = "ready_for_v100_release"

@@ -7,6 +7,8 @@ import pytest
 from trading_core.daily_run import run_daily
 from trading_core.storage.jsonl_store import write_json
 
+pytestmark = pytest.mark.smoke
+
 
 def _gb_dir(root: Path) -> Path:
     path = root / "work" / "global-briefing" / "data"
