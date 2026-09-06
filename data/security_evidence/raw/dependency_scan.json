@@ -23,6 +23,11 @@
       "vulns": []
     },
     {
+      "name": "pyarrow",
+      "version": "24.0.0",
+      "vulns": []
+    },
+    {
       "name": "pyyaml",
       "version": "6.0.3",
       "vulns": []
@@ -34,7 +39,7 @@
     },
     {
       "name": "pytz",
-      "version": "2026.2",
+      "version": "2026.3.post1",
       "vulns": []
     },
     {
@@ -48,14 +53,14 @@
       "vulns": []
     }
   ],
-  "dependency_count": 7,
+  "dependency_count": 8,
   "exit_code": 0,
   "status": "passed",
   "stderr": "No known vulnerabilities found\n",
   "tool": "pip-audit",
-  "tool_version": "pip-audit 2.9.0",
+  "tool_version": "pip-audit 2.10.1",
   "vulnerabilities": [],
-  "vulnerability_db_checked_at": "2026-07-14T09:53:17.197277+00:00",
+  "vulnerability_db_checked_at": "2026-09-06T06:44:32.151139+00:00",
   "vulnerability_db_status": "available",
   "vulnerability_service": "PyPI advisory service"
 }

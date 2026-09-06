@@ -9,7 +9,8 @@
     "push2delay.eastmoney.com",
     "push2his.eastmoney.com",
     "query1.finance.yahoo.com",
-    "quote.eastmoney.com"
+    "quote.eastmoney.com",
+    "www.sse.com.cn"
   ],
   "findings": [],
   "observed_urls": [
@@ -93,21 +94,27 @@
     },
     {
       "host": "push2.eastmoney.com",
-      "line": 186,
+      "line": 187,
       "path": "src/trading_core/equity_data_freshness.py",
       "url": "https://push2.eastmoney.com"
     },
     {
       "host": "push2delay.eastmoney.com",
-      "line": 186,
+      "line": 187,
       "path": "src/trading_core/equity_data_freshness.py",
       "url": "https://push2delay.eastmoney.com"
     },
     {
       "host": "quote.eastmoney.com",
-      "line": 291,
+      "line": 292,
       "path": "src/trading_core/equity_data_freshness.py",
       "url": "https://quote.eastmoney.com"
+    },
+    {
+      "host": "www.sse.com.cn",
+      "line": 137,
+      "path": "src/trading_core/equity_universe/calendar.py",
+      "url": "https://www.sse.com.cn"
     },
     {
       "host": "github.com",
@@ -177,7 +184,7 @@
     },
     {
       "host": "fred.stlouisfed.org",
-      "line": 86,
+      "line": 87,
       "path": "src/trading_core/global_briefing/downloaders/epu_downloader.py",
       "url": "https://fred.stlouisfed.org"
     },

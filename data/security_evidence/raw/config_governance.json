@@ -12,10 +12,10 @@
     "-q"
   ],
   "exit_code": 0,
-  "scanned_config_files": 15,
+  "scanned_config_files": 27,
   "status": "passed",
   "stderr": "",
   "tool": "bandit+atlas-config-policy",
-  "tool_version": "bandit 1.8.6+atlas-v36-policy-2",
+  "tool_version": "bandit 1.9.4+atlas-v36-policy-2",
   "unsafe_config_findings": []
 }

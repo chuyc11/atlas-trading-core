@@ -3,9 +3,13 @@
 - source: official_exchange_holiday_schedule_v1
 - source_url: https://www.sse.com.cn/disclosure/dealinstruc/closed/
 - exchanges: BSE, SSE, SZSE
-- trading_days: 451
+- trading_days: 486
 - min_date: 2025-01-02
-- max_date: 2026-11-13
+- max_date: 2027-01-01
+- forward_horizon_end: 2027-01-02
+- calendar_horizon_end: 2027-01-02
+- horizon_clamped: false
+years beyond official holiday coverage use weekday projection (source=weekday_projection_v1); unknown 2027+ holidays (New Year, Spring Festival, ...) are NOT excluded until the official schedule is published: 2027
 
 ## Boundary
 - Data ingestion only.

@@ -29,7 +29,7 @@ def test_a_share_calendar_fails_closed_without_official_year_coverage(tmp_path: 
 
 def test_a_share_calendar_clamps_forward_horizon_and_reports(tmp_path: Path) -> None:
     paths = make_a_share_paths(tmp_path)
-    result = build_a_share_trading_calendar(paths=paths, end_date="2026-12-15", lookback_days=10)
+    result = build_a_share_trading_calendar(paths=paths, end_date="2026-12-15", lookback_days=10, project_unsupported_horizon=False)
     frame = pd.read_parquet(result["parquet_path"])
     assert result["horizon_clamped"] is True
     assert result["calendar_horizon_end"] == "2026-12-31"
@@ -42,7 +42,22 @@ def test_a_share_calendar_clamps_forward_horizon_and_reports(tmp_path: Path) -> 
 
 def test_a_share_calendar_reports_no_clamp_within_supported_years(tmp_path: Path) -> None:
     paths = make_a_share_paths(tmp_path)
-    result = build_a_share_trading_calendar(paths=paths, end_date="2026-06-26", lookback_days=10)
+    result = build_a_share_trading_calendar(paths=paths, end_date="2026-06-26", lookback_days=10, project_unsupported_horizon=False)
     assert result["horizon_clamped"] is False
     assert result["warnings"] == []
     assert result["calendar_horizon_end"] == "2026-10-24"
+
+
+def test_a_share_calendar_weekday_projection_marks_source(tmp_path: Path) -> None:
+    paths = make_a_share_paths(tmp_path)
+    result = build_a_share_trading_calendar(paths=paths, end_date="2026-12-15", lookback_days=10, project_unsupported_horizon=True)
+    frame = pd.read_parquet(result["parquet_path"])
+    assert set(frame["source"]) == {"official_exchange_holiday_schedule_v1", "weekday_projection_v1"}
+    assert result["projected_years"] == [2027]
+    assert result["horizon_clamped"] is False
+    assert any("weekday projection" in warning for warning in result["warnings"])
+    projected = frame[frame["source"] == "weekday_projection_v1"]
+    assert "2027-01-04" in set(projected["date"])
+    assert "2027-01-02" not in set(projected["date"])
+    official = frame[frame["source"] == "official_exchange_holiday_schedule_v1"]
+    assert official["date"].max() <= "2026-12-31"

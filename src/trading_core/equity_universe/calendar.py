@@ -7,7 +7,7 @@ from typing import Any
 
 import pandas as pd
 
-from trading_core.equity_data_quality.common import TRADING_CALENDAR_COLUMNS, latest_weekday, markdown_boundary, write_frame
+from trading_core.equity_data_quality.common import TRADING_CALENDAR_COLUMNS, latest_weekday, markdown_boundary, utc_now, write_frame
 from trading_core.storage.file_paths import ProjectPaths
 from trading_core.system.common import default_paths
 
@@ -36,6 +36,7 @@ def build_a_share_trading_calendar(
     end_date: str | None = None,
     lookback_days: int = 730,
     forward_days: int = 120,
+    project_unsupported_horizon: bool = True,
 ) -> dict[str, Any]:
     paths = default_paths(paths)
     end = date.fromisoformat(end_date or latest_weekday())
@@ -51,8 +52,9 @@ def build_a_share_trading_calendar(
     missing_years = sorted(
         {year for year in range(end.year, requested_end.year + 1) if year not in OFFICIAL_ASHARE_HOLIDAYS}
     )
-    horizon_end = min(requested_end, last_supported)
-    horizon_clamped = requested_end > last_supported
+    horizon_end = requested_end if project_unsupported_horizon else min(requested_end, last_supported)
+    horizon_clamped = (not project_unsupported_horizon) and requested_end > last_supported
+    projected_years = sorted(year for year in missing_years if year > max(OFFICIAL_ASHARE_HOLIDAYS)) if project_unsupported_horizon else []
     warnings: list[str] = []
     if horizon_clamped:
         warnings.append(
@@ -60,19 +62,31 @@ def build_a_share_trading_calendar(
             f"({last_supported.isoformat()}); official A-share holiday coverage required for: "
             + ", ".join(str(year) for year in missing_years)
         )
+    if projected_years:
+        warnings.append(
+            "years beyond official holiday coverage use weekday projection "
+            "(source=weekday_projection_v1); unknown 2027+ holidays (New Year, Spring Festival, ...) "
+            "are NOT excluded until the official schedule is published: "
+            + ", ".join(str(year) for year in projected_years)
+        )
     dates = [
         start + timedelta(days=offset)
         for offset in range((horizon_end - start).days + 1)
     ]
+    official_days = [item for item in dates if item.year in OFFICIAL_ASHARE_HOLIDAYS]
+    projected_days = [item for item in dates if item.year not in OFFICIAL_ASHARE_HOLIDAYS]
     trading_days = [
-        item for item in dates
+        item for item in official_days
         if item.weekday() < 5 and item.isoformat() not in OFFICIAL_ASHARE_HOLIDAYS[item.year]
     ]
+    if project_unsupported_horizon:
+        trading_days.extend(item for item in projected_days if item.weekday() < 5)
     rows = []
     for exchange in ["SSE", "SZSE", "BSE"]:
         for index, day in enumerate(trading_days):
             previous_day = trading_days[index - 1].isoformat() if index > 0 else ""
             next_day = trading_days[index + 1].isoformat() if index + 1 < len(trading_days) else ""
+            projected = day.year not in OFFICIAL_ASHARE_HOLIDAYS
             rows.append(
                 {
                     "date": day.isoformat(),
@@ -80,8 +94,8 @@ def build_a_share_trading_calendar(
                     "is_trading_day": True,
                     "previous_trading_day": previous_day,
                     "next_trading_day": next_day,
-                    "source": OFFICIAL_CALENDAR_SOURCE,
-                    "source_timestamp": OFFICIAL_SOURCE_TIMESTAMPS[day.year],
+                    "source": "weekday_projection_v1" if projected else OFFICIAL_CALENDAR_SOURCE,
+                    "source_timestamp": utc_now().split("T")[0] if projected else OFFICIAL_SOURCE_TIMESTAMPS[day.year],
                 }
             )
     frame = pd.DataFrame(rows, columns=TRADING_CALENDAR_COLUMNS)
@@ -101,6 +115,7 @@ def build_a_share_trading_calendar(
         "forward_horizon_end": requested_end.isoformat(),
         "calendar_horizon_end": horizon_end.isoformat(),
         "horizon_clamped": horizon_clamped,
+        "projected_years": projected_years,
         "warnings": warnings,
         "parquet_path": str(parquet_path),
         "json_path": str(json_path),

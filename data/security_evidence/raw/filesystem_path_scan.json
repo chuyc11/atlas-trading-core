@@ -4,7 +4,7 @@
     {
       "function": "_reset_replay_dirs",
       "guard_verified": true,
-      "line": 251,
+      "line": 281,
       "path": "src/trading_core/evaluation/historical_dry_run_replay.py"
     }
   ],

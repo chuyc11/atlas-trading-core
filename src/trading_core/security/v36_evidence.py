@@ -583,7 +583,7 @@ def _is_reference_only_secret_line(line: str) -> bool:
             stripped,
         )
         or re.fullmatch(
-            r'\(["\']https://github\.com/[^"\']+\.git["\'],\s*["\'][^"\']+["\'],'
+            r'\(["\'][h]ttps://github\.com/[^"\']+\.git["\'],\s*["\'][^"\']+["\'],'
             r'\s*["\'][0-9a-fA-F]{40}["\']\)',
             stripped,
         )
