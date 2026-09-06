@@ -1,6 +1,7 @@
 """Audit for v0.8.9 build-output owner dashboard."""
 
 from __future__ import annotations
+from typing import Any
 
 import hashlib
 import json
@@ -35,7 +36,7 @@ def audit_a_share_build_output_owner_dashboard(*, as_of_date: str, paths: Projec
     resolution = payloads.get("build_output_source_resolution", {})
     comparison = payloads.get("validate_dashboard_vs_build_dashboard_comparison", {})
     boundary = payloads.get("build_output_dashboard_boundary_check", {})
-    audit = {
+    audit: dict[str, Any] = {
         "audit_id": "A-SHARE-BUILD-OUTPUT-OWNER-DASHBOARD-AUDIT",
         "target_version": TARGET_VERSION,
         "as_of_date": as_of_date,

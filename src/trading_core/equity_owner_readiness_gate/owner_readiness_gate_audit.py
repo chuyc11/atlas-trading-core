@@ -45,7 +45,7 @@ def audit_a_share_owner_readiness_gate(*, as_of_date: str = DEFAULT_AS_OF_DATE, 
             "owner_daily_pack_audit_passed": availability.get("owner_daily_pack_audit_passed") is True,
         },
         "gate_checks": {
-            "owner_readiness_score_valid": isinstance(score_gate.get("actual_value"), int) and 0 <= score_gate.get("actual_value") <= 100,
+            "owner_readiness_score_valid": isinstance((av := score_gate.get("actual_value")), int) and 0 <= av <= 100,
             "minimum_owner_readiness_score": score_gate.get("threshold"),
             "actual_owner_readiness_score": score_gate.get("actual_value"),
             "required_gates_passed": decision.get("required_gates_passed"),

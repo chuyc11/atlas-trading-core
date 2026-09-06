@@ -219,7 +219,7 @@ def _build_backtest_report(
         f"- Total cost: {round(cost, 6)}",
         f"- Benchmark comparison: {benchmark.get('benchmarks', {}) if benchmark else {}}",
         f"- Excess return: {excess}",
-        f"- Limitation: {limitations if limitations else 'none'}",
+        f"- Limitation: {limitations or 'none'}",
     ]
     return "\n".join(lines) + "\n"
 

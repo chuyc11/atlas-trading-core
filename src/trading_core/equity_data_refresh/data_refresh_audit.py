@@ -106,7 +106,7 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
     execution = payloads["provider_execution_log"]
     dataset_status = {row["dataset_id"]: row for row in result.get("datasets", [])}
     index_ids = set(coverage.get("index_price_ids", []))
-    checks = {
+    return {
         "all_required_artifacts_exist": all(artifacts[key].exists() for key in REQUIRED_ARTIFACTS),
         "target_version_matches": all(payload.get("target_version") == TARGET_VERSION for payload in payloads.values()),
         "all_required_datasets_present": set(dataset_status) == set(DATASET_IDS),
@@ -130,7 +130,6 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
         "no_forbidden_positive_wording": not _forbidden_wording_hits(artifacts),
         "manifest_generated": manifest.get("manifest_id") == "A-SHARE-DAILY-DATA-REFRESH-MANIFEST",
     }
-    return checks
 
 
 def _source_hashes_match(paths: ProjectPaths, source_trace: dict[str, Any]) -> bool:

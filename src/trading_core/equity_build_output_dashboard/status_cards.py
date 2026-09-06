@@ -1,6 +1,7 @@
 """Build-output owner dashboard cards."""
 
 from __future__ import annotations
+from typing import Any
 
 from pathlib import Path
 
@@ -113,7 +114,7 @@ def build_optional_summary_card(*, paths: ProjectPaths | None, as_of_date: str, 
 
 
 def _nested_bool(payload: dict, *keys: str) -> bool | None:
-    value = payload
+    value: Any = payload
     for key in keys:
         if not isinstance(value, dict):
             return None

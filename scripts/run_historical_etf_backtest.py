@@ -98,7 +98,7 @@ def _strategy_metrics(strategy: str, portfolios: list[dict[str, Any]], trades: l
     cost = sum(float(trade.get("commission", 0.0)) + float(trade.get("tax", 0.0)) for trade in trades)
     trade_count = len(trades)
     excess = benchmark.get("excess_return", {}).get("EQUAL_ETF", 0.0) if benchmark else 0.0
-    metrics = {
+    return {
         "total_return": round(total_return, 8),
         "max_drawdown": round(max_drawdown, 8),
         "trade_count": trade_count,
@@ -115,7 +115,6 @@ def _strategy_metrics(strategy: str, portfolios: list[dict[str, Any]], trades: l
             "future_data_flag": False,
         },
     }
-    return metrics
 
 
 def _summary_markdown(start_date: str, end_date: str, coverage: dict[str, Any], strategy_results: dict[str, Any], benchmark_results: dict[str, Any], limitations: dict[str, Any]) -> str:

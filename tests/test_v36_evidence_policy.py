@@ -44,9 +44,11 @@ def test_secret_scan_splits_source_entropy_from_generated_data(tmp_path: Path) -
     assert run.call_args_list[1].args[0] == ["git", "rev-parse", "--is-inside-work-tree"]
     artifact_command = result["commands"][1]
     assert "--all-files" in source_command
-    assert "src" in source_command and "tests" in source_command
+    assert "src" in source_command
+    assert "tests" in source_command
     assert "HexHighEntropyString" not in source_command
-    assert "data" in artifact_command and "outputs" in artifact_command
+    assert "data" in artifact_command
+    assert "outputs" in artifact_command
     assert artifact_command[0] == "atlas-artifact-credential-policy"
     assert result["status"] == "passed"
     assert result["scan_profiles"][0]["entropy_plugins_enabled"] is True

@@ -98,7 +98,7 @@ def fetch_price_history(
 
 
 def _symbol_result(symbol: str, rows: list[dict[str, Any]], *, reason: str, provider: str) -> dict[str, Any]:
-    dates = [row.get("date") for row in rows if row.get("date")]
+    dates = [row["date"] for row in rows if row.get("date")]
     return {
         "symbol": normalize_symbol(symbol),
         "provider": provider,

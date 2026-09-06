@@ -1,6 +1,7 @@
 """Audit for v0.8.10 build-output ops refresh."""
 
 from __future__ import annotations
+from typing import Any
 
 import hashlib
 import json
@@ -33,7 +34,7 @@ def audit_a_share_build_output_ops_refresh(*, as_of_date: str, paths: ProjectPat
     availability = payloads.get("build_output_ops_input_availability", {})
     summary = payloads.get("build_output_ops_summary", {})
     boundary = payloads.get("build_output_ops_boundary_check", {})
-    audit = {
+    audit: dict[str, Any] = {
         "audit_id": "A-SHARE-BUILD-OUTPUT-OPS-REFRESH-AUDIT",
         "target_version": TARGET_VERSION,
         "as_of_date": as_of_date,

@@ -412,7 +412,7 @@ def _current_recommendation(item: dict[str, Any], warnings: list[str], item_id: 
 def _extract_metrics(item: dict[str, Any]) -> dict[str, Any]:
     source = item.get("metrics") if isinstance(item.get("metrics"), dict) else {}
     merged = {**item, **source}
-    metrics = {
+    return {
         "excess_return": _numeric(
             merged,
             [
@@ -427,7 +427,6 @@ def _extract_metrics(item: dict[str, Any]) -> dict[str, Any]:
         "score": _numeric(merged, ["score", "total_score", "composite_score"]),
         "cost_ratio": _numeric(merged, ["cost_ratio", "cost_rate"]),
     }
-    return metrics
 
 
 def _numeric(mapping: dict[str, Any], keys: list[str]) -> float | None:

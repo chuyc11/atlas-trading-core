@@ -102,7 +102,11 @@ def _queue_rows(master: pd.DataFrame, *, target_start_date: str, end_date: str) 
     frame = master.copy()
     frame["symbol"] = frame["symbol"].map(normalize_symbol)
     frame["_is_active_sort"] = frame.get("is_active", True)
-    frame["_exchange_sort"] = frame.get("exchange", "").map({"SSE": 0, "SZSE": 1, "BSE": 2}).fillna(9)
+    frame["_exchange_sort"] = (
+        frame["exchange"].map({"SSE": 0, "SZSE": 1, "BSE": 2}).fillna(9)
+        if "exchange" in frame.columns
+        else 9
+    )
     frame = frame.sort_values(["_is_active_sort", "_exchange_sort", "symbol"], ascending=[False, True, True])
     for priority, item in enumerate(frame.to_dict("records"), start=1):
         exchange = str(item.get("exchange") or "")

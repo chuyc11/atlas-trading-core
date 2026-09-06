@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import read_json, write_json
-from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE
 from trading_core.equity_v100_release.builder import DEFAULT_AS_OF_DATE, JSON_NAMES, KNOWN_LIMITATIONS, MARKDOWN_NAMES, RECOMMENDED_NEXT_VERSION, TARGET_VERSION
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 

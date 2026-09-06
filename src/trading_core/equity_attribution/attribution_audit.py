@@ -116,7 +116,7 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
     manifest = payloads["attribution_manifest"]
     boundary = payloads["attribution_boundary_check"]
     summary = payloads["attribution_summary"]
-    checks = {
+    return {
         "attribution_config_exists": artifacts["attribution_config"].exists(),
         "all_required_artifacts_exist": all(artifacts[key].exists() for key in REQUIRED_ARTIFACTS),
         "target_version_matches": all(payload.get("target_version") == TARGET_VERSION for payload in payloads.values()),
@@ -145,7 +145,6 @@ def _checks(*, paths: ProjectPaths, artifacts: dict[str, Path], payloads: dict[s
         "summary_generated": summary.get("summary_id") == "A-SHARE-PERFORMANCE-ATTRIBUTION-SUMMARY",
         "mode_valid": config.get("mode") in config.get("allowed_modes", []),
     }
-    return checks
 
 
 def _portfolio_ids_present(*payloads: dict[str, Any]) -> bool:

@@ -141,18 +141,19 @@ def test_replay_is_idempotent(tmp_path: Path) -> None:
 
 
 @pytest.mark.parametrize(
-    ("start_date", "end_date"),
+    ("start_date", "end_date", "expected_match"),
     [
-        ("../2026-01-01", "2026-01-02"),
-        ("2026-01-01", "..\\2026-01-02"),
-        ("2026-1-1", "2026-01-02"),
-        ("2026-01-03", "2026-01-02"),
+        ("../2026-01-01", "2026-01-02", "start_date must be an ISO date"),
+        ("2026-01-01", "..\\2026-01-02", "end_date must be an ISO date"),
+        ("2026-1-1", "2026-01-02", "start_date must be an ISO date"),
+        ("2026-01-03", "2026-01-02", "start_date must be on or before end_date"),
     ],
 )
 def test_replay_rejects_unsafe_or_invalid_dates_without_deleting_files(
     tmp_path: Path,
     start_date: str,
     end_date: str,
+    expected_match: str,
 ) -> None:
     days = _trading_days(2)
     price_dir = tmp_path / "prices"
@@ -160,7 +161,7 @@ def test_replay_rejects_unsafe_or_invalid_dates_without_deleting_files(
     sentinel = tmp_path / "sentinel.txt"
     sentinel.write_text("preserve", encoding="utf-8")
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match=expected_match):
         replay_dry_run(start_date, end_date, price_dir, project_paths(tmp_path))
 
     assert sentinel.read_text(encoding="utf-8") == "preserve"

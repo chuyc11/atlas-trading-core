@@ -9,7 +9,7 @@ from trading_core.equity_owner_readiness_recovery.recovery_config import DEFAULT
 
 def build_quality_exception_root_cause_map(*, as_of_date: str = DEFAULT_AS_OF_DATE, classification: dict[str, Any], developer_tracker: dict[str, Any]) -> dict[str, Any]:
     developer_ids = {item.get("source_exception_id") for item in developer_tracker.get("items", [])}
-    items = []
+    items: list[dict[str, Any]] = []
     for row in classification.get("classifications", []):
         category = row["category"]
         requires_more_history = category == "insufficient_history"

@@ -30,3 +30,29 @@ def test_gated_build_preflight_blocks_low_health_score(tmp_path):
     write_json(paths.data_dir / "equity_ops_center" / "daily" / AS_OF_DATE / "ops_health_score_card.json", {"score": 40})
     assert _gate(paths)["overall_passed"] is False
 
+
+
+def test_gated_build_preflight_blocks_corrupt_alert_file(tmp_path):
+    paths = make_paths(tmp_path)
+    seed_gated_build_inputs(paths)
+    alert_path = paths.data_dir / "equity_owner_monitoring" / "daily" / AS_OF_DATE / "alert_evaluation.json"
+    alert_path.parent.mkdir(parents=True, exist_ok=True)
+    alert_path.write_text("{not json", encoding="utf-8")
+
+    gate = _gate(paths)
+
+    assert gate["overall_passed"] is False
+    assert "monitoring_alert_parse_error" in gate["blocking_reasons"]
+
+
+def test_gated_build_preflight_blocks_corrupt_ops_history_boundary(tmp_path):
+    paths = make_paths(tmp_path)
+    seed_gated_build_inputs(paths)
+    boundary_path = paths.data_dir / "equity_ops_history" / "daily" / AS_OF_DATE / "ops_history_boundary_check.json"
+    boundary_path.parent.mkdir(parents=True, exist_ok=True)
+    boundary_path.write_text("{not json", encoding="utf-8")
+
+    gate = _gate(paths)
+
+    assert gate["overall_passed"] is False
+    assert "ops_history_boundary_parse_error" in gate["blocking_reasons"]

@@ -77,6 +77,21 @@ from trading_core.cli_payloads import (
     _v31_post_v3_verification_cli_payload,
 )
 from trading_core.cli_dispatch import DISPATCH_HANDLERS_EARLY, DISPATCH_HANDLERS_LATE
+from trading_core.cli_defaults import (
+    DEFAULT_V09_PLATFORM_AS_OF_DATE,
+    DEFAULT_V11_OWNER_OPS_AS_OF_DATE,
+    DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE,
+    DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE,
+    DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE,
+    DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE,
+    DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE,
+    DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE,
+    DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE,
+    DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE,
+    DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE,
+    DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE,
+    DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE,
+)
 from trading_core.accounting.consistency_checker import check_consistency, check_consistency_range
 from trading_core.backtest.batch_runner import run_backtest_batch
 from trading_core.backtest.event_backtester import run_event_backtest
@@ -146,53 +161,14 @@ from trading_core.equity_historical_evidence_backfill import (
     audit_a_share_historical_evidence_backfill_and_refresh_plan,
     build_a_share_historical_evidence_backfill_and_refresh_plan,
 )
-from trading_core.equity_v09_platform import DEFAULT_AS_OF_DATE as DEFAULT_V09_PLATFORM_AS_OF_DATE
-from trading_core.equity_v09_platform import (
-    audit_a_share_v09_platform,
-    build_a_share_experiment_registry,
-    evaluate_a_share_simulated_strategy_promotion,
-    run_a_share_automated_experiments,
-    run_a_share_rl_simulated_strategy_lab,
-    run_a_share_v09_daily_platform,
-)
 from trading_core.equity_v100_prep import DEFAULT_AS_OF_DATE as DEFAULT_V100_PREP_AS_OF_DATE
 from trading_core.equity_v100_prep import audit_a_share_v100_prep, build_a_share_v100_prep
 from trading_core.equity_v100_release import DEFAULT_AS_OF_DATE as DEFAULT_V100_RELEASE_AS_OF_DATE
 from trading_core.equity_v100_release import audit_a_share_v100_release, build_a_share_v100_release
 from trading_core.equity_benchmark_claim_hardening import DEFAULT_AS_OF_DATE as DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE
 from trading_core.equity_benchmark_claim_hardening import audit_a_share_benchmark_claim_hardening, build_a_share_benchmark_claim_hardening
-from trading_core.equity_v11_owner_ops_platform import DEFAULT_AS_OF_DATE as DEFAULT_V11_OWNER_OPS_AS_OF_DATE
-from trading_core.equity_v11_owner_ops_platform import audit_a_share_v11_owner_ops_platform, run_a_share_v11_owner_ops_platform
-from trading_core.equity_v12_continuous_ops import DEFAULT_AS_OF_DATE as DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE
-from trading_core.equity_v12_continuous_ops import audit_a_share_v12_continuous_ops, run_a_share_v12_continuous_ops
-from trading_core.equity_v13_research_quality_lab import DEFAULT_AS_OF_DATE as DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE
-from trading_core.equity_v13_research_quality_lab import audit_a_share_v13_research_quality_lab, run_a_share_v13_research_quality_lab
-from trading_core.equity_v14_portfolio_risk_lab import DEFAULT_AS_OF_DATE as DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE
-from trading_core.equity_v14_portfolio_risk_lab import audit_a_share_v14_portfolio_risk_lab, run_a_share_v14_portfolio_risk_lab
-from trading_core.equity_v15_market_regime_lab import DEFAULT_AS_OF_DATE as DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE
-from trading_core.equity_v15_market_regime_lab import audit_a_share_v15_market_regime_lab, run_a_share_v15_market_regime_lab
-from trading_core.equity_v16_pit_backtest_market_rules import DEFAULT_AS_OF_DATE as DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE
-from trading_core.equity_v16_pit_backtest_market_rules import audit_a_share_v16_pit_backtest_market_rules, run_a_share_v16_pit_backtest_market_rules
-from trading_core.equity_v17_strategy_validation_lab import DEFAULT_AS_OF_DATE as DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE
-from trading_core.equity_v17_strategy_validation_lab import audit_a_share_v17_strategy_validation_lab, run_a_share_v17_strategy_validation_lab
-from trading_core.equity_v18_research_db_feature_ml_lab import DEFAULT_AS_OF_DATE as DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE
-from trading_core.equity_v18_research_db_feature_ml_lab import audit_a_share_v18_research_db_feature_ml_lab, run_a_share_v18_research_db_feature_ml_lab
-from trading_core.equity_v19_ml_validation_model_risk import DEFAULT_AS_OF_DATE as DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE
-from trading_core.equity_v19_ml_validation_model_risk import audit_a_share_v19_ml_validation_model_risk, run_a_share_v19_ml_validation_model_risk
-from trading_core.equity_v20_platform_closeout import DEFAULT_AS_OF_DATE as DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE
-from trading_core.equity_v20_platform_closeout import audit_a_share_v20_platform_closeout, run_a_share_v20_platform_closeout
-from trading_core.equity_v21_data_source_benchmark_hardening import DEFAULT_AS_OF_DATE as DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE
-from trading_core.equity_v21_data_source_benchmark_hardening import audit_a_share_v21_data_source_benchmark_hardening, run_a_share_v21_data_source_benchmark_hardening
-from trading_core.equity_v22_ensemble_meta_strategy import DEFAULT_AS_OF_DATE as DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE
-from trading_core.equity_v22_ensemble_meta_strategy import audit_a_share_v22_ensemble_meta_strategy, run_a_share_v22_ensemble_meta_strategy
-from trading_core.equity_v23_operator_ux_journal import DEFAULT_AS_OF_DATE as DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE
-from trading_core.equity_v23_operator_ux_journal import audit_a_share_v23_operator_ux_journal, run_a_share_v23_operator_ux_journal
-from trading_core.equity_v24_maintenance_quality import DEFAULT_AS_OF_DATE as DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE
-from trading_core.equity_v24_maintenance_quality import audit_a_share_v24_maintenance_quality, run_a_share_v24_maintenance_quality
 from trading_core.equity_release_chain import RELEASE_SPECS, audit_release_artifacts, command_to_spec, record_full_pytest_evidence, run_release_artifacts
 from trading_core.equity_release_chain.generic import DEFAULT_AS_OF_DATE as DEFAULT_RELEASE_CHAIN_AS_OF_DATE
-from trading_core.equity_v31_post_v3_verification import DEFAULT_AS_OF_DATE as DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE
-from trading_core.equity_v31_post_v3_verification import audit_a_share_v31_post_v3_verification, run_a_share_v31_post_v3_verification
 from trading_core.equity_current_day.current_day_audit import audit_a_share_current_day_research_run
 from trading_core.equity_current_day.current_day_runner import run_a_share_current_day_research, validate_a_share_current_day_readiness
 from trading_core.equity_current_day_builds.gated_build_audit import audit_a_share_gated_build
@@ -1175,12 +1151,6 @@ def build_parser() -> argparse.ArgumentParser:
     historical_backfill_audit.add_argument("--as-of-date", default=DEFAULT_HISTORICAL_EVIDENCE_BACKFILL_AS_OF_DATE)
     historical_backfill_all = subparsers.add_parser("build-and-audit-a-share-historical-evidence-backfill-and-refresh-plan")
     _add_a_share_historical_evidence_backfill_arguments(historical_backfill_all)
-    v09_platform = subparsers.add_parser("run-a-share-v09-daily-platform")
-    _add_a_share_v09_platform_arguments(v09_platform)
-    v09_audit = subparsers.add_parser("audit-a-share-v09-platform")
-    v09_audit.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
-    v09_all = subparsers.add_parser("run-and-audit-a-share-v09-platform")
-    _add_a_share_v09_platform_arguments(v09_all)
     v09_experiment_registry = subparsers.add_parser("build-a-share-experiment-registry")
     v09_experiment_registry.add_argument("--as-of-date", default=DEFAULT_V09_PLATFORM_AS_OF_DATE)
     v09_experiments = subparsers.add_parser("run-a-share-automated-experiments")
@@ -1209,15 +1179,6 @@ def build_parser() -> argparse.ArgumentParser:
     benchmark_claim_all = subparsers.add_parser("build-and-audit-a-share-benchmark-claim-hardening")
     benchmark_claim_all.add_argument("--as-of-date", default=DEFAULT_BENCHMARK_CLAIM_HARDENING_AS_OF_DATE)
     benchmark_claim_all.add_argument("--allow-public-benchmark-refresh", action="store_true")
-    v11_owner_ops = subparsers.add_parser("run-a-share-v11-owner-ops-platform")
-    v11_owner_ops.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
-    v11_owner_ops.add_argument("--simulation-only", action="store_true")
-    v11_owner_ops.add_argument("--dry-run", action="store_true")
-    v11_owner_ops_audit = subparsers.add_parser("audit-a-share-v11-owner-ops-platform")
-    v11_owner_ops_audit.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
-    v11_owner_ops_all = subparsers.add_parser("run-and-audit-a-share-v11-owner-ops-platform")
-    v11_owner_ops_all.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
-    v11_owner_ops_all.add_argument("--simulation-only", action="store_true")
     owner_command_center = subparsers.add_parser("build-a-share-owner-command-center")
     owner_command_center.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
     sim_reconciliation = subparsers.add_parser("build-a-share-simulated-account-reconciliation")
@@ -1228,15 +1189,6 @@ def build_parser() -> argparse.ArgumentParser:
     monitoring_pack.add_argument("--as-of-date", default=DEFAULT_V11_OWNER_OPS_AS_OF_DATE)
     v12_plan = subparsers.add_parser("plan-a-share-local-post-close-schedule")
     v12_plan.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
-    v12_run = subparsers.add_parser("run-a-share-v12-continuous-ops")
-    v12_run.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
-    v12_run.add_argument("--simulation-only", action="store_true")
-    v12_run.add_argument("--dry-run", action="store_true")
-    v12_audit = subparsers.add_parser("audit-a-share-v12-continuous-ops")
-    v12_audit.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
-    v12_all = subparsers.add_parser("run-and-audit-a-share-v12-continuous-ops")
-    v12_all.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
-    v12_all.add_argument("--simulation-only", action="store_true")
     v12_scheduler = subparsers.add_parser("build-a-share-local-scheduler-plan")
     v12_scheduler.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
     v12_runbook = subparsers.add_parser("build-a-share-operator-runbook")
@@ -1247,14 +1199,6 @@ def build_parser() -> argparse.ArgumentParser:
     v12_incident.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
     v12_artifact = subparsers.add_parser("build-a-share-artifact-index-and-health-report")
     v12_artifact.add_argument("--as-of-date", default=DEFAULT_V12_CONTINUOUS_OPS_AS_OF_DATE)
-    v13_build = subparsers.add_parser("build-a-share-v13-research-quality-lab")
-    v13_build.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
-    v13_build.add_argument("--simulation-only", action="store_true")
-    v13_audit = subparsers.add_parser("audit-a-share-v13-research-quality-lab")
-    v13_audit.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
-    v13_all = subparsers.add_parser("build-and-audit-a-share-v13-research-quality-lab")
-    v13_all.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
-    v13_all.add_argument("--simulation-only", action="store_true")
     v13_scorecard = subparsers.add_parser("build-a-share-research-quality-scorecard")
     v13_scorecard.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
     v13_strategy_lab = subparsers.add_parser("build-a-share-strategy-lab-quality-review")
@@ -1271,14 +1215,6 @@ def build_parser() -> argparse.ArgumentParser:
     v13_robustness = subparsers.add_parser("build-a-share-robustness-and-overfit-review")
     v13_robustness.add_argument("--as-of-date", default=DEFAULT_V13_RESEARCH_QUALITY_LAB_AS_OF_DATE)
     v13_robustness.add_argument("--simulation-only", action="store_true")
-    v14_build = subparsers.add_parser("build-a-share-v14-portfolio-risk-lab")
-    v14_build.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
-    v14_build.add_argument("--simulation-only", action="store_true")
-    v14_audit = subparsers.add_parser("audit-a-share-v14-portfolio-risk-lab")
-    v14_audit.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
-    v14_all = subparsers.add_parser("build-and-audit-a-share-v14-portfolio-risk-lab")
-    v14_all.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
-    v14_all.add_argument("--simulation-only", action="store_true")
     v14_scorecard = subparsers.add_parser("build-a-share-portfolio-risk-scorecard")
     v14_scorecard.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
     v14_scorecard.add_argument("--simulation-only", action="store_true")
@@ -1297,14 +1233,6 @@ def build_parser() -> argparse.ArgumentParser:
     v14_guardrail = subparsers.add_parser("build-a-share-risk-guardrail-review")
     v14_guardrail.add_argument("--as-of-date", default=DEFAULT_V14_PORTFOLIO_RISK_LAB_AS_OF_DATE)
     v14_guardrail.add_argument("--simulation-only", action="store_true")
-    v15_build = subparsers.add_parser("build-a-share-v15-market-regime-lab")
-    v15_build.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
-    v15_build.add_argument("--simulation-only", action="store_true")
-    v15_audit = subparsers.add_parser("audit-a-share-v15-market-regime-lab")
-    v15_audit.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
-    v15_all = subparsers.add_parser("build-and-audit-a-share-v15-market-regime-lab")
-    v15_all.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
-    v15_all.add_argument("--simulation-only", action="store_true")
     v15_regime = subparsers.add_parser("build-a-share-market-regime-classification")
     v15_regime.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
     v15_regime.add_argument("--simulation-only", action="store_true")
@@ -1323,14 +1251,6 @@ def build_parser() -> argparse.ArgumentParser:
     v15_overlay = subparsers.add_parser("build-a-share-regime-portfolio-overlay")
     v15_overlay.add_argument("--as-of-date", default=DEFAULT_V15_MARKET_REGIME_LAB_AS_OF_DATE)
     v15_overlay.add_argument("--simulation-only", action="store_true")
-    v16_build = subparsers.add_parser("build-a-share-v16-pit-backtest-market-rules")
-    v16_build.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
-    v16_build.add_argument("--simulation-only", action="store_true")
-    v16_audit = subparsers.add_parser("audit-a-share-v16-pit-backtest-market-rules")
-    v16_audit.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
-    v16_all = subparsers.add_parser("build-and-audit-a-share-v16-pit-backtest-market-rules")
-    v16_all.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
-    v16_all.add_argument("--simulation-only", action="store_true")
     v16_pit = subparsers.add_parser("build-a-share-point-in-time-data-registry")
     v16_pit.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
     v16_replay = subparsers.add_parser("build-a-share-event-driven-backtest-replay")
@@ -1347,14 +1267,6 @@ def build_parser() -> argparse.ArgumentParser:
     v16_trust = subparsers.add_parser("build-a-share-backtest-trust-scorecard")
     v16_trust.add_argument("--as-of-date", default=DEFAULT_V16_PIT_BACKTEST_MARKET_RULES_AS_OF_DATE)
     v16_trust.add_argument("--simulation-only", action="store_true")
-    v17_build = subparsers.add_parser("build-a-share-v17-strategy-validation-lab")
-    v17_build.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
-    v17_build.add_argument("--simulation-only", action="store_true")
-    v17_audit = subparsers.add_parser("audit-a-share-v17-strategy-validation-lab")
-    v17_audit.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
-    v17_all = subparsers.add_parser("build-and-audit-a-share-v17-strategy-validation-lab")
-    v17_all.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
-    v17_all.add_argument("--simulation-only", action="store_true")
     v17_factor = subparsers.add_parser("build-a-share-factor-validation-review")
     v17_factor.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
     v17_factor.add_argument("--simulation-only", action="store_true")
@@ -1373,14 +1285,6 @@ def build_parser() -> argparse.ArgumentParser:
     v17_experiments = subparsers.add_parser("build-a-share-experiment-validation-registry")
     v17_experiments.add_argument("--as-of-date", default=DEFAULT_V17_STRATEGY_VALIDATION_LAB_AS_OF_DATE)
     v17_experiments.add_argument("--simulation-only", action="store_true")
-    v18_build = subparsers.add_parser("build-a-share-v18-research-db-feature-ml-lab")
-    v18_build.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
-    v18_build.add_argument("--simulation-only", action="store_true")
-    v18_audit = subparsers.add_parser("audit-a-share-v18-research-db-feature-ml-lab")
-    v18_audit.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
-    v18_all = subparsers.add_parser("build-and-audit-a-share-v18-research-db-feature-ml-lab")
-    v18_all.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
-    v18_all.add_argument("--simulation-only", action="store_true")
     v18_research_db = subparsers.add_parser("build-a-share-research-database-index")
     v18_research_db.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
     v18_feature_store = subparsers.add_parser("build-a-share-feature-store")
@@ -1398,14 +1302,6 @@ def build_parser() -> argparse.ArgumentParser:
     v18_predictions = subparsers.add_parser("build-a-share-prediction-registry")
     v18_predictions.add_argument("--as-of-date", default=DEFAULT_V18_RESEARCH_DB_FEATURE_ML_LAB_AS_OF_DATE)
     v18_predictions.add_argument("--simulation-only", action="store_true")
-    v19_build = subparsers.add_parser("build-a-share-v19-ml-validation-model-risk")
-    v19_build.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
-    v19_build.add_argument("--simulation-only", action="store_true")
-    v19_audit = subparsers.add_parser("audit-a-share-v19-ml-validation-model-risk")
-    v19_audit.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
-    v19_all = subparsers.add_parser("build-and-audit-a-share-v19-ml-validation-model-risk")
-    v19_all.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
-    v19_all.add_argument("--simulation-only", action="store_true")
     v19_scorecard = subparsers.add_parser("build-a-share-model-validation-scorecard")
     v19_scorecard.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
     v19_scorecard.add_argument("--simulation-only", action="store_true")
@@ -1424,38 +1320,6 @@ def build_parser() -> argparse.ArgumentParser:
     v19_research_portfolio = subparsers.add_parser("build-a-share-research-portfolio-model-integration")
     v19_research_portfolio.add_argument("--as-of-date", default=DEFAULT_V19_ML_VALIDATION_MODEL_RISK_AS_OF_DATE)
     v19_research_portfolio.add_argument("--simulation-only", action="store_true")
-    v20_build = subparsers.add_parser("build-a-share-v20-platform-closeout")
-    v20_build.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_build.add_argument("--simulation-only", action="store_true")
-    v20_audit = subparsers.add_parser("audit-a-share-v20-platform-closeout")
-    v20_audit.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_all = subparsers.add_parser("build-and-audit-a-share-v20-platform-closeout")
-    v20_all.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_all.add_argument("--simulation-only", action="store_true")
-    v20_plan = subparsers.add_parser("build-a-share-v20-plan-book-capability-map")
-    v20_plan.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_plan.add_argument("--simulation-only", action="store_true")
-    v20_lineage = subparsers.add_parser("build-a-share-v20-release-lineage")
-    v20_lineage.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_safety = subparsers.add_parser("build-a-share-v20-safety-boundary-sweep")
-    v20_safety.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_health = subparsers.add_parser("build-a-share-v20-platform-health-report")
-    v20_health.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_health.add_argument("--simulation-only", action="store_true")
-    v20_dashboard = subparsers.add_parser("build-a-share-v20-owner-release-dashboard")
-    v20_dashboard.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_dashboard.add_argument("--simulation-only", action="store_true")
-    v20_limitations = subparsers.add_parser("build-a-share-v20-known-limitations-and-next-phase")
-    v20_limitations.add_argument("--as-of-date", default=DEFAULT_V20_PLATFORM_CLOSEOUT_AS_OF_DATE)
-    v20_limitations.add_argument("--simulation-only", action="store_true")
-    v21_build = subparsers.add_parser("build-a-share-v21-data-source-benchmark-hardening")
-    v21_build.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
-    v21_build.add_argument("--simulation-only", action="store_true")
-    v21_audit = subparsers.add_parser("audit-a-share-v21-data-source-benchmark-hardening")
-    v21_audit.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
-    v21_all = subparsers.add_parser("build-and-audit-a-share-v21-data-source-benchmark-hardening")
-    v21_all.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
-    v21_all.add_argument("--simulation-only", action="store_true")
     v21_source = subparsers.add_parser("build-a-share-data-source-reliability-review")
     v21_source.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
     v21_benchmark = subparsers.add_parser("build-a-share-benchmark-source-depth-review")
@@ -1471,14 +1335,6 @@ def build_parser() -> argparse.ArgumentParser:
     v21_dashboard = subparsers.add_parser("build-a-share-owner-data-reliability-dashboard")
     v21_dashboard.add_argument("--as-of-date", default=DEFAULT_V21_DATA_SOURCE_BENCHMARK_AS_OF_DATE)
     v21_dashboard.add_argument("--simulation-only", action="store_true")
-    v22_build = subparsers.add_parser("build-a-share-v22-ensemble-meta-strategy")
-    v22_build.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
-    v22_build.add_argument("--simulation-only", action="store_true")
-    v22_audit = subparsers.add_parser("audit-a-share-v22-ensemble-meta-strategy")
-    v22_audit.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
-    v22_all = subparsers.add_parser("build-and-audit-a-share-v22-ensemble-meta-strategy")
-    v22_all.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
-    v22_all.add_argument("--simulation-only", action="store_true")
     v22_model = subparsers.add_parser("build-a-share-model-ensemble-review")
     v22_model.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
     v22_model.add_argument("--simulation-only", action="store_true")
@@ -1500,14 +1356,6 @@ def build_parser() -> argparse.ArgumentParser:
     v22_dashboard = subparsers.add_parser("build-a-share-owner-ensemble-dashboard")
     v22_dashboard.add_argument("--as-of-date", default=DEFAULT_V22_ENSEMBLE_META_STRATEGY_AS_OF_DATE)
     v22_dashboard.add_argument("--simulation-only", action="store_true")
-    v23_build = subparsers.add_parser("build-a-share-v23-operator-ux-journal")
-    v23_build.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
-    v23_build.add_argument("--simulation-only", action="store_true")
-    v23_audit = subparsers.add_parser("audit-a-share-v23-operator-ux-journal")
-    v23_audit.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
-    v23_all = subparsers.add_parser("build-and-audit-a-share-v23-operator-ux-journal")
-    v23_all.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
-    v23_all.add_argument("--simulation-only", action="store_true")
     v23_journal = subparsers.add_parser("build-a-share-decision-journal")
     v23_journal.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
     v23_journal.add_argument("--simulation-only", action="store_true")
@@ -1525,58 +1373,6 @@ def build_parser() -> argparse.ArgumentParser:
     v23_operator_dashboard = subparsers.add_parser("build-a-share-owner-operator-dashboard")
     v23_operator_dashboard.add_argument("--as-of-date", default=DEFAULT_V23_OPERATOR_UX_JOURNAL_AS_OF_DATE)
     v23_operator_dashboard.add_argument("--simulation-only", action="store_true")
-    v24_build = subparsers.add_parser("build-a-share-v24-maintenance-quality")
-    v24_build.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_build.add_argument("--simulation-only", action="store_true")
-    v24_audit = subparsers.add_parser("audit-a-share-v24-maintenance-quality")
-    v24_audit.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_all = subparsers.add_parser("build-and-audit-a-share-v24-maintenance-quality")
-    v24_all.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_all.add_argument("--simulation-only", action="store_true")
-    v24_artifact = subparsers.add_parser("build-a-share-artifact-bloat-review")
-    v24_artifact.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_artifact.add_argument("--simulation-only", action="store_true")
-    v24_dedup = subparsers.add_parser("build-a-share-report-deduplication-review")
-    v24_dedup.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_dedup.add_argument("--simulation-only", action="store_true")
-    v24_cli = subparsers.add_parser("build-a-share-cli-hygiene-review")
-    v24_cli.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_cli.add_argument("--simulation-only", action="store_true")
-    v24_contract = subparsers.add_parser("build-a-share-shared-result-contract-review")
-    v24_contract.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_contract.add_argument("--simulation-only", action="store_true")
-    v24_test = subparsers.add_parser("build-a-share-test-maintenance-review")
-    v24_test.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_test.add_argument("--simulation-only", action="store_true")
-    v24_dashboard = subparsers.add_parser("build-a-share-owner-maintenance-dashboard")
-    v24_dashboard.add_argument("--as-of-date", default=DEFAULT_V24_MAINTENANCE_QUALITY_AS_OF_DATE)
-    v24_dashboard.add_argument("--simulation-only", action="store_true")
-    v31_build = subparsers.add_parser("build-a-share-v31-post-v3-verification")
-    v31_build.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
-    v31_build.add_argument("--simulation-only", action="store_true")
-    v31_build.add_argument("--output-dir")
-    v31_audit = subparsers.add_parser("audit-a-share-v31-post-v3-verification")
-    v31_audit.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
-    v31_audit.add_argument("--input-dir")
-    v31_audit.add_argument("--output-dir")
-    v31_all = subparsers.add_parser("build-and-audit-a-share-v31-post-v3-verification")
-    v31_all.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
-    v31_all.add_argument("--simulation-only", action="store_true")
-    v31_all.add_argument("--input-dir")
-    v31_all.add_argument("--output-dir")
-    for v31_command in [
-        "build-a-share-v31-semantic-regression-pack",
-        "build-a-share-v31-split-matrix-evidence",
-        "build-a-share-v31-test-evidence-contract",
-        "build-a-share-v31-git-evidence-pack",
-        "build-a-share-v31-artifact-checksum-pack",
-        "build-a-share-v31-external-audit-package",
-        "build-a-share-v31-owner-verification-dashboard",
-    ]:
-        v31_component = subparsers.add_parser(v31_command)
-        v31_component.add_argument("--as-of-date", default=DEFAULT_V31_POST_V3_VERIFICATION_AS_OF_DATE)
-        v31_component.add_argument("--simulation-only", action="store_true")
-        v31_component.add_argument("--output-dir")
     for release_spec in RELEASE_SPECS:
         release_build = subparsers.add_parser(release_spec["build_command"])
         release_build.add_argument("--as-of-date", default=DEFAULT_RELEASE_CHAIN_AS_OF_DATE)
@@ -1805,22 +1601,6 @@ def _resolve_project_path(value: str | None, paths) -> Path | None:
     return paths.project_root / path
 
 
-def _resolve_v31_artifact_dir(value: str | None, paths) -> Path | None:
-    candidate = _resolve_project_path(value, paths)
-    if candidate is None:
-        return None
-    resolved = candidate.resolve()
-    project_root = paths.project_root.resolve()
-    forbidden_roots = [
-        project_root,
-        project_root / "src",
-        project_root / "tests",
-        project_root / ".git",
-    ]
-    if any(resolved == root or root in resolved.parents for root in forbidden_roots):
-        raise ValueError(f"unsafe v31 artifact directory: {resolved}")
-    return resolved
-
 
 def _split_csv_arg(value: str | None) -> list[str] | None:
     if not value:
@@ -1837,37 +1617,6 @@ def main(argv: Sequence[str] | None = None) -> int:
     handler = DISPATCH_HANDLERS_EARLY.get(args.command)
     if handler is not None:
         return handler(args, paths)
-    v31_component_flags = {
-        "build-a-share-v31-semantic-regression-pack": "semantic_regression_pack_generated",
-        "build-a-share-v31-split-matrix-evidence": "split_matrix_regression_evidence_generated",
-        "build-a-share-v31-test-evidence-contract": "test_evidence_truthfulness_contract_generated",
-        "build-a-share-v31-git-evidence-pack": "git_diff_evidence_pack_generated",
-        "build-a-share-v31-artifact-checksum-pack": "artifact_checksum_provenance_pack_generated",
-        "build-a-share-v31-external-audit-package": "external_reviewer_audit_package_generated",
-        "build-a-share-v31-owner-verification-dashboard": "owner_post_v3_verification_dashboard_generated",
-    }
-    if args.command in v31_component_flags:
-        try:
-            output_dir = _resolve_v31_artifact_dir(args.output_dir, paths)
-        except ValueError as exc:
-            print({"error": str(exc)})
-            return 2
-        result = run_a_share_v31_post_v3_verification(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths, output_dir=output_dir)
-        component_flag = v31_component_flags[args.command]
-        print({"overall_passed": result["overall_passed"], component_flag: result.get(component_flag), "full_regression_mode": result.get("full_regression_mode"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"], "warnings": len(result["warnings"])})
-        return 0 if result["overall_passed"] else 1
-    if args.command == "record-a-share-full-pytest-evidence":
-        result = record_full_pytest_evidence(paths=paths, timeout_seconds=args.timeout_seconds)
-        print(
-            {
-                "full_pytest_run": result["full_pytest_run"],
-                "full_pytest_passed": result["full_pytest_passed"],
-                "returncode": result["returncode"],
-                "evidence_path": result["evidence_path"],
-                "source_tree_sha256": result["source_tree_sha256"],
-            }
-        )
-        return 0 if result["full_pytest_passed"] else 1
     release_spec, release_action = command_to_spec(args.command)
     if release_spec is not None and release_action == "build":
         result = run_release_artifacts(release_spec, as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)

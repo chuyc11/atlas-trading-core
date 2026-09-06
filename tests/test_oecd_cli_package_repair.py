@@ -89,7 +89,8 @@ def test_macro_cycle_proxy_when_official_unavailable(monkeypatch: pytest.MonkeyP
     assert item["official_oecd_cli"] is False
     assert item["macro_cycle_proxy"] is True
     assert item["not_official_oecd_cli"] is True
-    assert item["sha256"] and item["provenance_path"]
+    assert item["sha256"]
+    assert item["provenance_path"]
 
     empty_paths = make_paths(tmp_path / "empty")
     rows, _source, status, warnings, metadata = build_oecd_cli_rows(paths=empty_paths, start_date="2024-01-02", end_date="2024-01-08", timeout=1, retries=1, http_get=_fail_http)

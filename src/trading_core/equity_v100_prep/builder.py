@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import read_json, sha256_file, utc_now, write_json
-from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE, BOUNDARY_TRUE
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 TARGET_VERSION = "v1.0.0-prep-a-share-autonomous-simulation-platform-closeout"

@@ -149,7 +149,7 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
         "performance_boundary_check",
         "performance_summary",
     ]
-    checks = {
+    return {
         "performance_config_exists": artifacts["performance_config"].exists(),
         "all_required_artifacts_exist": all(artifacts[key].exists() for key in required_artifacts),
         "target_version_matches": all(
@@ -180,7 +180,6 @@ def _checks(**kwargs: Any) -> dict[str, bool]:
         "append_log_append_only": append_log.get("append_only") is True and append_log.get("prior_dates_rewritten") is False,
         "historical_reconstruction_labeled_if_used": not append_log.get("historical_reconstruction_used") or append_log.get("historical_reconstruction_labeled_separately") is True,
     }
-    return checks
 
 
 def _observation_counts_correct(nav: dict[str, Any], availability: dict[str, Any]) -> bool:

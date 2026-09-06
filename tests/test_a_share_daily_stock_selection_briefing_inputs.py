@@ -25,7 +25,7 @@ def test_briefing_inputs_read_existing_candidate_score_and_portfolio_artifacts(t
 def test_briefing_inputs_fail_closed_unless_latest_artifact_date_allowed(tmp_path: Path) -> None:
     paths = make_briefing_paths(tmp_path)
 
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match="briefing inputs not found"):
         load_briefing_inputs(paths=paths, as_of_date="2026-06-27")
 
     inputs = load_briefing_inputs(paths=paths, as_of_date="2026-06-27", allow_latest_artifact_date=True)

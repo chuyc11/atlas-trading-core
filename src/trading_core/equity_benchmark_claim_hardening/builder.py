@@ -12,7 +12,7 @@ from trading_core.equity_benchmarks.benchmark_config import INDEX_CODE_MAP, cand
 from trading_core.equity_benchmarks.benchmark_returns import returns_from_price_frame
 from trading_core.equity_benchmarks.equal_weight_benchmark import build_equal_weight_benchmark
 from trading_core.equity_data_quality.common import read_frame, read_json, sha256_file, utc_now, write_json
-from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE, BOUNDARY_TRUE
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 TARGET_VERSION = "v1.0.1-a-share-benchmark-data-and-performance-claim-hardening"

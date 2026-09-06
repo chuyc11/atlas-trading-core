@@ -1,6 +1,7 @@
 """Audit for v0.8.11 owner daily pack."""
 
 from __future__ import annotations
+from typing import Any
 
 import hashlib
 import json
@@ -38,7 +39,7 @@ def audit_a_share_owner_daily_pack(*, as_of_date: str, paths: ProjectPaths | Non
     summary = payloads.get("daily_pack_summary", {})
     boundary = payloads.get("daily_pack_boundary_check", {})
     safe = payloads.get("safe_action_digest", {})
-    audit = {
+    audit: dict[str, Any] = {
         "audit_id": "A-SHARE-OWNER-DAILY-PACK-AUDIT",
         "target_version": TARGET_VERSION,
         "as_of_date": as_of_date,

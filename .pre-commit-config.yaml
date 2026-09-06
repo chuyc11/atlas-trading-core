@@ -1,0 +1,15 @@
+# Local quality hooks mirroring the CI gates in .github/workflows/quality.yml.
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.12
+    hooks:
+      - id: ruff
+        args: [--fix]
+  - repo: local
+    hooks:
+      - id: mypy
+        name: mypy (scoped by pyproject files)
+        entry: mypy
+        language: system
+        types: [python]
+        pass_filenames: false

@@ -1,6 +1,7 @@
 """Audit for v0.8.8 build repeatability."""
 
 from __future__ import annotations
+from typing import Any
 
 import hashlib
 import json
@@ -39,7 +40,7 @@ def audit_a_share_build_repeatability(
     comparison = payloads.get("build_vs_build_comparison", {})
     execution = payloads.get("repeat_build_execution_record", {})
     boundary_payload = payloads.get("repeatability_boundary_check", {})
-    audit = {
+    audit: dict[str, Any] = {
         "audit_id": "A-SHARE-BUILD-REPEATABILITY-AUDIT",
         "target_version": TARGET_VERSION,
         "as_of_date": as_of_date,

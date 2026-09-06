@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 from trading_core.equity_release_chain import audit_release_artifacts, run_release_artifacts, spec_by_key
-from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE
 from trading_core.storage.file_paths import ProjectPaths
 from a_share_release_chain_test_utils import record_test_full_pytest_evidence
 

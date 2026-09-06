@@ -34,7 +34,7 @@ def build_operator_action_menu(*, as_of_date: str = DEFAULT_AS_OF_DATE) -> dict:
         }
         for action_type, label, description, artifact in ALLOWED_ACTIONS
     ]
-    forbidden = sorted({row["action_type"] for row in actions}.intersection(FORBIDDEN_ACTION_TYPES))
+    forbidden = sorted({str(row["action_type"]) for row in actions}.intersection(FORBIDDEN_ACTION_TYPES))
     return {
         "menu_id": "A-SHARE-OPERATOR-ACTION-MENU",
         "target_version": TARGET_VERSION,

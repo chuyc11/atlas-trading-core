@@ -8,7 +8,7 @@ from trading_core.equity_owner_recovery_evidence.evidence_config import DEFAULT_
 
 
 def build_recovery_task_evidence_collection(*, as_of_date: str = DEFAULT_AS_OF_DATE, backlog: dict[str, Any], evidence_registry: dict[str, Any], status_tracker: dict[str, Any]) -> dict[str, Any]:
-    registry_by_task = {}
+    registry_by_task: dict[str, list[dict[str, Any]]] = {}
     for record in evidence_registry.get("records", []):
         registry_by_task.setdefault(record.get("source_task_id"), []).append(record)
     status_by_task = {item.get("task_id"): item for item in status_tracker.get("items", [])}

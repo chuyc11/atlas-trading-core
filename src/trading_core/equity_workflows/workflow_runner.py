@@ -309,6 +309,6 @@ def _execute_build_stage(definition: dict[str, Any], config: WorkflowConfig, pat
 
 
 def _duration_seconds(started_at: str, finished_at: str) -> float:
-    started = datetime.fromisoformat(started_at.replace("Z", "+00:00"))
-    finished = datetime.fromisoformat(finished_at.replace("Z", "+00:00"))
+    started = datetime.fromisoformat(started_at)
+    finished = datetime.fromisoformat(finished_at)
     return max((finished - started).total_seconds(), 0.0)

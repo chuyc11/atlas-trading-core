@@ -56,7 +56,7 @@ def _forbidden_artifacts(paths: ProjectPaths, as_of_date: str) -> list[str]:
 
 def _forbidden_wording_hits(paths: ProjectPaths, as_of_date: str) -> list[dict[str, Any]]:
     root = paths.outputs_dir / "equity_owner_readiness_recovery_execution" / "daily" / as_of_date
-    hits = []
+    hits: list[dict[str, Any]] = []
     if not root.exists():
         return hits
     for path in root.glob("*.md"):

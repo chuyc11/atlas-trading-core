@@ -81,8 +81,8 @@ def _table_checks(frame: pd.DataFrame, columns: list[str], primary_key: list[str
         "exists_and_non_empty": not frame.empty,
         "required_columns_present": all(column in frame.columns for column in columns),
         "no_duplicate_primary_keys": not frame.duplicated(primary_key).any() if not frame.empty and all(column in frame.columns for column in primary_key) else False,
-        "source_present": "source" in frame.columns and frame["source"].notna().all() if "source" in frame.columns and not frame.empty else False,
-        "source_timestamp_present": "source_timestamp" in frame.columns and frame["source_timestamp"].notna().all() if "source_timestamp" in frame.columns and not frame.empty else False,
+        "source_present": bool("source" in frame.columns and frame["source"].notna().all()) if "source" in frame.columns and not frame.empty else False,
+        "source_timestamp_present": bool("source_timestamp" in frame.columns and frame["source_timestamp"].notna().all()) if "source_timestamp" in frame.columns and not frame.empty else False,
     }
     symbol_columns = [column for column in ["symbol"] if column in frame.columns]
     if symbol_columns and not frame.empty:

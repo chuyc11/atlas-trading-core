@@ -5,7 +5,6 @@ from pathlib import Path
 from subprocess import CompletedProcess
 from unittest.mock import patch
 
-from a_share_v24_test_utils import build_v24, make_v24_paths
 from trading_core.equity_release_chain import (
     RELEASE_SPECS,
     audit_release_artifacts,
@@ -13,8 +12,10 @@ from trading_core.equity_release_chain import (
     run_release_artifacts,
     spec_by_key,
 )
-from trading_core.equity_v24_maintenance_quality.builder import TARGET_VERSION as V24_TARGET_VERSION
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE
 from trading_core.storage.file_paths import ProjectPaths
+
+V24_TARGET_VERSION = "v2.4.0-a-share-simulation-research-maintenance-quality-and-artifact-bloat-reduction"
 
 
 def make_release_paths(
@@ -25,15 +26,16 @@ def make_release_paths(
 ) -> ProjectPaths:
     """Build the synthetic release lineage required by a focused unit test.
 
-    Full-suite evidence is deliberately created through the same public
-    producer used in production.  The subprocess result is mocked only because
-    these temporary fixtures do not contain the repository's real test suite;
-    tests that exercise a missing evidence path pass ``False`` explicitly.
+    The v2.4.0 baseline is seeded directly as data (its builder was archived
+    with the equity_vXX milestone code); the same hand-seeded pattern is used
+    for the v3.1.0 fixture in ``a_share_v3x_release_test_utils``.  Full-suite
+    evidence is deliberately created through the same public producer used in
+    production.  The subprocess result is mocked only because these temporary
+    fixtures do not contain the repository's real test suite; tests that
+    exercise a missing evidence path pass ``False`` explicitly.
     """
 
-    paths = make_v24_paths(tmp_path)
-    build_v24(paths)
-    (paths.project_root / "VERSION").write_text(V24_TARGET_VERSION, encoding="utf-8")
+    paths = _make_v24_baseline(tmp_path)
     for spec in RELEASE_SPECS:
         if spec["key"] == target_key:
             break
@@ -42,6 +44,32 @@ def make_release_paths(
         audit_release_artifacts(spec=spec, paths=paths)
         (paths.project_root / "VERSION").write_text(spec["target_version"], encoding="utf-8")
     _prepare_full_pytest_evidence(paths, spec_by_key(target_key), include_full_pytest_evidence)
+    return paths
+
+
+def _make_v24_baseline(tmp_path: Path) -> ProjectPaths:
+    """Seed the v2.4.0 baseline artifacts the v2.5.0 release step verifies."""
+
+    workspace_root = tmp_path / "workspace"
+    paths = ProjectPaths(workspace_root)
+    paths.data_dir.mkdir(parents=True, exist_ok=True)
+    paths.outputs_dir.mkdir(parents=True, exist_ok=True)
+    paths.project_root.mkdir(parents=True, exist_ok=True)
+    (paths.project_root / "VERSION").write_text(V24_TARGET_VERSION, encoding="utf-8")
+    _write_json(
+        paths.data_dir / "equity_v24_maintenance_quality" / "daily" / "2026-07-01" / "v24_maintenance_quality_result.json",
+        {
+            "target_version": V24_TARGET_VERSION,
+            "overall_passed": True,
+            "blocking_reasons": [],
+            "warnings": [],
+            **dict.fromkeys(BOUNDARY_FALSE, False),
+        },
+    )
+    _write_json(
+        paths.data_dir / "equity_data_quality" / "a_share_v24_maintenance_quality_audit.json",
+        {"target_version": V24_TARGET_VERSION, "overall_passed": True, "blocking_reasons": [], "warnings": []},
+    )
     return paths
 
 
@@ -89,3 +117,8 @@ def _prepare_full_pytest_evidence(
     # the prior release.
     (paths.project_root / "VERSION").write_text(spec["target_version"], encoding="utf-8")
     record_test_full_pytest_evidence(paths)
+
+
+def _write_json(path: Path, payload: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

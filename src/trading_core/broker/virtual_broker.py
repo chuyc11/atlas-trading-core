@@ -57,7 +57,7 @@ def signal_to_order(
         "order_type": "market_simulated",
         "target_weight": signal.get("target_weight", 0.0),
         "quantity": quantity,
-        "estimated_price": price if price else None,
+        "estimated_price": price or None,
     }
     if side == "BUY" and is_t_plus_one(market):
         order["settlement_date"] = next_trading_day(date, market, paths=paths)

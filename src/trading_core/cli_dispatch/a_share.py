@@ -2600,59 +2600,10 @@ def _handle_build_a_share_owner_operator_dashboard(args: argparse.Namespace, pat
 
     return 0 if result["overall_passed"] else 1
 
-def _handle_build_a_share_artifact_bloat_review(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
 
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
 
-    print({"overall_passed": result["overall_passed"], "artifact_inventory_bloat_result_generated": result.get("artifact_inventory_bloat_result_generated"), "artifact_inventory_fabricated": result.get("artifact_inventory_fabricated"), "required_artifacts_deleted": result.get("required_artifacts_deleted"), "blocking_reasons": result["blocking_reasons"]})
 
-    return 0 if result["overall_passed"] else 1
 
-def _handle_build_a_share_report_deduplication_review(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
-
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-
-    print({"overall_passed": result["overall_passed"], "report_deduplication_result_generated": result.get("report_deduplication_result_generated"), "historical_evidence_deleted": result.get("historical_evidence_deleted"), "release_evidence_deleted": result.get("release_evidence_deleted"), "blocking_reasons": result["blocking_reasons"]})
-
-    return 0 if result["overall_passed"] else 1
-
-def _handle_build_a_share_cli_hygiene_review(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
-
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-
-    print({"overall_passed": result["overall_passed"], "cli_hygiene_result_generated": result.get("cli_hygiene_result_generated"), "cli_broker_command_added": result.get("cli_broker_command_added"), "cli_live_trading_command_added": result.get("cli_live_trading_command_added"), "cli_order_command_added": result.get("cli_order_command_added"), "cli_owner_gate_command_added": result.get("cli_owner_gate_command_added"), "old_run_daily_present": result.get("old_run_daily_present"), "blocking_reasons": result["blocking_reasons"]})
-
-    return 0 if result["overall_passed"] else 1
-
-def _handle_build_a_share_shared_result_contract_review(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
-
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-
-    print({"overall_passed": result["overall_passed"], "shared_result_contract_result_generated": result.get("shared_result_contract_result_generated"), "audit_contract_consolidation_result_generated": result.get("audit_contract_consolidation_result_generated"), "new_gate_score_generated": result.get("new_gate_score_generated"), "new_gate_decision_generated": result.get("new_gate_decision_generated"), "blocking_reasons": result["blocking_reasons"]})
-
-    return 0 if result["overall_passed"] else 1
-
-def _handle_build_a_share_test_maintenance_review(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
-
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-
-    print({"overall_passed": result["overall_passed"], "test_maintenance_result_generated": result.get("test_maintenance_result_generated"), "code_organization_result_generated": result.get("code_organization_result_generated"), "test_result_fabricated": result.get("test_result_fabricated"), "full_pytest_run": result.get("full_pytest_run"), "targeted_pytest_required": result.get("targeted_pytest_required"), "blocking_reasons": result["blocking_reasons"]})
-
-    return 0 if result["overall_passed"] else 1
-
-def _handle_build_a_share_owner_maintenance_dashboard(args: argparse.Namespace, paths) -> int:
-    from trading_core import cli as _cli
-
-    result = _cli.run_a_share_v24_maintenance_quality(as_of_date=args.as_of_date, simulation_only=args.simulation_only, paths=paths)
-
-    print({"overall_passed": result["overall_passed"], "owner_maintenance_dashboard_generated": result.get("owner_maintenance_dashboard_generated"), "owner_readiness_state": result.get("owner_readiness_state"), "owner_operationally_acceptable": result.get("owner_operationally_acceptable"), "maintenance_quality_pass_means_live_trading_ready": result.get("maintenance_quality_pass_means_live_trading_ready"), "live_trading_ready": result.get("live_trading_ready"), "blocking_reasons": result["blocking_reasons"]})
-
-    return 0 if result["overall_passed"] else 1
 
 
 DISPATCH_HANDLERS_EARLY: dict[str, Callable[..., int]] = {
@@ -2808,12 +2759,6 @@ DISPATCH_HANDLERS_EARLY: dict[str, Callable[..., int]] = {
     "build-a-share-report-artifact-index": _handle_build_a_share_report_artifact_index,
     "build-a-share-warning-blocker-explanations": _handle_build_a_share_warning_blocker_explanations,
     "build-a-share-owner-operator-dashboard": _handle_build_a_share_owner_operator_dashboard,
-    "build-a-share-artifact-bloat-review": _handle_build_a_share_artifact_bloat_review,
-    "build-a-share-report-deduplication-review": _handle_build_a_share_report_deduplication_review,
-    "build-a-share-cli-hygiene-review": _handle_build_a_share_cli_hygiene_review,
-    "build-a-share-shared-result-contract-review": _handle_build_a_share_shared_result_contract_review,
-    "build-a-share-test-maintenance-review": _handle_build_a_share_test_maintenance_review,
-    "build-a-share-owner-maintenance-dashboard": _handle_build_a_share_owner_maintenance_dashboard,
 }
 
 

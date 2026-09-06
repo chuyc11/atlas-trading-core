@@ -741,7 +741,7 @@ def _blocker_evidence_mapping(paths: ProjectPaths, as_of_date: str, register: di
             strength = "moderate"
             support = [f"data/equity_research_evidence_accumulation/daily/{as_of_date}/evidence_eligible_day_register.json"]
             missing = ["five_eligible_research_output_days", "future_controlled_reevaluation_evidence"]
-        elif blocker.get("category") in {"v090_rc_known_blocked_state"}:
+        elif blocker.get("category") == "v090_rc_known_blocked_state":
             strength = "weak"
             support = [f"data/equity_owner_closeout_review/daily/{BASELINE_OWNER_READINESS_DATE}/unresolved_blocker_register.json"]
         blockers.append(

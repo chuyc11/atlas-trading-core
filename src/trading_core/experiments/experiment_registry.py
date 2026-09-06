@@ -209,15 +209,14 @@ def load_experiment_config(config_path: str | Path) -> dict[str, Any]:
     with open(path, encoding="utf-8") as f:
         if suffix in {".yaml", ".yml"}:
             return yaml.safe_load(f)
-        elif suffix == ".json":
+        if suffix == ".json":
             return json.load(f)
-        else:
-            # Try YAML first, fall back to JSON
-            try:
-                return yaml.safe_load(f)
-            except yaml.YAMLError:
-                f.seek(0)
-                return json.load(f)
+        # Try YAML first, fall back to JSON
+        try:
+            return yaml.safe_load(f)
+        except yaml.YAMLError:
+            f.seek(0)
+            return json.load(f)
 
 
 def build_registry_markdown(registry: dict[str, Any]) -> str:

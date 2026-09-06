@@ -27,7 +27,7 @@ def run_boundary_regression_audit(
 
     run_daily = _read(source / "daily_run.py")
     signal_generator = _read(source / "signals" / "signal_generator.py")
-    checks = {
+    checks: dict[str, dict[str, Any]] = {
         "run_daily_label_import": {"passed": not _contains_import(run_daily, "trading_core.labels"), "issues": []},
         "run_daily_ml_import": {"passed": not _contains_import(run_daily, "trading_core.ml"), "issues": []},
         "broker_code": {"passed": not _has_real_broker_code(source), "issues": []},

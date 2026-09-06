@@ -13,7 +13,8 @@ SCRIPT_PATH = PROJECT_ROOT / "scripts" / "run_dry_run_range.py"
 
 def _load_dry_run_module() -> Any:
     spec = importlib.util.spec_from_file_location("run_dry_run_range", SCRIPT_PATH)
-    assert spec and spec.loader
+    assert spec
+    assert spec.loader
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module

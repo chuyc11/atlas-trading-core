@@ -1,6 +1,7 @@
 """Operator capability matrix."""
 
 from __future__ import annotations
+from typing import Any
 
 from trading_core.equity_owner_operator_experience.operator_config import DEFAULT_AS_OF_DATE, TARGET_VERSION
 
@@ -31,7 +32,7 @@ FORBIDDEN_CAPABILITIES = [
 
 
 def build_operator_capability_matrix(*, as_of_date: str = DEFAULT_AS_OF_DATE) -> dict:
-    rows = []
+    rows: list[dict[str, Any]] = []
     rows.extend(
         {
             "capability_id": capability,

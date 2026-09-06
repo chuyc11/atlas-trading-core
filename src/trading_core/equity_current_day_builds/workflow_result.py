@@ -32,6 +32,7 @@ def build_workflow_result(
     workflow_stages = {}
     artifacts_generated = []
     manifest_loaded = False
+    payload_notes: list[str] = []
 
     if current_day_manifest_path.exists():
         try:
@@ -50,7 +51,7 @@ def build_workflow_result(
                 stage_data = json.loads(stage_manifest_path.read_text(encoding="utf-8"))
                 workflow_stages = stage_data.get("stages", {})
         except Exception:
-            pass
+            payload_notes.append("current_day_manifest_parse_error")
 
     # Load workflow audit
     workflow_audit_path = (
@@ -67,7 +68,7 @@ def build_workflow_result(
             workflow_blocking = audit.get("blocking_reasons", [])
             workflow_warnings = audit.get("warnings", [])
         except Exception:
-            pass
+            payload_notes.append("workflow_audit_parse_error")
 
     stage_rows = workflow_stages.values() if isinstance(workflow_stages, dict) else workflow_stages
     stages_passed = sum(1 for s in stage_rows if isinstance(s, dict) and s.get("status") == "passed")
@@ -90,6 +91,7 @@ def build_workflow_result(
         "stages_failed": stages_failed,
         "artifacts_generated_or_reused": artifacts_generated,
         "manifest_loaded": manifest_loaded,
+        "payload_notes": payload_notes,
         "boundary_status": {
             "old_run_daily_called": False,
             "broker_connected": False,

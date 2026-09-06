@@ -518,7 +518,7 @@ def run_parameter_sweep(
             warnings.append("all_runs_performed_poorly: no strong shadow candidate")
 
     # Build result
-    result = {
+    return {
         "experiment_id": experiment_id,
         "strategy_id": strategy_id,
         "mode": mode,
@@ -552,7 +552,6 @@ def run_parameter_sweep(
         },
     }
 
-    return result
 
 
 def save_sweep_json(result: dict[str, Any], paths: Any) -> Path:

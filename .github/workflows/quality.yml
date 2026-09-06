@@ -37,7 +37,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-      - run: python -m pip install -e . mypy==2.3.1
+      - run: python -m pip install -e ".[types]"
       - run: mypy
 
   tests:
@@ -95,7 +95,7 @@ jobs:
           cache: pip
       - run: python -m pip install -e ".[test]"
       - run: >-
-          python -m pytest
+          python -m pytest -n auto
           --junitxml=full-regression.xml
           --cov=src/trading_core
           --cov-report=xml:coverage.xml

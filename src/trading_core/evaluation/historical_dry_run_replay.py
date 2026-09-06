@@ -203,7 +203,7 @@ def replay_dry_run(
         pending_signals = actionable_signals
         pending_signal_date = day if actionable_signals else None
 
-    audit = _build_replay_audit(
+    return _build_replay_audit(
         replay_paths,
         start_date,
         end_date,
@@ -217,7 +217,6 @@ def replay_dry_run(
         pending_signals,
         pending_signal_date,
     )
-    return audit
 
 
 def _load_price_package(data_path: Path, paths: ProjectPaths) -> dict[str, dict[str, dict[str, Any]]]:

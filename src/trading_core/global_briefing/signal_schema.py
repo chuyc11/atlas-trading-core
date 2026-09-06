@@ -175,7 +175,7 @@ def parse_datetime(value: Any) -> tuple[datetime | None, list[str]]:
         return None, warnings
     text = value.strip()
     try:
-        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+        parsed = datetime.fromisoformat(text)
     except ValueError:
         return None, warnings
     if parsed.tzinfo is None:

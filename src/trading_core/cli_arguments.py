@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from trading_core.cli_defaults import (
+    DEFAULT_V09_PLATFORM_AS_OF_DATE,
+)
 import argparse
 from datetime import date as Date
 
@@ -78,7 +81,6 @@ from trading_core.equity_portfolios.portfolio_config import DEFAULT_AS_OF_DATE a
 from trading_core.equity_scoring.score_config import DEFAULT_AS_OF_DATE as DEFAULT_SCORE_AS_OF_DATE
 from trading_core.equity_selection.candidate_config import DEFAULT_AS_OF_DATE as DEFAULT_CANDIDATE_AS_OF_DATE
 from trading_core.equity_selection.filter_config import TradableUniverseFilterConfig, parse_bool
-from trading_core.equity_v09_platform import DEFAULT_AS_OF_DATE as DEFAULT_V09_PLATFORM_AS_OF_DATE
 from trading_core.equity_workflows.workflow_config import ALLOWED_MODES as A_SHARE_WORKFLOW_MODES
 from trading_core.equity_workflows.workflow_config import DEFAULT_AS_OF_DATE as DEFAULT_WORKFLOW_AS_OF_DATE
 

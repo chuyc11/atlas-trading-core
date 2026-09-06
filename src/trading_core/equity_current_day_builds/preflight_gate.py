@@ -133,7 +133,8 @@ def build_preflight_gate(
             alert_payload = json.loads(monitoring_alert_path.read_text(encoding="utf-8"))
             critical_alert_count = int(alert_payload.get("alert_counts", {}).get("critical", 0))
         except Exception:
-            critical_alert_count = 0
+            # An unreadable alert file must not silently read as "no alerts".
+            blocking_reasons.append("monitoring_alert_parse_error")
     ops_gate["critical_alert_count"] = critical_alert_count
     if critical_alert_count != 0:
         blocking_reasons.append(f"critical_alert_count_nonzero:{critical_alert_count}")
@@ -174,7 +175,9 @@ def build_preflight_gate(
             if payload.get("real_orders_placed", False):
                 blocking_reasons.append("real_orders_placed_detected_in_ops_history")
         except Exception:
-            pass
+            # An unreadable boundary file must not silently skip the boundary
+            # checks above.
+            blocking_reasons.append("ops_history_boundary_parse_error")
 
     overall_passed = not blocking_reasons
 

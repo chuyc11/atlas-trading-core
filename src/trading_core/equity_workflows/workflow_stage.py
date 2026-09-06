@@ -109,4 +109,4 @@ def _rel_paths(paths: ProjectPaths, values: list[Any]) -> list[str]:
 
 
 def _parse_time(value: str) -> datetime:
-    return datetime.fromisoformat(value.replace("Z", "+00:00"))
+    return datetime.fromisoformat(value)

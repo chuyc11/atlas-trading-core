@@ -1,4 +1,5 @@
 from __future__ import annotations
+import pytest
 
 import json
 from pathlib import Path
@@ -20,9 +21,5 @@ def test_performance_inputs_fail_closed_when_benchmark_audit_blocks(tmp_path: Pa
     payload = json.loads(audit_path.read_text(encoding="utf-8"))
     payload["overall_passed"] = False
     audit_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
-    try:
+    with pytest.raises(ValueError, match="benchmark audit overall_passed"):
         load_performance_inputs(paths=paths, as_of_date="2026-06-26")
-    except ValueError as exc:
-        assert "benchmark audit overall_passed" in str(exc)
-    else:
-        raise AssertionError("expected fail-closed benchmark audit validation")

@@ -89,7 +89,7 @@ def summarize_health(start_date: str, end_date: str, paths: ProjectPaths | None 
         current += timedelta(days=1)
 
     successful = [item for item in items if not item.get("errors")]
-    rejected_reasons = Counter()
+    rejected_reasons = Counter[str]()
     total_orders = total_trades = total_rejected = 0
     missing_inputs = fallback = stale = missing_prices = 0
     assets = []

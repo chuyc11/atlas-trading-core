@@ -128,8 +128,8 @@ def _license_detected(local_path: Path) -> str:
 def _main_language(local_path: Path) -> str:
     if not local_path.exists():
         return "not_downloaded"
-    suffixes = Counter()
-    code_suffixes = Counter()
+    suffixes = Counter[str]()
+    code_suffixes = Counter[str]()
     for path in local_path.rglob("*"):
         if ".git" in path.parts or "__pycache__" in path.parts or not path.is_file():
             continue

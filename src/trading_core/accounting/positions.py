@@ -53,7 +53,7 @@ class Position:
 PositionBook = dict[str, Position]
 
 
-def positions_from_dict(rows: list[dict[str, object]]) -> PositionBook:
+def positions_from_dict(rows: list[dict[str, Any]]) -> PositionBook:
     return {str(row["symbol"]): Position(**row) for row in rows}
 
 

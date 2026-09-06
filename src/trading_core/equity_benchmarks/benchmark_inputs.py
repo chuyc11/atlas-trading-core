@@ -175,8 +175,7 @@ def _candidate_symbols(rows_by_file: dict[str, list[dict[str, Any]]]) -> list[st
 
 
 def _load_json(path: Path) -> Any:
-    value = json.loads(path.read_text(encoding="utf-8"))
-    return value
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def _load_list(path: Path) -> list[dict[str, Any]]:

@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from trading_core.equity_data_quality.common import read_json, sha256_file, utc_now, write_json
-from trading_core.equity_v09_platform.builder import BOUNDARY_FALSE, BOUNDARY_TRUE
+from trading_core.equity_data_quality.common import BOUNDARY_FALSE, BOUNDARY_TRUE
 from trading_core.storage.file_paths import ProjectPaths, project_paths
 
 TARGET_VERSION = "v1.0.0-a-share-autonomous-simulation-platform-release"
@@ -105,7 +105,7 @@ def _prep_verification(paths: ProjectPaths, as_of_date: str) -> dict[str, Any]:
     cli_version = _run([sys.executable, "-m", "trading_core.cli", "--version"], paths.project_root)
     tag = _run(["git", "tag", "--list", SOURCE_VERSION], paths.project_root)
     owner_status = _parse_json(owner_smoke["stdout"])
-    blocking = []
+    blocking: list[str] = []
     checks = {
         "v100_prep_tag_exists": tag["stdout"].strip() == SOURCE_VERSION,
         "version_is_v100_prep_before_update": version_text == SOURCE_VERSION,

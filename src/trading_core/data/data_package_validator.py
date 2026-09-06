@@ -6,7 +6,7 @@ import csv
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, UTC
 from pathlib import Path
-from typing import Any
+from typing import cast, Any
 
 from trading_core.calendar.trading_calendar import calendar_status, parse_date
 from trading_core.storage.file_paths import ProjectPaths, project_paths
@@ -109,7 +109,7 @@ def _validate_row(
     if not symbol:
         stats["errors"].append(f"{file_path.name}:{line_number}: empty symbol")
 
-    numbers = {}
+    numbers: dict[str, float | None] = {}
     for field in ["open", "high", "low", "close", "volume"]:
         try:
             numbers[field] = float(row.get(field, ""))
@@ -117,18 +117,19 @@ def _validate_row(
             stats["errors"].append(f"{file_path.name}:{line_number}: invalid numeric {field}")
             numbers[field] = None
 
-    if any(numbers[field] is not None and numbers[field] <= 0 for field in ["open", "high", "low", "close"]):
+    if any((value := numbers[field]) is not None and value <= 0 for field in ["open", "high", "low", "close"]):
         stats["ohlc_anomaly_count"] += 1
         stats["errors"].append(f"{file_path.name}:{line_number}: non-positive OHLC")
-    if numbers["volume"] is not None and numbers["volume"] < 0:
+    if (volume := numbers["volume"]) is not None and volume < 0:
         stats["ohlc_anomaly_count"] += 1
         stats["errors"].append(f"{file_path.name}:{line_number}: negative volume")
 
     if all(numbers[field] is not None for field in ["open", "high", "low", "close"]):
-        if numbers["high"] < max(numbers["open"], numbers["close"], numbers["low"]):
+        open_, high, low, close = (cast(float, numbers[field]) for field in ["open", "high", "low", "close"])
+        if high < max(open_, close, low):
             stats["ohlc_anomaly_count"] += 1
             stats["errors"].append(f"{file_path.name}:{line_number}: high below OHLC max")
-        if numbers["low"] > min(numbers["open"], numbers["close"], numbers["high"]):
+        if low > min(open_, close, high):
             stats["ohlc_anomaly_count"] += 1
             stats["errors"].append(f"{file_path.name}:{line_number}: low above OHLC min")
 

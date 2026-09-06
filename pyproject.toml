@@ -19,6 +19,11 @@ dependencies = [
 test = [
   "pytest==9.0.3",
   "pytest-cov==7.1.0",
+  "pytest-xdist==3.8.0",
+]
+types = [
+  "mypy==2.3.1",
+  "pandas-stubs==3.0.5.260730",
 ]
 
 [project.scripts]
@@ -43,16 +48,55 @@ markers = [
 [tool.mypy]
 # Incremental rollout: `files` lists modules that must stay type-check clean.
 # Widen the list only together with a cleanup pass; everything outside `files`
-# is unchecked for now.
+# is unchecked for now. Deferred: equity_data_quality (pandas/JSON typing).
 python_version = "3.11"
 files = [
-  "src/trading_core/storage",
+  "src/trading_core/accounting",
+  "src/trading_core/attribution",
+  "src/trading_core/benchmarks",
+  "src/trading_core/broker",
   "src/trading_core/calendar",
+  "src/trading_core/data",
+  "src/trading_core/equity_build_output_dashboard",
+  "src/trading_core/equity_build_output_ops_refresh",
+  "src/trading_core/equity_build_repeatability",
+  "src/trading_core/equity_data_quality",
+  "src/trading_core/equity_fundamental",
+  "src/trading_core/equity_industry",
+  "src/trading_core/equity_owner_controlled_gate_reevaluation",
+  "src/trading_core/equity_owner_daily_pack",
+  "src/trading_core/equity_owner_evidence_backed_reevaluation_prep",
+  "src/trading_core/equity_owner_monitoring",
+  "src/trading_core/equity_owner_operator_experience",
+  "src/trading_core/equity_owner_quality_exceptions",
+  "src/trading_core/equity_owner_readiness_gate",
+  "src/trading_core/equity_owner_readiness_recovery",
+  "src/trading_core/equity_owner_readiness_recovery_execution",
+  "src/trading_core/equity_owner_recovery_evidence",
+  "src/trading_core/equity_performance",
+  "src/trading_core/equity_readiness_final_closeout",
+  "src/trading_core/equity_universe",
+  "src/trading_core/equity_v100_prep",
+  "src/trading_core/equity_v100_release",
+  "src/trading_core/external_intake",
+  "src/trading_core/features",
+  "src/trading_core/labels",
+  "src/trading_core/ml",
+  "src/trading_core/reports",
+  "src/trading_core/risk",
+  "src/trading_core/runtime",
+  "src/trading_core/security",
+  "src/trading_core/signals",
+  "src/trading_core/storage",
+  "src/trading_core/strategy",
+  "src/trading_core/system",
+  "src/trading_core/testing",
+  "src/trading_core/universe",
 ]
 
 [[tool.mypy.overrides]]
-# pandas-stubs adoption is a later step; without it pandas resolves to Any.
-module = "pandas.*"
+# Public-data provider SDKs ship no stubs or py.typed markers.
+module = ["akshare.*", "yfinance.*"]
 ignore_missing_imports = true
 
 [tool.coverage.run]
@@ -71,10 +115,13 @@ line-length = 120
 src = ["src", "tests", "scripts"]
 
 [tool.ruff.lint]
-# Base rules (E4/E7/E9/F) plus bugbear, pyupgrade, flake8-simplify, and
-# flake8-comprehensions; the codebase is currently clean at this level, so any
-# new finding blocks CI. Widen only together with a cleanup pass.
-select = ["E4", "E7", "E9", "F", "B", "UP", "SIM", "C4"]
+# Base rules (E4/E7/E9/F) plus bugbear, pyupgrade, flake8-simplify,
+# flake8-comprehensions, flake8-return, flake8-pytest-style, and refurb; the
+# codebase is currently clean at this level, so any new finding blocks CI.
+# Deliberately excluded: RUF001 (flags the intentional CJK field names in
+# A-share data sources), RUF100 (would strip the audit-meaningful noqa
+# markers), PERF401 (mass for-loop rewrites not worth the churn).
+select = ["E4", "E7", "E9", "F", "B", "UP", "SIM", "C4", "RET", "PT", "FURB"]
 
 [tool.ruff.lint.per-file-ignores]
 # Scripts insert a src path shim before importing trading_core.

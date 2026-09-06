@@ -45,7 +45,7 @@ def _commands_clean(items: list[dict[str, Any]]) -> bool:
     for item in items:
         for command in item.get("safe_audit_only_commands", []):
             lower = command.lower()
-            if any(fragment.lower() in lower for fragment in FORBIDDEN_COMMAND_FRAGMENTS if fragment not in {"run-daily"}):
+            if any(fragment.lower() in lower for fragment in FORBIDDEN_COMMAND_FRAGMENTS if fragment != "run-daily"):
                 return False
             if "run-daily" in lower:
                 return False

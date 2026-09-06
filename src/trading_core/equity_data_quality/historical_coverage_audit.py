@@ -44,7 +44,7 @@ def audit_a_share_historical_panel_coverage(
     master_symbols = int(master["symbol"].nunique()) if not master.empty else price_symbols
     queue_symbols = int(queue_payload.get("eligible_price_backfill_symbols") or queue_payload.get("queue_total_symbols") or master_symbols)
     target_financial_quarters = max(1, master_symbols * 12)
-    coverage = {
+    coverage: dict[str, Any] = {
         "price_history_min_date": str(price["date"].min()) if not price.empty else "",
         "price_history_max_date": str(price["date"].max()) if not price.empty else "",
         "price_history_trading_days": int(price["date"].nunique()) if not price.empty else 0,

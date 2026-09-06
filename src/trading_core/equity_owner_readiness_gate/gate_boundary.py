@@ -21,7 +21,7 @@ def build_boundary_check(
         blocking.append("forbidden_artifacts_present")
     if forbidden_wording:
         blocking.append("forbidden_positive_wording_present")
-    payload = {
+    return {
         "boundary_id": "A-SHARE-OWNER-READINESS-GATE-BOUNDARY-CHECK",
         "target_version": TARGET_VERSION,
         "as_of_date": as_of_date,
@@ -36,7 +36,6 @@ def build_boundary_check(
         "blocking_reasons": sorted(set(blocking)),
         "warnings": list(warnings or []),
     }
-    return payload
 
 
 def _forbidden_artifacts(paths: ProjectPaths, as_of_date: str) -> list[str]:

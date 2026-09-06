@@ -243,6 +243,39 @@ def markdown_boundary() -> list[str]:
     ]
 
 
+# Research-only boundary contract shared by the release chain and the
+# benchmark claim hardening audit (originally defined in the archived
+# equity_v09_platform milestone builder).
+BOUNDARY_TRUE = {
+    "research_only": True,
+    "simulation_only": True,
+    "virtual_only": True,
+    "not_investment_advice": True,
+    "not_real_order": True,
+    "not_order_preview": True,
+    "not_buy_sell_signal": True,
+    "not_live_trading_ready": True,
+}
+BOUNDARY_FALSE = {
+    "owner_readiness_gate_rerun": False,
+    "controlled_gate_reevaluation_run": False,
+    "new_gate_score_generated": False,
+    "new_gate_decision_generated": False,
+    "threshold_lowered": False,
+    "waiver_applied": False,
+    "broker_connected": False,
+    "real_account_data_read": False,
+    "real_orders_placed": False,
+    "real_order_preview_generated": False,
+    "buy_sell_signals_generated": False,
+    "old_run_daily_called": False,
+    "day2_executed": False,
+    "live_trading_ready": False,
+    "silent_scheduler_installed": False,
+    "daemon_installed": False,
+}
+
+
 def default_project_paths(paths: ProjectPaths | None = None) -> ProjectPaths:
     return default_paths(paths)
 

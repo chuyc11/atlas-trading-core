@@ -14,7 +14,8 @@ SCRIPT_PATH = PROJECT_ROOT / "scripts" / "run_historical_etf_backtest.py"
 
 def _load_runbook_module() -> Any:
     spec = importlib.util.spec_from_file_location("run_historical_etf_backtest", SCRIPT_PATH)
-    assert spec and spec.loader
+    assert spec
+    assert spec.loader
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module

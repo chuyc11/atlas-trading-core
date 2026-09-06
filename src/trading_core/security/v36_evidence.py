@@ -515,7 +515,7 @@ def _filesystem_path_scan(root: Path) -> dict[str, Any]:
                 function = _enclosing_function(node, parents)
                 requirements = ALLOWED_DESTRUCTIVE_SINKS.get((relative, function))
                 function_source = ast.get_source_segment(source, function_node) if (function_node := _enclosing_function_node(node, parents)) else ""
-                protected = bool(requirements) and all(token in (function_source or "") for token in requirements)
+                protected = bool(requirements) and all(token in (function_source or "") for token in (requirements or ()))
                 record = {"path": relative, "line": node.lineno, "function": function, "guard_verified": protected}
                 reviewed_sinks.append(record)
                 if not protected:

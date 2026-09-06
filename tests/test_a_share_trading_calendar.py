@@ -1,4 +1,5 @@
 from __future__ import annotations
+import pytest
 
 from pathlib import Path
 
@@ -22,12 +23,8 @@ def test_a_share_trading_calendar_covers_exchanges(tmp_path: Path) -> None:
 
 def test_a_share_calendar_fails_closed_without_official_year_coverage(tmp_path: Path) -> None:
     paths = make_a_share_paths(tmp_path)
-    try:
+    with pytest.raises(ValueError, match="missing years: 2027"):
         build_a_share_trading_calendar(paths=paths, end_date="2027-01-15", lookback_days=10)
-    except ValueError as exc:
-        assert "missing years: 2027" in str(exc)
-    else:
-        raise AssertionError("calendar must not fall back to weekday-only settlement")
 
 
 def test_a_share_calendar_clamps_forward_horizon_and_reports(tmp_path: Path) -> None:
