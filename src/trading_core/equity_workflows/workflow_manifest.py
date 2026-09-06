@@ -193,6 +193,6 @@ def _portfolio_navs(paths: ProjectPaths, as_of_date: str) -> dict[str, float | N
     payload = _load_json(path)
     portfolios = payload.get("portfolios", {})
     return {
-        key: (float(record.get("portfolio_nav")) if isinstance(record, dict) and record.get("portfolio_nav") is not None else None)
+        key: (float(value) if isinstance(record, dict) and (value := record.get("portfolio_nav")) is not None else None)
         for key, record in portfolios.items()
     }

@@ -94,9 +94,9 @@ def _cap_and_redistribute(weights: dict[str, float], raw: dict[str, float], buck
     if abs(residual) > 1e-10:
         for symbol in sorted(weights, key=lambda item: raw[item], reverse=True):
             bucket_room = industry_cap - sum(weights[item] for item, item_bucket in buckets.items() if item_bucket == buckets[symbol])
-            room = min(single_cap - weights[symbol], bucket_room)
-            if residual > 0 and room > 0:
-                add = min(residual, room)
+            capacity = min(single_cap - weights[symbol], bucket_room)
+            if residual > 0 and capacity > 0:
+                add = min(residual, capacity)
                 weights[symbol] += add
                 residual -= add
             elif residual < 0 and weights[symbol] > 0:

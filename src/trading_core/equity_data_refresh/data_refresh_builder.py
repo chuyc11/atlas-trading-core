@@ -225,7 +225,7 @@ def _schema_fallback_decisions(snapshots: dict[str, Any]) -> list[dict[str, str]
 
 
 def _warnings(refresh_result: dict[str, Any], registry_issues: list[str]) -> list[str]:
-    warnings = []
+    warnings: list[str] = []
     for row in refresh_result.get("datasets", []):
         warnings.extend(f"{row['dataset_id']}:{item}" for item in row.get("warnings", []))
     warnings.extend(registry_issues)

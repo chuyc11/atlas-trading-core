@@ -7,7 +7,7 @@ import re
 from collections import Counter
 from datetime import date
 from pathlib import Path
-from typing import Any
+from typing import cast, Any
 
 from trading_core.equity_briefings.briefing_config import BRIEFING_BOUNDARY, BRIEFING_FILES, BRIEFING_REPORTS, DEFAULT_AS_OF_DATE, RECOMMENDED_NEXT_VERSION, TARGET_VERSION
 from trading_core.equity_briefings.briefing_inputs import BriefingInputs, briefing_data_dir, briefing_output_dir, load_briefing_inputs
@@ -117,7 +117,7 @@ def _briefing_payload(
         "artifacts": {key: relative(path, paths.project_root) for key, path in artifacts.items()},
         "recommended_next_version": RECOMMENDED_NEXT_VERSION,
     }
-    payload["audit_status"]["boundary"] = dict(BRIEFING_BOUNDARY)
+    cast(dict[str, Any], payload["audit_status"])["boundary"] = dict(BRIEFING_BOUNDARY)
     return payload
 
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 import pandas as pd
 
@@ -244,6 +244,7 @@ def _merge_base_scores(risk: pd.DataFrame, liquidity: pd.DataFrame, industry: pd
 def _breakdown_rows(base: pd.DataFrame, score_name: str, component: str, value: pd.Series, weight: float, contribution: pd.Series, confidence: pd.Series, created_at: str) -> list[dict[str, Any]]:
     rows = []
     for index, row in base.iterrows():
+        index = cast(int, index)
         rows.append(
             {
                 "as_of_date": row["as_of_date"],

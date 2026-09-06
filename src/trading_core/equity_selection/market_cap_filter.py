@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -39,14 +39,14 @@ def latest_market_cap_rows(history: pd.DataFrame, snapshot: pd.DataFrame, as_of_
         if not hist.empty:
             history_used = True
             hist = hist.sort_values(["symbol", "date"]).drop_duplicates("symbol", keep="last")
-            for item in hist.to_dict(orient="records"):
+            for item in cast(list[dict[str, Any]], hist.to_dict(orient="records")):
                 rows[str(item["symbol"])] = item
     if not snapshot.empty and {"date", "symbol", "total_mv", "circ_mv"}.issubset(snapshot.columns):
         snap = snapshot[snapshot["date"].astype(str) <= as_of_date].copy()
         snap = snap[snap["total_mv"].notna() | snap["circ_mv"].notna()]
         if not snap.empty:
             snap = snap.sort_values(["symbol", "date"]).drop_duplicates("symbol", keep="last")
-            for item in snap.to_dict(orient="records"):
+            for item in cast(list[dict[str, Any]], snap.to_dict(orient="records")):
                 rows.setdefault(str(item["symbol"]), {**item, "used_daily_basic_snapshot_fallback": True})
     return rows, any(row.get("used_daily_basic_snapshot_fallback") for row in rows.values()) and not history_used
 

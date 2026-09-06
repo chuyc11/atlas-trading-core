@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -14,7 +14,7 @@ def latest_industry_by_symbol(industry: pd.DataFrame, as_of_date: str) -> dict[s
     if "effective_date" in frame.columns:
         frame = frame[frame["effective_date"].astype(str) <= as_of_date].copy()
         frame = frame.sort_values(["symbol", "effective_date"])
-    return {row["symbol"]: row for row in frame.drop_duplicates("symbol", keep="last").to_dict(orient="records")}
+    return {row["symbol"]: row for row in cast(list[dict[str, Any]], frame.drop_duplicates("symbol", keep="last").to_dict(orient="records"))}
 
 
 def industry_key(row: dict[str, Any]) -> str:
@@ -25,12 +25,12 @@ def industry_key(row: dict[str, Any]) -> str:
     return level_2 or level_1 or "UNKNOWN"
 
 
-def build_industry_return_map(return_frame: pd.DataFrame, industry_map: dict[str, dict[str, Any]]) -> dict[str, dict[str, float]]:
+def build_industry_return_map(return_frame: pd.DataFrame, industry_map: dict[str, dict[str, Any]]) -> dict[str, dict[str, float | None]]:
     if return_frame.empty:
         return {}
     frame = return_frame.copy()
     frame["industry_key"] = frame["symbol"].map(lambda symbol: industry_key(industry_map.get(symbol, {})))
-    result: dict[str, dict[str, float]] = {}
+    result: dict[str, dict[str, float | None]] = {}
     for horizon in [5, 20, 60, 120, 250]:
         column = f"return_{horizon}d"
         if column not in frame.columns:

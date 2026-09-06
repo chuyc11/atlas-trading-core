@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -171,7 +171,7 @@ def _weight_checks(frames: dict[str, pd.DataFrame]) -> dict[str, float]:
         prefix = key.replace("_virtual_portfolio", "")
         checks[f"{prefix}_weight_sum"] = round(float(frame["target_weight"].sum()) if "target_weight" in frame.columns else 0.0, 6)
         checks[f"{prefix}_max_single_weight"] = round(float(frame["target_weight"].max()) if "target_weight" in frame.columns and not frame.empty else 0.0, 6)
-        checks[f"{prefix}_max_industry_weight"] = round(max_industry_weight(frame.to_dict("records")), 6)
+        checks[f"{prefix}_max_industry_weight"] = round(max_industry_weight(cast(list[dict[str, Any]], frame.to_dict("records"))), 6)
     return checks
 
 
@@ -193,7 +193,7 @@ def _industry_caps(frames: dict[str, pd.DataFrame], config: dict[str, Any]) -> b
         "mid_virtual_portfolio": float(config.get("mid_max_industry_weight", 0.0)),
         "short_virtual_portfolio": float(config.get("short_max_industry_weight", 0.0)),
     }
-    return all(not industry_cap_violations(frame.to_dict("records"), caps[key]) for key, frame in frames.items())
+    return all(not industry_cap_violations(cast(list[dict[str, Any]], frame.to_dict("records")), caps[key]) for key, frame in frames.items())
 
 
 def _disclaimer_flags_valid(frames: dict[str, pd.DataFrame]) -> bool:
@@ -286,7 +286,7 @@ def _resolve_portfolio_dir(paths: ProjectPaths, as_of_date: str, allow_latest: b
 
 def _candidate_symbols(paths: ProjectPaths, as_of_date: str) -> set[str]:
     base = paths.data_dir / "equity_selection" / "daily" / as_of_date
-    symbols = set()
+    symbols: set[str] = set()
     for name in ["long_candidates.json", "mid_candidates.json", "short_candidates.json", "multi_horizon_candidates.json"]:
         symbols.update(_symbols_from_json(base / name))
     return symbols
@@ -306,7 +306,7 @@ def _load_any(path: Path, default: Any) -> Any:
 
 
 def _all_symbols(frames: dict[str, pd.DataFrame]) -> set[str]:
-    symbols = set()
+    symbols: set[str] = set()
     for frame in frames.values():
         if not frame.empty and "symbol" in frame.columns:
             symbols.update(frame["symbol"].dropna().astype(str))

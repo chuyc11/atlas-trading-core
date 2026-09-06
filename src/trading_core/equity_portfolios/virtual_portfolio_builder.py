@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import json
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -90,7 +90,7 @@ def build_a_share_virtual_portfolios(
 
 def _build_portfolio(inputs: PortfolioInputs, config: PortfolioConstructionConfig, horizon: str, portfolio_id: str, holdings: int, created_at: str) -> list[dict[str, Any]]:
     pool = _candidate_pool(inputs, config, horizon)
-    selected = pool.head(holdings).to_dict("records")
+    selected = cast(list[dict[str, Any]], pool.head(holdings).to_dict("records"))
     if len(selected) < holdings:
         raise ValueError(f"not enough eligible {horizon} candidates: {len(selected)} < {holdings}")
     records = [_portfolio_record(row, inputs, horizon, portfolio_id, created_at) for row in selected]

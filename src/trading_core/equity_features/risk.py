@@ -1,6 +1,7 @@
 """Risk feature helpers for A-share feature engineering."""
 
 from __future__ import annotations
+from typing import cast, Any
 
 import math
 
@@ -63,7 +64,7 @@ def skewness(values: np.ndarray, window: int) -> float | None:
     if len(returns) < 3:
         return None
     result = returns.skew()
-    return float(result) if pd.notna(result) else None
+    return float(cast(Any, result)) if pd.notna(result) else None
 
 
 def kurtosis(values: np.ndarray, window: int) -> float | None:
@@ -71,7 +72,7 @@ def kurtosis(values: np.ndarray, window: int) -> float | None:
     if len(returns) < 4:
         return None
     result = returns.kurt()
-    return float(result) if pd.notna(result) else None
+    return float(cast(Any, result)) if pd.notna(result) else None
 
 
 def calmar_250d(values: np.ndarray) -> float | None:

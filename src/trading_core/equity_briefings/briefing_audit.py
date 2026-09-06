@@ -284,10 +284,12 @@ def _forbidden_artifacts(paths: ProjectPaths, as_of_date: str) -> dict[str, list
 def _boundary(briefing: dict[str, Any], manifest: dict[str, Any], boundary_check: dict[str, Any], key: str) -> Any:
     values = []
     for payload in [briefing, manifest, boundary_check]:
+        if not isinstance(payload, dict):
+            continue
         if key in payload:
             values.append(payload.get(key))
-        boundary = payload.get("boundary") if isinstance(payload, dict) else {}
-        if key in boundary:
+        boundary = payload.get("boundary")
+        if isinstance(boundary, dict) and key in boundary:
             values.append(boundary.get(key))
     if not values:
         return None

@@ -58,7 +58,7 @@ def _portfolio_industry_weights(rows: list[dict[str, Any]]) -> dict[str, dict[st
 
 
 def _candidate_pool_industry_weights(inputs: Any) -> dict[str, float]:
-    rows = []
+    rows: list[dict[str, Any]] = []
     for key in ["long_candidates", "mid_candidates", "short_candidates", "multi_horizon_candidates"]:
         payload = inputs.candidates.get(key, [])
         rows.extend(payload if isinstance(payload, list) else payload.get("records", []))

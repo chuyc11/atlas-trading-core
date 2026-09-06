@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -173,7 +173,8 @@ def coverage_metrics(snapshots: dict[str, DatasetSnapshot], as_of_date: str) -> 
             ids = _index_ids(snapshot)
             threshold_passed = set(REQUIRED_INDEX_IDS).issubset(ids)
         if dataset_id == "trading_calendar":
-            dates = set(_date_values(snapshot.frame, snapshot.contract).astype(str).str[:10]) if _date_values(snapshot.frame, snapshot.contract) is not None else set()
+            date_values = _date_values(snapshot.frame, snapshot.contract)
+            dates = set(date_values.astype(str).str[:10]) if date_values is not None else set()
             threshold_passed = as_of_date in dates
         datasets[dataset_id] = {
             "symbol_count": len(symbols),
@@ -198,7 +199,7 @@ def coverage_metrics(snapshots: dict[str, DatasetSnapshot], as_of_date: str) -> 
         "coverage_vs_tradable_universe": {key: value["coverage_vs_tradable_universe"] for key, value in datasets.items()},
         "field_coverage": {key: value["field_coverage"] for key, value in datasets.items()},
         "null_rate_summary": {key: value["null_rate_summary"] for key, value in datasets.items()},
-        "critical_missing_count": sum(int(value["critical_missing_count"]) for value in datasets.values()),
+        "critical_missing_count": sum(int(cast(Any, value["critical_missing_count"]) or 0) for value in datasets.values()),
         "datasets": datasets,
     }
 

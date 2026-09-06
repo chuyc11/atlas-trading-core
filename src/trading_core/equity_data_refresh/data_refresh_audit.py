@@ -157,7 +157,7 @@ def _forbidden_wording_hits(artifacts: dict[str, Path]) -> list[str]:
 
 
 def _warnings(payloads: dict[str, Any]) -> list[str]:
-    warnings = []
+    warnings: list[str] = []
     for row in payloads["dataset_refresh_result"].get("datasets", []):
         warnings.extend(f"{row['dataset_id']}:{item}" for item in row.get("warnings", []))
     return sorted(set(warnings))

@@ -101,7 +101,7 @@ def input_paths(paths: ProjectPaths, as_of_date: str) -> dict[str, dict[str, Pat
 
 def build_dashboard_input_availability(*, paths: ProjectPaths | None, as_of_date: str) -> dict[str, Any]:
     paths = default_paths(paths)
-    groups = []
+    groups: list[dict[str, Any]] = []
     required = {"current_day_run", "data_refresh", "workflow", "daily_briefing", "portfolio_tracking"}
     for group, values in input_paths(paths, as_of_date).items():
         source = values["source"]

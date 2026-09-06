@@ -17,7 +17,7 @@ from trading_core.system.common import relative
 
 def build_score_distribution(base_scores: pd.DataFrame, horizon_scores: pd.DataFrame, composite_scores: pd.DataFrame, as_of_date: str) -> dict[str, Any]:
     frame = _score_frame(base_scores, horizon_scores, composite_scores)
-    distributions = {}
+    distributions: dict[str, dict[str, Any]] = {}
     for column in SCORE_COLUMNS:
         values = pd.to_numeric(frame[column], errors="coerce").dropna() if column in frame.columns else pd.Series(dtype=float)
         if values.empty:
@@ -90,7 +90,8 @@ def build_scoring_summary(
     created_at: str,
 ) -> dict[str, Any]:
     warnings = []
-    fundamental_confidence = pd.to_numeric(base_scores.get("fundamental_confidence"), errors="coerce").mean()
+    confidence_column = base_scores.get("fundamental_confidence")
+    fundamental_confidence = pd.to_numeric(confidence_column, errors="coerce").mean() if confidence_column is not None else float("nan")
     if pd.notna(fundamental_confidence) and float(fundamental_confidence) < 0.75:
         warnings.append("fundamental score confidence is partial")
     return {

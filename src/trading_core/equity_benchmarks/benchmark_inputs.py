@@ -129,7 +129,7 @@ def read_equity_price_history(
         return pd.DataFrame()
     columns = ["date", "symbol", "adj_close", "source", "provider"] if adjusted else ["date", "symbol", "close", "source", "provider"]
     begin = _begin_date(as_of_date, lookback_trading_days)
-    filters = [("date", ">=", begin), ("date", "<=", as_of_date)]
+    filters: list[tuple[str, str, Any]] = [("date", ">=", begin), ("date", "<=", as_of_date)]
     if len(symbols) <= 200:
         filters.append(("symbol", "in", symbols))
     try:
@@ -156,7 +156,7 @@ def _begin_date(as_of_date: str, lookback_trading_days: int) -> str:
 
 
 def _strict_tradable_symbols(rows: list[dict[str, Any]]) -> list[str]:
-    symbols = []
+    symbols: list[str] = []
     for row in rows:
         passed = row.get("filter_passed")
         bucket = str(row.get("bucket") or "")
@@ -168,7 +168,7 @@ def _strict_tradable_symbols(rows: list[dict[str, Any]]) -> list[str]:
 
 
 def _candidate_symbols(rows_by_file: dict[str, list[dict[str, Any]]]) -> list[str]:
-    symbols = []
+    symbols: list[str] = []
     for rows in rows_by_file.values():
         symbols.extend(str(row.get("symbol")) for row in rows if row.get("symbol"))
     return sorted(set(symbols))

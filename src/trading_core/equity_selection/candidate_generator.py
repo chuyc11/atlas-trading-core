@@ -352,8 +352,8 @@ def _write_records(records: list[dict[str, Any]], json_path: Path, parquet_path:
 
 
 def _reason_breakdown(*record_sets: list[dict[str, Any]]) -> dict[str, Any]:
-    inclusion = Counter()
-    risks = Counter()
+    inclusion: Counter[str] = Counter()
+    risks: Counter[str] = Counter()
     by_horizon: dict[str, int] = Counter()
     for records in record_sets:
         for row in records:

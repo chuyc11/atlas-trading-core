@@ -246,7 +246,7 @@ def _source_payloads(paths: ProjectPaths, as_of_date: str) -> dict[str, dict[str
 
 
 def _source_paths(paths: ProjectPaths, as_of_date: str) -> list[Path]:
-    result = []
+    result: list[Path] = []
     for values in input_paths(paths, as_of_date).values():
         result.extend(values.values())
     return result

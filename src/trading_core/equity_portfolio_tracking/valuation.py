@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -84,7 +84,7 @@ def _row_for_symbol(frame: pd.DataFrame, symbol: str) -> dict[str, Any] | None:
     rows = frame[frame["symbol"].astype(str) == symbol]
     if rows.empty:
         return None
-    return rows.iloc[0].to_dict()
+    return cast(dict[str, Any], rows.iloc[0].to_dict())
 
 
 def _positive_float(value: Any) -> float | None:

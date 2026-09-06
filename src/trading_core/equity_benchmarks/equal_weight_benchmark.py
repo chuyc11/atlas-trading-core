@@ -67,8 +67,8 @@ def build_equal_weight_benchmark(
     availability = _availability(
         benchmark_id,
         status,
-        records[0]["date"] if records else "",
-        records[-1]["date"] if records else "",
+        str(records[0]["date"]) if records else "",
+        str(records[-1]["date"]) if records else "",
         len(records),
         as_of_available,
         None if status == "available" else "equal-weight benchmark history insufficient",

@@ -6,7 +6,7 @@ import json
 import math
 from collections import Counter
 from pathlib import Path
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -50,7 +50,7 @@ def build_a_share_tradable_universe(
     financial_counts = _row_counts(inputs.basic_financials_history, "report_date")
     rows = []
     created_at = utc_now()
-    for item in master.to_dict(orient="records"):
+    for item in cast(list[dict[str, Any]], master.to_dict(orient="records")):
         rows.append(
             _evaluate_symbol(
                 item,
@@ -152,6 +152,7 @@ def _price_stats(price: pd.DataFrame, calendar: pd.DataFrame, as_of_date: str) -
     as_of_rows = frame[frame["date"] == as_of_date].sort_values(["symbol", "date"]).drop_duplicates("symbol", keep="last")
     stats: dict[str, dict[str, Any]] = {}
     for symbol, count in history_counts.items():
+        symbol = str(symbol)
         stats[symbol] = {
             "history_days": int(count),
             "has_20d_history": int(count) >= 20,
@@ -168,15 +169,16 @@ def _price_stats(price: pd.DataFrame, calendar: pd.DataFrame, as_of_date: str) -
             amount_rows=("effective_amount", "count"),
         )
         for symbol, row in grouped.iterrows():
+            symbol = str(symbol)
             stats.setdefault(symbol, {})
             stats[symbol][f"effective_trading_days_{label}"] = int(row["effective_days"])
             stats[symbol][f"avg_amount_{label}"] = _finite_or_none(row["avg_amount"])
             stats[symbol][f"estimated_amount_{label}"] = bool(row["estimated_amount"])
             stats[symbol][f"amount_rows_{label}"] = int(row["amount_rows"])
-    for row in as_of_rows.to_dict(orient="records"):
-        symbol = row["symbol"]
+    for record in cast(list[dict[str, Any]], as_of_rows.to_dict(orient="records")):
+        symbol = record["symbol"]
         stats.setdefault(symbol, {})
-        stats[symbol]["as_of_price"] = row
+        stats[symbol]["as_of_price"] = record
     return stats
 
 
@@ -481,7 +483,7 @@ def _latest_by_symbol(frame: pd.DataFrame, date_column: str, as_of_date: str) ->
     if date_column in data.columns:
         data = data[data[date_column].astype(str) <= as_of_date]
         data = data.sort_values(["symbol", date_column])
-    return {row["symbol"]: row for row in data.drop_duplicates("symbol", keep="last").to_dict(orient="records")}
+    return {row["symbol"]: row for row in cast(list[dict[str, Any]], data.drop_duplicates("symbol", keep="last").to_dict(orient="records"))}
 
 
 def _row_counts(frame: pd.DataFrame, date_column: str) -> dict[str, int]:
@@ -489,7 +491,7 @@ def _row_counts(frame: pd.DataFrame, date_column: str) -> dict[str, int]:
         return {}
     data = frame.copy()
     data["symbol"] = data["symbol"].map(normalize_symbol)
-    return {symbol: int(count) for symbol, count in data.groupby("symbol")[date_column].nunique().items()}
+    return {str(symbol): int(count) for symbol, count in data.groupby("symbol")[date_column].nunique().items()}
 
 
 def _trading_dates(calendar: pd.DataFrame, as_of_date: str) -> list[str]:

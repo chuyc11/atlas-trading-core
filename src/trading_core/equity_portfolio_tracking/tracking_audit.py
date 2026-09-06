@@ -252,7 +252,7 @@ def _symbol_checks(inputs, ledgers: dict[str, list[dict[str, Any]]], holdings: d
 
 
 def _risk_excluded_intersections(inputs, holdings: dict[str, dict[str, Any]]) -> dict[str, list[str]]:
-    symbols = set()
+    symbols: set[str] = set()
     for snapshot in holdings.values():
         symbols.update(str(row.get("symbol")) for row in snapshot.get("holdings", []) if row.get("symbol"))
     return {
@@ -305,10 +305,12 @@ def _ledger_record_types_allowed(ledgers: dict[str, list[dict[str, Any]]]) -> bo
 def _boundary(config: dict[str, Any], manifest: dict[str, Any], summary: dict[str, Any], key: str) -> Any:
     values = []
     for payload in [config, manifest, summary]:
+        if not isinstance(payload, dict):
+            continue
         if key in payload:
             values.append(payload.get(key))
-        boundary = payload.get("boundary") if isinstance(payload, dict) else {}
-        if key in boundary:
+        boundary = payload.get("boundary")
+        if isinstance(boundary, dict) and key in boundary:
             values.append(boundary.get(key))
     if not values:
         return None

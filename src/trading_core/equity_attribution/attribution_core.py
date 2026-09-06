@@ -82,7 +82,7 @@ def aggregate_groups(rows: list[dict[str, Any]], *, field: str, label_field: str
     portfolios = {}
     for portfolio_id, portfolio_rows in group_by_field(rows, "portfolio_id").items():
         portfolio_weight = _sum(portfolio_rows, "actual_weight")
-        records = []
+        records: list[dict[str, Any]] = []
         for label, group_rows in group_by_field(portfolio_rows, field).items():
             weight = _sum(group_rows, "actual_weight")
             records.append(
@@ -240,6 +240,8 @@ def _returns_by_portfolio(records: list[dict[str, Any]]) -> dict[str, dict[str, 
 
 def _score(row: dict[str, Any], name: str) -> float | None:
     value = (row.get("score_snapshot") or {}).get(name, row.get(name))
+    if value is None:
+        return None
     try:
         number = float(value)
         return number if isfinite(number) else None

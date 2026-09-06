@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from datetime import date
-from typing import Any
+from typing import cast, Any
 
 import pandas as pd
 
@@ -20,7 +20,7 @@ def latest_daily_basic(daily_basic_history: pd.DataFrame, daily_basic_snapshot: 
         for row in data.to_dict(orient="records"):
             symbol = row["symbol"]
             if fallback or symbol not in rows or _missing_market_data(rows[symbol]):
-                rows[symbol] = {**row, "used_daily_basic_snapshot_fallback": fallback}
+                rows[symbol] = {**cast(dict[str, Any], row), "used_daily_basic_snapshot_fallback": fallback}
     return rows
 
 

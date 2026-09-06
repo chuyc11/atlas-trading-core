@@ -42,7 +42,8 @@ def audit_a_share_daily_research_workflow(
     boundary_check = load_json(artifacts["workflow_boundary_check"])
     summary = load_json(artifacts["workflow_summary"])
     effective_mode = mode or str(config.get("mode") or run_manifest.get("mode") or "validate_existing_artifacts")
-    stages = stage_manifest.get("stages") if isinstance(stage_manifest.get("stages"), list) else []
+    stages_raw = stage_manifest.get("stages")
+    stages = stages_raw if isinstance(stages_raw, list) else []
     required_status = {stage["stage_id"]: stage.get("status") for stage in stages if isinstance(stage, dict) and "stage_id" in stage}
     counts = stage_counts(stages)
     version_checks = read_version_checks(paths=paths)
@@ -167,7 +168,7 @@ def _upstream_audit_status(paths: ProjectPaths) -> dict[str, dict[str, Any]]:
 
 
 def _collect_warnings(*payloads: dict[str, Any]) -> list[str]:
-    warnings = []
+    warnings: list[str] = []
     for payload in payloads:
         warnings.extend(str(item) for item in payload.get("warnings", []) if item)
     return warnings

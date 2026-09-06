@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import cast, Any
 
 import numpy as np
 import pandas as pd
@@ -54,7 +54,7 @@ def build_a_share_multi_horizon_features(
     base = _base_frame(inputs.strict_universe, inputs.as_of_date, created_at)
     strict_symbols = set(base["symbol"])
     price = _price_panel(inputs.price_history, inputs.adjusted_price_history, strict_symbols)
-    grouped_price = {symbol: frame.sort_values("date") for symbol, frame in price.groupby("symbol", sort=False)}
+    grouped_price: dict[str, pd.DataFrame] = {str(symbol): frame.sort_values("date") for symbol, frame in price.groupby("symbol", sort=False)}
     industry_map = latest_industry_by_symbol(inputs.industry_classification, inputs.as_of_date)
     return_frame = _return_frame(grouped_price)
     market_returns = _market_returns(return_frame)
@@ -63,7 +63,7 @@ def build_a_share_multi_horizon_features(
     industry_rank_maps = _industry_rank_maps(return_frame)
     basic_rows = latest_daily_basic(inputs.daily_basic_history, inputs.daily_basic_snapshot, inputs.as_of_date)
     # dict(groupby) is not equivalent: GroupBy.keys() makes dict() treat it as a mapping.
-    financial_groups = {symbol: frame for symbol, frame in inputs.financial_history.groupby("symbol", sort=False)} if not inputs.financial_history.empty else {}  # noqa: C416
+    financial_groups: dict[str, pd.DataFrame] = {str(symbol): frame for symbol, frame in inputs.financial_history.groupby("symbol", sort=False)} if not inputs.financial_history.empty else {}  # noqa: C416
 
     frames = {
         "short_horizon": _short_features(base, grouped_price),
@@ -192,13 +192,13 @@ def _short_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame]) -> pd.
     return pd.DataFrame(rows, columns=_group_columns("short_horizon"))
 
 
-def _mid_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame], market: dict[str, float], industry_returns: dict[str, dict[str, float]], industry_map: dict[str, dict[str, Any]]) -> pd.DataFrame:
+def _mid_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame], market: dict[str, float], industry_returns: dict[str, dict[str, float | None]], industry_map: dict[str, dict[str, Any]]) -> pd.DataFrame:
     rows = []
     for _, row in base.iterrows():
         frame = grouped.get(row["symbol"], pd.DataFrame())
         close = _series(frame, "feature_close")
         last_close = last_value(close)
-        key = industry_key(industry_map.get(row["symbol"], row.to_dict()))
+        key = industry_key(industry_map.get(row["symbol"], cast(dict[str, Any], row.to_dict())))
         ret60 = pct_return(close, 60)
         ret120 = pct_return(close, 120)
         vol60 = volatility(close, 60)
@@ -232,13 +232,13 @@ def _mid_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame], market: 
     return pd.DataFrame(rows, columns=_group_columns("mid_horizon"))
 
 
-def _long_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame], market: dict[str, float], industry_returns: dict[str, dict[str, float]], industry_map: dict[str, dict[str, Any]]) -> pd.DataFrame:
+def _long_features(base: pd.DataFrame, grouped: dict[str, pd.DataFrame], market: dict[str, float], industry_returns: dict[str, dict[str, float | None]], industry_map: dict[str, dict[str, Any]]) -> pd.DataFrame:
     rows = []
     for _, row in base.iterrows():
         frame = grouped.get(row["symbol"], pd.DataFrame())
         close = _series(frame, "feature_close")
         last_close = last_value(close)
-        key = industry_key(industry_map.get(row["symbol"], row.to_dict()))
+        key = industry_key(industry_map.get(row["symbol"], cast(dict[str, Any], row.to_dict())))
         ret250 = pct_return(close, 250)
         ret3y = pct_return(close, 700)
         result = {
@@ -328,15 +328,15 @@ def _industry_features(
     base: pd.DataFrame,
     return_frame: pd.DataFrame,
     market: dict[str, float],
-    industry_returns: dict[str, dict[str, float]],
+    industry_returns: dict[str, dict[str, float | None]],
     industry_map: dict[str, dict[str, Any]],
-    rank_maps: dict[str, dict[str, dict[str, float]]],
+    rank_maps: dict[str, dict[str, dict[str, float | None]]],
 ) -> pd.DataFrame:
     return_lookup = return_frame.set_index("symbol").to_dict(orient="index") if not return_frame.empty else {}
     rows = []
     for _, row in base.iterrows():
         symbol = row["symbol"]
-        item = industry_map.get(symbol, row.to_dict())
+        item = industry_map.get(symbol, cast(dict[str, Any], row.to_dict()))
         key = industry_key(item)
         _symbol_returns = return_lookup.get(symbol, {})
         result = {
@@ -408,17 +408,17 @@ def _attach_industry_rank_inputs(return_frame: pd.DataFrame, industry_map: dict[
     return frame
 
 
-def _industry_rank_maps(return_frame: pd.DataFrame) -> dict[str, dict[str, dict[str, float]]]:
-    result: dict[str, dict[str, dict[str, float]]] = {}
+def _industry_rank_maps(return_frame: pd.DataFrame) -> dict[str, dict[str, dict[str, float | None]]]:
+    result: dict[str, dict[str, dict[str, float | None]]] = {}
     for column in ["return_20d", "return_60d", "return_120d"]:
-        column_map: dict[str, dict[str, float]] = {}
+        column_map: dict[str, dict[str, float | None]] = {}
         for _, group in return_frame.dropna(subset=[column]).groupby("industry_key"):
             ranked = group.sort_values(column, ascending=False).reset_index(drop=True)
             count = len(ranked)
-            for index, row in ranked.iterrows():
+            for position, (_, row) in enumerate(ranked.iterrows(), start=1):
                 column_map[row["symbol"]] = {
-                    "rank": int(index + 1),
-                    "percentile": float(1.0 - index / max(count - 1, 1)) if count > 1 else 1.0,
+                    "rank": int(position),
+                    "percentile": float(1.0 - (position - 1) / max(count - 1, 1)) if count > 1 else 1.0,
                     "member_count": int(count),
                 }
         result[column] = column_map
@@ -507,7 +507,11 @@ def _intraday_range(high: np.ndarray, low: np.ndarray, close: np.ndarray) -> flo
     close_value = safe_number(close[-1])
     if close_value in (None, 0):
         return None
-    return (safe_number(high[-1]) - safe_number(low[-1])) / close_value if safe_number(high[-1]) is not None and safe_number(low[-1]) is not None else None
+    high_value = safe_number(high[-1])
+    low_value = safe_number(low[-1])
+    if high_value is None or low_value is None:
+        return None
+    return (high_value - low_value) / close_value
 
 
 def _amplitude(high: np.ndarray, low: np.ndarray, close: np.ndarray, window: int) -> float | None:

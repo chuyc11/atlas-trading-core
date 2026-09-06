@@ -243,8 +243,8 @@ def _data_readiness(paths: ProjectPaths, config: WorkflowConfig) -> tuple[bool, 
 
 
 def _validate_existing_stage(definition: dict[str, Any]) -> tuple[bool, list[str], list[str]]:
-    warnings = []
-    blocking = []
+    warnings: list[str] = []
+    blocking: list[str] = []
     for path in definition.get("input_artifacts", []):
         if isinstance(path, Path) and not path.exists():
             blocking.append(f"missing_input_artifact:{path}")

@@ -209,15 +209,15 @@ def _price_snapshot(*, config: BenchmarkConfig, index_prices: pd.DataFrame, nav_
                 }
             )
     nav_as_price = {(row["benchmark_id"], row["date"]): row for row in nav_records if row["benchmark_id"] not in INDEX_BENCHMARK_IDS}
-    for row in nav_as_price.values():
+    for nav_row in nav_as_price.values():
         records.append(
             {
-                "benchmark_id": row["benchmark_id"],
-                "date": row["date"],
-                "close": row["benchmark_nav"],
+                "benchmark_id": nav_row["benchmark_id"],
+                "date": nav_row["date"],
+                "close": nav_row["benchmark_nav"],
                 "symbol_or_index_code": "synthetic_nav_price",
                 "source_type": "benchmark_return_nav_series",
-                "is_placeholder": bool(row.get("is_placeholder", False)),
+                "is_placeholder": bool(nav_row.get("is_placeholder", False)),
             }
         )
     return {
